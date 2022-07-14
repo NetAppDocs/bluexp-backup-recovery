@@ -1,0 +1,27 @@
+---
+sidebar: sidebar
+permalink: concept-protect-cloud-app-data-to-cloud.html
+keywords: backing up, back up, backup, backup application data, Amazon EC2, Amazon Web services, Amazon FSx, Cloud Backup, Oracle database, requirements, prerequisites
+summary:  Integrate Cloud Backup for Applications with Cloud Manager to back up the Oracle databases residing on Amazon EC2 instances to Amazon FSx for ONTAP.
+---
+
+= Protect your cloud native applications data
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+You can use Cloud Backup for Applications in NetApp Cloud Manager to back up the Oracle databases residing on Amazon EC2 instances to Amazon FSx for ONTAP.
+
+== Supported configurations
+
+* Operating System:
+** RHEL 7.5 or later and 8.x
+** OL 7.5 or later and 8.x
+* Storage System: Amazon FSx for ONTAP
+* Storage layouts: NFS v3 and v4.1 (dNFS is supported) and iSCSI with ASM (ASMFD, ASMLib and ASMUdev)
+* Applications: Oracle Standard and Oracle Enterprise – Standalone (legacy and multitenant – CDB and PDB)
+* Oracle versions: 12cR2, 18c, and 19c

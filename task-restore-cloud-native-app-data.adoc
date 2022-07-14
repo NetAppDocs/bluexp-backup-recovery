@@ -1,0 +1,91 @@
+---
+sidebar: sidebar
+permalink: task-restore-cloud-native-app-data.html
+keywords: cloud native, application data, restore, data files, control files, recovery
+summary:  Restore the data files, control files, or both and then recover the database.
+---
+
+= Restore cloud native application data
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+In the event of data loss, you can restore the data files, control files, or both and then recover the database.
+
+*Limitations in a SAN environment*
+
+* Restore operation fails if SnapCenter Plug-in for Oracle finds any foreign files other than Oracle Data files on the ASM diskgroup. The foreign files could be one or more of the following types:
+** Parameter
+** Password
+** archive log
+** online log
+** ASM parameter file.
+* You should select Force in-place restore checkbox to override the foreign files of type parameter, password, and archive log.
++
+NOTE: If there are other types of foreign files, restore operation fails and the database cannot be recovered. If you have other type of foreign files, you should delete or move them to a different location before performing restore operation.
+
+* The failure message due to the presence of foreign files are not displayed in the job page in UI due to a known issue. Check the connector logs if there is a failure during SAN pre-restore stage to know the cause of the issue.
+
+*Steps*
+
+. Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.
+. Click image:icon-action.png[icon to select the action] corresponding to the data backup that you want to use for restoring and click *Restore*.
+. In the Restore Scope section, perform the following actions:
++
+|===
+| If you... | Do this...
+
+a|
+Want to restore only the data files
+a|
+Select *All Data Files*.
+a|
+Want to restore only the control files
+a|
+Select *Control Files*
+a|
+Want to restore both data files and control files
+a|
+Select *All Data Files* and *Control Files*.
+|===
++
+NOTE: Restore of datafiles with control files or only control files are not supported for iSCSI on ASM layout.
+
++
+You can also select *Force in-place restore* checkbox.
++
+The *Force in-place restore* option overrides the spfile, password file, and archive log files from the data files diskgroup. You should use the latest backup when *Force in-place restore* option is selected.
+
+. In the Recovery Scope section, perform the following actions:
++
+|===
+| If you... | Do this...
+
+a|
+Want to recover to the last transaction
+a|
+Select *All Logs*.
+a|
+Want to recover to a specific System Change Number (SCN)
+a|
+Select *Until System Change Number* and specify the SCN.
+a|
+Want to recover to a specific data and time
+a|
+Select *Date and Time*.
+a|
+Do not want to recover
+a|
+Select *No recovery*.
+|===
++
+For the selected recovery scope, in the *Archive Log Files Locations* field you can optionally specify the location that contains the archive logs required for recovery.
++
+Select the check box if you want to open the database in READ-WRITE mode after recovery.
+
+. Click *Next* and review the details.
+. Click *Restore*.

@@ -1,0 +1,66 @@
+---
+sidebar: sidebar
+permalink: reference-prereq-protect-cloud-native-app-data.html
+keywords: Cloud Manager, FSx for ONTAP, working environment, Connector, AWS, deploy Oracle plug-in
+summary:  Complete the prerequisites before creating backups.
+---
+
+= Prerequisites
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+Complete the following prerequisites before creating backups.
+
+== Access Cloud Manager
+
+You should link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-signing-up.html[sign up to NetApp Cloud Central], link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[log into Cloud Manager], and then set up a link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-setting-up-netapp-accounts.html[NetApp account].
+
+== Create FSx for ONTAP working environment
+
+You should create the Amazon FSx for ONTAP working environments where your databases are hosted. For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html[Get started with Amazon FSx for ONTAP] and link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html[Create and manage an Amazon FSx for ONTAP working environment].
+
+You can create the NetApp FSx either using Cloud Manager or AWS. If you have created using AWS, then you should discover the FSx for ONTAP systems in Cloud Manager.
+
+== Create a Connector
+
+An Account Admin needs to deploy a Connector in AWS that enables Cloud Manager to manage resources and processes within your public cloud environment.
+
+For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Creating a Connector in AWS from Cloud Manager].
+
+* You should use the same connector to manage both FSx working environment and Oracle databases.
+* If you have the FSx working environment and Oracle databases in the same VPC, you can deploy the connector in the same VPC.
+* If you have the FSx working environment and Oracle databases in different VPCs:
+** If you have NAS (NFS) workloads configured on FSx, then you can create the connector on either of the VPCs.
+** If you have only SAN workloads configured and not planning to use any NAS (NFS) workloads, then you should create the connector in the VPC where the FSx system is created.
++
+NOTE: For using NAS (NFS) workloads, you should have transit gateway between the Oracle database VPC and FSx VPC. The NFS IP address which is a floating IP address can be accessed from another VPC only through transit gateway. We cannot access the floating IP addresses by peering the VPCs.
+
+After creating the connector, select the FSx working environment, click *Enter Working Environment* and when prompted enter the ONTAP credentials.
+
+Ensure that there is connectivity from the connector to the Oracle database hosts and FSx working environment. The connector should be able to connect to the cluster management IP address of the FSx working environment.
++
+IMPORTANT: After creating the Connector, click *Connector > Manage Connectors*; select the Connector name and copy the Connector ID.
+
+== Deploy SnapCenter Plug-in for Oracle
+
+You should manually deploy the SnapCenter Plug-in for Oracle on each of the Oracle database hosts.
+
+NOTE: Ensure that JAVA 8 is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
+
+*Steps*
+
+. Log into the Connector VM.
+. Run the following command in the Connector VM to download the SnapCenter Linux host plug-in binary.
+`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
+. Run the following command to obtain the binary path of the downloaded plug-in.
+`sudo ls /var/lib/docker/volumes/cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
+. Copy _snapcenter_linux_host_plugin_scs.bin_ to each of the Oracle database hosts either using scp or other alternate methods.
+. On the Oracle database host, run the following command to enable execute permissions for the binary.
+`chmod +x snapcenter_linux_host_plugin_scs.bin`
+. Run the following command as a root user to install the Oracle plug-in.
+`./snapcenter_linux_host_plugin_scs.bin -i silent`
