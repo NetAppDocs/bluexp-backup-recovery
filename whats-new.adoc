@@ -16,6 +16,16 @@ summary: Learn what's new in Cloud Backup.
 Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
+== 1 August 2022
+
+=== Search & Restore is now supported with backup files in Azure Blob
+
+The Search & Restore method of restoring volumes and files is now available for users who store their backup files in Azure Blob storage. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2[See how to restore your volumes and files using Search & Restore].
+
+=== other new stuff
+
+details
+
 == 13 July 2022
 
 === Support has been added to back up SnapLock Enterprise volumes
@@ -30,10 +40,6 @@ In the past you needed to deploy the Connector in the same cloud provider as whe
 
 * Backup on a yearly schedule is now available. The default retention value is 1 for yearly backups, but you can change this value if you want to have access to many previous years' backup files.
 * You can name your backup policies so you can identify your policies with more descriptive text.
-
-//=== Search & Restore is now supported with backup files in Azure Blob
-//
-//The Search & Restore method of restoring volumes and files is now available for users who store their backup files in Azure Blob storage. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2[See how to restore your volumes and files using Search & Restore].
 
 == 14 June 2022
 
@@ -77,6 +83,7 @@ If you added new persistent volumes to your Kubernetes clusters after Cloud Back
 === Cloud Backup APIs are now available for managing backup and restore operations
 
 The APIs are available at https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html. See link:api-backup-restore.html[this page] for an overview of the APIs.
+// end::whats-new[]
 
 == 2 May 2022
 
@@ -97,7 +104,6 @@ There are a few changes to how licensing is implemented with Cloud Backup:
 * The Free Trial starts the day the Marketplace subscription starts. For example, if you activate the Free Trial after you have been using a Marketplace subscription for 30 days for a Cloud Volumes ONTAP system, the Cloud Backup Trial will not be available.
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-licensing-cloud-backup.html[Learn more about the available licensing models].
-// end::whats-new[]
 
 == 4 April 2022
 
