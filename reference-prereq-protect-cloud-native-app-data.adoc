@@ -14,7 +14,7 @@ summary:  Complete the prerequisites before creating backups.
 
 [.lead]
 
-Complete the following prerequisites before creating backups.
+You should have access to Cloud Manager, created the working environment and a Connector, and deployed the SnapCenter Plug-in for Oracle.
 
 == Access Cloud Manager
 
@@ -43,7 +43,7 @@ NOTE: For using NAS (NFS) workloads, you should have transit gateway between the
 After creating the connector, select the FSx working environment, click *Enter Working Environment* and when prompted enter the ONTAP credentials.
 
 Ensure that there is connectivity from the connector to the Oracle database hosts and FSx working environment. The connector should be able to connect to the cluster management IP address of the FSx working environment.
-+
+
 IMPORTANT: After creating the Connector, click *Connector > Manage Connectors*; select the Connector name and copy the Connector ID.
 
 == Deploy SnapCenter Plug-in for Oracle

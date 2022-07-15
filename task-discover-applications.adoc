@@ -52,6 +52,6 @@ You can create policies if you do not want to edit the pre-canned policies.
 . In the Applications page, from the Settings drop-down list, select *Policies*.
 . Click *Create policy*.
 . Specify a policy name.
-. If you want, you edit the format of the backup name.
+. (Optional) Edit the format of the backup name.
 . Specify the schedule and retention details.
 . Click *Create*.

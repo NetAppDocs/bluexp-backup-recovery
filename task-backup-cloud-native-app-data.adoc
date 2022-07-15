@@ -31,5 +31,7 @@ The backups will be created as per the schedule defined in the policy.
 
 After assigning the policy, you can create an on-demand backup of the application.
 
+*Steps*
+
 . In the Applications page, click image:icon-action.png[icon to select the action] corresponding to the application and click *On-Demand Backup*.
 . If multiple policies are assigned to the application, select the policy, retention value, and then click *Create Backup*.
