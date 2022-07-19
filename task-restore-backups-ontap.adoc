@@ -349,7 +349,7 @@ endif::gcp[]
 
 |===
 
-TIP: The Connector must be deployed in your cloud provider platform for this support. Search & Restore is not supported when the Connector is installed on your premises.
+TIP: For this support, the Connector can be deployed in your cloud provider or on your premises when sending backups to Amazon S3 or Azure Blob. The Connector must be deployed in the cloud when sending backups to Google Cloud Storage.
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 

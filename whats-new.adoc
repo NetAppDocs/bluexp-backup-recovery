@@ -22,6 +22,8 @@ Learn what's new in Cloud Backup.
 
 The Search & Restore method of restoring volumes and files is now available for users who store their backup files in Azure Blob storage. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2[See how to restore your volumes and files using Search & Restore].
 
+Note that additional permissions are needed in the Connector role to use this functionality. A Connector deployed using version 3.9.21 software (August 2022) includes these permissions. You'll need to manually add the permissions if you deployed the Connector using an earlier release.
+
 === other new stuff
 
 details
