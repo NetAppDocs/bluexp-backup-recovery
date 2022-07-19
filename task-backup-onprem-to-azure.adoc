@@ -146,6 +146,68 @@ Ensure that the Connector has the required networking connections.
 
 . Enable a VNet Private Endpoint to Azure storage. This is needed if you have an ExpressRoute or VPN connection from your ONTAP cluster to the VNet and you want communication between the Connector and Blob storage to stay in your virtual private network (a *private* connection).
 
+=== Verify or add permissions to the Connector
+
+To use the Cloud Backup Search & Restore functionality, you need to have specific permissions in the role for the Connector so that it can access the Azure Synapse Workspace and Data Lake Storage Account. See the permissions below, and follow the steps if you need to modify the policy.
+
+.Before you start
+
+You must register the Azure Synapse Analytics Resource Provider with your subscription. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider[See how to register this resource provider for your subscription].
+
+.Steps
+
+. Identify the role assigned to the Connector virtual machine:
+
+.. In the Azure portal, open the Virtual machines service.
+
+.. Select the Connector virtual machine.
+
+.. Under Settings, select *Identity*.
+
+.. Click *Azure role assignments*.
+
+.. Make note of the custom role assigned to the Connector virtual machine.
+
+. Update the custom role:
+
+.. In the Azure portal, open your Azure subscription.
+
+.. Click *Access control (IAM) > Roles*.
+
+.. Click the ellipsis (...) for the custom role and then click *Edit*.
+
+.. Click JSON and add the following permissions:
++
+[source,json]
+"Microsoft.Storage/checknameavailability/read",
+"Microsoft.Storage/operations/read",
+"Microsoft.Storage/storageAccounts/listkeys/action",
+"Microsoft.Storage/storageAccounts/read",
+"Microsoft.Storage/storageAccounts/delete",
+"Microsoft.Storage/storageAccounts/write",
+"Microsoft.Storage/storageAccounts/blobServices/containers/read",
+"Microsoft.Storage/usages/read",
+"Microsoft.Storage/storageAccounts/listAccountSas/action",
+"Microsoft.Synapse/workspaces/write",
+"Microsoft.Synapse/workspaces/read",
+"Microsoft.Synapse/workspaces/delete",
+"Microsoft.Synapse/unregister/action",
+"Microsoft.Synapse/register/action",
+"Microsoft.Synapse/checkNameAvailability/action",
+"Microsoft.Synapse/workspaces/operationStatuses/read",
+"Microsoft.Synapse/workspaces/sqlPools/write",
+"Microsoft.Synapse/workspaces/sqlPools/read",
+"Microsoft.Synapse/workspaces/sqlPools/delete",
+"Microsoft.Synapse/workspaces/firewallRules/delete",
+"Microsoft.Synapse/workspaces/firewallRules/read",
+"Microsoft.Synapse/workspaces/firewallRules/write",
+"Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action",
+"Microsoft.Synapse/workspaces/operationResults/read"
++
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html[View the full JSON format for the policy^]
+
+.. Click *Review + update* and then click *Update*.
+
 === Supported regions
 
 You can create backups from on-premises systems to Azure Blob in all regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including Azure Government regions. You specify the region where the backups will be stored when you set up the service.

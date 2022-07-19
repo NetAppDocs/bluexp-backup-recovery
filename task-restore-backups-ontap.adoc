@@ -373,9 +373,11 @@ endif::aws[]
 ifdef::azure[]
 * Azure requirements:
 
-** Specific [Make sure all the permissions are configured correctly].
+** You must register the Azure Synapse Analytics Resource Provider with your subscription. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider[See how to register this resource provider for your subscription].
+
+** Specific Azure Synapse Workspace and Data Lake Storage Account permissions must be added to the user role that provides Cloud Manager with permissions. link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector[Make sure all the permissions are configured correctly].
 +
-Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add ???????? permissions to the Cloud Manager user role now. These are new, and they are required for Search & Restore.
+Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add the Azure Synapse Workspace and Data Lake Storage Account permissions to the Cloud Manager user role now. These are new, and they are required for Search & Restore.
 endif::azure[]
 
 ifdef::gcp[]
@@ -418,7 +420,7 @@ ifdef::aws[]
 * For backups stored in AWS, it provisions a new S3 bucket and the https://aws.amazon.com/athena/faqs/[Amazon Athena interactive query service^] and https://aws.amazon.com/glue/faqs/[AWS Glue serverless data integration service^].
 endif::aws[]
 ifdef::azure[]
-* For backups stored in Azure, it provisions a new ???? and the ??.
+* For backups stored in Azure, it provisions an Azure Synapse workspace and a Data Lake file system as the container that will store the workspace data.
 endif::azure[]
 ifdef::gcp[]
 * For backups stored in Google Cloud, it provisions a new bucket, and the https://cloud.google.com/bigquery[Google Cloud BigQuery services^] are provisioned on an account/project level.
