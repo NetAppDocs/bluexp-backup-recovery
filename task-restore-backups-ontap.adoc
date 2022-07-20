@@ -331,9 +331,6 @@ On-premises ONTAP system
 On-premises ONTAP system
 endif::aws[]
 ifdef::azure[]
-| Azure Blob | Not currently supported |
-endif::azure[]
-ifdef::azure[]
 | Azure Blob | Cloud Volumes ONTAP in Azure
 On-premises ONTAP system
 | Cloud Volumes ONTAP in Azure
@@ -345,11 +342,11 @@ On-premises ONTAP system
 | Cloud Volumes ONTAP in Google
 On-premises ONTAP system
 endif::gcp[]
-| NetApp StorageGRID | Not currently supported |
+| NetApp StorageGRID | Not currently supported | Not currently supported
 
 |===
 
-TIP: For this support, the Connector can be deployed in your cloud provider or on your premises when sending backups to Amazon S3 or Azure Blob. The Connector must be deployed in the cloud when sending backups to Google Cloud Storage.
+TIP: For Search & Restore, the Connector can be deployed in your cloud provider or in your premises when restoring backups from Amazon S3 or Azure Blob. The Connector must be deployed in the cloud when restoring backups from Google Cloud Storage.
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 

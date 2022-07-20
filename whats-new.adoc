@@ -22,11 +22,21 @@ Learn what's new in Cloud Backup.
 
 The Search & Restore method of restoring volumes and files is now available for users who store their backup files in Azure Blob storage. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2[See how to restore your volumes and files using Search & Restore].
 
-Note that additional permissions are needed in the Connector role to use this functionality. A Connector deployed using version 3.9.21 software (August 2022) includes these permissions. You'll need to manually add the permissions if you deployed the Connector using an earlier release.
+Note that additional permissions are needed in the Connector role to use this functionality. A Connector deployed using version 3.9.21 software (August 2022) includes these permissions. You'll need to manually add the permissions if you deployed the Connector using an earlier release. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector[See how to add these permissions, if necessary].
 
-=== other new stuff
+=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
 
-details
+In the previous release, support was added for creating backup files to the cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises.
+
+The Connector must be deployed in the cloud when using Search & Restore to restore backups from Google Cloud Storage.
+
+=== Additional backup policy improvements for ONTAP systems
+
+Some of the Backup Policy pages have been redesigned to make it easier to view all the backup policies that are available for volumes in each ONTAP cluster. This makes it easier to see the details of available policies so you can apply the best policies on your volumes.
+
+=== Drag and drop to enable Cloud Backup to Azure Blob and Google Cloud Storage
+
+If the https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html[Azure Blob] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html[Google Cloud Storage] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP cluster or Cloud Volumes ONTAP system (installed in Azure or GCP) onto the working environment to initiate the setup wizard.
 
 == 13 July 2022
 
