@@ -21,7 +21,29 @@ You can view total number of backups created, policies used for creating backups
 . Click *Backup & Restore* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *View Details*.
 
-IMPORTANT: The agent ID is associated to the Connector. If a Connector that was used during discovery of the application is changed, the subsequent backups of that application will fail because the agent ID of the new Connector is different. You can run the *connector-update* API to modify the agent ID.
+IMPORTANT: The agent ID is associated to the Connector. If a Connector that was used during registering the Oracle database host no longer exists, the subsequent backups of that application will fail because the agent ID of the new Connector is different. You should run the *connector-update* API to modify the agent ID.
+
+== Updating the Connector Details
+
+If a Connector that was used during registering the Oracle database host no longer exists or is corrupted in AWS, you should deploy a new connector. After deploying the new connector, you should run the *connector-update* API to update the Connecotr details.
+
+----
+curl --location --request PATCH 'https://snapcenter.cloudmanager.cloud.netapp.com/api/oracle/databases/connector-update' \
+--header 'x-account-id: <CM account-id>' \
+--header 'x-agent-id: <connector Agent ID >' \
+--header 'Authorization: Bearer token' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"old_connector_id": "Old connector id that is not longer exist",
+"new_connector_id": "New connector Id"
+}
+----
+
+After updating the Connector details, you should perform the following steps to uninstall the plug-in.
+. `rpm -qi netapp-snapcenter-plugin-oracle`
+. `sudo /opt/NetApp/snapcenter/spl/installation/plugins/uninstall`
+
+After uninstalling the plug-in, you can deploy the plug-in. link:reference-prereq-protect-cloud-native-app-data.html#deploy-snapcenter-plug-in-for-oracle[Learn more].
 
 == Monitor jobs
 
@@ -29,7 +51,7 @@ You can monitor the status the jobs that have been initiated in your working env
 
 You can view a list of all the operations and their status. Each operation, or job, has a unique ID and a status. The status can be:
 
-* Successful
+* Successfut
 * In Progress
 * Queued
 * Warning

@@ -37,11 +37,23 @@ NOTE: You should never delete the service account.
 
 . In the Specify Host Details page, enter the details of the Oracle database host, select the check box to confirm that the plug-in is installed on the host, and click *Discover*.
 +
-Displays all the databases on the host.
+Displays all the databases on the host. If OS authentication is disabled for the database, you should configure OS authentication by clicking *Configure*. For more information, refer to <<Configure Oracle database credentials>>.
 +
 * Click *Manage Application*, select *Add* to add a new host, *Refresh* to discover new databases, or *Remove* to remove a database host.
 +
 * Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and if you want you can either edit them to meet your requirement or create a new policy.
+
+== Configure Oracle database credentials
+
+You should configure credentials that are used to perform data protection operations on Oracle databases.
+
+*Steps*
+
+. In the Applications page, click *Configure*.
+. Specify the username, password, and the port details either in the Database Settings or ASM Settings section.
++
+The Oracle user should have sysdba privileges and ASM user should have sysasm privileges.
+. Click *Configure*.
 
 == Create policy
 
