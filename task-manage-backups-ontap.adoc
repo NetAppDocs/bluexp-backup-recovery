@@ -63,15 +63,17 @@ You can change the attributes for a backup policy that is currently applied to v
 +
 image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button from the Volumes tab.]
 
-. From the _Backup Settings_ page, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment where you want to change the settings, and select *Manage Policies*.
+. From the _Backup Settings_ page, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment where you want to change the policy settings, and select *Manage Policies*.
 +
 image:screenshot_backup_modify_policy.png[A screenshot that shows the Manage Policies option from the Backup Settings page.]
 
-. From the _Manage Policies_ page, click *Edit Policy* for the backup policy you want to change in that working environment.
+. From the _Manage Policies_ page, click *Edit* for the backup policy you want to change in that working environment.
++
+Note you can click image:button_down_caret.png[] to view the full details for the policy.
 +
 image:screenshot_backup_manage_policy_page_edit.png[A screenshot that shows the Edit Policy button from the Manage Policies page.]
 
-. From the _Edit Policy_ page, change the schedule and backup retention and click *Save*.
+. From the _Edit Policy_ page, click image:button_down_caret.png[] to expand the _Labels & Retention_ section to change the schedule and/or backup retention, and click *Save*.
 +
 image:screenshot_backup_edit_policy.png[A screenshot that shows the backup policy settings where you can modify the backup schedule and backup retention setting.]
 +
@@ -108,7 +110,7 @@ image:screenshot_backup_modify_policy.png[A screenshot that shows the Manage Pol
 +
 image:screenshot_backup_manage_policy_page_add.png[A screenshot that shows the Add New Policy button from the Manage Policies page.]
 
-. From the _Add New Policy_ page, define the schedule and backup retention and click *Save*.
+. From the _Add New Policy_ page, click image:button_down_caret.png[] to expand the _Labels & Retention_ section to define the schedule and backup retention, and click *Save*.
 +
 image:screenshot_backup_add_new_policy.png[A screenshot that shows the backup policy settings where you can add the backup schedule and backup retention setting.]
 +
