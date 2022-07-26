@@ -26,9 +26,9 @@ Note that additional permissions are needed in the Connector role to use this fu
 
 === Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
 
-In the previous release, support was added for creating backup files to the cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises.
+In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises.
 
-The Connector must be deployed in the cloud when using Search & Restore to restore backups from Google Cloud Storage.
+At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage.
 
 === Additional backup policy improvements for ONTAP systems
 
@@ -36,7 +36,9 @@ Some of the Backup Policy pages have been redesigned to make it easier to view a
 
 === Drag and drop to enable Cloud Backup to Azure Blob and Google Cloud Storage
 
-If the https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html[Azure Blob] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html[Google Cloud Storage] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP cluster or Cloud Volumes ONTAP system (installed in Azure or GCP) onto the working environment to initiate the setup wizard.
+If the https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html[Azure Blob] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html[Google Cloud Storage] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP cluster or Cloud Volumes ONTAP system (installed in Azure or GCP) onto the working environment to initiate the Backup setup wizard.
+
+This functionality already existed for Amazon S3 buckets.
 
 == 13 July 2022
 

@@ -152,7 +152,7 @@ To use the Cloud Backup Search & Restore functionality, you need to have specifi
 
 .Before you start
 
-You must register the Azure Synapse Analytics Resource Provider with your subscription. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider[See how to register this resource provider for your subscription].
+You must register the Azure Synapse Analytics Resource Provider with your Subscription. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider[See how to register this resource provider for your subscription^]. You must be the Subscription *Owner* or *Contributor* to register the resource provider.
 
 .Steps
 

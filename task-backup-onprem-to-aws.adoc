@@ -163,7 +163,7 @@ You'll need to configure two sets of permissions:
 
 .Steps
 
-. Confirm that the following S3 permissions (from the latest https://mysupport.netapp.com/site/info/cloud-manager-policies[Cloud Manager policy^]) are part of the IAM role that provides the Connector with permissions.
+. Confirm that the following S3 permissions (from the latest https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[Cloud Manager policy^]) are part of the IAM role that provides the Connector with permissions.
 +
 [source,json]
 {
