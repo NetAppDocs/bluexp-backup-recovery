@@ -54,7 +54,7 @@ Depending on whether you have SSH key and scp on the Oracle host, you can follow
 
 NOTE: Ensure that JAVA 8 is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
 
-=== Deploy plug-in when you have SSH key and scp
+=== Deploy plug-in when you have SSH key and scp enabled on Oracle host
 
 *Steps*
 
@@ -63,12 +63,11 @@ NOTE: Ensure that JAVA 8 is installed on each of the Oracle database hosts and t
 `sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
 . Copy the certificate from _<base_mount_path>/client/certificate/certificate.p12_ to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
 +
-NOTE: The certificate name should be certificate.p12 and you should not chnage the name while copying.
+NOTE: The certificate name should be certificate.p12 and you should not change the name while copying.
 +
 
 .. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
-+
-... `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -nopromp`
+... `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
 ... Verify that the import was successful.
 `keytool -keystore keystore.jks -list`
 ... Set *ENABLE_CLIENT_CERTIFICATE_AUTHENTICATION* to *true* in the _spl.properties_ file.
@@ -93,7 +92,7 @@ NOTE: The certificate name should be certificate.p12 and you should not chnage t
 . Download the SnapCenter Linux host plug-in binary.
 `sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
 . Obtain the binary path of the downloaded plug-in.
-`sudo ls /var/lib/docker/volumes/cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
+`sudo ls /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
 . Copy _snapcenter_linux_host_plugin_scs.bin_ to each of the Oracle database hosts either using scp or other alternate methods.
 . On the Oracle database host, run the following command to enable execute permissions for the binary.
 `chmod +x snapcenter_linux_host_plugin_scs.bin`
@@ -105,60 +104,6 @@ NOTE: The certificate name should be certificate.p12 and you should not chnage t
 +
 .. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command
 +
-... `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -nopromp`
+... `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
 ... Set *ENABLE_CLIENT_CERTIFICATE_AUTHENTICATION* to *true* in the _spl.properties_ file.
 .. Restart SPL: `systemctl restart spl`
-
-== Configure CA signed certificate
-
-You can configure CA signed certificate if you want to include additional security to your environment.
-
-=== Configure CA signed certificate for client certificate authentication
-
-The connector uses a self-signed certificate to communicate with plug-in. The self-signed certificate is imported to the keystore by the installation script. You can perform the following steps to replace the self-signed certificate with CA signed certificate.
-
-*Steps*
-
-. Copy the certificate and key at _<base_mount_path>/client/certificate_.
-+
-The file name should be certificate.pem and key.pem.
-. Create the PKCS12 format of the certificate with the name certificate.p12 and keep at the same location _<base_mount_path>/client/certificate_.
-. Copy the PKCS12 file plug-in host at _/var/opt/snapcenter/spl/etc/_.
-+
-Copy the intermediate ca and root ca certificates also.
-. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command.
-`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
-. Import the CA cert files.
-`keytool -import -trustcacerts -keystore keystore.jks -storepass snapcenter -alias trustedca -file certificate.crt`
-+
-NOTE: The CA cert files is chain of intermediate and root ca certificates like NetAppCorpIssuingCA1.crt and NetAppCorpRootCA.crt.
-
-=== Configure CA signed certificate for server certificate of plug-in
-
-The CA certificate should have the exact name of the Oracle plug-in host with which the agent communicates.
-
-*Steps*
-
-. Navigate to the folder containing the SPL’s keystore _/var/opt/snapcenter/spl/etc_.
-. Locate the file 'keystore.jks'.
-. List the added certificates in the keystore: `keytool -list -v -keystore keystore.jks`
-. Add the CA certificate having both private and public key.
-`keytool -importkeystore -srckeystore <CertificatePathToImport> -srcstoretype pkcs12 -destkeystore keystore.jks -deststoretype JKS`
-. List the added certificates in the keystore.
-`keytool -list -v -keystore keystore.jks`
-. Verify that the keystore contains the alias corresponding to the new CA certificate, which was added to the keystore.
-. Change the added private key password for CA certificate to the keystore password.
-+
-Default SPL keystore password is the value of the key _SPL_KEYSTORE_PASS_ in _spl.properties_ file.
-`keytool -keypasswd -alias "<aliasNameOfAddedCertInKeystore>" -keystore keystore.jks`
-. If the alias name in the CA certificate is long and contains space or special characters ("*",","), change the alias name to a simple name:
-`keytool -changealias -alias "<OrignalAliasName>" -destalias "<NewAliasName>" -keystore keystore.jks`
-. Configure the alias name from the keystore located in spl.properties file.
-+
-Update this value against the key SPL_CERTIFICATE_ALIAS.
-. Restart the service after configuring the CA signed key pair to SPL trust-store.
-. Copy the entire chain of CA certificates to the persistent volume located at _<base_mount_path>/server_.
-. Connect to the cloudmanager_scs_cloud and modify the *enableCACert* in _config.yml_ to *true*.
-`sudo docker exec -t cloudmanager_scs_cloud sed -i 's/enableCACert: false/enableCACert: true/g' /opt/netapp/cloudmanager-scs-cloud/config/config.yml`
-. Restart cloudmanager_scs_cloud docker.
-`sudo docker restart cloudmanager_scs_cloud`.

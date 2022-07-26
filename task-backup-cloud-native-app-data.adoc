@@ -26,6 +26,8 @@ If the database is protected using one or more policies, you can assign more pol
 . Select the policy and click *Assign*.
 +
 The backups will be created as per the schedule defined in the policy.
++
+NOTE: The service account (_SnapCenter-account-<accountid>_) is used for running the scheduled backup operations.
 
 == Create on-demand backups
 

@@ -33,7 +33,7 @@ The account with SnapCenter Admin role is configured, a service account is creat
 +
 * Click *Account* > *Manage Account* > *Members* to view the service account.
 +
-NOTE: You should never delete the service account.
+NOTE: The service account (_SnapCenter-account-<accountid>_) is used for running the scheduled backup operations. You should never delete the service account.
 
 . In the Specify Host Details page, enter the details of the Oracle database host, select the check box to confirm that the plug-in is installed on the host, and click *Discover*.
 +
@@ -49,7 +49,7 @@ You should configure credentials that are used to perform data protection operat
 
 *Steps*
 
-. In the Applications page, click *Configure*.
+. If OS authentication is disabled for the database, you should configure OS authentication by clicking *Configure*.
 . Specify the username, password, and the port details either in the Database Settings or ASM Settings section.
 +
 The Oracle user should have sysdba privileges and ASM user should have sysasm privileges.

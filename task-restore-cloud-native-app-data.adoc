@@ -16,20 +16,6 @@ summary:  Restore the data files, control files, or both and then recover the da
 
 In the event of data loss, you can restore the data files, control files, or both and then recover the database.
 
-*Limitations in a SAN environment*
-
-* Restore operation fails if SnapCenter Plug-in for Oracle finds any foreign files other than Oracle Data files on the ASM diskgroup. The foreign files could be one or more of the following types:
-** Parameter
-** Password
-** archive log
-** online log
-** ASM parameter file.
-* You should select Force in-place restore checkbox to override the foreign files of type parameter, password, and archive log.
-+
-NOTE: If there are other types of foreign files, restore operation fails and the database cannot be recovered. If you have other type of foreign files, you should delete or move them to a different location before performing restore operation.
-
-* The failure message due to the presence of foreign files are not displayed in the job page in UI due to a known issue. Check the connector logs if there is a failure during SAN pre-restore stage to know the cause of the issue.
-
 *Steps*
 
 . Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.
@@ -74,7 +60,7 @@ Want to recover to a specific System Change Number (SCN)
 a|
 Select *Until System Change Number* and specify the SCN.
 a|
-Want to recover to a specific data and time
+Want to recover to a specific date and time
 a|
 Select *Date and Time*.
 a|
