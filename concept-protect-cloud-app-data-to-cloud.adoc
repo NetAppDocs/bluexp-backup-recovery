@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: concept-protect-cloud-app-data-to-cloud.html
 keywords: backing up, back up, backup, backup application data, Amazon EC2, Amazon Web services, Amazon FSx, Cloud Backup, Oracle database, requirements, prerequisites
-summary: Cloud Backup for Applications enabled within NetApp Cloud Manager offers efficient, application consistent, policy-based backup and restore of Oracle® databases residing on Amazon FSx for NetApp ONTAP.
+summary: Cloud Backup for Applications enabled within NetApp Cloud Manager offers efficient, application consistent, policy-based backup, and restore of Oracle® databases residing on Amazon FSx for NetApp ONTAP.
 ---
 
 = Protect your cloud native applications data
@@ -14,19 +14,19 @@ summary: Cloud Backup for Applications enabled within NetApp Cloud Manager offer
 
 [.lead]
 
-Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within NetApp Cloud Manager offers efficient, application consistent, policy-based backup and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP.
+Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within NetApp Cloud Manager offers efficient, application consistent, policy-based backup, and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP.
 
 == Architecture
 
 The Cloud Backup for Applications architecture includes the following components.
 
-* Cloud Backup for Applications is a set of data protection services hosted as a SaaS service by NetApp and is based off the Cloud Manager SaaS platform.
+* Cloud Backup for Applications is a set of data protection services hosted as a SaaS service by NetApp and is based on the Cloud Manager SaaS platform.
 +
 It orchestrates the data protection workflows for applications residing on NetApp Cloud Storage.
 * Cloud Backup for Applications UI is integrated with Cloud Manager UI.
 +
-The Cloud Backup for Applications UI is served from the Cloud Manager SAAS framework managed by NetApp that offers multiple storage and data management capabilities.
-* Cloud Manager Connector is a component from Cloud Manager that runs in your cloud network and interacts with the SnapCenter Plug-in for Oracle running on Oracle database hosts and Amazon FSx storage file systems.
+The Cloud Backup for Applications UI offers multiple storage and data management capabilities.
+* Cloud Manager Connector is a component from Cloud Manager that runs in your cloud network and interacts with Amazon FSx storage file systems and SnapCenter Plug-in for Oracle running on Oracle database hosts.
 * SnapCenter Plug-in for Oracle is a component that runs on each Oracle database hosts and interacts with the Oracle databases running on the host while performing data protection operations.
 +
 The following image shows each component and the connections that you need to prepare between them:
@@ -52,15 +52,15 @@ The Connector can be deployed in the same VPC as that of the Oracle databases, o
 
 * Auto-discovery of Oracle databases
 * Backing up Oracle databases residing on Amazon FSx for NetApp ONTAP
-** Full (data + control + archive log files) backup of Oracle databases
-** On-demand backup of Oracle databases
-** Scheduled backup of Oracle databases based on the system-defined or custom policies
+** Full (data + control + archive log files) backup
+** On-demand backup
+** Scheduled backup based on the system-defined or custom policies
 +
 You can specify different scheduling frequencies such as hourly, daily, weekly, and monthly in the policy.
 * Retaining backups based on the policy
 * Restoring complete Oracle database (data files + control file) from the specified backup
 * Restoring data files only and control files only from the specified backup
-* Recovering Oracle database with until SCN, until time, all available logs, and no recovery options.
+* Recovering Oracle database with until SCN, until time, all available logs, and no recovery options
 * Monitoring backups and other jobs
 * Displaying the protection summary on the dashboard
 * Sending alerts through email
@@ -68,7 +68,7 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 == Limitations
 
 * Does not support Oracle versions 11g and 21c
-* Does not support mount, clone, catalog and verification operations on backups
+* Does not support mount, clone, catalog, and verification operations on backups
 * Does not support Oracle on RAC and Data Guard
 * Backup limitations:
 ** Does not support online data or log only backups

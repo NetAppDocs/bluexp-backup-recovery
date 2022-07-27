@@ -62,7 +62,7 @@ The connector uses a self-signed certificate to communicate with plug-in. The se
 
 . Copy the certificate from _<base_mount_path>/client/certificate/certificate.p12_ to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
 +
-.. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command
+.. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to impot the certificate.
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
 .. Set *ENABLE_CLIENT_CERTIFICATE_AUTHENTICATION* to *true* in the _spl.properties_ file.
 .. Restart SPL: `systemctl restart spl`
@@ -72,7 +72,7 @@ The file name should be certificate.pem and key.pem.
 . Copy the PKCS12 file plug-in host at _/var/opt/snapcenter/spl/etc/_.
 +
 Copy the intermediate ca and root ca certificates also.
-. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command.
+. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
 . Import the CA cert files.
 `keytool -import -trustcacerts -keystore keystore.jks -storepass snapcenter -alias trustedca -file certificate.crt`

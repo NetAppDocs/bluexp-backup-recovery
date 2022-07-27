@@ -37,7 +37,7 @@ NOTE: The service account (_SnapCenter-account-<accountid>_) is used for running
 
 . In the Specify Host Details page, enter the details of the Oracle database host, select the check box to confirm that the plug-in is installed on the host, and click *Discover*.
 +
-Displays all the databases on the host. If OS authentication is disabled for the database, you should configure OS authentication by clicking *Configure*. For more information, refer to <<Configure Oracle database credentials>>.
+* Displays all the databases on the host. If OS authentication is disabled for the database, you should configure OS authentication by clicking *Configure*. For more information, refer to <<Configure Oracle database credentials>>.
 +
 * Click *Manage Application*, select *Add* to add a new host, *Refresh* to discover new databases, or *Remove* to remove a database host.
 +
