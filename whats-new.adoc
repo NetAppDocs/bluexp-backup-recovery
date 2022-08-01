@@ -16,13 +16,17 @@ summary: Learn what's new in Cloud Backup.
 Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
-== 1 August 2022
+== 16 August 2022
 
 === Search & Restore is now supported with backup files in Azure Blob
 
 The Search & Restore method of restoring volumes and files is now available for users who store their backup files in Azure Blob storage. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2[See how to restore your volumes and files using Search & Restore^].
 
 Note that additional permissions are needed in the Connector role to use this functionality. A Connector deployed using version 3.9.21 software (August 2022) includes these permissions. You'll need to manually add the permissions if you deployed the Connector using an earlier release. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector[See how to add these permissions, if necessary^].
+
+=== We've added the ability to protect your backup files from deletion and ransomware attacks
+
+If your cluster is using ONTAP 9.11.1 or greater, and your backup destination is Amazon S3, a new section called _DataLock and Ransomware protection_ is available when you create a backup policy.
 
 === Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
 
