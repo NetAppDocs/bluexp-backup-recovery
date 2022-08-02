@@ -60,7 +60,7 @@ The connector uses a self-signed certificate to communicate with plug-in. The se
 
 *Steps*
 
-. Copy the certificate from _<base_mount_path>/client/certificate/certificate.p12_ to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
+. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
 +
 .. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to impot the certificate.
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`

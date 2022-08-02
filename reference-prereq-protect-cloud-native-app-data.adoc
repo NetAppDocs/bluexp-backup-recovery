@@ -87,7 +87,7 @@ If SSH key based authentication is not enabled on the Oracle host, you should pe
 `chmod +x snapcenter_linux_host_plugin_scs.bin`
 . Deploy the Oracle plug-in as a root user.
 `./snapcenter_linux_host_plugin_scs.bin -i silent`
-. Copy the certificate from _<base_mount_path>/client/certificate/certificate.p12_ to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
+. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
 +
 .. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
