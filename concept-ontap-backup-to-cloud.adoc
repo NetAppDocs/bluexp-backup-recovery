@@ -274,26 +274,48 @@ TIP: The retention period for backups of data protection volumes is the same as 
 
 === Backup file protection settings
 
-If your cluster is using ONTAP 9.11.1 or greater, and your backup destination is Amazon S3, you can protect your backups from deletion and ransomware attacks. apply DataLock and Ransomware protection settings
+If your cluster is using ONTAP 9.11.1 or greater, you can protect your backups from deletion and ransomware attacks. Each backup policy provides a section for _DataLock and Ransomware Protection_ that can be applied to your backup files for a specific period of time - the _retention period_. _DataLock_ protects your backup files from being modified or deleted. _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack when a backup file is created, and when data from a backup file is being restored.
 
-=== Supported storage classes or access tiers
+You can choose from the following settings for each backup policy:
+
+* None
++
+DataLock protection and ransomware protection are disabled.
+
+* Enterprise
++
+DataLock is set to _Enterprise_ where users with specific permissions can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+
+* Compliance
++
+DataLock is set to _Compliance_ where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+
+The retention period is the same as the schedule retention period. For example, _daily_ backups with _7_ copies retained will have 7 retention days for DataLock. _Monthly_ backups with _6_ copies retained will lock each backup file for 6 months.
+
+Support is currently available when your backup destination is Amazon S3. Other storage provider destinations will be added in future releases.
+
+TIP: DataLock can't be enabled if you are tiering old backups to archival storage.
+
+=== Support for archival storage for older backup files
+
+When using certain cloud storage you can move older backup files to a less expensive storage class/access tier after a certain number of days. Note that archival storage can't be used if you have enabled DataLock.
 
 ifdef::aws[]
 * In AWS, backups start in the _Standard_ storage class and transition to the _Standard-Infrequent Access_ storage class after 30 days.
 +
-If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
+If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
 endif::aws[]
 
 ifdef::azure[]
 * In Azure, backups are associated with the _Cool_ access tier.
 +
-If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to _Azure Archive_ storage after a certain number of days for further cost optimization. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
+If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to _Azure Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
 endif::azure[]
 
 ifdef::gcp[]
 * In GCP, backups are associated with the _Standard_ storage class by default.
 +
-You can also use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the storage class.
+You can also use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. You configure these other storage classes through Google. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the storage class.
 endif::gcp[]
 
 * In StorageGRID, backups are associated with the _Standard_ storage class.

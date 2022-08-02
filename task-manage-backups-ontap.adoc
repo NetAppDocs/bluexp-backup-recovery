@@ -25,7 +25,7 @@ You can view a list of all the volumes that are currently being backed up in the
 
 . From the Cloud Manager left navigation menu, click *Backup & Restore*.
 
-. Click the *Volumes* tab to view the list of volumes for Cloud Volumes ONTAP and on-premises ONTAP systems.
+. Click the *Volumes* tab to view the list of backed up volumes for Cloud Volumes ONTAP and on-premises ONTAP systems.
 +
 image:screenshot_backup_dashboard.png[A screenshot showing all the working environments and volumes that have backup files.]
 
