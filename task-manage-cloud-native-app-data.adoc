@@ -14,6 +14,29 @@ summary: View the backup details and monitor the status of all the jobs.
 
 [.lead]
 
+== Monitor jobs
+
+You can monitor the status the jobs that have been initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems.
+
+You can view a list of all the operations and their status. Each operation, or job, has a unique ID and a status. The status can be:
+
+* Successful
+* In Progress
+* Queued
+* Warning
+* Failed
+
+*Steps*
+
+. Click *Backup & Restore*.
+. Click *Job Monitoring*
++
+You can click the name of a job to view details corresponding to that operation. If you are looking for specific job, you can:
+
+* use the time selector at the top of the page to view jobs for a certain time range
+* enter a part of the job name in the Search field
+* sort the results by using the filter in each column heading
+
 == View backup details
 
 You can view total number of backups created, policies used for creating backups, database version, and agent ID.
@@ -23,9 +46,9 @@ You can view total number of backups created, policies used for creating backups
 
 IMPORTANT: The agent ID is associated to the Connector. If a Connector that was used during registering the Oracle database host no longer exists, the subsequent backups of that application will fail because the agent ID of the new Connector is different. You should run the *connector-update* API to modify the agent ID.
 
-== Updating the Connector Details
+== Update the Connector Details
 
-If a Connector that was used during registering the Oracle database host no longer exists or is corrupted in AWS, you should deploy a new connector. After deploying the new connector, you should run the *connector-update* API to update the Connecotr details.
+If a Connector that was used during registering the Oracle database host no longer exists or is corrupted in AWS, you should deploy a new connector. After deploying the new connector, you should run the *connector-update* API to update the Connector details.
 
 ----
 curl --location --request PATCH 'https://snapcenter.cloudmanager.cloud.netapp.com/api/oracle/databases/connector-update' \
@@ -41,7 +64,7 @@ curl --location --request PATCH 'https://snapcenter.cloudmanager.cloud.netapp.co
 
 After updating the Connector details, you should connect to the Oracle database host and perform the following steps:
 
-. Obtain the plug-in version running on the Oracle database host.
+. Obtain the plug-in information running on the Oracle database host.
 `rpm -qi netapp-snapcenter-plugin-oracle`
 . Uninstall the plug-in.
 `sudo /opt/NetApp/snapcenter/spl/installation/plugins/uninstall`
@@ -60,11 +83,10 @@ The connector uses a self-signed certificate to communicate with plug-in. The se
 
 *Steps*
 
-. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
+. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
 +
 .. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to impot the certificate.
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
-.. Set *ENABLE_CLIENT_CERTIFICATE_AUTHENTICATION* to *true* in the _spl.properties_ file.
 .. Restart SPL: `systemctl restart spl`
 +
 The file name should be certificate.pem and key.pem.
@@ -110,29 +132,6 @@ Update this value against the key SPL_CERTIFICATE_ALIAS.
 `sudo docker exec -t cloudmanager_scs_cloud sed -i 's/enableCACert: false/enableCACert: true/g' /opt/netapp/cloudmanager-scs-cloud/config/config.yml`
 .. Restart cloudmanager_scs_cloud docker.
 `sudo docker restart cloudmanager_scs_cloud`.
-
-== Monitor jobs
-
-You can monitor the status the jobs that have been initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems.
-
-You can view a list of all the operations and their status. Each operation, or job, has a unique ID and a status. The status can be:
-
-* Successful
-* In Progress
-* Queued
-* Warning
-* Failed
-
-*Steps*
-
-. Click *Backup & Restore*.
-. Click *Job Monitoring*
-+
-You can click the name of a job to view details corresponding to that operation. If you are looking for specific job, you can:
-
-* use the time selector at the top of the page to view jobs for a certain time range
-* enter a part of the job name in the Search field
-* sort the results by using the filter in each column heading
 
 == Access REST APIs
 
