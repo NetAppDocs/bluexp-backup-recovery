@@ -135,6 +135,6 @@ Update this value against the key SPL_CERTIFICATE_ALIAS.
 
 == Access REST APIs
 
-You should obtain the user token with federated authentication to access the REST APIs. For information to obtain the user token, refer to https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_user_token.html#create-a-user-token-with-federated-authentication[Create a user token with federated authentication].
+The REST APIs to protect the applications to cloud is available https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/[here].
 
-For the Cloud Manager API documentation, refer to https://docs.netapp.com/us-en/cloud-manager-automation/index.html[Cloud Manager platform API documentation].
+You should obtain the user token with federated authentication to access the REST APIs. For information to obtain the user token, refer to https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_user_token.html#create-a-user-token-with-federated-authentication[Create a user token with federated authentication].

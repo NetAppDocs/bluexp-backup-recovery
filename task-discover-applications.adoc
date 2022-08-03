@@ -29,7 +29,7 @@ You should discover the databases on the host to assign policies and create back
 . Click Discover Applications.
 . Select *Cloud Native* and click *Next*.
 +
-The account with SnapCenter Admin role is configured, a service account is created for performing data protection operations for all the users in this account.
+A service account with _SnapCenter System_ role is created to perform scheduled data protection operations for all the users in this account.
 +
 * Click *Account* > *Manage Account* > *Members* to view the service account.
 +
