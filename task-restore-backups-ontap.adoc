@@ -145,7 +145,9 @@ image:screenshot_restore_volume_selection.png[A screenshot of selecting the Rest
 +
 image:screenshot_restore_select_volume_snapshot.png["A screenshot of selecting the working environment, volume, and volume backup file that you want to restore."]
 
-. Click *Continue*.
+. Click *Next*.
++
+Note that if ransomware protection is active for the backup file (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware.
 
 . In the _Select Destination_ page, select the *Working Environment* where you want to restore the volume.
 +
@@ -243,7 +245,9 @@ image:screenshot_restore_files_selection.png[A screenshot of selecting the Resto
 +
 image:screenshot_restore_select_source.png[A screenshot of selecting the volume and backup for the files you want to restore.]
 
-. Click *Continue* and the list of folders and files from the volume backup are displayed.
+. Click *Next* and the list of folders and files from the volume backup are displayed.
++
+Note that if ransomware protection is active for the backup file (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware.
 +
 image:screenshot_restore_select_files.png[A screenshot of the Select Files page so you can navigate to the files you want to restore.]
 

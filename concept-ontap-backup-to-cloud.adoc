@@ -296,7 +296,7 @@ Support is currently available when your backup destination is Amazon S3. Other 
 
 TIP: DataLock can't be enabled if you are tiering old backups to archival storage.
 
-=== Support for archival storage for older backup files
+=== Archival storage for older backup files
 
 When using certain cloud storage you can move older backup files to a less expensive storage class/access tier after a certain number of days. Note that archival storage can't be used if you have enabled DataLock.
 

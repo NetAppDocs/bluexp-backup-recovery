@@ -215,6 +215,26 @@ The list of all backup files is displayed along with details about the source vo
 +
 image:screenshot_backup_view_backups.png[A screenshot that shows the List of all backup files for a single volume.]
 
+== Running a ransomware scan on a volume backup
+
+NetApp ransomware protection software scans your backup files to look for evidence of a ransomware attack when a backup file is created, and when data from a backup file is being restored. You can also run an on-demand ransomware protection scan at any time to verify the usability of a specific backup file. This can be useful if you have had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
+
+This feature is available only if the volume backup was created from a system with ONTAP 9.11.1 or greater, and if you enabled _DataLock and Ransomware Protection_ in the backup policy.
+
+.Steps
+
+. From the *Volumes* tab, click image:screenshot_horizontal_more_button.gif[More icon] for the source volume and select *Details & Backup List*.
++
+image:screenshot_backup_view_backups_button.png[A screenshot that shows the Details & Backup List button which is available for a single volume.]
++
+The list of all backup files is displayed.
+
+. Click image:screenshot_horizontal_more_button.gif[More icon] for the volume backup file you want to scan and click *Ransomware Scan*.
++
+image:screenshot_scan_one_backup.png[A screenshot showing how to run a ransomware scan on a single backup file.]
++
+The Ransomware Scan column will show that the scan is In Progress.
+
 == Deleting backups
 
 Cloud Backup enables you to delete a single backup file, delete all backups for a volume, or delete all backups of all volumes in a working environment. You might want to delete all backups if you no longer need the backups or if you deleted the source volume and want to remove all backups.
