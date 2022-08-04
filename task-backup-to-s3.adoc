@@ -120,6 +120,23 @@ Here are the specific permissions from the policy:
                 "s3:GetBucketPolicy",
                 "s3:PutBucketPublicAccessBlock",
                 "s3:PutEncryptionConfiguration",
+                "s3:GetObjectVersionTagging",
+                "s3:GetBucketObjectLockConfiguration",
+                "s3:GetObjectVersionAcl",
+                "s3:PutObjectTagging",
+                "s3:DeleteObjectTagging",
+                "s3:GetObjectRetention",
+                "s3:DeleteObjectVersionTagging",
+                "s3:PutBucketObjectLockConfiguration",
+                "s3:ListBucketByTags",
+                "s3:DeleteObjectVersion",
+                "s3:GetObjectTagging",
+                "s3:PutBucketVersioning",
+                "s3:PutObjectVersionTagging",
+                "s3:GetBucketVersioning",
+                "s3:BypassGovernanceRetention",
+                "s3:PutObjectRetention",
+                "s3:GetObjectVersion",
                 "athena:StartQueryExecution",
                 "athena:GetQueryResults",
                 "athena:GetQueryExecution",
@@ -136,7 +153,7 @@ Here are the specific permissions from the policy:
             ]
         },
 
-If you deployed the Connector using version 3.9.15 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. Specifically the "athena" and "glue" permissions, as they are required for Search & Restore.
+If you deployed the Connector using version 3.9.21 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. Specifically the "athena" and "glue" permissions, as they are required for Search & Restore.
 
 == Enabling Cloud Backup on a new system
 

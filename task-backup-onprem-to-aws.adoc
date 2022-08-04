@@ -188,6 +188,23 @@ You'll need to configure two sets of permissions:
               "s3:GetBucketPolicy",
               "s3:PutBucketPublicAccessBlock",
               "s3:PutEncryptionConfiguration",
+              "s3:GetObjectVersionTagging",
+              "s3:GetBucketObjectLockConfiguration",
+              "s3:GetObjectVersionAcl",
+              "s3:PutObjectTagging",
+              "s3:DeleteObjectTagging",
+              "s3:GetObjectRetention",
+              "s3:DeleteObjectVersionTagging",
+              "s3:PutBucketObjectLockConfiguration",
+              "s3:ListBucketByTags",
+              "s3:DeleteObjectVersion",
+              "s3:GetObjectTagging",
+              "s3:PutBucketVersioning",
+              "s3:PutObjectVersionTagging",
+              "s3:GetBucketVersioning",
+              "s3:BypassGovernanceRetention",
+              "s3:PutObjectRetention",
+              "s3:GetObjectVersion",
               "athena:StartQueryExecution",
               "athena:GetQueryResults",
               "athena:GetQueryExecution",
@@ -204,7 +221,7 @@ You'll need to configure two sets of permissions:
           ]
       },
 +
-If you deployed the Connector using version 3.9.15 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. Specifically the "athena" and "glue" permissions, as they're required for Search & Restore. See the https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html[AWS Documentation: Editing IAM policies].
+If you deployed the Connector using version 3.9.21 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. Specifically the "athena" and "glue" permissions, as they're required for Search & Restore. See the https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html[AWS Documentation: Editing IAM policies].
 
 . When activating the service, the Backup wizard will prompt you to enter an access key and secret key. These credentials are passed to the ONTAP cluster so that ONTAP can back up and restore data to the S3 bucket. For that, you'll need to create an IAM user with the following permissions:
 +

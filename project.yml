@@ -32,7 +32,9 @@ sidebar:
         - title: Set up licensing
           url: /task-licensing-cloud-backup.html
         - title: Monitor the status of backup and restore jobs
-          url: task-monitor-backup-jobs.html
+          url: /task-monitor-backup-jobs.html
+        - title: Cloud Backup concepts
+          url: /concept-cloud-backup-concepts.html
     - title: Back up and restore ONTAP data
       entries:
         - title: Protect your ONTAP data
