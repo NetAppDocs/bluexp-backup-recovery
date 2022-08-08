@@ -81,57 +81,59 @@ You can configure CA signed certificate if you want to include additional securi
 
 The connector uses a self-signed certificate to communicate with plug-in. The self-signed certificate is imported to the keystore by the installation script. You can perform the following steps to replace the self-signed certificate with CA signed certificate.
 
+*What you will need*
+
+You can run the following command to get the _<base_mount_path>_:
+`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
+
 *Steps*
 
-. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
+. Login to Connector.
+. Delete all the existing files located at _<base_mount_path>/client/certificate_ in the Connector virtual machine.
+. Copy the CA signed certificate and key file to the _<base_mount_path>/client/certificate_ in the Connector virtual machine.
 +
-.. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to impot the certificate.
+The file name should be certificate.pem and key.pem. The certificate.pem should have the entire chain of the certificates like intermediate CA and root CA.
+. Create the PKCS12 format of the certificate with the name certificate.p12 and keep at _<base_mount_path>/client/certificate_.
+. Copy the certificate.p12 and certificates for all the intermediate ca and root ca to the plug-in host at _/var/opt/snapcenter/spl/etc/_.
+. Log in to the plug-in host.
+. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.p12 file.
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
-.. Restart SPL: `systemctl restart spl`
+. Import the root CA and intermediate certificates.
+`keytool -import -trustcacerts -keystore keystore.jks -storepass snapcenter -alias trustedca -file <certificate.crt>`
 +
-The file name should be certificate.pem and key.pem.
-. Create the PKCS12 format of the certificate with the name certificate.p12 and keep at the same location _<base_mount_path>/client/certificate_.
-. Copy the PKCS12 file plug-in host at _/var/opt/snapcenter/spl/etc/_.
-+
-Copy the intermediate ca and root ca certificates also.
-. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.
-`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
-. Import the CA cert files.
-`keytool -import -trustcacerts -keystore keystore.jks -storepass snapcenter -alias trustedca -file certificate.crt`
-+
-NOTE: The CA cert files is chain of intermediate and root ca certificates like NetAppCorpIssuingCA1.crt and NetAppCorpRootCA.crt.
+NOTE: The certfile.crt refers to the certificates of root CA as well as intermediate CA.
+
+. Restart SPL: `systemctl restart spl`
+
 
 === Configure CA signed certificate for server certificate of plug-in
 
-The CA certificate should have the exact name of the Oracle plug-in host with which the agent communicates.
+The CA certificate should have the exact name of the Oracle plug-in host with which the Connector virtual machine communicates.
+
+*What you will need*
+
+You can run the following command to get the _<base_mount_path>_:
+`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
 
 *Steps*
 
 . Perform the following steps on the plug-in host:
 .. Navigate to the folder containing the SPL’s keystore _/var/opt/snapcenter/spl/etc_.
-.. Locate the file 'keystore.jks'.
-.. List the added certificates in the keystore: `keytool -list -v -keystore keystore.jks`
-.. Add the CA certificate having both private and public key.
-`keytool -importkeystore -srckeystore <CertificatePathToImport> -srcstoretype pkcs12 -destkeystore keystore.jks -deststoretype JKS`
-.. List the added certificates in the keystore.
+.. Create the PKCS12 format of the certificate having both certificate and key with alias _splkeystore_.
+.. Add the CA certificate.
+`keytool -importkeystore -srckeystore <CertificatePathToImport> -srcstoretype pkcs12 -destkeystore keystore.jks -deststoretype JKS -srcalias splkeystore -destalias splkeystore -noprompt`
+.. Verify the certificates.
 `keytool -list -v -keystore keystore.jks`
-.. Verify that the keystore contains the alias corresponding to the new CA certificate, which was added to the keystore.
-.. Change the added private key password for CA certificate to the keystore password.
-+
-Default SPL keystore password is the value of the key _SPL_KEYSTORE_PASS_ in _spl.properties_ file.
-`keytool -keypasswd -alias "<aliasNameOfAddedCertInKeystore>" -keystore keystore.jks`
-.. If the alias name in the CA certificate is long and contains space or special characters ("*",","), change the alias name to a simple name:
-`keytool -changealias -alias "<OrignalAliasName>" -destalias "<NewAliasName>" -keystore keystore.jks`
-.. Configure the alias name from the keystore located in spl.properties file.
-+
-Update this value against the key SPL_CERTIFICATE_ALIAS.
-.. Restart the service after configuring the CA signed key pair to SPL trust-store.
-.. Copy the entire chain of CA certificates to the persistent volume located at _<base_mount_path>/server_.
+.. Restart SPL: `systemctl restart spl`
 . Perform the following steps on the Connector:
+.. Log in to the Connector as non-root user.
+.. Copy the entire chain of CA certificates to the persistent volume located at _<base_mount_path>/server_.
++
+Create the server folder if it does not exist.
 .. Connect to the cloudmanager_scs_cloud and modify the *enableCACert* in _config.yml_ to *true*.
 `sudo docker exec -t cloudmanager_scs_cloud sed -i 's/enableCACert: false/enableCACert: true/g' /opt/netapp/cloudmanager-scs-cloud/config/config.yml`
-.. Restart cloudmanager_scs_cloud docker.
-`sudo docker restart cloudmanager_scs_cloud`.
+.. Restart cloudmanager_scs_cloud container.
+`sudo docker restart cloudmanager_scs_cloud`
 
 == Access REST APIs
 
