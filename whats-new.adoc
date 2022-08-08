@@ -26,13 +26,13 @@ Note that additional permissions are needed in the Connector role to use this fu
 
 === We've added the ability to protect your backup files from deletion and ransomware attacks
 
-If your cluster is using ONTAP 9.11.1 or greater, and your backup destination is Amazon S3, a new section called _DataLock and Ransomware protection_ is available when you create a backup policy.
-
-=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
-
-In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises.
-
-At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage.
+Cloud Backup now has object lock support for ransomware-safe backups. If your cluster is using ONTAP 9.11.1 or greater, and your backup destination is Amazon S3, a new backup policy option called _DataLock and Ransomware Protection_ is now available. https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-concepts.html#datalock-and-ransomware-protection[Learn more about how you can use DataLock and Ransomware protection for your backups].
+//
+//=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
+//
+//In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises.
+//
+//At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage.
 
 === Additional backup policy improvements for ONTAP systems
 
@@ -42,7 +42,7 @@ Some of the Backup Policy pages have been redesigned to make it easier to view a
 
 If the https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html[Azure Blob^] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html[Google Cloud Storage^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP cluster or Cloud Volumes ONTAP system (installed in Azure or GCP) onto the working environment to initiate the Backup setup wizard.
 
-This functionality already existed for Amazon S3 buckets.
+This functionality already exists for Amazon S3 buckets.
 
 == 13 July 2022
 
