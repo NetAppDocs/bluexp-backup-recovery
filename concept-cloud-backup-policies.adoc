@@ -148,7 +148,8 @@ The S3 permission "s3:BypassGovernanceRetention" must be added to the Cloud Mana
 
 === Restrictions
 
-* DataLock and Ransomware protection is not available if you have configured archival storage in the backup policy
+* DataLock and Ransomware protection is not available if you have configured archival storage in the backup policy.
+* The DataLock option you select when activating Cloud Backup (either Enterprise or Compliance) must be used for all backup policies for that cluster. You cannot use both Enterprise and Compliance mode locking on a single cluster.
 * DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can't enable this feature after Cloud Backup has been activated.
 
 === DataLock and Ransomware Protection settings
