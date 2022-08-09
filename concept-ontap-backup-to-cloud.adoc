@@ -294,7 +294,9 @@ The retention period is the same as the schedule retention period. For example, 
 
 Support is currently available when your backup destination is Amazon S3. Other storage provider destinations will be added in future releases.
 
-TIP: DataLock can't be enabled if you are tiering old backups to archival storage.
+TIP: DataLock can't be enabled if you are tiering backups to archival storage.
+
+See link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[DataLock and Ransomware protection] for more details about how DataLock and Ransomware protection works.
 
 === Archival storage for older backup files
 
