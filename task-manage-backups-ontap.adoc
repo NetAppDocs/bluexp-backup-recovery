@@ -225,7 +225,7 @@ image:screenshot_backup_view_backups.png[A screenshot that shows the List of all
 
 NetApp ransomware protection software scans your backup files to look for evidence of a ransomware attack when a backup file is created, and when data from a backup file is being restored. You can also run an on-demand ransomware protection scan at any time to verify the usability of a specific backup file. This can be useful if you have had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
 
-This feature is available only if the volume backup was created from a system with ONTAP 9.11.1 or greater, and if you enabled _DataLock and Ransomware Protection_ in the backup policy.
+This feature is available only if the volume backup was created from a system with ONTAP 9.11.1 or greater, and if you enabled _DataLock and Ransomware Protection_ in the backup policy. Note that a ransomware scan requires that the specific backup file is downloaded from cloud storage to your Cloud Manager environment. This can incur extra costs from your cloud provider.
 
 .Steps
 
