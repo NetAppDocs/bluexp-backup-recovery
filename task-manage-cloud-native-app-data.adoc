@@ -16,7 +16,7 @@ summary: View the backup details and monitor the status of all the jobs.
 
 == Monitor jobs
 
-You can monitor the status the jobs that have been initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems.
+You can monitor the status of the jobs that have been initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems.
 
 You can view a list of all the operations and their status. Each operation, or job, has a unique ID and a status. The status can be:
 

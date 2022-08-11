@@ -76,8 +76,6 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 ** Does not support backing up of Oracle database residing on recursive mount points
 ** Does not support consistency group Snapshots for Oracle databases residing on Multiple ASM disk groups with overlap of FSx volumes
 ** If your Oracle databases are configured on ASM, ensure your SVM names are unique across the FSx systems. If you have same SVM name across FSx systems, back up of Oracle databases residing on those SVMs are not supported.
-+
-To resolve this scenario, you should raise AWS support request to reboot the FSx system.
 * Restore limitations:
 ** Does not support granular restores, for example restoring of tablespaces and PDBs
 ** Supports only in-place restore of Oracle databases on NAS and SAN Layouts
