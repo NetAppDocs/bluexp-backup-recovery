@@ -279,25 +279,19 @@ If your cluster is using ONTAP 9.11.1 or greater, you can protect your backups f
 
 You can choose from the following settings for each backup policy:
 
-* None
-+
-DataLock protection and ransomware protection are disabled.
+* None. DataLock protection and ransomware protection are disabled.
 
-* Enterprise
-+
-DataLock is set to _Enterprise_ where users with specific permissions can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+* Enterprise. DataLock mode is set to _Enterprise_ where users with specific permissions can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
-* Compliance
-+
-DataLock is set to _Compliance_ where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+* Compliance. DataLock mode is set to _Compliance_ where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
-The retention period is the same as the schedule retention period. For example, _daily_ backups with _7_ copies retained will have 7 retention days for DataLock. _Monthly_ backups with _6_ copies retained will lock each backup file for 6 months.
+The retention period is the same as the schedule retention period; plus 14 days. For example, _daily_ backups with _7_ copies retained will have 7 retention days for DataLock. _Monthly_ backups with _6_ copies retained will lock each backup file for 6 months.
 
 Support is currently available when your backup destination is Amazon S3. Other storage provider destinations will be added in future releases.
 
 TIP: DataLock can't be enabled if you are tiering backups to archival storage.
 
-See link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[DataLock and Ransomware protection] for more details about how DataLock and Ransomware protection works.
+See link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[DataLock and Ransomware protection^] for more details about how DataLock and Ransomware protection works.
 
 === Archival storage for older backup files
 
@@ -344,14 +338,13 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * When creating or editing a backup policy when no volumes are assigned to the policy, the number of retained backups can be a maximum of 1018. As a workaround you can reduce the number of backups to create the policy. Then you can edit the policy to create up to 4000 backups after you assign volumes to the policy.
 
-* When backing up data protection (DP) volumes, relationships with the following SnapMirror labels won't be backed up to cloud:
-** app_consistent
-** all_source_snapshot
+* When backing up data protection (DP) volumes:
+** Relationships with the SnapMirror labels `app_consistent` and `all_source_snapshot` won't be backed up to cloud.
+** If you set a Snapshot policy with the daily, monthly, or weekly, etc. labels on the destination volume, these Snapshots will not be moved to the cloud as backup files. At this time you'll need to apply these labels to the source volume in order for Cloud Backup to back them up.
 
 * SVM-DR volume backup is supported with the following restrictions:
 ** Backups are supported from the ONTAP secondary only.
 ** The Snapshot policy applied to the volume must be one of the policies recognized by Cloud Backup, including daily, weekly, monthly, etc. The default "sm_created" policy (used for *Mirror All Snapshots*) is not recognized and the DP volume will not be shown in the list of volumes that can be backed up.
-// ** The destination cluster must at the same or later version of ONTAP software than the source cluster - the destination can't be running an older version of ONTAP.
 
 * Ad-hoc volume backup using the *Backup Now* button isn't supported on data protection volumes.
 
@@ -361,7 +354,7 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * ONTAP doesn't support fan-out of SnapMirror relationships from a single volume to multiple object stores; therefore, this configuration is not supported by Cloud Backup.
 
-* WORM/Compliance mode on an object store is not supported.
+* WORM/Compliance mode on an object store is only supported on Amazon S3 at this time.
 
 === Single File Restore limitations
 

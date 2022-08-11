@@ -28,7 +28,7 @@ Note that additional permissions are needed in the Connector role to use this fu
 
 Cloud Backup now has object lock support for ransomware-safe backups. If your cluster is using ONTAP 9.11.1 or greater, and your backup destination is Amazon S3, a new backup policy option called _DataLock and Ransomware Protection_ is now available. DataLock protects your backup files from being modified or deleted, and Ransomware protection scans your backup files to look for evidence of a ransomware attack on your backup files.
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can use DataLock and Ransomware protection to protect your backups].
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can use DataLock and Ransomware protection to protect your backups^].
 //
 //=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
 //

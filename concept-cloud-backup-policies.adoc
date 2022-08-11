@@ -45,7 +45,7 @@ Cloud Backup provides support for DataLock and Ransomware protection for your vo
 
 Both of these features protect your backup files so that you'll always have a valid backup file to recover data from in case of a ransomware attack on your source data. It's also helpful to meet certain regulatory requirements where backups need to be locked and retained for a certain period of time.
 
-When DataLock and Ransomware Protection is enabled, the cloud bucket that is provisioned as a part of Cloud Backup activation will have object locking enabled. If you plan to use DataLock and Ransomware protection for the volume backups in a working environment, you must enable it when creating your first backup policy and activating Cloud Backup for that cluster. You can't add or change DataLock and Ransomware protection settings in your backup policy later. So once you create your first policy with DataLock enabled, all backup policies that you create for that working environment must use DataLock as well.
+When DataLock and Ransomware Protection is enabled, the cloud bucket that is provisioned as a part of Cloud Backup activation will have object locking enabled. *If you plan to use DataLock and Ransomware protection for the volume backups in a working environment, you must enable it when creating your first backup policy and activating Cloud Backup for that cluster.* You can't add or change DataLock and Ransomware protection settings in your backup policy later. So once you create your first policy with DataLock enabled, all backup policies that you create for that working environment must use DataLock as well.
 
 === What is DataLock
 
@@ -80,6 +80,26 @@ You can choose to run a scan, or skip this scan.
 You can run an on-demand ransomware protection scan at any time to verify the health of a specific backup file. This can be useful if you've had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
 
 NOTE: A ransomware scan requires that the specific backup file is downloaded from cloud storage to your Cloud Manager environment. This can incur extra costs from your cloud provider.
+
+=== DataLock and Ransomware Protection settings
+
+Each backup policy provides a section for _DataLock and Ransomware Protection_ that you can apply to your backup files.
+
+image:screenshot_datalock_ransomware_settings.png[A screenshot of the DataLock and Ransomware Protection settings when creating a backup policy.]
+
+You can choose from the following settings for each backup policy:
+
+* None (Default)
++
+DataLock protection and ransomware protection are disabled.
+
+* Enterprise
++
+DataLock is set to _Enterprise_ where users with specific permissions can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+
+* Compliance
++
+DataLock is set to _Compliance_ where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
 === Supported working environments and object storage providers
 
@@ -150,7 +170,7 @@ endif::aws[]
 ** s3:GetBucketLocation
 ** s3:GetObjectVersion
 +
-The S3 permission "s3:BypassGovernanceRetention" must be added to the Cloud Manager user role if you want your Admin users to be able to overwrite/delete a backup file locked using Enterprise mode.
+The S3 permission "s3:BypassGovernanceRetention" must be added to the Cloud Manager user role if you want your Admin users to be able to overwrite/delete backup files locked using Enterprise mode.
 
 === Restrictions
 
@@ -158,23 +178,3 @@ The S3 permission "s3:BypassGovernanceRetention" must be added to the Cloud Mana
 * The DataLock option you select when activating Cloud Backup (either Enterprise or Compliance) must be used for all backup policies for that cluster. You cannot use both Enterprise and Compliance mode locking on a single cluster.
 * If you enable DataLock, all volume backups will be locked. You can't mix locked and non locked volume backups for a single cluster.
 * DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can't enable this feature after Cloud Backup has been activated.
-
-=== DataLock and Ransomware Protection settings
-
-Each backup policy provides a section for _DataLock and Ransomware Protection_ that you can apply to your backup files.
-
-image:screenshot_datalock_ransomware_settings.png[A screenshot of the DataLock and Ransomware Protection settings when creating a backup policy.]
-
-You can choose from the following settings for each backup policy:
-
-* None (Default)
-+
-DataLock protection and ransomware protection are disabled.
-
-* Enterprise
-+
-DataLock is set to _Enterprise_ where users with specific permissions can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
-
-* Compliance
-+
-DataLock is set to _Compliance_ where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
