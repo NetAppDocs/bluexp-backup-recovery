@@ -41,9 +41,9 @@ You won’t be charged from your pay-as-you-go subscription during your free tri
 There are a few PAYGO plans for Cloud Backup:
 
 *	A "Cloud Backup" package that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
-* A "CVO Professional" package that enables you to bundle Cloud Volumes ONTAP and Cloud Backup. This includes unlimited backups for Cloud Volumes ONTAP volumes charged against this license (backup capacity is not counted against the license). This option doesn’t enable you to back up on-premises ONTAP data.
+* A "CVO Professional" package that enables you to bundle Cloud Volumes ONTAP and Cloud Backup. This includes unlimited backups for the Cloud Volumes ONTAP system using the license (backup capacity is not counted against the licensed capacity). This option doesn’t enable you to back up on-premises ONTAP data.
 ifdef::azure[]
-* A "CVO Edge Cache" package has the same capabilities as the "CVO Professional" package, but it also includes support for https://docs.netapp.com/us-en/cloud-manager-file-cache/concept-gfc.html[Global File Cache]. You are entitled to deploy one Global File Cache Edge system for each 3 TiB of provisioned capacity on the Cloud Volumes ONTAP system. This option is available only through the Azure Marketplace, and it doesn’t enable you to back up on-premises ONTAP data.
+* A "CVO Edge Cache" package has the same capabilities as the "CVO Professional" package, but it also includes support for https://docs.netapp.com/us-en/cloud-manager-file-cache/concept-gfc.html[Global File Cache^]. You are entitled to deploy one Global File Cache Edge system for each 3 TiB of provisioned capacity on the Cloud Volumes ONTAP system. This option is available only through the Azure Marketplace, and it doesn’t enable you to back up on-premises ONTAP data.
 endif::azure[]
 
 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing[Learn more about these capacity-based license packages].
@@ -71,7 +71,7 @@ When using AWS, there are two annual contracts available from the https://aws.am
 +
 If you want to use this option, set up your subscription from the Marketplace page and then https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#associate-an-aws-subscription[associate the subscription with your AWS credentials^]. Note that you’ll also need to pay for your Cloud Volumes ONTAP systems using this annual contract subscription since you can assign only one active subscription to your AWS credentials in Cloud Manager.
 
-* A "CVO Professional" plan that enables you to bundle Cloud Volumes ONTAP and Cloud Backup. This includes unlimited backups for Cloud Volumes ONTAP volumes charged against this license (backup capacity is not counted against the license). This option doesn’t enable you to back up on-premises ONTAP data.
+* A "CVO Professional" plan that enables you to bundle Cloud Volumes ONTAP and Cloud Backup. This includes unlimited backups for the Cloud Volumes ONTAP system using the license (backup capacity is not counted against the licensed capacity). This option doesn’t enable you to back up on-premises ONTAP data.
 +
 See the https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing topic^] to learn more about this licensing option.
 +

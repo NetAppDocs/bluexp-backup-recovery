@@ -334,13 +334,15 @@ This operation could cause a one-time increase in cost to read the data from you
 
 === Backup limitations
 
+* During a restore operation, if the backup was created on a system running ONTAP version 9.10.1 or later, and the system where the volume is being restored is running ONTAP version 9.10.0 and earlier, then the restore fails with either system disruption or in some cases the restore is successful, but the volume is corrupted.
+
 * The ability to tier older backup files to archival storage requires that the cluster is running ONTAP 9.10.1 or greater. Restoring volumes from backup files that reside in archival storage also requires that the destination cluster is running ONTAP 9.10.1+.
 
 * When creating or editing a backup policy when no volumes are assigned to the policy, the number of retained backups can be a maximum of 1018. As a workaround you can reduce the number of backups to create the policy. Then you can edit the policy to create up to 4000 backups after you assign volumes to the policy.
 
 * When backing up data protection (DP) volumes:
 ** Relationships with the SnapMirror labels `app_consistent` and `all_source_snapshot` won't be backed up to cloud.
-** If you set a Snapshot policy with the daily, monthly, or weekly, etc. labels on the destination volume, these Snapshots will not be moved to the cloud as backup files. At this time you'll need to apply these labels to the source volume in order for Cloud Backup to back them up.
+** If you create local copies of Snapshots on the SnapMirror destination volume (irrespective of the SnapMirror labels used) these Snapshots will not be moved to the cloud as backups. At this time you’ll need to create a Snapshot policy with the desired labels to the source DP volume in order for Cloud Backup to back them up.
 
 * SVM-DR volume backup is supported with the following restrictions:
 ** Backups are supported from the ONTAP secondary only.
