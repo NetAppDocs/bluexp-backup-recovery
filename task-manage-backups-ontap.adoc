@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-manage-backups-ontap.html
 keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup
-summary: You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, enabling/disabling volume backups, deleting backups, and more.
+summary: You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, creating new backup policies, enabling/disabling volume backups, deleting backups, and more.
 ---
 
 = Managing backups for your ONTAP systems
@@ -13,7 +13,7 @@ summary: You can manage backups for your Cloud Volumes ONTAP and on-premises ONT
 :imagesdir: ./media/
 
 [.lead]
-You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, enabling/disabling volume backups, deleting backups, and more.
+You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, creating new backup policies, enabling/disabling volume backups, deleting backups, and more.
 
 CAUTION: Do not manage or change backup files directly from your cloud provider environment. This may corrupt the files and will result in an unsupported configuration.
 
@@ -25,7 +25,7 @@ You can view a list of all the volumes that are currently being backed up in the
 
 . From the Cloud Manager left navigation menu, click *Backup & Restore*.
 
-. Click the *Volumes* tab to view the list of volumes for Cloud Volumes ONTAP and on-premises ONTAP systems.
+. Click the *Volumes* tab to view the list of backed up volumes for Cloud Volumes ONTAP and on-premises ONTAP systems.
 +
 image:screenshot_backup_dashboard.png[A screenshot showing all the working environments and volumes that have backup files.]
 
@@ -57,21 +57,29 @@ image:screenshot_backup_manage_volumes_page.png[The Manage Volumes page where yo
 
 You can change the attributes for a backup policy that is currently applied to volumes in a working environment. Changing the backup policy affects all existing volumes that are using the policy.
 
+[NOTE]
+====
+* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating Cloud Backup for this cluster, any policies that you edit must be configured with the same DataLock setting (Enterprise or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating Cloud Backup, you can't enable DataLock now.
+* When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available when editing backup policies. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option when editing a policy.
+====
+
 .Steps
 
 . From the *Volumes* tab, select *Backup Settings*.
 +
 image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button from the Volumes tab.]
 
-. From the _Backup Settings_ page, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment where you want to change the settings, and select *Manage Policies*.
+. From the _Backup Settings_ page, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment where you want to change the policy settings, and select *Manage Policies*.
 +
 image:screenshot_backup_modify_policy.png[A screenshot that shows the Manage Policies option from the Backup Settings page.]
 
-. From the _Manage Policies_ page, click *Edit Policy* for the backup policy you want to change in that working environment.
+. From the _Manage Policies_ page, click *Edit* for the backup policy you want to change in that working environment.
++
+Note you can click image:button_down_caret.png[] to view the full details for the policy.
 +
 image:screenshot_backup_manage_policy_page_edit.png[A screenshot that shows the Edit Policy button from the Manage Policies page.]
 
-. From the _Edit Policy_ page, change the schedule and backup retention and click *Save*.
+. From the _Edit Policy_ page, click image:button_down_caret.png[] to expand the _Labels & Retention_ section to change the schedule and/or backup retention, and click *Save*.
 +
 image:screenshot_backup_edit_policy.png[A screenshot that shows the backup policy settings where you can modify the backup schedule and backup retention setting.]
 +
@@ -83,8 +91,8 @@ endif::aws[]
 ifdef::azure[]
 link:reference-azure-backup-tiers.html[Learn more about using Azure archival storage].
 endif::azure[]
-//+
-//image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for Cloud Backup.]
++
+image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for Cloud Backup.]
 +
 Note that any backup files that have been tiered to archival storage are left in that tier if you stop tiering backups to archive - they are not automatically moved back to the standard tier.
 
@@ -93,6 +101,12 @@ Note that any backup files that have been tiered to archival storage are left in
 When you enable Cloud Backup for a working environment, all the volumes you initially select are backed up using the default backup policy that you defined. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to other volumes.
 
 If you want to apply a new backup policy to certain volumes in a working environment, you first need to add the backup policy to the working environment. Then you can <<Changing the policy assigned to existing volumes,apply the policy to volumes in that working environment>>.
+
+[NOTE]
+====
+* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating Cloud Backup for this cluster, any additional policies you create must be configured with the same DataLock setting (Enterprise or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating Cloud Backup, you can't create new policies that use DataLock.
+* When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available for future backup policies for that cluster. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
+====
 
 .Steps
 
@@ -108,7 +122,7 @@ image:screenshot_backup_modify_policy.png[A screenshot that shows the Manage Pol
 +
 image:screenshot_backup_manage_policy_page_add.png[A screenshot that shows the Add New Policy button from the Manage Policies page.]
 
-. From the _Add New Policy_ page, define the schedule and backup retention and click *Save*.
+. From the _Add New Policy_ page, click image:button_down_caret.png[] to expand the _Labels & Retention_ section to define the schedule and backup retention, and click *Save*.
 +
 image:screenshot_backup_add_new_policy.png[A screenshot that shows the backup policy settings where you can add the backup schedule and backup retention setting.]
 +
@@ -146,6 +160,8 @@ image:screenshot_backup_manage_volumes_page_change.png[The Manage Volumes page w
 . In the _Change Policy_ page, select the policy that you want to apply to the volumes, and click *Change Policy*.
 +
 image:screenshot_backup_change_policy.png[A screenshot showing how to select a new policy to apply to selected volumes.]
++
+NOTE: If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating Cloud Backup for this cluster, you'll only see other policies that have been configured with DataLock. And if you did not enable _DataLock and Ransomware Protection_ when activating Cloud Backup, you'll only see other policies that don't have DataLock configured.
 
 . Click *Save* to commit your changes.
 
@@ -181,7 +197,9 @@ You can create an on-demand backup at any time to capture the current state of t
 
 The backup name includes the timestamp so you can identify your on-demand backup from other scheduled backups.
 
-Note that when creating an ad-hoc backup, a Snapshot is created on the source volume. Since this Snapshot is not part of a normal Snapshot schedule, it will not rotate off. You may want to manually delete this Snapshot from the source volume once the backup is complete. This will allow blocks related to this Snapshot to be freed up. The name of the Snapshot will begin with `cbs-snapshot-adhoc-`. https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html[See how to delete a Snapshot using the ONTAP CLI].
+If you enabled _DataLock and Ransomware Protection_ when activating Cloud Backup for this cluster, the on-demand backup also will be configured with DataLock, and the retention period will be 30 days. Ransomware scans are not supported for ad-hoc backups. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about DataLock and Ransomware protection^].
+
+Note that when creating an ad-hoc backup, a Snapshot is created on the source volume. Since this Snapshot is not part of a normal Snapshot schedule, it will not rotate off. You may want to manually delete this Snapshot from the source volume once the backup is complete. This will allow blocks related to this Snapshot to be freed up. The name of the Snapshot will begin with `cbs-snapshot-adhoc-`. https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html[See how to delete a Snapshot using the ONTAP CLI^].
 
 NOTE: On-demand volume backup isn't supported on data protection volumes.
 
@@ -212,6 +230,28 @@ image:screenshot_backup_view_backups_button.png[A screenshot that shows the Deta
 The list of all backup files is displayed along with details about the source volume, destination location, and backup details.
 +
 image:screenshot_backup_view_backups.png[A screenshot that shows the List of all backup files for a single volume.]
+
+== Running a ransomware scan on a volume backup
+
+NetApp ransomware protection software scans your backup files to look for evidence of a ransomware attack when a backup file is created, and when data from a backup file is being restored. You can also run an on-demand ransomware protection scan at any time to verify the usability of a specific backup file. This can be useful if you have had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
+
+This feature is available only if the volume backup was created from a system with ONTAP 9.11.1 or greater, and if you enabled _DataLock and Ransomware Protection_ in the backup policy.
+
+NOTE: A ransomware scan requires that the backup file is downloaded to your Cloud Manager environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
+
+.Steps
+
+. From the *Volumes* tab, click image:screenshot_horizontal_more_button.gif[More icon] for the source volume and select *Details & Backup List*.
++
+image:screenshot_backup_view_backups_button.png[A screenshot that shows the Details & Backup List button which is available for a single volume.]
++
+The list of all backup files is displayed.
+
+. Click image:screenshot_horizontal_more_button.gif[More icon] for the volume backup file you want to scan and click *Ransomware Scan*.
++
+image:screenshot_scan_one_backup.png[A screenshot showing how to run a ransomware scan on a single backup file.]
++
+The Ransomware Scan column will show that the scan is In Progress.
 
 == Deleting backups
 

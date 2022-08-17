@@ -1,0 +1,184 @@
+---
+sidebar: sidebar
+permalink: concept-cloud-backup-policies.html
+keywords: backing up, back up, backup, back up volumes, cloud backup, backup policies, policies
+summary: This document describes the backup policy configuration settings for Cloud Backup.
+---
+
+= Cloud Backup policy configuration settings
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This document describes the backup policy configuration settings for Cloud Backup.
+
+== Backup schedules
+
+Cloud Backup enables you to create multiple backup policies with unique schedules for each working environment. You can assign different backup policies to volumes that have different recovery point objectives (RPO).
+
+Each backup policy provides a section for _Labels & Retention_ that you can apply to your backup files.
+
+image:screenshot_backup_schedule_settings.png[A screenshot of the Backup Schedule settings when creating a backup policy.]
+
+There are two parts of the schedule; the Label and the Retention value:
+
+* The *label* defines how often a backup file is created from the volume. You can select among the following types of labels:
+
+** You can choose one, or a combination of, *hourly*, *daily*, *weekly*, *monthly*, and *yearly* timeframes.
+** You can select one of the system-defined policies that provide backups and retention for 3 months, 1 year, and 7 years.
+** If you have created custom backup protection policies on the cluster using ONTAP System Manager or the ONTAP CLI, you can select one of those policies.
+
+* The *retention* value defines how many backup files for each label (timeframe) are retained. Once the maximum number of backups have been reached in a category, or interval, older backups are removed so you always have the most current backups. This also saves you storage costs because obsolete backups don't continue to take up space in the cloud.
+
+For example, say you create a backup policy that creates 7 Weekly and 12 Monthly backups:
+
+* each week and each month a backup file is created for the volume
+* at the 8th week, the first weekly backup is replaced by the weekly backup for the 8th week (keeping a maximum of 7 weekly backups)
+* at the 13th month, the first monthly backup is replaced by the monthly backup for the 13th month (keeping a maximum of 12 monthly backups)
+
+== DataLock and Ransomware protection
+
+Cloud Backup provides support for DataLock and Ransomware protection for your volume backups. These features enable you to lock your backup files and scan them to detect possible ransomware on backup files. This is an optional setting that you can define in your backup policies when you want extra protection for your volume backups for a cluster.
+
+Both of these features protect your backup files so that you'll always have a valid backup file to recover data from in case of a ransomware attack on your source data. It's also helpful to meet certain regulatory requirements where backups need to be locked and retained for a certain period of time. When DataLock and Ransomware Protection is enabled, the cloud bucket that is provisioned as a part of Cloud Backup activation will have object locking enabled.
+
+[CAUTION]
+====
+* If you plan to use DataLock and Ransomware protection, you must enable it when creating your first backup policy and activating Cloud Backup for that cluster.
+* DataLock and Ransomware protection can't be disabled for a cluster once it has been configured. Do not enable this feature on a cluster to try it out.
+====
+
+=== What is DataLock
+
+DataLock protects your backup files from being modified or deleted for a certain period of time. This functionality uses technology from the object storage provider for "object locking". The period of time that the backup file is locked (and retained) is called the DataLock Retention Period. It is based on the backup policy schedule and retention setting that you defined; plus a 14 day buffer. Any DataLock retention policy that is less than 30 days is rounded up to 30 days minimum.
+
+Be aware that old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period.
+
+Let's look at some examples of how this works:
+
+* If you create a Monthly backup schedule with 12 retentions, your backups are locked for 12 months (plus 14 days) before they are deleted (replaced by the next backup file).
+* If you create a backup policy that creates 30 daily, 7 weekly, 12 monthly backups there will be three locked retention periods. The "30 daily" backups would be retained for 44 days (30 days plus 14 days buffer), the "7 weekly" backups would be retained for 9 weeks (7 weeks plus 14 days), and the "12 monthly" backups would be retained for 12 months (plus 14 days).
+* If you create an Hourly backup schedule with 24 retentions, you'd think that Backups are locked for 24 hours. However, since that is less than the minimum of 30 days, each backup will be locked and retained for 44 days (30 days plus 14 days buffer).
++
+You can see in this last case that if each backup file is locked for 44 days, you'll end up with many more backup files than would typically be retained with an hourly/24 retentions policy. Usually, once Cloud Backup creates the 25th backup file it would delete the oldest backup to keep the maximum retentions at 24 (based on the policy). The DataLock retention setting overrides the policy retention setting from your backup policy in this case. This could affect your storage costs as your backup files will be saved in the object store for a longer period of time.
+
+//CAUTION: Typical backup files are created using a "diff" method so that backup files remain very small as each new backup file is written per interval (weekly, monthly, etc.). When using DataLock, a complete backup file is created at each internal. This means that you'll be using much more storage space when you enable DataLock.
+
+=== What is Ransomware protection
+
+Ransomware protection scans your backup files to look for evidence of a ransomware attack. The detection of ransomware attacks is performed using checksum comparison. If potential ransomware is identified in a backup file versus the previous backup file, that newer backup file is replaced by the most recent backup file that does not show any signs of a ransomware attack. (The file that was identified as having a ransomware attack is deleted 1 day after it has been replaced.)
+
+Ransomware scans happen at 3 points in the backup and restore process:
+
+* When a backup file is created
++
+The scan is not performed on the backup file when it is first written to cloud storage, but when the next backup file is written. For example, if you have a weekly backup schedule set for Tuesday, on Tuesday the 14th a backup is created. Then on Tuesday the 21st another backup is created. The ransomware scan is run on the backup file from the 14th at this time.
+* When you attempt to restore data from a backup file
++
+You can choose to run a scan before restoring data from a backup file, or skip this scan.
+* Manually
++
+You can run an on-demand ransomware protection scan at any time to verify the health of a specific backup file. This can be useful if you've had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
+
+CAUTION: A ransomware scan requires that the backup file is downloaded to your Cloud Manager environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
+
+=== DataLock and Ransomware Protection settings
+
+Each backup policy provides a section for _DataLock and Ransomware Protection_ that you can apply to your backup files.
+
+image:screenshot_datalock_ransomware_settings.png[A screenshot of the DataLock and Ransomware Protection settings when creating a backup policy.]
+
+You can choose from the following settings for each backup policy:
+
+* None (Default)
++
+DataLock protection and ransomware protection are disabled.
+
+* Enterprise
++
+DataLock is set to _Enterprise_ where users with specific permissions (link:concept-cloud-backup-policies.html#requirements[see below]) can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+
+* Compliance
++
+DataLock is set to _Compliance_ where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+
+=== Supported working environments and object storage providers
+
+You can enable DataLock and Ransomware protection on ONTAP volumes from the following working environments when using object storage in the following public cloud providers. Additional public and private cloud providers will be added in future releases.
+
+[cols=2*,options="header",cols="45,45",width="95%"]
+|===
+
+| Source Working Environment
+| Backup File Destination
+
+ifdef::aws[]
+| Cloud Volumes ONTAP in AWS
+| Amazon S3
+endif::aws[]
+//ifdef::azure[]
+// | Cloud Volumes ONTAP in Azure
+// | Azure Blob
+//endif::azure[]
+//ifdef::gcp[]
+// | Cloud Volumes ONTAP in Google
+// | Google Cloud Storage
+//endif::gcp[]
+ifdef::aws[]
+| On-premises ONTAP system
+| Amazon S3
+endif::aws[]
+//ifdef::azure[]
+//Azure Blob
+//endif::azure[]
+//ifdef::gcp[]
+//Google Cloud Storage
+//endif::gcp[]
+//NetApp StorageGRID
+
+|===
+
+=== Requirements
+
+* Your clusters must running ONTAP 9.11.1 or greater
+* You must be using Cloud Manager 3.9.21 or greater (the Connector must deployed in the cloud at this time)
+* For backup to AWS, the following S3 permissions must be part of the IAM role that provides the Connector with permissions:
+** s3:GetObjectVersionTagging
+** s3:GetBucketObjectLockConfiguration
+** s3:GetObjectVersionAcl
+** s3:PutObjectTagging
+** s3:DeleteObject
+** s3:DeleteObjectTagging
+** s3:GetObjectRetention
+** s3:DeleteObjectVersionTagging
+** s3:PutObject
+** s3:GetObject
+** s3:PutBucketObjectLockConfiguration
+** s3:GetLifecycleConfiguration
+** s3:ListBucketByTags
+** s3:GetBucketTagging
+** s3:DeleteObjectVersion
+** s3:ListBucketVersions
+** s3:ListBucket
+** s3:PutBucketTagging
+** s3:GetObjectTagging
+** s3:PutBucketVersioning
+** s3:PutObjectVersionTagging
+** s3:GetBucketVersioning
+** s3:GetBucketAcl
+** s3:BypassGovernanceRetention
+** s3:PutObjectRetention
+** s3:GetBucketLocation
+** s3:GetObjectVersion
++
+The S3 permission "s3:BypassGovernanceRetention" must be added to the Cloud Manager user role if you want your Admin users to be able to overwrite/delete backup files locked using Enterprise mode.
+
+=== Restrictions
+
+* DataLock and Ransomware protection is not available if you have configured archival storage in the backup policy.
+* The DataLock option you select when activating Cloud Backup (either Enterprise or Compliance) must be used for all backup policies for that cluster. You cannot use both Enterprise and Compliance mode locking on a single cluster.
+* If you enable DataLock, all volume backups will be locked. You can't mix locked and non-locked volume backups for a single cluster.
+* DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can't enable this feature after Cloud Backup has been activated.
