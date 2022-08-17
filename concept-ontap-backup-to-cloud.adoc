@@ -285,7 +285,7 @@ You can choose from the following settings for each backup policy:
 
 * Compliance. DataLock mode is set to _Compliance_ where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
-The retention period is the same as the schedule retention period; plus 14 days. For example, _daily_ backups with _7_ copies retained will have 7 retention days for DataLock. _Monthly_ backups with _6_ copies retained will lock each backup file for 6 months.
+The retention period is the same as the schedule retention period; plus 14 days. For example, _weekly_ backups with _5_ copies retained will lock each backup file for 5 weeks. _Monthly_ backups with _6_ copies retained will lock each backup file for 6 months.
 
 Support is currently available when your backup destination is Amazon S3. Other storage provider destinations will be added in future releases.
 
@@ -301,6 +301,8 @@ ifdef::aws[]
 * In AWS, backups start in the _Standard_ storage class and transition to the _Standard-Infrequent Access_ storage class after 30 days.
 +
 If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
++
+Note that if you choose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available for future backup policies for that cluster. And if you select no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
 endif::aws[]
 
 ifdef::azure[]
@@ -332,9 +334,11 @@ This operation could cause a one-time increase in cost to read the data from you
 
 == Limitations
 
-=== Backup limitations
+The following is a known issue that will be fixed in a future release:
 
-* During a restore operation, if the backup was created on a system running ONTAP version 9.10.1 or later, and the system where the volume is being restored is running ONTAP version 9.10.0 and earlier, then the restore fails with either system disruption or in some cases the restore is successful, but the volume is corrupted.
+* During a restore operation, if the backup was created on a system running ONTAP version 9.10.1 or later, and the system where the volume is being restored is running ONTAP version 9.10.0 or earlier, then the restore fails with either system disruption or in some cases the restore is successful, but the volume is corrupted.
+
+=== Backup limitations
 
 * The ability to tier older backup files to archival storage requires that the cluster is running ONTAP 9.10.1 or greater. Restoring volumes from backup files that reside in archival storage also requires that the destination cluster is running ONTAP 9.10.1+.
 
