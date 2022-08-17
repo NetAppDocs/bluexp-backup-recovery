@@ -81,20 +81,38 @@ sidebar:
           url: /task-manage-backups-kubernetes.html
         - title: Restore from Kubernetes backups
           url: /task-restore-backups-kubernetes.html
-    - title: Back up and restore on-premises applications data
+    - title: Back up and restore applications data
       entries:
-        - title: Protect your on-premises applications data
-          url: /concept-protect-app-data-to-cloud.html
-        - title: Back up on-premises applications data to cloud
-          url: /task-backup-app-data-to-cloud.html
-        - title: Manage protection of applications
-          url: /task-manage-app-backups.html
-        - title: Restore applications data
+        - title: Back up and restore on-premises applications data
           entries:
-            - title: Restore Oracle database
-              url: /task-restore-oracle-data.html
-            - title: Restore SQL Server database
-              url: /task-restore-sql-data.html
+            - title: Protect your on-premises applications data
+              url: /concept-protect-app-data-to-cloud.html
+            - title: Back up on-premises applications data to cloud
+              url: /task-backup-app-data-to-cloud.html
+            - title: Manage protection of applications
+              url: /task-manage-app-backups.html
+            - title: Restore applications data
+              entries:
+                - title: Restore Oracle database
+                  url: /task-restore-oracle-data.html
+                - title: Restore SQL Server database
+                  url: /task-restore-sql-data.html
+        - title: Back up and restore cloud native applications data
+          entries:
+            - title: Protect your cloud native applications data
+              url: /concept-protect-cloud-app-data-to-cloud.html
+            - title: Prerequisites
+              url: /reference-prereq-protect-cloud-native-app-data.html
+            - title: Back up cloud native applications data
+              entries:
+                - title: Discover the applications
+                  url: /task-discover-applications.html
+                - title: Back up the cloud native application data
+                  url: /task-backup-cloud-native-app-data.html
+            - title: Manage protection of cloud native application data
+              url: /task-manage-cloud-native-app-data.html
+            - title: Restore cloud native application data
+              url: /task-restore-cloud-native-app-data.html
     - title: Back up and restore Virtual Machines data
       entries:
         - title: Protect your Virtual Machines data
@@ -175,14 +193,18 @@ homepage:
         - title: Kubernetes cluster to Google Cloud
           url: task-backup-kubernetes-to-gcp.html
           flavor: gcp
-    - title: Back up and restore on-premises applications data
+    - title: Back up and restore applications data
       links:
         - title: Back up on-premises applications data to cloud
           url: task-backup-app-data-to-cloud.html
-        - title: Restore Oracle database
+        - title: Restore Oracle database from cloud to on-premises
           url: task-restore-oracle-data.html
-        - title: Restore SQL Server database
+        - title: Restore SQL Server database from cloud to on-premises
           url: task-restore-sql-data.html
+        - title: Back up cloud native applications data
+          url: task-backup-cloud-native-app-data.html
+        - title: Restore cloud native applications data
+          url: task-restore-cloud-native-app-data.html
     - title: Back up and restore virtual machines data
       links:
         - title: Back up datastores to cloud
