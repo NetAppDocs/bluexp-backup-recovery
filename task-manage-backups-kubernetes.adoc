@@ -69,11 +69,11 @@ image:screenshot_backup_modify_policy_k8s.png[A screenshot that shows the Manage
 
 . From the _Manage Policies_ page, click *Edit Policy* for the backup policy you want to change in that working environment.
 +
-image:screenshot_backup_manage_policy_page_edit.png[A screenshot that shows the Edit Policy button from the Manage Policies page.]
+image:screenshot_backup_manage_policy_page_edit_k8s.png[A screenshot that shows the Edit Policy button from the Manage Policies page.]
 
 . From the _Edit Policy_ page, change the schedule and backup retention and click *Save*.
 +
-image:screenshot_backup_edit_policy.png[A screenshot that shows the backup policy settings where you can modify the backup schedule and backup retention setting.]
+image:screenshot_backup_edit_policy_k8s.png[A screenshot that shows the backup policy settings where you can modify the backup schedule and backup retention setting.]
 
 //== Adding a new backup policy
 //
@@ -207,7 +207,7 @@ image:screenshot_backup_view_k8s_backups_button.png[A screenshot that shows the 
 +
 The list of all backup files is displayed.
 +
-image:screenshot_backup_view_backups.png[A screenshot that shows the List of all backup files for a single volume.]
+image:screenshot_backup_view_backups_k8s.png[A screenshot that shows the List of all backup files for a single volume.]
 
 . Click *Actions* > *Delete all Backups*.
 +
@@ -227,11 +227,11 @@ image:screenshot_backup_view_k8s_backups_button.png[A screenshot that shows the 
 +
 The list of all backup files is displayed.
 +
-image:screenshot_backup_view_backups.png[A screenshot that shows the List of all backup files for a single volume.]
+image:screenshot_backup_view_backups_k8s.png[A screenshot that shows the List of all backup files for a single volume.]
 
 . Click image:screenshot_horizontal_more_button.gif[More icon] for the volume backup file you want to delete and click *Delete*.
 +
-image:screenshot_delete_one_backup.png[A screenshot showing how to delete a single backup file.]
+image:screenshot_delete_one_backup_k8s.png[A screenshot showing how to delete a single backup file.]
 
 . In the confirmation dialog box, click *Delete*.
 
