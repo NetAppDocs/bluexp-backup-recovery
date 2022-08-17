@@ -156,6 +156,8 @@ You can enable Cloud Backup at any time directly from the working environment.
 
 . Select the working environment and click *Enable* next to the Backup & Restore service in the right-panel.
 +
+If the Google Cloud Storage destination for your backups exists as a working environment on the Canvas, you can drag the cluster onto the Google Cloud Storage working environment to initiate the setup wizard.
++
 image:screenshot_backup_cvo_enable.png[A screenshot that shows the Cloud Backup Settings button which is available after you select a working environment.]
 
 . Select the Google Cloud Project and region where you want the Google Cloud Storage bucket to be created for backups, and click *Next*.
@@ -168,7 +170,7 @@ Note that the Project must have a Service Account that has the predefined Storag
 . Enter the backup policy details that will be used for your default policy and click *Next*. You can select an existing policy, or you can create a new policy by entering your selections in each section:
 
 .. Enter the name for the default policy. You don't need to change the name.
-.. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster[See the list of existing policies you can choose^].
+.. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
 +
 image:screenshot_backup_policy_gcp.png[A screenshot that shows the Cloud Backup settings where you can enable or disable the feature and then choose your backup retention.]
 

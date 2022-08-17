@@ -23,8 +23,9 @@ Backup features:
 
 * Back up independent copies of your data volumes to low-cost object storage.
 * Apply a single backup policy to all volumes in a cluster, or assign different backup policies to volumes that have unique recovery point objectives.
-* Name your backup policies so it is easy to see what each policy is used for.
-* Tier older backup files to archival storage to save costs (supported when using ONTAP 9.10.1+)
+* Make immutable backup files so they are locked for the retention period.
+* Scan backup files for possible ransomware attack - and remove/replace infected backups automatically.
+* Tier older backup files to archival storage to save costs.
 * Back up from cloud to cloud, and from on-premises systems to public or private cloud.
 * For Cloud Volumes ONTAP systems, your backups can reside on a different subscription/account or different region.
 * Backup data is secured with AES-256 bit encryption at-rest and TLS 1.2 HTTPS connections in-flight.
@@ -109,7 +110,17 @@ Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP
 
 === Support for sites with no internet connectivity
 
-Cloud Backup can be used in a site with no internet connectivity (also known as an "offline" or "dark" site) to back up volume data from local on-premises ONTAP systems to local NetApp StorageGRID systems. Both volume and file restore are also supported in this configuration. In this case, you'll need to deploy the Cloud Manager Connector (minimum version 3.9.19) in the dark site. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
+Cloud Backup can be used in a site with no internet connectivity (also known as an "offline" or "dark" site) to back up volume data from local on-premises ONTAP systems to local NetApp StorageGRID systems. Both volume and file restore are also supported in this configuration. In this case, you'll need to deploy the Cloud Manager Connector (minimum version 3.9.20) in the dark site. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
+
+== Supported volumes
+
+Cloud Backup supports the following types of volumes:
+
+* FlexVol read-write volumes
+* SnapMirror data protection (DP) destination volumes
+* SnapLock Enterprise volumes (requires ONTAP 9.11.1 or later)
+
+FlexGroup volumes and SnapLock Compliance volumes aren't currently supported.
 
 == Cost
 
@@ -117,18 +128,23 @@ There are two types of costs associated with using Cloud Backup with ONTAP syste
 
 *Resource charges*
 
-Resource charges are paid to the cloud provider for object storage capacity and for running a virtual machine/instance in the cloud.
+Resource charges are paid to the cloud provider for object storage capacity and for writing and reading backup files to the cloud.
 
 * For Backup, you pay your cloud provider for object storage costs.
 +
 Since Cloud Backup preserves the storage efficiencies of the source volume, you pay the cloud provider object storage costs for the data _after_ ONTAP efficiencies (for the smaller amount of data after deduplication and compression have been applied).
 
-* For Volume or File Restore using Search & Restore, certain resources are provisioned by your cloud provider and there is per-TiB cost associated with the amount of data that is scanned by your search requests.
+* For Volume or File Restore using Search & Restore, certain resources are provisioned by your cloud provider, and there is per-TiB cost associated with the amount of data that is scanned by your search requests.
 +
 ifdef::aws[]
 ** In AWS, https://aws.amazon.com/athena/faqs/[Amazon Athena^] and https://aws.amazon.com/glue/faqs/[AWS Glue^] resources are deployed in a new S3 bucket.
 +
 endif::aws[]
++
+ifdef::azure[]
+** In Azure, an https://azure.microsoft.com/en-us/services/synapse-analytics/?&ef_id=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&gclid=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE[Azure Synapse workspace^] and https://azure.microsoft.com/en-us/services/storage/data-lake-storage/?&ef_id=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&gclid=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE[Azure Data Lake Storage^] are provisioned in your storage account to store and analyze your data.
++
+endif::azure[]
 ifdef::gcp[]
 ** In Google, a new bucket is deployed, and the https://cloud.google.com/bigquery[Google Cloud BigQuery services^] are provisioned on an account/project level.
 endif::gcp[]
@@ -227,29 +243,7 @@ endif::gcp[]
 
 If you want to change the destination object store for a cluster in the future, you'll need to link:task-manage-backups-ontap.html#unregistering-cloud-backup-for-a-working-environment[unregister Cloud Backup for the working environment^], and then enable Cloud Backup using the new cloud provider information.
 
-=== Supported storage classes or access tiers
-
-ifdef::aws[]
-* In AWS, backups start in the _Standard_ storage class and transition to the _Standard-Infrequent Access_ storage class after 30 days.
-+
-If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
-endif::aws[]
-
-ifdef::azure[]
-* In Azure, backups are associated with the _Cool_ access tier.
-+
-If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to _Azure Archive_ storage after a certain number of days for further cost optimization. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
-endif::azure[]
-
-ifdef::gcp[]
-* In GCP, backups are associated with the _Standard_ storage class by default.
-+
-You can also use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the storage class.
-endif::gcp[]
-
-* In StorageGRID, backups are associated with the _Standard_ storage class.
-
-=== Customizable backup schedule and retention settings per cluster
+=== Customizable backup schedule and retention settings
 
 When you enable Cloud Backup for a working environment, all the volumes you initially select are backed up using the default backup policy that you define. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to the other volumes after Backup is activated.
 
@@ -279,6 +273,52 @@ Note that you can link:task-manage-backups-ontap.html#creating-a-manual-volume-b
 
 TIP: The retention period for backups of data protection volumes is the same as defined in the source SnapMirror relationship. You can change this if you want by using the API.
 
+=== Backup file protection settings
+
+If your cluster is using ONTAP 9.11.1 or greater, you can protect your backups from deletion and ransomware attacks. Each backup policy provides a section for _DataLock and Ransomware Protection_ that can be applied to your backup files for a specific period of time - the _retention period_. _DataLock_ protects your backup files from being modified or deleted. _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack when a backup file is created, and when data from a backup file is being restored.
+
+You can choose from the following settings for each backup policy:
+
+* None. DataLock protection and ransomware protection are disabled.
+
+* Enterprise. DataLock mode is set to _Enterprise_ where users with specific permissions can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+
+* Compliance. DataLock mode is set to _Compliance_ where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+
+The retention period is the same as the schedule retention period; plus 14 days. For example, _weekly_ backups with _5_ copies retained will lock each backup file for 5 weeks. _Monthly_ backups with _6_ copies retained will lock each backup file for 6 months.
+
+Support is currently available when your backup destination is Amazon S3. Other storage provider destinations will be added in future releases.
+
+TIP: DataLock can't be enabled if you are tiering backups to archival storage.
+
+See link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[DataLock and Ransomware protection^] for more details about how DataLock and Ransomware protection works.
+
+=== Archival storage for older backup files
+
+When using certain cloud storage you can move older backup files to a less expensive storage class/access tier after a certain number of days. Note that archival storage can't be used if you have enabled DataLock.
+
+ifdef::aws[]
+* In AWS, backups start in the _Standard_ storage class and transition to the _Standard-Infrequent Access_ storage class after 30 days.
++
+If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
++
+Note that if you choose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available for future backup policies for that cluster. And if you select no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
+endif::aws[]
+
+ifdef::azure[]
+* In Azure, backups are associated with the _Cool_ access tier.
++
+If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to _Azure Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
+endif::azure[]
+
+ifdef::gcp[]
+* In GCP, backups are associated with the _Standard_ storage class by default.
++
+You can also use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. You configure these other storage classes through Google. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the storage class.
+endif::gcp[]
+
+* In StorageGRID, backups are associated with the _Standard_ storage class.
+
 == FabricPool tiering policy considerations
 
 There are certain things you need to be aware of when the volume you are backing up resides on a FabricPool aggregate and it has an assigned policy other than `none`:
@@ -292,32 +332,27 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * Consider the impact of backups before assigning the `all` tiering policy to volumes. Because data is tiered immediately, Cloud Backup will read data from the cloud tier rather than from the local tier. Because concurrent backup operations share the network link to the cloud object store, performance degradation might occur if network resources become saturated. In this case, you may want to proactively configure multiple network interfaces (LIFs) to decrease this type of network saturation.
 
-== Supported volumes
-
-Cloud Backup supports the following types of volumes:
-
-* FlexVol read-write volumes
-* SnapMirror data protection (DP) destination volumes
-* SnapLock Enterprise volumes (requires ONTAP 9.11.1 or later)
-
-FlexGroup volumes and SnapLock Compliance volumes aren't currently supported.
-
 == Limitations
+
+The following is a known issue that will be fixed in a future release:
+
+* During a restore operation, if the backup was created on a system running ONTAP version 9.10.1 or later, and the system where the volume is being restored is running ONTAP version 9.10.0 or earlier, then the restore fails with either system disruption or in some cases the restore is successful, but the volume is corrupted.
+
+=== Backup limitations
 
 * The ability to tier older backup files to archival storage requires that the cluster is running ONTAP 9.10.1 or greater. Restoring volumes from backup files that reside in archival storage also requires that the destination cluster is running ONTAP 9.10.1+.
 
 * When creating or editing a backup policy when no volumes are assigned to the policy, the number of retained backups can be a maximum of 1018. As a workaround you can reduce the number of backups to create the policy. Then you can edit the policy to create up to 4000 backups after you assign volumes to the policy.
 
-* When backing up data protection (DP) volumes, relationships with the following SnapMirror labels won't be backed up to cloud:
-** app_consistent
-** all_source_snapshot
+* When backing up data protection (DP) volumes:
+** Relationships with the SnapMirror labels `app_consistent` and `all_source_snapshot` won't be backed up to cloud.
+** If you create local copies of Snapshots on the SnapMirror destination volume (irrespective of the SnapMirror labels used) these Snapshots will not be moved to the cloud as backups. At this time you’ll need to create a Snapshot policy with the desired labels to the source DP volume in order for Cloud Backup to back them up.
 
 * SVM-DR volume backup is supported with the following restrictions:
 ** Backups are supported from the ONTAP secondary only.
 ** The Snapshot policy applied to the volume must be one of the policies recognized by Cloud Backup, including daily, weekly, monthly, etc. The default "sm_created" policy (used for *Mirror All Snapshots*) is not recognized and the DP volume will not be shown in the list of volumes that can be backed up.
-// ** The destination cluster must at the same or later version of ONTAP software than the source cluster - the destination can't be running an older version of ONTAP.
 
-* Ad-hoc volume backups using the *Backup Now* button aren't supported on data protection volumes.
+* Ad-hoc volume backup using the *Backup Now* button isn't supported on data protection volumes.
 
 * SM-BC configurations are not supported.
 
@@ -325,7 +360,7 @@ FlexGroup volumes and SnapLock Compliance volumes aren't currently supported.
 
 * ONTAP doesn't support fan-out of SnapMirror relationships from a single volume to multiple object stores; therefore, this configuration is not supported by Cloud Backup.
 
-* WORM/Compliance mode on an object store is not supported.
+* WORM/Compliance mode on an object store is only supported on Amazon S3 at this time.
 
 === Single File Restore limitations
 

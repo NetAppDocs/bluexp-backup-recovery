@@ -21,6 +21,8 @@ When backup files are initially created they're stored in S3 _Standard_ storage.
 
 If your source clusters are running ONTAP 9.10.1 or greater, you can choose to tier backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days (typically more than 30 days) for further cost optimization. Data in these tiers can't be accessed immediately when needed, and will require a higher retrieval cost, so you need to consider how often you may need to restore data from these archived backup files. See the section about <<Restoring data from archival storage,restoring data from archival storage>>.
 
+If you choose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available for future backup policies for that cluster. And if you select no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
+
 Note that when you configure Cloud Backup with this type of lifecycle rule, you must not configure any lifecycle rules when setting up the bucket in your AWS account.
 
 https://aws.amazon.com/s3/storage-classes/[Learn about S3 storage classes^].

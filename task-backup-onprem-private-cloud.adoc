@@ -94,7 +94,7 @@ See how to https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-conc
 See how to https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html[configure your cluster time^].
 
 Cluster networking requirements::
-* The ONTAP cluster initiates an HTTPS connection over a user-specified port from the intercluster LIF to StorageGRID for backup and restore operations. The port is configurable during backup setup.
+* The ONTAP cluster initiates an HTTPS connection over a user-specified port from the intercluster LIF to the StorageGRID Gateway Node for backup and restore operations. The port is configurable during backup setup.
 +
 ONTAP reads and writes data to and from object storage. The object storage never initiates, it just responds.
 +
@@ -140,7 +140,7 @@ When backing up data to StorageGRID, a Connector must be available on your premi
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[Installing the Connector on a Linux host without internet access^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html[Switching between Connectors^]
 
-NOTE: Cloud Backup functionality is built into the Cloud Manager Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[Cloud Backup What's New] to see the new features in each Cloud Backup release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrading-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
+NOTE: Cloud Backup functionality is built into the Cloud Manager Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[Cloud Backup What's New] to see the new features in each Cloud Backup release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
 
 === Preparing networking for the Connector
 
@@ -150,7 +150,7 @@ Ensure that the Connector has the required networking connections.
 
 . Ensure that the network where the Connector is installed enables the following connections:
 
-* An HTTPS connection over port 443 to StorageGRID
+* An HTTPS connection over port 443 to the StorageGRID Gateway Node
 * An HTTPS connection over port 443 to your ONTAP cluster management LIF
 * An outbound internet connection over port 443 to Cloud Backup (not required when the Connector is installed in a "dark" site)
 
@@ -170,11 +170,13 @@ Enable Cloud Backup at any time directly from the on-premises working environmen
 
 . From the Canvas, select the on-premises working environment and click *Enable > Backup Volumes* next to the Backup & Restore service in the right-panel.
 +
+If the StorageGRID destination for your backups exists as a working environment on the Canvas, you can drag the cluster onto the StorageGRID working environment to initiate the setup wizard.
++
 image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup & Restore Enable button which is available after you select a working environment.]
 
 . Select *StorageGRID* as the provider, click *Next*, and then enter the provider details:
 
-.. The FQDN of the StorageGRID server and the port that ONTAP should use for HTTPS communication with StorageGRID; for example: `s3.eng.company.com:8082`
+.. The FQDN of the StorageGRID Gateway Node and the port that ONTAP should use for HTTPS communication with StorageGRID; for example: `s3.eng.company.com:8082`
 .. The Access Key and the Secret Key used to access the bucket to store backups.
 .. The IPspace in the ONTAP cluster where the volumes you want to back up reside. The intercluster LIFs for this IPspace must have outbound internet access (not required when the Connector is installed in a "dark" site).
 +
@@ -187,7 +189,7 @@ Note that you cannot change this information after the service has started.
 . Enter the backup policy details that will be used for your default policy and click *Next*. You can select an existing policy, or you can create a new policy by entering your selections in each section:
 
 .. Enter the name for the default policy. You don't need to change the name.
-.. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster[See the list of existing policies you can choose^].
+.. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
 +
 image:screenshot_backup_onprem_policy.png[A screenshot that shows the Cloud Backup settings where you can choose your backup schedule and retention period.]
 
