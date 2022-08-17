@@ -140,7 +140,7 @@ When backing up data to StorageGRID, a Connector must be available on your premi
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[Installing the Connector on a Linux host without internet access^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html[Switching between Connectors^]
 
-NOTE: Cloud Backup functionality is built into the Cloud Manager Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[Cloud Backup What's New] to see the new features in each Cloud Backup release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrading-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
+NOTE: Cloud Backup functionality is built into the Cloud Manager Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[Cloud Backup What's New] to see the new features in each Cloud Backup release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
 
 === Preparing networking for the Connector
 
@@ -170,6 +170,8 @@ Enable Cloud Backup at any time directly from the on-premises working environmen
 
 . From the Canvas, select the on-premises working environment and click *Enable > Backup Volumes* next to the Backup & Restore service in the right-panel.
 +
+If the StorageGRID destination for your backups exists as a working environment on the Canvas, you can drag the cluster onto the StorageGRID working environment to initiate the setup wizard.
++
 image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup & Restore Enable button which is available after you select a working environment.]
 
 . Select *StorageGRID* as the provider, click *Next*, and then enter the provider details:
@@ -187,7 +189,7 @@ Note that you cannot change this information after the service has started.
 . Enter the backup policy details that will be used for your default policy and click *Next*. You can select an existing policy, or you can create a new policy by entering your selections in each section:
 
 .. Enter the name for the default policy. You don't need to change the name.
-.. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster[See the list of existing policies you can choose^].
+.. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
 +
 image:screenshot_backup_onprem_policy.png[A screenshot that shows the Cloud Backup settings where you can choose your backup schedule and retention period.]
 

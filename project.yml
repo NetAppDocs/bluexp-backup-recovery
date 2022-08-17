@@ -6,6 +6,7 @@ settings:
   prod:
     pdf_enabled: true
     harmony_enabled: true
+  rss_page: "whats-new.html"
   filter:
     label: Cloud provider
     default: All cloud providers
@@ -32,7 +33,9 @@ sidebar:
         - title: Set up licensing
           url: /task-licensing-cloud-backup.html
         - title: Monitor the status of backup and restore jobs
-          url: task-monitor-backup-jobs.html
+          url: /task-monitor-backup-jobs.html
+        - title: Cloud Backup policy settings
+          url: /concept-cloud-backup-policies.html
     - title: Back up and restore ONTAP data
       entries:
         - title: Protect your ONTAP data
