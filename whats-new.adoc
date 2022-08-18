@@ -21,8 +21,8 @@ Learn what's new in Cloud Backup.
 
 === Support has been added to protect cloud native applications data
 
-Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within NetApp Cloud Manager offers efficient, application consistent, policy-based backup, and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP.
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html[Learn more].
+Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within Cloud Manager offers efficient, application consistent, policy-based backup and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP.
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html[Learn more^].
 
 == 16 August 2022
 
@@ -34,9 +34,13 @@ Note that additional permissions are needed in the Connector role to use this fu
 
 === We've added the ability to protect your backup files from deletion and ransomware attacks
 
-Cloud Backup now has object lock support for ransomware-safe backups. If your cluster is using ONTAP 9.11.1 or greater, and your backup destination is Amazon S3, a new backup policy option called _DataLock and Ransomware Protection_ is now available. DataLock protects your backup files from being modified or deleted, and Ransomware protection scans your backup files to look for evidence of a ransomware attack on your backup files.
+Cloud Backup now has object lock support for ransomware-safe backups. If your cluster is using ONTAP 9.11.1 or greater, and your backup destination is Amazon S3, a new backup policy option called _DataLock and Ransomware Protection_ is now available. DataLock protects your backup files from being modified or deleted, and Ransomware protection scans your backup files to look for evidence of a ransomware attack on your backup files. https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can use DataLock and Ransomware protection to protect your backups^].
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can use DataLock and Ransomware protection to protect your backups^].
+Note that additional permissions are needed in the Connector role to use this functionality. A Connector deployed using version 3.9.21 software includes these permissions. You'll need to manually add the permissions if you deployed the Connector using an earlier release. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html#set-up-s3-permissions[See how to add these permissions, if necessary^].
+
+=== Cloud Backup now supports policies created using custom SnapMirror labels
+
+Previously, Cloud Backup supported only pre-defined SnapMirror labels like hourly, daily, weekly, hourly, and yearly. Now Cloud Backup can discover SnapMirror policies that have custom SnapMirror labels that you created using System Manager or the CLI. These new labels are exposed in the Cloud Backup UI - allowing you to back up volumes with the SnapMirror label of your choice to the cloud.
 //
 //=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
 //
@@ -50,7 +54,7 @@ Some of the Backup Policy pages have been redesigned to make it easier to view a
 
 === Drag and drop to enable Cloud Backup to Azure Blob and Google Cloud Storage
 
-If the https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html[Azure Blob^] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html[Google Cloud Storage^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP cluster or Cloud Volumes ONTAP system (installed in Azure or GCP) onto the working environment to initiate the Backup setup wizard.
+If the https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html[Azure Blob^] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html[Google Cloud Storage^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP or Cloud Volumes ONTAP working environment (installed in Azure or GCP) onto the destination to initiate the Backup setup wizard.
 
 This functionality already exists for Amazon S3 buckets.
 
