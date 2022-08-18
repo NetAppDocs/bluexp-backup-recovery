@@ -33,7 +33,7 @@ There are two parts of the schedule; the Label and the Retention value:
 
 * The *retention* value defines how many backup files for each label (timeframe) are retained. Once the maximum number of backups have been reached in a category, or interval, older backups are removed so you always have the most current backups. This also saves you storage costs because obsolete backups don't continue to take up space in the cloud.
 
-For example, say you create a backup policy that creates 7 Weekly and 12 Monthly backups:
+For example, say you create a backup policy that creates 7 *weekly* and 12 *monthly* backups:
 
 * each week and each month a backup file is created for the volume
 * at the 8th week, the first weekly backup is replaced by the weekly backup for the 8th week (keeping a maximum of 7 weekly backups)
@@ -43,7 +43,7 @@ For example, say you create a backup policy that creates 7 Weekly and 12 Monthly
 
 Cloud Backup provides support for DataLock and Ransomware protection for your volume backups. These features enable you to lock your backup files and scan them to detect possible ransomware on backup files. This is an optional setting that you can define in your backup policies when you want extra protection for your volume backups for a cluster.
 
-Both of these features protect your backup files so that you'll always have a valid backup file to recover data from in case of a ransomware attack on your source data. It's also helpful to meet certain regulatory requirements where backups need to be locked and retained for a certain period of time. When DataLock and Ransomware Protection is enabled, the cloud bucket that is provisioned as a part of Cloud Backup activation will have object locking enabled.
+Both of these features protect your backup files so that you'll always have a valid backup file to recover data from in case of a ransomware attack on your source data. It's also helpful to meet certain regulatory requirements where backups need to be locked and retained for a certain period of time. When DataLock and Ransomware Protection is enabled, the cloud bucket that is provisioned as a part of Cloud Backup activation will have object locking and object versioning enabled.
 
 [CAUTION]
 ====
