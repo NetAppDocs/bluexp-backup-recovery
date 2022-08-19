@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: concept-cloud-backup-policies.html
-keywords: backing up, back up, backup, back up volumes, cloud backup, backup policies, policies
+keywords: backing up, back up, backup, back up volumes, cloud backup, backup policies, policies, schedules
 summary: This document describes the backup policy configuration settings for Cloud Backup.
 ---
 
@@ -182,3 +182,37 @@ The S3 permission "s3:BypassGovernanceRetention" must be added to the Cloud Mana
 * The DataLock option you select when activating Cloud Backup (either Enterprise or Compliance) must be used for all backup policies for that cluster. You cannot use both Enterprise and Compliance mode locking on a single cluster.
 * If you enable DataLock, all volume backups will be locked. You can't mix locked and non-locked volume backups for a single cluster.
 * DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can't enable this feature after Cloud Backup has been activated.
+
+== Archival storage settings
+
+When using certain cloud storage you can move older backup files to a less expensive storage class/access tier after a certain number of days. Note that archival storage can't be used if you have enabled DataLock.
+
+Data in archival tiers can’t be accessed immediately when needed, and will require a higher retrieval cost, so you need to consider how often you may need to restore data from archived backup files. 
+
+When creating backup files in AWS or Azure, each backup policy provides a section for _Archival Policy_ that you can apply to your backup files.
+
+image:screenshot_archive_tier_settings.png[A screenshot of the Archival Policy settings when creating a backup policy.]
+
+ifdef::aws[]
+* In AWS, backups start in the _Standard_ storage class and transition to the _Standard-Infrequent Access_ storage class after 30 days.
++
+If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
++
+Note that if you choose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available for future backup policies for that cluster. And if you select no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
+endif::aws[]
+
+ifdef::azure[]
+* In Azure, backups are associated with the _Cool_ access tier.
++
+If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to _Azure Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
+endif::azure[]
+
+ifdef::gcp[]
+* In GCP, backups are associated with the _Standard_ storage class by default.
++
+You can use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. However, you configure these other storage classes through Google, not through the Cloud Backup UI. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the default storage class for a Google Cloud Storage bucket.
+endif::gcp[]
+
+* In StorageGRID, backups are associated with the _Standard_ storage class.
++
+There is no archival tier available at this time.
