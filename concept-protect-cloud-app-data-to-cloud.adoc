@@ -48,7 +48,7 @@ The Connector can be deployed in the same VPC as that of the Oracle databases, o
 * Applications: Oracle Standard and Oracle Enterprise – Standalone (legacy and multitenant – CDB and PDB)
 * Oracle versions: 12cR2, 18c, and 19c
 
-== Supported functionalities
+== Features
 
 * Auto-discovery of Oracle databases
 * Backing up Oracle databases residing on Amazon FSx for NetApp ONTAP
