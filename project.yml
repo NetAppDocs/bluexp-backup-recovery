@@ -34,8 +34,6 @@ sidebar:
           url: /task-licensing-cloud-backup.html
         - title: Monitor the status of backup and restore jobs
           url: /task-monitor-backup-jobs.html
-        - title: Cloud Backup policy settings
-          url: /concept-cloud-backup-policies.html
     - title: Back up and restore ONTAP data
       entries:
         - title: Protect your ONTAP data
@@ -127,6 +125,8 @@ sidebar:
       url: /api-backup-restore.html
     - title: Reference
       entries:
+        - title: Cloud Backup policy settings
+          url: /concept-cloud-backup-policies.html
         - title: Supported AWS archive storage tiers
           url: /reference-aws-backup-tiers.html
         - title: Supported Azure archive access tiers
