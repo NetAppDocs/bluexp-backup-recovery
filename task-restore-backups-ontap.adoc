@@ -381,6 +381,8 @@ ifdef::azure[]
 ** Specific Azure Synapse Workspace and Data Lake Storage Account permissions must be added to the user role that provides Cloud Manager with permissions. link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector[Make sure all the permissions are configured correctly].
 +
 Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add the Azure Synapse Workspace and Data Lake Storage Account permissions to the Cloud Manager user role now. These are new, and they are required for Search & Restore.
+
+** The Connector must be configured *without* a proxy server for HTTP communication to the internet. If you have configured an HTTP proxy server for your Connector, you can't use Search & Replace functionality.
 endif::azure[]
 
 ifdef::gcp[]
