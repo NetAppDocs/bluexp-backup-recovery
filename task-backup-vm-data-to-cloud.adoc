@@ -41,6 +41,19 @@ You should ensure that the port is open for communication to happen between Snap
 
 Click *Backup & Restore > Virtual Machines* to view all the datastores and virtual machines that are eligible for protection using the registered SnapCenter Plug-in for VMware vSphere.
 
+== Create policy
+You should create policies if you do not want to edit the pre-canned policies.
+
+*Steps*
+
+. In the Virtual machines page, from the Settings drop-down list, select *Policies*.
+. Click *Create policy*.
+. Specify a policy name.
+. Specify the schedule and retention details.
++
+By default, the backup source will selected as primary.
+. Click *Create*.
+
 == Back up datastores
 
 You can back up one or more datastores simultaneously to the cloud using a single policy. Only the default policies can be assigned to the datastore.

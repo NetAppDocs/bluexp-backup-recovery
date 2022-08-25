@@ -15,20 +15,6 @@ summary: You can view the datastores and virtual machines and edit the SnapCente
 [.lead]
 You can view policies, datastores, and virtual machines before you back up and restore data. Depending upon the change in database, policies, or resource groups, you can refresh the updates from the Cloud Manager UI.
 
-== Create policy
-You can create policies if you do not want to edit the pre-canned policies.
-
-*Steps*
-
-. In the Virtual machines page, from the Settings drop-down list, select *Policies*.
-. Click *Create policy*.
-. Specify a policy name.
-. Specify the schedule and retention details.
-+
-By default, the backup source will selected as primary.
-. Click *Create*.
-
-
 == View policies
 You can view all the default pre-canned policies. For each of these policies, when you view the details, all the associated Cloud Backup for Virtual Machines policies and all the associated virtual machines are listed.
 
