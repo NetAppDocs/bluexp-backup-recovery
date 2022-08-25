@@ -39,9 +39,7 @@ image:cloud_backup_vm.png[The architecture diagram of cloud backup for virtual m
 
 == Protection Policies
 
-You should use the one of the policies defined in the Cloud Backup for virtual machines to back up  datastores to cloud.
-
-You can link:task-manage-vm-data-in-cloud.html#create-policy[create a policy] or use one of the following default policies that are available in Cloud Manager.
+You can link:task-backup-vm-data-to-cloud.html#create-policy[create a policy] or use one of the following predefined policies that are available in Cloud Manager.
 
 |===
 | Policy Name | Label | Retention Value
