@@ -36,7 +36,7 @@ When making API calls, you’ll add the user token in the Authorization header, 
 
 . Obtain a user token from NetApp Cloud Central.
 +
-Make sure to generate the refresh token from the following link: https://services.cloud.netapp.com/refresh-token/. The refresh token is an alpha-numeric string that you'll use to generate a user token.
+Make sure you generate the refresh token from the following link: https://services.cloud.netapp.com/refresh-token/. The refresh token is an alpha-numeric string that you'll use to generate a user token.
 +
 [source,http]
 curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token?=' \
@@ -46,6 +46,9 @@ curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/tok
     "refresh_token": "JxaVHn9cGkX92aPVCkhat3zxxxxxwsC9qMl_pLHkZtsVA",
     "client_id": "Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC"
 }'
+
++
+NOTE: The user token from NetApp Cloud Central has an expiration date. The API response includes an "expires_in" field that states when the token expires. To refresh the token, you'll need to call this API again. 
 
 . Obtain your NetApp Cloud Central account ID.
 +
@@ -164,13 +167,6 @@ curl --location --request GET 'https://cloudmanager.cloud.netapp.com/account/acc
         }
     ]
 }
-
-.What should I do when the token expires?
-****
-The user token from NetApp Cloud Central has an expiration date. To refresh the token, you need to call the API from step 1 again.
-
-The API response includes an "expires_in" field that states when the token expires.
-****
 
 == API reference
 
