@@ -196,7 +196,7 @@ Note that a 30-day free trial is available when you initially sign up with a PAY
 ifdef::aws[]
 When using AWS, two annual contracts are available for 12, 24, or 36 month terms:
 
-*	A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
+* A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
 
 * A "CVO Professional" plan that enables you to bundle Cloud Volumes ONTAP and Cloud Backup. This includes unlimited backups for Cloud Volumes ONTAP volumes charged against this license (backup capacity is not counted against the license).
 endif::aws[]

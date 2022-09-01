@@ -55,7 +55,7 @@ Both of these features protect your backup files so that you'll always have a va
 
 DataLock protects your backup files from being modified or deleted for a certain period of time. This functionality uses technology from the object storage provider for "object locking". The period of time that the backup file is locked (and retained) is called the DataLock Retention Period. It is based on the backup policy schedule and retention setting that you defined; plus a 14 day buffer. Any DataLock retention policy that is less than 30 days is rounded up to 30 days minimum.
 
-Be aware that old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period.
+Be aware that old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period expires.
 
 Let's look at some examples of how this works:
 
@@ -97,7 +97,7 @@ You can choose from the following settings for each backup policy:
 +
 DataLock protection and ransomware protection are disabled.
 
-* Enterprise
+* Enterprise (Not available with StorageGRID)
 +
 DataLock is set to _Enterprise_ where users with specific permissions (link:concept-cloud-backup-policies.html#requirements[see below]) can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
@@ -105,9 +105,11 @@ DataLock is set to _Enterprise_ where users with specific permissions (link:conc
 +
 DataLock is set to _Compliance_ where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
+NOTE: The StorageGRID S3 Object Lock feature provides a single DataLock mode that is equivalent to Compliance mode. An equivalent Enterprise mode is not supported, so no users have the capability to bypass retention settings, overwrite protected backups, or delete backups.
+
 === Supported working environments and object storage providers
 
-You can enable DataLock and Ransomware protection on ONTAP volumes from the following working environments when using object storage in the following public cloud providers. Additional public and private cloud providers will be added in future releases.
+You can enable DataLock and Ransomware protection on ONTAP volumes from the following working environments when using object storage in the following public and private cloud providers. Additional cloud providers will be added in future releases.
 
 [cols=2*,options="header",cols="45,45",width="95%"]
 |===
@@ -127,9 +129,10 @@ endif::aws[]
 // | Cloud Volumes ONTAP in Google
 // | Google Cloud Storage
 //endif::gcp[]
-ifdef::aws[]
 | On-premises ONTAP system
-| Amazon S3
+| 
+ifdef::aws[]
+Amazon S3
 endif::aws[]
 //ifdef::azure[]
 //Azure Blob
@@ -137,15 +140,19 @@ endif::aws[]
 //ifdef::gcp[]
 //Google Cloud Storage
 //endif::gcp[]
-//NetApp StorageGRID
+NetApp StorageGRID
 
 |===
 
 === Requirements
 
 * Your clusters must running ONTAP 9.11.1 or greater
-* You must be using Cloud Manager 3.9.21 or greater (the Connector must deployed in the cloud at this time)
-* For backup to AWS, the following S3 permissions must be part of the IAM role that provides the Connector with permissions. They reside in the "backupS3Policy" section for the resource "arn:aws:s3:::netapp-backup-*":
+* You must be using Cloud Manager 3.9.21 or greater
+ifdef::aws[]
+* For AWS, the Connector must deployed in the cloud
+endif::aws[]
+* For StorageGRID, the Connector must be deployed on your premises
+* For backup to AWS and StorageGRID, the following S3 permissions must be part of the IAM role that provides the Connector with permissions. They reside in the "backupS3Policy" section for the resource "arn:aws:s3:::netapp-backup-*":
 ** s3:GetObjectVersionTagging
 ** s3:GetBucketObjectLockConfiguration
 ** s3:GetObjectVersionAcl
@@ -174,7 +181,7 @@ endif::aws[]
 ** s3:GetBucketLocation
 ** s3:GetObjectVersion
 +
-The S3 permission "s3:BypassGovernanceRetention" must be added to the Cloud Manager user role if you want your Admin users to be able to overwrite/delete backup files locked using Enterprise mode.
+"s3:BypassGovernanceRetention" must be added only if you want your Admin users to be able to overwrite/delete backup files locked using Enterprise mode. This permission is not valid with StorageGRID.
 +
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[View the full JSON format for the policy where you can copy and paste required permissions^].
 
