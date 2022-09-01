@@ -145,7 +145,7 @@ endif::aws[]
 
 * Your clusters must running ONTAP 9.11.1 or greater
 * You must be using Cloud Manager 3.9.21 or greater (the Connector must deployed in the cloud at this time)
-* For backup to AWS, the following S3 permissions must be part of the IAM role that provides the Connector with permissions:
+* For backup to AWS, the following S3 permissions must be part of the IAM role that provides the Connector with permissions. They reside in the "backupS3Policy" section for the resource "arn:aws:s3:::netapp-backup-*":
 ** s3:GetObjectVersionTagging
 ** s3:GetBucketObjectLockConfiguration
 ** s3:GetObjectVersionAcl
@@ -175,6 +175,8 @@ endif::aws[]
 ** s3:GetObjectVersion
 +
 The S3 permission "s3:BypassGovernanceRetention" must be added to the Cloud Manager user role if you want your Admin users to be able to overwrite/delete backup files locked using Enterprise mode.
++
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[View the full JSON format for the policy where you can copy and paste required permissions^].
 
 === Restrictions
 
