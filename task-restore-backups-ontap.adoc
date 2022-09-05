@@ -75,7 +75,7 @@ See the requirements and restore steps for the type of restore operation you wan
 
 Before you start restoring a volume, folder, or file, you should know the name of the volume from which you want to restore, the name of the working environment where the volume resides, and the approximate date of the backup file that you want to restore from.
 
-*Note:* If the backup file for the volume that you want to restore resides in archival storage (starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur a cost. Additionally, the destination cluster must also be running ONTAP 9.10.1 or greater.
+*Note:* If the backup file for the volume that you want to restore resides in archival storage (starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur a cost. Additionally, the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, and 9.11.1 for folder or file restore.
 
 ifdef::aws[]
 link:reference-aws-backup-tiers.html[Learn more about restoring from AWS archival storage].
@@ -366,10 +366,9 @@ endif::gcp[]
 
 |===
 
-The Connector must be deployed in your cloud provider environment for restore operations using Search & Restore.
+//The Connector must be deployed in your cloud provider environment for restore operations using Search & Restore.
+TIP: For Search & Restore, the Connector can be deployed in your cloud provider or in your premises when restoring backups from Amazon S3 or Azure Blob. The Connector must be deployed in the cloud when restoring backups from Google Cloud Storage.
 
-//TIP: For Search & Restore, the Connector can be deployed in your cloud provider or in your premises when restoring backups from Amazon S3 or Azure Blob. The Connector must be deployed in the cloud when restoring backups from Google Cloud Storage.
-//
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
 === Prerequisites

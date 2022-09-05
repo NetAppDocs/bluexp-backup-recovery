@@ -114,7 +114,7 @@ StorageGRID must meet the following requirements. See the https://docs.netapp.co
 
 Supported StorageGRID versions::
 StorageGRID 10.3 and later is supported.
-
++
 To use DataLock & Ransomware Protection for your backups, your StorageGRID systems must be running version 11.6.0.3 or greater.
 
 S3 credentials::

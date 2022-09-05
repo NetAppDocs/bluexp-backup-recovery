@@ -97,15 +97,15 @@ You can choose from the following settings for each backup policy:
 +
 DataLock protection and ransomware protection are disabled.
 
-* Enterprise (Not available with StorageGRID)
+* Governance (Not available with StorageGRID)
 +
-DataLock is set to _Enterprise_ where users with specific permissions (link:concept-cloud-backup-policies.html#requirements[see below]) can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+DataLock is set to _Governance_ mode where users with specific permissions (link:concept-cloud-backup-policies.html#requirements[see below]) can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
 * Compliance
 +
-DataLock is set to _Compliance_ where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+DataLock is set to _Compliance_ mode where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
-NOTE: The StorageGRID S3 Object Lock feature provides a single DataLock mode that is equivalent to Compliance mode. An equivalent Enterprise mode is not supported, so no users have the capability to bypass retention settings, overwrite protected backups, or delete backups.
+NOTE: The StorageGRID S3 Object Lock feature provides a single DataLock mode that is equivalent to Compliance mode. An equivalent Governance mode is not supported, so no users have the capability to bypass retention settings, overwrite protected backups, or delete backups.
 
 === Supported working environments and object storage providers
 
@@ -151,7 +151,9 @@ NetApp StorageGRID
 ifdef::aws[]
 * For AWS, the Connector must deployed in the cloud
 endif::aws[]
-* For StorageGRID, the Connector must be deployed on your premises
+* For StorageGRID:
+** The Connector must be deployed on your premises (it can be installed in a site with or without internet access)
+** StorageGRID 11.6.0.3 and greater is required for full support of DataLock capabilities
 * For backup to AWS and StorageGRID, the following S3 permissions must be part of the IAM role that provides the Connector with permissions. They reside in the "backupS3Policy" section for the resource "arn:aws:s3:::netapp-backup-*":
 ** s3:GetObjectVersionTagging
 ** s3:GetBucketObjectLockConfiguration
@@ -181,14 +183,14 @@ endif::aws[]
 ** s3:GetBucketLocation
 ** s3:GetObjectVersion
 +
-"s3:BypassGovernanceRetention" must be added only if you want your Admin users to be able to overwrite/delete backup files locked using Enterprise mode. This permission is not valid with StorageGRID.
+"s3:BypassGovernanceRetention" must be added only if you want your Admin users to be able to overwrite/delete backup files locked using Governance mode. This permission is not valid with StorageGRID.
 +
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[View the full JSON format for the policy where you can copy and paste required permissions^].
 
 === Restrictions
 
 * DataLock and Ransomware protection is not available if you have configured archival storage in the backup policy.
-* The DataLock option you select when activating Cloud Backup (either Enterprise or Compliance) must be used for all backup policies for that cluster. You cannot use both Enterprise and Compliance mode locking on a single cluster.
+* The DataLock option you select when activating Cloud Backup (either Governance or Compliance) must be used for all backup policies for that cluster. You cannot use both Governance and Compliance mode locking on a single cluster.
 * If you enable DataLock, all volume backups will be locked. You can't mix locked and non-locked volume backups for a single cluster.
 * DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can't enable this feature after Cloud Backup has been activated.
 

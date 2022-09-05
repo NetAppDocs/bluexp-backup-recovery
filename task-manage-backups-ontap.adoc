@@ -59,7 +59,7 @@ You can change the attributes for a backup policy that is currently applied to v
 
 [NOTE]
 ====
-* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating Cloud Backup for this cluster, any policies that you edit must be configured with the same DataLock setting (Enterprise or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating Cloud Backup, you can't enable DataLock now.
+* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating Cloud Backup for this cluster, any policies that you edit must be configured with the same DataLock setting (Governance or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating Cloud Backup, you can't enable DataLock now.
 * When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available when editing backup policies. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option when editing a policy.
 ====
 
@@ -104,7 +104,7 @@ If you want to apply a new backup policy to certain volumes in a working environ
 
 [NOTE]
 ====
-* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating Cloud Backup for this cluster, any additional policies you create must be configured with the same DataLock setting (Enterprise or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating Cloud Backup, you can't create new policies that use DataLock.
+* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating Cloud Backup for this cluster, any additional policies you create must be configured with the same DataLock setting (Governance or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating Cloud Backup, you can't create new policies that use DataLock.
 * When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available for future backup policies for that cluster. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
 ====
 
