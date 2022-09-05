@@ -62,6 +62,7 @@ You can back up one or more datastores simultaneously to the cloud using a singl
 
 . In Cloud Manager UI, click *Backup & Restore* > *Virtual Machines*.
 . Click image:icon-action.png[action] corresponding to the datastore that you want to back up and click *Activate Backup*.
+. In the Assign Policy page, select the policy and click *Next*.
 . Add the working environment.
 +
 Configure the ONTAP clusters that you want Cloud Manager to discover to back up your datastores. After adding the working environment for one of the datastores, it can be reused for all the other datastores residing on the same ONTAP cluster.
@@ -92,8 +93,14 @@ Configure the ONTAP clusters that you want Cloud Manager to discover to back up 
 .. Create a new resource group or use an existing resource group.
 .. Specify the IP addresses of the ONTAP clusters that were added as the working environments.
 --
+
+.Configure StorageGRID
+--
+.. Specify the Storage Server.
+.. Select the access key and secret key.
+.. Specify the IP addresses of the ONTAP clusters that were added as the working environments.
+--
 ====
 
-[start=5]
-. In the Assign Policy page, select the policy and click *Next*.
+[start=6]
 . Review the details and click *Activate Backup*.
