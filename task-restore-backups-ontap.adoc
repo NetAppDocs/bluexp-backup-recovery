@@ -94,7 +94,7 @@ You can restore a volume, folder, or individual files, from an ONTAP backup file
 | Backup File Location
 2+^| Destination Working Environment
 
-| | *Volume Restore* | *File Restore*
+| | *Volume Restore* | *Folder and File Restore*
 ifdef::aws[]
 | Amazon S3 | Cloud Volumes ONTAP in AWS
 On-premises ONTAP system
@@ -304,7 +304,7 @@ You have a few options for the location when restoring folders and file(s).
 ** You can hover over a folder and click image:button_subfolder.png[] at the end of the row to drill down into subfolders, and then select a folder.
 
 +
-* If you have selected the same destination Working Environment and Volume as where the source folder/file was located, you can select *Maintain Source Folder Path* to restore the folder, or file(s), to the same folder where they existed in the source structure. All the same folders and sub-folders must already exist; folders are not created.
+* If you have selected the same destination Working Environment and Volume as where the source folder/file was located, you can select *Maintain Source Folder Path* to restore the folder, or file(s), to the same folder where they existed in the source structure. All the same folders and sub-folders must already exist; folders are not created. When restoring files to their original location, you can choose to overwrite the source file(s) or to create new file(s).
 
 . Click *Restore* and you are returned to the Restore Dashboard so you can review the progress of the restore operation. You can also click the *Job Monitoring* tab to see the restore progress.
 
@@ -337,7 +337,7 @@ video::RZktLe32hhQ[youtube, width=848, height=480]
 
 You can restore a volume, folder, or individual files, from an ONTAP backup file to the following working environments:
 
-[cols=2*,options="header",cols="30,45",width="80%"]
+[cols=2*,options="header",cols="35,45",width="80%"]
 |===
 
 | Backup File Location
@@ -359,8 +359,8 @@ endif::gcp[]
 
 |===
 
-//The Connector must be deployed in your cloud provider environment for restore operations using Search & Restore.
-TIP: For Search & Restore, the Connector can be deployed in your cloud provider or in your premises when restoring backups from Amazon S3 or Azure Blob. The Connector must be deployed in the cloud when restoring backups from Google Cloud Storage.
+The Connector must be deployed in your cloud provider environment for restore operations using Search & Restore.
+//TIP: For Search & Restore, the Connector can be deployed in your cloud provider or in your premises when restoring backups from Amazon S3 or Azure Blob. The Connector must be deployed in the cloud when restoring backups from Google Cloud Storage.
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
@@ -487,9 +487,9 @@ Note that the results also identify local volume Snapshot copies that contain th
 +
 * For volumes, you can select the original destination working environment or you can select an alternate working environment.
 * For folders, you can restore to the original location or you can select an alternate location; including the working environment, volume, and folder.
-* For files, you can restore to the original location or you can select an alternate location; including the working environment, volume, and folder.
+* For files, you can restore to the original location or you can select an alternate location; including the working environment, volume, and folder. When selecting the original location, you can choose to overwrite the source file(s) or to create new file(s).
 +
-. If you select an on-premises ONTAP system and you haven't already configured the cluster connection to the object storage, you are prompted for additional information:
+If you select an on-premises ONTAP system and you haven't already configured the cluster connection to the object storage, you are prompted for additional information:
 +
 ifdef::aws[]
 * When restoring from Amazon S3, select the IPspace in the ONTAP cluster where the destination volume will reside, enter the access key and secret key for the user you created to give the ONTAP cluster access to the S3 bucket, and optionally choose a private VPC endpoint for secure data transfer.
