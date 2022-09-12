@@ -68,7 +68,7 @@ The following image shows each component and the connections that you need to pr
 image:diagram_cloud_backup_cvo_azure.png[A diagram showing how Cloud Backup communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
 Supported ONTAP versions::
-Minimum of ONTAP 9.7P5; ONTAP 9.8P11 and later is recommended.
+Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
 
 License requirements::
 For Cloud Backup PAYGO licensing, a subscription through the Azure Marketplace is required before you enable Cloud Backup. Billing for Cloud Backup is done through this subscription. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html[You can subscribe from the Details & Credentials page of the working environment wizard^].

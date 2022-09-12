@@ -150,11 +150,7 @@ NetApp StorageGRID
 * You must be using Cloud Manager 3.9.21 or greater
 ifdef::aws[]
 * For AWS, the Connector must deployed in the cloud
-endif::aws[]
-* For StorageGRID:
-** The Connector must be deployed on your premises (it can be installed in a site with or without internet access)
-** StorageGRID 11.6.0.3 and greater is required for full support of DataLock capabilities
-* For backup to AWS and StorageGRID, the following S3 permissions must be part of the IAM role that provides the Connector with permissions. They reside in the "backupS3Policy" section for the resource "arn:aws:s3:::netapp-backup-*":
+* The following S3 permissions must be part of the IAM role that provides the Connector with permissions. They reside in the "backupS3Policy" section for the resource "arn:aws:s3:::netapp-backup-*":
 ** s3:GetObjectVersionTagging
 ** s3:GetBucketObjectLockConfiguration
 ** s3:GetObjectVersionAcl
@@ -183,9 +179,14 @@ endif::aws[]
 ** s3:GetBucketLocation
 ** s3:GetObjectVersion
 +
-"s3:BypassGovernanceRetention" must be added only if you want your Admin users to be able to overwrite/delete backup files locked using Governance mode. This permission is not valid with StorageGRID.
+"s3:BypassGovernanceRetention" must be added only if you want your Admin users to be able to overwrite/delete backup files locked using Governance mode.
 +
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[View the full JSON format for the policy where you can copy and paste required permissions^].
+endif::aws[]
+* For StorageGRID:
+** The Connector must be deployed on your premises (it can be installed in a site with or without internet access)
+** StorageGRID 11.6.0.3 and greater is required for full support of DataLock capabilities
+** You must have created a tenant account to control access to your StorageGRID storage. https://docs.netapp.com/us-en/storagegrid-116/admin/creating-tenant-account.html[See the StorageGRID docs for details^].
 
 === Restrictions
 
