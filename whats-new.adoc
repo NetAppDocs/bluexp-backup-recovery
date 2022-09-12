@@ -35,11 +35,11 @@ In the past you could only restore volumes from backup files that had been moved
 
 === File-level restore now provides the option to overwrite the original source file
 
-In the past, a file restored to the original volume was always restored as a new file with the prefix "Restore_<file_name>". Now you can choose to overwrite the original source file when restoring the file to the original location on the volume.
+In the past, a file restored to the original volume was always restored as a new file with the prefix "Restore_<file_name>". Now you can choose to overwrite the original source file when restoring the file to the original location on the volume. This functionality is available for restore operations using both the Browse & Restore method and the Search & Restore method.
 
-=== AWS cross-account backup 
+=== AWS cross-account backup enhancements
 
-sdfsdf
+If you want to use a different AWS account for your Cloud Volumes ONTAP backups than you're using for the source volumes, you must add the destination AWS account credentials in Cloud Manager, and you must add the permission "s3:PutBucketPolicy" to the IAM role that provides Cloud Manager with permissions. In the past you needed to configure many settings in the AWS Console - you don't need to do that anymore. 
 
 === Drag and drop to enable Cloud Backup to StorageGRID systems
 

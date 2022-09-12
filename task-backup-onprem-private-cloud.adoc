@@ -45,7 +45,7 @@ image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup & R
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Enter the StorageGRID details
 
 [role="quick-margin-para"]
-Select StorageGRID as the provider, and then enter the StorageGRID server and service account details. You also need to specify the IPspace in the ONTAP cluster where the volumes reside.
+Select StorageGRID as the provider, and then enter the StorageGRID server and S3 tenant account details. You also need to specify the IPspace in the ONTAP cluster where the volumes reside.
 
 [role="quick-margin-para"]
 image:screenshot_backup_provider_settings_storagegrid.png[A screenshot that shows the cloud provider details when backing up volumes from an ONTAP cluster to StorageGRID.]
@@ -115,10 +115,12 @@ StorageGRID must meet the following requirements. See the https://docs.netapp.co
 Supported StorageGRID versions::
 StorageGRID 10.3 and later is supported.
 +
-To use DataLock & Ransomware Protection for your backups, your StorageGRID systems must be running version 11.6.0.3 or greater. Additionally, you must have created a tenant account to control access to your StorageGRID storage. https://docs.netapp.com/us-en/storagegrid-116/admin/creating-tenant-account.html[See the StorageGRID docs for details^].
+To use DataLock & Ransomware Protection for your backups, your StorageGRID systems must be running version 11.6.0.3 or greater. 
 
 S3 credentials::
-When you set up backup to StorageGRID, the backup wizard prompts you for an S3 access key and secret key for a service account. A service account enables Cloud Backup to authenticate and access the StorageGRID buckets used to store backups. The keys are required so that StorageGRID knows who is making the request.
+You must have created an S3 tenant account to control access to your StorageGRID storage. https://docs.netapp.com/us-en/storagegrid-116/admin/creating-tenant-account.html[See the StorageGRID docs for details^].
++
+When you set up backup to StorageGRID, the backup wizard prompts you for an S3 access key and secret key for a tenant account. The tenant account enables Cloud Backup to authenticate and access the StorageGRID buckets used to store backups. The keys are required so that StorageGRID knows who is making the request.
 +
 These access keys must be associated with a user who has the following permissions:
 +

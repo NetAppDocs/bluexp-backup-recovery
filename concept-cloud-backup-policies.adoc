@@ -186,7 +186,6 @@ endif::aws[]
 * For StorageGRID:
 ** The Connector must be deployed on your premises (it can be installed in a site with or without internet access)
 ** StorageGRID 11.6.0.3 and greater is required for full support of DataLock capabilities
-** You must have created a tenant account to control access to your StorageGRID storage. https://docs.netapp.com/us-en/storagegrid-116/admin/creating-tenant-account.html[See the StorageGRID docs for details^].
 
 === Restrictions
 
