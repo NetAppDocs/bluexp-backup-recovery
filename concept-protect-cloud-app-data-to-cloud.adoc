@@ -37,7 +37,7 @@ For any user-initiated request, the Cloud Backup for Applications UI communicate
 +
 The Connector can be deployed in the same VPC as that of the Oracle databases, or in a different one. If the Connector and Oracle databases are on different network, you should establish a network connectivity between them.
 
-IMPORTANT: Cloud Backup for Applications infrastructure supports failing over to a new region only. The failover involves a downtime of around 2 hours. The infrastructure does not support availability zone failures with in a region.
+IMPORTANT: Cloud Backup for Applications infrastructure supports failing over to a new region only. The failover involves a downtime of around 2 hours. The infrastructure does not support availability zone failures within a region.
 
 == Supported configurations
 
