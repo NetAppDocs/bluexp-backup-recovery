@@ -1,0 +1,40 @@
+---
+sidebar: sidebar
+permalink: task-backup-vm-data-to-aws.html
+keywords: back up, backup, backup virtual machine data, aws, Amazon Web Services, cloud backup, backup datastores
+summary: Back up your datastores from on-premises ONTAP to AWS.
+---
+
+= Back up datastores to Amazon Web Services
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can back up one or more datastores simultaneously to Amazon Web Services by integrating the SnapCenter Plug-in for VMware vSphere with Cloud Manager. This will help the VM administrators to easily and quickly back up and archive data for storage efficiency and accelerate cloud transition.
+
+NOTE: Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before backing up datastores to the cloud.
+
+.Steps
+
+. In Cloud Manager UI, click *Backup & Restore* > *Virtual Machines*.
+. Click image:icon-action.png[action] corresponding to the datastore that you want to back up and click *Activate Backup*.
+. In the Assign Policy page, select the policy and click *Next*.
+. Add the working environment.
++
+Configure the ONTAP clusters that you want Cloud Manager to discover to back up your datastores. After adding the working environment for one of the datastores, it can be reused for all the other datastores residing on the same ONTAP cluster.
++
+.. Click *Add Working Environment* corresponding to the SVM.
+.. In the Add Working Environment wizard:
+... Specify the IP address of the ONTAP cluster.
+... Specify the credentials of the ONTAP cluster user.
+.. Click *Add Working Environment*.
+. Select *Amazon Web Services* to configure it as the cloud provider.
+.. Specify the AWS account.
+.. In the AWS Access Key field, specify the key for data encryption.
+.. In the AWS Secret Key field, specify the password for data encryption.
+.. Select the region where you want to create the backups.
+.. Specify the IP addresses of the ONTAP clusters that were added as the working environments.
+. Review the details and click *Activate Backup*.
