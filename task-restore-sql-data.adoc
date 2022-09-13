@@ -15,6 +15,8 @@ summary: You can restore SQL Server database from the cloud to the on-premises S
 [.lead]
 You can restore SQL Server database either to the same host or to the alternate host. Recovery of log backups and reseed of availability groups are not supported.
 
+NOTE: Single File Restore (SFR) is not supported.
+
 *Steps*
 
 . In Cloud Manager UI, click *Backup & Restore* > *Applications*.

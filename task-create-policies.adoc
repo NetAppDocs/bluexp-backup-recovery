@@ -1,0 +1,66 @@
+---
+sidebar: sidebar
+permalink: task-create-policies.html
+keywords: policy, create, pre-canned polices, custom policies, protection policies
+summary:  Either use the pre-canned policies or create your own policies to protect the application.
+---
+
+= Create a policy
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+You can either use one of the pre-canned policies or create a custom policy to back up the application data to cloud. You should create policies if you do not want to edit the pre-canned policies.
+
+The pre-canned policies are:
+|===
+| Policy Name | Label | Retention Value
+
+a|
+1 Year Daily LTR
+a|
+Daily
+a|
+366
+a|
+5 Years Daily LTR
+a|
+Daily
+a|
+1830
+a|
+7 Year Weekly LTR
+a|
+Weekly
+a|
+370
+a|
+10 Year Monthly LTR
+a|
+Monthly
+a|
+120
+|===
+The labels and retention value of these policies can be modified using the REST API until the policy is associated with an application. Only one policy can be associated with an application and once associated, you cannot dissociate.
+
+In addition to the Cloud Backup for Applications policies, you would also need at least one SnapCenter policy to back up the application data to cloud.
+
+*Steps*
+
+. In Cloud Manager UI, click *Backup & Restore* > *Applications*.
+. From the Settings drop-down, click *Policies* > *Create Policy*.
+. In the Policy Details section, specify the policy name.
+. In the Retention section, select one of the retention type and specify the number of backups to retain.
+. Select Primary or Secondary as the backup source.
+. (Optional) If you want to move backups from object store to archival storage after a certain number of days for cost optimization, select the *Tier Backups to Archival* checkbox.
++
+You can select this checkbox only if you are using ONTAP 9.10.1 or later and Amazon Web Services or Azure as the cloud provider.
+. Click *Create*.
++
+You can edit, copy, and delete the customized policies.
++
+NOTE: You cannot edit or delete a policy, which is associated with an application.

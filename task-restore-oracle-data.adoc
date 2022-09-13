@@ -17,6 +17,8 @@ You can only restore the Oracle database to the same SnapCenter Server host, sam
 
 Only full database with control file restore is supported. If the archive logs are not present in the AFS, you should specify the location that contains the archive logs required for recovery.
 
+NOTE: Single File Restore (SFR) is not supported.
+
 *Steps*
 
 . In Cloud Manager UI, click *Backup & Restore* > *Applications*.

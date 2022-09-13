@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-manage-app-backups.html
-keywords: manage, Azure, Amazon Web services, Oracle database, Microsoft SQL Server database, backups, policy, monitor, jobs, monitor jobs
+keywords: manage, Azure, Amazon Web services, Oracle database, Microsoft SQL Server database, backups, policy, monitor, jobs, monitor jobs, SAP HANA database
 summary: You can view the policies and backups. Depending upon the change in database, policies, or resource groups, you can refresh the updates from the Cloud Manager UI.
 ---
 
@@ -70,6 +70,12 @@ If there is a change to the SnapCenter policy or resource group, you should refr
 
 . Click *Backup & Restore* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *Refresh Protection*.
+
+== Unregister SnapCenter Server
+
+. Click *Backup & Restore* > *Applications*.
+. From the *Settings* drop-down, click *SnapCenter Servers*.
+. Click image:icon-action.png[icon to select the action] corresponding to the SnapCenter Server and click *Unregister*.
 
 == Monitor Jobs
 

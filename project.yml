@@ -87,8 +87,21 @@ sidebar:
           entries:
             - title: Protect your on-premises applications data
               url: /concept-protect-app-data-to-cloud.html
-            - title: Back up on-premises applications data to cloud
-              url: /task-backup-app-data-to-cloud.html
+            - title: Register SnapCenter Server
+              url: /task-register-snapcenter-server.html
+            - title: Create a policy
+              url: /task-create-policies.html
+            - title: Back up on-premises applications data to Amazon Web Services
+              flavor: aws
+              url: /task-backup-app-data-to-aws.html
+            - title: Back up on-premises applications data to Microsoft Azure
+              flavor: azure
+              url: /task-backup-app-data-to-azure.html
+            - title: Back up on-premises applications data to Google Cloud
+              flavor: gcp
+              url: /task-backup-app-data-to-gcp.html
+            - title: Back up on-premises applications data to StorageGRID
+              url: /task-backup-app-data-to-storagegrid.html
             - title: Manage protection of applications
               url: /task-manage-app-backups.html
             - title: Restore applications data
@@ -97,6 +110,8 @@ sidebar:
                   url: /task-restore-oracle-data.html
                 - title: Restore SQL Server database
                   url: /task-restore-sql-data.html
+            - title: Mount application backups
+              url: /task-mount-app-backup.html
         - title: Back up and restore cloud native applications data
           entries:
             - title: Protect your cloud native applications data
