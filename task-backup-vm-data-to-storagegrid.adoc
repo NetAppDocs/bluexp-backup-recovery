@@ -31,7 +31,7 @@ Configure the ONTAP clusters that you want Cloud Manager to discover to back up 
 ... Specify the IP address of the ONTAP cluster.
 ... Specify the credentials of the ONTAP cluster user.
 .. Click *Add Working Environment*.
-. Select *StorageGRID* to configure it as the cloud provider.
+. Select *StorageGRID*.
 .. Specify the Storage Server IP.
 .. Select the access key and secret key.
 . Review the details and click *Activate Backup*.

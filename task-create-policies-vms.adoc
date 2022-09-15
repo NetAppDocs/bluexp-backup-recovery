@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: task-create-policies.html
-keywords: create policy, protection policies, predefined policies
+permalink: task-create-policies-vms.html
+keywords: create policy, protection policies, predefined policies, custom policies
 summary: Back up your datastores from on-premises ONTAP to AWS.
 ---
 
-= Create a policy
+= Create a policy to back up virtual machines
 :hardbreaks:
 :nofooter:
 :icons: font
