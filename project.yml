@@ -89,7 +89,7 @@ sidebar:
               url: /concept-protect-app-data-to-cloud.html
             - title: Register SnapCenter Server
               url: /task-register-snapcenter-server.html
-            - title: Create a policy
+            - title: Create a policy to back up applications
               url: /task-create-policies-apps.html
             - title: Back up on-premises applications data to Amazon Web Services
               flavor: aws
