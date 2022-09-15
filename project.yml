@@ -119,7 +119,7 @@ sidebar:
           url: /concept-protect-vm-data.html
         - title: Register SnapCenter Plug-in for VMware vSphere
           url: /task-register-snapCenter-plug-in-for-vmware-vsphere.html
-        - title: Create a policy
+        - title: Create a policy to back up virtual machines
           url: /task-create-policies-vms.html
         - title: Back up datastores to Amazon Web Services
           flavor: aws
