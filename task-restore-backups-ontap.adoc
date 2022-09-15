@@ -199,7 +199,11 @@ If you select multiple files, all the files are restored to the same destination
 
 At this time, you can can select and restore only a single folder. And only files from that folder are restored - no sub-folders, or files in sub-folders, are restored.
 
-TIP: You can't restore folders or files if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the files you need.
+[NOTE] 
+====
+* You can't restore folders or files if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the files you need.
+* Folder-level restore is not currently supported when the backup file resides in archival storage. In this case, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
+====
 
 ==== Prerequisites
 
@@ -326,6 +330,12 @@ endif::aws[]
 ifdef::azure[]
 link:reference-azure-backup-tiers.html[Learn more about restoring from Azure archival storage].
 endif::azure[]
+
+[NOTE] 
+====
+* You can't restore folders or files if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the files you need.
+* Folder-level restore is not currently supported when the backup file resides in archival storage. In this case, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
+====
 
 Before you start, you should have some idea of the name or location of the volume or file you want to restore.
 

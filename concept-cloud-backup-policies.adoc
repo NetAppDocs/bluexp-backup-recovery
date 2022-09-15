@@ -45,6 +45,8 @@ Cloud Backup provides support for DataLock and Ransomware protection for your vo
 
 Both of these features protect your backup files so that you'll always have a valid backup file to recover data from in case of a ransomware attack on your source data. It's also helpful to meet certain regulatory requirements where backups need to be locked and retained for a certain period of time. When DataLock and Ransomware Protection is enabled, the cloud bucket that is provisioned as a part of Cloud Backup activation will have object locking and object versioning enabled.
 
+This feature does not provide protection for your source volumes, only for the backups of those source volumes. Use NetApp https://cloud.netapp.com/ci-sde-plp-cloud-secure-info-trial?hsCtaTracking=fefadff4-c195-4b6a-95e3-265d8ce7c0cd%7Cb696fdde-c026-4007-a39e-5e986c4d27c6[Cloud Insights and Cloud Secure^], or some of the https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html[anti-ransomware protections provided from ONTAP^] to protect your source volumes.
+
 [CAUTION]
 ====
 * If you plan to use DataLock and Ransomware protection, you must enable it when creating your first backup policy and activating Cloud Backup for that cluster.
