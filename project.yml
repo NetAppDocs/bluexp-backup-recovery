@@ -90,7 +90,7 @@ sidebar:
             - title: Register SnapCenter Server
               url: /task-register-snapcenter-server.html
             - title: Create a policy
-              url: /task-create-policies.html
+              url: /task-create-policies-apps.html
             - title: Back up on-premises applications data to Amazon Web Services
               flavor: aws
               url: /task-backup-app-data-to-aws.html

@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: task-create-policies.html
+permalink: task-create-policies-apps.html
 keywords: policy, create, pre-canned polices, custom policies, protection policies
 summary:  Either use the pre-canned policies or create your own policies to protect the application.
 ---
 
-= Create a policy
+= Create a policy to back up applications
 :hardbreaks:
 :nofooter:
 :icons: font
