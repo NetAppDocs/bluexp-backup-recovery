@@ -317,11 +317,13 @@ image:screenshot_delete_one_backup.png[A screenshot showing how to delete a sing
 
 . In the confirmation dialog box, click *Delete*.
 
-== Disabling Cloud Backup for a working environment
+== Deactivating Cloud Backup for a working environment
 
-Disabling Cloud Backup for a working environment disables backups of each volume on the system, and it also disables the ability to restore a volume. Any existing backups will not be deleted. This does not unregister the backup service from this working environment - it basically allows you to pause all backup and restore activity for a period of time.
+Deactivating Cloud Backup for a working environment disables backups of each volume on the system, and it also disables the ability to restore a volume. Any existing backups will not be deleted. This does not unregister the backup service from this working environment - it basically allows you to pause all backup and restore activity for a period of time.
 
 Note that you'll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you <<Deleting all backup files for a working environment,delete the backups>>.
+
+TIP: The backup retention period is ignored when Cloud Backup is deactivated. Therefore, older backup files are not aged-out and removed from object storage while the working environment is deactivated.
 
 .Steps
 

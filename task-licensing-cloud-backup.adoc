@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: task-licensing-cloud-backup.html
-keywords: license, licensing, install, updating license, paygo license, byol license, nlf, license generator, backup license, add backup license, update backup license
-summary: You can license Cloud Backup by purchasing a pay-as-you-go (PAYGO) marketplace subscription from your cloud provider, or by purchasing a bring-your-own-license (BYOL) from NetApp. A valid license is required to activate Cloud Backup on a working environment, to create backups of your production data, and to restore backup data to a production system.
+keywords: license, licensing, install, updating license, paygo license, byol license, nlf, license generator, backup license, add backup license, update backup license, annual
+summary: You can license Cloud Backup by purchasing a pay-as-you-go (PAYGO) or annual marketplace subscription from your cloud provider, or by purchasing a bring-your-own-license (BYOL) from NetApp. A valid license is required to activate Cloud Backup on a working environment, to create backups of your production data, and to restore backup data to a production system.
 ---
 
 = Set up licensing for Cloud Backup
@@ -13,7 +13,7 @@ summary: You can license Cloud Backup by purchasing a pay-as-you-go (PAYGO) mark
 :imagesdir: ./media/
 
 [.lead]
-You can license Cloud Backup by purchasing a pay-as-you-go (PAYGO) marketplace subscription from your cloud provider, or by purchasing a bring-your-own-license (BYOL) from NetApp. A valid license is required to activate Cloud Backup on a working environment, to create backups of your production data, and to restore backup data to a production system.
+You can license Cloud Backup by purchasing a pay-as-you-go (PAYGO) or annual marketplace subscription from your cloud provider, or by purchasing a bring-your-own-license (BYOL) from NetApp. A valid license is required to activate Cloud Backup on a working environment, to create backups of your production data, and to restore backup data to a production system.
 
 A few notes before you read any further:
 
@@ -40,7 +40,7 @@ You won’t be charged from your pay-as-you-go subscription during your free tri
 
 There are a few PAYGO plans for Cloud Backup:
 
-*	A "Cloud Backup" package that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
+* A "Cloud Backup" package that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
 * A "CVO Professional" package that enables you to bundle Cloud Volumes ONTAP and Cloud Backup. This includes unlimited backups for the Cloud Volumes ONTAP system using the license (backup capacity is not counted against the licensed capacity). This option doesn’t enable you to back up on-premises ONTAP data.
 ifdef::azure[]
 * A "CVO Edge Cache" package has the same capabilities as the "CVO Professional" package, but it also includes support for https://docs.netapp.com/us-en/cloud-manager-file-cache/concept-gfc.html[Global File Cache^]. You are entitled to deploy one Global File Cache Edge system for each 3 TiB of provisioned capacity on the Cloud Volumes ONTAP system. This option is available only through the Azure Marketplace, and it doesn’t enable you to back up on-premises ONTAP data.
@@ -67,7 +67,7 @@ Pay for Cloud Backup annually by purchasing an annual contract.
 ifdef::aws[]
 When using AWS, there are two annual contracts available from the https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS Marketplace page^] for Cloud Volumes ONTAP and on-premises ONTAP systems. They're available in 1-, 2-, or 3-year terms:
 
-*	A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
+* A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
 +
 If you want to use this option, set up your subscription from the Marketplace page and then https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#associate-an-aws-subscription[associate the subscription with your AWS credentials^]. Note that you’ll also need to pay for your Cloud Volumes ONTAP systems using this annual contract subscription since you can assign only one active subscription to your AWS credentials in Cloud Manager.
 

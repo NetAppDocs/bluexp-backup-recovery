@@ -362,22 +362,22 @@ The following is a known issue that will be fixed in a future release:
 
 * ONTAP doesn't support fan-out of SnapMirror relationships from a single volume to multiple object stores; therefore, this configuration is not supported by Cloud Backup.
 
-* WORM/Compliance mode on an object store is only supported on Amazon S3 at this time.
+* WORM/Compliance mode on an object store is only supported on Amazon S3 and StorageGRID at this time. This is known as the DataLock feature.
 
-=== Single File Restore limitations
+=== File and Folder Restore limitations
 
-These limitations apply to both the Search & Restore and the Browse & Restore methods of restoring files; unless called out specifically.
+These limitations apply to both the Search & Restore and the Browse & Restore methods of restoring files and folders; unless called out specifically.
 
 * Browse & Restore can restore up to 100 individual files at a time.
 
 * Search & Restore can restore 1 file at a time.
 
-* There is currently no support for restoring folders/directories.
+* Browse & Restore and Search & Restore can restore 1 folder at a time.
 
 * The file being restored must be using the same language as the language on the destination volume. You will receive an error message if the languages are not the same.
 
 * File level restore is not supported when using the same account with different Cloud Managers in different subnets.
 
-* You can’t restore individual files if the backup file resides in archival storage.
+* You can’t restore individual folders if the backup file resides in archival storage.
 
 * File level restore using Search & Restore is not supported when the Connector is installed on a site without internet access (dark site).
