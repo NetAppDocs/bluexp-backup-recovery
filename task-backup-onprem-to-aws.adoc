@@ -113,7 +113,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 
 === ONTAP requirements
 
-* Minimum of ONTAP 9.7P5; ONTAP 9.8P11 and later is recommended.
+* Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
 * A SnapMirror license (included as part of the Premium Bundle or Data Protection Bundle).
 +
 *Note:* The "Hybrid Cloud Bundle" is not required when using Cloud Backup.
@@ -186,6 +186,7 @@ You'll need to configure two sets of permissions:
               "s3:GetBucketPublicAccessBlock",
               "s3:GetBucketAcl",
               "s3:GetBucketPolicy",
+              "s3:PutBucketPolicy",
               "s3:PutBucketPublicAccessBlock",
               "s3:PutEncryptionConfiguration",
               "s3:GetObjectVersionTagging",
