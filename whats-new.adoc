@@ -27,11 +27,11 @@ Note that you'll need to be running a Connector with version 3.9.22 or greater s
 
 === Folder-level restore is now available from your backup files
 
-Now you can restore a folder from a backup file if you need access to all the files in that folder (directory or share). Restoring a folder is much more efficient than restoring an entire volume. This functionality is available for restore operations using both the Browse & Restore method and the Search & Restore method. At this time you can can select and restore only a single folder, and only files from that folder are restored - no sub-folders, or files in sub-folders, are restored.
+Now you can restore a folder from a backup file if you need access to all the files in that folder (directory or share). Restoring a folder is much more efficient than restoring an entire volume. This functionality is available for restore operations using both the Browse & Restore method and the Search & Restore method when using ONTAP 9.11.1 or greater. At this time you can can select and restore only a single folder, and only files from that folder are restored - no sub-folders, or files in sub-folders, are restored.
 
 === File-level restore is now available from backups that have been moved to archival storage
 
-In the past you could only restore volumes from backup files that had been moved to archival stores (AWS and Azure only). Now you can restore individual files and folders from these archived backup files. This functionality is available for restore operations using both the Browse & Restore method and the Search & Restore method.
+In the past you could only restore volumes from backup files that had been moved to archival storage (AWS and Azure only). Now you can restore individual files from these archived backup files. This functionality is available for restore operations using both the Browse & Restore method and the Search & Restore method when using ONTAP 9.11.1 or greater.
 
 === File-level restore now provides the option to overwrite the original source file
 
