@@ -18,7 +18,7 @@ You can view the policies and backups. Depending upon the change in database, po
 
 == View policies
 
-You can view all the default pre-canned policies. For each of these policies, when you view the details all the associated Cloud Backup for Applications policies and all the associated applications are listed.
+You can view all the policies. For each of these policies, when you view the details all the associated Cloud Backup for Applications policies and all the associated applications are listed.
 
 . Click *Backup & Restore* > *Applications*.
 . From the *Settings* drop-down, click *Policies*.
@@ -43,6 +43,7 @@ IMPORTANT: The time taken for the backups to be listed depends on ONTAP's defaul
 * For Oracle databases, both data and log backups, SCN number for each backup, end date for each backup are listed. You can select only the data backup and restore the database to on-premises SnapCenter Server.
 * For Microsoft SQL Server databases, only the full backups and the end date for each backup are listed. You can select the backup and restore the database to on-premises SnapCenter Server.
 * For Microsoft SQL Server instance, backups are not listed instead only the databases under that instance is listed.
+* For SAP HANA databases, only the data backups and the end date for each backup are listed. You can select the backup and perform mount operation.
 
 NOTE: The backups created before enabling cloud protection are not listed for restore.
 //Documented this for JIRA: AMS-8562

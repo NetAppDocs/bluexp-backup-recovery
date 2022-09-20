@@ -14,7 +14,7 @@ summary:  Either use the pre-canned policies or create your own policies to prot
 
 [.lead]
 
-You can either use one of the pre-canned policies or create a custom policy to back up the application data to cloud. You should create policies if you do not want to edit the pre-canned policies.
+You can either use one of the pre-canned policies or create a custom policy to back up the application data to cloud. You can create policies if you do not want to edit the pre-canned policies.
 
 The pre-canned policies are:
 |===
@@ -45,7 +45,7 @@ Monthly
 a|
 120
 |===
-The labels and retention value of these policies can be modified using the REST API until the policy is associated with an application. Only one policy can be associated with an application and once associated, you cannot dissociate.
+Only one policy can be associated with an application and once associated, you cannot dissociate.
 
 In addition to the Cloud Backup for Applications policies, you would also need at least one SnapCenter policy to back up the application data to cloud.
 
@@ -58,7 +58,7 @@ In addition to the Cloud Backup for Applications policies, you would also need a
 . Select Primary or Secondary as the backup source.
 . (Optional) If you want to move backups from object store to archival storage after a certain number of days for cost optimization, select the *Tier Backups to Archival* checkbox.
 +
-You can select this checkbox only if you are using ONTAP 9.10.1 or later and Amazon Web Services or Azure as the cloud provider.
+You can move backups from object store to archival storage only if you are using ONTAP 9.10.1 or later and Amazon Web Services or Azure as the cloud provider.
 . Click *Create*.
 +
 You can edit, copy, and delete the customized policies.

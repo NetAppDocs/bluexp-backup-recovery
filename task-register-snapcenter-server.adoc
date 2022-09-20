@@ -36,17 +36,17 @@ The tags are comma separated.
 
 Click *Backup & Restore* > *Applications* to view all the applications that are protected using the registered SnapCenter Server host.
 
-NOTE: For SQL Server databases, the Application Name column displays the name in _application_name (host name)_ format. When you search by providing the name in _application_name (host name)_ format, the SQL Server database details are not displayed.
+NOTE: For SQL Server databases, the Application Name column displays the name in _application_name (instance name)_ format. When you search by providing the name in _application_name (host name)_ format, the SQL Server database details are not displayed.
 
 The supported applications and their configurations are:
 
 *	Oracle database:
 ** Full backups (data + log) created with at least one daily, weekly, or monthly schedules
-** VMDK-SAN, VMDK-NFS, and RDM
+** SAN, VMDK-SAN, VMDK-NFS, and RDM
 * Microsoft SQL Server database:
 ** Standalone, failover cluster instances, and availability groups
 ** Full backups created with at least one daily, weekly, or monthly schedules
-** VMDK-SAN, VMDK-NFS, and RDM
+** SAN, VMDK-SAN, VMDK-NFS, and RDM
 * SAP HANA database:
 ** Single Container 1.x
 ** Multiple Database Container 2.x
@@ -58,4 +58,3 @@ The following databases will not be displayed:
 * Databases that have no backups
 * Databases that have only on-demand or hourly policy
 * Oracle databases residing on NVMe
-* HANA databases on virtualized layout

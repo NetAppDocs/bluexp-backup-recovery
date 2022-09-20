@@ -43,7 +43,7 @@ Cloud Backup for Applications supports only cluster admin.
 NOTE: You should not proceed until the working environment details are updated. It might take up to 30 minutes for the working environment details to be updated. After 30 minutes, you should close the wizard and retry from step 1 to view the working environment details.
 After retrying if the working environment details are not updated, ensure that you have added the right working environment.
 
-. Select *Amazon Web Services* as the cloud provider.
+. Select *Microsoft Azure* as the cloud provider.
 .. Specify the Azure subscription ID.
 .. Select the region where you want to create the backups.
 .. Either create a new resource group or use an existing resource group.

@@ -27,7 +27,7 @@ SnapCenter does not support restore of Oracle and HANA backups to alternate host
 .. Specify the suffix that will be added to the alternate volume name.
 .. Click *Mount*.
 
-This operation performs only the storage mount on the give host. You should manually mount the filesystem and bring up the database.
+This operation performs only the storage mount on the give host. You should manually mount the filesystem and bring up the database. After utilizing the alternate volume, the storage Administrator should delete the storage volumes from Cloud Backup Applications.
 
 * For information on how to bring up the SAP HANA database see, https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html[TR-4667: Automating SAP HANA System Copy and Clone Operations with SnapCenter^].
 * For information on how to bring up the Oracle database see, [need the link].

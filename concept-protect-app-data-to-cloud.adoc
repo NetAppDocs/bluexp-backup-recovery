@@ -18,7 +18,7 @@ You can integrate Cloud Backup for Applications with Cloud Manager and on-premis
 
 You can back up Oracle, Microsoft SQL, and SAP HANA applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud, and StorageGRID.
 
-NOTE: You should be using SnapCenter Software 4.6 or later. For protecting SAP HANA databases, you should be using SnapCenter 4.7.
+NOTE: You should be using SnapCenter Software 4.6 or later.
 
 For more information about Cloud Backup for Applications, refer to:
 
@@ -32,8 +32,6 @@ Read the following requirements to make sure that you have a supported configura
 * ONTAP 9.8 or later
 * Cloud Manager 3.9
 * SnapCenter Server 4.6 or later
-+
-For protecting SAP HANA databases, you should be using SnapCenter 4.7.
 * At least one backup per application should be available in SnapCenter Server
 * At least one daily, weekly, or monthly policy in SnapCenter with no label or same label as that of the Cloud Backup for Applications policy in Cloud Manager.
 
