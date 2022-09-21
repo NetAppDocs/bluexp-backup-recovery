@@ -39,7 +39,7 @@ In the past, a file restored to the original volume was always restored as a new
 
 === Drag and drop to enable Cloud Backup to StorageGRID systems
 
-If the https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html[StorageGRID^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP working environment onto the destination to initiate the Backup setup wizard.
+If the https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[StorageGRID^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP working environment onto the destination to initiate the Cloud Backup setup wizard.
 //
 //=== AWS cross-account backup enhancements
 //
