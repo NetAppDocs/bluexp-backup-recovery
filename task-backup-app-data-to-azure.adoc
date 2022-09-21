@@ -20,9 +20,6 @@ You can protect one or more applications simultaneously to the cloud using a sin
 
 IMPORTANT: You can protect only one application at a time if you are using the Cloud Manager GUI. However, if you are using REST APIs, you can protect multiple applications simultaneously.
 
-If you are protecting an SQL Server instance, then cloud protection will be configured for all the volumes of the eligible databases in that instance.
-If you are protecting an SQL Server availability group, then cloud protection will be configured for all the volumes of the databases in that availability group. However, based on the backup preference, the Snapshot will be copied form the respective volumes.
-
 *Steps*
 
 . In Cloud Manager UI, click *Backup & Restore* > *Applications*.
@@ -39,17 +36,12 @@ Configure the ONTAP cluster that hosts the SVM on which the application is runni
 +
 Cloud Backup for Applications supports only cluster admin.
 .. Click *Add Working Environment*.
-+
-NOTE: You should not proceed until the working environment details are updated. It might take up to 30 minutes for the working environment details to be updated. After 30 minutes, you should close the wizard and retry from step 1 to view the working environment details.
-After retrying if the working environment details are not updated, ensure that you have added the right working environment.
-
 . Select *Microsoft Azure* as the cloud provider.
 .. Specify the Azure subscription ID.
 .. Select the region where you want to create the backups.
 .. Either create a new resource group or use an existing resource group.
-.. Specify the IP addresses of the ONTAP clusters that were added as the working environments.
+.. Specify the IP space.
+.. Select the archive tier.
++
+It is recommended to set the archival tier because this is an one time activity and you will not be allowed to set it up later.
 . Review the details and click *Activate Backup*.
-
-The following video shows a quick walkthrough of protecting a database:
-
-video::bUwnE18qnag[youtube, width=848, height=480, end=164]

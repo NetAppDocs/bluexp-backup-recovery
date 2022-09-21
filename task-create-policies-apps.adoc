@@ -47,8 +47,6 @@ a|
 |===
 Only one policy can be associated with an application and once associated, you cannot dissociate.
 
-In addition to the Cloud Backup for Applications policies, you would also need at least one SnapCenter policy to back up the application data to cloud.
-
 *Steps*
 
 . In Cloud Manager UI, click *Backup & Restore* > *Applications*.
@@ -58,7 +56,7 @@ In addition to the Cloud Backup for Applications policies, you would also need a
 . Select Primary or Secondary as the backup source.
 . (Optional) If you want to move backups from object store to archival storage after a certain number of days for cost optimization, select the *Tier Backups to Archival* checkbox.
 +
-You can move backups from object store to archival storage only if you are using ONTAP 9.10.1 or later and Amazon Web Services or Azure as the cloud provider.
+You can move backups from object store to archival storage only if you are using ONTAP 9.10.1 or later and Amazon Web Services or Azure as the cloud provider. You should configure the archive access tier for each cloud provider.
 . Click *Create*.
 +
 You can edit, copy, and delete the customized policies.

@@ -32,9 +32,22 @@ Read the following requirements to make sure that you have a supported configura
 * ONTAP 9.8 or later
 * Cloud Manager 3.9
 * SnapCenter Server 4.6 or later
+You should be using SnapCenter Server 4.7 if you want to use the following features:
+** protect backups from secondary storage
+** protect SAP HANA applications
+** protect Oracle and SQL applications that are on VMware environment
+** unregister SnapCenter Server
+** deactivate backups
+** mount the applications
 * At least one backup per application should be available in SnapCenter Server
 * At least one daily, weekly, or monthly policy in SnapCenter with no label or same label as that of the Cloud Backup for Applications policy in Cloud Manager.
 
-The following image shows each component and the connections that you need to prepare between them:
+NOTE: Cloud Backup for Applications does not support protection of applications that are on SVMs which were added using FQDN or IP address.
+
+The following image shows each component when backing up to cloud and the connections that you need to prepare between them:
 
 image:diagram_cloud_backup_app.png[A diagram showing how Cloud Backup communicates with the on-premises applications and the destination storage where the backup files are located.]
+
+The following image shows each component when backing up to StorageGRID and the connections that you need to prepare between them:
+
+image:diagram_cloud_backup_onprem_storagegrid.png[A diagram showing how Cloud Backup communicates with the volumes on the source systems and the destination storage where the backup files are located.]

@@ -16,15 +16,21 @@ summary: You can mount the SAP HANA and Oracle backups to the given database
 
 SnapCenter does not support restore of Oracle and HANA backups to alternate host. Thus, Cloud Backup for Applications allows you to mount the Oracle and HANA backups to the given host.
 
+*What you will need*
+
+If you want to mount a backup that was moved to object store from secondary storage, you should add the primary working environment details and set the IP space. For more information, see link:task-manage-app-backups.html#set-ip-space-of-the-primary-working-environment[Set IP space of the primary working Environment].
+
 *Steps*
 
 . In Cloud Manager UI, click *Backup & Restore* > *Applications*.
 .	In the Filter By field, select *Type* and from the drop-down either select *SAP HANA* or *Oracle*.
 . Click image:icon-action.png[icon to select the action] corresponding to the protected application and select *View Details*.
 . Click image:icon-action.png[icon to select the action] corresponding to the backup and select *Mount*.
-.. Specify the FQDN or IP address of the host to which alternate volumes restored for object store are exported.
-.. Specify the initiators of the host to which LUNs of alternate volume restored for object store are mapped.
+.. Specify one of the following:
+... For NAS environment, specify the FQDN or IP address of the host to which alternate volumes restored for object store are exported.
+... For SAN environment, specify the initiators of the host to which LUNs of alternate volume restored for object store are mapped.
 .. Specify the suffix that will be added to the alternate volume name.
+.. If the snapshot is in archival storage, specify the priority to retrieve your data from the archival storage.
 .. Click *Mount*.
 
 This operation performs only the storage mount on the give host. You should manually mount the filesystem and bring up the database. After utilizing the alternate volume, the storage Administrator should delete the storage volumes from Cloud Backup Applications.

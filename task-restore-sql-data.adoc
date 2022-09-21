@@ -15,9 +15,13 @@ summary: You can restore SQL Server database from the cloud to the on-premises S
 [.lead]
 You can restore SQL Server database either to the same host or to the alternate host. Recovery of log backups and reseed of availability groups are not supported.
 
-IMPORTANT: IMPORTANT: Restore of secondary backups through primary is supported.
+NOTE: IMPORTANT: Restore of secondary backups through primary is supported.
 
-NOTE: Single File Restore (SFR) is not supported.
+IMPORTANT: Single File Restore (SFR) is not supported.
+
+*What you will need*
+
+If you want to restore a backup that was moved to object store from secondary storage, you should add the primary working environment details and set the IP space. For more information, see link:task-manage-app-backups.html#set-ip-space-of-the-primary-working-environment[Set IP space of the primary working Environment].
 
 *Steps*
 
@@ -45,7 +49,7 @@ NOTE: The file extension provided in the alternate path must be same as the file
 
 If the *Restore the database to an alternate host* option is not displayed in the Restore Scope page, clear the browser cache.
 |===
-
+. If the snapshot is in archival storage, specify the priority to restore your data from the archival storage.
 . On the *Pre Restore Options* page, select one of the following options:
 ** Select *Overwrite the database with same name during restore* to restore the database with the same name.
 ** Select *Retain SQL database replication settings* to restore the database and retain the existing replication settings.

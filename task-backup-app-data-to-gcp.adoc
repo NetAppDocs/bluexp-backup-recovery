@@ -20,9 +20,6 @@ You can protect one or more applications simultaneously to the cloud using a sin
 
 IMPORTANT: You can protect only one application at a time if you are using the Cloud Manager GUI. However, if you are using REST APIs, you can protect multiple applications simultaneously.
 
-If you are protecting an SQL Server instance, then cloud protection will be configured for all the volumes of the eligible databases in that instance.
-If you are protecting an SQL Server availability group, then cloud protection will be configured for all the volumes of the databases in that availability group. However, based on the backup preference, the Snapshot will be copied form the respective volumes.
-
 *Steps*
 
 . In Cloud Manager UI, click *Backup & Restore* > *Applications*.
@@ -39,14 +36,10 @@ Configure the ONTAP cluster that hosts the SVM on which the application is runni
 +
 Cloud Backup for Applications supports only cluster admin.
 .. Click *Add Working Environment*.
-+
-NOTE: You should not proceed until the working environment details are updated. It might take up to 30 minutes for the working environment details to be updated. After 30 minutes, you should close the wizard and retry from step 1 to view the working environment details.
-After retrying if the working environment details are not updated, ensure that you have added the right working environment.
-
 . Select *Google Cloud Platform* as the cloud provider.
 .. Select the Google Cloud Project where you want the Google Cloud Storage bucket to be created for backups..
 .. In the Google Cloud Access Key field, specify the key.
 .. In the Google Cloud Secret Key field, specify the password.
 .. Select the region where you want to create the backups.
-.. Specify the IP addresses of the ONTAP clusters that were added as the working environments.
+.. Specify the IP space.
 . Review the details and click *Activate Backup*.

@@ -20,8 +20,11 @@ You can protect one or more applications simultaneously to StorageGRID using a s
 
 IMPORTANT: You can protect only one application at a time if you are using the Cloud Manager GUI. However, if you are using REST APIs, you can protect multiple applications simultaneously.
 
-If you are protecting an SQL Server instance, then cloud protection will be configured for all the volumes of the eligible databases in that instance.
-If you are protecting an SQL Server availability group, then cloud protection will be configured for all the volumes of the databases in that availability group. However, based on the backup preference, the Snapshot will be copied form the respective volumes.
+*What you will need*
+
+When backing up data to StorageGRID, a Connector must be available on your premises. You will either need to install a new Connector or make sure that the currently selected Connector resides on-prem. The Connector can be installed in a site with or without internet access.
+
+For information, see link:task-backup-onprem-private-cloud.html#creating-or-switching-connectors[Create Connectors for StorageGRID].
 
 *Steps*
 
@@ -39,15 +42,11 @@ Configure the ONTAP cluster that hosts the SVM on which the application is runni
 +
 Cloud Backup for Applications supports only cluster admin.
 .. Click *Add Working Environment*.
-+
-NOTE: You should not proceed until the working environment details are updated. It might take up to 30 minutes for the working environment details to be updated. After 30 minutes, you should close the wizard and retry from step 1 to view the working environment details.
-After retrying if the working environment details are not updated, ensure that you have added the right working environment.
-
 . Select *StorageGRID*.
 .. Specify the FQDN of the StorageGRID Server and the port on which the StorageGRID server is running.
 +
 Enter the details in the format FQDN:PORT.
 .. In the Access Key field, specify the key.
 .. In the Secret Key field, specify the password.
-.. Specify the IP addresses of the ONTAP clusters that were added as the working environments.
+.. Specify the IP space.
 . Review the details and click *Activate Backup*.

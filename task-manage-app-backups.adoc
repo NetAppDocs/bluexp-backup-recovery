@@ -87,6 +87,20 @@ Jobs are created for all the Cloud Backup operations. You can monitor all the jo
 When you initiate an operation, a window appears stating that the job is initiated. You can click the link to monitor the job.
 . Click the primary task to view the sub tasks and status of each of these sub tasks.
 
+== Set IP space of the primary working Environment
+
+If you want to restore or mount a backup that was moved to object store from secondary storage, you should add the primary working environment details and set the IP space.
+
+*Steps*
+
+. In Cloud Manager UI, click *Canvas* > *Add Working Environment*.
+. Specify the primary working environment details and click *Add*.
+. Click *Backup & Restore* > *Volumes*.
+. Click image:icon-action.png[icon to select the action] corresponding to any of the volumes and click *Details*.
+. Click image:icon-action.png[icon to select the action] corresponding to the backup and click *Restore*.
+. In the wizard, select the newly added primary working environment as the destination.
+. Specify the IP space.
+
 == Configure CA Certificates
 
 If you have CA certificates, you should manually copy the root CA certificates to the connector machine.
