@@ -36,9 +36,9 @@ You should be using SnapCenter Server 4.7 if you want to use the following featu
 ** protect backups from secondary storage
 ** protect SAP HANA applications
 ** protect Oracle and SQL applications that are on VMware environment
-** unregister SnapCenter Server
+** mount backups
 ** deactivate backups
-** mount the applications
+** unregister SnapCenter Server
 * At least one backup per application should be available in SnapCenter Server
 * At least one daily, weekly, or monthly policy in SnapCenter with no label or same label as that of the Cloud Backup for Applications policy in Cloud Manager.
 

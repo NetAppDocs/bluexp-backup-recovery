@@ -18,7 +18,7 @@ SnapCenter does not support restore of Oracle and HANA backups to alternate host
 
 *What you will need*
 
-If you want to mount a backup that was moved to object store from secondary storage, you should add the primary working environment details and set the IP space. For more information, see link:task-manage-app-backups.html#set-ip-space-of-the-primary-working-environment[Set IP space of the primary working Environment].
+If you want to mount a backup that was moved to object store from secondary storage, you should add the primary working environment details and set the IP space. For more information, see link:task-manage-app-backups.html#set-ip-space-of-the-primary-working-environment[Set IP space of the primary working environment].
 
 *Steps*
 
