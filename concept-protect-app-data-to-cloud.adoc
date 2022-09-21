@@ -33,7 +33,7 @@ Read the following requirements to make sure that you have a supported configura
 * Cloud Manager 3.9
 * SnapCenter Server 4.6 or later
 You should be using SnapCenter Server 4.7 if you want to use the following features:
-** protect backups from secondary storage
+** protect backups from on-premises secondary storage
 ** protect SAP HANA applications
 ** protect Oracle and SQL applications that are on VMware environment
 ** mount backups
