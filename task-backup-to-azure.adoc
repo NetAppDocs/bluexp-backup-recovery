@@ -68,7 +68,7 @@ The following image shows each component and the connections that you need to pr
 image:diagram_cloud_backup_cvo_azure.png[A diagram showing how Cloud Backup communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
 Supported ONTAP versions::
-Minimum of ONTAP 9.7P5; ONTAP 9.8P11 and later is recommended.
+Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
 
 License requirements::
 For Cloud Backup PAYGO licensing, a subscription through the Azure Marketplace is required before you enable Cloud Backup. Billing for Cloud Backup is done through this subscription. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html[You can subscribe from the Details & Credentials page of the working environment wizard^].
@@ -138,7 +138,7 @@ Required setup for creating backups in a different Azure subscription::
 By default, backups are created using the same subscription as the one used for your Cloud Volumes ONTAP system. If you want to use a different Azure subscription for your backups, you must link:reference-backup-multi-account-azure.html[log in to the Azure portal and link the two subscriptions].
 
 Required information for using customer-managed keys for data encryption::
-You can use your own customer-managed keys for data encryption in the activation wizard instead of using the default Microsoft-managed encryption keys. In this case you will need to have the Azure Subscription, Key Vault name, and the Key. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview[See how to use your own keys].
+You can use your own customer-managed keys for data encryption in the activation wizard instead of using the default Microsoft-managed encryption keys. In this case you will need to have the Azure Subscription, Key Vault name, and the Key. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview[See how to use your own keys^].
 
 == Enabling Cloud Backup on a new system
 

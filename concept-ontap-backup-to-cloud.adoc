@@ -15,7 +15,7 @@ summary: Cloud Backup provides backup and restore capabilities for protection an
 [.lead]
 Cloud Backup provides backup and restore capabilities for protection and long-term archive of your ONTAP cluster data. Backups are automatically generated and stored in an object store in your public or private cloud account, independent of volume Snapshot copies used for near-term recovery or cloning.
 
-When necessary, you can restore an entire _volume_, or one or more _files_, from a backup to the same or different working environment.
+When necessary, you can restore an entire _volume_, a folder, or one or more _files_, from a backup to the same or different working environment.
 
 == Features
 
@@ -35,10 +35,10 @@ Backup features:
 Restore features:
 
 * Restore data from a specific point in time.
-* Restore a volume, or individual files, to the source system or to a different system.
+* Restore a volume, a folder, or individual files, to the source system or to a different system.
 * Restore data to a working environment using a different subscription/account or that is in a different region.
 * Restores data on a block level, placing the data directly in the location you specify, all while preserving the original ACLs.
-* Browsable and searchable file catalogs for selecting individual files for single file restore.
+* Browsable and searchable file catalogs for selecting individual folders and files for single file restore.
 
 == Supported ONTAP working environments and object storage providers
 
@@ -196,7 +196,7 @@ Note that a 30-day free trial is available when you initially sign up with a PAY
 ifdef::aws[]
 When using AWS, two annual contracts are available for 12, 24, or 36 month terms:
 
-*	A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
+* A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
 
 * A "CVO Professional" plan that enables you to bundle Cloud Volumes ONTAP and Cloud Backup. This includes unlimited backups for Cloud Volumes ONTAP volumes charged against this license (backup capacity is not counted against the license).
 endif::aws[]
@@ -362,22 +362,22 @@ The following is a known issue that will be fixed in a future release:
 
 * ONTAP doesn't support fan-out of SnapMirror relationships from a single volume to multiple object stores; therefore, this configuration is not supported by Cloud Backup.
 
-* WORM/Compliance mode on an object store is only supported on Amazon S3 at this time.
+* WORM/Compliance mode on an object store is only supported on Amazon S3 and StorageGRID at this time. This is known as the DataLock feature.
 
-=== Single File Restore limitations
+=== File and Folder Restore limitations
 
-These limitations apply to both the Search & Restore and the Browse & Restore methods of restoring files; unless called out specifically.
+These limitations apply to both the Search & Restore and the Browse & Restore methods of restoring files and folders; unless called out specifically.
 
 * Browse & Restore can restore up to 100 individual files at a time.
 
 * Search & Restore can restore 1 file at a time.
 
-* There is currently no support for restoring folders/directories.
+* Browse & Restore and Search & Restore can restore 1 folder at a time.
 
 * The file being restored must be using the same language as the language on the destination volume. You will receive an error message if the languages are not the same.
 
 * File level restore is not supported when using the same account with different Cloud Managers in different subnets.
 
-* You can’t restore individual files if the backup file resides in archival storage.
+* You can’t restore individual folders if the backup file resides in archival storage.
 
 * File level restore using Search & Restore is not supported when the Connector is installed on a site without internet access (dark site).

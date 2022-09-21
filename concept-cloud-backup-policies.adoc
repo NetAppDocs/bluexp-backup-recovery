@@ -45,6 +45,8 @@ Cloud Backup provides support for DataLock and Ransomware protection for your vo
 
 Both of these features protect your backup files so that you'll always have a valid backup file to recover data from in case of a ransomware attack on your source data. It's also helpful to meet certain regulatory requirements where backups need to be locked and retained for a certain period of time. When DataLock and Ransomware Protection is enabled, the cloud bucket that is provisioned as a part of Cloud Backup activation will have object locking and object versioning enabled.
 
+This feature does not provide protection for your source volumes, only for the backups of those source volumes. Use NetApp https://cloud.netapp.com/ci-sde-plp-cloud-secure-info-trial?hsCtaTracking=fefadff4-c195-4b6a-95e3-265d8ce7c0cd%7Cb696fdde-c026-4007-a39e-5e986c4d27c6[Cloud Insights and Cloud Secure^], or some of the https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html[anti-ransomware protections provided from ONTAP^] to protect your source volumes.
+
 [CAUTION]
 ====
 * If you plan to use DataLock and Ransomware protection, you must enable it when creating your first backup policy and activating Cloud Backup for that cluster.
@@ -55,7 +57,7 @@ Both of these features protect your backup files so that you'll always have a va
 
 DataLock protects your backup files from being modified or deleted for a certain period of time. This functionality uses technology from the object storage provider for "object locking". The period of time that the backup file is locked (and retained) is called the DataLock Retention Period. It is based on the backup policy schedule and retention setting that you defined; plus a 14 day buffer. Any DataLock retention policy that is less than 30 days is rounded up to 30 days minimum.
 
-Be aware that old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period.
+Be aware that old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period expires.
 
 Let's look at some examples of how this works:
 
@@ -97,17 +99,19 @@ You can choose from the following settings for each backup policy:
 +
 DataLock protection and ransomware protection are disabled.
 
-* Enterprise
+* Governance (Not available with StorageGRID)
 +
-DataLock is set to _Enterprise_ where users with specific permissions (link:concept-cloud-backup-policies.html#requirements[see below]) can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+DataLock is set to _Governance_ mode where users with specific permissions (link:concept-cloud-backup-policies.html#requirements[see below]) can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
 * Compliance
 +
-DataLock is set to _Compliance_ where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+DataLock is set to _Compliance_ mode where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+
+NOTE: The StorageGRID S3 Object Lock feature provides a single DataLock mode that is equivalent to Compliance mode. An equivalent Governance mode is not supported, so no users have the capability to bypass retention settings, overwrite protected backups, or delete backups.
 
 === Supported working environments and object storage providers
 
-You can enable DataLock and Ransomware protection on ONTAP volumes from the following working environments when using object storage in the following public cloud providers. Additional public and private cloud providers will be added in future releases.
+You can enable DataLock and Ransomware protection on ONTAP volumes from the following working environments when using object storage in the following public and private cloud providers. Additional cloud providers will be added in future releases.
 
 [cols=2*,options="header",cols="45,45",width="95%"]
 |===
@@ -127,9 +131,10 @@ endif::aws[]
 // | Cloud Volumes ONTAP in Google
 // | Google Cloud Storage
 //endif::gcp[]
-ifdef::aws[]
 | On-premises ONTAP system
-| Amazon S3
+| 
+ifdef::aws[]
+Amazon S3
 endif::aws[]
 //ifdef::azure[]
 //Azure Blob
@@ -137,15 +142,17 @@ endif::aws[]
 //ifdef::gcp[]
 //Google Cloud Storage
 //endif::gcp[]
-//NetApp StorageGRID
+NetApp StorageGRID
 
 |===
 
 === Requirements
 
 * Your clusters must running ONTAP 9.11.1 or greater
-* You must be using Cloud Manager 3.9.21 or greater (the Connector must deployed in the cloud at this time)
-* For backup to AWS, the following S3 permissions must be part of the IAM role that provides the Connector with permissions:
+* You must be using Cloud Manager 3.9.21 or greater
+ifdef::aws[]
+* For AWS, the Connector must deployed in the cloud
+* The following S3 permissions must be part of the IAM role that provides the Connector with permissions. They reside in the "backupS3Policy" section for the resource "arn:aws:s3:::netapp-backup-*":
 ** s3:GetObjectVersionTagging
 ** s3:GetBucketObjectLockConfiguration
 ** s3:GetObjectVersionAcl
@@ -174,12 +181,18 @@ endif::aws[]
 ** s3:GetBucketLocation
 ** s3:GetObjectVersion
 +
-The S3 permission "s3:BypassGovernanceRetention" must be added to the Cloud Manager user role if you want your Admin users to be able to overwrite/delete backup files locked using Enterprise mode.
+"s3:BypassGovernanceRetention" must be added only if you want your Admin users to be able to overwrite/delete backup files locked using Governance mode.
++
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[View the full JSON format for the policy where you can copy and paste required permissions^].
+endif::aws[]
+* For StorageGRID:
+** The Connector must be deployed on your premises (it can be installed in a site with or without internet access)
+** StorageGRID 11.6.0.3 and greater is required for full support of DataLock capabilities
 
 === Restrictions
 
 * DataLock and Ransomware protection is not available if you have configured archival storage in the backup policy.
-* The DataLock option you select when activating Cloud Backup (either Enterprise or Compliance) must be used for all backup policies for that cluster. You cannot use both Enterprise and Compliance mode locking on a single cluster.
+* The DataLock option you select when activating Cloud Backup (either Governance or Compliance) must be used for all backup policies for that cluster. You cannot use both Governance and Compliance mode locking on a single cluster.
 * If you enable DataLock, all volume backups will be locked. You can't mix locked and non-locked volume backups for a single cluster.
 * DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can't enable this feature after Cloud Backup has been activated.
 
