@@ -48,7 +48,7 @@ The supported applications and their configurations are:
 * Microsoft SQL Server database:
 ** Standalone, failover cluster instances, and availability groups
 ** Full backups created with at least one daily, weekly, or monthly schedules
-** SAN, NFS, VMDK-SAN, VMDK-NFS, and RDM
+** SAN, VMDK-SAN, VMDK-NFS, and RDM
 * SAP HANA database:
 ** Single Container 1.x
 ** Multiple Database Container 2.x
