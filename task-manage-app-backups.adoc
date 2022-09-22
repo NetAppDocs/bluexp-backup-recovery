@@ -14,11 +14,11 @@ summary: You can view the policies and backups. Depending upon the change in dat
 
 [.lead]
 
-You can view the policies and backups. Depending upon the change in database, policies, or resource groups, you can refresh the updates from the Cloud Manager UI.
+You can manage protection of applications by performing different operations from the Cloud Manager UI.
 
 == View policies
 
-You can view all the policies. For each of these policies, when you view the details all the associated Cloud Backup for Applications policies and all the associated applications are listed.
+You can view all the policies. For each of these policies, when you view the details all the associated applications are listed.
 
 . Click *Backup & Restore* > *Applications*.
 . From the *Settings* drop-down, click *Policies*.
@@ -26,7 +26,7 @@ You can view all the policies. For each of these policies, when you view the det
 +
 The associated Cloud Backup for Applications policies and all the applications are listed.
 +
-NOTE: You should not delete the Cloud Backup for Applications policies.
+NOTE: You cannot edit or delete a policy, which is associated with an application.
 
 You can also view cloud extended SnapCenter policies, by running the `Get-SmResources` SnapCenter cmdlet.
 The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running Get-Help command_name. Alternatively, you can also refer the https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726[SnapCenter Software Cmdlet Reference Guide].
