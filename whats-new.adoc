@@ -17,6 +17,7 @@ Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
 
+<<<<<<< HEAD
 == 30 September 2022
 
 === Enhancements to Cloud Backup for Applications
@@ -32,6 +33,41 @@ Learn what's new in Cloud Backup.
 
 * Create custom policies to back up datastores to cloud.
 * Back up one or more datastores to StorageGRID by integrating the SnapCenter Plug-in for VMware vSphere with Cloud Manager.
+=======
+== 19 September 2022
+
+=== DataLock and Ransomware protection can be configured for backup files in StorageGRID systems
+
+The last release introduced _DataLock and Ransomware Protection_ for backups stored in Amazon S3 buckets. This release expands support to backup files stored in StorageGRID systems. If your cluster is using ONTAP 9.11.1 or greater, and your StorageGRID system is running version 11.6.0.3 or greater, this new backup policy option is available. https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can use DataLock and Ransomware protection to protect your backups^].
+
+Note that you'll need to be running a Connector with version 3.9.22 or greater software. The Connector must be installed in your premises, and it can be installed in a site with or without internet access.
+
+=== Folder-level restore is now available from your backup files
+
+Now you can restore a folder from a backup file if you need access to all the files in that folder (directory or share). Restoring a folder is much more efficient than restoring an entire volume. This functionality is available for restore operations using both the Browse & Restore method and the Search & Restore method when using ONTAP 9.11.1 or greater. At this time you can can select and restore only a single folder, and only files from that folder are restored - no sub-folders, or files in sub-folders, are restored.
+
+=== File-level restore is now available from backups that have been moved to archival storage
+
+In the past you could only restore volumes from backup files that had been moved to archival storage (AWS and Azure only). Now you can restore individual files from these archived backup files. This functionality is available for restore operations using both the Browse & Restore method and the Search & Restore method when using ONTAP 9.11.1 or greater.
+
+=== File-level restore now provides the option to overwrite the original source file
+
+In the past, a file restored to the original volume was always restored as a new file with the prefix "Restore_<file_name>". Now you can choose to overwrite the original source file when restoring the file to the original location on the volume. This functionality is available for restore operations using both the Browse & Restore method and the Search & Restore method.
+
+=== Drag and drop to enable Cloud Backup to StorageGRID systems
+
+If the https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[StorageGRID^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP working environment onto the destination to initiate the Cloud Backup setup wizard.
+//
+//=== AWS cross-account backup enhancements
+//
+//If you want to use a different AWS account for your Cloud Volumes ONTAP backups than you're using for the source volumes, you must add the destination AWS account credentials in Cloud Manager, and you must add the permission "s3:PutBucketPolicy" to the IAM role that provides Cloud Manager with permissions. In the past you needed to configure many settings in the AWS Console - you don't need to do that anymore. 
+//
+//=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
+//
+//In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises.
+//
+//At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage.
+>>>>>>> 36ba1562cdc0ee8e44d03e9dd2b2ce4daf26c244
 
 == 18 August 2022
 
@@ -39,8 +75,6 @@ Learn what's new in Cloud Backup.
 
 Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within Cloud Manager offers efficient, application consistent, policy-based backup and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP.
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html[Learn more^].
-
-== 16 August 2022
 
 === Search & Restore is now supported with backup files in Azure Blob
 
@@ -57,12 +91,6 @@ Note that additional permissions are needed in the Connector role to use this fu
 === Cloud Backup now supports policies created using custom SnapMirror labels
 
 Previously, Cloud Backup supported only pre-defined SnapMirror labels like hourly, daily, weekly, hourly, and yearly. Now Cloud Backup can discover SnapMirror policies that have custom SnapMirror labels that you created using System Manager or the CLI. These new labels are exposed in the Cloud Backup UI - allowing you to back up volumes with the SnapMirror label of your choice to the cloud.
-//
-//=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
-//
-//In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises.
-//
-//At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage.
 
 === Additional backup policy improvements for ONTAP systems
 
@@ -88,6 +116,7 @@ In the past you needed to deploy the Connector in the same cloud provider as whe
 
 * Backup on a yearly schedule is now available. The default retention value is 1 for yearly backups, but you can change this value if you want to have access to many previous years' backup files.
 * You can name your backup policies so you can identify your policies with more descriptive text.
+// end::whats-new[]
 
 == 14 June 2022
 
@@ -97,8 +126,6 @@ If your on-prem ONTAP cluster resides in a site with no internet access, also kn
 
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[See how to install the Connector in your offline site].
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html[See how to back up ONTAP data to StorageGRID in your offline site].
-
-== 8 June 2022
 
 === Cloud Backup for Virtual Machines 1.1.0 is now GA
 
@@ -131,7 +158,6 @@ If you added new persistent volumes to your Kubernetes clusters after Cloud Back
 === Cloud Backup APIs are now available for managing backup and restore operations
 
 The APIs are available at https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html. See link:api-backup-restore.html[this page] for an overview of the APIs.
-// end::whats-new[]
 
 == 2 May 2022
 
@@ -257,57 +283,3 @@ When configuring backups to Amazon S3 from an on-premises ONTAP system, now you 
 For additional security and control, you can choose your own customer-managed keys for data encryption in the activation wizard instead of using the default Amazon S3 encryption keys. This is available when configuring backups from an on-premises ONTAP system or from a Cloud Volumes ONTAP system in AWS.
 
 === Now you can restore files from directories that have more than 30,000 files
-
-== 1 August 2021
-
-=== Ability to define a Private Endpoint connection for secure backups to Azure Blob
-
-When configuring backups to Azure Blob from an on-premises ONTAP system, you can define a connection to an Azure Private Endpoint in the activation wizard. This allows you to use a network interface that connects you privately and securely to a service powered by Azure Private Link.
-
-=== An Hourly backup policy is now supported
-
-This new policy is in addition to the existing Daily, Weekly, and Monthly policies. The Hourly backup policy provides a minimal Recovery Point Objective (RPO).
-
-== 7 July 2021
-
-=== Now you can create backups using different accounts and in different regions
-
-Cloud Backup now allows you to create backups using a different account/subscription than the one you are using for your Cloud Volumes ONTAP system. You can also create backup files in a different region than the one in which your Cloud Volumes ONTAP system is deployed.
-
-This capability is available when using when using AWS or Azure, and only when enabling backup on an existing working environment - it is not available when creating a new Cloud Volumes ONTAP working environment.
-
-=== Now you can choose your own customer-managed keys for data encryption when backing up data to Azure Blob
-
-For additional security and control, you can choose your own customer-managed keys for data encryption in the activation wizard instead of using the default Microsoft-managed encryption keys. This is available when configuring backups from an on-premises ONTAP system or from a Cloud Volumes ONTAP system in Azure.
-
-=== Now you can restore up to 100 files at a time when using single-file restore
-
-== 7 June 2021
-
-=== Limitations lifted for DP volumes when using ONTAP 9.8 or greater
-
-Two known limitations for backing up data protection (DP) volumes have been resolved:
-
-* Before, cascaded backup worked only if the SnapMirror relationship type was Mirror-Vault or Vault. Now you can make backups if the relationship type is MirrorAllSnapshots.
-* Cloud Backup now can use any label for the backup as long as it is configured in the SnapMirror policy. The restriction of requiring labels with the names daily, weekly, or monthly is gone.
-
-== 5 May 2021
-
-=== Back up on-prem cluster data to Google Cloud Storage or NetApp StorageGRID systems
-
-Now you can create backups from your on-premises ONTAP systems to Google Cloud Storage or to your NetApp StorageGRID systems. See link:task-backup-onprem-to-gcp.html[Backing up to Google Cloud Storage^] and link:task-backup-onprem-private-cloud.html[Backing up to StorageGRID^] for details.
-
-=== Now you can use System Manager to perform Cloud Backup operations
-
-A new feature in ONTAP 9.9.1 enables you to use System Manager to send backups of your on-premises ONTAP volumes to object storage you've set up through Cloud Backup. link:https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html[See how to use System Manager to back up your volumes to the cloud using Cloud Backup.^]
-
-=== Backup policies have been improved with a few enhancements
-
-* Now you create a custom policy that includes a combination of daily, weekly, and monthly backups.
-* When you change a backup policy, the change applies to all new backups *and* to all volumes using the original backup policy. In the past the change only applied to new volume backups.
-
-=== Miscellaneous backup and restore improvements
-
-* When configuring the cloud destination for your backup files, now you can select a different region than the region in which the Cloud Volumes ONTAP system resides.
-* The number of backup files you can create for a single volume has been increased from 1,019 to 4,000.
-* In addition to the earlier ability to delete all backup files for a single volume, now you can delete just a single backup file for a volume, or you can delete all backup files for an entire working environment, if needed.
