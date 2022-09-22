@@ -21,7 +21,7 @@ Learn what's new in Cloud Backup.
 
 === Enhancements to Cloud Backup for Applications
 
-* Supports Google Cloud Provider (GCP) and StorageGRID
+* Supports Google Cloud Provider (GCP) and StorageGRID to back up application consistent snapshots
 * Create custom policies
 * Supports archival storage
 * Back up SAP HANA applications
@@ -32,8 +32,8 @@ Learn what's new in Cloud Backup.
 
 === Enhancements to Cloud Backup for Virtual Machines
 
-* Create custom policies to back up datastores to cloud.
-* Back up one or more datastores to StorageGRID by integrating the SnapCenter Plug-in for VMware vSphere with Cloud Manager.
+* Supports StorageGRID to back up one or more datastores
+* Create custom policies
 
 == 19 September 2022
 
