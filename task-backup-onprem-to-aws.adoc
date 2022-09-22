@@ -71,12 +71,10 @@ There are two connection methods you can use when configuring backups from on-pr
 The following diagram shows the *public connection* method and the connections that you need to prepare between the components. You can use a Connector that you've installed on your premises, or a Connector that you've deployed in the AWS VPC.
 
 image:diagram_cloud_backup_onprem_aws_public.png[A diagram showing how Cloud Backup communicates over a public connection with the volumes on the cluster and the AWS S3 storage where the backup files are located.]
-//image:diagram_cloud_backup_onprem_aws.png[A diagram showing how Cloud Backup communicates over a public connection with the volumes on the source systems and the destination storage where the backup files are located.]
 
 The following diagram shows the *private connection* method and the connections that you need to prepare between the components. You can use a Connector that you've installed on your premises, or a Connector that you've deployed in the AWS VPC.
 
 image:diagram_cloud_backup_onprem_aws_private.png[A diagram showing how Cloud Backup communicates over a private connection with the volumes on the cluster and the AWS S3 storage where the backup files are located.]
-//image:diagram_cloud_backup_onprem_aws_vpc.png[A diagram showing how Cloud Backup communicates over a private connection with the volumes on the source systems and the destination storage where the backup files are located.]
 
 == Prepare your Connector
 
@@ -90,7 +88,8 @@ If you already have a Connector deployed in your AWS VPC or on your premises, th
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[Getting started with Connectors^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Installing a Connector in AWS^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html[Installing a Connector in your premises^]
-// * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html[Switch between Connectors^]
+
+Note that Cloud Backup is supported in GovCloud regions only when the Connector is deployed in the cloud - not when it is installed in your premises or in a dark site.
 
 === Connector networking requirements
 
@@ -98,6 +97,7 @@ If you already have a Connector deployed in your AWS VPC or on your premises, th
 +
 ** An HTTPS connection over port 443 to the Cloud Backup service and to your S3 object storage (https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[see the list of endpoints^])
 ** An HTTPS connection over port 443 to your ONTAP cluster management LIF
+** Additional inbound and outbound security group rules are required for AWS and AWS GovCloud deployments. See https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-aws.html[Rules for the Connector in AWS^] for details.
 
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Ensure that the Connector has permissions to manage the S3 bucket].
 
@@ -119,7 +119,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 *Note:* The "Hybrid Cloud Bundle" is not required when using Cloud Backup.
 +
 See how to https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html[manage your cluster licenses^].
-*	Time and time zone are set correctly.
+* Time and time zone are set correctly.
 +
 See how to https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html[configure your cluster time^].
 
@@ -136,7 +136,7 @@ When you set up Cloud Backup, you are prompted for the IPspace to use. You shoul
 If you use are using a different IPspace than "Default", then you might need to create a static route to get access to the object storage.
 +
 All intercluster LIFs within the IPspace must have access to the object store. If you can't configure this for the current IPspace, then you'll need to create a dedicated IPspace where all intercluster LIFs have access to the object store.
-*	DNS servers must have been configured for the storage VM where the volumes are located. See how to https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html[configure DNS services for the SVM^].
+* DNS servers must have been configured for the storage VM where the volumes are located. See how to https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html[configure DNS services for the SVM^].
 * Update firewall rules, if necessary, to allow Cloud Backup connections from ONTAP to object storage through port 443 and name resolution traffic from the storage VM to the DNS server over port 53 (TCP/UDP).
 * If you are using a Private VPC Interface Endpoint in AWS for the S3 connection, then in order for HTTPS/443 to be used, you'll need to load the S3 endpoint certificate into the ONTAP cluster. <<Configure your system for a private connection using a VPC endpoint interface,See how to set up a VPC endpoint interface and load the S3 certificate.>>
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Ensure that your ONTAP cluster has permissions to access the S3 bucket].
