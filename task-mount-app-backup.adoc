@@ -33,7 +33,6 @@ If you want to mount a backup that was moved to object store from secondary stor
 .. If the snapshot is in archival storage, specify the priority to retrieve your data from the archival storage.
 .. Click *Mount*.
 
-This operation performs only the storage mount on the give host. You should manually mount the filesystem and bring up the database. After utilizing the alternate volume, the storage Administrator should delete the storage volumes from Cloud Backup Applications.
+This operation mounts only the storage on the given host. You should manually mount the filesystem and bring up the database. After utilizing the alternate volume, the storage Administrator can delete the volume from the ONTAP cluster.
 
-* For information on how to bring up the SAP HANA database see, https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html[TR-4667: Automating SAP HANA System Copy and Clone Operations with SnapCenter^].
-* For information on how to bring up the Oracle database see, [need the link].
+For information on how to bring up the SAP HANA database see, https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html[TR-4667: Automating SAP HANA System Copy and Clone Operations with SnapCenter^].

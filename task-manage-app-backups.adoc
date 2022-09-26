@@ -24,7 +24,7 @@ You can view all the policies. For each of these policies, when you view the det
 . From the *Settings* drop-down, click *Policies*.
 . Click *View Details* corresponding to policy whose details you want to view.
 +
-The associated Cloud Backup for Applications policies and all the applications are listed.
+The associated applications are listed.
 +
 NOTE: You cannot edit or delete a policy, which is associated with an application.
 
