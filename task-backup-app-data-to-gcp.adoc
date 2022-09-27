@@ -1,0 +1,45 @@
+---
+sidebar: sidebar
+permalink: task-backup-app-data-to-gcp.html
+keywords: backing up, back up, backup, backup application data, Google Cloud, GCP, Cloud Backup, cloud backup service, Oracle database, Microsoft SQL Server database, SAP HANA database
+summary: Complete a few steps to back up applications data from ONTAP to GCP.
+---
+
+= Back up on-premises applications data to Google Cloud
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+You can back up the applications data from ONTAP to Google Cloud by integrating Cloud Backup for Applications with Cloud Manager and on-premises SnapCenter.
+
+You can protect one or more applications simultaneously to the cloud using a single policy.
+
+IMPORTANT: You can protect only one application at a time if you are using the Cloud Manager GUI. However, if you are using REST APIs, you can protect multiple applications simultaneously.
+
+*Steps*
+
+. In Cloud Manager UI, click *Backup & Restore* > *Applications*.
+. Click image:icon-action.png[icon to select the action] corresponding to the application and click *Activate Backup*.
+. In the Assign Policy page, select the policy and click *Next*.
+. Add the working environment.
++
+Configure the ONTAP cluster that hosts the SVM on which the application is running. After adding the working environment for one of the applications, it can be reused for all the other applications residing on the same ONTAP cluster.
++
+.. Select the SVM and click *Add Working Environment*.
+.. In the Add Working Environment wizard:
+... Specify the IP address of the ONTAP cluster.
+... Specify the admin credentials.
++
+Cloud Backup for Applications supports only cluster admin.
+.. Click *Add Working Environment*.
+. Select *Google Cloud Platform* as the cloud provider.
+.. Select the Google Cloud Project where you want the Google Cloud Storage bucket to be created for backups..
+.. In the Google Cloud Access Key field, specify the key.
+.. In the Google Cloud Secret Key field, specify the password.
+.. Select the region where you want to create the backups.
+.. Specify the IP space.
+. Review the details and click *Activate Backup*.
