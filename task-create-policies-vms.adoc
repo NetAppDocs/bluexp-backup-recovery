@@ -1,0 +1,57 @@
+---
+sidebar: sidebar
+permalink: task-create-policies-vms.html
+keywords: create policy, protection policies, predefined policies, custom policies
+summary: Back up your datastores from on-premises ONTAP to AWS.
+---
+
+= Create a policy to back up virtual machines
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can create a policy or use one of the following predefined policies that are available in Cloud Manager.
+
+|===
+| Policy Name | Label | Retention Value
+
+a|
+1 Year Daily LTR
+a|
+Daily
+a|
+366
+a|
+5 Years Daily LTR
+a|
+Daily
+a|
+1830
+a|
+7 Year Weekly LTR
+a|
+Weekly
+a|
+370
+a|
+10 Year Monthly LTR
+a|
+Monthly
+a|
+120
+|===
+
+You should create policies if you do not want to edit the predefined policies.
+
+.Steps
+
+. In the Virtual machines page, from the Settings drop-down list, select *Policies*.
+. Click *Create policy*.
+. Specify a policy name.
+. Specify the schedule and retention details.
++
+By default, the backup source will selected as primary.
+. Click *Create*.
