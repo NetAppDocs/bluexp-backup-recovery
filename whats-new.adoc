@@ -17,6 +17,24 @@ Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
 
+== 30 September 2022
+
+=== Enhancements to Cloud Backup for Applications
+
+* Supports Google Cloud Provider (GCP) and StorageGRID to back up application consistent snapshots
+* Create custom policies
+* Supports archival storage
+* Back up SAP HANA applications
+* Back up Oracle and SQL applications that are on VMware environment
+* Back up applications from on-premises secondary storage
+* Deactivate backups
+* Unregister SnapCenter Server
+
+=== Enhancements to Cloud Backup for Virtual Machines
+
+* Supports StorageGRID to back up one or more datastores
+* Create custom policies
+
 == 19 September 2022
 
 === DataLock and Ransomware protection can be configured for backup files in StorageGRID systems
@@ -43,7 +61,7 @@ If the https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-sto
 //
 //=== AWS cross-account backup enhancements
 //
-//If you want to use a different AWS account for your Cloud Volumes ONTAP backups than you're using for the source volumes, you must add the destination AWS account credentials in Cloud Manager, and you must add the permission "s3:PutBucketPolicy" to the IAM role that provides Cloud Manager with permissions. In the past you needed to configure many settings in the AWS Console - you don't need to do that anymore. 
+//If you want to use a different AWS account for your Cloud Volumes ONTAP backups than you're using for the source volumes, you must add the destination AWS account credentials in Cloud Manager, and you must add the permission "s3:PutBucketPolicy" to the IAM role that provides Cloud Manager with permissions. In the past you needed to configure many settings in the AWS Console - you don't need to do that anymore.
 //
 //=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
 //
