@@ -16,7 +16,7 @@ summary: Know more about protecting data on your virtual machines and understand
 
 You can protect data on your virtual machines by integrating the SnapCenter Plug-in for VMware vSphere with Cloud Manager. You can back up datastores to the cloud and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere with ease.
 
-You can back up datastores to Amazon Web Services S3 or Microsoft Azure Blob.
+You can back up datastores to Amazon Web Services S3, Microsoft Azure Blob, and StorageGRID.
 
 == Requirements
 Read the following requirements to make sure that you have a supported configuration before you start backing up datastores and virtual machines to cloud services.
@@ -36,40 +36,3 @@ Read the following requirements to make sure that you have a supported configura
 The following image shows each component and the connections that you need to prepare between them:
 
 image:cloud_backup_vm.png[The architecture diagram of cloud backup for virtual machines.]
-
-== Protection Policies
-
-You should use the one of the policies defined in the Cloud Backup for virtual machines to back up  datastores to cloud.
-
-NOTE: Custom polices are not supported.
-
-You can view the default policies by clicking *Backup & Restore* > *Virtual Machines* > *Policies* in Cloud Manager.
-
-|===
-| Policy Name | Label | Retention Value
-
-a|
-1 Year Daily LTR
-a|
-Daily
-a|
-366
-a|
-5 Years Daily LTR
-a|
-Daily
-a|
-1830
-a|
-7 Year Weekly LTR
-a|
-Weekly
-a|
-370
-a|
-10 Year Monthly LTR
-a|
-Monthly
-a|
-120
-|===
