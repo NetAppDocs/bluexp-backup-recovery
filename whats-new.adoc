@@ -17,7 +17,7 @@ Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
 
-== 27 September 2022
+== 28 September 2022
 
 === Enhancements to Cloud Backup for Applications
 
