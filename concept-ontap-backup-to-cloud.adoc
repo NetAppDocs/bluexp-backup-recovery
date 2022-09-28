@@ -15,7 +15,7 @@ summary: Cloud Backup provides backup and restore capabilities for protection an
 [.lead]
 Cloud Backup provides backup and restore capabilities for protection and long-term archive of your ONTAP cluster data. Backups are automatically generated and stored in an object store in your public or private cloud account, independent of volume Snapshot copies used for near-term recovery or cloning.
 
-When necessary, you can restore an entire _volume_, a folder, or one or more _files_, from a backup to the same or different working environment.
+When necessary, you can restore an entire _volume_, a _folder_, or one or more _files_, from a backup to the same or different working environment.
 
 == Features
 
@@ -77,14 +77,14 @@ NetApp StorageGRID
 
 |===
 
-You can restore a volume, or individual files, from an ONTAP backup file to the following working environments:
+You can restore a volume, a folder, or individual files, from an ONTAP backup file to the following working environments:
 
 [cols=3*,options="header",cols="25,33,37",width="95%"]
 |===
 
 | Backup File
 2+^| Destination Working Environment
-| *Location* | *Volume Restore* | *File Restore*
+| *Location* | *Volume Restore* | *Folder and File Restore*
 ifdef::aws[]
 | Amazon S3 | Cloud Volumes ONTAP in AWS
 On-premises ONTAP system

@@ -180,6 +180,8 @@ homepage:
           url: whats-new.html
         - title: Set up licensing
           url: task-licensing-cloud-backup.html
+        - title: Monitor the status of backup and restore jobs
+          url: task-monitor-backup-jobs.html
     - title: Back up ONTAP data to the cloud
       links:
         - title: Cloud Volumes ONTAP to Amazon S3
@@ -246,11 +248,11 @@ homepage:
           url: /task-backup-vm-data-to-storagegrid.html
         - title: Restore virtual machines from the cloud
           url: task-restore-vm-data.html
-    - title: Restore data from backup files
+    - title: Restore data from ONTAP backup files
       links:
         - title: Restore ONTAP volumes
           url: task-restore-backups-ontap.html
-        - title: Restore ONTAP files
+        - title: Restore files and folders from ONTAP volumes
           url: task-restore-backups-ontap.html
         - title: Restore Kubernetes volumes
           url: task-restore-backups-kubernetes.html
@@ -270,8 +272,6 @@ homepage:
           url: task-manage-backups-ontap.html#viewing-the-list-of-backups-for-each-volume
         - title: Delete backups
           url: task-manage-backups-ontap.html#deleting-backups
-        - title: Monitor the status of backup and restore jobs
-          url: task-monitor-backup-jobs.html
     - title: Blogs & community
       links:
         - title: NetApp Community
