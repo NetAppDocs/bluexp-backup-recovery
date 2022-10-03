@@ -89,7 +89,7 @@ If you already have a Connector deployed in your AWS VPC or on your premises, th
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Installing a Connector in AWS^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html[Installing a Connector in your premises^]
 
-Note that Cloud Backup is supported in GovCloud regions only when the Connector is deployed in the cloud - not when it is installed in your premises or in a dark site.
+Cloud Backup is supported in GovCloud regions when the Connector is deployed in the cloud - not when it's installed in your premises or in a dark site. Additionally, you must deploy the Connector from the AWS Marketplace. You can’t deploy the Connector in a Government region from the Cloud Manager SaaS website. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-aws-mktp.html#create-the-connector-in-an-aws-government-region[Learn how to create the Connector in an AWS GovCloud region].
 
 === Connector networking requirements
 
