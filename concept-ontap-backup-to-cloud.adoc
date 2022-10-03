@@ -44,7 +44,7 @@ Restore features:
 
 Cloud Backup enables you to back up ONTAP volumes from the following working environments to object storage in the following public and private cloud providers:
 
-[cols=2*,options="header",cols="45,45",width="95%"]
+[cols=2*,options="header",cols="50,50",width="80%"]
 |===
 
 | Source Working Environment
@@ -134,7 +134,7 @@ Resource charges are paid to the cloud provider for object storage capacity and 
 +
 Since Cloud Backup preserves the storage efficiencies of the source volume, you pay the cloud provider object storage costs for the data _after_ ONTAP efficiencies (for the smaller amount of data after deduplication and compression have been applied).
 
-* For Volume or File Restore using Search & Restore, certain resources are provisioned by your cloud provider, and there is per-TiB cost associated with the amount of data that is scanned by your search requests.
+* For restoring data using Search & Restore, certain resources are provisioned by your cloud provider, and there is per-TiB cost associated with the amount of data that is scanned by your search requests. (These resources are not needed for Browse & Restore.)
 +
 ifdef::aws[]
 ** In AWS, https://aws.amazon.com/athena/faqs/[Amazon Athena^] and https://aws.amazon.com/glue/faqs/[AWS Glue^] resources are deployed in a new S3 bucket.
@@ -214,8 +214,8 @@ link:task-licensing-cloud-backup.html#use-an-annual-contract[Learn how to set up
 == How Cloud Backup works
 
 When you enable Cloud Backup on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. Volume snapshots are not included in the backup image. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum.
-
-In most cases you'll use the Cloud Manager UI for all backup operations. However, starting with ONTAP 9.9.1 you can initiate volume backup operations of your on-premises ONTAP clusters using ONTAP System Manager. https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html[See how to use System Manager to back up your volumes to the cloud using Cloud Backup.^]
+//
+//In most cases you'll use the Cloud Manager UI for all backup operations. However, starting with ONTAP 9.9.1 you can initiate volume backup operations of your on-premises ONTAP clusters using ONTAP System Manager. https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html[See how to use System Manager to back up your volumes to the cloud using Cloud Backup.^]
 
 CAUTION: Any actions taken directly from your cloud provider environment to manage or change backup files may corrupt the files and will result in an unsupported configuration.
 
@@ -245,7 +245,7 @@ If you want to change the destination object store for a cluster in the future, 
 
 === Customizable backup schedule and retention settings
 
-When you enable Cloud Backup for a working environment, all the volumes you initially select are backed up using the default backup policy that you define. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to the other volumes after Backup is activated.
+When you enable Cloud Backup for a working environment, all the volumes you initially select are backed up using the default backup policy that you define. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to the other volumes after Cloud Backup is activated.
 
 You can choose a combination of hourly, daily, weekly, monthly, and yearly backups of all volumes. You can also select one of the system-defined policies that provide backups and retention for 3 months, 1 year, and 7 years. These policies are:
 
@@ -289,7 +289,7 @@ You can choose from the following settings for each backup policy:
 
 The retention period is the same as the schedule retention period; plus 14 days. For example, _weekly_ backups with _5_ copies retained will lock each backup file for 5 weeks. _Monthly_ backups with _6_ copies retained will lock each backup file for 6 months.
 
-Support is currently available when your backup destination is Amazon S3. Other storage provider destinations will be added in future releases.
+Support is currently available when your backup destination is Amazon S3 or NetApp StorageGRID. Other storage provider destinations will be added in future releases.
 
 TIP: DataLock can't be enabled if you are tiering backups to archival storage.
 
@@ -362,7 +362,7 @@ The following is a known issue that will be fixed in a future release:
 
 * ONTAP doesn't support fan-out of SnapMirror relationships from a single volume to multiple object stores; therefore, this configuration is not supported by Cloud Backup.
 
-* WORM/Compliance mode on an object store is only supported on Amazon S3 and StorageGRID at this time. This is known as the DataLock feature.
+* WORM/Compliance mode on an object store is only supported on Amazon S3 and StorageGRID at this time. This is known as the DataLock feature and it must be managed using Cloud Backup settings.
 
 === File and Folder Restore limitations
 
