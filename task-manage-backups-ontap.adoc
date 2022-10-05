@@ -319,9 +319,9 @@ image:screenshot_delete_one_backup.png[A screenshot showing how to delete a sing
 
 == Deleting volume backup relationships 
 
-Deleting the backup relationship for a volume is provided for an archiving scenario where you want to stop the creation of new backup files and delete the source volume, but retains all the existing backup files. This give you the ability to restore the volume from the backup file in the future, if needed.
+Deleting the backup relationship for a volume provides you with an archiving mechanism if you want to stop the creation of new backup files and delete the source volume, but retain all the existing backup files. This gives you the ability to restore the volume from the backup file in the future, if needed, while clearing space from your source storage system.
 
-Note that you can't delete the source volume from the Cloud Backup user interface. if you want to restore the data from the Snapshot copy instead of from the Backup file, however, you can open the Volume Details page on the Canvas, and https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[delete the volume from there].
+Note that you can't delete the source volume from the Cloud Backup user interface. However, you can open the Volume Details page on the Canvas, and https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[delete the volume from there].
 
 .Steps
 
@@ -335,7 +335,7 @@ image:screenshot_backup_manage_volumes.png[A screenshot that shows the Manage Vo
 
 . Select the checkbox for a volume, or volumes, that you want to delete the backup relationship, and then click *Delete Relationship*.
 +
-image:screenshot_disable_relationship.png[The Manage Volumes page where you can select or deselect volumes.]
+image:screenshot_delete_relationship.png[The Manage Volumes page where you can select or deselect volumes.]
 
 . Click *Save* to commit your changes.
 
