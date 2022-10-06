@@ -335,9 +335,13 @@ image:screenshot_backup_manage_volumes.png[A screenshot that shows the Manage Vo
 
 . Select the checkbox for a volume, or volumes, that you want to delete the backup relationship, and then click *Delete Relationship*.
 +
-image:screenshot_delete_relationship.png[The Manage Volumes page where you can select or deselect volumes.]
+image:screenshot_delete_relationship.png[A screenshot showing how to delete the backup relationship for multiple volumes.]
 
 . Click *Save* to commit your changes.
+
+Note that you can delete the backup relationship for a single volume from the Volumes page as well.
+
+image:screenshot_delete_relationship_single.png[A screenshot showing how to delete the backup relationship for a single volume.]
 
 == Deactivating Cloud Backup for a working environment
 
