@@ -50,8 +50,7 @@ You should create policies if you do not want to edit the predefined policies.
 
 . In the Virtual machines page, from the Settings drop-down list, select *Policies*.
 . Click *Create policy*.
-. Specify a policy name.
-. Specify the schedule and retention details.
-+
-By default, the backup source will selected as primary.
+. In the Policy Details section, specify the policy name.
+. In the Retention section, select one of the retention type and specify the number of backups to retain.
+. Select Primary or Secondary as the backup storage source.
 . Click *Create*.
