@@ -60,6 +60,8 @@ sidebar:
           url: /task-backup-onprem-private-cloud.html
         - title: Manage ONTAP backups
           url: /task-manage-backups-ontap.html
+        - title: Manage cluster-level backup settings
+          url: /task-manage-backup-settings-ontap.html
         - title: Restore from ONTAP backups
           url: /task-restore-backups-ontap.html
     - title: Back up and restore Kubernetes data
