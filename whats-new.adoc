@@ -17,6 +17,12 @@ Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
 
+== 04 November 2022
+
+=== Enhancements to Cloud Backup for Virtual Machines
+
+* Back up virtual machines from on-premises secondary storage
+
 == 28 September 2022
 
 === Enhancements to Cloud Backup for Applications
