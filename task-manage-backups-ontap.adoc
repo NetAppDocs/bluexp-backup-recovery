@@ -165,32 +165,6 @@ NOTE: If you enabled _DataLock and Ransomware Protection_ in the initial policy 
 
 . Click *Save* to commit your changes.
 
-== Setting a backup policy to be assigned to new volumes
-
-If you did not select the option to automatically assign a backup policy to newly created volumes when you first activated Cloud Backup on your ONTAP cluster, you can choose this option in the _Backup Settings_ page later. Having a backup policy assigned to newly created volumes ensures that all your data is protected.
-
-Note that the policy that you want to apply to the volumes must already exist. <<Adding a new backup policy,See how to add a new backup policy for a working environment>>.
-
-You can also disable this setting so that newly created volumes do not get backed up automatically. In that case you'll need to manually enable backups for any specific volumes that you do want to back up in the future.
-
-.Steps
-
-. From the *Volumes* tab, select *Backup Settings*.
-+
-image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button which is available after you select a working environment.]
-
-. From the _Backup Settings page_, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment where the volumes exist, and select *Auto Backup New Volumes*.
-+
-image:screenshot_auto_backup_new_volumes.png[A screenshot of selecting the Auto Backup New Volumes option from the Backup Settings page.]
-
-. Select the checkbox "Automatically back up new volumes...", choose the backup policy that you want to apply to new volumes, and click *Save*.
-+
-image:screenshot_auto_backup.png[A screenshot showing how to select a backup policy to be assigned to all future volume on the cluster.]
-
-.Result
-
-Now this backup policy will be applied to any new volume created in this working environment using Cloud Manager, System Manager, or the ONTAP CLI.
-
 == Creating a manual volume backup at any time
 
 You can create an on-demand backup at any time to capture the current state of the volume. This can be useful if very important changes have been made to a volume and you don't want to wait for the next scheduled backup to protect that data, or if the volume is not currently being backed up and you want to capture its current state.

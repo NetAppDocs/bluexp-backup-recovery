@@ -145,9 +145,6 @@ image:screenshot_backup_to_gcp.png[Shows the Cloud Backup option in the working 
 
 Cloud Backup is enabled on the system and backs up the volume you created every day and retains the most recent 30 backup copies.
 
-You can link:task-manage-backups-ontap.html[start and stop backups for volumes or change the backup schedule^].
-You can also link:task-restore-backups-ontap.html[restore entire volumes from a backup file^] to a Cloud Volumes ONTAP system in Google, or to an on-premises ONTAP system.
-
 == Enabling Cloud Backup on an existing system
 
 You can enable Cloud Backup at any time directly from the working environment.

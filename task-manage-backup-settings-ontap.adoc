@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: task-manage-backup-settings-ontap.html
-keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup
-summary: You can manage many cluster-level backup settings that you set when activating Cloud Backup for your ONTAP systems. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more.
+keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots
+summary: You can change many cluster-level backup settings that you set when activating Cloud Backup for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more.
 ---
 
 = Managing cluster-level backup settings
@@ -13,19 +13,19 @@ summary: You can manage many cluster-level backup settings that you set when act
 :imagesdir: ./media/
 
 [.lead]
-You can manage many cluster-level backup settings that you set when activating Cloud Backup for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more.
+You can change many cluster-level backup settings that you set when activating Cloud Backup for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more.
 
 Cluster-level backup settings are available in the _Advanced Settings_ page.
 
 The full set of backup settings that you can change includes:
 
-* Change the storage keys that give your ONTAP system permission to access object storage
-* Change the IPspace ...
-* Change the network bandwidth allocated to upload backups to object storage
-* Change the archival storage class (AWS only)
-* Change the automatic backup setting for future volumes
-* Change whether historical Snapshot copies are exported as backup files
-* Change whether "yearly" snapshots are removed from the source system
+* Changing the storage keys that give your ONTAP system permission to access object storage
+* Changing the ONTAP IPspace that is connected to object storage
+* Changing the network bandwidth allocated to upload backups to object storage
+* Changing the archival storage class (AWS only)
+* Changing the automatic backup setting (and policy) for future volumes
+* Changing whether historical Snapshot copies are exported as backup files
+* Changing whether "yearly" snapshots are removed from the source system
 
 == View cluster-level backup settings
 
@@ -51,7 +51,7 @@ If you need to make any changes, just expand the option and make the change. All
 
 == Change the storage keys for ONTAP to access cloud storage
 
-If you have a company policy that requires you to periodically change all credentials, for example, every 6 months or a year, this is how you'll synchronize your cloud provider's access key and secret key with your ONTAP system. This allows you to update your cloud provider credentials, and then change the keys in your ONTAP system so that the 2 systems will continue to communicate.
+If you have a company policy that requires you to periodically change all credentials, for example, every 6 months or a year, this is how you'll synchronize your cloud provider's access key and secret key with your ONTAP system. This allows you to update your cloud provider credentials, and then change the keys in your ONTAP system so that the two systems will continue to communicate.
 
 This option is available for on-premises ONTAP systems only, and only when you're storing backups to Amazon S3, Google Cloud Storage, and StorageGRID.
 
@@ -67,8 +67,8 @@ This option is available when backing up data from on-premises ONTAP systems onl
 
 Note the following prerequisites:
 
-* An intercluster LIF is required on each ONTAP node that hosts the volumes you want to back up. 
-* The LIF must be associated with the IPspace that ONTAP should use to connect to object storage. The nodes' intercluster LIFs must be able to access the object store. 
+* An intercluster LIF is required on each ONTAP node that hosts the volumes you want to back up. The LIF must be associated with the IPspace that ONTAP should use to connect to object storage. 
+* The nodes' intercluster LIFs must be able to access the object store. 
 * If you use are using a different IPspace than the _Default_, then you might need to create a static route to get access to the object storage.
 
 image:screenshot_backup_edit_ipspace.png[A screenshot of the IPspace entry in the Advanced Settings page.]
@@ -90,7 +90,7 @@ If you want to change the archival storage class that's used when your backup fi
 
 This option is available for on-premises ONTAP and Cloud Volumes ONTAP systems (using ONTAP 9.10.1 or greater) when you're writing backups files to Amazon S3.
 
-Note that you can only change from _S3 Glacier_ to _S3 Glacier Deep Archive_. Once you've select Glacier Deep Archive, you can't change back to Glacier.
+Note that you can only change from _S3 Glacier_ to _S3 Glacier Deep Archive_. Once you've selected Glacier Deep Archive, you can't change back to Glacier.
 
 image:screenshot_backup_edit_storage_class.png[A screenshot of the Archival Storage Class entry in the Advanced Settings page.]
 
@@ -102,15 +102,17 @@ endif::aws[]
 
 If you enabled the automatic backup of future volumes when you activated Cloud Backup, then you can change the backup policy that will be used for the newly created volumes in the Automatic Backup section. 
 
-If you did not enable the automatic backup of future volumes when you activated Cloud Backup, then you can start making automatic backups of new volumes in the Automatic Backup section. You can also select the backup policy that will be applied to those new volumes. 
-
-image:screenshot_backup_edit_auto_backup.png[A screenshot of the Automatic Backup entry in the Advanced Settings page.]
+If you did not enable the automatic backup of future volumes when you activated Cloud Backup, then you can start making automatic backups of new volumes in the Automatic Backup section. You can also select the backup policy that will be applied to those new volumes. Having a backup policy assigned to newly created volumes ensures that all your data is protected.
 
 Note that the policy that you want to apply to new volumes must already exist. link:task-manage-backups-ontap.html#adding-a-new-backup-policy[See how to add a new backup policy for a working environment].
 
+image:screenshot_backup_edit_auto_backup.png[A screenshot of the Automatic Backup entry in the Advanced Settings page.]
+
+Now this backup policy will be applied to any new volume created in this working environment using Cloud Manager, System Manager, or the ONTAP CLI.
+
 == Change whether historical Snapshot copies are exported as backup files
 
-If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic Snapshots to object storage as backup files. This enables you to initialize your backups in the cloud and move older copies than the initial copy when Cloud Backup initializes. 
+If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic Snapshots to object storage as backup files. This enables you to initialize your backups in the cloud and move older copies than the initial/current copy when Cloud Backup initializes. 
 
 Note that this option is not supported with data protection (DP) volumes.
 
