@@ -35,8 +35,6 @@ Note that system-initiated jobs, such ongoing backup operations, are not reflect
 +
 image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore jobs in the Job Monitoring dashboard.]
 
-You can click the name of a job to view details corresponding to that operation.
-
 If you are looking for specific jobs, you can:
 
 * use the time selector at the top of the page to view jobs for a certain period of time
@@ -47,7 +45,11 @@ If you are looking for specific jobs, you can:
 ** Virtual Machines
 ** Kubernetes
 
-Note that this page automatically refreshes every 15 minutes so that you'll always see the most recent job status results.
+Note that this page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. You can click the *Refresh* button to update the page immediately.
+
+To view details corresponding to a specific job, click the name of the job. You'll see all the sub-jobs that are running to complete the main job in the Job Details page.
+
+image:screenshot_backup_job_monitor_details.png[A screenshot showing the Job Details page.]
 
 == Use the Notification Center to review backup and restore alerts 
 

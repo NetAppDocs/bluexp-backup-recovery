@@ -112,7 +112,7 @@ Now this backup policy will be applied to any new volume created in this working
 
 == Change whether historical Snapshot copies are exported as backup files
 
-If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic Snapshots to object storage as backup files. This enables you to initialize your backups in the cloud and move older copies than the initial/current copy when Cloud Backup initializes. 
+If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic snapshots to object storage as backup files. This enables you to initialize your backups in the cloud by moving snapshot older copies into the baseline backup copy.
 
 Note that this option is not supported with data protection (DP) volumes.
 

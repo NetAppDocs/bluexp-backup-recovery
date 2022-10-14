@@ -17,6 +17,56 @@ Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
 
+== 31 October 2022
+
+=== Ability to export older Snapshot copies into your baseline backup files
+
+If there are any local Snapshot copies for volumes in your working environment that match your backup schedule labels (for example, daily, weekly, etc.), you can export those historic snapshots to object storage as backup files. This enables you to initialize your backups in the cloud by moving older snapshot copies into the baseline backup copy.
+
+This option is available when activating Cloud Backup for your working environments. You can also change this setting later in the https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-settings-ontap.html[Advanced Settings page].
+
+=== Cloud Backup can now be used for archiving volumes that you no longer need on the source system
+
+Now you can delete the backup relationship for a volume. This provides you with an archiving mechanism if you want to stop the creation of new backup files and delete the source volume, but retain all the existing backup files. This gives you the ability to restore the volume from the backup file in the future, if needed, while clearing space from your source storage system. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap.html#deleting-volume-backup-relationships[Learn how].
+
+=== Support has been added to receive Cloud Backup alerts in email or in the Notification Center
+
+Cloud Backup has been integrated into the Cloud Manager Notification service. You can display Cloud Backup notifications by clicking the notification bell in the Cloud Manager menu bar. You can also configure Cloud Manager to send notifications by email as alerts so you can be informed of important system activity even when you’re not logged into the system. The email can be sent to any recipients who need to be aware of backup and restore activity. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status[Learn how].
+
+=== New Advanced Settings page enables you to change cluster-level backup settings
+
+This new page enables you to change many cluster-level backup settings that you set when activating Cloud Backup for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. The full set of backup settings that you can change includes:
+
+* The storage keys that give your ONTAP system permission to access object storage
+* The network bandwidth allocated to upload backups to object storage
+* The automatic backup setting (and policy) for future volumes
+* The archival storage class (AWS only)
+* Whether historical Snapshot copies are exported as backup files
+* Whether "yearly" snapshots are removed from the source system
+* The ONTAP IPspace that is connected to object storage
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-settings-ontap.html[Learn more about managing cluster-level backup settings].
+
+=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
+
+In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises.
+
+At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage. Search & Restore is not supported from StorageGRID systems - you must use Browse & Restore in this case.
+
+=== Job Monitoring page has been updated 
+
+The following updates have been made to the https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html[Job Monitoring page]: 
+
+* A column for "Workload" is available so you can filter the page to view jobs for the following Backup services: Volumes, Applications, Virtual Machines, and Kubernetes.
+* You can add new columns for "User Name" and "Job Type" if you want to view these details for a specific backup job.
+* The Job Details page displays all the sub-jobs that are running to complete the main job.
+* The page automatically refreshes every 15 minutes so that you’ll always see the most recent job status results. And you can click the *Refresh* button to update the page immediately.
+
+//=== AWS cross-account backup enhancements
+//
+//If you want to use a different AWS account for your Cloud Volumes ONTAP backups than you're using for the source volumes, you must add the destination AWS account credentials in Cloud Manager, and you must add the permission "s3:PutBucketPolicy" to the IAM role that provides Cloud Manager with permissions. In the past you needed to configure many settings in the AWS Console - you don't need to do that anymore.
+//
+
 == 28 September 2022
 
 === Enhancements to Cloud Backup for Applications
@@ -58,16 +108,6 @@ In the past, a file restored to the original volume was always restored as a new
 === Drag and drop to enable Cloud Backup to StorageGRID systems
 
 If the https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[StorageGRID^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP working environment onto the destination to initiate the Cloud Backup setup wizard.
-//
-//=== AWS cross-account backup enhancements
-//
-//If you want to use a different AWS account for your Cloud Volumes ONTAP backups than you're using for the source volumes, you must add the destination AWS account credentials in Cloud Manager, and you must add the permission "s3:PutBucketPolicy" to the IAM role that provides Cloud Manager with permissions. In the past you needed to configure many settings in the AWS Console - you don't need to do that anymore.
-//
-//=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
-//
-//In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises.
-//
-//At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage.
 
 == 18 August 2022
 
@@ -101,6 +141,7 @@ Some of the Backup Policy pages have been redesigned to make it easier to view a
 If the https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html[Azure Blob^] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html[Google Cloud Storage^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP or Cloud Volumes ONTAP working environment (installed in Azure or GCP) onto the destination to initiate the Backup setup wizard.
 
 This functionality already exists for Amazon S3 buckets.
+// end::whats-new[]
 
 == 13 July 2022
 
@@ -116,7 +157,6 @@ In the past you needed to deploy the Connector in the same cloud provider as whe
 
 * Backup on a yearly schedule is now available. The default retention value is 1 for yearly backups, but you can change this value if you want to have access to many previous years' backup files.
 * You can name your backup policies so you can identify your policies with more descriptive text.
-// end::whats-new[]
 
 == 14 June 2022
 
