@@ -61,6 +61,14 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 * Retaining backups based on the policy
 * Restoring complete Oracle database (data files + control file) from the specified backup
 * Restoring data files only and control files only from the specified backup
+* In SAN layout, if SnapCenter Plug-in for Oracle finds any foreign files other than Oracle data files on the ASM diskgroup, connect and copy restore method is performed. The foreign files could be one or more of the following types:
+** Parameter
+** Password
+** archive log
+** online log
+** ASM parameter file.
++
+You should select Force in-place restore checkbox to override the foreign files of type parameter, password, and archive log.
 * Recovering Oracle database with until SCN, until time, all available logs, and no recovery options
 * Monitoring backups and other jobs
 * Displaying the protection summary on the dashboard
@@ -79,16 +87,6 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 ** If your Oracle databases are configured on ASM, ensure your SVM names are unique across the FSx systems. If you have same SVM name across FSx systems, back up of Oracle databases residing on those SVMs are not supported.
 * Restore limitations:
 ** Does not support granular restores, for example restoring of tablespaces and PDBs
-** Does not support restore of control file only or data files + control file of Oracle databases on SAN layouts
-** In SAN layout, restore operation fails if SnapCenter Plug-in for Oracle finds any foreign files other than Oracle data files on the ASM diskgroup. The foreign files could be one or more of the following types:
-*** Parameter
-*** Password
-*** archive log
-*** online log
-*** ASM parameter file.
-+
-You should select Force in-place restore checkbox to override the foreign files of type parameter, password, and archive log.
-+
-NOTE: If there are other types of foreign files, restore operation fails and the database cannot be recovered. If you have other type of foreign files, you should delete or move them to a different location before performing restore operation.
+** If the database is shared with multiple disk groups, the restore operation fails. The database will be left in mounted state and you need to manually bring the database to open state.
 +
 The failure message due to the presence of foreign files are not displayed in the job page in UI due to a known issue. Check the connector logs if there is a failure during SAN pre-restore stage to know the cause of the issue.

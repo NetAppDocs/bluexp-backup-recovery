@@ -47,7 +47,7 @@ IMPORTANT: After creating the Connector, click *Connector > Manage Connectors*; 
 
 == Add Cloud Volumes ONTAP systems to Cloud Manager
 
-You can discover and add existing Cloud Volumes ONTAP systems to Cloud Manager. For information, refer to link: https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-adding-systems.html[Adding existing Cloud Volumes ONTAP systems to Cloud Manager].
+You can discover and add existing Cloud Volumes ONTAP systems to Cloud Manager. For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-adding-systems.html[Adding existing Cloud Volumes ONTAP systems to Cloud Manager].
 
 You can get started with Cloud Volumes ONTAP for your cloud environment in a few steps. For information, refer one of the following:
 
