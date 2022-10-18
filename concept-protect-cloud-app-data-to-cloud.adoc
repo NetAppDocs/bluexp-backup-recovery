@@ -79,6 +79,8 @@ You should select Force in-place restore checkbox to override the foreign files 
 * Does not support Oracle versions 11g and 21c
 * Does not support mount, clone, catalog, and verification operations on backups
 * Does not support Oracle on RAC and Data Guard
+* For Cloud Volumes ONTAP HA, only one of the network interface IPs are used. If the connectivity of the IP goes down or if you cannot access the IP, the operations fail.
+* The network interface IP addresses of Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP needs to be unique in the Cloud Manager account and region.
 * Backup limitations:
 ** Does not support online data or log only backups
 ** Does not support offline backups
