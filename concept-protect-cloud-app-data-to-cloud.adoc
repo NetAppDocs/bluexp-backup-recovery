@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: concept-protect-cloud-app-data-to-cloud.html
-keywords: backing up, back up, backup, backup application data, Amazon EC2, Amazon Web services, Amazon FSx, Cloud Backup, Oracle database, requirements, prerequisites
-summary: Cloud Backup for Applications enabled within NetApp Cloud Manager offers efficient, application consistent, policy-based backup, and restore of Oracle® databases residing on Amazon FSx for NetApp ONTAP.
+keywords: backing up, back up, backup, backup application data, Amazon EC2, Amazon Web services, Amazon FSx, Cloud Backup, Oracle database, requirements, prerequisites, Cloud Volumes ONTAP
+summary: Cloud Backup for Applications enabled within NetApp Cloud Manager offers efficient, application consistent, policy-based backup, and restore of Oracle® databases residing on Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP.
 ---
 
 = Protect your cloud native applications data
@@ -14,7 +14,7 @@ summary: Cloud Backup for Applications enabled within NetApp Cloud Manager offer
 
 [.lead]
 
-Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within NetApp Cloud Manager offers efficient, application consistent, policy-based backup, and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP.
+Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within NetApp Cloud Manager offers efficient, application consistent, policy-based backup, and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP.
 
 == Architecture
 
@@ -46,7 +46,7 @@ IMPORTANT: Cloud Backup for Applications infrastructure is resilient to availabi
 ** OL 7.5 or later and 8.x
 * Storage System: Amazon FSx for ONTAP
 * Storage layouts: NFS v3 and v4.1 (dNFS is supported) and iSCSI with ASM (ASMFD, ASMLib and ASMUdev)
-* Applications: Oracle Standard and Oracle Enterprise – Standalone (legacy and multitenant – CDB and PDB)
+* Applications: Oracle Standard and Oracle Enterprise Standalone (legacy and multitenant CDB and PDB)
 * Oracle versions: 12cR2, 18c, and 19c
 
 == Features
@@ -79,7 +79,6 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 ** If your Oracle databases are configured on ASM, ensure your SVM names are unique across the FSx systems. If you have same SVM name across FSx systems, back up of Oracle databases residing on those SVMs are not supported.
 * Restore limitations:
 ** Does not support granular restores, for example restoring of tablespaces and PDBs
-** Supports only in-place restore of Oracle databases on NAS and SAN Layouts
 ** Does not support restore of control file only or data files + control file of Oracle databases on SAN layouts
 ** In SAN layout, restore operation fails if SnapCenter Plug-in for Oracle finds any foreign files other than Oracle data files on the ASM diskgroup. The foreign files could be one or more of the following types:
 *** Parameter

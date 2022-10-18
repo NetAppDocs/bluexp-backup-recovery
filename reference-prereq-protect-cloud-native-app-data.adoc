@@ -26,7 +26,7 @@ You should create the Amazon FSx for ONTAP working environments where your datab
 
 You can create the NetApp FSx either using Cloud Manager or AWS. If you have created using AWS, then you should discover the FSx for ONTAP systems in Cloud Manager.
 
-== Create a Connector
+=== Create a Connector
 
 An Account Admin needs to deploy a Connector in AWS that enables Cloud Manager to manage resources and processes within your public cloud environment.
 
@@ -44,6 +44,17 @@ After creating the connector, click *Canvas* > *Add Working Environment* and fol
 Ensure that there is connectivity from the connector to the Oracle database hosts and FSx working environment. The connector should be able to connect to the cluster management IP address of the FSx working environment.
 
 IMPORTANT: After creating the Connector, click *Connector > Manage Connectors*; select the Connector name and copy the Connector ID.
+
+== Add Cloud Volumes ONTAP systems to Cloud Manager
+
+You can discover and add existing Cloud Volumes ONTAP systems to Cloud Manager. For information, refer to link: https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-adding-systems.html[Adding existing Cloud Volumes ONTAP systems to Cloud Manager].
+
+You can get started with Cloud Volumes ONTAP for your cloud environment in a few steps. For information, refer one of the following:
+
+* link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws.html[Quick start for Cloud Volumes ONTAP in AWS]
+* link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html[Quick start for Cloud Volumes ONTAP in Azure]
+* link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html[Quick start for Cloud Volumes ONTAP in Google Cloud]
+
 
 == Deploy SnapCenter Plug-in for Oracle
 

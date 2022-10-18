@@ -18,8 +18,8 @@ You should discover the databases on the host to assign policies and create back
 
 *What you will need*
 
-* You should have created the FSx for ONTAP working environment and the Connector.
-* Ensure that the Connector has connectivity to the FSx for ONTAP working environment and Oracle database hosts.
+* You should have created the working environment and the Connector.
+* Ensure that the Connector has connectivity to the working environment and Oracle database hosts.
 * Ensure that the Cloud Manager user has the “Account Admin” role.
 * You should have deployed the SnapCenter Plug-in for Oracle. link:reference-prereq-protect-cloud-native-app-data.html#deploy-snapcenter-plug-in-for-oracle[Learn more].
 
