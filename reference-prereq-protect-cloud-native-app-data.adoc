@@ -60,7 +60,7 @@ You can get started with Cloud Volumes ONTAP for your cloud environment in a few
 
 You should deploy the SnapCenter Plug-in for Oracle on each of the Oracle database hosts. Depending on whether the Oracle host has SSH key based authentication enabled, you can follow one of the methods to deploy the plug-in.
 
-NOTE: Ensure that JAVA 8 is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
+NOTE: Ensure that JAVA 11 is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
 
 === Plug-in deployment using SSH key based authentication
 

@@ -89,6 +89,6 @@ You should select Force in-place restore checkbox to override the foreign files 
 ** If your Oracle databases are configured on ASM, ensure your SVM names are unique across the FSx systems. If you have same SVM name across FSx systems, back up of Oracle databases residing on those SVMs are not supported.
 * Restore limitations:
 ** Does not support granular restores, for example restoring of tablespaces and PDBs
-** Both in-place and connect-and-copy restore methods are used if the database is shared with multiple disk groups. This mixed strategy is not supported and the restore operation fails. The database will be left in mounted state and you need to manually bring the database to open state.
+** Both in-place and connect-and-copy restore methods are used if some of disk groups contain foreign files. However, using both the methods at the same time to perform restore is not supported and the restore operation fails. The database will be left in mounted state and you need to manually bring the database to open state.
 +
 The failure message due to the presence of foreign files are not displayed in the job page in UI due to a known issue. Check the connector logs if there is a failure during SAN pre-restore stage to know the cause of the issue.
