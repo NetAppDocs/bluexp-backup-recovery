@@ -47,7 +47,7 @@ IMPORTANT: Cloud Backup for Applications infrastructure is resilient to availabi
 * Storage System: Amazon FSx for ONTAP
 * Storage layouts: NFS v3 and v4.1 (dNFS is supported) and iSCSI with ASM (ASMFD, ASMLib and ASMUdev)
 * Applications: Oracle Standard and Oracle Enterprise Standalone (legacy and multitenant CDB and PDB)
-* Oracle versions: 12cR2, 18c, and 19c
+* Oracle versions: 12cR2, 18c, 19c, and 21c
 
 == Features
 
@@ -76,7 +76,7 @@ You should select Force in-place restore checkbox to override the foreign files 
 
 == Limitations
 
-* Does not support Oracle versions 11g and 21c
+* Does not support Oracle 11g
 * Does not support mount, clone, catalog, and verification operations on backups
 * Does not support Oracle on RAC and Data Guard
 * For Cloud Volumes ONTAP HA, only one of the network interface IPs are used. If the connectivity of the IP goes down or if you cannot access the IP, the operations fail.
@@ -89,6 +89,6 @@ You should select Force in-place restore checkbox to override the foreign files 
 ** If your Oracle databases are configured on ASM, ensure your SVM names are unique across the FSx systems. If you have same SVM name across FSx systems, back up of Oracle databases residing on those SVMs are not supported.
 * Restore limitations:
 ** Does not support granular restores, for example restoring of tablespaces and PDBs
-** If the database is shared with multiple disk groups, the restore operation fails. The database will be left in mounted state and you need to manually bring the database to open state.
+** Both in-place and connect-and-copy restore methods are used if the database is shared with multiple disk groups. This mixed strategy is not supported and the restore operation fails. The database will be left in mounted state and you need to manually bring the database to open state.
 +
 The failure message due to the presence of foreign files are not displayed in the job page in UI due to a known issue. Check the connector logs if there is a failure during SAN pre-restore stage to know the cause of the issue.
