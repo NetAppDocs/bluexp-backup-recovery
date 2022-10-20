@@ -91,7 +91,7 @@ Cloud Backup is supported in all AWS regions https://cloud.netapp.com/cloud-volu
 Required setup for creating backups in a different AWS account::
 By default, backups are created using the same account as the one used for your Cloud Volumes ONTAP system. If you want to use a different AWS account for your backups, you must:
 * Add the destination AWS account credentials in Cloud Manager
-* Add the permission "s3:PutBucketPolicy" to the IAM role that provides Cloud Manager with permissions
+* Add the permissions "s3:PutBucketPolicy" and "s3:PutBucketOwnershipControls" to the IAM role that provides Cloud Manager with permissions
 
 Required information for using customer-managed keys for data encryption::
 
@@ -124,6 +124,7 @@ Here are the specific permissions from the policy:
                 "s3:GetBucketAcl",
                 "s3:GetBucketPolicy",
                 "s3:PutBucketPolicy",
+                "s3:PutBucketOwnershipControls"
                 "s3:PutBucketPublicAccessBlock",
                 "s3:PutEncryptionConfiguration",
                 "s3:GetObjectVersionTagging",
@@ -201,7 +202,7 @@ image:screenshot_backup_cvo_enable.png[A screenshot that shows the Backup & Rest
 
 .. The AWS Account used to store the backups. This can be a different account than where the Cloud Volumes ONTAP system resides.
 +
-If you want to use a different AWS account for your backups, you must add the destination AWS account credentials in Cloud Manager, and add the permission "s3:PutBucketPolicy" to the IAM role that provides Cloud Manager with permissions.
+If you want to use a different AWS account for your backups, you must add the destination AWS account credentials in Cloud Manager, and add the permissions "s3:PutBucketPolicy" and "s3:PutBucketOwnershipControls" to the IAM role that provides Cloud Manager with permissions.
 .. The region where the backups will be stored. This can be a different region than where the Cloud Volumes ONTAP system resides.
 .. Whether you'll use the default Amazon S3 encryption keys or choose your own customer-managed keys from your AWS account to manage encryption of your data. (https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html[See how to use your own encryption keys]).
 +

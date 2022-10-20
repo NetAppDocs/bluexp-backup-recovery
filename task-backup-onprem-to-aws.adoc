@@ -187,6 +187,7 @@ You'll need to configure two sets of permissions:
               "s3:GetBucketAcl",
               "s3:GetBucketPolicy",
               "s3:PutBucketPolicy",
+              "s3:PutBucketOwnershipControls"
               "s3:PutBucketPublicAccessBlock",
               "s3:PutEncryptionConfiguration",
               "s3:GetObjectVersionTagging",
