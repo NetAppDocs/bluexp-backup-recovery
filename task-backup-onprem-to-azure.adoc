@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-backup-onprem-to-azure.html
-keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, azure, azure blob
+keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, azure, azure blob, government
 summary: Complete a few steps to get started backing up data from your on-premises ONTAP systems to Azure Blob storage.
 ---
 
@@ -128,8 +128,9 @@ If you already have a Connector deployed in your Azure VNet or on your premises,
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[Getting started with Connectors^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Installing a Connector in Azure^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html[Installing a Connector in your premises^]
-
-Cloud Backup is supported in Azure Government regions when the Connector is deployed in the cloud - not when it's installed in your premises or in a dark site. Additionally, you must deploy the Connector from the Azure Marketplace. You can’t deploy the Connector in a Government region from the Cloud Manager SaaS website. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-azure-mktp.html[Learn how to create the Connector in an Azure Government region].
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-azure-mktp.html[Installing a Connector in an Azure Government region^]
++
+Cloud Backup is supported in Azure Government regions when the Connector is deployed in the cloud - not when it's installed in your premises. Additionally, you must deploy the Connector from the Azure Marketplace. You can’t deploy the Connector in a Government region from the Cloud Manager SaaS website. 
 
 === Preparing networking for the Connector
 
