@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: task-backup-vm-data-to-storagegrid.html
-keywords: back up, backup, backup virtual machine data, storagegrid, cloud backup, backup datastores
-summary: Back up your datastores from on-premises ONTAP to StorageGRID.
+permalink: task-backup-vm-data-to-gcp.html
+keywords: back up, backup, backup virtual machine data, gcp, google cloud provider, cloud backup, backup datastores
+summary: Back up your datastores from on-premises ONTAP to Google Cloud.
 ---
 
-= Back up datastores to StorageGRID
+= Back up datastores to Google Cloud
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Back up your datastores from on-premises ONTAP to StorageGRID.
 :imagesdir: ./media/
 
 [.lead]
-You can back up one or more datastores to StorageGRID by integrating the SnapCenter Plug-in for VMware vSphere with BlueXP. This will help the VM administrators to easily and quickly back up and archive data for storage efficiency and accelerate cloud transition.
+You can back up one or more datastores to Google Cloud by integrating the SnapCenter Plug-in for VMware vSphere with BlueXP. This will help the VM administrators to easily and quickly back up and archive data for storage efficiency and accelerate cloud transition.
 
 NOTE: Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before backing up datastores to the cloud.
 
@@ -31,7 +31,10 @@ Configure the ONTAP clusters that you want BlueXP to discover to back up your da
 ... Specify the IP address of the ONTAP cluster.
 ... Specify the credentials of the ONTAP cluster user.
 .. Click *Add Working Environment*.
-. Select *StorageGRID*.
-.. Specify the Storage Server IP.
-.. Select the access key and secret key.
+. Select *Google Cloud Provider* to configure it as the cloud provider.
+.. Select the Google Cloud Project where you want the Google Cloud Storage bucket to be created for backups.
+.. In the Google Cloud Access Key field, specify the key.
+.. In the Google Cloud Secret Key field, specify the password.
+.. Select the region where you want to create the backups.
+.. Specify the IP space.
 . Review the details and click *Activate Backup*.

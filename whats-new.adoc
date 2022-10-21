@@ -22,6 +22,7 @@ Learn what's new in Cloud Backup.
 === Enhancements to Cloud Backup for Virtual Machines
 
 * Back up virtual machines from on-premises secondary storage
+* Supports Google Cloud Provider (GCP) to back up one or more datastores
 
 == 28 September 2022
 
