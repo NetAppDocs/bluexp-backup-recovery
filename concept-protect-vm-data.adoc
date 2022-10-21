@@ -16,7 +16,7 @@ summary: Know more about protecting data on your virtual machines and understand
 
 You can protect data on your virtual machines by integrating the SnapCenter Plug-in for VMware vSphere with BlueXP. You can back up datastores to the cloud and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere with ease.
 
-You can back up datastores to Amazon Web Services S3, Microsoft Azure Blob, and StorageGRID.
+You can back up datastores to Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Provider, and StorageGRID.
 
 == Requirements
 Read the following requirements to make sure that you have a supported configuration before you start backing up datastores and virtual machines to cloud services.
