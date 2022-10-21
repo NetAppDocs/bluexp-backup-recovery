@@ -65,7 +65,7 @@ Read the following requirements to make sure you have a supported configuration 
 There are two connection methods you can use when configuring backups from on-premises ONTAP systems to Google Cloud Storage.
 
 * Public connection - Directly connect the ONTAP system to Google Cloud Storage using a public Google endpoint.
-* Private connection - Use a VPN or Private Service Connect and route traffic through a Private Google Access interface that uses a private IP address.
+* Private connection - Use a VPN or Google Cloud Interconnect and route traffic through a Private Google Access interface that uses a private IP address.
 
 The following diagram shows the *public connection* method and the connections that you need to prepare between the components. You can use a Connector that you've installed on your premises, or a Connector that you've deployed in the Google Cloud Platform VPC.
 
