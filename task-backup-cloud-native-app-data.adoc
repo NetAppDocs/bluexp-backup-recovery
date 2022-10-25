@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-backup-cloud-native-app-data.html
-keywords: cloud native, application data, back up, policy, pre-canned policies, scheduled backups, on-demand backups
+keywords: cloud native, application data, back up, policy, pre-canned policies, scheduled backups, on-demand backups, cloud manager, BlueXP
 summary:  Assign a policy and back up the database.
 ---
 
