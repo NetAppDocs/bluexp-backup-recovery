@@ -41,9 +41,9 @@ This new page enables you to change many cluster-level backup settings that you 
 * The network bandwidth allocated to upload backups to object storage
 * The automatic backup setting (and policy) for future volumes
 * The archival storage class (AWS only)
-* Whether historical Snapshot copies are exported as backup files
+* Whether historical Snapshot copies are included in your initial baseline backup files
 * Whether "yearly" snapshots are removed from the source system
-* The ONTAP IPspace that is connected to object storage
+* The ONTAP IPspace that is connected to object storage (in case of incorrect selection during activation)
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-settings-ontap.html[Learn more about managing cluster-level backup settings].
 

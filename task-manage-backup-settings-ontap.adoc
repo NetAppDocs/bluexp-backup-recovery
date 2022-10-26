@@ -22,9 +22,11 @@ The full set of backup settings that you can change includes:
 * Changing the storage keys that give your ONTAP system permission to access object storage
 * Changing the ONTAP IPspace that is connected to object storage
 * Changing the network bandwidth allocated to upload backups to object storage
+ifdef::aws[]
 * Changing the archival storage class (AWS only)
+endif::aws[]
 * Changing the automatic backup setting (and policy) for future volumes
-* Changing whether historical Snapshot copies are exported as backup files
+* Changing whether historical Snapshot copies are included in your initial baseline backup files
 * Changing whether "yearly" snapshots are removed from the source system
 
 == View cluster-level backup settings
@@ -51,7 +53,7 @@ If you need to make any changes, just expand the option and make the change. All
 
 == Change the storage keys for ONTAP to access cloud storage
 
-If you have a company policy that requires you to periodically change all credentials, for example, every 6 months or a year, this is how you'll synchronize your cloud provider's access key and secret key with your ONTAP system. This allows you to update your cloud provider credentials, and then change the keys in your ONTAP system so that the two systems will continue to communicate.
+If you have a company policy that requires you to periodically rotate all credentials, for example, every 6 months or a year, this is how you'll synchronize your cloud provider's access key and secret key with your ONTAP system. This allows you to update your cloud provider credentials, and then change the keys in your ONTAP system so that the two systems will continue to communicate.
 
 This option is available for on-premises ONTAP systems only, and only when you're storing backups to Amazon S3, Google Cloud Storage, and StorageGRID.
 
@@ -61,19 +63,20 @@ Just enter the new access key and secret key, and click *Apply*.
 
 == Change the ONTAP IPspace that is connected to object storage
 
-You can change the ONTAP IPspace that is connected to object storage.
+You can change the ONTAP IPspace that is connected to object storage. This option is available when backing up data from on-premises ONTAP systems only - it is not available for Cloud Volumes ONTAP systems.
 
-This option is available when backing up data from on-premises ONTAP systems only - it is not available for Cloud Volumes ONTAP systems.
+This option should not be used on a system that is actively backing up volume data to object storage. It should be used only in the case where an incorrect IPspace was selected when initially activating Backup on an on-premises ONTAP system.
 
-Note the following prerequisites:
+Refer to the getting started documentation for backing up data from your on-premises ONTAP systems to your cloud provider to make sure your ONTAP configuration is configured correctly for the new IPspace. For example:
 
-* An intercluster LIF is required on each ONTAP node that hosts the volumes you want to back up. The LIF must be associated with the IPspace that ONTAP should use to connect to object storage. 
+* An intercluster LIF is required on each ONTAP node that hosts the volumes you want to back up. 
+* The LIF must be associated with the IPspace that ONTAP should use to connect to object storage. 
 * The nodes' intercluster LIFs must be able to access the object store. 
-* If you use are using a different IPspace than the _Default_, then you might need to create a static route to get access to the object storage.
+* If you use are using a different IPspace than the _Default_, you might need to create a static route to get access to the object storage.
 
 image:screenshot_backup_edit_ipspace.png[A screenshot of the IPspace entry in the Advanced Settings page.]
 
-Just select the new IPspace and click *Apply*.
+Just select the new IPspace and click *Apply*. After that you'll be able to select the volumes that you want to back up from aggregates in that IPspace.
 
 == Change the network bandwidth available to upload backups to object storage
 
