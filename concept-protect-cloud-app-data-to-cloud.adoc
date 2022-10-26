@@ -48,7 +48,7 @@ IMPORTANT: Cloud Backup for Applications infrastructure is resilient to availabi
 == Features
 
 * Auto-discovery of Oracle databases
-* Backing up Oracle databases residing on Amazon FSx for NetApp ONTAP
+* Backing up Oracle databases
 ** Full (data + control + archive log files) backup
 ** On-demand backup
 ** Scheduled backup based on the system-defined or custom policies
