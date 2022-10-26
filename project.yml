@@ -140,7 +140,7 @@ sidebar:
         - title: Back up datastores to Microsoft Azure
           flavor: azure
           url: /task-backup-vm-data-to-azure.html
-        - title: Back up datastores to Google Cloud Provider
+        - title: Back up datastores to Google Cloud Platform
           flavor: gcp
           url: /task-backup-vm-data-to-gcp.html  
         - title: Back up datastores to StorageGRID
@@ -247,6 +247,9 @@ homepage:
         - title: Back up datastores to Microsoft Azure
           flavor: azure
           url: /task-backup-vm-data-to-azure.html
+        - title: Back up datastores to Google Cloud Platform
+          flavor: gcp
+          url: /task-backup-vm-data-to-gcp.html  
         - title: Back up datastores to StorageGRID
           url: /task-backup-vm-data-to-storagegrid.html
         - title: Restore virtual machines from the cloud
