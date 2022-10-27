@@ -40,7 +40,7 @@ For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup
 +
 NOTE: For using NAS (NFS) workloads, you should have transit gateway between the Oracle database VPC and FSx VPC. The NFS IP address which is a floating IP address can be accessed from another VPC only through transit gateway. We cannot access the floating IP addresses by peering the VPCs.
 
-After creating the connector, click *Canvas* > *Add Working Environment* and follow the prompts to add the working environment.
+After creating the connector, click *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment* and follow the prompts to add the working environment.
 Ensure that there is connectivity from the connector to the Oracle database hosts and FSx working environment. The connector should be able to connect to the cluster management IP address of the FSx working environment.
 
 IMPORTANT: After creating the Connector, click *Connector > Manage Connectors*; select the Connector name and copy the Connector ID.

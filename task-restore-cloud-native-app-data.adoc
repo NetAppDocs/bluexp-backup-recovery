@@ -18,7 +18,7 @@ In the event of data loss, you can restore the data files, control files, or bot
 
 *What you will need*
 
-If the Oracle 21c database is in STARTED state, the force in-place restore operation fails. You should perform one of the following to  restore the database successfully.
+If the Oracle 21c database is in STARTED state, the restore operation fails. You should perform one of the following to restore the database successfully.
 
 * If SnapCenter Plug-in for Oracle is installed in standard path, run cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib ojdbc8-8.jar
 * If SnapCenter Plug-in for Oracle is installed in custom path, run cp –f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar<CUSTOM_PATH>/NetApp/snapcenter/spl/plugins/sco/lib/ojdbc8-8.jar

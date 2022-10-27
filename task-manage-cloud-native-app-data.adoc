@@ -37,6 +37,12 @@ You can click the name of a job to view details corresponding to that operation.
 * enter a part of the job name in the Search field
 * sort the results by using the filter in each column heading
 
+== Audit data
+
+When you either run an API directly or use the UI to make the API call to any of the externally exposed APIs of the Cloud Backup for Applications, the request details such as headers, role, request body, and API information will be logged in the BlueXP timeline and the audit entries are retained in the timeline forever. The status and error response of the API call are also audited post operation completion. In the case of asynchronous API responses like jobs, the job id also gets logged as part of response.
+
+Cloud Backup for Applications log the entries such as host IP, request body, operation name, who triggered, some headers, and the operation state of the API.
+
 == View backup details
 
 You can view total number of backups created, policies used for creating backups, database version, and agent ID.
