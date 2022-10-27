@@ -22,6 +22,7 @@ You can back up datastores to Amazon Web Services S3, Microsoft Azure Blob, Goog
 Read the following requirements to make sure that you have a supported configuration before you start backing up datastores and virtual machines to cloud services.
 
 * SnapCenter Plug-in for VMware vSphere 4.6P1 or later
+** You should be using SnapCenter Plug-in for VMware vSphere 4.7P1 or later to back up virtual machines from on-premises secondary storage.
 * ONTAP 9.8 or later
 * BlueXP 3.9 or later
 * At least one backup should have been taken in SnapCenter Plug-in for VMware vSphere 4.6P1.
