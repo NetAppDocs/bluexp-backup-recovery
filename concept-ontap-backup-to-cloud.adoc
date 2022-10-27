@@ -27,7 +27,7 @@ Backup features:
 * Make immutable backup files so they are locked for the retention period.
 * Scan backup files for possible ransomware attack - and remove/replace infected backups automatically.
 * Tier older backup files to archival storage to save costs.
-* Delete the backup relationship so you can delete the source volume while retaining volume backups.
+* Delete the backup relationship so you can archive unneeded source volumes while retaining volume backups.
 * Back up from cloud to cloud, and from on-premises systems to public or private cloud.
 * For Cloud Volumes ONTAP systems, your backups can reside on a different subscription/account or different region.
 * Backup data is secured with AES-256 bit encryption at-rest and TLS 1.2 HTTPS connections in-flight.
