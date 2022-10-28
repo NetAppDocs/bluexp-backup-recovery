@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: task-backup-app-data-to-gcp.html
-keywords: backing up, back up, backup, backup application data, Google Cloud, GCP, Cloud Backup, cloud backup service, Oracle database, Microsoft SQL Server database, SAP HANA database
+keywords: backing up, back up, backup, backup application data, Google Cloud Platform, GCP, Cloud Backup, cloud backup service, Oracle database, Microsoft SQL Server database, SAP HANA database
 summary: Complete a few steps to back up applications data from ONTAP to GCP.
 ---
 
-= Back up on-premises applications data to Google Cloud
+= Back up on-premises applications data to Google Cloud Platform
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -14,7 +14,7 @@ summary: Complete a few steps to back up applications data from ONTAP to GCP.
 
 [.lead]
 
-You can back up the applications data from ONTAP to Google Cloud by integrating Cloud Backup for Applications with Cloud Manager and on-premises SnapCenter.
+You can back up the applications data from ONTAP to Google Cloud Platform by integrating Cloud Backup for Applications with Cloud Manager and on-premises SnapCenter.
 
 You can protect one or more applications simultaneously to the cloud using a single policy.
 

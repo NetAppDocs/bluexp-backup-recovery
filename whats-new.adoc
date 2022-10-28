@@ -29,7 +29,7 @@ Learn what's new in Cloud Backup.
 
 === Enhancements to Cloud Backup for Applications
 
-* Supports Google Cloud Provider (GCP) and StorageGRID to back up application consistent snapshots
+* Supports Google Cloud Platform (GCP) and StorageGRID to back up application consistent snapshots
 * Create custom policies
 * Supports archival storage
 * Back up SAP HANA applications
