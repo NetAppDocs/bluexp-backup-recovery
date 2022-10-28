@@ -13,7 +13,7 @@ summary: Back up your datastores from on-premises ONTAP to AWS.
 :imagesdir: ./media/
 
 [.lead]
-You can create a policy or use one of the following predefined policies that are available in Cloud Manager.
+You can create a policy or use one of the following predefined policies that are available in BlueXP.
 
 |===
 | Policy Name | Label | Retention Value

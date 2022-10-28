@@ -21,7 +21,7 @@ Learn what's new in Cloud Backup.
 
 === Enhancements to Cloud Backup for Applications
 
-* Supports Google Cloud Provider (GCP) and StorageGRID to back up application consistent snapshots
+* Supports Google Cloud Platform (GCP) and StorageGRID to back up application consistent snapshots
 * Create custom policies
 * Supports archival storage
 * Back up SAP HANA applications
@@ -61,7 +61,7 @@ If the https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-sto
 //
 //=== AWS cross-account backup enhancements
 //
-//If you want to use a different AWS account for your Cloud Volumes ONTAP backups than you're using for the source volumes, you must add the destination AWS account credentials in Cloud Manager, and you must add the permission "s3:PutBucketPolicy" to the IAM role that provides Cloud Manager with permissions. In the past you needed to configure many settings in the AWS Console - you don't need to do that anymore.
+//If you want to use a different AWS account for your Cloud Volumes ONTAP backups than you're using for the source volumes, you must add the destination AWS account credentials in BlueXP, and you must add the permission "s3:PutBucketPolicy" to the IAM role that provides BlueXP with permissions. In the past you needed to configure many settings in the AWS Console - you don't need to do that anymore.
 //
 //=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
 //
@@ -73,7 +73,7 @@ If the https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-sto
 
 === Support has been added to protect cloud native applications data
 
-Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within Cloud Manager offers efficient, application consistent, policy-based backup and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP.
+Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within BlueXP offers efficient, application consistent, policy-based backup and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP.
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html[Learn more^].
 
 === Search & Restore is now supported with backup files in Azure Blob
@@ -122,14 +122,14 @@ In the past you needed to deploy the Connector in the same cloud provider as whe
 
 === Support has been added to back up on-premises ONTAP cluster data in sites without internet access
 
-If your on-prem ONTAP cluster resides in a site with no internet access, also known as a dark site or offline site, now you can use Cloud Backup to back up volume data to a NetApp StorageGRID system that resides in the same site. This functionality requires that the Cloud Manager Connector (version 3.9.19 or greater) is also deployed in the offline site.
+If your on-prem ONTAP cluster resides in a site with no internet access, also known as a dark site or offline site, now you can use Cloud Backup to back up volume data to a NetApp StorageGRID system that resides in the same site. This functionality requires that the BlueXP Connector (version 3.9.19 or greater) is also deployed in the offline site.
 
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[See how to install the Connector in your offline site].
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html[See how to back up ONTAP data to StorageGRID in your offline site].
 
 === Cloud Backup for Virtual Machines 1.1.0 is now GA
 
-You can protect data on your virtual machines by integrating the SnapCenter Plug-in for VMware vSphere with Cloud Manager. You can back up datastores to the cloud and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere with ease.
+You can protect data on your virtual machines by integrating the SnapCenter Plug-in for VMware vSphere with BlueXP. You can back up datastores to the cloud and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere with ease.
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-data.html[Learn more about protecting virtual machines to cloud].
 
@@ -209,7 +209,7 @@ In the past you could assign only a single backup policy to all volumes in a clu
 
 === A new option enables you to automatically apply a default backup policy to newly created volumes
 
-In the past, new volumes created in a working environment after Cloud Backup was activated required that you manually apply a backup policy. Now, regardless of if the volume was created in Cloud Manager, System Manager, the CLI, or by using APIs, Cloud Backup will discover the volume and apply the backup policy you have chosen as the default policy.
+In the past, new volumes created in a working environment after Cloud Backup was activated required that you manually apply a backup policy. Now, regardless of if the volume was created in BlueXP, System Manager, the CLI, or by using APIs, Cloud Backup will discover the volume and apply the backup policy you have chosen as the default policy.
 
 This option is available when enabling backup in a new working environment, or from the _Manage Volumes_ page for existing working environments.
 
@@ -249,7 +249,7 @@ If your cluster is running ONTAP 9.10.1 or greater, and you're using AWS or Azur
 
 === Cloud Backup BYOL licenses have moved to the Data Services Licenses tab in the Digital Wallet
 
-BYOL licensing for Cloud Backup has moved from the Cloud Backup Licenses tab to the Data Services Licenses tab in the Cloud Manager Digital Wallet.
+BYOL licensing for Cloud Backup has moved from the Cloud Backup Licenses tab to the Data Services Licenses tab in the BlueXP Digital Wallet.
 
 == 4 October 2021
 

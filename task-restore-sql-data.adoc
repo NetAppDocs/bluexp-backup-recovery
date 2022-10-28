@@ -25,7 +25,7 @@ If you want to restore a backup that was moved to object store from secondary st
 
 *Steps*
 
-. In Cloud Manager UI, click *Backup & Restore* > *Applications*.
+. In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . In the *Filter By* field, select the filter *Type* and from the drop-down select *SQL*.
 . Click *View Details* to view all the available backups.
 . Select the backup and click *Restore*.
