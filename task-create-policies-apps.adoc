@@ -48,7 +48,7 @@ a|
 
 *Steps*
 
-. In Cloud Manager UI, click *Backup & Restore* > *Applications*.
+. In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . From the Settings drop-down, click *Policies* > *Create Policy*.
 . In the Policy Details section, specify the policy name.
 . In the Retention section, select one of the retention type and specify the number of backups to retain.

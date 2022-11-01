@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: reference-prereq-protect-cloud-native-app-data.html
-keywords: Cloud Manager, FSx for ONTAP, working environment, Connector, AWS, deploy Oracle plug-in
+keywords: Cloud Manager, FSx for ONTAP, working environment, Connector, AWS, deploy Oracle plug-in, BlueXP
 summary:  Complete the prerequisites before creating backups.
 ---
 
@@ -14,23 +14,23 @@ summary:  Complete the prerequisites before creating backups.
 
 [.lead]
 
-You should have access to Cloud Manager, created a Cloud Manager account, created the working environment and a Connector, and deployed the SnapCenter Plug-in for Oracle.
+You should have access to BlueXP, created a BlueXP account, created the working environment and a Connector, and deployed the SnapCenter Plug-in for Oracle.
 
-== Access Cloud Manager
+== Access BlueXP
 
-You should link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-signing-up.html[sign up to NetApp Cloud Central], link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[log into Cloud Manager], and then set up a link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-setting-up-netapp-accounts.html[NetApp account].
+You should link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-signing-up.html[sign up to NetApp BlueXP website], link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[log into BlueXP], and then set up a link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-setting-up-netapp-accounts.html[NetApp account].
 
 == Create FSx for ONTAP working environment
 
 You should create the Amazon FSx for ONTAP working environments where your databases are hosted. For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html[Get started with Amazon FSx for ONTAP] and link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html[Create and manage an Amazon FSx for ONTAP working environment].
 
-You can create the NetApp FSx either using Cloud Manager or AWS. If you have created using AWS, then you should discover the FSx for ONTAP systems in Cloud Manager.
+You can create the NetApp FSx either using BlueXP or AWS. If you have created using AWS, then you should discover the FSx for ONTAP systems in BlueXP.
 
 == Create a Connector
 
-An Account Admin needs to deploy a Connector in AWS that enables Cloud Manager to manage resources and processes within your public cloud environment.
+An Account Admin needs to deploy a Connector in AWS that enables BlueXP to manage resources and processes within your public cloud environment.
 
-For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Creating a Connector in AWS from Cloud Manager].
+For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Creating a Connector in AWS from BlueXP].
 
 * You should use the same connector to manage both FSx working environment and Oracle databases.
 * If you have the FSx working environment and Oracle databases in the same VPC, you can deploy the connector in the same VPC.
@@ -40,8 +40,7 @@ For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup
 +
 NOTE: For using NAS (NFS) workloads, you should have transit gateway between the Oracle database VPC and FSx VPC. The NFS IP address which is a floating IP address can be accessed from another VPC only through transit gateway. We cannot access the floating IP addresses by peering the VPCs.
 
-After creating the connector, click *Canvas* > *Add Working Environment* and follow the prompts to add the working environment.
-Ensure that there is connectivity from the connector to the Oracle database hosts and FSx working environment. The connector should be able to connect to the cluster management IP address of the FSx working environment.
+After creating the connector, click *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment* and follow the prompts to add the working environment. Ensure that there is connectivity from the connector to the Oracle database hosts and FSx working environment. The connector should be able to connect to the cluster management IP address of the FSx working environment.
 
 IMPORTANT: After creating the Connector, click *Connector > Manage Connectors*; select the Connector name and copy the Connector ID.
 

@@ -29,7 +29,7 @@ Note that system-initiated jobs, such ongoing backup operations, are not reflect
 
 .Steps
 
-. Select the *Backup & Restore* service.
+. From the BlueXP menu, select *Protection > Backup and recovery*.
 
 . Click the *Job Monitoring* tab.
 +

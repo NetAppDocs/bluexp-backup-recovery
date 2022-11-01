@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: concept-protect-app-data-to-cloud.html
-keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database
-summary:  Integrate Cloud Backup for Applications with Cloud Manager and on-premises SnapCenter to back up the application consistent Snapshots from on-premises ONTAP to cloud.
+keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database, Cloud Manager, BlueXP
+summary:  Integrate Cloud Backup for Applications with BlueXP and on-premises SnapCenter to back up the application consistent Snapshots from on-premises ONTAP to cloud.
 ---
 
 = Protect your on-premises applications data
@@ -14,9 +14,9 @@ summary:  Integrate Cloud Backup for Applications with Cloud Manager and on-prem
 
 [.lead]
 
-You can integrate Cloud Backup for Applications with Cloud Manager and on-premises SnapCenter to back up the application consistent Snapshots from on-premises ONTAP to cloud. When required you can restore from cloud to on-premises SnapCenter Server.
+You can integrate Cloud Backup for Applications with BlueXP (formerly Cloud Manager) and on-premises SnapCenter to back up the application consistent Snapshots from on-premises ONTAP to cloud. When required you can restore from cloud to on-premises SnapCenter Server.
 
-You can back up Oracle, Microsoft SQL, and SAP HANA applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud, and StorageGRID.
+You can back up Oracle, Microsoft SQL, and SAP HANA applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID.
 
 NOTE: You should be using SnapCenter Software 4.6 or later.
 
@@ -30,7 +30,7 @@ For more information about Cloud Backup for Applications, refer to:
 Read the following requirements to make sure that you have a supported configuration before you start backing up application data to cloud services.
 
 * ONTAP 9.8 or later
-* Cloud Manager 3.9
+* BlueXP 3.9
 * SnapCenter Server 4.6 or later
 You should be using SnapCenter Server 4.7 if you want to use the following features:
 ** protect backups from on-premises secondary storage
@@ -40,7 +40,7 @@ You should be using SnapCenter Server 4.7 if you want to use the following featu
 ** deactivate backups
 ** unregister SnapCenter Server
 * At least one backup per application should be available in SnapCenter Server
-* At least one daily, weekly, or monthly policy in SnapCenter with no label or same label as that of the Cloud Backup for Applications policy in Cloud Manager.
+* At least one daily, weekly, or monthly policy in SnapCenter with no label or same label as that of the Cloud Backup for Applications policy in BlueXP.
 
 NOTE: Cloud Backup for Applications does not support protection of applications that are on SVMs which were added using FQDN or IP address.
 

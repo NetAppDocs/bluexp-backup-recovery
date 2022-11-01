@@ -87,7 +87,7 @@ You can choose to run a scan before restoring data from a backup file, or skip t
 +
 You can run an on-demand ransomware protection scan at any time to verify the health of a specific backup file. This can be useful if you've had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
 
-CAUTION: A ransomware scan requires that the backup file is downloaded to your Cloud Manager environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
+CAUTION: A ransomware scan requires that the backup file is downloaded to your BlueXP environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
 
 === DataLock and Ransomware Protection settings
 
@@ -151,7 +151,7 @@ NetApp StorageGRID
 === Requirements
 
 * Your clusters must running ONTAP 9.11.1 or greater
-* You must be using Cloud Manager 3.9.21 or greater
+* You must be using BlueXP 3.9.21 or greater
 ifdef::aws[]
 * For AWS:
 ** The Connector must deployed in the cloud

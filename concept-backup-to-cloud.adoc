@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: concept-backup-to-cloud.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem, kubernetes, applications
-summary: Cloud Backup is a service for Cloud Manager working environments that provides backup and restore capabilities for protection and long-term archive of your data. Backups are automatically generated and stored in an object store in your public or private cloud account.
+summary: Cloud Backup is a service for BlueXP working environments that provides backup and restore capabilities for protection and long-term archive of your data. Backups are automatically generated and stored in an object store in your public or private cloud account.
 ---
 
 = Learn about Cloud Backup
@@ -13,7 +13,7 @@ summary: Cloud Backup is a service for Cloud Manager working environments that p
 :imagesdir: ./media/
 
 [.lead]
-Cloud Backup is a service for Cloud Manager working environments that provides backup and restore capabilities for protection and long-term archive of your data. Backups are automatically generated and stored in an object store in your public or private cloud account.
+Cloud Backup is a service for BlueXP (formerly Cloud Manager) working environments that provides backup and restore capabilities for protection and long-term archive of your data. Backups are automatically generated and stored in an object store in your public or private cloud account.
 
 When necessary, you can restore an entire _volume_ from a backup to the same or different working environment. When backing up ONTAP data, you can also choose to restore or one or more _files_ from a backup to the same or different working environment.
 
@@ -28,13 +28,13 @@ Backup & Restore can be used to:
 
 https://www.youtube.com/watch?v=DF0knrH2a80[Watch a quick demo^]
 
-TIP: When the Cloud Manager Connector is deployed in a Government region in the cloud, or in a site without internet access (a dark site), Cloud Backup only supports backup and restore operations from ONTAP systems. When using these alternate deployment methods, Cloud Backup does not support backup and restore operations from Kubernetes clusters, Applications, or Virtual Machines.
+TIP: When the BlueXP Connector is deployed in a Government region in the cloud, or in a site without internet access (a dark site), Cloud Backup only supports backup and restore operations from ONTAP systems. When using these alternate deployment methods, Cloud Backup does not support backup and restore operations from Kubernetes clusters, Applications, or Virtual Machines.
 
 == How Cloud Backup works
 
 When you enable Cloud Backup on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. Volume snapshots are not included in the backup image. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum.
 
-In most cases you'll use the Cloud Manager UI for all backup operations. However, starting with ONTAP 9.9.1 you can initiate volume backup operations of your on-premises ONTAP clusters using ONTAP System Manager. https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html[See how to use System Manager to back up your volumes to the cloud using Cloud Backup.^]
+In most cases you'll use the BlueXP UI for all backup operations. However, starting with ONTAP 9.9.1 you can initiate volume backup operations of your on-premises ONTAP clusters using ONTAP System Manager. https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html[See how to use System Manager to back up your volumes to the cloud using Cloud Backup.^]
 
 The following image shows the relationship between each component:
 
@@ -42,21 +42,21 @@ image:diagram_cloud_backup_general.png[A diagram showing how Cloud Backup commun
 
 === Where backups reside
 
-Backup copies are stored in an object store that Cloud Manager creates in your cloud account. There’s one object store per cluster/working environment, and Cloud Manager names the object store as follows: "netapp-backup-clusteruuid". Be sure not to delete this object store.
+Backup copies are stored in an object store that BlueXP creates in your cloud account. There’s one object store per cluster/working environment, and BlueXP names the object store as follows: "netapp-backup-clusteruuid". Be sure not to delete this object store.
 
 ifdef::aws[]
-* In AWS, Cloud Manager enables the https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html[Amazon S3 Block Public Access feature^] on the S3 bucket.
+* In AWS, BlueXP enables the https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html[Amazon S3 Block Public Access feature^] on the S3 bucket.
 endif::aws[]
 
 ifdef::azure[]
-* In Azure, Cloud Manager uses a new or existing resource group with a storage account for the Blob container. Cloud Manager https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent[blocks public access to your blob data] by default.
+* In Azure, BlueXP uses a new or existing resource group with a storage account for the Blob container. BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent[blocks public access to your blob data] by default.
 endif::azure[]
 
 ifdef::gcp[]
-* In GCP, Cloud Manager uses a new or existing project with a storage account for the Google Cloud Storage bucket.
+* In GCP, BlueXP uses a new or existing project with a storage account for the Google Cloud Storage bucket.
 endif::gcp[]
 
-* In StorageGRID, Cloud Manager uses an existing storage account for the object store bucket.
+* In StorageGRID, BlueXP uses an existing storage account for the object store bucket.
 
 === Backups are taken at midnight
 
