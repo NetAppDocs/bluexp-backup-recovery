@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-register-snapCenter-plug-in-for-vmware-vsphere.html
 keywords: register, registration, SnapCenter Plug-in for VMware vSphere
-summary: Register SnapCenter Plug-in for VMware vSphere in Cloud Manager.
+summary: Register SnapCenter Plug-in for VMware vSphere in BlueXP.
 ---
 
 = Register SnapCenter Plug-in for VMware vSphere
@@ -13,13 +13,13 @@ summary: Register SnapCenter Plug-in for VMware vSphere in Cloud Manager.
 :imagesdir: ./media/
 
 [.lead]
-You should register the SnapCenter Plug-in for VMware vSphere in Cloud Manager for the datastores and virtual machines to be displayed in Cloud Manager. Only a user with administrative access can register the SnapCenter Plug-in for VMware vSphere.
+You should register the SnapCenter Plug-in for VMware vSphere in BlueXP for the datastores and virtual machines to be displayed in BlueXP. Only a user with administrative access can register the SnapCenter Plug-in for VMware vSphere.
 
 NOTE: You can register multiple SnapCenter Plug-in for VMware vSphere. However, once registered, you cannot remove the SnapCenter Plug-in for VMware vSphere.
 
 .Steps
 
-. In Cloud Manager UI, click *Backup & Restore* > *Virtual Machines*.
+. In BlueXP UI, click *Protection* > *Backup and recovery* > *Virtual Machines*.
 . From the *Settings* drop-down, click *SnapCenter Plug-in for VMware vSphere*.
 . Click *Register SnapCenter Plug-in for VMware vSphere*.
 . Specify the following details:
@@ -32,4 +32,4 @@ You should ensure that the port is open for communication to happen between Snap
 
 *After you finish*
 
-Click *Backup & Restore > Virtual Machines* to view all the datastores and virtual machines that are eligible for protection using the registered SnapCenter Plug-in for VMware vSphere.
+Click *Backup and recovery* > *Virtual Machines* to view all the datastores and virtual machines that are eligible for protection using the registered SnapCenter Plug-in for VMware vSphere.
