@@ -23,7 +23,7 @@ You can view a list of all the volumes that are currently being backed up in the
 
 .Steps
 
-. From the Cloud Manager left navigation menu, click *Backup & Restore*.
+. From the BlueXP menu, select *Protection > Backup and recovery*.
 
 . Click the *Volumes* tab to view the list of backed up volumes for Cloud Volumes ONTAP and on-premises ONTAP systems.
 +
@@ -189,7 +189,7 @@ image:screenshot_auto_backup.png[A screenshot showing how to select a backup pol
 
 .Result
 
-Now this backup policy will be applied to any new volume created in this working environment using Cloud Manager, System Manager, or the ONTAP CLI.
+Now this backup policy will be applied to any new volume created in this working environment using BlueXP, System Manager, or the ONTAP CLI.
 
 == Creating a manual volume backup at any time
 
@@ -237,7 +237,7 @@ NetApp ransomware protection software scans your backup files to look for eviden
 
 This feature is available only if the volume backup was created from a system with ONTAP 9.11.1 or greater, and if you enabled _DataLock and Ransomware Protection_ in the backup policy.
 
-NOTE: A ransomware scan requires that the backup file is downloaded to your Cloud Manager environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
+NOTE: A ransomware scan requires that the backup file is downloaded to your BlueXP environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
 
 .Steps
 

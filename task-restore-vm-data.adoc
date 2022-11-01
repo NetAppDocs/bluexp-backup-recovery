@@ -23,9 +23,9 @@ Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[
 
 .Steps
 
-. In Cloud Manager, click *Backup & Restore* > *Virtual Machines* > *SnapCenter Plug-in for VMware vSphere* and select the SnapCenter Plug-in for VMware vSphere whose virtual machine you want to restore.
+. In BlueXP UI, click *Protection* > *Backup and recovery* > *Virtual Machines* > *SnapCenter Plug-in for VMware vSphere* and select the SnapCenter Plug-in for VMware vSphere whose virtual machine you want to restore.
 
-NOTE: If the source virtual machine is moved to another location (vMotion), and if the user triggers a restore of that virtual machine from Cloud Manager, then the virtual machine will get restored to the original source location from where the backup was taken.
+NOTE: If the source virtual machine is moved to another location (vMotion), and if the user triggers a restore of that virtual machine from BlueXP, then the virtual machine will get restored to the original source location from where the backup was taken.
 
 [start=2]
 . To restore from Datastore:

@@ -24,7 +24,7 @@ Get started quickly by following these steps, or scroll down to the remaining se
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
 
 [role="quick-margin-list"]
-* You have discovered the on-premises cluster and added it to a working environment in Cloud Manager. See https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
+* You have discovered the on-premises cluster and added it to a working environment in BlueXP. See https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
 ** The cluster is running ONTAP 9.7P5 or later.
 ** The cluster has a SnapMirror license -- it is included as part of the Premium Bundle or Data Protection Bundle.
 ** The cluster must have the required network connections to Blob storage and to the Connector.
@@ -90,7 +90,7 @@ image:diagram_cloud_backup_onprem_azure_private.png[A diagram showing how Cloud 
 
 === Preparing your ONTAP clusters
 
-You need to discover your on-premises ONTAP clusters in Cloud Manager before you can start backing up volume data.
+You need to discover your on-premises ONTAP clusters in BlueXP before you can start backing up volume data.
 
 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Learn how to discover a cluster^].
 
@@ -129,7 +129,7 @@ If you already have a Connector deployed in your Azure VNet or on your premises,
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Installing a Connector in Azure^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html[Installing a Connector in your premises^]
 
-Cloud Backup is supported in Azure Government regions when the Connector is deployed in the cloud - not when it's installed in your premises or in a dark site. Additionally, you must deploy the Connector from the Azure Marketplace. You can’t deploy the Connector in a Government region from the Cloud Manager SaaS website. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-azure-mktp.html[Learn how to create the Connector in an Azure Government region].
+Cloud Backup is supported in Azure Government regions when the Connector is deployed in the cloud - not when it's installed in your premises or in a dark site. Additionally, you must deploy the Connector from the Azure Marketplace. You can’t deploy the Connector in a Government region from the BlueXP SaaS website. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-azure-mktp.html[Learn how to create the Connector in an Azure Government region].
 
 === Preparing networking for the Connector
 
