@@ -22,7 +22,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Review prerequisites
 
 [role="quick-margin-list"]
-* You have discovered the Kubernetes cluster as a Cloud Manager working environment.
+* You have discovered the Kubernetes cluster as a BlueXP working environment.
 ** Trident must be installed on the cluster, and the Trident version must be 21.1 or greater.
 ** All PVCs that will be used to create persistent volumes that you want to back up must have "snapshotPolicy" set to "default".
 ** The cluster must be using Cloud Volumes ONTAP on Azure for its' backend storage.
@@ -62,7 +62,7 @@ image:diagram_cloud_backup_k8s_cvo_azure.png[A diagram showing how Cloud Backup 
 Note that the Private Endpoint is optional.
 
 Kubernetes cluster requirements::
-* You have discovered the Kubernetes cluster as a Cloud Manager working environment. https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-azure.html[See how to discover the Kubernetes cluster^].
+* You have discovered the Kubernetes cluster as a BlueXP working environment. https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-azure.html[See how to discover the Kubernetes cluster^].
 * Trident must be installed on the cluster, and the Trident version must be a minimum of 21.1. See https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html[how to install Trident^] or https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html[how to upgrade the Trident version^].
 * The cluster must be using Cloud Volumes ONTAP on Azure for its' backend storage.
 * The Cloud Volumes ONTAP system must be in the same Azure region as the Kubernetes cluster, and it must be running ONTAP 9.7P5 or later (ONTAP 9.8P11 and later is recommended).

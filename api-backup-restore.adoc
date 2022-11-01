@@ -65,7 +65,7 @@ This API will return a response like the following. You can retrieve account ID 
 [source,text]
 [{"accountPublicId":"account-i6vJXvZW","accountName":"rashidn","isSaas":true,"isGov":false,"isPrivatePreviewEnabled":false,"is3rdPartyServicesEnabled":false,"accountSerial":"96064469711530003565","userRole":"Role-1"}………
 
-. Obtain the x-agent-id which contains the Cloud Manager Connector ID.
+. Obtain the x-agent-id which contains the BlueXP Connector ID.
 +
 [source,http]
 GET curl 'https://api.services.cloud.netapp.com/occm/list-occms/account-OOnAR4ZS?excludeStandalone=true&source=saas' \
@@ -87,7 +87,7 @@ The following example shows an API call to activate backup on Working Environmen
 
 .API Request
 
-You'll see that we use the Cloud Central account ID "account-DpTFcxN3", Cloud Manager Connector ID "iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients", and user token "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5rSXlPVFUzUWpZek1E…y6nyhBjwkeMwHc4ValobjUmju2x0xUH48g" in this command.
+You'll see that we use the Cloud Central account ID "account-DpTFcxN3", BlueXP Connector ID "iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients", and user token "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5rSXlPVFUzUWpZek1E…y6nyhBjwkeMwHc4ValobjUmju2x0xUH48g" in this command.
 
 [source,http]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/account/account-DpTFcxN3/providers/cloudmanager_cbs/api/v3/backup/working-environment/VsaWorkingEnvironment-99hPYEgk' \

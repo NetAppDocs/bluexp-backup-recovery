@@ -40,13 +40,13 @@ endif::gcp[]
 
 == Restoring volumes from a Kubernetes backup file
 
-When you restore a persistent volume from a backup file, Cloud Manager creates a _new_ volume using the data from the backup. You can restore the data to a volume in the same Kubernetes cluster or to a different Kubernetes cluster that's located in the same cloud account as the source Kubernetes cluster.
+When you restore a persistent volume from a backup file, BlueXP creates a _new_ volume using the data from the backup. You can restore the data to a volume in the same Kubernetes cluster or to a different Kubernetes cluster that's located in the same cloud account as the source Kubernetes cluster.
 
 Before you start, you should know the name of the volume you want to restore and the date of the backup file you want to use to create the newly restored volume.
 
 .Steps
 
-. Select the *Backup & Restore* service.
+. From the BlueXP menu, select *Protection > Backup and recovery*.
 
 . Click the *Kubernetes* tab and the Kubernetes Dashboard is displayed.
 +
@@ -68,4 +68,4 @@ image:screenshot_restore_k8s_volume.png[A screenshot about the destination infor
 
 .Result
 
-Cloud Manager creates a new volume in the Kubernetes cluster based on the backup you selected. You can link:task-manage-backups-kubernetes.html[manage the backup settings for this new volume] as required.
+BlueXP creates a new volume in the Kubernetes cluster based on the backup you selected. You can link:task-manage-backups-kubernetes.html[manage the backup settings for this new volume] as required.
