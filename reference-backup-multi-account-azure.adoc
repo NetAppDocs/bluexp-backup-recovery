@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: reference-backup-multi-account-azure.html
 keywords: microsoft azure, azure, regions, blob, multiple accounts, multiple regions, backup
-summary: Cloud Backup enables you to create backup files in an Azure account that is different than where your source Cloud Volumes ONTAP volumes reside, and that is different than the account where the Cloud Manager Connector resides.
+summary: Cloud Backup enables you to create backup files in an Azure account that is different than where your source Cloud Volumes ONTAP volumes reside, and that is different than the account where the BlueXP Connector resides.
 ---
 
 = Configure backup for multi-account access in Azure
@@ -13,7 +13,7 @@ summary: Cloud Backup enables you to create backup files in an Azure account tha
 :imagesdir: ./media/
 
 [.lead]
-Cloud Backup enables you to create backup files in an Azure account that is different than where your source Cloud Volumes ONTAP volumes reside. And both of those accounts can be different than the account where the Cloud Manager Connector resides.
+Cloud Backup enables you to create backup files in an Azure account that is different than where your source Cloud Volumes ONTAP volumes reside. And both of those accounts can be different than the account where the BlueXP Connector resides.
 
 These steps are required only when you are https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[backing up Cloud Volumes ONTAP data to Azure Blob storage^].
 
@@ -21,7 +21,7 @@ Just follow the steps below to set up your configuration in this manner.
 
 == Set up VNet peering between accounts
 
-Note that if you want Cloud Manager to manage your Cloud Volumes ONTAP system in a different account/region, then you need to setup VNet peering. VNet peering is not required for storage account connectivity.
+Note that if you want BlueXP to manage your Cloud Volumes ONTAP system in a different account/region, then you need to setup VNet peering. VNet peering is not required for storage account connectivity.
 
 . Log in to the Azure portal and from home, select Virtual Networks.
 
@@ -91,7 +91,7 @@ image:screenshot_azure_networking1.png[]
 
 . In the Private Endpoint _Basics_ page:
 
-* Select subscription 2 (where the Cloud Manager Connector and Cloud Volumes ONTAP system are deployed) and the resource group.
+* Select subscription 2 (where the BlueXP Connector and Cloud Volumes ONTAP system are deployed) and the resource group.
 * Enter an endpoint name.
 * Select the region.
 +

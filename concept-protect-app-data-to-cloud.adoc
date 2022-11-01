@@ -14,7 +14,7 @@ summary:  Integrate Cloud Backup for Applications with BlueXP and on-premises Sn
 
 [.lead]
 
-You can integrate Cloud Backup for Applications with BlueXP and on-premises SnapCenter to back up the application consistent Snapshots from on-premises ONTAP to cloud. When required you can restore from cloud to on-premises SnapCenter Server.
+You can integrate Cloud Backup for Applications with BlueXP (formerly Cloud Manager) and on-premises SnapCenter to back up the application consistent Snapshots from on-premises ONTAP to cloud. When required you can restore from cloud to on-premises SnapCenter Server.
 
 You can back up Oracle, Microsoft SQL, and SAP HANA applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID.
 

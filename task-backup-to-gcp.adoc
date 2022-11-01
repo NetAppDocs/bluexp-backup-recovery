@@ -126,7 +126,7 @@ See https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deployi
 . *Choose Type*: Select *Cloud Volumes ONTAP* (either single-node or high-availability).
 
 . *Details & Credentials*: Enter the following information:
-.. Click *Edit Project* and select a new project if the one you want to use is different than the default Project (where Cloud Manager resides).
+.. Click *Edit Project* and select a new project if the one you want to use is different than the default Project (where the Connector resides).
 .. Specify the cluster name.
 .. Enable the *Service Account* switch and select the Service Account that has the predefined Storage Admin role. This is required to enable backups and tiering.
 .. Specify the credentials.
