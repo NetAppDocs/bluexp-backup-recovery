@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-manage-app-backups.html
 keywords: manage, Azure, Amazon Web services, Oracle database, Microsoft SQL Server database, backups, policy, monitor, jobs, monitor jobs, SAP HANA database
-summary: You can view the policies and backups. Depending upon the change in database, policies, or resource groups, you can refresh the updates from the Cloud Manager UI.
+summary: You can view the policies and backups. Depending upon the change in database, policies, or resource groups, you can refresh the updates from the BlueXP UI.
 ---
 
 = Manage protection of applications
@@ -14,13 +14,13 @@ summary: You can view the policies and backups. Depending upon the change in dat
 
 [.lead]
 
-You can manage protection of applications by performing different operations from the Cloud Manager UI.
+You can manage protection of applications by performing different operations from the BlueXP UI.
 
 == View policies
 
 You can view all the policies. For each of these policies, when you view the details all the associated applications are listed.
 
-. Click *Backup & Restore* > *Applications*.
+. Click *Backup and recovery* > *Applications*.
 . From the *Settings* drop-down, click *Policies*.
 . Click *View Details* corresponding to policy whose details you want to view.
 +
@@ -33,12 +33,12 @@ The information regarding the parameters that can be used with the cmdlet and th
 
 == View backups on cloud
 
-You can view the backups on cloud in the Cloud Manager UI.
+You can view the backups on cloud in the BlueXP UI.
 
-. Click *Backup & Restore* > *Applications*.
+. Click *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *View Details*.
 
-IMPORTANT: The time taken for the backups to be listed depends on ONTAP's default replication schedule (maximum of 1 hour) and Cloud Manager (maximum of 6 hours).
+IMPORTANT: The time taken for the backups to be listed depends on ONTAP's default replication schedule (maximum of 1 hour) and BlueXP (maximum of 6 hours).
 
 * For Oracle databases, both data and log backups, SCN number for each backup, end date for each backup are listed. You can select only the data backup and restore the database to on-premises SnapCenter Server.
 * For Microsoft SQL Server databases, only the full backups and the end date for each backup are listed. You can select the backup and restore the database to on-premises SnapCenter Server.
@@ -55,7 +55,7 @@ The information regarding the parameters that can be used with the cmdlet and th
 
 When volumes are added to the database, SnapCenter Server will label the snapshots on the new volumes automatically as per the policy and the schedule. These new volumes will not have the object store endpoint and you should refresh by executing the following steps:
 
-. Click *Backup & Restore* > *Applications*.
+. Click *Backup and recovery* > *Applications*.
 . From the *Settings* drop-down, click *SnapCenter Servers*.
 . Click image:icon-action.png[icon to select the action] corresponding to the SnapCenter Server hosting the application and click *Refresh*.
 +
@@ -69,12 +69,12 @@ If you update the application inventory, it will contain the current storage lay
 
 If there is a change to the SnapCenter policy or resource group, you should refresh the protection.
 
-. Click *Backup & Restore* > *Applications*.
+. Click *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *Refresh Protection*.
 
 == Unregister SnapCenter Server
 
-. Click *Backup & Restore* > *Applications*.
+. Click *Backup and recovery* > *Applications*.
 . From the *Settings* drop-down, click *SnapCenter Servers*.
 . Click image:icon-action.png[icon to select the action] corresponding to the SnapCenter Server and click *Unregister*.
 
@@ -82,7 +82,7 @@ If there is a change to the SnapCenter policy or resource group, you should refr
 
 Jobs are created for all the Cloud Backup operations. You can monitor all the jobs and all the sub tasks that are performed as part of each task.
 
-. Click *Backup & Restore* > *Job Monitoring*.
+. Click *Backup and recovery* > *Job Monitoring*.
 +
 When you initiate an operation, a window appears stating that the job is initiated. You can click the link to monitor the job.
 . Click the primary task to view the sub tasks and status of each of these sub tasks.
@@ -93,9 +93,9 @@ If you want to restore or mount a backup that was moved to object store from sec
 
 *Steps*
 
-. In Cloud Manager UI, click *Canvas* > *Add Working Environment*.
+. In BlueXP UI, click *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment*.
 . Specify the primary working environment details and click *Add*.
-. Click *Backup & Restore* > *Volumes*.
+. Click *Backup and recovery* > *Volumes*.
 . Click image:icon-action.png[icon to select the action] corresponding to any of the volumes and click *Details*.
 . Click image:icon-action.png[icon to select the action] corresponding to the backup and click *Restore*.
 . In the wizard, select the newly added primary working environment as the destination.

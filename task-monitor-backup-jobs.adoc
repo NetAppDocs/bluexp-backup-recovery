@@ -29,7 +29,7 @@ You can view a list of all the backup and restore operations and their current s
 
 .Steps
 
-. Click the *Backup & Restore* tab.
+. From the BlueXP menu, select *Protection > Backup and recovery*.
 
 . Click the *Job Monitoring* tab.
 +

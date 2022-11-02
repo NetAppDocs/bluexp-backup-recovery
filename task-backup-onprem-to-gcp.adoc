@@ -24,7 +24,7 @@ Get started quickly by following these steps, or scroll down to the remaining se
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
 
 [role="quick-margin-list"]
-* You have discovered the on-premises cluster and added it to a working environment in Cloud Manager. See https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
+* You have discovered the on-premises cluster and added it to a working environment in BlueXP. See https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
 ** The cluster is running ONTAP 9.7P5 or later.
 ** The cluster has a SnapMirror license -- it is included as part of the Premium Bundle or Data Protection Bundle.
 ** The cluster must have the required network connections to Google storage and to the Connector.
@@ -65,7 +65,7 @@ Read the following requirements to make sure you have a supported configuration 
 There are two connection methods you can use when configuring backups from on-premises ONTAP systems to Google Cloud Storage.
 
 * Public connection - Directly connect the ONTAP system to Google Cloud Storage using a public Google endpoint.
-* Private connection - Use a VPN or Private Service Connect and route traffic through a Private Google Access interface that uses a private IP address.
+* Private connection - Use a VPN or Google Cloud Interconnect and route traffic through a Private Google Access interface that uses a private IP address.
 
 The following diagram shows the *public connection* method and the connections that you need to prepare between the components. You can use a Connector that you've installed on your premises, or a Connector that you've deployed in the Google Cloud Platform VPC.
 
@@ -77,7 +77,7 @@ image:diagram_cloud_backup_onprem_gcp_private.png[A diagram showing how Cloud Ba
 
 === Preparing your ONTAP clusters
 
-You need to discover your on-premises ONTAP clusters in Cloud Manager before you can start backing up volume data.
+You need to discover your on-premises ONTAP clusters in BlueXP before you can start backing up volume data.
 
 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Learn how to discover a cluster^].
 

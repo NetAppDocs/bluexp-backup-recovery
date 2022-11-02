@@ -50,7 +50,7 @@ You can edit the details of the SnapCenter Plug-in for VMware vSphere in BlueXP.
 == Refresh Protection Status
 When new volumes are added to the database, or if there is a change to the policy or resource group, you should refresh the protection.
 
-. Click *Backup & Restore > Virtual Machines*.
+. Click *Backup and recovery* > *Virtual Machines*.
 . From the *Settings* drop-down, click *SnapCenter Plug-in for VMware vSphere*.
 . Click image:icon-action.png[action] corresponding to the SnapCenter Plug-in for VMware vSphere hosting the virtual machine and click *Refresh*.
 +
@@ -60,7 +60,7 @@ The new changes are discovered.
 == Monitor Jobs
 Jobs are created for all the Cloud Backup operations. You can monitor all the jobs and all the sub tasks that are performed as part of each task.
 
-. Click *Backup & Restore > Job Monitoring*.
+. Click *Backup and recovery* > *Job Monitoring*.
 +
 When you initiate an operation, a window appears stating that the job is initiated. You can click the link to monitor the job.
 

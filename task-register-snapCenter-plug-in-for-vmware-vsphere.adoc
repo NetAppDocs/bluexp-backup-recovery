@@ -32,4 +32,4 @@ You should ensure that the port is open for communication to happen between Snap
 
 *After you finish*
 
-Click *Backup & Restore > Virtual Machines* to view all the datastores and virtual machines that are eligible for protection using the registered SnapCenter Plug-in for VMware vSphere.
+Click *Backup and recovery* > *Virtual Machines* to view all the datastores and virtual machines that are eligible for protection using the registered SnapCenter Plug-in for VMware vSphere.
