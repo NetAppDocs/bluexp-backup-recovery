@@ -59,9 +59,9 @@ At this time, there are three events that will trigger email alerts:
 
 * Backup Activation Failure
 * Restore Failure
-* Adhoc Backup Failure
+* Adhoc (on-demand) Backup Failure
 
-By default, BlueXP Account Admins will receive emails for all "Critical" and "Recommendation" alerts. All other users and recipients are configured, by default, not to receive any notification emails. Emails can be sent to any Cloud Central users who are part of your NetApp Cloud Account, or to any other recipients who need to be aware of backup and restore activity. 
+By default, BlueXP Account Admins will receive emails for all "Critical" and "Recommendation" alerts. All other users and recipients are configured, by default, not to receive any notification emails. Emails can be sent to any BlueXP users who are part of your NetApp Cloud Account, or to any other recipients who need to be aware of backup and restore activity. 
 
 You'll need to select the notification types "Critical" and "Error" to receive the Cloud Backup email alerts.
 
