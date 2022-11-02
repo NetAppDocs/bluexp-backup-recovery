@@ -25,7 +25,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 * You're running Cloud Volumes ONTAP 9.7P5 or later in AWS.
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
 * You have subscribed to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[Cloud Manager Marketplace Backup offering], an https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS annual contract], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated] a Cloud Backup BYOL license from NetApp.
-* The IAM role that provides the BlueXP Connector with permissions includes S3 permissions from the latest https://mysupport.netapp.com/site/info/cloud-manager-policies[BlueXP policy^].
+* The IAM role that provides the BlueXP Connector with permissions includes S3 permissions from the latest https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html[BlueXP policy^].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable Cloud Backup on your new or existing system
 
@@ -51,6 +51,9 @@ The default policy backs up volumes every day and retains the most recent 30 bac
 
 [role="quick-margin-para"]
 Backups are stored in S3 Standard storage by default. If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier backups to either S3 Glacier or S3 Glacier Deep Archive storage after a certain number of days for further cost optimization.
+
+[role="quick-margin-para"]
+Optionally, when using ONTAP 9.11.1 and greater, you can choose to protect your backups from deletion and ransomware attacks by configuring one of the _DataLock and Ransomware Protection_ settings. link:concept-cloud-backup-policies.html[Learn more about the available Cloud Backup policy configuration settings^].
 
 [role="quick-margin-para"]
 image:screenshot_backup_policy_aws.png[A screenshot that shows the Cloud Backup settings where you can choose your backup schedule and retention period.]
@@ -88,8 +91,7 @@ Cloud Backup is supported in all AWS regions https://cloud.netapp.com/cloud-volu
 Required setup for creating backups in a different AWS account::
 By default, backups are created using the same account as the one used for your Cloud Volumes ONTAP system. If you want to use a different AWS account for your backups, you must:
 * Add the destination AWS account credentials in BlueXP
-* Add the permission "s3:PutBucketPolicy" to the IAM role that provides BlueXP with permissions
-//you must link:reference-backup-multi-account-aws.html[log in to the AWS portal and link the two accounts].
+* Add the permissions "s3:PutBucketPolicy" and "s3:PutBucketOwnershipControls" to the IAM role that provides the BlueXP Connector with permissions
 
 Required information for using customer-managed keys for data encryption::
 
@@ -122,6 +124,7 @@ Here are the specific permissions from the policy:
                 "s3:GetBucketAcl",
                 "s3:GetBucketPolicy",
                 "s3:PutBucketPolicy",
+                "s3:PutBucketOwnershipControls"
                 "s3:PutBucketPublicAccessBlock",
                 "s3:PutEncryptionConfiguration",
                 "s3:GetObjectVersionTagging",
@@ -183,11 +186,6 @@ image:screenshot_backup_to_gcp.png[Shows the Cloud Backup option in the working 
 
 Cloud Backup is enabled on the system and backs up volumes every day and retains the most recent 30 backup copies.
 
-.What's next?
-
-You can link:task-manage-backups-ontap.html[start and stop backups for volumes or change the backup schedule^].
-You can also link:task-restore-backups-ontap.html[restore entire volumes or individual files from a backup file^] to a Cloud Volumes ONTAP system in AWS, or to an on-premises ONTAP system.
-
 == Enabling Cloud Backup on an existing system
 
 Enable Cloud Backup at any time directly from the working environment.
@@ -204,7 +202,7 @@ image:screenshot_backup_cvo_enable.png[A screenshot that shows the Backup & Rest
 
 .. The AWS Account used to store the backups. This can be a different account than where the Cloud Volumes ONTAP system resides.
 +
-If you want to use a different AWS account for your backups, you must add the destination AWS account credentials in BlueXP, and add the permission "s3:PutBucketPolicy" to the IAM role that provides BlueXP with permissions.
+If you want to use a different AWS account for your backups, you must add the destination AWS account credentials in BlueXP, and add the permissions "s3:PutBucketPolicy" and "s3:PutBucketOwnershipControls" to the IAM role that provides BlueXP with permissions.
 .. The region where the backups will be stored. This can be a different region than where the Cloud Volumes ONTAP system resides.
 .. Whether you'll use the default Amazon S3 encryption keys or choose your own customer-managed keys from your AWS account to manage encryption of your data. (https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html[See how to use your own encryption keys]).
 +
@@ -221,23 +219,26 @@ image:screenshot_backup_policy_aws.png[A screenshot that shows the Cloud Backup 
 +
 *Important:* If you plan to use DataLock, you must enable it in your first policy when activating Cloud Backup.
 
-. Select the volumes that you want to back up using the default backup policy in the Select Volumes page. If you want to assign different backup policies to certain volumes, you can create additional policies and apply them to those volumes later.
+. Select the volumes that you want to back up using the defined backup policy in the Select Volumes page. If you want to assign different backup policies to certain volumes, you can create additional policies and apply them to those volumes later.
+
++
+* To back up all existing volumes and any volumes added in the future, check the box "Back up all existing and future volumes...". We recommend this option so that all your volumes will be backed up and you'll never have to remember to enable backups for new volumes.
+* To back up only existing volumes, check the box in the title row (image:button_backup_all_volumes.png[]).
+* To back up individual volumes, check the box for each volume (image:button_backup_1_volume.png[]).
 +
 image:screenshot_backup_select_volumes.png[A screenshot of selecting the volumes that will be backed up.]
 
 +
-* To back up all volumes, check the box in the title row (image:button_backup_all_volumes.png[]).
-* To back up individual volumes, check the box for each volume (image:button_backup_1_volume.png[]).
-
-. If you want all volumes added in the future to have backup enabled, just leave the checkbox for "Automatically back up future volumes..." checked. If you disable this setting, you'll need to manually enable backups for future volumes.
+* If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "Export existing Snapshot copies to object storage as backup copies". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Click *Activate Backup* and Cloud Backup starts taking the initial backups of each selected volume.
 
 .Result
 
-Cloud Backup starts taking the initial backups of each selected volume and the Volume Backup Dashboard is displayed so you can monitor the state of the backups.
+An S3 bucket is created automatically in the service account indicated by the S3 access key and secret key you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups. You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
 
-.What's next?
+== What's next?
 
-You can link:task-manage-backups-ontap.html[start and stop backups for volumes or change the backup schedule^].
-You can also link:task-restore-backups-ontap.html[restore entire volumes or individual files from a backup file^] to a Cloud Volumes ONTAP system in AWS, or to an on-premises ONTAP system.
+* You can link:task-manage-backups-ontap.html[manage your backup files and backup policies^]. This includes starting and stopping backups, deleting backups, adding and changing the backup schedule, and more.
+* You can link:task-manage-backup-settings-ontap.html[manage cluster-level backup settings^]. This includes changing the storage keys ONTAP uses to access cloud storage, changing the network bandwidth available to upload backups to object storage, changing the automatic backup setting for future volumes, and more.
+* You can also link:task-restore-backups-ontap.html[restore volumes, folders, or individual files from a backup file^] to a Cloud Volumes ONTAP system in AWS, or to an on-premises ONTAP system.

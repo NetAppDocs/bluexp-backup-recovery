@@ -39,6 +39,8 @@ For example, say you create a backup policy that creates 7 *weekly* and 12 *mont
 * at the 8th week, the first weekly backup is removed, and the new weekly backup for the 8th week is added (keeping a maximum of 7 weekly backups)
 * at the 13th month, the first monthly backup is removed, and the new monthly backup for the 13th month is added (keeping a maximum of 12 monthly backups)
 
+Note that Yearly backups will be deleted automatically from the source system after being transferred to object storage. This default behavior can be changed link:task-manage-backup-settings-ontap#change-whether-yearly-snapshots-are-removed-from-the-source-system[in the Advanced Settings page] for the Working Environment.
+
 == DataLock and Ransomware protection
 
 Cloud Backup provides support for DataLock and Ransomware protection for your volume backups. These features enable you to lock your backup files and scan them to detect possible ransomware on backup files. This is an optional setting that you can define in your backup policies when you want extra protection for your volume backups for a cluster.
