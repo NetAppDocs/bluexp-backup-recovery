@@ -53,7 +53,7 @@ image:screenshot_backup_job_monitor_details.png[A screenshot showing the Job Det
 
 == Use the Notification Center to review backup and restore alerts 
 
-The Notification Center tracks the progress of backup and restore jobs that you’ve initiated so you can verify whether the operation was successful or not. You can display the notifications by clicking the (image:icon_bell.png[notification bell]) in the Cloud Manager menu bar. You can also configure Cloud Manager to send notifications by email as alerts so you can be informed of important system activity even when you’re not logged into the system.
+The Notification Center tracks the progress of backup and restore jobs that you’ve initiated so you can verify whether the operation was successful or not. You can display the notifications by clicking the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you’re not logged into the system.
 
 At this time, there are three events that will trigger email alerts:
 
@@ -61,7 +61,7 @@ At this time, there are three events that will trigger email alerts:
 * Restore Failure
 * Adhoc Backup Failure
 
-By default, Cloud Manager Account Admins will receive emails for all "Critical" and "Recommendation" alerts. All other users and recipients are configured, by default, not to receive any notification emails. Emails can be sent to any Cloud Central users who are part of your NetApp Cloud Account, or to any other recipients who need to be aware of backup and restore activity. 
+By default, BlueXP Account Admins will receive emails for all "Critical" and "Recommendation" alerts. All other users and recipients are configured, by default, not to receive any notification emails. Emails can be sent to any Cloud Central users who are part of your NetApp Cloud Account, or to any other recipients who need to be aware of backup and restore activity. 
 
 You'll need to select the notification types "Critical" and "Error" to receive the Cloud Backup email alerts.
 

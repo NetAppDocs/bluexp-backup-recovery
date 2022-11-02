@@ -35,7 +35,7 @@ You can view the cluster-level backup settings for each working environment.
 
 .Steps
 
-. From the Cloud Manager left-navigation menu, click *Backup & Restore*.
+. From the BlueXP menu, select *Protection > Backup and recovery*.
 
 . From the *Volumes* tab, select *Backup Settings*.
 +
@@ -103,15 +103,15 @@ endif::aws[]
 
 == Change the automatic backup setting for future volumes
 
-If you enabled the automatic backup of future volumes when you activated Cloud Backup, then you can change the backup policy that will be used for the newly created volumes in the Automatic Backup section. 
-
 If you did not enable the automatic backup of future volumes when you activated Cloud Backup, then you can start making automatic backups of new volumes in the Automatic Backup section. You can also select the backup policy that will be applied to those new volumes. Having a backup policy assigned to newly created volumes ensures that all your data is protected.
 
-Note that the policy that you want to apply to new volumes must already exist. link:task-manage-backups-ontap.html#adding-a-new-backup-policy[See how to add a new backup policy for a working environment].
+If you enabled the automatic backup of future volumes when you activated Cloud Backup, then you can change the backup policy that will be used for the newly created volumes in the Automatic Backup section. 
+
+Note that the policy that you want to apply to new volumes must already exist. link:task-manage-backups-ontap.html#adding-a-new-backup-policy[See how to create a new backup policy for a working environment].
 
 image:screenshot_backup_edit_auto_backup.png[A screenshot of the Automatic Backup entry in the Advanced Settings page.]
 
-Now this backup policy will be applied to any new volume created in this working environment using Cloud Manager, System Manager, or the ONTAP CLI.
+Once enabled, this backup policy will be applied to any new volume created in this working environment using BlueXP, System Manager, the ONTAP CLI, or the APIs.
 
 == Change whether historical Snapshot copies are exported as backup files
 
