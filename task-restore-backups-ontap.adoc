@@ -25,7 +25,7 @@ A valid Cloud Backup license is required to restore data from backup files to a 
 
 == The Restore Dashboard
 
-You use the Restore Dashboard to perform volume, folder, and file restore operations. You access the Restore Dashboard by clicking *Backup & Restore* from the Cloud Manager left navigation menu, and then clicking the *Restore* tab. You can also click image:screenshot_gallery_options.gif[More button] > *View Restore Dashboard* from the Backup & Restore service from the Services panel.
+You use the Restore Dashboard to perform volume, folder, and file restore operations. You access the Restore Dashboard by clicking *Backup and recovery* from the BlueXP menu, and then clicking the *Restore* tab. You can also click image:screenshot_gallery_options.gif[More button] > *View Restore Dashboard* from the Backup & Restore service from the Services panel.
 
 NOTE: Cloud Backup must already be activated for at least one working environment and initial backup files must exist.
 
@@ -135,7 +135,7 @@ video::9Og5agUWyRk[youtube, width=848, height=480, end=164]
 
 .Steps
 
-. Select the *Backup & Restore* service.
+. From the BlueXP menu, select *Protection > Backup and recovery*.
 
 . Click the *Restore* tab and the Restore Dashboard is displayed.
 
@@ -244,7 +244,7 @@ video::9Og5agUWyRk[youtube, width=848, height=480, start=165]
 
 .Steps
 
-. Select the *Backup & Restore* service.
+. From the BlueXP menu, select *Protection > Backup and recovery*.
 
 . Click the *Restore* tab and the Restore Dashboard is displayed.
 
@@ -369,8 +369,8 @@ endif::gcp[]
 
 |===
 
-The Connector must be deployed in your cloud provider environment for restore operations using Search & Restore.
-//TIP: For Search & Restore, the Connector can be deployed in your cloud provider or in your premises when restoring backups from Amazon S3 or Azure Blob. The Connector must be deployed in the cloud when restoring backups from Google Cloud Storage.
+//The Connector must be deployed in your cloud provider environment for restore operations using Search & Restore.
+TIP: For Search & Restore, the Connector can be deployed in your cloud provider or in your premises when restoring backups from Amazon S3 or Azure Blob. The Connector must be deployed in the cloud when restoring backups from Google Cloud Storage.
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
@@ -381,14 +381,14 @@ Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP
 ** The ONTAP version must be 9.8 or greater.
 ** The storage VM (SVM) on which the volume resides must have a configured data LIF.
 ** NFS must be enabled on the volume.
-** The SnapDiff RPC Server must be activated on the SVM. Cloud Manager does this automatically when you enable Indexing on the working environment.
+** The SnapDiff RPC Server must be activated on the SVM. BlueXP does this automatically when you enable Indexing on the working environment.
 
 ifdef::aws[]
 * AWS requirements:
 
-** Specific Amazon Athena, AWS Glue, and AWS S3 permissions must be added to the user role that provides Cloud Manager with permissions. link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Make sure all the permissions are configured correctly].
+** Specific Amazon Athena, AWS Glue, and AWS S3 permissions must be added to the user role that provides BlueXP with permissions. link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Make sure all the permissions are configured correctly].
 +
-Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add the Athena and Glue permissions to the Cloud Manager user role now. These are new, and they are required for Search & Restore.
+Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add the Athena and Glue permissions to the BlueXP user role now. These are new, and they are required for Search & Restore.
 endif::aws[]
 
 ifdef::azure[]
@@ -396,9 +396,9 @@ ifdef::azure[]
 
 ** You must register the Azure Synapse Analytics Resource Provider with your Subscription. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider[See how to register this resource provider for your subscription^]. You must be the Subscription *Owner* or *Contributor* to register the resource provider.
 
-** Specific Azure Synapse Workspace and Data Lake Storage Account permissions must be added to the user role that provides Cloud Manager with permissions. link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector[Make sure all the permissions are configured correctly].
+** Specific Azure Synapse Workspace and Data Lake Storage Account permissions must be added to the user role that provides BlueXP with permissions. link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector[Make sure all the permissions are configured correctly].
 +
-Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add the Azure Synapse Workspace and Data Lake Storage Account permissions to the Cloud Manager user role now. These are new, and they are required for Search & Restore.
+Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add the Azure Synapse Workspace and Data Lake Storage Account permissions to the BlueXP user role now. These are new, and they are required for Search & Restore.
 
 ** The Connector must be configured *without* a proxy server for HTTP communication to the internet. If you have configured an HTTP proxy server for your Connector, you can't use Search & Replace functionality.
 endif::azure[]
@@ -406,9 +406,9 @@ endif::azure[]
 ifdef::gcp[]
 * Google Cloud requirements:
 
-** Specific Google BigQuery permissions must be added to the user role that provides Cloud Manager with permissions. link:task-backup-onprem-to-gcp.html#verify-or-add-permissions-to-the-connector[Make sure all the permissions are configured correctly].
+** Specific Google BigQuery permissions must be added to the user role that provides BlueXP with permissions. link:task-backup-onprem-to-gcp.html#verify-or-add-permissions-to-the-connector[Make sure all the permissions are configured correctly].
 +
-Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add the BigQuery permissions to the Cloud Manager user role now. These are new, and they are required for Search & Restore.
+Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add the BigQuery permissions to the BlueXP user role now. These are new, and they are required for Search & Restore.
 endif::gcp[]
 
 === Search & Restore process
@@ -468,7 +468,7 @@ After you have <<Enabling the Indexed Catalog for each working environment,enabl
 
 .Steps
 
-. Select the *Backup & Restore* service.
+. From the BlueXP menu, select *Protection > Backup and recovery*.
 
 . Click the *Restore* tab and the Restore Dashboard is displayed.
 

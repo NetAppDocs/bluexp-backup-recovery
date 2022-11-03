@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-backup-onprem-to-aws.html
-keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, aws, aws s3, amazon s3
+keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, aws, aws s3, amazon s3, govcloud, government
 summary: Complete a few steps to get started backing up data from your on-premises ONTAP systems to Amazon S3 storage.
 ---
 
@@ -29,7 +29,7 @@ Choose whether you'll connect your on-premises ONTAP cluster directly to AWS S3 
 [role="quick-margin-para"]
 <<Network diagrams for connection options,See the available connection methods.>>
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your Cloud Manager Connector
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your BlueXP Connector
 
 [role="quick-margin-para"]
 If you already have a Connector deployed in your AWS VPC or on your premises, then you're all set. If not, then you'll need to create a Connector to back up ONTAP data to AWS S3 storage. You'll also need to customize network settings for the Connector so that it can connect to AWS S3.
@@ -40,7 +40,7 @@ If you already have a Connector deployed in your AWS VPC or on your premises, th
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Prepare your on-premises ONTAP cluster
 
 [role="quick-margin-para"]
-Discover your ONTAP cluster in Cloud Manager, verify that the cluster meets minimum requirements, and customize network settings so the cluster can connect to AWS S3.
+Discover your ONTAP cluster in BlueXP, verify that the cluster meets minimum requirements, and customize network settings so the cluster can connect to AWS S3.
 
 [role="quick-margin-para"]
 <<Prepare your ONTAP cluster,See how to get your on-premises ONTAP cluster ready.>>
@@ -78,7 +78,7 @@ image:diagram_cloud_backup_onprem_aws_private.png[A diagram showing how Cloud Ba
 
 == Prepare your Connector
 
-The Cloud Manager Connector is the main software for Cloud Manager functionality. A Connector is required to back up and restore your ONTAP data.
+The BlueXP Connector is the main software for BlueXP functionality. A Connector is required to back up and restore your ONTAP data.
 
 === Creating or switching Connectors
 
@@ -88,8 +88,9 @@ If you already have a Connector deployed in your AWS VPC or on your premises, th
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[Getting started with Connectors^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Installing a Connector in AWS^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html[Installing a Connector in your premises^]
-
-Cloud Backup is supported in GovCloud regions when the Connector is deployed in the cloud - not when it's installed in your premises or in a dark site. Additionally, you must deploy the Connector from the AWS Marketplace. You can’t deploy the Connector in a Government region from the Cloud Manager SaaS website. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-aws-mktp.html#create-the-connector-in-an-aws-government-region[Learn how to create the Connector in an AWS GovCloud region].
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-aws-mktp.html#create-the-connector-in-an-aws-government-region[Installing a Connector in an AWS GovCloud region^]
++
+Cloud Backup is supported in GovCloud regions when the Connector is deployed in the cloud - not when it's installed in your premises. Additionally, you must deploy the Connector from the AWS Marketplace. You can’t deploy the Connector in a Government region from the BlueXP SaaS website.
 
 === Connector networking requirements
 
@@ -105,9 +106,9 @@ Cloud Backup is supported in GovCloud regions when the Connector is deployed in 
 
 == Prepare your ONTAP cluster
 
-=== Discover your ONTAP cluster in Cloud Manager
+=== Discover your ONTAP cluster in BlueXP
 
-You need to discover your on-premises ONTAP cluster in Cloud Manager before you can start backing up volume data. You'll need to know the cluster management IP address and the password for the admin user account to add the cluster.
+You need to discover your on-premises ONTAP cluster in BlueXP before you can start backing up volume data. You'll need to know the cluster management IP address and the password for the admin user account to add the cluster.
 
 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Learn how to discover a cluster^].
 
@@ -163,7 +164,7 @@ You'll need to configure two sets of permissions:
 
 .Steps
 
-. Confirm that the following S3 permissions (from the latest https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[Cloud Manager policy^]) are part of the IAM role that provides the Connector with permissions.
+. Confirm that the following S3 permissions (from the latest https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[BlueXP policy^]) are part of the IAM role that provides the Connector with permissions.
 +
 [source,json]
 {
@@ -187,6 +188,7 @@ You'll need to configure two sets of permissions:
               "s3:GetBucketAcl",
               "s3:GetBucketPolicy",
               "s3:PutBucketPolicy",
+              "s3:PutBucketOwnershipControls"
               "s3:PutBucketPublicAccessBlock",
               "s3:PutEncryptionConfiguration",
               "s3:GetObjectVersionTagging",
@@ -263,7 +265,7 @@ If you want to have a more secure connection over the internet from your on-prem
 
 . Create an Interface endpoint configuration using the Amazon VPC console or the command line. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html[See details about using AWS PrivateLink for Amazon S3^].
 
-. Modify the security group configuration that's associated with the Cloud Manager Connector. You must change the policy to "Custom" (from "Full Access"), and you must <<Set up S3 permissions,add the S3 permissions from the backup policy>> as shown earlier.
+. Modify the security group configuration that's associated with the BlueXP Connector. You must change the policy to "Custom" (from "Full Access"), and you must <<Set up S3 permissions,add the S3 permissions from the backup policy>> as shown earlier.
 +
 image:screenshot_backup_aws_sec_group.png[A screenshot of the AWS security group associated with the Connector.]
 +
@@ -275,7 +277,7 @@ If you're using port 443 (HTTPS) for communication to the private endpoint, you 
 +
 image:screenshot_endpoint_dns_aws_console.png[A screenshot of the DNS name of the VPC endpoint from the AWS Console.]
 
-.	Obtain the certificate from the VPC S3 endpoint. You do this by https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm[logging into the VM that hosts the Cloud Manager Connector^] and running the following command. When entering the DNS name of the endpoint, add “bucket” to the beginning, replacing the “*”:
+.	Obtain the certificate from the VPC S3 endpoint. You do this by https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm[logging into the VM that hosts the BlueXP Connector^] and running the following command. When entering the DNS name of the endpoint, add “bucket” to the beginning, replacing the “*”:
 +
 [source,text]
 [ec2-user@ip-10-160-4-68 ~]$ openssl s_client -connect bucket.vpce-0ff5c15df7e00fbab-yxs7lt8v.s3.us-west-2.vpce.amazonaws.com:443 -showcerts
@@ -343,24 +345,26 @@ image:screenshot_backup_policy_aws.png[A screenshot that shows the Cloud Backup 
 +
 *Important:* If you plan to use DataLock, you must enable it in your first policy when activating Cloud Backup.
 
-. Select the volumes that you want to back up using the default backup policy in the Select Volumes page. If you want to assign different backup policies to certain volumes, you can create additional policies and apply them to those volumes later.
+. Select the volumes that you want to back up using the defined backup policy in the Select Volumes page. If you want to assign different backup policies to certain volumes, you can create additional policies and apply them to those volumes later.
 
 +
-* To back up all volumes, check the box in the title row (image:button_backup_all_volumes.png[]).
+* To back up all existing volumes and any volumes added in the future, check the box "Back up all existing and future volumes...". We recommend this option so that all your volumes will be backed up and you'll never have to remember to enable backups for new volumes.
+* To back up only existing volumes, check the box in the title row (image:button_backup_all_volumes.png[]).
 * To back up individual volumes, check the box for each volume (image:button_backup_1_volume.png[]).
 +
 image:screenshot_backup_select_volumes.png[A screenshot of selecting the volumes that will be backed up.]
 
 +
-If you want all volumes added in the future to have backup enabled, just leave the checkbox for "Automatically back up future volumes..." checked. If you disable this setting, you'll need to manually enable backups for future volumes.
+* If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "Export existing Snapshot copies to object storage as backup copies". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Click *Activate Backup* and Cloud Backup starts taking the initial backups of your volumes.
 
 .Result
 
-Cloud Backup starts taking the initial backups of each selected volume and the Volume Backup Dashboard is displayed so you can monitor the state of the backups.
+An S3 bucket is created automatically in the service account indicated by the S3 access key and secret key you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups. You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
 
-.What's next?
+== What's next?
 
-You can link:task-manage-backups-ontap.html[start and stop backups for volumes or change the backup schedule^].
-You can also link:task-restore-backups-ontap.html[restore entire volumes or individual files from a backup file^] to a Cloud Volumes ONTAP system in AWS, or to an on-premises ONTAP system.
+* You can link:task-manage-backups-ontap.html[manage your backup files and backup policies^]. This includes starting and stopping backups, deleting backups, adding and changing the backup schedule, and more.
+* You can link:task-manage-backup-settings-ontap.html[manage cluster-level backup settings^]. This includes changing the storage keys ONTAP uses to access cloud storage, changing the network bandwidth available to upload backups to object storage, changing the automatic backup setting for future volumes, and more.
+* You can also link:task-restore-backups-ontap.html[restore volumes, folders, or individual files from a backup file^] to a Cloud Volumes ONTAP system in AWS, or to an on-premises ONTAP system.

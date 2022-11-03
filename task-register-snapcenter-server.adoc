@@ -18,7 +18,7 @@ Only a user with SnapCenterAdmin role can register the host on which SnapCenter 
 
 *Steps*
 
-. In Cloud Manager UI, click *Backup & Restore* > *Applications*.
+. In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . From the *Settings* drop-down, click *SnapCenter Servers*.
 . Click *Register SnapCenter Server*.
 . Specify the following details:

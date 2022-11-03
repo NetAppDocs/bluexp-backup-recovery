@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: task-monitor-backup-jobs.html
-keywords: cloud backup, cloud backup service, backup, restore, status, monitor
-summary: You can monitor the status of backup and restore jobs that you have initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems.
+keywords: cloud backup, cloud backup service, backup, restore, status, monitor, alert, notification
+summary: You can monitor the status of backup and restore jobs that you have initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you’re not logged into the system.
 ---
 
 = Monitoring the status of backup and restore jobs
@@ -13,32 +13,57 @@ summary: You can monitor the status of backup and restore jobs that you have ini
 :imagesdir: ./media/
 
 [.lead]
-You can monitor the status of backup and restore jobs that you have initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems.
+You can monitor the status of backup and restore jobs that you have initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you’re not logged into the system.
 
-Note that system-initiated jobs, such ongoing backup operations, are not reflected in the *Job Monitoring* tab -- only user-initiated jobs are displayed.
+== Use the Job Monitor to view backup and restore job status
 
-== Viewing the status of your backup and restore jobs
+You can view a list of all the backup and restore operations and their current status in the *Job Monitoring* tab. This includes operations from your Cloud Volumes ONTAP, on-premises ONTAP, Applications, Virtual Machines, and Kubernetes systems. Each operation, or job, has a unique ID and a status. The status can be:
 
-You can view a list of all the backup and restore operations and their current status. This includes operations from your Cloud Volumes ONTAP, on-premises ONTAP, Applications, and Kubernetes systems. Each operation, or job, has a unique ID and a status. The status can be:
-
-* Successful
+* Success
 * In Progress
 * Queued
 * Warning
 * Failed
 
+Note that system-initiated jobs, such ongoing backup operations, are not reflected in the *Job Monitoring* tab -- only user-initiated jobs are displayed.
+
 .Steps
 
-. Click the *Backup & Restore* tab.
+. From the BlueXP menu, select *Protection > Backup and recovery*.
 
 . Click the *Job Monitoring* tab.
 +
 image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore jobs in the Job Monitoring dashboard.]
 
-You can click the name of a job to view details corresponding to that operation.
+If you are looking for specific jobs, you can:
 
-If you are looking for specific job, you can:
-
-* use the time selector at the top of the page to view jobs for a certain time range
+* use the time selector at the top of the page to view jobs for a certain period of time
 * enter a part of the job name in the Search field
-* sort the results by using the filter in each column heading
+* sort the results by using the filter in each column heading. For example, the filter for the "Workloads" column enables you to view jobs in the following catagories:
+** Volumes (Cloud Volumes ONTAP and on-prem ONTAP volumes)
+** Applications
+** Virtual Machines
+** Kubernetes
+
+Note that this page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. You can click the *Refresh* button to update the page immediately.
+
+To view details corresponding to a specific job, click the name of the job. You'll see all the sub-jobs that are running to complete the main job in the Job Details page.
+
+image:screenshot_backup_job_monitor_details.png[A screenshot showing the Job Details page.]
+
+== Use the Notification Center to review backup and restore alerts 
+
+The Notification Center tracks the progress of backup and restore jobs that you’ve initiated so you can verify whether the operation was successful or not. You can display the notifications by clicking the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you’re not logged into the system.
+
+At this time, there are three events that will trigger email alerts:
+
+* Backup Activation Failure
+* Restore Failure
+* Adhoc (on-demand) Backup Failure
+
+By default, BlueXP Account Admins will receive emails for all "Critical" and "Recommendation" alerts. All other users and recipients are configured, by default, not to receive any notification emails. Emails can be sent to any BlueXP users who are part of your NetApp Cloud Account, or to any other recipients who need to be aware of backup and restore activity. 
+
+You'll need to select the notification types "Critical" and "Error" to receive the Cloud Backup email alerts.
+
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
+

@@ -39,6 +39,8 @@ For example, say you create a backup policy that creates 7 *weekly* and 12 *mont
 * at the 8th week, the first weekly backup is removed, and the new weekly backup for the 8th week is added (keeping a maximum of 7 weekly backups)
 * at the 13th month, the first monthly backup is removed, and the new monthly backup for the 13th month is added (keeping a maximum of 12 monthly backups)
 
+Note that Yearly backups will be deleted automatically from the source system after being transferred to object storage. This default behavior can be changed link:task-manage-backup-settings-ontap#change-whether-yearly-snapshots-are-removed-from-the-source-system[in the Advanced Settings page] for the Working Environment.
+
 == DataLock and Ransomware protection
 
 Cloud Backup provides support for DataLock and Ransomware protection for your volume backups. These features enable you to lock your backup files and scan them to detect possible ransomware on backup files. This is an optional setting that you can define in your backup policies when you want extra protection for your volume backups for a cluster.
@@ -85,7 +87,7 @@ You can choose to run a scan before restoring data from a backup file, or skip t
 +
 You can run an on-demand ransomware protection scan at any time to verify the health of a specific backup file. This can be useful if you've had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
 
-CAUTION: A ransomware scan requires that the backup file is downloaded to your Cloud Manager environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
+CAUTION: A ransomware scan requires that the backup file is downloaded to your BlueXP environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
 
 === DataLock and Ransomware Protection settings
 
@@ -149,7 +151,7 @@ NetApp StorageGRID
 === Requirements
 
 * Your clusters must running ONTAP 9.11.1 or greater
-* You must be using Cloud Manager 3.9.21 or greater
+* You must be using BlueXP 3.9.21 or greater
 ifdef::aws[]
 * For AWS:
 ** The Connector must deployed in the cloud

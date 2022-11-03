@@ -24,7 +24,7 @@ Get started quickly by following these steps, or scroll down to the remaining se
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
 
 [role="quick-margin-list"]
-* You have discovered the on-premises cluster and added it to a working environment in Cloud Manager. See https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
+* You have discovered the on-premises cluster and added it to a working environment in BlueXP. See https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
 ** The cluster is running ONTAP 9.7P5 or later.
 ** The cluster has a SnapMirror license -- it is included as part of the Premium Bundle or Data Protection Bundle.
 ** The cluster must have the required network connections to Google storage and to the Connector.
@@ -65,7 +65,7 @@ Read the following requirements to make sure you have a supported configuration 
 There are two connection methods you can use when configuring backups from on-premises ONTAP systems to Google Cloud Storage.
 
 * Public connection - Directly connect the ONTAP system to Google Cloud Storage using a public Google endpoint.
-* Private connection - Use a VPN or Private Service Connect and route traffic through a Private Google Access interface that uses a private IP address.
+* Private connection - Use a VPN or Google Cloud Interconnect and route traffic through a Private Google Access interface that uses a private IP address.
 
 The following diagram shows the *public connection* method and the connections that you need to prepare between the components. You can use a Connector that you've installed on your premises, or a Connector that you've deployed in the Google Cloud Platform VPC.
 
@@ -77,7 +77,7 @@ image:diagram_cloud_backup_onprem_gcp_private.png[A diagram showing how Cloud Ba
 
 === Preparing your ONTAP clusters
 
-You need to discover your on-premises ONTAP clusters in Cloud Manager before you can start backing up volume data.
+You need to discover your on-premises ONTAP clusters in BlueXP before you can start backing up volume data.
 
 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Learn how to discover a cluster^].
 
@@ -221,24 +221,26 @@ image:screenshot_backup_onprem_to_google.png[A screenshot that shows the cloud p
 +
 image:screenshot_backup_policy_gcp.png[A screenshot that shows the Cloud Backup settings where you can choose your backup schedule and retention period.]
 
-. Select the volumes that you want to back up using the default backup policy in the Select Volumes page. If you want to assign different backup policies to certain volumes, you can create additional policies and apply them to those volumes later.
+. Select the volumes that you want to back up using the defined backup policy in the Select Volumes page. If you want to assign different backup policies to certain volumes, you can create additional policies and apply them to those volumes later.
 
 +
-* To back up all volumes, check the box in the title row (image:button_backup_all_volumes.png[]).
+* To back up all existing volumes and any volumes added in the future, check the box "Back up all existing and future volumes...". We recommend this option so that all your volumes will be backed up and you'll never have to remember to enable backups for new volumes.
+* To back up only existing volumes, check the box in the title row (image:button_backup_all_volumes.png[]).
 * To back up individual volumes, check the box for each volume (image:button_backup_1_volume.png[]).
 +
 image:screenshot_backup_select_volumes.png[A screenshot of selecting the volumes that will be backed up.]
 
 +
-If you want all volumes added in the future to have backup enabled, just leave the checkbox for "Automatically back up future volumes..." checked. If you disable this setting, you'll need to manually enable backups for future volumes.
+* If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "Export existing Snapshot copies to object storage as backup copies". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Click *Activate Backup* and Cloud Backup starts taking the initial backups of your volumes.
 
 .Result
 
-Cloud Backup starts taking the initial backups of each selected volume and the Volume Backup Dashboard is displayed so you can monitor the state of the backups.
+A Google Cloud Storage bucket is created automatically in the service account indicated by the Google access key and secret key you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups. You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
 
-.What's next?
+== What's next?
 
-You can link:task-manage-backups-ontap.html[start and stop backups for volumes or change the backup schedule^].
-You can also link:task-restore-backups-ontap.html[restore volumes or files from a backup file^] to a Cloud Volumes ONTAP system in Google, or to an on-premises ONTAP system.
+* You can link:task-manage-backups-ontap.html[manage your backup files and backup policies^]. This includes starting and stopping backups, deleting backups, adding and changing the backup schedule, and more.
+* You can link:task-manage-backup-settings-ontap.html[manage cluster-level backup settings^]. This includes changing the storage keys ONTAP uses to access cloud storage, changing the network bandwidth available to upload backups to object storage, changing the automatic backup setting for future volumes, and more.
+* You can also link:task-restore-backups-ontap.html[restore volumes, folders, or individual files from a backup file^] to a Cloud Volumes ONTAP system in Google, or to an on-premises ONTAP system.
