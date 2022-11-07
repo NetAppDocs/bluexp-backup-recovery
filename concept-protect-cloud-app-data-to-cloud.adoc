@@ -28,6 +28,10 @@ It orchestrates the data protection workflows for applications residing on NetAp
 The Cloud Backup for Applications UI offers multiple storage and data management capabilities.
 * BlueXP Connector is a component that runs in your cloud network and interacts with Amazon FSx storage file systems or Cloud Volumes ONTAP and SnapCenter Plug-in for Oracle running on Oracle database hosts.
 * SnapCenter Plug-in for Oracle is a component that runs on each Oracle database hosts and interacts with the Oracle databases running on the host while performing data protection operations.
+
+The following image shows each component and the connections that you need to prepare between them:
+
+image:diagram_nativecloud_backup_app.png[A diagram showing how each component and the connections need to be prepared.]
 +
 For any user-initiated request, the Cloud Backup for Applications UI communicates with the BlueXP SaaS which upon validating the request processes the same. If the request is to run a workflow such as a backup or restore, the SaaS service initiates the workflow and where required, forwards the call to the BlueXP Connector. The Connector then communicates with Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP and SnapCenter Plug-in for Oracle as part of running the workflow tasks.
 +
