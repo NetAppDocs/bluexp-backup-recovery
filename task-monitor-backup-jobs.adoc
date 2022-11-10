@@ -35,10 +35,13 @@ Note that system-initiated jobs, such ongoing backup operations, are not reflect
 +
 image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore jobs in the Job Monitoring dashboard.]
 
+This screenshot shows the default column/field headings. You can click image:button_plus_sign_round.png[] to show and hide column headings, or to add 2 additional headings for "User Name" and "Type".
+
 If you are looking for specific jobs, you can:
 
-* use the time selector at the top of the page to view jobs for a certain period of time
+* use the time selector at the top left of the page to view jobs for a certain period of time
 * enter a part of the job name in the Search field
+* click *View Jobs* for a certain Status, for example, under "Failed" to view only Failed jobs
 * sort the results by using the filter in each column heading. For example, the filter for the "Workloads" column enables you to view jobs in the following catagories:
 ** Volumes (Cloud Volumes ONTAP and on-prem ONTAP volumes)
 ** Applications
@@ -55,11 +58,12 @@ image:screenshot_backup_job_monitor_details.png[A screenshot showing the Job Det
 
 The Notification Center tracks the progress of backup and restore jobs that you’ve initiated so you can verify whether the operation was successful or not. You can display the notifications by clicking the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you’re not logged into the system.
 
-At this time, there are three events that will trigger email alerts:
+At this time, there are four events that will trigger email alerts:
 
-* Backup Activation Failure
-* Restore Failure
-* Adhoc (on-demand) Backup Failure
+* Cloud Backup activation failed on working environment
+* Cloud Backup restore operation failed
+* Adhoc (on-demand) volume backup failed
+* Potential Ransomware attack detected on your system
 
 By default, BlueXP Account Admins will receive emails for all "Critical" and "Recommendation" alerts. All other users and recipients are configured, by default, not to receive any notification emails. Emails can be sent to any BlueXP users who are part of your NetApp Cloud Account, or to any other recipients who need to be aware of backup and restore activity. 
 
