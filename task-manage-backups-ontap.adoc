@@ -297,6 +297,10 @@ image:screenshot_delete_one_backup.png[A screenshot showing how to delete a sing
 
 Deleting the backup relationship for a volume provides you with an archiving mechanism if you want to stop the creation of new backup files and delete the source volume, but retain all the existing backup files. This gives you the ability to restore the volume from the backup file in the future, if needed, while clearing space from your source storage system.
 
+You don't necessarily need to delete the source volume. You can delete the backup relationship for a volume and retain the source volume. In this case you can "Activate" backup on the volume at a later time. The original baseline backup copy continues to be used in this case - a new baseline backup copy is not created and exported to the cloud. Note that if you do reactivate a backup relationship, the volume is assigned the default backup policy.
+
+This feature is available only if your system is running ONTAP 9.12.1 or greater.
+
 You can't delete the source volume from the Cloud Backup user interface. However, you can open the Volume Details page on the Canvas, and https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[delete the volume from there].
 
 NOTE: You can't delete individual volume backup files once the relationship has been deleted. You can, however, link:task-manage-backups-ontap.html#deleting-all-backup-files-for-a-volume[delete all backups for the volume] if you want to remove all backup files.
