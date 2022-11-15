@@ -26,7 +26,7 @@ ifdef::aws[]
 * Changing the archival storage class (AWS only)
 endif::aws[]
 * Changing the automatic backup setting (and policy) for future volumes
-* Changing whether historical Snapshot copies are included in your initial baseline backup files
+* Changing whether historical Snapshot copies are included in your initial baseline backup files for future volumes
 * Changing whether "yearly" snapshots are removed from the source system
 
 == View cluster-level backup settings
@@ -67,7 +67,7 @@ You can change the ONTAP IPspace that is connected to object storage. This optio
 
 This option should not be used on a system that is actively backing up volume data to object storage. It should be used only in the case where an incorrect IPspace was selected when initially activating Backup on an on-premises ONTAP system.
 
-Refer to the getting started documentation for backing up data from your on-premises ONTAP systems to your cloud provider to make sure your ONTAP configuration is configured correctly for the new IPspace. For example:
+Refer to the getting started documentation for backing up data from your on-premises ONTAP systems to your specific cloud provider to make sure your ONTAP setup is configured correctly for the new IPspace. For example:
 
 * An intercluster LIF is required on each ONTAP node that hosts the volumes you want to back up. 
 * The LIF must be associated with the IPspace that ONTAP should use to connect to object storage. 
@@ -80,11 +80,11 @@ Just select the new IPspace and click *Apply*. After that you'll be able to sele
 
 == Change the network bandwidth available to upload backups to object storage
 
-When you activate Cloud Backup for a working environment, by default, ONTAP can use an unlimited amount of bandwidth to transfer the data from the working environment to object storage. If you need to throttle the amount of network bandwidth that is used during the transfer, you can choose a value between 1 and 1,000 MBps as the maximum transfer rate. 
+When you activate Cloud Backup for a working environment, by default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice that backup traffic is affecting normal user workloads, you can throttle the amount of network bandwidth that is used during the transfer. You can choose a value between 1 and 1,000 MBps as the maximum transfer rate. 
 
 image:screenshot_backup_edit_transfer_rate.png[A screenshot of the Maximum Transfer Rate entry in the Advanced Settings page.]
 
-Select the radio button *Unlimited* to indicate that there is no limit, or select the *Limited* radio button and enter the maximum bandwidth that can be used.
+Select the *Limited* radio button and enter the maximum bandwidth that can be used, or select *Unlimited* to indicate that there is no limit.
 
 ifdef::aws[]
 == Change the archival storage class
@@ -115,9 +115,9 @@ Once enabled, this backup policy will be applied to any new volume created in th
 
 == Change whether historical Snapshot copies are exported as backup files
 
-If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic snapshots to object storage as backup files. This enables you to initialize your backups in the cloud by moving snapshot older copies into the baseline backup copy.
+If there are any local Snapshot copies for volumes that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic snapshots to object storage as backup files. This enables you to initialize your backups in the cloud by moving snapshot older copies into the baseline backup copy.
 
-Note that this option is not supported with data protection (DP) volumes.
+Note that this option only applies to new backup files for new volumes, and it is not supported with data protection (DP) volumes.
 
 image:screenshot_backup_edit_export_snapshots.png[A screenshot of the Export existing Snapshot copies entry in the Advanced Settings page.]
 
