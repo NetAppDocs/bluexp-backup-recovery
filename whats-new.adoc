@@ -29,7 +29,7 @@ This option is available when activating Cloud Backup for your working environme
 
 Now you can delete the backup relationship for a volume. This provides you with an archiving mechanism if you want to stop the creation of new backup files and delete the source volume, but retain all the existing backup files. This gives you the ability to restore the volume from the backup file in the future, if needed, while clearing space from your source storage system. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap.html#deleting-volume-backup-relationships[Learn how].
 
-=== Support has been added to receive Cloud Backup alerts in email or in the Notification Center
+=== Support has been added to receive Cloud Backup alerts in email and in the Notification Center
 
 Cloud Backup has been integrated into the BlueXP Notification service. You can display Cloud Backup notifications by clicking the notification bell in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you’re not logged into the system. The email can be sent to any recipients who need to be aware of backup and restore activity. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status[Learn how].
 
@@ -47,11 +47,11 @@ This new page enables you to change many cluster-level backup settings that you 
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-settings-ontap.html[Learn more about managing cluster-level backup settings].
 
-=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
+=== Now you can restore backup files using Search & Restore when using an on-premises Connector
 
-In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises.
+In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises. Search & Restore also supports restoring backups from StorageGRID systems to on-premises ONTAP systems.
 
-At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage. Search & Restore is not supported from StorageGRID systems - you must use Browse & Restore in this case.
+At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage.
 
 === Job Monitoring page has been updated 
 
