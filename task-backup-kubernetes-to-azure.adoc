@@ -28,7 +28,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 ** The cluster must be using Cloud Volumes ONTAP on Azure for its' backend storage.
 ** The Cloud Volumes ONTAP system must be running ONTAP 9.7P5 or later.
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
-* You have subscribed to the https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[Cloud Manager Marketplace Backup offering^], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated^] a Cloud Backup BYOL license from NetApp.
+* You have subscribed to the https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[BlueXP Marketplace Backup offering^], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated^] a Cloud Backup BYOL license from NetApp.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable Cloud Backup on your existing Kubernetes cluster
 
@@ -162,6 +162,6 @@ The Kubernetes Dashboard is displayed so you can monitor the state of the backup
 
 .What's next?
 
-You can link:task-managing-backups-kubernetes.html[start and stop backups for volumes or change the backup schedule^].
+You can link:task-manage-backups-kubernetes.html[start and stop backups for volumes or change the backup schedule^].
 You can also link:task-restore-backups-kubernetes.html#restoring-volumes-from-a-kubernetes-backup-file[restore entire volumes from a backup file^] as a new volume on the same or different Kubernetes cluster in Azure (in the same region).
 // or individual files

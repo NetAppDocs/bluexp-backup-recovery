@@ -164,9 +164,9 @@ bigquery.tables.create
 
 === Verify license requirements
 
-* Before you can activate Cloud Backup for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) Cloud Manager Marketplace offering from Google, or purchase and activate a Cloud Backup BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
+* Before you can activate Cloud Backup for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from Google, or purchase and activate a Cloud Backup BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
 
-** For Cloud Backup PAYGO licensing, you'll need a subscription to the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project[Google^] Cloud Manager Marketplace offering to use Cloud Backup. Billing for Cloud Backup is done through this subscription.
+** For Cloud Backup PAYGO licensing, you'll need a subscription to the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project[Google^] BlueXP Marketplace offering to use Cloud Backup. Billing for Cloud Backup is done through this subscription.
 ** For Cloud Backup BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[Learn how to manage your BYOL licenses].
 
 * You need to have a Google subscription for the object storage space where your backups will be located.
@@ -212,7 +212,7 @@ image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup & R
 +
 image:screenshot_backup_onprem_to_google.png[A screenshot that shows the cloud provider details when backing up volumes from an on-premises cluster to Google Cloud Storage.]
 
-. If you don't have an existing Cloud Backup license for your account, you'll be prompted at this point to select the type of charging method that you want to use. You can subscribe to a pay-as-you-go (PAYGO) Cloud Manager Marketplace offering from Google (or if you have multiple subscriptions you'll need to select one), or purchase and activate a Cloud Backup BYOL license from NetApp. link:task-licensing-cloud-backup.html[Learn how to set up Cloud Backup licensing.]
+. If you don't have an existing Cloud Backup license for your account, you'll be prompted at this point to select the type of charging method that you want to use. You can subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from Google (or if you have multiple subscriptions you'll need to select one), or purchase and activate a Cloud Backup BYOL license from NetApp. link:task-licensing-cloud-backup.html[Learn how to set up Cloud Backup licensing.]
 
 . Enter the backup policy details that will be used for your default policy and click *Next*. You can select an existing policy, or you can create a new policy by entering your selections in each section:
 
@@ -238,6 +238,8 @@ image:screenshot_backup_select_volumes.png[A screenshot of selecting the volumes
 .Result
 
 A Google Cloud Storage bucket is created automatically in the service account indicated by the Google access key and secret key you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups. You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
+
+Backups are associated with the _Standard_ storage class by default. You can use the lower cost _Nearline_, _Coldline_, or _Archive_ storage classes. However, you configure the storage class through Google, not through the Cloud Backup UI. See the Google topic https://cloud.google.com/storage/docs/changing-default-storage-class[Changing the default storage class of a bucket^] for details.
 
 == What's next?
 
