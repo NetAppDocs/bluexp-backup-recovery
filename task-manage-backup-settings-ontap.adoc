@@ -80,7 +80,7 @@ Just select the new IPspace and click *Apply*. After that you'll be able to sele
 
 == Change the network bandwidth available to upload backups to object storage
 
-When you activate Cloud Backup for a working environment, by default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice that backup traffic is affecting normal user workloads, you can throttle the amount of network bandwidth that is used during the transfer. You can choose a value between 1 and 1,000 MBps as the maximum transfer rate. 
+When you activate Cloud Backup for a working environment, by default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice that backup traffic is affecting normal user workloads, you can throttle the amount of network bandwidth that is used during the transfer. You can choose a value between 1 and 1,000 Mbps as the maximum transfer rate. 
 
 image:screenshot_backup_edit_transfer_rate.png[A screenshot of the Maximum Transfer Rate entry in the Advanced Settings page.]
 

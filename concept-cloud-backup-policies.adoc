@@ -226,7 +226,7 @@ endif::azure[]
 ifdef::gcp[]
 * In GCP, backups are associated with the _Standard_ storage class by default.
 +
-You can use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. However, you configure these other storage classes through Google, not through the Cloud Backup UI. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the default storage class for a Google Cloud Storage bucket.
+You can use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. However, you configure these other storage classes through Google, not through the Cloud Backup UI. See the Google topic https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the default storage class for a Google Cloud Storage bucket.
 endif::gcp[]
 
 * In StorageGRID, backups are associated with the _Standard_ storage class.
