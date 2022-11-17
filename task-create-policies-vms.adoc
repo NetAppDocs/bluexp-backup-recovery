@@ -53,4 +53,11 @@ You should create policies if you do not want to edit the predefined policies.
 . In the Policy Details section, specify the policy name.
 . In the Retention section, select one of the retention type and specify the number of backups to retain.
 . Select Primary or Secondary as the backup storage source.
+. (Optional) If you want to move backups from object store to archival storage after a certain number of days for cost optimization, select the *Tier Backups to Archival* checkbox and enter the number of days after which the backup should be archived.
++
+You can move backups from object store to archival storage only if you are using ONTAP 9.10.1 or later and Amazon Web Services or Azure as the cloud provider. You should configure the archive access tier for each cloud provider.
 . Click *Create*.
++
+You can edit, copy, and delete the customized policies.
++
+NOTE: You cannot edit or delete a policy, which is associated with an virtual machine.
