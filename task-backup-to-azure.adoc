@@ -31,7 +31,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 [role="quick-margin-list"]
 * New systems: Cloud Backup is enabled by default in the working environment wizard. Be sure to keep the option enabled.
 
-* Existing systems: Select the working environment and click *Enable* next to the Backup & Restore service in the right-panel, and then follow the setup wizard.
+* Existing systems: Select the working environment and click *Enable* next to the Backup and recovery service in the right-panel, and then follow the setup wizard.
 +
 image:screenshot_backup_cvo_enable.png[A screenshot that shows the Cloud Backup Enable button which is available after you select a working environment.]
 
@@ -174,7 +174,7 @@ Enable Cloud Backup at any time directly from the working environment.
 
 .Steps
 
-. Select the working environment and click *Enable* next to the Backup & Restore service in the right-panel.
+. Select the working environment and click *Enable* next to the Backup and recovery service in the right-panel.
 +
 If the Azure Blob destination for your backups exists as a working environment on the Canvas, you can drag the cluster onto the Azure Blob working environment to initiate the setup wizard.
 +
