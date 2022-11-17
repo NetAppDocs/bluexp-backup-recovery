@@ -25,7 +25,7 @@ A valid Cloud Backup license is required to restore data from backup files to a 
 
 == The Restore Dashboard
 
-You use the Restore Dashboard to perform volume, folder, and file restore operations. You access the Restore Dashboard by clicking *Backup and recovery* from the BlueXP menu, and then clicking the *Restore* tab. You can also click image:screenshot_gallery_options.gif[More button] > *View Restore Dashboard* from the Backup & Restore service from the Services panel.
+You use the Restore Dashboard to perform volume, folder, and file restore operations. You access the Restore Dashboard by clicking *Backup and recovery* from the BlueXP menu, and then clicking the *Restore* tab. You can also click image:screenshot_gallery_options.gif[More button] > *View Restore Dashboard* from the Backup and recovery service from the Services panel.
 
 NOTE: Cloud Backup must already be activated for at least one working environment and initial backup files must exist.
 
@@ -437,9 +437,9 @@ endif::gcp[]
 Depending on your configuration, there are 2 ways that Search & Restore is implemented:
 +
 ** If there are no cloud provider credentials in your account, then the Indexed Catalog information is stored on the Connector.
-** If you have https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html[AWS credentials^] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html[Azure credentials^] in the account, then the Indexed Catalog is stored at the cloud provider, just like with a Connector deployed in the cloud.
+** If you have https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html[AWS credentials^] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html[Azure credentials^] in the account, then the Indexed Catalog is stored at the cloud provider, just like with a Connector deployed in the cloud. (If you have both credentials, AWS is selected by default.)
 +
-See the AWS and Azure requirements above when using this implementation. Even though you are using an on-premises Connector, the cloud provider requirements must be met for both Connector permissions and cloud provider resources.
+Even though you are using an on-premises Connector, the cloud provider requirements must be met for both Connector permissions and cloud provider resources. See the AWS and Azure requirements above when using this implementation. 
  
 === Search & Restore process
 
@@ -533,15 +533,15 @@ Note that the results also identify local volume Snapshot copies that contain th
 If you select an on-premises ONTAP system and you haven't already configured the cluster connection to the object storage, you are prompted for additional information:
 +
 ifdef::aws[]
-* When restoring from Amazon S3, select the IPspace in the ONTAP cluster where the destination volume will reside, enter the access key and secret key for the user you created to give the ONTAP cluster access to the S3 bucket, and optionally choose a private VPC endpoint for secure data transfer.
+** When restoring from Amazon S3, select the IPspace in the ONTAP cluster where the destination volume will reside, enter the access key and secret key for the user you created to give the ONTAP cluster access to the S3 bucket, and optionally choose a private VPC endpoint for secure data transfer.
 endif::aws[]
 ifdef::azure[]
-* When restoring from Azure Blob, select the IPspace in the ONTAP cluster where the destination volume will reside, and optionally choose a private endpoint for secure data transfer by selecting the VNet and Subnet.
+** When restoring from Azure Blob, select the IPspace in the ONTAP cluster where the destination volume will reside, and optionally choose a private endpoint for secure data transfer by selecting the VNet and Subnet.
 endif::azure[]
 ifdef::gcp[]
-* When restoring from Google Cloud Storage, select the IPspace in the ONTAP cluster where the destination volume will reside, and the Access Key and Secret Key to access the object storage.
+** When restoring from Google Cloud Storage, select the IPspace in the ONTAP cluster where the destination volume will reside, and the Access Key and Secret Key to access the object storage.
 endif::gcp[]
-* When restoring from StorageGRID, enter the FQDN of the StorageGRID server and the port that ONTAP should use for HTTPS communication with StorageGRID, enter the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume resides.
+** When restoring from StorageGRID, enter the FQDN of the StorageGRID server and the port that ONTAP should use for HTTPS communication with StorageGRID, enter the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume resides.
 
 .Results
 
