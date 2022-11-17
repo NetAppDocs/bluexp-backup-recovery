@@ -49,7 +49,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-se
 
 === Now you can restore backup files using Search & Restore when using an on-premises Connector
 
-In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises. Search & Restore also supports restoring backups from StorageGRID systems to on-premises ONTAP systems.
+In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises. Search & Restore also supports restoring backups from StorageGRID systems to on-premises ONTAP systems now.
 
 At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage.
 

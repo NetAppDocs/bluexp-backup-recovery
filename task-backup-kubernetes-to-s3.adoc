@@ -34,7 +34,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable Cloud Backup on your existing Kubernetes cluster
 
 [role="quick-margin-para"]
-Select the working environment and click *Enable* next to the Backup & Restore service in the right-panel, and then follow the setup wizard.
+Select the working environment and click *Enable* next to the Backup and recovery service in the right-panel, and then follow the setup wizard.
 
 [role="quick-margin-para"]
 image:screenshot_backup_cvo_enable.png[A screenshot that shows the Cloud Backup Enable button which is available after you select a working environment.]
@@ -176,7 +176,7 @@ Enable Cloud Backup at any time directly from the Kubernetes working environment
 
 .Steps
 
-. Select the working environment and click *Enable* next to the Backup & Restore service in the right-panel.
+. Select the working environment and click *Enable* next to the Backup and recovery service in the right-panel.
 +
 If the Amazon S3 destination for your backups exists as a working environment on the Canvas, you can drag the Kubernetes cluster onto the Amazon S3 working environment to initiate the setup wizard.
 +
