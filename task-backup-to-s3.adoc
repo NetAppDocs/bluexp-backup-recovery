@@ -90,8 +90,8 @@ Cloud Backup is supported in all AWS regions https://cloud.netapp.com/cloud-volu
 
 Required setup for creating backups in a different AWS account::
 By default, backups are created using the same account as the one used for your Cloud Volumes ONTAP system. If you want to use a different AWS account for your backups, you must:
-* Add the destination AWS account credentials in BlueXP
-* Add the permissions "s3:PutBucketPolicy" and "s3:PutBucketOwnershipControls" to the IAM role that provides the BlueXP Connector with permissions
+* Add the destination AWS account credentials in BlueXP. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#add-additional-credentials-to-a-connector[See how to do this].
+* Add the permissions "s3:PutBucketPolicy" and "s3:PutBucketOwnershipControls" to the IAM role that provides the BlueXP Connector with permissions.
 
 Required information for using customer-managed keys for data encryption::
 

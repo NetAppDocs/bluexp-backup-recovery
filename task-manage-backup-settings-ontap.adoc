@@ -51,6 +51,8 @@ image:screenshot_backup_advanced_settings_page.png[A screenshot that shows the B
 
 If you need to make any changes, just expand the option and make the change. All backup operations after the change will use the new values.
 
+Note that some options are unavailable based on the version of ONTAP on the source cluster, and based on the cloud provider destination where the backups reside.
+
 == Change the storage keys for ONTAP to access cloud storage
 
 If you have a company policy that requires you to periodically rotate all credentials, for example, every 6 months or a year, this is how you'll synchronize your cloud provider's access key and secret key with your ONTAP system. This allows you to update your cloud provider credentials, and then change the keys in your ONTAP system so that the two systems will continue to communicate.

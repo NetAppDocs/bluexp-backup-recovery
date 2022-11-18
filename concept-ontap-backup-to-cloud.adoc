@@ -81,30 +81,24 @@ NetApp StorageGRID
 
 You can restore a volume, a folder, or individual files, from an ONTAP backup file to the following working environments:
 
-[cols=3*,options="header",cols="25,33,37",width="95%"]
+[cols=2*,options="header",cols="50,50",width="80%"]
 |===
 
-| Backup File
-2+^| Destination Working Environment
-| *Location* | *Volume Restore* | *Folder and File Restore*
+| Backup File Location
+| Destination Working Environment
 ifdef::aws[]
 | Amazon S3 | Cloud Volumes ONTAP in AWS
-On-premises ONTAP system
-| Cloud Volumes ONTAP in AWS
 On-premises ONTAP system
 endif::aws[]
 ifdef::azure[]
 | Azure Blob | Cloud Volumes ONTAP in Azure
-On-premises ONTAP system | Cloud Volumes ONTAP in Azure
 On-premises ONTAP system
 endif::azure[]
 ifdef::gcp[]
 | Google Cloud Storage | Cloud Volumes ONTAP in Google
 On-premises ONTAP system
-| Cloud Volumes ONTAP in Google
-On-premises ONTAP system
 endif::gcp[]
-| NetApp StorageGRID | On-premises ONTAP system | On-premises ONTAP system
+| NetApp StorageGRID | On-premises ONTAP system
 
 |===
 
@@ -215,7 +209,7 @@ link:task-licensing-cloud-backup.html#use-an-annual-contract[Learn how to set up
 
 == How Cloud Backup works
 
-When you enable Cloud Backup on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. Volume snapshots are not included in the backup image. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum. Cloud Backup is built on top of the https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html[NetApp SnapMirror Cloud technology].
+When you enable Cloud Backup on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. Volume snapshots are not included in the backup image. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum. Cloud Backup is built on top of the https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html[NetApp SnapMirror Cloud technology^].
 //
 //In most cases you'll use the BlueXP UI for all backup operations. However, starting with ONTAP 9.9.1 you can initiate volume backup operations of your on-premises ONTAP clusters using ONTAP System Manager. https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html[See how to use System Manager to back up your volumes to the cloud using Cloud Backup.^]
 
@@ -306,9 +300,10 @@ If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older b
 endif::azure[]
 
 ifdef::gcp[]
-* In GCP, backups are associated with the _Standard_ storage class by default.
+* In GCP, backups are associated with the _Standard_ storage class.
 +
-You can also use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. You configure these other storage classes through Google. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the storage class.
+If your cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
+//You can also use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. You configure these other storage classes through Google. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the storage class.
 endif::gcp[]
 
 * In StorageGRID, backups are associated with the _Standard_ storage class.

@@ -1,0 +1,40 @@
+---
+sidebar: sidebar
+permalink: reference-google-backup-tiers.html
+keywords: google, storage classes, archive
+summary: Cloud Backup supports one Google archival storage class and most regions.
+---
+
+= Google archival storage classes and restore retrieval times
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Cloud Backup supports one Google archival storage class and most regions.
+
+== Supported Google archival storage classes for Cloud Backup
+
+When backup files are initially created they're stored in _Standard_ storage. This tier is optimized for storing data that's infrequently accessed; but that also allows you to access it immediately.
+
+If your source clusters are running ONTAP 9.12.1 or greater, you can choose to tier backups to _Archive_ storage after a certain number of days (typically more than 30 days) for further cost optimization. Data in this tier will require a higher retrieval cost, so you need to consider how often you may need to restore data from these archived backup files. See the section about <<Restoring data from archival storage,restoring data from archival storage>>.
+
+Note that when you configure Cloud Backup with this type of lifecycle rule, you must not configure any lifecycle rules when setting up the bucket in your Google account.
+
+https://cloud.google.com/storage/docs/storage-classes[Learn about Google storage classes^].
+
+== Restoring data from archival storage
+
+While storing older backup files in Archive storage is much less expensive than Standard storage, accessing data from a backup file in Archive storage for restore operations will take a slightly longer amount of time and will cost more money.
+
+How much does it cost to restore data from Google Archive?::
+For detailed Google Cloud Storage pricing by region, visit the https://cloud.google.com/storage/pricing[Google Cloud Storage pricing page^].
+
+How long will it take to restore my objects archived in Google Archive?::
+There are 2 parts that make up the total restore time:
+
+* *Retrieval time*: The time to retrieve the backup file from Archive and place it in Standard storage. This is sometimes called the "rehydration" time. Unlike the "coldest" storage solutions provided by other cloud providers, your data is accessible within milliseconds.
+
+* *Restore time*: The time to restore the data from the backup file in Standard storage. This time is no different than the typical restore operation directly from Standard storage - when not using an archival tier.
