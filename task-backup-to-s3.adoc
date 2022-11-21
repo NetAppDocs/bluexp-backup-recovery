@@ -229,7 +229,7 @@ image:screenshot_backup_policy_aws.png[A screenshot that shows the Cloud Backup 
 image:screenshot_backup_select_volumes.png[A screenshot of selecting the volumes that will be backed up.]
 
 +
-* If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "Export existing Snapshot copies to object storage as backup copies". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
+* If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "Export existing Snapshot copies to object storage as backup copies". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Click *Activate Backup* and Cloud Backup starts taking the initial backups of each selected volume.
 
