@@ -5,7 +5,7 @@ keywords: discover, admin role, service account, pre-canned policies, cloud mana
 summary:  Discover the applications to assign policies and create backups.
 ---
 
-= Discover the applications
+= Discover the applications - Oracle
 :hardbreaks:
 :nofooter:
 :icons: font
