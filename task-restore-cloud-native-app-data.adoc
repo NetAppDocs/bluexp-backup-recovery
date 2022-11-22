@@ -90,15 +90,15 @@ In the event of data loss, you can restore the data files and then recover the d
 
 *What you need*
 
-. The SAP HANA system must be in a stopped state.
-
+The SAP HANA system must be in a stopped state.
++
 You can provide a prescript to stop the SAP HANA system.
 
 *Steps*
 
-.	Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click View Details.
-.	Click image:icon-action.png[icon to select the action]corresponding to the data backup that you want to use for restoring and click Restore.
-.	In the Restore System page, enter the scripts.
+.	Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.
+.	Click image:icon-action.png[icon to select the action]corresponding to the data backup that you want to use for restoring and click *Restore*.
+.	In the *Restore System* page, enter the scripts.
 +
 For retention, start the HANA database using a postscript.
 .	Click *Restore*.
