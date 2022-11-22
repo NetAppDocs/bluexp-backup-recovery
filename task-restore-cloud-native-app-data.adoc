@@ -5,7 +5,7 @@ keywords: cloud native, application data, restore, data files, control files, re
 summary:  Restore the data files, control files, or both and then recover the database.
 ---
 
-= Restore cloud native application data
+= Restore cloud native application data - Oracle database
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -83,3 +83,26 @@ Select the check box if you want to open the database in READ-WRITE mode after r
 
 . Click *Next* and review the details.
 . Click *Restore*.
+
+== Restore cloud native application data - SAP HANA database
+
+In the event of data loss, you can restore the data files and then recover the database.
+
+*What you need*
+
+. The SAP HANA system must be in a stopped state.
+
+You can provide a prescript to stop the SAP HANA system.
+
+*Steps*
+
+.	Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click View Details.
+.	Click image:icon-action.png[icon to select the action]corresponding to the data backup that you want to use for restoring and click Restore.
+.	In the Restore System page, enter the scripts.
++
+For retention, start the HANA database using a postscript.
+.	Click *Restore*.
+
+*After you finish*
+
+After restoring, manually recover the SAP HANA system or provide a postscript, which performs the SAP HANA system recovery.

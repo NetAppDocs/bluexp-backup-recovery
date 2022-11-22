@@ -14,7 +14,7 @@ summary:  Complete the prerequisites before creating backups.
 
 [.lead]
 
-You should have access to BlueXP, created a BlueXP account, created the working environment and a Connector, and deployed the SnapCenter Plug-in for Oracle.
+You should have access to BlueXP, created a BlueXP account, created the working environment and a Connector, and deployed the SnapCenter Plug-in for Oracle and SnapCenter Plug-in for SAP HANA.
 
 == Access BlueXP
 
@@ -26,13 +26,15 @@ You should create the Amazon FSx for ONTAP working environments where your datab
 
 You can create the NetApp FSx either using BlueXP or AWS. If you have created using AWS, then you should discover the FSx for ONTAP systems in BlueXP.
 
+[NS]: Add SAP HANA content here.
+
 === Create a Connector
 
-An Account Admin needs to deploy a Connector in AWS that enables BlueXP to manage resources and processes within your public cloud environment.
+An Account Admin needs to deploy a Connector in AWS for Oracle and  Connector in Azure for SAP HANA that enables BlueXP to manage resources and processes within your public cloud environment.
 
-For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Creating a Connector in AWS from BlueXP].
+For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Creating a Connector in AWS from BlueXP] or refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Create a Connector in Azure from BlueXP].
 
-* You should use the same connector to manage both FSx working environment and Oracle databases.
+* You should use the same connector to manage both FSx working environment and Oracle or SAP HANA databases.
 * If you have the FSx working environment and Oracle databases in the same VPC, you can deploy the connector in the same VPC.
 * If you have the FSx working environment and Oracle databases in different VPCs:
 ** If you have NAS (NFS) workloads configured on FSx, then you can create the connector on either of the VPCs.
@@ -110,3 +112,15 @@ If SSH key based authentication is not enabled on the Oracle host, you should pe
 .. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
 .. Restart SPL: `systemctl restart spl`
+
+== Deploy SnapCenter Plug-in for SAP 
+
+[NS]: Need information
+
+=== Plug-in deployment using SSH key based authentication
+
+[NS]: Need information
+
+=== Manual deployment of the plug-in
+
+[NS]: Need information

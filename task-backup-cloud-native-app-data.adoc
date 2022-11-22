@@ -29,7 +29,7 @@ The backups will be created as per the schedule defined in the policy.
 +
 NOTE: The service account (_SnapCenter-account-<account_id>_) is used for running the scheduled backup operations.
 
-== Create on-demand backups
+== Create on-demand backups for Oracle database
 
 After assigning the policy, you can create an on-demand backup of the application.
 
@@ -45,3 +45,20 @@ After restoring a large database (250 GB or more), if you perform a full online 
 `failed with status code 500, error {\"error\":{\"code\":\"app_internal_error\",\"message\":\"Failed to create snapshot. Reason: Snapshot operation not allowed due to clones backed by snapshots. Try again after sometime.`
 
 For information on how to fix this issue, refer to: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Snapshot_operation_not_allowed_due_to_clones_backed_by_snapshots[Snapshot operation not allowed due to clones backed by snapshots].
+
+=== Create on-demand backups for SAP HANA database
+
+After assigning the policy, you can create an on-demand backup of the application.
+
+*Steps*
+
+.	In the *Applications* page, click image:icon-action.png[icon to select the action]  corresponding to the application and click *On-Demand Backup*.
+.	Select On-demand backup type.
+.	For Policy Based backup, select the policy, retention value and then click *Create Backup*.
+.	For One time, select either Snapshot copy based, or File based.
+*	For Snapshot copy based, perform the following steps:
++
+..	Select the retention value and specify the backup name.
+..	Specify the scripts, and path for the scripts.
+..	Click *Create Backup*.
+* For File based, perform the following steps: [NS] – need the steps
