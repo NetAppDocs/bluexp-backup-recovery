@@ -1,0 +1,100 @@
+---
+sidebar: sidebar
+permalink: task-add-sap-hana-systems.html
+keywords: add, sap hana systems, admin role, service account, pre-canned policies, cloud manager, BlueXP
+summary:  You should manually add SAP HANA systems to assign policies and create backups.
+---
+
+= Add SAP HANA systems
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+You should manually add SAP HANA systems to assign policies and create backups. Auto discovery of SAP HANA system is not supported.
+
+*What you will need*
+
+* You should have added the working environment and created the Connector.
+* Ensure that the Connector has connectivity to the working environment 
+* Ensure that the BlueXP user has the “Account Admin” role.
+* You should have deployed the SnapCenter Plug-in for SAP HANA. <Learn more>.
+[NS]: Provide link to deploy SAP HANA topic.
+* You should have installed the Plug-in for SAP HANA on the application host.
+* While adding the SAP HANA systems, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA systems securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA systems.  
+
+*Steps*
+
+.	In the *BlueXP* UI, click *Protection* > *Backup and recovery* > *Applications*.
+.	Click *Discover Applications*.
+.	Select *Cloud Native* > *SAP HANA* and click *Next*.
+.	In the *Applications* page, click *Add System*.  
+.	In the *System Details* page, perform the following actions:
+..	Select the System Type as Multi-tenant database container or Single Container.
+..	Enter the SAP HANA system name.
+..	Specify the SID of the SAP HANA system.
+..	(Optional) Specify HDBSQL OS user.
+..	Select Plug-in host.  
+(Optional) If the host is not added or if you want to add multiple hosts, click *Add Plug-in Host*.
+..	If HANA system is configured with HANA System replication, enable *HANA System Replication (HSR) System*.
+..	Click *HDB Secure User Store Keys* text box to add user store keys details.
++
+Specify the key name, system details, username, and password and click *Add Key*.
++
+You can delete or modify the user store keys.
++
+NOTE: You should add user store keys for each host if you are adding a multi-host SAP HANA system.
+
+.   Click *Next*.
+.	In the *Storage Footprint* page, click *Add Storage* and perform the following:
+..	Select the working environment and specify the NetApp account.
++
+Go to *Canvas* page to add a new working environment
+..	Select the required volumes.
+..	Click *Add Storage*.
+.	Review all the details and click *Add System*.
+
+You can edit the SAP HANA systems that were added. You can also remove a HANA system using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
+
+=== Add global Non-Data Volumes
+After adding the multitenant database container or single container type SAP HANA system, you can add the non-data volumes of the HANA system.
+
+*Steps*
+
+.	In the *BlueXP* UI, click *Protection* > *Backup and recovery* > *Applications*.
+.	Click *Discover Applications*.
+.	Select *Cloud Native* > *SAP HANA* and click *Next*.
+.	In the *Applications* page, click *Add System*.
+.	In the *System Details* page, perform the following actions:
+..	From System Type drop-down, select *Global Non-Data Volume*.
+..	Enter the SAP HANA system name.
+..	Specify the associated SIDs of the SAP HANA system.
+..	Select the plug-in host
++
+(Optional) To add multiple hosts, click on *Add Plug-in Host* and specify the host name and port and click *Add Host*.
+..	Click *Next*.
+..	Review all the details and click *Add System*.  
+
+=== Create a policy for SAP HANA system
+
+You can create policies if you do not want to use or edit the pre-canned policies.
+
+.	In the *Applications* page, from the Settings drop-down list, select *Policies*.
+.	Click *Create policy*.
+.	Specify a policy name.
+.	(Optional) Edit the format of the Snapshot copy name.
+.	Select policy type.
+.	Specify the schedule and retention details.
+.	(Optional) Specify the scripts.
+.	Click *Create*.
+
+
+
+
+
+
+
+

@@ -122,6 +122,8 @@ sidebar:
               entries:
                 - title: Discover the applications
                   url: /task-discover-applications.html
+                - title: Add SAP HANA systems
+                  url: /task-add-sap-hana-systems.html  
                 - title: Back up the cloud native application data
                   url: /task-backup-cloud-native-app-data.html
             - title: Manage protection of cloud native application data
