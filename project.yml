@@ -132,12 +132,10 @@ sidebar:
                    url: /task-deploy-snapcenter-plugin-for-sap-hana.html
             - title: Back up cloud native applications data
               entries:
-                - title: Discover the applications
-                  url: /task-discover-applications.html
-                - title: Add SAP HANA systems
-                  url: /task-add-sap-hana-systems.html  
-                - title: Back up the cloud native application data
-                  url: /task-backup-cloud-native-app-data.html
+                - title: Back up the cloud native Oracle database
+                  url: /task-backup-cloud-native-oracle-data.html
+                - title: Back up the cloud native SAP HANA database
+                  url: /task-backup-cloud-native-sap-hana-data.html  
             - title: Manage protection of cloud native application data
               url: /task-manage-cloud-native-app-data.html
             - title: Restore cloud native applications data

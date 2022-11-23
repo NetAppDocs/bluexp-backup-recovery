@@ -1,0 +1,106 @@
+---
+sidebar: sidebar
+permalink: task-backup-cloud-native-oracle-data.html
+keywords: discover, admin role, service account, pre-canned policies, cloud manager, BlueXP, scheduled backups, on-demand backups, create policy, Oracle database
+summary: Create a scheduled or on-demand backups of Oracle database.
+---
+
+= Back up the cloud native Oracle database
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Before creating a backup of the Oracle database, you should discover the databases, configure database credentials, and assign either a pre-canned policy or the policy that you created.
+
+== Discover Oracle databases
+
+You should discover the databases on the host to assign policies and create backups.
+
+*What you will need*
+
+* You should have created the working environment and the Connector.
+* Ensure that the Connector has connectivity to the working environment and Oracle database hosts.
+* Ensure that the BlueXP user has the “Account Admin” role.
+* You should have deployed the SnapCenter Plug-in for Oracle. link:task-deploy-snapcenter-plugin-for-oracle.html[Learn more].
+
+*Steps*
+
+. In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
+. Click Discover Applications.
+. Select *Cloud Native* and click *Next*.
++
+A service account with _SnapCenter System_ role is created to perform scheduled data protection operations for all the users in this account.
++
+* Click *Account* > *Manage Account* > *Members* to view the service account.
++
+NOTE: The service account (_SnapCenter-account-<accountid>_) is used for running the scheduled backup operations. You should never delete the service account.
+
+. In the Specify Host Details page, enter the details of the Oracle database host, select the check box to confirm that the plug-in is installed on the host, and click *Discover*.
++
+* Displays all the databases on the host. If OS authentication is disabled for the database, you should configure database authentication by clicking *Configure*. For more information, refer to <<Configure Oracle database credentials>>.
++
+* Click *Manage Application*, select *Add* to add a new host, *Refresh* to discover new databases, or *Remove* to remove a database host.
++
+* Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and if you want you can either edit them to meet your requirement or create a new policy.
+
+== Configure Oracle database credentials
+
+You should configure credentials that are used to perform data protection operations on Oracle databases.
+
+*Steps*
+
+. If OS authentication is disabled for the database, you should configure database authentication by clicking *Configure*.
+. Specify the username, password, and the port details either in the Database Settings or ASM Settings section.
++
+The Oracle user should have sysdba privileges and ASM user should have sysasm privileges.
+. Click *Configure*.
+
+== Create policy for protecting Oracle database
+
+You can create policies if you do not want to edit the pre-canned policies.
+
+*Steps*
+
+. In the Applications page, from the Settings drop-down list, select *Policies*.
+. Click *Create policy*.
+. Specify a policy name.
+. (Optional) Edit the format of the backup name.
+. Specify the schedule and retention details.
+. Click *Create*.
+
+== Create a backup of the Oracle Database
+
+You can either assign a pre-canned policy or create a policy and then assign it to the database. Once the policy is assigned, the backups are created as per the schedule defined in the policy.
+
+NOTE: For Oracle, when creating ASM diskgroups, ensure that there are no common volumes across diskgroups. Each diskgroup needs to have dedicated volumes.
+
+*Steps*
+
+. In the Applications page, if the database is not protected using any policy, click *Assign Policy*.
++
+If the database is protected using one or more policies, you can assign more policies by clicking image:icon-action.png[icon to select the action] > *Assign Policy*.
+. Select the policy and click *Assign*.
++
+The backups will be created as per the schedule defined in the policy.
++
+NOTE: The service account (_SnapCenter-account-<account_id>_) is used for running the scheduled backup operations.
+
+== Create on-demand backup of the Oracle database
+
+After assigning the policy, you can create an on-demand backup of the application.
+
+*Steps*
+
+. In the Applications page, click image:icon-action.png[icon to select the action] corresponding to the application and click *On-Demand Backup*.
+. If multiple policies are assigned to the application, select the policy, retention value, and then click *Create Backup*.
+
+*Find more information*
+
+After restoring a large database (250 GB or more), if you perform a full online backup on the same database the operation might fail with the following error:
+
+`failed with status code 500, error {\"error\":{\"code\":\"app_internal_error\",\"message\":\"Failed to create snapshot. Reason: Snapshot operation not allowed due to clones backed by snapshots. Try again after sometime.`
+
+For information on how to fix this issue, refer to: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Snapshot_operation_not_allowed_due_to_clones_backed_by_snapshots[Snapshot operation not allowed due to clones backed by snapshots].

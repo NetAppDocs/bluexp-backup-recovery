@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: task-add-sap-hana-systems.html
-keywords: add, sap hana systems, admin role, service account, pre-canned policies, cloud manager, BlueXP
-summary:  You should manually add SAP HANA systems to assign policies and create backups.
+permalink: task-backup-cloud-native-sap-hana-data.html
+keywords: cloud native, application data, back up, policy, pre-canned policies, scheduled backups, on-demand backups, cloud manager, BlueXP, add hosts, create policy, SAP HANA Database
+summary: Create a scheduled or on-demand backups of SAP HANA database.
 ---
 
-= Add SAP HANA systems
+= Back up the cloud native SAP HANA database
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,17 +13,20 @@ summary:  You should manually add SAP HANA systems to assign policies and create
 :imagesdir: ./media/
 
 [.lead]
+Before creating a backup of the SAP HANA database, you should add the SAP HANA database hosts and assign either a pre-canned policy or the policy that you created.
 
-You should manually add SAP HANA systems to assign policies and create backups. Auto discovery of SAP HANA system is not supported.
+== Add SAP HANA database hosts
+
+You should manually add SAP HANA database hosts to assign policies and create backups. Auto discovery of SAP HANA database host is not supported.
 
 *What you will need*
 
 * You should have added the working environment and created the Connector.
 * Ensure that the Connector has connectivity to the working environment 
 * Ensure that the BlueXP user has the “Account Admin” role.
-* You should have deployed the SnapCenter Plug-in for SAP HANA. link:reference-prereq-protect-cloud-native-app-data.html#deploy-snapCenter-plug-in-for-sap-hana[Learn more]
+* You should have deployed the SnapCenter Plug-in for SAP HANA. link:task-deploy-snapcenter-plugin-for-sap-hana.html[Learn more]
 * You should have installed the Plug-in for SAP HANA on the application host.
-* While adding the SAP HANA systems, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA systems securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA systems.  
+* While adding the SAP HANA database hosts, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA database hosts securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA database host.  
 
 *Steps*
 
@@ -58,7 +61,7 @@ Go to *Canvas* page to add a new working environment
 
 You can edit the SAP HANA systems that were added. You can also remove a HANA system using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
 
-=== Add global Non-Data Volumes
+== Add global Non-Data Volumes
 After adding the multitenant database container or single container type SAP HANA system, you can add the non-data volumes of the HANA system.
 
 *Steps*
@@ -77,7 +80,7 @@ After adding the multitenant database container or single container type SAP HAN
 ..	Click *Next*.
 ..	Review all the details and click *Add System*.  
 
-=== Create a policy for SAP HANA system
+== Create a policy for protecting SAP HANA database
 
 You can create policies if you do not want to use or edit the pre-canned policies.
 
@@ -90,10 +93,32 @@ You can create policies if you do not want to use or edit the pre-canned policie
 .	(Optional) Specify the scripts.
 .	Click *Create*.
 
+== Create a backup of the SAP HANA Database
 
+You can either assign a pre-canned policy or create a policy and then assign it to the database. Once the policy is assigned, the backups are created as per the schedule defined in the policy.
 
+*Steps*
 
+. In the Applications page, if the database is not protected using any policy, click *Assign Policy*.
++
+If the database is protected using one or more policies, you can assign more policies by clicking image:icon-action.png[icon to select the action] > *Assign Policy*.
+. Select the policy and click *Assign*.
++
+The backups will be created as per the schedule defined in the policy.
++
+NOTE: The service account (_SnapCenter-account-<account_id>_) is used for running the scheduled backup operations.
 
+== Create on-demand backup of the SAP HANA database
 
+After assigning the policy, you can create an on-demand backup of the application.
 
+*Steps*
+
+.	In the *Applications* page, click image:icon-action.png[icon to select the action]  corresponding to the application and click *On-Demand Backup*.
+.	Select On-demand backup type.
+.	For Policy Based backup, select the policy, retention tier and then click *Create Backup*.
+.	For One time, select either Snapshot copy based, or File based perform the following steps:
+..	Select the retention value and specify the backup name.
+..	(Optional) Specify the scripts, and path for the scripts.
+..	Click *Create Backup*.
 
