@@ -21,8 +21,7 @@ You should manually add SAP HANA systems to assign policies and create backups. 
 * You should have added the working environment and created the Connector.
 * Ensure that the Connector has connectivity to the working environment 
 * Ensure that the BlueXP user has the “Account Admin” role.
-* You should have deployed the SnapCenter Plug-in for SAP HANA. <Learn more>.
-[NS]: Provide link to deploy SAP HANA topic.
+* You should have deployed the SnapCenter Plug-in for SAP HANA. link:reference-prereq-protect-cloud-native-app-data.html#deploy-snapCenter-plug-in-for-sap-hana[Learn more]
 * You should have installed the Plug-in for SAP HANA on the application host.
 * While adding the SAP HANA systems, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA systems securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA systems.  
 
