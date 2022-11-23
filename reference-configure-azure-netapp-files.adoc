@@ -19,7 +19,7 @@ You should create the Azure NetApp Files working environment and the Connector.
 
 You should create Azure NetApp Files (ANF) working environments where your databases are hosted. For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/concept-azure-netapp-files.html[Learn about Azure NetApp Files] and link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-create-working-env.html[Create an Azure NetApp Files working environment].
 
-=== Create a connector
+== Create a connector
 An Account Admin needs to deploy a Connector in ANF that enables BlueXP to manage resources and processes within your public cloud environment.
 
 For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Create a Connector in Azure from BlueXP].

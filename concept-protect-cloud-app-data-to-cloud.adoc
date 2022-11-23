@@ -99,7 +99,7 @@ You should select Force in-place restore checkbox to override the foreign files 
 +
 The failure message due to the presence of foreign files are not displayed in the job page in UI due to a known issue. Check the connector logs if there is a failure during SAN pre-restore stage to know the cause of the issue.
 
-== SAP HANA
+== SAP HANA database
 
 === Supported configurations
 

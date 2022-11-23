@@ -19,7 +19,7 @@ You should create the Cloud Volumes ONTAP working environment and the Connector.
 
 You can discover and add existing Cloud Volumes ONTAP systems to BlueXP. For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-adding-systems.html[Adding existing Cloud Volumes ONTAP systems to BlueXP].
 
-=== Create a Connector
+== Create a Connector
 
 You can get started with Cloud Volumes ONTAP for your cloud environment in a few steps. For information, refer one of the following:
 
