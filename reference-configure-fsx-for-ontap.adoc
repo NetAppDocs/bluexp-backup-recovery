@@ -1,0 +1,42 @@
+---
+sidebar: sidebar
+permalink: reference-configure-fsx-for-ontap.html
+keywords: Cloud Manager, FSx for ONTAP, working environment, Connector, BlueXP
+summary:  Create the FSx for ONTAP working environment and the Connector
+---
+
+= Configure FSx for ONTAP
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You should create the FSx for ONTAP working environment and the Connector.
+
+== Create FSx for ONTAP working environment
+
+You should create the Amazon FSx for ONTAP working environments where your databases are hosted. For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html[Get started with Amazon FSx for ONTAP] and link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html[Create and manage an Amazon FSx for ONTAP working environment].
+
+You can create the NetApp FSx either using BlueXP or AWS. If you have created using AWS, then you should discover the FSx for ONTAP systems in BlueXP.
+
+== Create a Connector
+
+An Account Admin needs to deploy a Connector in AWS that enables BlueXP to manage resources and processes within your public cloud environment.
+
+For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Creating a Connector in AWS from BlueXP].
+
+* You should use the same connector to manage both FSx working environment and Oracle databases.
+* If you have the FSx working environment and Oracle databases in the same VPC, you can deploy the connector in the same VPC.
+* If you have the FSx working environment and Oracle databases in different VPCs:
+** If you have NAS (NFS) workloads configured on FSx, then you can create the connector on either of the VPCs.
+** If you have only SAN workloads configured and not planning to use any NAS (NFS) workloads, then you should create the connector in the VPC where the FSx system is created.
++
+NOTE: For using NAS (NFS) workloads, you should have transit gateway between the Oracle database VPC and FSx VPC. The NFS IP address which is a floating IP address can be accessed from another VPC only through transit gateway. We cannot access the floating IP addresses by peering the VPCs.
+
+After creating the connector, click *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment* and follow the prompts to add the working environment.
+Ensure that there is connectivity from the connector to the Oracle database hosts and FSx working environment. The connector should be able to connect to the cluster management IP address of the FSx working environment.
+
+IMPORTANT: After creating the Connector, click *Connector > Manage Connectors*; select the Connector name and copy the Connector ID.
+
