@@ -26,15 +26,13 @@ You should create the Amazon FSx for ONTAP working environments where your datab
 
 You can create the NetApp FSx either using BlueXP or AWS. If you have created using AWS, then you should discover the FSx for ONTAP systems in BlueXP.
 
-[NS]: Add SAP HANA content here.
-
 === Create a Connector
 
-An Account Admin needs to deploy a Connector in AWS for Oracle and  Connector in Azure for SAP HANA that enables BlueXP to manage resources and processes within your public cloud environment.
+An Account Admin needs to deploy a Connector in AWS that enables BlueXP to manage resources and processes within your public cloud environment.
 
-For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Creating a Connector in AWS from BlueXP] or refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Create a Connector in Azure from BlueXP].
+For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Creating a Connector in AWS from BlueXP].
 
-* You should use the same connector to manage both FSx working environment and Oracle or SAP HANA databases.
+* You should use the same connector to manage both FSx working environment and Oracle databases.
 * If you have the FSx working environment and Oracle databases in the same VPC, you can deploy the connector in the same VPC.
 * If you have the FSx working environment and Oracle databases in different VPCs:
 ** If you have NAS (NFS) workloads configured on FSx, then you can create the connector on either of the VPCs.
@@ -64,6 +62,14 @@ You should use the same connector to manage both CVO working environment and Ora
 * If you have the CVO working environment and Oracle databases in the same VPC, you can deploy the connector in the same VPC.
 * If you have the CVO working environment and Oracle databases in different VPCs, ensure that the VPCs are peered.
 
+== Create Azure NetApp Files working environment
+
+You should create Azure NetApp Files (ANF) working environments where your databases are hosted. For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/concept-azure-netapp-files.html[Learn about Azure NetApp Files] and link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-create-working-env.html[Create an Azure NetApp Files working environment].
+
+=== Create a connector
+An Account Admin needs to deploy a Connector in ANF that enables BlueXP to manage resources and processes within your public cloud environment.
+
+For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Create a Connector in Azure from BlueXP].
 
 == Deploy SnapCenter Plug-in for Oracle
 
@@ -113,14 +119,61 @@ If SSH key based authentication is not enabled on the Oracle host, you should pe
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
 .. Restart SPL: `systemctl restart spl`
 
-== Deploy SnapCenter Plug-in for SAP 
+== Deploy SnapCenter Plug-in for SAP HANA
 
-[NS]: Need information
+You should deploy the SnapCenter Plug-in for SAP HANA on each of the SAP HANA database hosts. Depending on whether the SAP HANA host has an SSH key based authentication enabled, you can follow one of the methods to deploy the plug-in.
 
-=== Plug-in deployment using SSH key based authentication
+NOTE: Ensure that JAVA 11 is installed on each of the SAP-HANA database hosts.
 
-[NS]: Need information
+=== Plug-in for SAP HANA deployment using SSH key based authentication
 
-=== Manual deployment of the plug-in
+If SSH key based authentication is enabled on the HANA host, you can perform the following steps to deploy the plug-in. Before performing the steps, ensure that the SSH connection to the Connector is enabled.
 
-[NS]: Need information
+*Steps*
+
+. Log into the Connector VM as non root user.
+
+. Obtain the base mount path.
+`# sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
+
+. Deploy the plug-in.
+`# sudo <base_mount_path>/scripts/hana_plugin_copy_and_install.sh --host <host_name> --sshkey <ssh_key_file> --username <user_name> --port <ssh_port> --pluginport <plugin_port> --installdir <install_dir>`
+
+* host_name is the name of the HANA host and this is a mandatory parameter.
+* ssh_key_file is the SSH key used to connect to the HANA host and this is a mandatory parameter.
+* user_name: User with SSH privileges on the HANA host and this is an optional parameter. Default value is azureuser.
+* ssh_port: SSH port on the HANA host and this is an optional parameter. Default value is 22.
+* plugin_port: Port used by the plug-in and this is an optional parameter. Default value is 8145.
+* install_dir: Directory where the plug-in will be deployed and this is an optional parameter. Default value is /opt.
+
+For example:
+`# sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/hana_plugin_copy_and_install.sh --host xxx.xx.x.x --sshkey /keys/netapp-ssh.ppk`
+
+=== Manual deployment of the plug-in for SAP HANA
+
+If SSH key based authentication is not enabled on the HANA host, you should perform the following manual steps to deploy the plug-in.
+
+*Steps*
+
+. Log into the Connector VM.
+
+. Run the following command in the Connector VM to download the SnapCenter Linux host plug-in binary.
+`# sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'``
+
+. Obtain the base mount path.
+`# sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint``
+
+. Run the following command to obtain the binary path of the downloaded plug-in.
+`# sudo ls <base_mount_path>/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin``
+. Copy "snapcenter_linux_host_plugin_scs.bin" to each of the SAP-HANA database hosts either using scp or other alternate methods.
+
+. On the HANA database host, run the following command to enable execute permissions for the binary.
+`# chmod +x snapcenter_linux_host_plugin_scs.bin``
+. Deploy the HANA plug-in as a root user.
+
+. Ensure port "8145" is unblocked from the connector VM. If not, supply argument "-DPORT=443" during manual install.
+`# ./snapcenter_linux_host_plugin_scs.bin -i silent``
+. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host. 
+. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
+`# keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt``
+. Restart SPL: `# systemctl restart spl`
