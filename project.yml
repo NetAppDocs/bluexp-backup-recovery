@@ -144,6 +144,8 @@ sidebar:
                   url: /task-restore-cloud-native-oracle-data.html
                 - title: Restore cloud native SAP HANA database
                   url: /task-restore-cloud-native-sap-hana-data.html
+            - title: Clone cloud native Oracle database
+              url: /task-clone-cloud-native-oracle-data.html
     - title: Back up and restore Virtual Machines data
       entries:
         - title: Protect your Virtual Machines data
