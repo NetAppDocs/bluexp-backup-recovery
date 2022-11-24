@@ -98,6 +98,11 @@ You should select Force in-place restore checkbox to override the foreign files 
 ** Both in-place and connect-and-copy restore methods are used if some of disk groups contain foreign files. However, using both the methods at the same time to perform restore is not supported and the restore operation fails. The database will be left in mounted state and you need to manually bring the database to open state.
 +
 The failure message due to the presence of foreign files are not displayed in the job page in UI due to a known issue. Check the connector logs if there is a failure during SAN pre-restore stage to know the cause of the issue.
+* Clone limitations:
+** Cloning of databases on iSCSI on NFS layouts are not supported
+** Cloning of databases on SAN layouts such LVM, native device, and VMWare disk are not supported
+** Scheduled clones (Clone LifeCycle management) is not supported
+** Cloning a cloned database is not supported
 
 == SAP HANA database
 
