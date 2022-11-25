@@ -131,7 +131,3 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 * Retaining backups based on the policy
 * Restoring complete SAP HANA database from the specified backup
 * Restoring data from the specified backup
-
-=== Limitations
-
-[NS]: Awaiting inputs
