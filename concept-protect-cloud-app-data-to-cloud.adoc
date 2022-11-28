@@ -112,11 +112,11 @@ The failure message due to the presence of foreign files are not displayed in th
 ** RHEL 7.4 or later, 8.x platforms certified by SAP HANA    
 ** SLES 12 SP3 or later and 15 SPX platforms certified by SAP HANA 
 * Storage System: Azure NetApp Files (ANF)
-* Storage layouts: NFSv3 and NFSv4.1 are supported.
+* Storage layouts: NFSv3 and NFSv4.1 are supported. For data and log, Azure supports only NFSv4.1.
 * Database layouts: 
 ** Single container version 1.0SPS12
-** Multiple database container version 2.0SPS4, 2.0SPS5, 2.0SPS6 with single/multiple tenants
-** Standalone HANA, Hana System Replication (HSR), Multi host without standby
+** SAP HANA Multitenant Database Container (MDC) 2.0SPS4, 2.0SPS5, 2.0SPS6 with single or multiple tenants
+** SAP HANA single host system, SAP HANA multiple host system (without a standby host), HANA System Replication
 ** HANA SSL  
 
 === Features
