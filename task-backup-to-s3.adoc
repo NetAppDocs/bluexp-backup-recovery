@@ -71,6 +71,8 @@ The following image shows each component and the connections that you need to pr
 
 image:diagram_cloud_backup_cvo_aws.png[A diagram showing how Cloud Backup communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
+The VPC gateway endpoint must exist in your VPC already.
+
 Supported ONTAP versions::
 Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
 
