@@ -79,7 +79,7 @@ After updating the Connector details, you should connect to the Oracle database 
 
 After uninstalling the plug-in, you can deploy the plug-in. link:reference-prereq-protect-cloud-native-app-data.html#deploy-snapcenter-plug-in-for-oracle[Learn more].
 
-== Update the Connector Details for SAP HANa
+== Update the Connector Details for SAP HANA
 
 If a Connector that was used during registering the HANA database hosts no longer exists or is corrupted in Azure, you should deploy a new connector. After deploying the new connector, you should run the *connector-update* API to update the Connector details for all hosts registered using the old connector.
 
