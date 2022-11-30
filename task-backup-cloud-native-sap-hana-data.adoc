@@ -25,7 +25,6 @@ You should manually add SAP HANA database hosts to assign policies and create ba
 * Ensure that the Connector has connectivity to the working environment 
 * Ensure that the BlueXP user has the “Account Admin” role.
 * You should have deployed the SnapCenter Plug-in for SAP HANA. link:task-deploy-snapcenter-plugin-for-sap-hana.html[Learn more]
-* You should have installed the SnapCenter Plug-in for SAP HANA on the application host.
 * While adding the SAP HANA database hosts, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA database hosts securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA database host.  
 
 *Steps*
