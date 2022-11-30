@@ -59,7 +59,7 @@ Go to *Canvas* page to add a new working environment
 ..	Click *Add Storage*.
 .	Review all the details and click *Add System*.
 
-You can edit the SAP HANA systems that were added. You can also remove a HANA system using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
+You can edit the SAP HANA systems that were added. You can remove a HANA system using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
 
 == Add global Non-Data Volumes
 After adding the multitenant database container or single container type SAP HANA system, you can add the non-data volumes of the HANA system.

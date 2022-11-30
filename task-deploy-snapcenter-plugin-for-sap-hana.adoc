@@ -23,7 +23,7 @@ If SSH key based authentication is enabled on the HANA host, you can perform the
 
 *Steps*
 
-. Log into the Connector VM as non root user.
+. Log into the Connector VM.
 
 . Obtain the base mount path.
 `# sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
