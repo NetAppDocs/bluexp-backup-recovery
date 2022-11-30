@@ -25,7 +25,6 @@ You should manually add SAP HANA database hosts to assign policies and create ba
 * Ensure that the Connector has connectivity to the working environment 
 * Ensure that the BlueXP user has the “Account Admin” role.
 * You should have deployed the SnapCenter Plug-in for SAP HANA. link:task-deploy-snapcenter-plugin-for-sap-hana.html[Learn more]
-* You should have installed the Plug-in for SAP HANA on the application host.
 * While adding the SAP HANA database hosts, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA database hosts securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA database host.  
 
 *Steps*
@@ -59,7 +58,7 @@ Go to *Canvas* page to add a new working environment
 ..	Click *Add Storage*.
 .	Review all the details and click *Add System*.
 
-You can edit the SAP HANA systems that were added. You can also remove a HANA system using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
+You can edit the SAP HANA systems that were added. You can remove a HANA system using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
 
 == Add global Non-Data Volumes
 After adding the multitenant database container or single container type SAP HANA system, you can add the non-data volumes of the HANA system.
