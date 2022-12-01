@@ -5,7 +5,7 @@ keywords: cloud native, application data, back up, policy, pre-canned policies, 
 summary: Create a scheduled or on-demand backups of SAP HANA database.
 ---
 
-= Back up the cloud native SAP HANA database
+= Back up cloud native SAP HANA database
 :hardbreaks:
 :nofooter:
 :icons: font

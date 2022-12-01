@@ -103,6 +103,7 @@ The failure message due to the presence of foreign files are not displayed in th
 ** Cloning of databases on SAN layouts such LVM, native device, and VMWare disk are not supported
 ** Scheduled clones (Clone LifeCycle management) is not supported
 ** Cloning a cloned database is not supported
+** Cloning of databases residing on Qtree is not supported
 
 == SAP HANA database
 

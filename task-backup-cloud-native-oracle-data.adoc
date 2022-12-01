@@ -5,7 +5,7 @@ keywords: discover, admin role, service account, pre-canned policies, cloud mana
 summary: Create a scheduled or on-demand backups of Oracle database.
 ---
 
-= Back up the cloud native Oracle database
+= Back up cloud native Oracle database
 :hardbreaks:
 :nofooter:
 :icons: font

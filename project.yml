@@ -81,7 +81,7 @@ sidebar:
           url: /task-manage-backups-kubernetes.html
         - title: Restore from Kubernetes backups
           url: /task-restore-backups-kubernetes.html
-    - title: Back up and restore applications data
+    - title: Protect applications data
       entries:
         - title: Protect on-premises applications data
           entries:
@@ -116,7 +116,7 @@ sidebar:
           entries:
             - title: Protect your cloud native applications data
               url: /concept-protect-cloud-app-data-to-cloud.html
-            - title: Back up the cloud native Oracle database
+            - title: Back up cloud native Oracle database
               entries:
                  - title: Access BlueXP
                    url: /reference-access-bluexp.html
