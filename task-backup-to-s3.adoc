@@ -99,7 +99,7 @@ Required information for using customer-managed keys for data encryption::
 
 You can choose your own customer-managed keys for data encryption in the activation wizard instead of using the default Amazon S3 encryption keys. In this case you'll need to have the encryption managed keys already set up. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html[See how to use your own keys^].
 
-AWS permissions required::
+Required AWS Connector permissions::
 The IAM role that provides BlueXP with permissions must include S3 permissions from the latest https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[BlueXP policy^].
 +
 Here are the specific permissions from the policy:
@@ -163,6 +163,11 @@ Here are the specific permissions from the policy:
         },
 
 If you deployed the Connector using version 3.9.21 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. Specifically the "athena" and "glue" permissions, as they are required for Search & Restore.
+
+Required AWS Cloud Volumes ONTAP permissions::
+When your Cloud Volumes ONTAP system is running ONTAP 9.12.1 or greater software, the IAM role that provides that working environment with permissions must include a new set of S3 permissions specifically for Cloud Backup from the latest https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html[Cloud Volumes ONTAP policy^].
++
+If you created the Cloud Volumes ONTAP working environment using BlueXP version 3.9.23 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. 
 
 == Enabling Cloud Backup on a new system
 

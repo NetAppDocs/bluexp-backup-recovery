@@ -35,7 +35,7 @@ If you are looking for specific volumes in certain working environments, you can
 
 You can activate backups for any new volumes if they are not currently being backed up. You can also activate backups for any volumes that you had previously deactivated.
 
-You can deactivate backups for volumes so that no additional backups are generated. This also disables the ability to restore volume data from a backup file. This basically allows you to pause all backup and restore activity for a period of time. Any existing backups will not be deleted, so you’ll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you link:deleting-all-backup-files-for-a-volume[delete the backups].
+You can deactivate backups for volumes so that no additional backups are generated. This also disables the ability to restore volume data from a backup file. This basically allows you to pause all backup and restore activity for a period of time. Any existing backups will not be deleted, so you’ll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you <<Deleting all backup files for a volume,delete the backups>>.
 
 .Steps
 
