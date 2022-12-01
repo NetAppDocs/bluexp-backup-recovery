@@ -17,13 +17,21 @@ Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
 
-== 04 November 2022
+== 16 December 2022
 
-=== Enhancements to Cloud Backup for Applications
+=== Enhancements to backing up applications and virtual machines
 
-* Supports policy-based backup and restore of Oracle databases residing on Cloud Volumes ONTAP
-* Supports restore of Oracle databases using connect-and-copy method
-* Supports Oracle 21c
+* SAP HANA databases
+** Supports policy-based backup and restore of SAP HANA databases residing on Azure NetApp Files (ANF) 
+* Oracle databases
+** Supports policy-based backup, restore, and clone of Oracle databases residing on Cloud Volumes ONTAP
+** Supports restore of Oracle databases using connect-and-copy method
+** Supports Oracle 21c
+** Supports cloning of Oracle 
+* Virtual machines
+** Back up virtual machines from on-premises secondary storage
+** Supports Google Cloud Platform (GCP) to back up one or more datastores
+** Supports low cost cloud storage like Glacier, Deep Glacier, and Azure Archive 
 
 == 2 November 2022
 

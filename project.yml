@@ -121,10 +121,12 @@ sidebar:
                  - title: Access BlueXP
                    url: /reference-access-bluexp.html
                  - title: Configure FSx for ONTAP
+                   flavor: aws
                    url: /reference-configure-fsx-for-ontap.html
                  - title: Configure Cloud Volumes ONTAP
                    url: /reference-configure-cloud-volumes-ontap.html
                  - title: Configure Azure NetApp Files
+                   flavor: azure
                    url: /reference-configure-azure-netapp-files.html
                  - title: Deploy SnapCenter Plug-in for Oracle
                    url: /task-deploy-snapcenter-plugin-for-oracle.html
@@ -135,6 +137,7 @@ sidebar:
                 - title: Back up the cloud native Oracle database
                   url: /task-backup-cloud-native-oracle-data.html
                 - title: Back up the cloud native SAP HANA database
+                  flavor: azure
                   url: /task-backup-cloud-native-sap-hana-data.html  
             - title: Manage protection of cloud native application data
               url: /task-manage-cloud-native-app-data.html
@@ -143,6 +146,7 @@ sidebar:
                 - title: Restore cloud native Oracle database
                   url: /task-restore-cloud-native-oracle-data.html
                 - title: Restore cloud native SAP HANA database
+                  flavor: azure
                   url: /task-restore-cloud-native-sap-hana-data.html
             - title: Clone cloud native Oracle database
               url: /task-clone-cloud-native-oracle-data.html
