@@ -1,0 +1,23 @@
+---
+sidebar: sidebar
+permalink: reference-backup-cbs-db-in-dark-site.html
+keywords: backup database, recover database
+summary: Cloud Backup supports one Google archival storage class and most regions.
+---
+
+= Backup and restore Cloud Backup databases in a dark site
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+When you use Cloud Backup in a SaaS environment where the BlueXP Connector is deployed at your cloud provider, all the important Cloud Backup configuration data is backed up and stored on the Connector. When you are using Cloud Backup in a site with no internet access, also known as a "dark site", this Cloud Backup information is stored only on the local Connector VM/instance.
+
+This topic describes how to back up critical Cloud Backup data to your connected StorageGRID system. It also describes how to restore the data onto a new Connector when necessary.
+
+== Supported 
+
+d
+
