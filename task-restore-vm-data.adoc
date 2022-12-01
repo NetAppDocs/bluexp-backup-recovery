@@ -34,14 +34,14 @@ NOTE: If the source virtual machine is moved to another location (vMotion), and 
 .. Select the virtual machine that you want to restore from the backup.
 .. Select the *Archival Restore Priority* and click *Next*.
 +
-This option is available only for Amazon Web Services and Microsoft Azure cloud providers. The supported archival restore priority for Amazon Web Services are high, standard, and low and the supported archival restore priority for Microsoft Azure are high, and standard.
+This option is available only if the virtual machine was protected using a policy that had archival settings configured. The supported archival restore priority for Amazon Web Services are high, standard, and low and the supported archival restore priority for Microsoft Azure are high and standard.
 .. Review the details and click *Restore*.
 . To restore from Virtual Machines:
 .. Click image:icon-action.png[action] corresponding to the virtual machine that you want to restore and click *Restore*.
 .. Select the backup through which you want to restore the virtual machine.
 .. Select the *Archival Restore Priority* and click *Next*.
 +
-This option is available only if the virtual machines were protected using a policy that had archival settings configured. The supported archival restore priority for Amazon Web Services are high, standard, and low and the supported archival restore priority for Microsoft Azure are high and standard.
+This option is available only if the virtual machine was protected using a policy that had archival settings configured. The supported archival restore priority for Amazon Web Services are high, standard, and low and the supported archival restore priority for Microsoft Azure are high and standard.
 .. Review the details and click *Restore*.
 
 The VM is restored to the same location from where the backup was taken.
