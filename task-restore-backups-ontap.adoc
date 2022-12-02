@@ -191,7 +191,7 @@ ifdef::azure[]
 link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Azure archival storage].
 endif::azure[]
 ifdef::gcp[]
-Backup files in a Google archival storage tier are restored almost immediately, and require no Restore Priority. link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage].
+link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage]. Backup files in a Google archival storage tier are restored almost immediately, and require no Restore Priority.
 endif::gcp[]
 
 . Click *Restore* and you are returned to the Restore Dashboard so you can review the progress of the restore operation.
@@ -278,7 +278,7 @@ ifdef::azure[]
 link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Azure archival storage].
 endif::azure[]
 ifdef::gcp[]
-Backup files in a Google archival storage tier are restored almost immediately, and require no Restore Priority. link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage].
+link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage]. Backup files in a Google archival storage tier are restored almost immediately, and require no Restore Priority.
 endif::gcp[]
 +
 And if ransomware protection is active for the backup file (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware.

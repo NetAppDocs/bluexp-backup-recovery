@@ -17,6 +17,18 @@ Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
 
+== 4 December 2022
+
+=== Support for the Google Archival storage class
+
+Backup files are initially created in the Google Standard storage class. Now you can choose in the Cloud Backup UI to tier older backups to Google Archive storage after a certain number of days for further cost optimization. 
+
+This functionality is currently supported for on-prem ONTAP clusters using ONTAP 9.12.1 or greater. It is not currently available for Cloud Volumes ONTAP systems.
+
+=== Support for FlexGroup volumes
+
+Cloud Backup now supports FlexGroup volumes. When using ONTAP 9.12.1 or greater, you can back up FlexGroup volumes to public and private cloud storage. If you have working environments that include FlexVol and FlexGroup volumes, once you update your ONTAP software you can back up any of the FlexGroup volumes on those systems.
+
 == 2 November 2022
 
 === Ability to export older Snapshot copies into your baseline backup files
@@ -107,6 +119,7 @@ In the past, a file restored to the original volume was always restored as a new
 === Drag and drop to enable Cloud Backup to StorageGRID systems
 
 If the https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[StorageGRID^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP working environment onto the destination to initiate the Cloud Backup setup wizard.
+// end::whats-new[]
 
 == 18 August 2022
 
@@ -140,7 +153,6 @@ Some of the Backup Policy pages have been redesigned to make it easier to view a
 If the https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html[Azure Blob^] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html[Google Cloud Storage^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP or Cloud Volumes ONTAP working environment (installed in Azure or GCP) onto the destination to initiate the Backup setup wizard.
 
 This functionality already exists for Amazon S3 buckets.
-// end::whats-new[]
 
 == 13 July 2022
 
