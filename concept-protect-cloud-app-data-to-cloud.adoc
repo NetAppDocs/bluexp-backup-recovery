@@ -76,6 +76,7 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 +
 You should select Force in-place restore checkbox to override the foreign files of type parameter, password, and archive log.
 * Recovering Oracle database with until SCN, until time, all available logs, and no recovery options
+* Cloning Oracle database
 * Monitoring backups and other jobs
 * Displaying the protection summary on the dashboard
 * Sending alerts through email
@@ -87,23 +88,6 @@ You should select Force in-place restore checkbox to override the foreign files 
 * Does not support Oracle on RAC and Data Guard
 * For Cloud Volumes ONTAP HA, only one of the network interface IPs are used. If the connectivity of the IP goes down or if you cannot access the IP, the operations fail.
 * The network interface IP addresses of Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP needs to be unique in the BlueXP account and region.
-* Backup limitations:
-** Does not support online data or log only backups
-** Does not support offline backups
-** Does not support backing up of Oracle database residing on recursive mount points
-** Does not support consistency group Snapshots for Oracle databases residing on Multiple ASM disk groups with overlap of FSx volumes
-** If your Oracle databases are configured on ASM, ensure your SVM names are unique across the FSx systems. If you have same SVM name across FSx systems, back up of Oracle databases residing on those SVMs are not supported.
-* Restore limitations:
-** Does not support granular restores, for example restoring of tablespaces and PDBs
-** Both in-place and connect-and-copy restore methods are used if some of disk groups contain foreign files. However, using both the methods at the same time to perform restore is not supported and the restore operation fails. The database will be left in mounted state and you need to manually bring the database to open state.
-+
-The failure message due to the presence of foreign files are not displayed in the job page in UI due to a known issue. Check the connector logs if there is a failure during SAN pre-restore stage to know the cause of the issue.
-* Clone limitations:
-** Cloning of databases on iSCSI on NFS layouts are not supported
-** Cloning of databases on SAN layouts such LVM, native device, and VMWare disk are not supported
-** Scheduled clones (Clone LifeCycle management) is not supported
-** Cloning a cloned database is not supported
-** Cloning of databases residing on Qtree is not supported
 
 == SAP HANA database
 

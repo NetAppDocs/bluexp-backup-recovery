@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-backup-cloud-native-oracle-data.html
-keywords: discover, admin role, service account, pre-canned policies, cloud manager, BlueXP, scheduled backups, on-demand backups, create policy, Oracle database
+keywords: admin role, service account, pre-canned policies, cloud manager, BlueXP, scheduled backups, on-demand backups, create policy, Oracle database, backup limitations
 summary: Create a scheduled or on-demand backups of Oracle database.
 ---
 
@@ -61,3 +61,11 @@ After restoring a large database (250 GB or more), if you perform a full online 
 `failed with status code 500, error {\"error\":{\"code\":\"app_internal_error\",\"message\":\"Failed to create snapshot. Reason: Snapshot operation not allowed due to clones backed by snapshots. Try again after sometime.`
 
 For information on how to fix this issue, refer to: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Snapshot_operation_not_allowed_due_to_clones_backed_by_snapshots[Snapshot operation not allowed due to clones backed by snapshots].
+
+== Limitations
+
+* Does not support online data or log only backups
+* Does not support offline backups
+* Does not support backing up of Oracle database residing on recursive mount points
+* Does not support consistency group Snapshots for Oracle databases residing on Multiple ASM disk groups with overlap of FSx volumes
+* If your Oracle databases are configured on ASM, ensure your SVM names are unique across the FSx systems. If you have same SVM name across FSx systems, back up of Oracle databases residing on those SVMs are not supported.
