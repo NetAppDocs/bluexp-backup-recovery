@@ -13,7 +13,7 @@ summary: Create a scheduled or on-demand backups of Oracle database.
 :imagesdir: ./media/
 
 [.lead]
-Before creating a backup of the Oracle database, you should assign either a pre-canned policy or the policy that you created.
+You should assign either a pre-canned policy or the policy that you created and then take a backup.
 
 == Create policy for protecting Oracle database
 
