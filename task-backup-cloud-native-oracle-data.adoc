@@ -13,50 +13,7 @@ summary: Create a scheduled or on-demand backups of Oracle database.
 :imagesdir: ./media/
 
 [.lead]
-Before creating a backup of the Oracle database, you should discover the databases, configure database credentials, and assign either a pre-canned policy or the policy that you created.
-
-== Discover Oracle databases
-
-You should discover the databases on the host to assign policies and create backups.
-
-*What you will need*
-
-* You should have created the working environment and the Connector.
-* Ensure that the Connector has connectivity to the working environment and Oracle database hosts.
-* Ensure that the BlueXP user has the “Account Admin” role.
-* You should have deployed the SnapCenter Plug-in for Oracle. link:task-deploy-snapcenter-plugin-for-oracle.html[Learn more].
-
-*Steps*
-
-. In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
-. Click Discover Applications.
-. Select *Cloud Native* and click *Next*.
-+
-A service account with _SnapCenter System_ role is created to perform scheduled data protection operations for all the users in this account.
-+
-* Click *Account* > *Manage Account* > *Members* to view the service account.
-+
-NOTE: The service account (_SnapCenter-account-<accountid>_) is used for running the scheduled backup operations. You should never delete the service account.
-
-. In the Specify Host Details page, enter the details of the Oracle database host, select the check box to confirm that the plug-in is installed on the host, and click *Discover*.
-+
-* Displays all the databases on the host. If OS authentication is disabled for the database, you should configure database authentication by clicking *Configure*. For more information, refer to <<Configure Oracle database credentials>>.
-+
-* Click *Manage Application*, select *Add* to add a new host, *Refresh* to discover new databases, or *Remove* to remove a database host.
-+
-* Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and if you want you can either edit them to meet your requirement or create a new policy.
-
-== Configure Oracle database credentials
-
-You should configure credentials that are used to perform data protection operations on Oracle databases.
-
-*Steps*
-
-. If OS authentication is disabled for the database, you should configure database authentication by clicking *Configure*.
-. Specify the username, password, and the port details either in the Database Settings or ASM Settings section.
-+
-The Oracle user should have sysdba privileges and ASM user should have sysasm privileges.
-. Click *Configure*.
+Before creating a backup of the Oracle database, you should assign either a pre-canned policy or the policy that you created.
 
 == Create policy for protecting Oracle database
 
