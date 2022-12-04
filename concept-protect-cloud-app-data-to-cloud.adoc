@@ -57,6 +57,7 @@ IMPORTANT: Cloud Backup for Applications infrastructure is resilient to availabi
 
 === Features
 
+* Add host and deploy plug-in using SSH
 * Auto-discovery of Oracle databases
 * Backing up Oracle databases
 ** Full (data + control + archive log files) backup
