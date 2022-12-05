@@ -105,7 +105,7 @@ Options to control the recovery of the cloned database.
 a|
 source_location
 a|
-Location of the source diskgroup or mount point.
+Location of the diskgroup or mount point on the source database host.
 a|
 clone_location
 a|
