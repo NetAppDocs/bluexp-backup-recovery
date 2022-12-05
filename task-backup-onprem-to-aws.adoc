@@ -188,7 +188,7 @@ You'll need to configure two sets of permissions:
               "s3:GetBucketAcl",
               "s3:GetBucketPolicy",
               "s3:PutBucketPolicy",
-              "s3:PutBucketOwnershipControls"
+              "s3:PutBucketOwnershipControls",
               "s3:PutBucketPublicAccessBlock",
               "s3:PutEncryptionConfiguration",
               "s3:GetObjectVersionTagging",
@@ -245,6 +245,36 @@ If you deployed the Connector using version 3.9.21 or greater, these permissions
             "Resource": "arn:aws:s3:::netapp-backup-*",
             "Effect": "Allow",
             "Sid": "backupPolicy"
+        }
+    ]
+}
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::netapp-backup*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListAllMyBuckets",
+                "s3:PutObjectTagging",
+                "s3:GetObjectTagging",
+                "s3:RestoreObject",
+                "s3:GetBucketObjectLockConfiguration",
+                "s3:GetObjectRetention",
+                "s3:PutBucketObjectLockConfiguration",
+                "s3:PutObjectRetention"
+            ],
+            "Resource": "arn:aws:s3:::netapp-backup*/*",
+            "Effect": "Allow"
         }
     ]
 }
