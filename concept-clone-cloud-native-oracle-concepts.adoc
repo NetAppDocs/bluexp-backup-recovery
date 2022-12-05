@@ -113,7 +113,7 @@ Location of the diskgroup or mount point that needs to be created on the target 
 a|
 location_type
 a|
-Based on the database type.
+It could be ASM_Diskgroup or based on the database type.
 a|
 pre_script
 a|
@@ -150,7 +150,7 @@ For example, if the mount point of the source database is _/netapp_sourcedb/data
 +
 NOTE: If the redo logs or control file paths are located on the non-data volumes, then the user should have provisioned the ASM diskgroup or mountpoint in the target host.
 
-* Oracle OS user, Oracle Home, and Oracle version will be same as source database.
+* Oracle OS user and Oracle version will be same as source database.
 * Clone storage volume name will be in the following format sourceVolNameSCS_Clone_CurrentTimeStampNumber.
 +
 For example, if the volume name on the source database is _sourceVolName_, the cloned volume name will be _sourceVolNameSCS_Clone_1661420020304608825_.
@@ -159,18 +159,18 @@ NOTE: The _CurrentTimeStampNumber_ provides the uniqueness in volume name.
 
 === Auto-generated naming scheme
 
-If you select the cloning scheme as *Aut-generated*, the location of mount points and the name of the diskgroups of the cloned database will be suffixed with *Clone SID* if you have selected the basic clone method or with *Suffix* that was specified while downloading the clone specification file.
+If you select the cloning scheme as *Auto-generated*, the location of mount points and the name of the diskgroups of the cloned database will be suffixed with *Clone SID* if you have selected the basic clone method or with *Suffix* that was specified while downloading the clone specification file.
 
-For example, if the mount point of the source database is _/netapp_sourcedb/data_1_, then the mount point of the cloned database will be _/netapp_sourcedb/data_1_HR_.
+For example, if the mount point of the source database is _/netapp_sourcedb/data_1_ and the *Clone SID* or the *Suffix* is _HR_, then the mount point of the cloned database will be _/netapp_sourcedb/data_1_HR_.
 
 * Number of control files and redo log files will be same.
 * All redo log files and control files will be located on one of the cloned mount points or ASM diskgroup.
-* Clone storage volume name will be in the following format sourceVolNameSCS_Clone_CurrentTimeStampNumber_suffix.
+* Clone storage volume name will be in the following format sourceVolNameSCS_Clone_CurrentTimeStampNumber.
 +
-For example, if the volume name on the source database is _sourceVolName_, the cloned volume name will be _sourceVolNameSCS_Clone_1661420020304608825_HR_.
+For example, if the volume name on the source database is _sourceVolName_, the cloned volume name will be _sourceVolNameSCS_Clone_1661420020304608825_.
 +
 NOTE: The _CurrentTimeStampNumber_ provides the uniqueness in volume name.
-* The format of the NAS mount point will be _SourceNASMountPoint_suffix
+* The format of the NAS mount point will be _SourceNASMountPoint_suffix_.
 * The format of the ASM diskgroup will be _SourceDiskgroup_suffix_. 
 +
 NOTE: If the number of characters in the clone diskgroup is greater than 25 then it will have _SC_HashCode_suffix_.
@@ -257,31 +257,17 @@ For PDB clone workflow, the value of this parameter will not be predefined. Exam
 
 === Supported delimiters
 
-* : is used to separate SVM name and volume name
-Example: buck:/vol/scspr2417819002_NFS_CDB_NFSB32_DATA/RG2_scspr2417819002_07-21-2021_02.28.26.3973_0,buck:/vol/scspr2417819002_NFS_CDB_NFSB32_REDO/RG2_scspr2417819002_07-21-2021_02.28.26.3973_1
-
 * @ is used to separate data from its database name and to separate the value from its key.
-Examples:
-** NFSB32@buck:/vol/scspr2417819002_NFS_CDB_NFSB32_DATA/RG2_scspr2417819002_07-21-2021_02.28.26.3973_0,buck:/vol/scspr2417819002_NFS_CDB_NFSB32_REDO/RG2_scspr2417819002_07-21-2021_02.28.26.3973_1|NFSB31@buck:/vol/scspr2417819002_NFS_CDB_NFSB31_DATA/RG2_scspr2417819002_07-21-2021_02.28.26.3973_0,buck:/vol/scspr2417819002_NFS_CDB_NFSB31_REDO/RG2_scspr2417819002_07-21-2021_02.28.26.3973_1
+Example: DATA@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0|LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267_1
 
-** NFSB31@oracle|NFSB32@oracle
+* | is used to separate the data between two different entities for SC_BACKUP_NAME parameter.
+Example: DATA@RG2_scspr2417819002_07-20-2021_12.16.48.9267_0|LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267_1
 
-* | is used to separate the data between two different databases and to separate the data between two different entities for SC_BACKUP_ID, SC_BACKUP_RETENTION, and SC_BACKUP_NAME parameters.
-Examples:
-** DATA@203|LOG@205
-** Hourly|DATA@DAYS:3|LOG@COUNT:4
-** DATA@RG2_scspr2417819002_07-20-2021_12.16.48.9267_0|LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267_1
-
-* / is used to separate the volume name from it’s Snapshot for SC_PRIMARY_SNAPSHOT_NAMES and SC_PRIMARY_FULL_SNAPSHOT_NAME_FOR_TAG parameters.
-Example: NFSB32@buck:/vol/scspr2417819002_NFS_CDB_NFSB32_DATA/RG2_scspr2417819002_07-21-2021_02.28.26.3973_0,buck:/vol/scspr2417819002_NFS_CDB_NFSB32_REDO/RG2_scspr2417819002_07-21-2021_02.28.26.3973_1
-
-* , is used to separate set of variables for the same DB.
-Example: NFSB32@buck:/vol/scspr2417819002_NFS_CDB_NFSB32_DATA/RG2_scspr2417819002_07-21-2021_02.28.26.3973_0,buck:/vol/scspr2417819002_NFS_CDB_NFSB32_REDO/RG2_scspr2417819002_07-21-2021_02.28.26.3973_1|NFSB31@buck:/vol/scspr2417819002_NFS_CDB_NFSB31_DATA/RG2_scspr2417819002_07-21-2021_02.28.26.3973_0,buck:/vol/scspr2417819002_NFS_CDB_NFSB31_REDO/RG2_scspr2417819002_07-21-2021_02.28.26.3973_1
+* , is used to separate set of variables for the same key.
+Example: DATA@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0|LOG:RG2_scspr2417819002_07-20- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-21- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-22-2021_12.16.48.9267_1
 
 == Clone limitations
 
-* Cloning of databases on iSCSI on NFS layouts are not supported
-* Cloning of databases on SAN layouts such LVM, native device, and VMWare disk are not supported
 * Scheduled clones (Clone LifeCycle management) is not supported
 * Cloning a cloned database is not supported
 * Cloning of databases residing on Qtree is not supported
