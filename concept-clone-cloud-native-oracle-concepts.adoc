@@ -231,7 +231,7 @@ Example: /ora01/app/oracle/product/18.1.0/db_1
 * SC_BACKUP_NAME" specifies the name of the backup.
 This parameter will be populated for application volumes. Examples:
 ** If the database is not running in ARCHIVELOG mode: DATA@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0|LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267_1
-** If the database is running in ARCHIVELOG mode: DATA@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0|LOG:RG2_scspr2417819002_07-20- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-21- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-22-2021_12.16.48.9267_1
+** If the database is running in ARCHIVELOG mode: DATA@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0|LOG@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-21- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-22-2021_12.16.48.9267_1
 
 * SC_ORIGINAL_OS_USER specifies the operating system owner of the source database.
 Example: oracle
@@ -264,7 +264,7 @@ Example: DATA@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0|LOG@RG2_scspr24178
 Example: DATA@RG2_scspr2417819002_07-20-2021_12.16.48.9267_0|LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267_1
 
 * , is used to separate set of variables for the same key.
-Example: DATA@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0|LOG:RG2_scspr2417819002_07-20- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-21- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-22-2021_12.16.48.9267_1
+Example: DATA@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0|LOG@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-21- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-22-2021_12.16.48.9267_1
 
 == Clone limitations
 
