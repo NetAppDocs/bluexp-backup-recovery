@@ -122,7 +122,8 @@ Cloud Backup supports the following types of volumes:
 ====
 *FlexGroup restrictions*: 
 
-* Full volume restore is supported for on-prem ONTAP systems only; Cloud Volumes ONTAP systems are not currently supported.
+* Full volume restore is supported for on-prem ONTAP systems; Cloud Volumes ONTAP systems are not currently supported.
+* File-level restore is supported for both on-prem ONTAP and Cloud Volumes ONTAP systems.
 * Directory/folder restore is not currently supported. 
 * Backups can't be moved to archival storage.
 * Backups can't use DataLock and Ransomware protection.

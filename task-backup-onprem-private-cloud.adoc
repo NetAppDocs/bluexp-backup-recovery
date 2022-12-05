@@ -149,7 +149,7 @@ When backing up data to StorageGRID, a Connector must be available on your premi
 
 NOTE: Cloud Backup functionality is built into the BlueXP Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[Cloud Backup What's New] to see the new features in each Cloud Backup release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
 
-We also recommend that you create local backups of the Cloud Backup configuration data when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up Cloud Backup data in a dark site^].
+//We also recommend that you create local backups of the Cloud Backup configuration data when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up Cloud Backup data in a dark site^].
 
 === Preparing networking for the Connector
 

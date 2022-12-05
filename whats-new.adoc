@@ -17,17 +17,19 @@ Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
 
-== 4 December 2022
+== 5 December 2022
 
 === Support for the Google Archival storage class
 
-Backup files are initially created in the Google Standard storage class. Now you can choose in the Cloud Backup UI to tier older backups to Google Archive storage after a certain number of days for further cost optimization. 
+Backup files are initially created in the Google Standard storage class. Now you can choose to tier older backups to Google Archive storage after a certain number of days for further cost optimization. 
 
 This functionality is currently supported for on-prem ONTAP clusters using ONTAP 9.12.1 or greater. It is not currently available for Cloud Volumes ONTAP systems.
 
 === Support for FlexGroup volumes
 
-Cloud Backup now supports FlexGroup volumes. When using ONTAP 9.12.1 or greater, you can back up FlexGroup volumes to public and private cloud storage. If you have working environments that include FlexVol and FlexGroup volumes, once you update your ONTAP software you can back up any of the FlexGroup volumes on those systems.
+Cloud Backup now supports FlexGroup volumes. When using ONTAP 9.12.1 or greater, you can back up FlexGroup volumes to public and private cloud storage. If you have working environments that include FlexVol and FlexGroup volumes, once you update your ONTAP software, you can back up any of the FlexGroup volumes on those systems.
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#supported-volumes[See the full list of supported volume types].
 
 == 2 November 2022
 
@@ -43,7 +45,7 @@ Now you can delete the backup relationship for a volume. This provides you with 
 
 === Support has been added to receive Cloud Backup alerts in email and in the Notification Center
 
-Cloud Backup has been integrated into the BlueXP Notification service. You can display Cloud Backup notifications by clicking the notification bell in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you’re not logged into the system. The email can be sent to any recipients who need to be aware of backup and restore activity. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status[Learn how].
+Cloud Backup has been integrated into the BlueXP Notification service. You can display Cloud Backup notifications by clicking the notification bell in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system. The email can be sent to any recipients who need to be aware of backup and restore activity. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status[Learn how].
 
 === New Advanced Settings page enables you to change cluster-level backup settings
 

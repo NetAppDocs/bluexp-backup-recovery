@@ -162,8 +162,6 @@ sidebar:
           url: /reference-google-backup-tiers.html
         - title: Configure Backup for multi-account access in Azure
           url: /reference-backup-multi-account-azure.html
-        - title: Back up the Cloud Backup database in a dark site
-          url: /reference-backup-cbs-db-in-dark-site.html
     - title: Knowledge and support
       entries:
         - title: Register for support
@@ -182,7 +180,7 @@ homepage:
       links:
         - title: Learn about Cloud Backup
           url: concept-backup-to-cloud.html
-        - title: What’s New
+        - title: What's New
           url: whats-new.html
         - title: Set up licensing
           url: task-licensing-cloud-backup.html
