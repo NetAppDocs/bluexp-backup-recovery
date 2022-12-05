@@ -26,7 +26,7 @@ You can create the clone with the default configurations based on the source dat
 
 The pre-script and post-script options are not available. The recovery option is by default *until cancel* and it uses the log backup associated with the data backup for recovery.
 
-== Clone using specification file
+=== Clone using specification file
 
 You can define the configurations in the clone specification file and use it to clone the database. You can download the specification file, modify it to your requirement, and then upload.
 
@@ -38,12 +38,15 @@ The different parameters defined in the specification file and that can be modif
 a|
 control_files
 a|
-Location of control files for the clone database. The number of control files will be same as source database. 
+Location of control files for the clone database.
+
+The number of control files will be same as source database. 
 If you want to override the control file path, you can provide a different control file path. The file system or the ASM diskgroup should exist on the host.
 a|
 redo_logs
 a|
 Location, size, redo group number of redo logs.
+
 A minimum of two redo log groups are required to clone the database. If you want to override the redo log file path, you can customize the redo log file path to a different file system than that of the source database.The file system or the ASM diskgroup should exist on the host.
 a|
 oracle_version
