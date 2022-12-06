@@ -179,8 +179,6 @@ endif::gcp[]
 . Enter the name you want to use for the restored volume, and select the Storage VM and Aggregate where the volume will reside. By default, *<source_volume_name>_restore* is used as the volume name.
 +
 image:screenshot_restore_new_vol_name.png[A screenshot of entering the name of the new volume that you want to restore.]
-//+
-//You can select the aggregate that the volume will use for its' capacity only when restoring a volume to an on-premises ONTAP system.
 +
 And if you are restoring the volume from a backup file that resides in an archival storage tier (available starting with ONTAP 9.10.1), then you can select the Restore Priority.
 +
@@ -191,7 +189,7 @@ ifdef::azure[]
 link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Azure archival storage].
 endif::azure[]
 ifdef::gcp[]
-link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage]. Backup files in a Google archival storage tier are restored almost immediately, and require no Restore Priority.
+link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage]. Backup files in the Google Archive storage tier are restored almost immediately, and require no Restore Priority.
 endif::gcp[]
 
 . Click *Restore* and you are returned to the Restore Dashboard so you can review the progress of the restore operation.
@@ -278,7 +276,7 @@ ifdef::azure[]
 link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Azure archival storage].
 endif::azure[]
 ifdef::gcp[]
-link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage]. Backup files in a Google archival storage tier are restored almost immediately, and require no Restore Priority.
+link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage]. Backup files in the Google Archive storage tier are restored almost immediately, and require no Restore Priority.
 endif::gcp[]
 +
 And if ransomware protection is active for the backup file (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware.

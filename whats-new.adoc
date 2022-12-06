@@ -17,7 +17,7 @@ Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
 
-== 5 December 2022
+== 6 December 2022
 
 === Support for the Google Archival storage class
 
@@ -30,6 +30,10 @@ This functionality is currently supported for on-prem ONTAP clusters using ONTAP
 Cloud Backup now supports FlexGroup volumes. When using ONTAP 9.12.1 or greater, you can back up FlexGroup volumes to public and private cloud storage. If you have working environments that include FlexVol and FlexGroup volumes, once you update your ONTAP software, you can back up any of the FlexGroup volumes on those systems.
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#supported-volumes[See the full list of supported volume types].
+
+=== Ability to restore data from backups to a specific aggregate on Cloud Volumes ONTAP systems
+
+In earlier releases you could select the aggregate only when restoring data to on-prem ONTAP systems. This functionality now works when restoring data to Cloud Volumes ONTAP systems.
 
 == 2 November 2022
 
