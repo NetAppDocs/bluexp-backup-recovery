@@ -51,6 +51,9 @@ Select Google Cloud as your provider and then enter the provider details. You al
 The default policy backs up volumes every day and retains the most recent 30 backup copies of each volume. Change to hourly, daily, weekly, monthly, or yearly backups, or select one of the system-defined policies that provide more options. You can also change the number of backup copies you want to retain.
 
 [role="quick-margin-para"]
+Backups are stored in Standard storage by default. If your cluster is using ONTAP 9.12.1 or greater, you can choose to tier backups to Google Archive storage after a certain number of days for further cost optimization. link:concept-cloud-backup-policies.html[Learn more about the available Cloud Backup policy configuration settings^].
+
+[role="quick-margin-para"]
 image:screenshot_backup_policy_gcp.png[A screenshot that shows the Cloud Backup settings where you can choose the backup schedule and retention period.]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Select the volumes that you want to back up
@@ -106,12 +109,14 @@ ONTAP reads and writes data to and from object storage. The object storage never
 When you set up Cloud Backup, you are prompted for the IPspace to use. You should choose the IPspace that each LIF is associated with. That might be the "Default" IPspace or a custom IPspace that you created.
 * The nodes' intercluster LIFs are able to access the object store.
 * DNS servers have been configured for the storage VM where the volumes are located. See how to https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html[configure DNS services for the SVM^].
++
+If you're using Private Google Access or Private Service Connect, make sure your DNS servers have been configured to point storage.googleapis.com to the correct internal (private) IP address. 
 * Note that if you use are using a different IPspace than the Default, then you might need to create a static route to get access to the object storage.
 * Update firewall rules, if necessary, to allow Cloud Backup service connections from ONTAP to object storage through port 443 and name resolution traffic from the storage VM to the DNS server over port 53 (TCP/UDP).
 
 === Creating or switching Connectors
 
-If you already have a Connector deployed in your Google Cloud Platform VPC, then you're all set. If not, then you'll need to create a Connector in that location to back up ONTAP data to Google Cloud storage. You can't use a Connector that's deployed in another cloud provider or on-premises.
+If you already have a Connector deployed in your Google Cloud Platform VPC, then you're all set. If not, then you'll need to create a Connector in that location to back up ONTAP data to Google Cloud storage. You can't use a Connector that's deployed in another cloud provider, or on-premises.
 //If you already have a Connector deployed in your Google Cloud Platform VPC or on your premises, then you're all set. If not, then you'll need to create a Connector in either of those locations to back up ONTAP data to Google Cloud storage. You can't use a Connector that's deployed in another cloud provider.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
@@ -131,9 +136,9 @@ Ensure that the Connector has the required networking connections.
 * An HTTPS connection over port 443 to your Google Cloud storage
 * An HTTPS connection over port 443 to your ONTAP cluster management LIF
 
-. Enable Private Google Access on the subnet where you plan to deploy the Connector. https://cloud.google.com/vpc/docs/configure-private-google-access[Private Google Access^] is needed if you have a direct connection from your ONTAP cluster to the VPC and you want communication between the Connector and Google Cloud Storage to stay in your virtual private network (a *private* connection).
+. Enable Private Google Access (or Private Service Connect) on the subnet where you plan to deploy the Connector. https://cloud.google.com/vpc/docs/configure-private-google-access[Private Google Access^] or https://cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises[Private Service Connect^] are needed if you have a direct connection from your ONTAP cluster to the VPC and you want communication between the Connector and Google Cloud Storage to stay in your virtual private network (a *private* connection).
 +
-Note that Private Google Access works with VM instances that have only internal (private) IP addresses (no external IP addresses).
+Follow the Google instructions for setting up these Private access options. Make sure your DNS servers have been configured to point www.googleapis.com and storage.googleapis.com to the correct internal (private) IP addresses.
 
 === Verify or add permissions to the Connector
 
@@ -221,6 +226,7 @@ image:screenshot_backup_onprem_to_google.png[A screenshot that shows the cloud p
 
 .. Enter the name for the default policy. You don't need to change the name.
 .. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
+.. When using ONTAP 9.12.1 or greater, you can choose to tier backups to Archive storage after a certain number of days for further cost optimization. link:concept-cloud-backup-policies.html[Learn more about the available Cloud Backup policy configuration settings^].
 +
 image:screenshot_backup_policy_gcp.png[A screenshot that shows the Cloud Backup settings where you can choose your backup schedule and retention period.]
 
@@ -234,15 +240,15 @@ image:screenshot_backup_policy_gcp.png[A screenshot that shows the Cloud Backup 
 image:screenshot_backup_select_volumes.png[A screenshot of selecting the volumes that will be backed up.]
 
 +
-* If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "Export existing Snapshot copies to object storage as backup copies". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
+* If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "Export existing Snapshot copies to object storage as backup copies". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Click *Activate Backup* and Cloud Backup starts taking the initial backups of your volumes.
 
 .Result
 
 A Google Cloud Storage bucket is created automatically in the service account indicated by the Google access key and secret key you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups. You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
-
-Backups are associated with the _Standard_ storage class by default. You can use the lower cost _Nearline_, _Coldline_, or _Archive_ storage classes. However, you configure the storage class through Google, not through the Cloud Backup UI. See the Google topic https://cloud.google.com/storage/docs/changing-default-storage-class[Changing the default storage class of a bucket^] for details.
+//
+//Backups are associated with the _Standard_ storage class by default. You can use the lower cost _Nearline_, _Coldline_, or _Archive_ storage classes. However, you configure the storage class through Google, not through the Cloud Backup UI. See the Google topic https://cloud.google.com/storage/docs/changing-default-storage-class[Changing the default storage class of a bucket^] for details.
 
 == What's next?
 
