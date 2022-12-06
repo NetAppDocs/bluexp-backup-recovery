@@ -123,7 +123,6 @@ sidebar:
                     - title: Access BlueXP
                       url: /reference-access-bluexp.html
                     - title: Configure FSx for ONTAP
-                      flavor: aws
                       url: /reference-configure-fsx-for-ontap.html
                     - title: Configure Cloud Volumes ONTAP
                       url: /reference-configure-cloud-volumes-ontap.html
