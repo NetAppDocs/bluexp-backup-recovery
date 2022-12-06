@@ -116,7 +116,7 @@ sidebar:
           entries:
             - title: Protect your cloud native applications data
               url: /concept-protect-cloud-app-data-to-cloud.html
-            - title: Protect cloud native Oracle database
+            - title: Backup cloud native applications data
               entries:
                 - title: Back up cloud native Oracle database
                   entries:
@@ -130,16 +130,6 @@ sidebar:
                       url: /task-add-host-discover-oracle-databases.html
                     - title: Back up Oracle database
                       url: /task-backup-cloud-native-oracle-data.html
-                - title: Restore cloud native Oracle database
-                  url: /task-restore-cloud-native-oracle-data.html
-                - title: Clone cloud native Oracle database
-                  entries:
-                    - title: Clone concepts and requirements
-                      url: /concept-clone-cloud-native-oracle-concepts.html
-                    - title: Clone cloud native Oracle database
-                      url: /task-clone-cloud-native-oracle-data.html
-            - title: Protect cloud native SAP HANA database
-              entries:
                 - title: Back up cloud native SAP HANA database
                   entries:
                     - title: Access BlueXP
@@ -153,12 +143,24 @@ sidebar:
                       url: /task-deploy-snapcenter-plugin-for-sap-hana.html
                     - title: Back up SAP HANA database
                       flavor: azure
-                      url: /task-backup-cloud-native-sap-hana-data.html
-                - title: Restore cloud native SAP HANA database
-                  flavor: azure
-                  url: /task-restore-cloud-native-sap-hana-data.html                   
+                      url: /task-backup-cloud-native-sap-hana-data.html                    
             - title: Manage protection of cloud native application data
               url: /task-manage-cloud-native-app-data.html
+            - title: Restore cloud native applications data
+              entries:
+                - title: Restore cloud native Oracle database
+                  url: /task-restore-cloud-native-oracle-data.html
+                - title: Restore cloud native SAP HANA database
+                  flavor: azure
+                  url: /task-restore-cloud-native-sap-hana-data.html
+            - title: Clone cloud native applications data
+              entries:
+                - title: Clone cloud native Oracle database
+                  entries:
+                    - title: Clone concepts and requirements
+                      url: /concept-clone-cloud-native-oracle-concepts.html
+                    - title: Clone cloud native Oracle database
+                      url: /task-clone-cloud-native-oracle-data.html 
     - title: Back up and restore Virtual Machines data
       entries:
         - title: Protect your Virtual Machines data
