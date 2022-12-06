@@ -51,6 +51,8 @@ image:screenshot_backup_advanced_settings_page.png[A screenshot that shows the B
 
 If you need to make any changes, just expand the option and make the change. All backup operations after the change will use the new values.
 
+Note that some options are unavailable based on the version of ONTAP on the source cluster, and based on the cloud provider destination where the backups reside.
+
 == Change the storage keys for ONTAP to access cloud storage
 
 If you have a company policy that requires you to periodically rotate all credentials, for example, every 6 months or a year, this is how you'll synchronize your cloud provider's access key and secret key with your ONTAP system. This allows you to update your cloud provider credentials, and then change the keys in your ONTAP system so that the two systems will continue to communicate.
@@ -115,9 +117,9 @@ Once enabled, this backup policy will be applied to any new volume created in th
 
 == Change whether historical Snapshot copies are exported as backup files
 
-If there are any local Snapshot copies for volumes that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic snapshots to object storage as backup files. This enables you to initialize your backups in the cloud by moving snapshot older copies into the baseline backup copy.
+If there are any local Snapshot copies for volumes that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic snapshots to object storage as backup files. This enables you to initialize your backups in the cloud by moving older snapshot copies into the baseline backup copy.
 
-Note that this option only applies to new backup files for new volumes, and it is not supported with data protection (DP) volumes.
+Note that this option only applies to new backup files for new read/write volumes, and it is not supported with data protection (DP) volumes.
 
 image:screenshot_backup_edit_export_snapshots.png[A screenshot of the Export existing Snapshot copies entry in the Advanced Settings page.]
 

@@ -75,7 +75,7 @@ See the requirements and restore steps for the type of restore operation you wan
 
 Before you start restoring a volume, folder, or file, you should know the name of the volume from which you want to restore, the name of the working environment where the volume resides, and the approximate date of the backup file that you want to restore from.
 
-*Note:* If the backup file for the volume that you want to restore resides in archival storage (starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur a cost. Additionally, the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, and 9.11.1 for file restore.
+*Note:* If the backup file for the volume that you want to restore resides in archival storage (starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur a cost. Additionally, the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, and 9.12.1 for Google Archive.
 
 ifdef::aws[]
 link:reference-aws-backup-tiers.html[Learn more about restoring from AWS archival storage].
@@ -83,35 +83,32 @@ endif::aws[]
 ifdef::azure[]
 link:reference-azure-backup-tiers.html[Learn more about restoring from Azure archival storage].
 endif::azure[]
+ifdef::gcp[]
+link:reference-google-backup-tiers.html[Learn more about restoring from Google archival storage].
+endif::gcp[]
 
 === Browse & Restore supported working environments and object storage providers
 
 You can restore a volume, folder, or individual files, from an ONTAP backup file to the following working environments:
 
-[cols=3*,options="header",cols="30,35,35",width="95%"]
+[cols=2*,options="header",cols="50,50",width="80%"]
 |===
 
 | Backup File Location
-2+^| Destination Working Environment
-
-| | *Volume Restore* | *Folder and File Restore*
+Destination Working Environment
 ifdef::aws[]
 | Amazon S3 | Cloud Volumes ONTAP in AWS
-On-premises ONTAP system
-| Cloud Volumes ONTAP in AWS
 On-premises ONTAP system
 endif::aws[]
 ifdef::azure[]
 | Azure Blob | Cloud Volumes ONTAP in Azure
-On-premises ONTAP system | Cloud Volumes ONTAP in Azure
 On-premises ONTAP system
 endif::azure[]
 ifdef::gcp[]
 | Google Cloud Storage | Cloud Volumes ONTAP in Google
-On-premises ONTAP system | Cloud Volumes ONTAP in Google
 On-premises ONTAP system
 endif::gcp[]
-| NetApp StorageGRID | On-premises ONTAP system | On-premises ONTAP system
+| NetApp StorageGRID | On-premises ONTAP system
 
 |===
 
@@ -179,11 +176,9 @@ ifdef::gcp[]
 endif::gcp[]
 * When restoring from StorageGRID, enter the FQDN of the StorageGRID server and the port that ONTAP should use for HTTPS communication with StorageGRID, select the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume will reside.
 
-. Enter the name you want to use for the restored volume, and select the Storage VM where the volume will reside. By default, *<source_volume_name>_restore* is used as the volume name.
+. Enter the name you want to use for the restored volume, and select the Storage VM and Aggregate where the volume will reside. By default, *<source_volume_name>_restore* is used as the volume name.
 +
 image:screenshot_restore_new_vol_name.png[A screenshot of entering the name of the new volume that you want to restore.]
-+
-You can select the aggregate that the volume will use for its' capacity only when restoring a volume to an on-premises ONTAP system.
 +
 And if you are restoring the volume from a backup file that resides in an archival storage tier (available starting with ONTAP 9.10.1), then you can select the Restore Priority.
 +
@@ -193,6 +188,9 @@ endif::aws[]
 ifdef::azure[]
 link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Azure archival storage].
 endif::azure[]
+ifdef::gcp[]
+link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage]. Backup files in the Google Archive storage tier are restored almost immediately, and require no Restore Priority.
+endif::gcp[]
 
 . Click *Restore* and you are returned to the Restore Dashboard so you can review the progress of the restore operation.
 
@@ -220,10 +218,10 @@ At this time, you can can select and restore only a single folder. And only file
 
 * The ONTAP version must be 9.6 or greater to perform _file_ restore operations.
 * The ONTAP version must be 9.11.1 or greater to perform _folder_ restore operations.
-
-ifdef::aws[]
-* AWS cross-account restore requires manual action in the AWS console. See the AWS topic https://docs.aws.amazon.com/AmazonS3/latest/dev/example-walkthroughs-managing-access-example2.html[granting cross-account bucket permissions^] for details.
-endif::aws[]
+//
+//ifdef::aws[]
+//* AWS cross-account restore requires manual action in the AWS console. See the AWS topic https://docs.aws.amazon.com/AmazonS3/latest/dev/example-walkthroughs-managing-access-example2.html[granting cross-account bucket permissions^] for details.
+//endif::aws[]
 
 ==== Folder and file restore process
 
@@ -277,6 +275,9 @@ endif::aws[]
 ifdef::azure[]
 link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Azure archival storage].
 endif::azure[]
+ifdef::gcp[]
+link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage]. Backup files in the Google Archive storage tier are restored almost immediately, and require no Restore Priority.
+endif::gcp[]
 +
 And if ransomware protection is active for the backup file (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware.
 +
@@ -333,7 +334,7 @@ When you restore a volume from a backup file, Cloud Backup creates a _new_ volum
 
 You can restore folders or files to the original volume location, to a different volume in the same working environment, or to a different working environment that's using the same cloud account. You can also restore folders and files to a volume on an on-premises ONTAP system.
 
-If the backup file for the volume that you want to restore resides in archival storage (available starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur additional cost. Note that the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, and 9.11.1 for file restore.
+If the backup file for the volume that you want to restore resides in archival storage (available starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur additional cost. Note that the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, and 9.12.1 for Google Archive.
 
 ifdef::aws[]
 link:reference-aws-backup-tiers.html[Learn more about restoring from AWS archival storage].
@@ -341,6 +342,9 @@ endif::aws[]
 ifdef::azure[]
 link:reference-azure-backup-tiers.html[Learn more about restoring from Azure archival storage].
 endif::azure[]
+ifdef::gcp[]
+link:reference-google-backup-tiers.html[Learn more about restoring from Google archival storage].
+endif::gcp[]
 
 [NOTE] 
 ====
@@ -533,15 +537,15 @@ Note that the results also identify local volume Snapshot copies that contain th
 If you select an on-premises ONTAP system and you haven't already configured the cluster connection to the object storage, you are prompted for additional information:
 +
 ifdef::aws[]
-** When restoring from Amazon S3, select the IPspace in the ONTAP cluster where the destination volume will reside, enter the access key and secret key for the user you created to give the ONTAP cluster access to the S3 bucket, and optionally choose a private VPC endpoint for secure data transfer.
+** When restoring from Amazon S3, select the IPspace in the ONTAP cluster where the destination volume will reside, enter the access key and secret key for the user you created to give the ONTAP cluster access to the S3 bucket, and optionally choose a private VPC endpoint for secure data transfer. link:task-backup-onprem-to-aws.html#cluster-networking-requirements[See details about these requirements].
 endif::aws[]
 ifdef::azure[]
-** When restoring from Azure Blob, select the IPspace in the ONTAP cluster where the destination volume will reside, and optionally choose a private endpoint for secure data transfer by selecting the VNet and Subnet.
+** When restoring from Azure Blob, select the IPspace in the ONTAP cluster where the destination volume will reside, and optionally choose a private endpoint for secure data transfer by selecting the VNet and Subnet. link:task-backup-onprem-to-azure.html#requirements[See details about these requirements].
 endif::azure[]
 ifdef::gcp[]
-** When restoring from Google Cloud Storage, select the IPspace in the ONTAP cluster where the destination volume will reside, and the Access Key and Secret Key to access the object storage.
+** When restoring from Google Cloud Storage, select the IPspace in the ONTAP cluster where the destination volume will reside, and the Access Key and Secret Key to access the object storage. link:task-backup-onprem-to-gcp.html#requirements[See details about these requirements].
 endif::gcp[]
-** When restoring from StorageGRID, enter the FQDN of the StorageGRID server and the port that ONTAP should use for HTTPS communication with StorageGRID, enter the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume resides.
+** When restoring from StorageGRID, enter the FQDN of the StorageGRID server and the port that ONTAP should use for HTTPS communication with StorageGRID, enter the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume resides. link:task-backup-onprem-private-cloud.html#requirements[See details about these requirements].
 
 .Results
 
