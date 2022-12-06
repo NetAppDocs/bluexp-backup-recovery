@@ -61,7 +61,7 @@ If SSH key based authentication is not enabled on the HANA host, you should perf
 
 . On the HANA database host, run the following command to enable execute permissions for the binary.
 `# chmod +x snapcenter_linux_host_plugin_scs.bin``
-. Deploy the HANA plug-in as a root user.
+. Deploy the HANA plug-in as a non- root user.
 
 . Ensure port "8145" is unblocked from the connector VM. If not, supply argument "-DPORT=443" during manual install.
 `# ./snapcenter_linux_host_plugin_scs.bin -i silent``
