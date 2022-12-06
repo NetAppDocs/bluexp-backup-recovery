@@ -28,13 +28,13 @@ Get started quickly by following these steps or scroll down to the remaining sec
 ** The cluster must be using Cloud Volumes ONTAP on AWS for its' backend storage.
 ** The Cloud Volumes ONTAP system must be running ONTAP 9.7P5 or later.
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
-* You have subscribed to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[Cloud Manager Marketplace Backup offering], an https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS annual contract], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated] a Cloud Backup BYOL license from NetApp.
+* You have subscribed to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[BlueXP Marketplace Backup offering], an https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS annual contract], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated] a Cloud Backup BYOL license from NetApp.
 * The IAM role that provides the BlueXP Connector with permissions includes S3 permissions from the latest https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[BlueXP policy^].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable Cloud Backup on your existing Kubernetes cluster
 
 [role="quick-margin-para"]
-Select the working environment and click *Enable* next to the Backup & Restore service in the right-panel, and then follow the setup wizard.
+Select the working environment and click *Enable* next to the Backup and recovery service in the right-panel, and then follow the setup wizard.
 
 [role="quick-margin-para"]
 image:screenshot_backup_cvo_enable.png[A screenshot that shows the Cloud Backup Enable button which is available after you select a working environment.]
@@ -125,7 +125,7 @@ spec:
 ```
 
 License requirements::
-For Cloud Backup PAYGO licensing, a subscription is available in the AWS Marketplace that enables deployments of Cloud Volumes ONTAP and Cloud Backup. You need to https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[subscribe to this Cloud Manager subscription^] before you enable Cloud Backup. Billing for Cloud Backup is done through this subscription.
+For Cloud Backup PAYGO licensing, a subscription is available in the AWS Marketplace that enables deployments of Cloud Volumes ONTAP and Cloud Backup. You need to https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[subscribe to this BlueXP subscription^] before you enable Cloud Backup. Billing for Cloud Backup is done through this subscription.
 +
 For an annual contract that enables you to back up both Cloud Volumes ONTAP data and on-premises ONTAP data, you need to subscribe from the https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS Marketplace page^] and then https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html[associate the subscription with your AWS credentials^].
 +
@@ -176,7 +176,7 @@ Enable Cloud Backup at any time directly from the Kubernetes working environment
 
 .Steps
 
-. Select the working environment and click *Enable* next to the Backup & Restore service in the right-panel.
+. Select the working environment and click *Enable* next to the Backup and recovery service in the right-panel.
 +
 If the Amazon S3 destination for your backups exists as a working environment on the Canvas, you can drag the Kubernetes cluster onto the Amazon S3 working environment to initiate the setup wizard.
 +
@@ -219,6 +219,6 @@ The Kubernetes Dashboard is displayed so you can monitor the state of the backup
 
 .What's next?
 
-You can link:task-managing-backups-kubernetes.html[start and stop backups for volumes or change the backup schedule^].
+You can link:task-manage-backups-kubernetes.html[start and stop backups for volumes or change the backup schedule^].
 You can also link:task-restore-backups-kubernetes.html#restoring-volumes-from-a-kubernetes-backup-file[restore entire volumes from a backup file^] as a new volume on the same or different Kubernetes cluster in AWS (in the same region).
 // or individual files

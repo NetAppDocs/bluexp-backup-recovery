@@ -81,30 +81,24 @@ NetApp StorageGRID
 
 You can restore a volume, a folder, or individual files, from an ONTAP backup file to the following working environments:
 
-[cols=3*,options="header",cols="25,33,37",width="95%"]
+[cols=2*,options="header",cols="50,50",width="80%"]
 |===
 
-| Backup File
-2+^| Destination Working Environment
-| *Location* | *Volume Restore* | *Folder and File Restore*
+| Backup File Location
+| Destination Working Environment
 ifdef::aws[]
 | Amazon S3 | Cloud Volumes ONTAP in AWS
-On-premises ONTAP system
-| Cloud Volumes ONTAP in AWS
 On-premises ONTAP system
 endif::aws[]
 ifdef::azure[]
 | Azure Blob | Cloud Volumes ONTAP in Azure
-On-premises ONTAP system | Cloud Volumes ONTAP in Azure
 On-premises ONTAP system
 endif::azure[]
 ifdef::gcp[]
 | Google Cloud Storage | Cloud Volumes ONTAP in Google
 On-premises ONTAP system
-| Cloud Volumes ONTAP in Google
-On-premises ONTAP system
 endif::gcp[]
-| NetApp StorageGRID | On-premises ONTAP system | On-premises ONTAP system
+| NetApp StorageGRID | On-premises ONTAP system
 
 |===
 
@@ -121,8 +115,19 @@ Cloud Backup supports the following types of volumes:
 * FlexVol read-write volumes
 * SnapMirror data protection (DP) destination volumes
 * SnapLock Enterprise volumes (requires ONTAP 9.11.1 or later)
+** SnapLock Compliance volumes aren't currently supported.
+* FlexGroup volumes (requires ONTAP 9.12.1 or later) 
 
-FlexGroup volumes and SnapLock Compliance volumes aren't currently supported.
+[NOTE]
+====
+*FlexGroup restrictions*: 
+
+* Full volume restore is supported for on-prem ONTAP systems; Cloud Volumes ONTAP systems are not currently supported.
+* File-level restore is supported for both on-prem ONTAP and Cloud Volumes ONTAP systems.
+* Directory/folder restore is not currently supported. 
+* Backups can't be moved to archival storage.
+* Backups can't use DataLock and Ransomware protection.
+====
 
 == Cost
 
@@ -215,7 +220,7 @@ link:task-licensing-cloud-backup.html#use-an-annual-contract[Learn how to set up
 
 == How Cloud Backup works
 
-When you enable Cloud Backup on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. Volume snapshots are not included in the backup image. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum. Cloud Backup is built on top of the https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html[NetApp SnapMirror Cloud technology].
+When you enable Cloud Backup on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. Volume snapshots are not included in the backup image. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum. Cloud Backup is built on top of the https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html[NetApp SnapMirror Cloud technology^].
 //
 //In most cases you'll use the BlueXP UI for all backup operations. However, starting with ONTAP 9.9.1 you can initiate volume backup operations of your on-premises ONTAP clusters using ONTAP System Manager. https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html[See how to use System Manager to back up your volumes to the cloud using Cloud Backup.^]
 
@@ -306,9 +311,10 @@ If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older b
 endif::azure[]
 
 ifdef::gcp[]
-* In GCP, backups are associated with the _Standard_ storage class by default.
+* In GCP, backups are associated with the _Standard_ storage class.
 +
-You can also use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. You configure these other storage classes through Google. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the storage class.
+If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. (This functionality is not currently available for Cloud Volumes ONTAP systems.) link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
+//You can also use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. You configure these other storage classes through Google. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the storage class.
 endif::gcp[]
 
 * In StorageGRID, backups are associated with the _Standard_ storage class.
@@ -348,11 +354,15 @@ The following is a known issue that will be fixed in a future release:
 ** Backups are supported from the ONTAP secondary only.
 ** The Snapshot policy applied to the volume must be one of the policies recognized by Cloud Backup, including daily, weekly, monthly, etc. The default "sm_created" policy (used for *Mirror All Snapshots*) is not recognized and the DP volume will not be shown in the list of volumes that can be backed up.
 
+* MetroCluster (MCC) backup is supported from ONTAP secondary only: MCC > SnapMirror > ONTAP > Cloud Backup > object storage.
+//* MetroCluster support:
+//** When using ONTAP 9.12.1 or greater, backup is supported when connected to the primary system. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover. You don't need to set up backup on the secondary system (in fact, you are restricted from doing so). Restore operations from the primary system populate data to both primary and secondary systems.
+//** When using ONTAP 9.12.0 and earlier, backup is supported only from the ONTAP secondary system.
+//** Backups of FlexGroup volumes are not supported at this time.
+
 * Ad-hoc volume backup using the *Backup Now* button isn't supported on data protection volumes.
 
 * SM-BC configurations are not supported.
-
-* MetroCluster (MCC) backup is supported from ONTAP secondary only: MCC > SnapMirror > ONTAP > Cloud Backup > object storage.
 
 * ONTAP doesn't support fan-out of SnapMirror relationships from a single volume to multiple object stores; therefore, this configuration is not supported by Cloud Backup.
 
@@ -372,6 +382,6 @@ These limitations apply to both the Search & Restore and the Browse & Restore me
 
 * File level restore is not supported when using the same account with different BlueXP systems in different subnets.
 
-* You can’t restore individual folders if the backup file resides in archival storage.
+* You can't restore individual folders if the backup file resides in archival storage.
 
 * File level restore using Search & Restore is not supported when the Connector is installed on a site without internet access (dark site).

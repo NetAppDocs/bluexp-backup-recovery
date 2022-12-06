@@ -35,7 +35,7 @@ If you are looking for specific volumes in certain working environments, you can
 
 You can activate backups for any new volumes if they are not currently being backed up. You can also activate backups for any volumes that you had previously deactivated.
 
-You can deactivate backups for volumes so that no additional backups are generated. This also disables the ability to restore volume data from a backup file. This basically allows you to pause all backup and restore activity for a period of time. Any existing backups will not be deleted, so you’ll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you link:deleting-all-backup-files-for-a-volume[delete the backups].
+You can deactivate backups for volumes so that no additional backups are generated. This also disables the ability to restore volume data from a backup file. This basically allows you to pause all backup and restore activity for a period of time. Any existing backups will not be deleted, so you’ll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you <<Deleting all backup files for a volume,delete the backups>>.
 
 .Steps
 
@@ -91,10 +91,13 @@ endif::aws[]
 ifdef::azure[]
 link:reference-azure-backup-tiers.html[Learn more about using Azure archival storage].
 endif::azure[]
+ifdef::gcp[]
+link:reference-google-backup-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
+endif::gcp[]
 +
 image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for Cloud Backup.]
 +
-Note that any backup files that have been tiered to archival storage are left in that tier if you stop tiering backups to archive - they are not automatically moved back to the standard tier.
+Note that any backup files that have been tiered to archival storage are left in that tier if you stop tiering backups to archive - they are not automatically moved back to the standard tier. Only new volume backups will reside in the standard tier.
 
 == Adding a new backup policy
 
@@ -134,6 +137,9 @@ endif::aws[]
 ifdef::azure[]
 link:reference-azure-backup-tiers.html[Learn more about using Azure archival storage].
 endif::azure[]
+ifdef::gcp[]
+link:reference-google-backup-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
+endif::gcp[]
 +
 image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for Cloud Backup.]
 

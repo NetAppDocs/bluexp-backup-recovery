@@ -203,9 +203,9 @@ endif::aws[]
 
 When using certain cloud storage you can move older backup files to a less expensive storage class/access tier after a certain number of days. Note that archival storage can't be used if you have enabled DataLock.
 
-Data in archival tiers can’t be accessed immediately when needed, and will require a higher retrieval cost, so you need to consider how often you may need to restore data from archived backup files. 
+Data in archival tiers can't be accessed immediately when needed, and will require a higher retrieval cost, so you need to consider how often you may need to restore data from archived backup files. 
 
-When creating backup files in AWS or Azure, each backup policy provides a section for _Archival Policy_ that you can apply to your backup files.
+Each backup policy provides a section for _Archival Policy_ that you can apply to your backup files.
 
 image:screenshot_archive_tier_settings.png[A screenshot of the Archival Policy settings when creating a backup policy.]
 
@@ -226,7 +226,8 @@ endif::azure[]
 ifdef::gcp[]
 * In GCP, backups are associated with the _Standard_ storage class by default.
 +
-You can use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. However, you configure these other storage classes through Google, not through the Cloud Backup UI. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the default storage class for a Google Cloud Storage bucket.
+If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. (This functionality is not currently available for Cloud Volumes ONTAP systems.) link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
+//You can use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. However, you configure these other storage classes through Google, not through the Cloud Backup UI. See the Google topic https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the default storage class for a Google Cloud Storage bucket.
 endif::gcp[]
 
 * In StorageGRID, backups are associated with the _Standard_ storage class.
