@@ -92,12 +92,14 @@ a|
 until_time
 a|
 Recovers the database up to the specified date and time.
+
 The accepted format is _mm/dd/yyyy hh:mm:ss_.
 a|
 until_cancel
 a|
-Recovers by mounting the corresponding log backup having the unbroken sequence of archive logs after that data backup that was selected for cloning. 
-The cloned database is recovered till the missing or corrupt log file.
+Recovers by mounting the log backup associated with the data backup that was selected for cloning. 
+
+The cloned database is recovered till the missing or corrupt log file. 
 a|
 log_paths
 a|
@@ -125,7 +127,9 @@ Script to be executed on the target host after creating the clone.
 a|
 path
 a|
-Absolute Path of the script on the clone host. You should store the script either in /var/opt/snapcenter/spl/scripts or in any folder inside this path.
+Absolute Path of the script on the clone host. 
+
+You should store the script either in /var/opt/snapcenter/spl/scripts or in any folder inside this path.
 a|
 timeout
 a|
@@ -206,14 +210,12 @@ You should have successfully created online data and log backup for the cloning 
 * If you are creating the clone on an alternate host, the alternate host should meet the following requirements:
 ** The plug-in should be installed on the alternate host.
 ** The clone host should be able to discover LUNs from storage
-*** If you are cloning to an alternate host, then make sure that an iSCSI session is either established between the storage and the alternate host, 
+If you are cloning to an alternate host, then make sure that an iSCSI session is established between the storage and the alternate host.
 ** If the source database is an ASM database:
 *** The ASM instance should be up and running on the host where the clone will be performed.
 *** The ASM diskgroup should be provisioned prior to the clone operation if you want to place archive log files of the cloned database in a dedicated ASM diskgroup.
 *** The name of the data diskgroup can be configured, but ensure that the name is not used by any other ASM diskgroup on the host where the clone will be performed.
 Data files residing on the ASM diskgroup are provisioned as part of the clone workflow.
-
-* You should install the 13366202 Oracle patch if you are using Oracle database 11.2.0.3 or later and the database ID for the auxiliary instance is changed using an NID script.
 
 == Supported predefined environment variables for clone specific prescript and postscript
 
