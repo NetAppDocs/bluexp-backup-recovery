@@ -26,6 +26,7 @@ You should manually add SAP HANA database hosts to assign policies and create ba
 * Ensure that the BlueXP user has the “Account Admin” role.
 * You should have deployed the SnapCenter Plug-in for SAP HANA. link:task-deploy-snapcenter-plugin-for-sap-hana.html[Learn more]
 * While adding the SAP HANA database hosts, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA database hosts securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA database host.  
+* For HANA System Replication (HSR), to protect the HANA systems, you should manually register both primary and secondary HANA systems.
 
 *Steps*
 
@@ -95,6 +96,12 @@ You can create policies if you do not want to use or edit the pre-canned policie
 == Create a backup of the SAP HANA Database
 
 You can either assign a pre-canned policy or create a policy and then assign it to the database. Once the policy is assigned, the backups are created as per the schedule defined in the policy.
+
+*About this task*
+
+For HANA System Replication (HSR), the scheduled backup job will trigger only for the primary HANA system and if the system fails over to the secondary HANA system, the existing schedules will trigger a backup on the current primary HANA system. If the policy is not assigned to both the HANA system, after failover, the schedules will fail.
++
+If different policies are assigned to the HSR systems, the scheduled backup will be triggered for both the systems and the backup will fail for the secondary HANA system.
 
 *Steps*
 
