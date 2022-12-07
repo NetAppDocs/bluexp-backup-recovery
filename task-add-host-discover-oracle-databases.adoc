@@ -35,19 +35,26 @@ You should create a non-root user to deploy the plug-in.
 . Create the user account, private key pair, and assign the permissions. For information, refer to https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#create-user-account[Create a user account^].
 . Add the following lines to the _/etc/sudoers_ file by using the visudo Linux utility.
 +
+NOTE: The below example should be used only as a reference for creating your own data. 
++
 [subs=+quotes]
 ----
-Cmnd_Alias HPPLCMD = sha224:mRCkEJ15odTGtW3PH9YlRbTkZghwPko8M1WcYQ== /home/_SUDO_USER_/.sc_netapp/snapcenter_linux_host_plugin_scs.bin, /opt/NetApp/snapcenter/spl/installation/plugins/uninstall, /opt/NetApp/snapcenter/spl/bin/spl, /opt/NetApp/snapcenter/scc/bin/scc
-Cmnd_Alias PRECHECKCMD = sha224:ir9Km4ctOavgJ60Fbbmmpx7a6dJ68FiQIXHdyw== /home/_SUDO_USER_/.sc_netapp/Linux_Prechecks.sh
-Cmnd_Alias CONFIGCHECKCMD = sha224:HQukzZNynG+nugzScFnHuccouOL75sZ1RRDaNg== /opt/NetApp/snapcenter/spl/plugins/scu/scucore/configurationcheck/Config_Check.sh
-Cmnd_Alias SCCMD = sha224:GHupVXP5krvae06pNNxjvhZcM5VfRkOvc86Ibw== /opt/NetApp/snapcenter/spl/bin/sc_command_executor
-Cmnd_Alias SCCCMDEXECUTOR = sha224:LZCipEIopaFpW92j+rvubQJlhX6ousO7Jf5Sxg== /opt/NetApp/snapcenter/scc/bin/sccCommandExecutor
+Cmnd_Alias HPPLCMD = sha224:_checksum_value_== /home/_SUDO_USER_/.sc_netapp/snapcenter_linux_host_plugin_scs.bin, /opt/NetApp/snapcenter/spl/installation/plugins/uninstall, /opt/NetApp/snapcenter/spl/bin/spl, /opt/NetApp/snapcenter/scc/bin/scc
+Cmnd_Alias PRECHECKCMD = sha224:_checksum_value_== /home/_SUDO_USER_/.sc_netapp/Linux_Prechecks.sh
+Cmnd_Alias CONFIGCHECKCMD = sha224:_checksum_value_== /opt/NetApp/snapcenter/spl/plugins/scu/scucore/configurationcheck/Config_Check.sh
+Cmnd_Alias SCCMD = sha224:_checksum_value_== /opt/NetApp/snapcenter/spl/bin/sc_command_executor
+Cmnd_Alias SCCCMDEXECUTOR = sha224:_checksum_value_== /opt/NetApp/snapcenter/scc/bin/sccCommandExecutor
 _SUDO_USER_ ALL=(ALL) NOPASSWD:SETENV: HPPLCMD, PRECHECKCMD, CONFIGCHECKCMD, SCCCMDEXECUTOR, SCCMD, /usr/bin/sed, /usr/bin/cp, /usr/bin/systemctl, /usr/bin/keytool, /usr/bin/sh, /tmp/snapcenter_linux_host_plugin_scs.bin, /tmp/oracle_plugin_install.sh, /usr/bin/nohup
-Defaults:_SUDO_USER_ !visiblepw
-Defaults:_SUDO_USER_ !requiretty
+Defaults: _SUDO_USER_ !visiblepw
+Defaults: _SUDO_USER_ !requiretty
 ----
 +
-_SUDO_USER_ is the name of the non-root user that you created.
+_SUDO_USER_ is the name of the non-root user that you created. You can obtain the _checksum_value_ from the *oracle_checksum_scs.txt* file, which is located at *_base_mount_path_/_version_/sc-linux-host-plugin/*.
++
+The base mount path can be obtained by running the following command:
+`# sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
++
+IMPORTANT: Ensure that when you create your file, you do not miss adding the following: _/usr/bin/sed, /usr/bin/cp, /usr/bin/systemctl, /usr/bin/keytool, /usr/bin/sh, /tmp/snapcenter_linux_host_plugin_scs.bin, /tmp/oracle_plugin_install.sh, /usr/bin/nohup_. These paths will not be available in the *oracle_checksum_scs.txt* file.
 
 === Manual deployment of SnapCenter Plug-in for Oracle
 
