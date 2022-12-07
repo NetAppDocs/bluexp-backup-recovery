@@ -334,11 +334,11 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * Consider the impact of backups before assigning the `all` tiering policy to volumes. Because data is tiered immediately, Cloud Backup will read data from the cloud tier rather than from the local tier. Because concurrent backup operations share the network link to the cloud object store, performance degradation might occur if network resources become saturated. In this case, you may want to proactively configure multiple network interfaces (LIFs) to decrease this type of network saturation.
 
-== Limitations
-
-The following is a known issue that will be fixed in a future release:
-
-* During a restore operation, if the backup was created on a system running ONTAP version 9.10.1 or later, and the system where the volume is being restored is running ONTAP version 9.10.0 or earlier, then the restore fails with either system disruption or in some cases the restore is successful, but the volume is corrupted.
+//== Limitations
+//
+//The following is a known issue that will be fixed in a future release:
+//
+//* During a restore operation, if the backup was created on a system running ONTAP version 9.10.1 or later, and the system where the volume is being restored is running ONTAP version 9.10.0 or earlier, then the restore fails with either system disruption or in some cases the restore is successful, but the volume is corrupted.
 
 === Backup limitations
 
@@ -366,7 +366,7 @@ The following is a known issue that will be fixed in a future release:
 
 * ONTAP doesn't support fan-out of SnapMirror relationships from a single volume to multiple object stores; therefore, this configuration is not supported by Cloud Backup.
 
-* WORM/Compliance mode on an object store is only supported on Amazon S3 and StorageGRID at this time. This is known as the DataLock feature and it must be managed using Cloud Backup settings.
+* WORM/Compliance mode on an object store is only supported on Amazon S3 and StorageGRID at this time. This is known as the DataLock feature, and it must be managed using Cloud Backup settings.
 
 === File and Folder Restore limitations
 
@@ -378,10 +378,12 @@ These limitations apply to both the Search & Restore and the Browse & Restore me
 
 * Browse & Restore and Search & Restore can restore 1 folder at a time.
 
-* The file being restored must be using the same language as the language on the destination volume. You will receive an error message if the languages are not the same.
+* Restoring from FlexGroup volumes to FlexVol volumes, or FlexVol volumes to FlexGroup volumes is not supported.
 
 * File level restore is not supported when using the same account with different BlueXP systems in different subnets.
 
+* File level restore using Search & Restore is not supported when the Connector is installed on a site without internet access (dark site).
+
 * You can't restore individual folders if the backup file resides in archival storage.
 
-* File level restore using Search & Restore is not supported when the Connector is installed on a site without internet access (dark site).
+* The file being restored must be using the same language as the language on the destination volume. You will receive an error message if the languages are not the same.
