@@ -94,7 +94,7 @@ You can restore a volume, folder, or individual files, from an ONTAP backup file
 [cols=2*,options="header",cols="50,50",width="80%"]
 |===
 
-| Backup File Location
+| Backup File Location |
 Destination Working Environment
 ifdef::aws[]
 | Amazon S3 | Cloud Volumes ONTAP in AWS
