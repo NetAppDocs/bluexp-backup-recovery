@@ -23,7 +23,7 @@ Before adding the host, you should ensure that the prerequisites are met.
 * Ensure that the Connector has connectivity to the working environment and Oracle database hosts.
 * Ensure that the BlueXP user has the “Account Admin” role.
 * Ensure that JAVA 11 is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
-* You should have created the non-root user. For information, refer to <<Create non-root user>>.
+* You should have created the non-root user. For information, refer to <<Create a non-root user>>.
 * If SSH key based authentication is not enabled on the Oracle host and you want to add the host manually, you should manually deploy the plug-in. For information, refer to <<Manual deployment of SnapCenter Plug-in for Oracle>>.
 
 === Create a non-root user
@@ -32,7 +32,7 @@ You should create a non-root user to deploy the plug-in.
 
 *Steps*
 
-. Create the user account, private key pair, and assign the permissions. For information, refer to link: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#create-user-account[Create a user account].
+. Create the user account, private key pair, and assign the permissions. For information, refer to https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#create-user-account[Create a user account^].
 . Add the following lines to the _/etc/sudoers_ file by using the visudo Linux utility.
 +
 [subs=+quotes]
