@@ -28,13 +28,13 @@ There are eight categories of endpoints defined within the Cloud Backup service:
 
 == Getting started
 
-To get started with the Cloud Backup APIs, you'll need to obtain a user token, your Cloud Central account ID, and the Cloud Connector ID.
+To get started with the Cloud Backup APIs, you'll need to obtain a user token, your BlueXP account ID, and the BlueXP Connector ID.
 
-When making API calls, you'll add the user token in the Authorization header, and the Cloud Connector ID in the x-agent-id header. You should use the Cloud Central account ID in the APIs.
+When making API calls, you'll add the user token in the Authorization header, and the BlueXP Connector ID in the x-agent-id header. You should use the BlueXP account ID in the APIs.
 
 .Steps
 
-. Obtain a user token from NetApp Cloud Central.
+. Obtain a user token from the NetApp BlueXP web site.
 +
 Make sure you generate the refresh token from the following link: https://services.cloud.netapp.com/refresh-token/. The refresh token is an alpha-numeric string that you'll use to generate a user token.
 +
@@ -48,9 +48,9 @@ curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/tok
 }'
 
 +
-NOTE: The user token from NetApp Cloud Central has an expiration date. The API response includes an "expires_in" field that states when the token expires. To refresh the token, you'll need to call this API again. 
+NOTE: The user token from the BlueXP web site has an expiration date. The API response includes an "expires_in" field that states when the token expires. To refresh the token, you'll need to call this API again. 
 
-. Obtain your NetApp Cloud Central account ID.
+. Obtain your BlueXP account ID.
 +
 [source,http]
 GET 'https://cloudmanager.cloud.netapp.com/tenancy/account' -H 'authority: cloudmanager.cloud.netapp.com'
@@ -60,7 +60,7 @@ Header:
 -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR………
 
 +
-This API will return a response like the following. You can retrieve account ID by parsing the output from *[0].[ accountPublicId]*.
+This API will return a response like the following. You can retrieve the account ID by parsing the output from *[0].[ accountPublicId]*.
 +
 [source,text]
 [{"accountPublicId":"account-i6vJXvZW","accountName":"rashidn","isSaas":true,"isGov":false,"isPrivatePreviewEnabled":false,"is3rdPartyServicesEnabled":false,"accountSerial":"96064469711530003565","userRole":"Role-1"}………
@@ -83,11 +83,13 @@ This API will return a response like the following. You can retrieve the agent i
 
 == Example using the APIs
 
-The following example shows an API call to activate backup on Working Environment with a new policy that has daily, hourly, and weekly labels set and archive after days set as 180 days, in East-US-2 region in Azure cloud. Please note this enables backup only on Working Environment but no volumes are backed up. If you choose "auto-backup-enabled": true then any volumes already existing in the system would be backed up, plus future volumes added.
+The following example shows an API call to activate Cloud Backup on a working environment with a new policy that has daily, hourly, and weekly labels set, archive after days set to 180 days, in East-US-2 region in Azure cloud. Note that this only enables backup on the working environment, but no volumes are backed up. 
+
+If you choose "auto-backup-enabled": "true", then any volumes already existing in the system would be backed up, plus any future volumes will also be backed up.
 
 .API Request
 
-You'll see that we use the Cloud Central account ID `account-DpTFcxN3`, BlueXP Connector ID `iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients`, and user token `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5rSXlPVFUzUWpZek1E…y6nyhBjwkeMwHc4ValobjUmju2x0xUH48g` in this command.
+You'll see that we use the BlueXP account ID `account-DpTFcxN3`, BlueXP Connector ID `iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients`, and user token `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5rSXlPVFUzUWpZek1E…y6nyhBjwkeMwHc4ValobjUmju2x0xUH48g` in this command.
 
 [source,http]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/account/account-DpTFcxN3/providers/cloudmanager_cbs/api/v3/backup/working-environment/VsaWorkingEnvironment-99hPYEgk' \
