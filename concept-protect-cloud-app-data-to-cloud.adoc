@@ -105,6 +105,7 @@ You should select Force in-place restore checkbox to override the foreign files 
 ** SAP HANA Multitenant Database Container (MDC) 2.0SPS4, 2.0SPS5, 2.0SPS6 with single or multiple tenants
 ** SAP HANA single host system, SAP HANA multiple host system (without a standby host), HANA System Replication
 ** HANA SSL  
+* SAP HANA plug-in on the database host  
 
 === Features
 

@@ -13,7 +13,7 @@ summary:  Restore the data files and then recover the database.
 :imagesdir: ./media/
 
 [.lead]
-In the event of data loss, you can restore the data files and then recover the database.
+In the event of data loss, you can restore the data and non-data files and then recover the database.
 
 *What you need*
 
@@ -24,7 +24,7 @@ You can provide a prescript to stop the SAP HANA system.
 *Steps*
 
 .	Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.
-.	Click image:icon-action.png[icon to select the action]corresponding to the data backup that you want to use for restoring and click *Restore*.
+.	Click image:icon-action.png[icon to select the action] corresponding to the data backup that you want to use for restoring and click *Restore*.
 .	In the *Restore System* page, enter the scripts.
 .	Click *Restore*.
 
