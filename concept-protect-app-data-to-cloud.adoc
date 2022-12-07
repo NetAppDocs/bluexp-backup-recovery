@@ -23,7 +23,7 @@ NOTE: You should be using SnapCenter Software 4.6 or later.
 For more information about Cloud Backup for Applications, refer to:
 
 * https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration[Application aware backup with Cloud Backup and SnapCenter^]
-* https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications[Cloud backup for applications^]
+* https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications[Cloud Backup for Applications podcast^]
 
 == Requirements
 

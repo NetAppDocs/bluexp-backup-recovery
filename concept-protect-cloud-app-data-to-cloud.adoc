@@ -18,6 +18,7 @@ Cloud Backup for Applications is a SaaS based service that provides data protect
 
 * Oracle databases residing on Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP
 * SAP HANA systems residing on Azure NetApp Files (ANF).
+* SAP HANA systems residing on Azure NetApp Files (ANF).
 
 == Architecture
 

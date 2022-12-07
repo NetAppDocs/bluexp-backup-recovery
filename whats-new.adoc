@@ -34,6 +34,24 @@ Learn what's new in Cloud Backup.
 ** Supports Google Cloud Platform (GCP) to back up one or more datastores
 ** Supports low cost cloud storage like Glacier, Deep Glacier, and Azure Archive 
 
+== 6 December 2022
+
+=== Support for the Google Archival storage class
+
+Backup files are initially created in the Google Standard storage class. Now you can choose to tier older backups to Google Archive storage after a certain number of days for further cost optimization. 
+
+This functionality is currently supported for on-prem ONTAP clusters using ONTAP 9.12.1 or greater. It is not currently available for Cloud Volumes ONTAP systems.
+
+=== Support for FlexGroup volumes
+
+Cloud Backup now supports FlexGroup volumes. When using ONTAP 9.12.1 or greater, you can back up FlexGroup volumes to public and private cloud storage. If you have working environments that include FlexVol and FlexGroup volumes, once you update your ONTAP software, you can back up any of the FlexGroup volumes on those systems.
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#supported-volumes[See the full list of supported volume types].
+
+=== Ability to restore data from backups to a specific aggregate on Cloud Volumes ONTAP systems
+
+In earlier releases you could select the aggregate only when restoring data to on-prem ONTAP systems. This functionality now works when restoring data to Cloud Volumes ONTAP systems.
+
 == 2 November 2022
 
 === Ability to export older Snapshot copies into your baseline backup files
@@ -46,9 +64,9 @@ This option is available when activating Cloud Backup for your working environme
 
 Now you can delete the backup relationship for a volume. This provides you with an archiving mechanism if you want to stop the creation of new backup files and delete the source volume, but retain all the existing backup files. This gives you the ability to restore the volume from the backup file in the future, if needed, while clearing space from your source storage system. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap.html#deleting-volume-backup-relationships[Learn how].
 
-=== Support has been added to receive Cloud Backup alerts in email or in the Notification Center
+=== Support has been added to receive Cloud Backup alerts in email and in the Notification Center
 
-Cloud Backup has been integrated into the BlueXP Notification service. You can display Cloud Backup notifications by clicking the notification bell in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you’re not logged into the system. The email can be sent to any recipients who need to be aware of backup and restore activity. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status[Learn how].
+Cloud Backup has been integrated into the BlueXP Notification service. You can display Cloud Backup notifications by clicking the notification bell in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system. The email can be sent to any recipients who need to be aware of backup and restore activity. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status[Learn how].
 
 === New Advanced Settings page enables you to change cluster-level backup settings
 
@@ -64,11 +82,11 @@ This new page enables you to change many cluster-level backup settings that you 
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-settings-ontap.html[Learn more about managing cluster-level backup settings].
 
-=== Now you can restore backup files from the public cloud using Search & Restore when using an on-premises Connector
+=== Now you can restore backup files using Search & Restore when using an on-premises Connector
 
-In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises.
+In the previous release, support was added for creating backup files to the public cloud when the Connector is deployed in your premises. In this release, support has been continued to allow using Search & Restore to restore backups from Amazon S3 or Azure Blob when the Connector is deployed in your premises. Search & Restore also supports restoring backups from StorageGRID systems to on-premises ONTAP systems now.
 
-At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage. Search & Restore is not supported from StorageGRID systems - you must use Browse & Restore in this case.
+At this time, the Connector must be deployed in the Google Cloud Platform when using Search & Restore to restore backups from Google Cloud Storage.
 
 === Job Monitoring page has been updated 
 
@@ -124,6 +142,7 @@ In the past, a file restored to the original volume was always restored as a new
 === Drag and drop to enable Cloud Backup to StorageGRID systems
 
 If the https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[StorageGRID^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP working environment onto the destination to initiate the Cloud Backup setup wizard.
+// end::whats-new[]
 
 == 18 August 2022
 
@@ -157,7 +176,6 @@ Some of the Backup Policy pages have been redesigned to make it easier to view a
 If the https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html[Azure Blob^] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html[Google Cloud Storage^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP or Cloud Volumes ONTAP working environment (installed in Azure or GCP) onto the destination to initiate the Backup setup wizard.
 
 This functionality already exists for Amazon S3 buckets.
-// end::whats-new[]
 
 == 13 July 2022
 

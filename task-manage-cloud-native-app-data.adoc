@@ -50,42 +50,11 @@ You can view total number of backups created, policies used for creating backups
 . Click *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *View Details*.
 
-IMPORTANT: The agent ID is associated to the Connector. If a Connector that was used during registering the Oracle database host no longer exists, the subsequent backups of that application will fail because the agent ID of the new Connector is different. You should run the *connector-update* API to modify the agent ID.
+IMPORTANT: The agent ID is associated to the Connector. If a Connector that was used during registering the SAP HANA host no longer exists, the subsequent backups of that application will fail because the agent ID of the new Connector is different. You should modify the Connector id in the host.
 
-== Update the Connector Details
+== Update the Connector Details for SAP HANA database host
 
-If the Connector that was used during registering the application host no longer exists or is corrupted, you should deploy a new connector and update the Connector details by running the *connector-update* API.
-
-=== Update the Connector Details for Oracle database host
-
-If the Connector no longer exists or is corrupted, you should deploy a new connector. After deploying the new connector, you should run the *connector-update* API to update the Connector details.
-
-----
-curl --location --request PATCH 'https://snapcenter.cloudmanager.cloud.netapp.com/api/oracle/databases/connector-update' \
---header 'x-account-id: <CM account-id>' \
---header 'x-agent-id: <connector Agent ID >' \
---header 'Authorization: Bearer token' \
---header 'Content-Type: application/json' \
---data-raw '{
-"old_connector_id": "Old connector id that no longer exist",
-"new_connector_id": "New connector Id"
-}
-----
-
-After updating the Connector details, you should connect to the Oracle database host and perform the following steps:
-
-. Obtain the plug-in information running on the Oracle database host.
-`rpm -qi netapp-snapcenter-plugin-oracle`
-. Uninstall the plug-in.
-`sudo /opt/NetApp/snapcenter/spl/installation/plugins/uninstall`
-. Verify that the plug-in is uninstalled successfully.
-`rpm -qi netapp-snapcenter-plugin-oracle`
-
-After uninstalling the plug-in, you can deploy the plug-in. link:reference-prereq-protect-cloud-native-app-data.html#deploy-snapcenter-plug-in-for-oracle[Learn more].
-
-=== Update the Connector Details for SAP HANA database host
-
-If the Connector no longer exists or is corrupted, you should deploy a new connector. After deploying the new connector, you should run the *connector-update* API to update the Connector details for all hosts registered using the old connector.
+If the Connector that was used during registering the application host no longer exists or is corrupted, you should deploy a new connector. After deploying the new connector, you should run the *connector-update* API to update the Connector details for all hosts registered using the old connector.
 
 ----
 curl --location --request PATCH

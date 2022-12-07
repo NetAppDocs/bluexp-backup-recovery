@@ -25,14 +25,14 @@ Get started quickly by following these steps or scroll down to the remaining sec
 * You're running Cloud Volumes ONTAP 9.7P5 or later in GCP.
 * You have a valid GCP subscription for the storage space where your backups will be located.
 * You have a service account in your Google Cloud Project that has the predefined Storage Admin role.
-* You have subscribed to the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved[Cloud Manager Marketplace Backup offering^], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated^] a Cloud Backup BYOL license from NetApp.
+* You have subscribed to the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved[BlueXP Marketplace Backup offering^], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated^] a Cloud Backup BYOL license from NetApp.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable Cloud Backup on your new or existing system
 
 [role="quick-margin-list"]
 * New systems: Cloud Backup can be enabled when you complete the new working environment wizard.
 
-* Existing systems: Select the working environment and click *Enable* next to the Backup & Restore service in the right-panel, and then follow the setup wizard.
+* Existing systems: Select the working environment and click *Enable* next to the Backup and recovery service in the right-panel, and then follow the setup wizard.
 +
 image:screenshot_backup_cvo_enable.png[A screenshot that shows the Cloud Backup Enable button which is available after you select a working environment.]
 
@@ -50,7 +50,13 @@ image:screenshot_backup_provider_settings_gcp.png[A screenshot that shows the cl
 The default policy backs up volumes every day and retains the most recent 30 backup copies of each volume. Change to hourly, daily, weekly, monthly, or yearly backups, or select one of the system-defined policies that provide more options. You can also change the number of backup copies you want to retain.
 
 [role="quick-margin-para"]
-image:screenshot_backup_policy_gcp.png[A screenshot that shows the Cloud Backup settings where you can enable or disable the feature and then choose your backup retention.]
+image:screenshot_backup_policy_gcp_no_archive.png[A screenshot that shows the Cloud Backup settings where you can enable or disable the feature and then choose your backup retention.]
+//
+//[role="quick-margin-para"]
+//Backups are stored in Standard storage by default. If your cluster is using ONTAP 9.12.1 or greater, you can choose to tier backups to Archive storage after a certain number of days for further cost optimization. link:concept-cloud-backup-policies.html[Learn more about the available Cloud Backup policy configuration settings^].
+//
+//[role="quick-margin-para"]
+//image:screenshot_backup_policy_gcp.png[A screenshot that shows the Cloud Backup settings where you can enable or disable the feature and then choose your backup retention.]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Select the volumes that you want to back up
 
@@ -68,24 +74,24 @@ image:diagram_cloud_backup_cvo_google.png[A diagram showing how Cloud Backup com
 Supported ONTAP versions::
 Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
 
-Supported GCP regions::
-Cloud Backup is supported in all GCP regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^].
-
 License requirements::
-For Cloud Backup PAYGO licensing, a subscription through the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved[GCP Marketplace^] is required before you enable Cloud Backup. Billing for Cloud Backup is done through this subscription. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html[You can subscribe from the Details & Credentials page of the working environment wizard^].
+For Cloud Backup PAYGO licensing, a BlueXP subscription through the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved[GCP Marketplace^] is required before you enable Cloud Backup. Billing for Cloud Backup is done through this subscription. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html[You can subscribe from the Details & Credentials page of the working environment wizard^].
 +
-For Cloud Backup BYOL licensing, you need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[Learn how to manage your BYOL licenses].
+For Cloud Backup BYOL licensing, you need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[Learn how to manage your BYOL licenses^].
 +
 And you need to have a Google subscription for the storage space where your backups will be located.
+
+Supported GCP regions::
+Cloud Backup is supported in all GCP regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^].
 
 GCP Service Account::
 You need to have a service account in your Google Cloud Project that has the predefined Storage Admin role. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html[Learn how to create a service account^].
 
 Verify or add permissions to the Connector::
 
-To use the Cloud Backup Search & Restore functionality, you need to have specific permissions in the role for the Connector so that it can access the Google Cloud BigQuery service. See the permissions below, and follow the steps if you need to modify the policy.
+To use the Cloud Backup "Search & Restore" functionality, you need to have specific permissions in the role for the Connector so that it can access the Google Cloud BigQuery service. See the permissions below, and follow the steps if you need to modify the policy.
 
-. In link:https://console.cloud.google.com[Cloud Console^], go to the *Roles* page.
+. In https://console.cloud.google.com[Cloud Console^], go to the *Roles* page.
 
 . Using the drop-down list at the top of the page, select the project or organization that contains the role that you want to edit.
 
@@ -113,7 +119,7 @@ bigquery.tables.create
 
 Cloud Backup can be enabled when you complete the working environment wizard to create a new Cloud Volumes ONTAP system.
 
-You must have a Service Account already configured. If you don’t select a service account when you create the Cloud Volumes ONTAP system, then you’ll need to turn off the system and add the service account to Cloud Volumes ONTAP from the GCP console.
+You must have a Service Account already configured. If you don't select a service account when you create the Cloud Volumes ONTAP system, then you'll need to turn off the system and add the service account to Cloud Volumes ONTAP from the GCP console.
 
 See https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html[Launching Cloud Volumes ONTAP in GCP^] for requirements and details for creating your Cloud Volumes ONTAP system.
 
@@ -151,7 +157,7 @@ You can enable Cloud Backup at any time directly from the working environment.
 
 .Steps
 
-. Select the working environment and click *Enable* next to the Backup & Restore service in the right-panel.
+. Select the working environment and click *Enable* next to the Backup and recovery service in the right-panel.
 +
 If the Google Cloud Storage destination for your backups exists as a working environment on the Canvas, you can drag the cluster onto the Google Cloud Storage working environment to initiate the setup wizard.
 +
@@ -168,8 +174,10 @@ Note that the Project must have a Service Account that has the predefined Storag
 
 .. Enter the name for the default policy. You don't need to change the name.
 .. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
+//.. When using ONTAP 9.12.1 or greater, you can choose to tier backups to Archive storage after a certain number of days for further cost optimization. link:concept-cloud-backup-policies.html[Learn more about the available Cloud Backup policy configuration settings^].
 +
-image:screenshot_backup_policy_gcp.png[A screenshot that shows the Cloud Backup settings where you can enable or disable the feature and then choose your backup retention.]
+image:screenshot_backup_policy_gcp_no_archive.png[A screenshot that shows the Cloud Backup settings where you can enable or disable the feature and then choose your backup retention.]
+//image:screenshot_backup_policy_gcp.png[A screenshot that shows the Cloud Backup settings where you can enable or disable the feature and then choose your backup retention.]
 
 . Select the volumes that you want to back up using the defined backup policy in the Select Volumes page. If you want to assign different backup policies to certain volumes, you can create additional policies and apply them to those volumes later.
 
@@ -181,13 +189,15 @@ image:screenshot_backup_policy_gcp.png[A screenshot that shows the Cloud Backup 
 image:screenshot_backup_select_volumes.png[A screenshot of selecting the volumes that will be backed up.]
 
 +
-* If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "Export existing Snapshot copies to object storage as backup copies". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
+* If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "Export existing Snapshot copies to object storage as backup copies". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Click *Activate Backup* and Cloud Backup starts taking the initial backups of each selected volume.
 
 .Result
 
 A Google Cloud Storage bucket is created automatically in the service account indicated by the Google access key and secret key you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups. You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
+
+Backups are associated with the _Standard_ storage class by default. You can use the lower cost _Nearline_, _Coldline_, or _Archive_ storage classes. However, you configure the storage class through Google, not through the Cloud Backup UI. See the Google topic https://cloud.google.com/storage/docs/changing-default-storage-class[Changing the default storage class of a bucket^] for details.
 
 == What's next?
 

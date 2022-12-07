@@ -13,13 +13,14 @@ summary:  Deploy the SnapCenter Plug-in for Oracle on each of the Oracle databas
 :imagesdir: ./media/
 
 [.lead]
-You should add the host and discover the databases on the host to assign policies and create backups.
+You should add the host and discover the databases on the host to assign policies and create backups. You can either add the host manually when you have already deployed the plug-in or add the host using SSH.
 
 *What you will need*
 
 * You should have created the working environment and the Connector.
 * Ensure that the Connector has connectivity to the working environment and Oracle database hosts.
 * Ensure that the BlueXP user has the “Account Admin” role.
+* Ensure that JAVA 11 is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
 
 *Steps*
 
@@ -55,12 +56,16 @@ Want to deploy the plug-in using SSH
 a|
 . Select *Using SSH*.
 . Specify the  FQDN or IP address of the host where you want to install the plug-in.
-. Sepcify the username using which the plug-in package will be copied to the host.
+. Specify the username (sudo non-root user) using which the plug-in package will be copied to the host.
 . Specify the SSH and plug-in port.
 +
 Default SSH port is 22 and the plug-in port is 8145.
++
+You can close the SSH port on the application host after installing the plug-in. The SSH port is not required for any other plug-in operations.
 . Select the Connector.
 . (Optional) If key less authentication is not enabled between the Connector and the host, you should specify the SSH private key that will be used to communicate with the host.
++
+NOTE: The SSH private key is not stored any where in the application and will not used for any other operations.
 . Click *Next*.
 |===
 +
@@ -88,7 +93,7 @@ NOTE: Ensure that JAVA 11 is installed on each of the Oracle database hosts and 
 . Copy _snapcenter_linux_host_plugin_scs.bin_ to each of the Oracle database hosts either using scp or other alternate methods.
 . On the Oracle database host, run the following command to enable execute permissions for the binary.
 `chmod +x snapcenter_linux_host_plugin_scs.bin`
-. Deploy the Oracle plug-in as a root user.
+. Deploy the Oracle plug-in as a sudo non-root user.
 `./snapcenter_linux_host_plugin_scs.bin -i silent`
 . Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
 +
