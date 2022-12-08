@@ -61,6 +61,16 @@ Go to *Canvas* page to add a new working environment
 
 You can edit the SAP HANA systems that were added. You can remove a HANA system using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
 
+== Add Non-Data Volumes
+You can add Non-Data Volumes for storing non-data files belonging to a system. These are added separately from Data Volumes so that their backups can be scheduled based on the specific requirements of the user.  These backups can be used to recover from situations where non-data files belonging to a system must be restored.
+
+*Steps*
+
+.   In the *BlueXP* UI, click *Protection* > *Backup and recovery* > *Applications*.
+.	Click *Discover Applications*.
+.	Select *Cloud Native* > *SAP HANA* and click *Next*.
+.	In the *Applications* page, click image:icon-action.png[icon to select the action] corresponding to the system for which you want to add the Non-Data Volumes and select *Manage System* > *Non-Data Volume*.
+
 == Add global Non-Data Volumes
 After adding the multitenant database container or single container type SAP HANA system, you can add the non-data volumes of the HANA system.
 

@@ -17,9 +17,8 @@ In the event of data loss, you can restore the data and non-data files and then 
 
 *What you need*
 
-The SAP HANA system must be in a stopped state.
-
-You can provide a prescript to stop the SAP HANA system.
+. The SAP HANA system must be in a stopped state.
+. You can provide a prescript to stop the SAP HANA system.
 
 *Steps*
 
@@ -31,3 +30,19 @@ You can provide a prescript to stop the SAP HANA system.
 *After you finish*
 
 After restoring, manually recover the SAP HANA system or provide a postscript, which performs the SAP HANA system recovery.
+
+== Restore Non-Data Volume
+
+. In the *Applications* page, select Non-Data Volume from the drop-down box.
+. Click image:icon-action.png[icon to select the action] corresponding to the backup that you want to restore and click *Restore*.
+
+== Restore Global Non-Data Volume
+
+*Steps*
+
+. In the *Applications* page, click on the Global Non-Data Volume that you want to restore.
+. Click image:icon-action.png[icon to select the action] corresponding to the Global Non-Data Volume that you want to restore and click *Restore*.
+
+
+
+
