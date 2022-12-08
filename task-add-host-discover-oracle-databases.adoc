@@ -15,12 +15,76 @@ summary:  Deploy the SnapCenter Plug-in for Oracle on each of the Oracle databas
 [.lead]
 You should add the host and discover the databases on the host to assign policies and create backups. You can either add the host manually when you have already deployed the plug-in or add the host using SSH.
 
-*What you will need*
+== Prerequisites
+
+Before adding the host, you should ensure that the prerequisites are met.
 
 * You should have created the working environment and the Connector.
 * Ensure that the Connector has connectivity to the working environment and Oracle database hosts.
 * Ensure that the BlueXP user has the “Account Admin” role.
 * Ensure that JAVA 11 is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
+* You should have created the non-root user. For information, refer to <<Create a non-root user>>.
+* If SSH key based authentication is not enabled on the Oracle host and you want to add the host manually, you should manually deploy the plug-in. For information, refer to <<Manual deployment of SnapCenter Plug-in for Oracle>>.
+
+=== Create a non-root user
+
+You should create a non-root user to deploy the plug-in.
+
+*Steps*
+
+. Create the user account, private key pair, and assign the permissions. For information, refer to https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#create-user-account[Create a user account^].
+. Add the following lines to the _/etc/sudoers_ file by using the visudo Linux utility.
++
+NOTE: The below example should be used only as a reference for creating your own data. 
++
+[subs=+quotes]
+----
+Cmnd_Alias HPPLCMD = sha224:checksum_value== /home/_SUDO_USER_/.sc_netapp/snapcenter_linux_host_plugin_scs.bin, /opt/NetApp/snapcenter/spl/installation/plugins/uninstall, /opt/NetApp/snapcenter/spl/bin/spl, /opt/NetApp/snapcenter/scc/bin/scc
+Cmnd_Alias PRECHECKCMD = sha224:checksum_value== /home/_SUDO_USER_/.sc_netapp/Linux_Prechecks.sh
+Cmnd_Alias CONFIGCHECKCMD = sha224:checksum_value== /opt/NetApp/snapcenter/spl/plugins/scu/scucore/configurationcheck/Config_Check.sh
+Cmnd_Alias SCCMD = sha224:checksum_value== /opt/NetApp/snapcenter/spl/bin/sc_command_executor
+Cmnd_Alias SCCCMDEXECUTOR = sha224:checksum_value== /opt/NetApp/snapcenter/scc/bin/sccCommandExecutor
+_SUDO_USER_ ALL=(ALL) NOPASSWD:SETENV: HPPLCMD, PRECHECKCMD, CONFIGCHECKCMD, SCCCMDEXECUTOR, SCCMD, /usr/bin/sed, /usr/bin/cp, /usr/bin/systemctl, /usr/bin/keytool, /usr/bin/sh, /tmp/snapcenter_linux_host_plugin_scs.bin, /tmp/oracle_plugin_install.sh, /usr/bin/nohup
+Defaults: _SUDO_USER_ !visiblepw
+Defaults: _SUDO_USER_ !requiretty
+----
++
+_SUDO_USER_ is the name of the non-root user that you created. You can obtain the _checksum_value_ from the *oracle_checksum_scs.txt* file, which is located at *_base_mount_path_/_version_/sc-linux-host-plugin/*.
++
+The base mount path can be obtained by running the following command:
+`# sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
++
+IMPORTANT: Ensure that when you create your file, you do not miss adding the following: _/usr/bin/sed, /usr/bin/cp, /usr/bin/systemctl, /usr/bin/keytool, /usr/bin/sh, /tmp/snapcenter_linux_host_plugin_scs.bin, /tmp/oracle_plugin_install.sh, /usr/bin/nohup_. These paths will not be available in the *oracle_checksum_scs.txt* file.
+
+=== Manual deployment of SnapCenter Plug-in for Oracle
+
+You should deploy the SnapCenter Plug-in for Oracle on each of the Oracle database hosts.
+
+NOTE: Ensure that JAVA 11 is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
+
+*Steps*
+
+. Log into the Connector VM.
+. Download the SnapCenter Linux host plug-in binary.
+`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
+. Obtain the base mount path.
+`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
+. Obtain the binary path of the downloaded plug-in.
+`sudo ls <base_mount_path> $(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
+. Copy _snapcenter_linux_host_plugin_scs.bin_ to each of the Oracle database hosts either using scp or other alternate methods.
+. On the Oracle database host, run the following command to enable execute permissions for the binary.
+`chmod +x snapcenter_linux_host_plugin_scs.bin`
+. Deploy the Oracle plug-in as a sudo non-root user.
+`./snapcenter_linux_host_plugin_scs.bin -i silent`
+. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
++
+.. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
+`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
+.. Restart SPL: `systemctl restart spl`
+
+== Add host
+
+You should add the host and discover the Oracle databases.
 
 *Steps*
 
@@ -40,7 +104,7 @@ NOTE: The service account (_SnapCenter-account-<accountid>_) is used for running
 | If you... | Do this...
 
 a|
-Have <<Manual deployment of SnapCenter Plug-in for Oracle, manually deployed the plug-in>>.
+Have manually deployed the plug-in
 
 a|
 . Select *Manual*.
@@ -74,32 +138,6 @@ NOTE: The SSH private key is not stored any where in the application and will no
 * Click *Settings* and select *Hosts* to view all the database hosts. Click *Remove* to remove a database host.
 +
 * Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and if you want you can either edit them to meet your requirement or create a new policy.
-
-== Manual deployment of SnapCenter Plug-in for Oracle
-
-You should deploy the SnapCenter Plug-in for Oracle on each of the Oracle database hosts. If SSH key based authentication is not enabled on the Oracle host, you should perform the following manual steps to deploy the plug-in.
-
-NOTE: Ensure that JAVA 11 is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
-
-*Steps*
-
-. Log into the Connector VM.
-. Download the SnapCenter Linux host plug-in binary.
-`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
-. Obtain the base mount path.
-`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
-. Obtain the binary path of the downloaded plug-in.
-`sudo ls <base_mount_path> $(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
-. Copy _snapcenter_linux_host_plugin_scs.bin_ to each of the Oracle database hosts either using scp or other alternate methods.
-. On the Oracle database host, run the following command to enable execute permissions for the binary.
-`chmod +x snapcenter_linux_host_plugin_scs.bin`
-. Deploy the Oracle plug-in as a sudo non-root user.
-`./snapcenter_linux_host_plugin_scs.bin -i silent`
-. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
-+
-.. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
-`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
-.. Restart SPL: `systemctl restart spl`
 
 == Configure Oracle database credentials
 
