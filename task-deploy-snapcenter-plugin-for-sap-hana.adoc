@@ -52,24 +52,43 @@ If SSH key based authentication is not enabled on the HANA host, you should perf
 . Run the following command in the Connector VM to download the SnapCenter Linux host plug-in binary.
 `# sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'``
 
-. Obtain the base mount path.
-`# sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint``
+. Obtain the package directory path.
+`$ base_mount_path=`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint | awk '{ print $2 }' | cut -f 2 -d '"'```
+`$ package_dir_path=`echo $base_mount_path/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/```
 
 . Run the following command to obtain the binary path of the downloaded plug-in.
-`# sudo ls <base_mount_path>/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin``
-. Copy "snapcenter_linux_host_plugin_scs.bin" to each of the SAP-HANA database hosts either using scp or other alternate methods.
+`$ sudo ls $package_dir_path/snapcenter_linux_host_plugin_scs.bin``
 
-. On the HANA database host, run the following command to enable execute permissions for the binary.
-`# chmod +x snapcenter_linux_host_plugin_scs.bin``
-. Deploy the HANA plug-in by specifying the port and the non-root user.
+. (Optional) Obtain the public key.
+`$ sudo openssl x509 -pubkey -noout -in $package_dir_path/prod-SnapCenter-Services-Plugin.pem > /tmp/SnapCenter-Services-Plugin-public.pub`
+. (Optional) Verify the package signature. 
 +
-``./snapcenter_linux_host_plugin_scs.bin -i silent -DPORT=8145 -DSPL_USER=scuser``
-
-. Ensure port "8145" is unblocked from the connector VM. 
+You should see "Verified OK" as the output.
+`$ sudo openssl dgst -sha256 -verify /tmp/SnapCenter-Services-Plugin-public.pub -signature $package_dir_path/snapcenter_linux_host_plugin_scs.bin.sig $package_dir_path/snapcenter_linux_host_plugin_scs.bin`
+. On the Linux host, create a non-root user (say: scuser), login as non-root user, scp the package and obtain SHA224 checksum.
 +
-If the port is not unblocked, supply argument "-DPORT=443" during manual install.
-`# ./snapcenter_linux_host_plugin_scs.bin -i silent``
-. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host. 
-. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
-`# keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt``
-. Restart SPL: `# systemctl restart spl`
+For example, 
+`$ scp <cmuser>@<connectorip>:/home/cmuser/snapcenter_linux_host_plugin_scs.bin`
+`$ chmod +x ./snapcenter_linux_host_plugin_scs.bin`
+`$ openssl dgst -sha224  -binary ./snapcenter_linux_host_plugin_scs.bin | openssl base64`
+`mRCkEJ15odTGtW3PH9YlRbTkZghwPko8M1WcYQ==`
++
+Similarly, verify sha224 checksum post product installation.
+. As a root user run the visudo and update the below paragraph for CBA plug-in side operations.
+`Cmnd_Alias HPPLCMD = sha224:mRCkEJ15odTGtW3PH9YlRbTkZghwPko8M1WcYQ== /home/scuser/snapcenter_linux_host_plugin_scs.bin, /opt/NetApp/snapcenter/spl/installation/plugins/uninstall, /opt/NetApp/snapcenter/spl/bin/spl, /opt/NetApp/snapcenter/scc/bin/scc
+Cmnd_Alias CONFIGCHECKCMD = sha224:HQukzZNynG+nugzScFnHuccouOL75sZ1RRDaNg== /opt/NetApp/snapcenter/spl/plugins/scu/scucore/configurationcheck/Config_Check.sh
+Cmnd_Alias SCCMD = sha224:GHupVXP5krvae06pNNxjvhZcM5VfRkOvc86Ibw== /opt/NetApp/snapcenter/spl/bin/sc_command_executor
+Cmnd_Alias SCCCMDEXECUTOR = sha224:LZCipEIopaFpW92j+rvubQJlhX6ousO7Jf5Sxg== /opt/NetApp/snapcenter/scc/bin/sccCommandExecutor
+scuser ALL=(ALL) NOPASSWD:SETENV: HPPLCMD, CONFIGCHECKCMD, SCCCMDEXECUTOR, SCCMD
+Defaults:scuser !visiblepw
+Defaults:scuser !requiretty`
+. Install the HANA plug-in package by specifying the port and the non-root user as shown below.
+`[scuser@scspa2622265001 ~]$ sudo ./snapcenter_linux_host_plugin_scs.bin -i silent -DPORT=8145 -DSPL_USER=scuser`
+. Copy the certificate file.
+For example,
+.. Run the following command: `$ base_mount_path/client/certificate/certificate.p12 to /var/opt/snapcenter/spl/etc/``
+.. Navigate to `/var/opt/snapcenter/spl/etc`` 
+.. Execute the keytool command to import the certificate.
+ `[scuser@scspa2622265001 ~]$ keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt``
+ .. Restart SPL.
+`[scuser@scspa2622265001 ~]$ sudo /opt/NetApp/snapcenter/spl/bin/spl restart``
