@@ -52,6 +52,16 @@ You can view total number of backups created, policies used for creating backups
 
 IMPORTANT: The agent ID is associated to the Connector. If a Connector that was used during registering the SAP HANA host no longer exists, the subsequent backups of that application will fail because the agent ID of the new Connector is different. You should modify the Connector id in the host.
 
+== Delete clone
+
+You can delete a clone if you no longer require.
+
+. Click image:button_plus_sign_square.png[icon to select the action] adjacent to *Filter By* and select *Clone options* > *Clone parents*.
+. Click image:icon-action.png[icon to select the action] corresponding to the application and click *View Details*.
+. In the Database Details page, click image:button_plus_sign_square.png[icon to select the action] adjacent to *Filter By* and select *Clone*.
+. Click image:icon-action.png[icon to select the action] corresponding to the clone that you want to delete and click *Delete*.
+. (Optional) Select the *force delete* checkbox.
+
 == Update the Connector Details for SAP HANA database host
 
 If the Connector that was used during registering the application host no longer exists or is corrupted, you should deploy a new connector. After deploying the new connector, you should run the *connector-update* API to update the Connector details for all hosts registered using the old connector.
@@ -105,7 +115,7 @@ NOTE: The certfile.crt refers to the certificates of root CA as well as intermed
 
 === Configure CA signed certificate for server certificate of plug-in
 
-The CA certificate should have the exact name of the Oracle plug-in host with which the Connector virtual machine communicates.
+The CA certificate should have the exact name of the plug-in host with which the Connector virtual machine communicates.
 
 *What you will need*
 

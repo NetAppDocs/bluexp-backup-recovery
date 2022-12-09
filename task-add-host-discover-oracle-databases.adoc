@@ -24,7 +24,9 @@ Before adding the host, you should ensure that the prerequisites are met.
 * Ensure that the BlueXP user has the “Account Admin” role.
 * Ensure that JAVA 11 is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
 * You should have created the non-root user. For information, refer to <<Create a non-root user>>.
-* If SSH key based authentication is not enabled on the Oracle host and you want to add the host manually, you should manually deploy the plug-in. For information, refer to <<Manual deployment of SnapCenter Plug-in for Oracle>>.
+* If you want to add the host manually, you should first deploy the plug-in. You can either <<Deploy the plug-in manually>> or <<Deploy the plug-in using SSH key based authentication>>.
++
+You should deploy the plug-in on each of the Oracle database hosts.
 
 === Create a non-root user
 
@@ -56,11 +58,9 @@ The base mount path can be obtained by running the following command:
 +
 IMPORTANT: Ensure that when you create your file, you do not miss adding the following: _/usr/bin/sed, /usr/bin/cp, /usr/bin/systemctl, /usr/bin/keytool, /usr/bin/sh, /tmp/snapcenter_linux_host_plugin_scs.bin, /tmp/oracle_plugin_install.sh, /usr/bin/nohup_. These paths will not be available in the *oracle_checksum_scs.txt* file.
 
-=== Manual deployment of SnapCenter Plug-in for Oracle
+=== Deploy the plug-in manually
 
-You should deploy the SnapCenter Plug-in for Oracle on each of the Oracle database hosts.
-
-NOTE: Ensure that JAVA 11 is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
+If SSH key based authentication is not enabled on the Oracle host, you should perform the following manual steps to deploy the plug-in.
 
 *Steps*
 
@@ -81,6 +81,28 @@ NOTE: Ensure that JAVA 11 is installed on each of the Oracle database hosts and 
 .. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
 .. Restart SPL: `systemctl restart spl`
+
+=== Deploy the plug-in using SSH key based authentication
+
+If SSH key based authentication is enabled on the Oracle host, you can perform the following steps to deploy the plug-in. Before performing the steps, ensure that the SSH connection to the Connector is enabled.
+
+*Steps*
+
+. Log into the Connector VM.
+. Obtain the base mount path.
+`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
+. Deploy the plug-in.
+`sudo <base_mount_path>/scripts/oracle_plugin_copy_and_install.sh --host <host_name> --sshkey <ssh_key_file> --username <user_name> --port <ssh_port> --pluginport <plugin_port> --installdir <install_dir>`
+
+* host_name is the name of the Oracle host and this is a mandatory parameter.
+* ssh_key_file is SSH key used to connect to the Oracle host and this is a mandatory parameter.
+* user_name: User with SSH privileges on the Oracle host and this is an optional parameter. Default value is ec2-user.
+* ssh_port: SSH port on the Oracle host and this is an optional parameter. Default value is 22
+* plugin_port: Port used by the plug-in and this is an optional parameter. Default value is 8145
+* install_dir: Directory where the plug-in will be deployed and this is an optional parameter. Default value is /opt.
+
+For example:
+`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/oracle_plugin_copy_and_install.sh --host xxx.xx.x.x --sshkey /keys/netapp-ssh.ppk`
 
 == Add host
 
@@ -109,6 +131,8 @@ Have manually deployed the plug-in
 a|
 . Select *Manual*.
 . Specify the  FQDN or IP address of the host where the plug-in is deployed.
++
+Ensure that using the FQDN or IP address, the Connector can communicate with the database host.
 . Specify the plug-in port.
 +
 Default port is 8145.
@@ -146,7 +170,9 @@ You should configure credentials that are used to perform data protection operat
 *Steps*
 
 . If OS authentication is disabled for the database, you should configure database authentication by clicking *Configure*.
-. Specify the username, password, and the port details either in the Database Settings or ASM Settings section.
+. Specify the username, password, and the port details.
++
+If the database is residing on ASM, you should also configure the ASM settings.
 +
 The Oracle user should have sysdba privileges and ASM user should have sysasm privileges.
 . Click *Configure*.

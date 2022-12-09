@@ -16,7 +16,7 @@ summary: BlueXP offers efficient, application consistent, policy-based backup, a
 
 Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within BlueXP (formerly Cloud Manager) offers efficient, application consistent, policy-based backup, and restore of the following applications:
 
-* Oracle databases residing on Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP
+* Oracle databases residing on Amazon FSx for NetApp ONTAP and Cloud Volumes ONTAP
 * SAP HANA systems residing on Azure NetApp Files (ANF).
 
 == Architecture
@@ -28,8 +28,8 @@ The Cloud Backup for Applications architecture includes the following components
 It orchestrates the data protection workflows for applications residing on NetApp Cloud Storage.
 * Cloud Backup for Applications UI is integrated with BlueXP UI.
 +
-The Cloud Backup for Applications UI offers multiple storage and data management capabilities.
-* BlueXP Connector is a component that runs in your cloud network and interacts with storage system and application specific plug-in.
+The Cloud Backup for Applications UI offers data protection capabilities for applications.
+* BlueXP Connector is a component that runs in your cloud network and interacts with storage systems and application specific plug-ins.
 
 * The application specific plug-in is a component that runs on each application host and interacts with the databases running on the host while performing data protection operations.
 
@@ -37,27 +37,35 @@ The following image shows each component and the connections that you need to pr
 
 image:diagram_nativecloud_backup_app.png[A diagram showing how each component and the connections need to be prepared.]
 
-For any user-initiated request, the Cloud Backup for Applications UI communicates with the BlueXP SaaS which upon validating the request processes the same. If the request is to run a workflow such as a backup or restore, the SaaS service initiates the workflow and where required, forwards the call to the BlueXP Connector. The Connector then communicates with with storage system and application specific plug-in as part of running the workflow tasks.
+For any user-initiated request, the Cloud Backup for Applications UI communicates with the BlueXP SaaS which upon validating the request processes the same. If the request is to run a workflow such as a backup or restore, the SaaS service initiates the workflow and where required, forwards the call to the BlueXP Connector. The Connector then communicates with storage system and application specific plug-in as part of running the workflow tasks.
 
-The Connector can be deployed in the same VPC as that of the applications, or in a different one. If the Connector and applications are on different network, you should establish a network connectivity between them.
+The Connector can be deployed in the same VPC or VNet as that of the applications, or in a different one. If the Connector and applications are on different network, you should establish a network connectivity between them.
 
-IMPORTANT: Cloud Backup for Applications infrastructure is resilient to availability zone failures within a region. It now supports regional failures by failing over to a new region and this failover involves a downtime of around 2 hours.
+NOTE:  A single BlueXP Connector can communicate with multiple storage systems and multiple application plug-ins. You will need a single Connector to manage your applications as long as there is connectivity between the Connector and application hosts.
 
-== Oracle database
+IMPORTANT: Cloud Backup for Applications SaaS infrastructure is resilient to availability zone failures within a region. It supports regional failures by failing over to a new region and this failover involves a downtime of around 2 hours.
+
+== Protect Oracle database
 
 === Supported configurations
 
 * Operating System:
 ** RHEL 7.5 or later and 8.x
 ** OL 7.5 or later and 8.x
-* Storage System: Amazon FSx for ONTAP or Cloud Volumes ONTAP
-* Storage layouts: NFS v3 and v4.1 (dNFS is supported) and iSCSI with ASM (ASMFD, ASMLib and ASMUdev)
+* Storage System: 
+** Amazon FSx for ONTAP
+** Cloud Volumes ONTAP
+* Storage layouts:
+** NFS v3 and v4.1 (including dNFS) 
+** iSCSI with ASM (ASMFD, ASMLib and ASMUdev)
 * Database layouts: Oracle Standard and Oracle Enterprise Standalone (legacy and multitenant CDB and PDB)
 * Database versions: 12cR2, 18c, 19c, and 21c
 
 === Features
 
-* Add host and deploy plug-in using SSH
+* Add host and deploy plug-in
++
+You can deploy the plug-in either manually or using SSH.
 * Auto-discovery of Oracle databases
 * Backing up Oracle databases
 ** Full (data + control + archive log files) backup
@@ -68,29 +76,26 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 * Retaining backups based on the policy
 * Restoring complete Oracle database (data files + control file) from the specified backup
 * Restoring data files only and control files only from the specified backup
-* In SAN layout, if SnapCenter Plug-in for Oracle finds any foreign files other than Oracle data files on the ASM diskgroup, connect and copy restore method is performed. The foreign files could be one or more of the following types:
-** Parameter
-** Password
-** archive log
-** online log
-** ASM parameter file.
-+
-You should select Force in-place restore checkbox to override the foreign files of type parameter, password, and archive log.
 * Recovering Oracle database with until SCN, until time, all available logs, and no recovery options
-* Cloning Oracle database
-* Monitoring backups and other jobs
+* Cloning of Oracle Databases on source or alternate target hosts
+** Basic one-click Clone
+** Advanced cloning using custom clone specification file
+** Clone entities name could be auto-generated or be identical to source options
+** Viewing Clone hierarchy
+** Deleting Cloned databases
+* Monitoring backups, restore, clone, and other jobs
 * Displaying the protection summary on the dashboard
 * Sending alerts through email
 
 === Limitations
 
 * Does not support Oracle 11g
-* Does not support mount, clone, catalog, and verification operations on backups
+* Does not support mount, catalog, and verification operations on backups
 * Does not support Oracle on RAC and Data Guard
 * For Cloud Volumes ONTAP HA, only one of the network interface IPs are used. If the connectivity of the IP goes down or if you cannot access the IP, the operations fail.
 * The network interface IP addresses of Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP needs to be unique in the BlueXP account and region.
 
-== SAP HANA database
+== Protect SAP HANA database
 
 === Supported configurations
 

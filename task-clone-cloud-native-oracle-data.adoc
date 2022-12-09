@@ -19,7 +19,7 @@ You might clone databases for the following reasons:
 
 * To test functionality that must be implemented using the current database structure and content during application development cycles.
 * To populate data warehouses using data extraction and manipulation tools.
-* To recover data that was mistakenly deleted or changed.
+* To recover data that was mistakenly deleted or changed. 
 
 *Steps*
 
@@ -65,3 +65,4 @@ If you want to create the clone on an alternate host, select the host having the
 . Click *Next*.
 . Click *Clone*.
 |===
+. Click image:button_plus_sign_square.png[icon to select the action] adjacent to *Filter By* and select *Clone options* > *Clones* to view the clones.
