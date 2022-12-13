@@ -71,7 +71,7 @@ The following image shows each component and the connections that you need to pr
 
 image:diagram_cloud_backup_cvo_aws.png[A diagram showing how Cloud Backup communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
-The VPC gateway endpoint must exist in your VPC already.
+The VPC gateway endpoint must exist in your VPC already. https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html[Learn more about gateway endpoints^].
 
 Supported ONTAP versions::
 Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
@@ -89,11 +89,6 @@ And you need to have an AWS account for the storage space where your backups wil
 
 Supported AWS regions::
 Cloud Backup is supported in all AWS regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including AWS GovCloud regions.
-
-Required setup for creating backups in a different AWS account::
-By default, backups are created using the same account as the one used for your Cloud Volumes ONTAP system. If you want to use a different AWS account for your backups, you must:
-* Add the destination AWS account credentials in BlueXP. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#add-additional-credentials-to-a-connector[See how to do this].
-* Add the permissions "s3:PutBucketPolicy" and "s3:PutBucketOwnershipControls" to the IAM role that provides the BlueXP Connector with permissions.
 
 Required information for using customer-managed keys for data encryption::
 
@@ -168,6 +163,23 @@ Required AWS Cloud Volumes ONTAP permissions::
 When your Cloud Volumes ONTAP system is running ONTAP 9.12.1 or greater software, the IAM role that provides that working environment with permissions must include a new set of S3 permissions specifically for Cloud Backup from the latest https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html[Cloud Volumes ONTAP policy^].
 +
 If you created the Cloud Volumes ONTAP working environment using BlueXP version 3.9.23 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. 
+
+Required setup for creating backups in a different AWS account::
+By default, backups are created using the same account as the one used for your Cloud Volumes ONTAP system. If you want to use a different AWS account for your backups, you must:
+* Verify that the permissions "s3:PutBucketPolicy" and "s3:PutBucketOwnershipControls" are part of the IAM role that provides the BlueXP Connector with permissions.
+* Add the destination AWS account credentials in BlueXP. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#add-additional-credentials-to-a-connector[See how to do this^].
+* Add the following permissions in the user credentials in the second account:
++
+ "athena:StartQueryExecution",
+ "athena:GetQueryResults",
+ "athena:GetQueryExecution",
+ "glue:GetDatabase",
+ "glue:GetTable",
+ "glue:CreateTable",
+ "glue:CreateDatabase",
+ "glue:GetPartitions",
+ "glue:BatchCreatePartition",
+ "glue:BatchDeletePartition"
 
 == Enabling Cloud Backup on a new system
 
