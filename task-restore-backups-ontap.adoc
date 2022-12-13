@@ -35,7 +35,7 @@ As you can see, the Restore Dashboard provides 2 different ways to restore data 
 
 == Comparing Browse & Restore and Search & Restore
 
-In broad terms, _Browse & Restore_ is typically better when you need to restore a specific volume, folder, or file from the last week or month -- and you know the name and location of the file, and the date when it was last in good shape. _Search & Restore_ is typically better when you need to restore a volume, folder, or file, but you don’t remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
+In broad terms, _Browse & Restore_ is typically better when you need to restore a specific volume, folder, or file from the last week or month -- and you know the name and location of the file, and the date when it was last in good shape. _Search & Restore_ is typically better when you need to restore a volume, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
 
 This table provides a comparison of the 2 methods.
 
@@ -62,7 +62,7 @@ See the requirements and restore steps for the type of restore operation you wan
 * <<Restoring volumes using Browse & Restore,Restore volumes using Browse & Restore>>
 * <<Restoring folders and files using Browse & Restore,Restore folders and files using Browse & Restore>>
 * <<Restoring ONTAP data using Search & Restore,Restore volumes, folders, and files using Search & Restore>>
-//
+
 // provides buttons for you to restore volumes and files. Clicking the _Restore Volumes_ or _Restore Files_ buttons starts a wizard that walks you through the steps to restore that data.
 //
 // The dashboard also provides a list of all the volumes and all the files you have restored in case you need a history of previous restore actions. You can expand the row for each restored volume or file to view the details about the source and destination locations for the volume or file.
