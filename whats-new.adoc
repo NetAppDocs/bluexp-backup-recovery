@@ -19,9 +19,28 @@ Learn what's new in Cloud Backup.
 
 == 6 December 2022
 
-=== Support for the Google Archival storage class
+=== Required Connector outbound internet access endpoint changes
 
-Backup files are initially created in the Google Standard storage class. Now you can choose to tier older backups to Google Archive storage after a certain number of days for further cost optimization. 
+Because of a change in Cloud Backup, you need to change the following Connector endpoints for successful Cloud Backup operation:
+
+[cols=2*,options="header",cols="50,50",width="80%"]
+|===
+
+| Old endpoint
+| New endpoint
+
+| https://cloudmanager.cloud.netapp.com
+| https://api.bluexp.netapp.com
+| https://*.cloudmanager.cloud.netapp.com
+| https://*.api.bluexp.netapp.com
+
+|===
+
+See the full list of endpoints for your https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html#outbound-internet-access[AWS^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html#outbound-internet-access[Google Cloud^], or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html#outbound-internet-access[Azure^] cloud environment.
+
+=== Support for selecting the Google Archival storage class in the UI
+
+Backup files are initially created in the Google Standard storage class. Now you can use the Cloud Backup UI to tier older backups to Google Archive storage after a certain number of days for further cost optimization. 
 
 This functionality is currently supported for on-prem ONTAP clusters using ONTAP 9.12.1 or greater. It is not currently available for Cloud Volumes ONTAP systems.
 
