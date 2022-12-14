@@ -22,4 +22,6 @@ You should create Azure NetApp Files (ANF) working environments where your datab
 == Create a connector
 An Account Admin needs to deploy a Connector in ANF that enables BlueXP to manage resources and processes within your public cloud environment.
 
+NOTE: You cannot update the new connector_id from the UI.
+
 For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Create a Connector in Azure from BlueXP].

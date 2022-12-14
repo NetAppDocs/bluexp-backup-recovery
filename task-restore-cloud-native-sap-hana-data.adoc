@@ -15,10 +15,57 @@ summary:  Restore the data files and then recover the database.
 [.lead]
 In the event of data loss, you can restore the data and non-data files and then recover the database.
 
+== Prescripts and postscripts
+
+You can provide prescripts, postscripts, and exit scripts while creating a policy.  These scripts are run on the HANA host while creating backups. 
+
+The supported format for scripts are .sh, python script, perl script, and so on.
+
+The prescript and the postscript should be registered by the host admin into `/opt/NetApp/snapcenter/scc/etc/allowed_commands.config file``
+
+`[root@scspa2622265001 etc]# cat allowed_commands.config
+command: mount
+command: umount
+command: /mnt/scripts/pre_script.sh
+command: /mnt/scripts/post_script.sh`
+
+== Environmental variables
+
+For the restore workflow, the following environmental variables are available as part of prescript and postscript.
+
+|===
+| Environmental Variable | Description
+
+a|
+SID
+a|
+The System Identifier of the HANA Database chosen for restore
+a|
+BackupName
+a|
+Backup name chosen for restore operation
+a|
+UserStoreKeyNames
+a|
+Configured userstore key for the HANA database
+a|
+OSDBUser
+a|
+Configured OSDBUser for the HANA database
+|===
+
+== Restore cloud native SAP HANA database
+
 *What you need*
 
 . The SAP HANA system must be in a stopped state.
 . You can provide a prescript to stop the SAP HANA system.
+
+*About this task*
+
+If the postscript fails during the restore operation, retention will not be triggered and they will get deleted as part of the cron job, which gets initiated every 24 hours.
+
+To resolve this issue, you should provide the HANA database recovery steps in the postscript before triggering the restore workflow using the old backups.  After completing the operation, backup delete operation, which is part of the restore workflow will go through
 
 *Steps*
 
@@ -29,7 +76,7 @@ In the event of data loss, you can restore the data and non-data files and then 
 
 *After you finish*
 
-After restoring, manually recover the SAP HANA system or provide a postscript, which performs the SAP HANA system recovery.
+* After restoring, manually recover the SAP HANA system or provide a postscript, which performs the SAP HANA system recovery.
 
 == Restore Non-Data Volume
 

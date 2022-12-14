@@ -59,7 +59,9 @@ Go to *Canvas* page to add a new working environment
 ..	Click *Add Storage*.
 .	Review all the details and click *Add System*.
 
-You can edit the SAP HANA systems that were added. You can remove a HANA system using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
+NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed
+
+You can modify and remove the SAP HANA systems using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
 
 == Add Non-Data Volumes
 After adding the multitenant database container or single container type SAP HANA system, you can add the Non-Data Volumes of the HANA system.
@@ -89,6 +91,20 @@ After adding the multitenant database container or single container type SAP HAN
 (Optional) To add multiple hosts, click on *Add Plug-in Host* and specify the host name and port and click *Add Host*.
 ..	Click *Next*.
 ..	Review all the details and click *Add System*.  
+
+== Prescripts and postscripts
+
+You can provide prescripts, postscripts, and exit scripts while creating a policy.  These scripts are run on the HANA host while creating backups. 
+
+The supported format for scripts are .sh, python script, perl script, and so on.
+
+The prescript and the postscript should be registered by the host admin into `/opt/NetApp/snapcenter/scc/etc/allowed_commands.config file``
+
+`[root@scspa2622265001 etc]# cat allowed_commands.config
+command: mount
+command: umount
+command: /mnt/scripts/pre_script.sh
+command: /mnt/scripts/post_script.sh`
 
 == Create a policy for protecting SAP HANA database
 
