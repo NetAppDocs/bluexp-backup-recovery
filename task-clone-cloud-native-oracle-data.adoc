@@ -13,13 +13,17 @@ summary:  Clone the database either to the source or alternate host.
 :imagesdir: ./media/
 
 [.lead]
-You can clone an Oracle database using the backup of the database either to the source database host or to an alternate host. You can clone the backup from primary storage systems.
+You can clone an Oracle database using the backup of the database either to the source database host or to an alternate host.
 
 You might clone databases for the following reasons:
 
 * To test functionality that must be implemented using the current database structure and content during application development cycles.
 * To populate data warehouses using data extraction and manipulation tools.
-* To recover data that was mistakenly deleted or changed.
+* To recover data that was mistakenly deleted or changed. 
+
+*What you will need*
+
+Before cloning the database, you should understand the clone concepts and ensure that all the requirements are met. link:concept-clone-cloud-native-oracle-concepts.html[Learn more].
 
 *Steps*
 
@@ -65,3 +69,4 @@ If you want to create the clone on an alternate host, select the host having the
 . Click *Next*.
 . Click *Clone*.
 |===
+. Click image:button_plus_sign_square.png[icon to select the action] adjacent to *Filter By* and select *Clone options* > *Clones* to view the clones.

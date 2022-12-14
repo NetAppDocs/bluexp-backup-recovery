@@ -24,7 +24,7 @@ Learn what's new in Cloud Backup.
 * SAP HANA databases
 ** Supports policy-based backup and restore of SAP HANA databases residing on Azure NetApp Files (ANF) 
 * Oracle databases
-** Add hosts and deploy plug-in using SSH
+** Add hosts and deploy plug-in automatically
 ** Supports policy-based backup, restore, and clone of Oracle databases residing on Cloud Volumes ONTAP
 ** Supports restore of Oracle databases using connect-and-copy method
 ** Supports Oracle 21c

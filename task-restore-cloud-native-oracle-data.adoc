@@ -18,11 +18,8 @@ In the event of data loss, you can restore the data files, control files, or bot
 
 *What you will need*
 
-If the Oracle 21c database is in STARTED state, the restore operation fails. You should perform one of the following to restore the database successfully.
-
-* If SnapCenter Plug-in for Oracle is installed in standard path, run cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib ojdbc8-8.jar
-* If SnapCenter Plug-in for Oracle is installed in custom path, run cp –f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar<CUSTOM_PATH>/NetApp/snapcenter/spl/plugins/sco/lib/ojdbc8-8.jar
-
+If the Oracle 21c database is in STARTED state, the restore operation fails. You should run the following to restore the database successfully.
+`cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib ojdbc8-8.jar`
 
 *Steps*
 
@@ -52,7 +49,14 @@ NOTE: Restore of datafiles with control files or only control files are not supp
 +
 You can also select *Force in-place restore* checkbox.
 +
-The *Force in-place restore* option overrides the spfile, password file, and archive log files from the data files diskgroup. You should use the latest backup when *Force in-place restore* option is selected.
+In SAN layout, if SnapCenter Plug-in for Oracle finds any foreign files other than Oracle data files on the ASM diskgroup, connect and copy restore method is performed. The foreign files could be one or more of the following types:
+* Parameter
+* Password
+* archive log
+* online log
+* ASM parameter file.
++
+The *Force in-place restore* option overrides the foreign files of type parameter, password, and archive log. You should use the latest backup when *Force in-place restore* option is selected.
 
 . In the Recovery Scope section, perform the following actions:
 +

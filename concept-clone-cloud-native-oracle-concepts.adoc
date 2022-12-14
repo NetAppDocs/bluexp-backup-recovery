@@ -14,7 +14,37 @@ summary:  Understand the clone concepts before cloning the database.
 
 [.lead]
 
+You can clone an Oracle database using the backup of the database either to the source database host or to an alternate host. You can clone the backup from primary storage systems.
+
 Before cloning the database, you should understand the clone concepts and ensure that all the requirements are met.
+
+== Requirements for cloning an Oracle database
+
+Before cloning an Oracle database, you should ensure that prerequisites are completed.
+
+* You should have created a backup of the database.
+You should have successfully created online data and log backup for the cloning operation to succeed.
+
+* In the asm_diskstring parameter, you should configure AFD:* if you are using ASMFD or configure ORCL:* if you are using ASMLIB.
+
+* If you are creating the clone on an alternate host, the alternate host should meet the following requirements:
+** The plug-in should be installed on the alternate host.
+** The clone host should be able to discover LUNs from storage if you are cloning a database residing on iSCSI SAN storage.
+If you are cloning to an alternate host, then make sure that an iSCSI session is established between the storage and the alternate host.
+** If the source database is an ASM database:
+*** The ASM instance should be up and running on the host where the clone will be performed.
+*** The ASM diskgroup should be provisioned prior to the clone operation if you want to place archive log files of the cloned database in a dedicated ASM diskgroup.
+*** The name of the data diskgroup can be configured but ensure that the name is not used by any other ASM diskgroup on the host where the clone will be performed.
+*** Data files residing on the ASM diskgroup are provisioned as part of the clone workflow.
+
+== Clone limitations
+
+* Scheduled clones (Clone LifeCycle management) is not supported
+* Cloning a cloned database is not supported
+* Cloning of databases residing on Qtree is not supported
+* Cloning of archive log backups is not supported.
+* Backing up a cloned database is not supported.
+* Cloning a cloned database is not supported
 
 == Clone methods
 
@@ -22,13 +52,16 @@ You can create clone either using the basic method or using the clone specificat
 
 === Clone using basic method
 
-You can create the clone with the default configurations based on the source database and the selected backup. 
+You can create the clone with the default configurations based on the source database and the selected backup.
 
-The pre-script and post-script options are not available. The recovery option is by default *until cancel* and it uses the log backup associated with the data backup for recovery.
+* The database parameters, home, and OS user are defaulted to the source database.
+* The data file paths are named based on the naming scheme selected.
+* The pre-script, post-script, and SQL statements cannot be specified.
+* The recovery option is by default *until cancel* and it uses the log backup associated with the data backup for recovery
 
 === Clone using specification file
 
-You can define the configurations in the clone specification file and use it to clone the database. You can download the specification file, modify it to your requirement, and then upload.
+You can define the configurations in the clone specification file and use it to clone the database. You can download the specification file, modify it to your requirement, and then upload the file. link:task-clone-cloud-native-oracle-data.html[Learn more].
 
 The different parameters defined in the specification file and that can be modified are as follows:
 
@@ -103,7 +136,7 @@ The cloned database is recovered till the missing or corrupt log file.
 a|
 log_paths
 a|
-Options to control the recovery of the cloned database.
+Additional locations of archive log paths to be used for recovering the cloned database.
 a|
 source_location
 a|
@@ -111,11 +144,13 @@ Location of the diskgroup or mount point on the source database host.
 a|
 clone_location
 a|
-Location of the diskgroup or mount point that needs to be created on the target host.
+Location of the diskgroup or mount point that needs to be created on the target host corresponding to the source location.
 a|
 location_type
 a|
-It could be ASM_Diskgroup or based on the database type.
+It can be either ASM_Diskgroup Or mountpoint. 
+
+The values are auto-populated at the time of downloading the file. You should not edit this parameter.
 a|
 pre_script
 a|
@@ -163,12 +198,14 @@ NOTE: The _CurrentTimeStampNumber_ provides the uniqueness in volume name.
 
 === Auto-generated naming scheme
 
-If you select the cloning scheme as *Auto-generated*, the location of mount points and the name of the diskgroups of the cloned database will be suffixed with *Clone SID* if you have selected the basic clone method or with *Suffix* that was specified while downloading the clone specification file.
+If you select the cloning scheme as *Auto-generated*, the location of mount points and the name of the diskgroups of the cloned database will be appended with a suffix. 
+* If you have selected the basic clone method, the suffixed will be the *Clone SID*.
+* If you have selected the specification file method, the suffix will be the *Suffix* that was specified while downloading the clone specification file.
 
 For example, if the mount point of the source database is _/netapp_sourcedb/data_1_ and the *Clone SID* or the *Suffix* is _HR_, then the mount point of the cloned database will be _/netapp_sourcedb/data_1_HR_.
 
-* Number of control files and redo log files will be same.
-* All redo log files and control files will be located on one of the cloned mount points or ASM diskgroup.
+* Number of control files and redo log files will be same as the source.
+* All redo log files and control files will be located on one of the cloned data mount points or data ASM diskgroups.
 * Clone storage volume name will be in the following format sourceVolNameSCS_Clone_CurrentTimeStampNumber.
 +
 For example, if the volume name on the source database is _sourceVolName_, the cloned volume name will be _sourceVolNameSCS_Clone_1661420020304608825_.
@@ -181,7 +218,7 @@ NOTE: If the number of characters in the clone diskgroup is greater than 25 then
 
 == Database parameters
 
-The value of the following database parameters will be same as that of the source database irrespective of the clone method and the clone naming scheme.
+The value of the following database parameters will be same as that of the source database irrespective of the clone naming scheme.
 
 * log_archive_format
 * audit_trail
@@ -197,25 +234,6 @@ The value of the following database parameters will be appended with a suffix ba
 
 * audit_file_dest = {sourcedatabase_parametervalue}_suffix
 * log_archive_dest_1 = {sourcedatabase_oraclehome}_suffix
-
-== Requirements for cloning an Oracle database
-
-Before cloning an Oracle database, you should ensure that prerequisites are completed.
-
-* You should have created a backup of the database.
-You should have successfully created online data and log backup for the cloning operation to succeed.
-
-* In the asm_diskstring parameter, you should configure AFD:* if you are using ASMFD or configure ORCL:* if you are using ASMLIB.
-
-* If you are creating the clone on an alternate host, the alternate host should meet the following requirements:
-** The plug-in should be installed on the alternate host.
-** The clone host should be able to discover LUNs from storage
-If you are cloning to an alternate host, then make sure that an iSCSI session is established between the storage and the alternate host.
-** If the source database is an ASM database:
-*** The ASM instance should be up and running on the host where the clone will be performed.
-*** The ASM diskgroup should be provisioned prior to the clone operation if you want to place archive log files of the cloned database in a dedicated ASM diskgroup.
-*** The name of the data diskgroup can be configured, but ensure that the name is not used by any other ASM diskgroup on the host where the clone will be performed.
-Data files residing on the ASM diskgroup are provisioned as part of the clone workflow.
 
 == Supported predefined environment variables for clone specific prescript and postscript
 
@@ -267,11 +285,4 @@ Example: DATA@RG2_scspr2417819002_07-20-2021_12.16.48.9267_0|LOG@RG2_scspr241781
 
 * , is used to separate set of variables for the same key.
 Example: DATA@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0|LOG@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-21- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-22-2021_12.16.48.9267_1
-
-== Clone limitations
-
-* Scheduled clones (Clone LifeCycle management) is not supported
-* Cloning a cloned database is not supported
-* Cloning of databases residing on Qtree is not supported
-* Cloning of archive log backups is not supported.
 
