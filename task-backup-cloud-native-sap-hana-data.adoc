@@ -26,6 +26,7 @@ You should manually add SAP HANA database hosts to assign policies and create ba
 * Ensure that the BlueXP user has the “Account Admin” role.
 * You should have deployed the SnapCenter Plug-in for SAP HANA. link:task-deploy-snapcenter-plugin-for-sap-hana.html[Learn more]
 * While adding the SAP HANA database hosts, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA database hosts securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA database host.  
+* For HANA System Replication (HSR), to protect the HANA systems, you should manually register both primary and secondary HANA systems.
 
 *Steps*
 
@@ -58,10 +59,22 @@ Go to *Canvas* page to add a new working environment
 ..	Click *Add Storage*.
 .	Review all the details and click *Add System*.
 
-You can edit the SAP HANA systems that were added. You can remove a HANA system using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
+NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed
 
-== Add global Non-Data Volumes
-After adding the multitenant database container or single container type SAP HANA system, you can add the non-data volumes of the HANA system.
+You can modify and remove the SAP HANA systems using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
+
+== Add Non-Data Volumes
+After adding the multitenant database container or single container type SAP HANA system, you can add the Non-Data Volumes of the HANA system.
+
+*Steps*
+
+.   In the *BlueXP* UI, click *Protection* > *Backup and recovery* > *Applications*.
+.	Click *Discover Applications*.
+.	Select *Cloud Native* > *SAP HANA* and click *Next*.
+.	In the *Applications* page, click image:icon-action.png[icon to select the action] corresponding to the system for which you want to add the Non-Data Volumes and select *Manage System* > *Non-Data Volume*.
+
+== Add Global Non-Data Volumes
+After adding the multitenant database container or single container type SAP HANA system, you can add the Global Non-Data Volumes of the HANA system.
 
 *Steps*
 
@@ -79,6 +92,20 @@ After adding the multitenant database container or single container type SAP HAN
 ..	Click *Next*.
 ..	Review all the details and click *Add System*.  
 
+== Prescripts and postscripts
+
+You can provide prescripts, postscripts, and exit scripts while creating a policy.  These scripts are run on the HANA host while creating backups. 
+
+The supported format for scripts are .sh, python script, perl script, and so on.
+
+The prescript and the postscript should be registered by the host admin into `/opt/NetApp/snapcenter/scc/etc/allowed_commands.config file``
+
+`[root@scspa2622265001 etc]# cat allowed_commands.config
+command: mount
+command: umount
+command: /mnt/scripts/pre_script.sh
+command: /mnt/scripts/post_script.sh`
+
 == Create a policy for protecting SAP HANA database
 
 You can create policies if you do not want to use or edit the pre-canned policies.
@@ -95,6 +122,12 @@ You can create policies if you do not want to use or edit the pre-canned policie
 == Create a backup of the SAP HANA Database
 
 You can either assign a pre-canned policy or create a policy and then assign it to the database. Once the policy is assigned, the backups are created as per the schedule defined in the policy.
+
+*About this task*
+
+For HANA System Replication (HSR), the scheduled backup job will trigger only for the primary HANA system and if the system fails over to the secondary HANA system, the existing schedules will trigger a backup on the current primary HANA system. If the policy is not assigned to both the HANA system, after failover, the schedules will fail.
++
+If different policies are assigned to the HSR systems, the scheduled backup will be triggered for both the systems and the backup will fail for the secondary HANA system.
 
 *Steps*
 
