@@ -17,7 +17,7 @@ In the event of data loss, you can restore the data and non-data files and then 
 
 == Prescripts and postscripts
 
-You can provide prescripts, postscripts, and exit scripts while creating a policy.  These scripts are run on the HANA host while creating backups. 
+You can provide prescripts, postscripts, and exit scripts while creating a policy.  These scripts are run on the HANA host while performing restore operation. 
 
 The supported format for scripts are .sh, python script, perl script, and so on.
 
