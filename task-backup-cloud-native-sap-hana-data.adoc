@@ -134,7 +134,7 @@ PolicyName
 a|
 Only for scheduled backup
 a|
-Schedule_type 
+schedule_type 
 a|
 Only for scheduled backup
 |===
