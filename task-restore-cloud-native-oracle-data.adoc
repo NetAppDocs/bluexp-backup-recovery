@@ -45,11 +45,11 @@ Select *All Data Files* and *Control Files*.
 |===
 +
 NOTE: Restore of datafiles with control files or only control files are not supported for iSCSI on ASM layout.
-
 +
 You can also select *Force in-place restore* checkbox.
 +
 In SAN layout, if SnapCenter Plug-in for Oracle finds any foreign files other than Oracle data files on the ASM diskgroup, connect and copy restore method is performed. The foreign files could be one or more of the following types:
+
 * Parameter
 * Password
 * archive log

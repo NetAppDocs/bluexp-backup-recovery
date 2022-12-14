@@ -78,11 +78,11 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 * Restoring data files only and control files only from the specified backup
 * Recovering Oracle database with until SCN, until time, all available logs, and no recovery options
 * Cloning of Oracle Databases on source or alternate target hosts
-** Basic one-click Clone
+** Basic one-click clone
 ** Advanced cloning using custom clone specification file
-** Clone entities name could be auto-generated or be identical to the source
-** Viewing Clone hierarchy
-** Deleting Cloned databases
+** Clone entities name can be auto-generated or be identical to the source
+** Viewing clone hierarchy
+** Deleting cloned databases
 * Monitoring backups, restore, clone, and other jobs
 * Displaying the protection summary on the dashboard
 * Sending alerts through email

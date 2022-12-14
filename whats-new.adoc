@@ -17,7 +17,7 @@ Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
 
-== 16 December 2022
+== 19 December 2022
 
 === Enhancements to backing up applications and virtual machines
 
@@ -32,7 +32,7 @@ Learn what's new in Cloud Backup.
 * Virtual machines
 ** Back up virtual machines from on-premises secondary storage
 ** Supports Google Cloud Platform (GCP) to back up one or more datastores
-** Supports low cost cloud storage like Glacier, Deep Glacier, and Azure Archive 
+** Supports low cost cloud storage like Glacier, Deep Glacier, and Azure Archive
 
 == 6 December 2022
 
