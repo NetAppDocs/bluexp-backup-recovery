@@ -14,7 +14,7 @@ summary: BlueXP offers efficient, application consistent, policy-based backup, a
 
 [.lead]
 
-Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within BlueXP (formerly Cloud Manager) offers efficient, application consistent, policy-based backup, and restore of the following applications:
+Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within BlueXP (formerly Cloud Manager) offers efficient, application consistent, policy-based protection of the following applications:
 
 * Oracle databases residing on Amazon FSx for NetApp ONTAP and Cloud Volumes ONTAP
 * SAP HANA systems residing on Azure NetApp Files (ANF).
@@ -37,7 +37,7 @@ The following image shows each component and the connections that you need to pr
 
 image:diagram_nativecloud_backup_app.png[A diagram showing how each component and the connections need to be prepared.]
 
-For any user-initiated request, the Cloud Backup for Applications UI communicates with the BlueXP SaaS which upon validating the request processes the same. If the request is to run a workflow such as a backup or restore, the SaaS service initiates the workflow and where required, forwards the call to the BlueXP Connector. The Connector then communicates with storage system and application specific plug-in as part of running the workflow tasks.
+For any user-initiated request, the Cloud Backup for Applications UI communicates with the BlueXP SaaS which upon validating the request processes the same. If the request is to run a workflow such as a backup, restore, or clone, the SaaS service initiates the workflow and where required, forwards the call to the BlueXP Connector. The Connector then communicates with storage system and application specific plug-in as part of running the workflow tasks.
 
 The Connector can be deployed in the same VPC or VNet as that of the applications, or in a different one. If the Connector and applications are on different network, you should establish a network connectivity between them.
 
@@ -65,7 +65,7 @@ IMPORTANT: Cloud Backup for Applications SaaS infrastructure is resilient to ava
 
 * Add host and deploy plug-in
 +
-You can deploy the plug-in either manually or using SSH.
+You can deploy the plug-in either manually, using script, or automatically.
 * Auto-discovery of Oracle databases
 * Backing up Oracle databases
 ** Full (data + control + archive log files) backup
@@ -80,7 +80,7 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 * Cloning of Oracle Databases on source or alternate target hosts
 ** Basic one-click Clone
 ** Advanced cloning using custom clone specification file
-** Clone entities name could be auto-generated or be identical to source options
+** Clone entities name could be auto-generated or be identical to the source
 ** Viewing Clone hierarchy
 ** Deleting Cloned databases
 * Monitoring backups, restore, clone, and other jobs

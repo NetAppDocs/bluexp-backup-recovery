@@ -14,6 +14,8 @@ summary:  Understand the clone concepts before cloning the database.
 
 [.lead]
 
+You can clone an Oracle database using the backup of the database either to the source database host or to an alternate host. You can clone the backup from primary storage systems.
+
 Before cloning the database, you should understand the clone concepts and ensure that all the requirements are met.
 
 == Requirements for cloning an Oracle database
@@ -32,7 +34,7 @@ If you are cloning to an alternate host, then make sure that an iSCSI session is
 ** If the source database is an ASM database:
 *** The ASM instance should be up and running on the host where the clone will be performed.
 *** The ASM diskgroup should be provisioned prior to the clone operation if you want to place archive log files of the cloned database in a dedicated ASM diskgroup.
-*** The name of the data diskgroup can be configured, but ensure that the name is not used by any other ASM diskgroup on the host where the clone will be performed.
+*** The name of the data diskgroup can be configured but ensure that the name is not used by any other ASM diskgroup on the host where the clone will be performed.
 *** Data files residing on the ASM diskgroup are provisioned as part of the clone workflow.
 
 == Clone limitations
@@ -134,7 +136,7 @@ The cloned database is recovered till the missing or corrupt log file.
 a|
 log_paths
 a|
-Options to control the recovery of the cloned database.
+Additional locations of archive log paths to be used for recovering the cloned database.
 a|
 source_location
 a|

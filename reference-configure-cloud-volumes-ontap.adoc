@@ -29,5 +29,5 @@ You can get started with Cloud Volumes ONTAP for your cloud environment in a few
 
 You should use the same connector to manage both CVO working environment and Oracle databases.
 
-* If you have the CVO working environment and Oracle databases in the same VPC or VNet, you can deploy the connector in the same VPC.
+* If you have the CVO working environment and Oracle databases in the same VPC or VNet, you can deploy the connector in the same VPC or VNet.
 * If you have the CVO working environment and Oracle databases in different VPCs or VNets, ensure that the VPCs or VNets are peered.
