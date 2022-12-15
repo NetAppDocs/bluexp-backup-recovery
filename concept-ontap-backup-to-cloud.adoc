@@ -382,8 +382,6 @@ These limitations apply to both the Search & Restore and the Browse & Restore me
 
 * Restoring from FlexGroup volumes to FlexVol volumes, or FlexVol volumes to FlexGroup volumes is not supported.
 
-* File level restore is not supported when using the same account with different BlueXP systems in different subnets.
-
 * File level restore using Search & Restore is not supported when the Connector is installed on a site without internet access (dark site).
 
 * You can't restore individual folders if the backup file resides in archival storage.
