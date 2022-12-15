@@ -120,13 +120,13 @@ Cloud Backup supports the following types of volumes:
 
 [NOTE]
 ====
-*FlexGroup restrictions*: 
+*FlexGroup volume restore limitations*: 
 
-* Full volume restore is supported for on-prem ONTAP systems; Cloud Volumes ONTAP systems are not currently supported.
+* Full volume restore is supported only for on-prem ONTAP systems (Cloud Volumes ONTAP systems are not currently supported).
 * File-level restore is supported for both on-prem ONTAP and Cloud Volumes ONTAP systems.
 * Directory/folder restore is not currently supported. 
-* Backups can't be moved to archival storage.
-* Backups can't use DataLock and Ransomware protection.
+* Volumes can be restored to a single aggregate at this time.
+
 ====
 
 == Cost
@@ -169,17 +169,17 @@ There are three ways to pay for the Backup service. The first option is to subsc
 Cloud Backup is available with the following consumption models:
 
 * *BYOL*: A license purchased from NetApp that can be used with any cloud provider.
-* *PAYGO*: An hourly subscription from your cloud provider’s marketplace.
-* *Annual*: An annual contract from your cloud provider’s marketplace.
+* *PAYGO*: An hourly subscription from your cloud provider's marketplace.
+* *Annual*: An annual contract from your cloud provider's marketplace.
 
 [NOTE]
 ====
-If you purchase a BYOL license from NetApp, you also need to subscribe to the PAYGO offering from your cloud provider’s marketplace. Your license is always charged first, but you’ll be charged from the hourly rate in the marketplace in these cases:
+If you purchase a BYOL license from NetApp, you also need to subscribe to the PAYGO offering from your cloud provider's marketplace. Your license is always charged first, but you'll be charged from the hourly rate in the marketplace in these cases:
 
 * If you exceed your licensed capacity
 * If the term of your license expires
 
-If you have an annual contract from a marketplace, all Cloud Backup consumption is charged against that contract. You can’t mix and match an annual marketplace contract with a BYOL.
+If you have an annual contract from a marketplace, all Cloud Backup consumption is charged against that contract. You can't mix and match an annual marketplace contract with a BYOL.
 ====
 
 === Bring your own license
@@ -192,7 +192,7 @@ link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[Learn how 
 
 === Pay-as-you-go subscription
 
-Cloud Backup offers consumption-based licensing in a pay-as-you-go model. After subscribing through your cloud provider’s marketplace, you pay per GiB for data that’s backed up—​there’s no up-front payment. You are billed by your cloud provider through your monthly bill.
+Cloud Backup offers consumption-based licensing in a pay-as-you-go model. After subscribing through your cloud provider's marketplace, you pay per GiB for data that's backed up — there's no up-front payment. You are billed by your cloud provider through your monthly bill.
 
 link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription[Learn how to set up a pay-as-you-go subscription].
 
@@ -232,7 +232,7 @@ image:diagram_cloud_backup_general.png[A diagram showing how Cloud Backup commun
 
 === Where backups reside
 
-Backup copies are stored in an object store that BlueXP creates in your cloud account. There’s one object store per cluster/working environment, and BlueXP names the object store as follows: "netapp-backup-clusteruuid". Be sure not to delete this object store.
+Backup copies are stored in an object store that BlueXP creates in your cloud account. There's one object store per cluster/working environment, and BlueXP names the object store as follows: "netapp-backup-clusteruuid". Be sure not to delete this object store.
 
 ifdef::aws[]
 * In AWS, BlueXP enables the https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html[Amazon S3 Block Public Access feature^] on the S3 bucket.
@@ -348,7 +348,9 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * When backing up data protection (DP) volumes:
 ** Relationships with the SnapMirror labels `app_consistent` and `all_source_snapshot` won't be backed up to cloud.
-** If you create local copies of Snapshots on the SnapMirror destination volume (irrespective of the SnapMirror labels used) these Snapshots will not be moved to the cloud as backups. At this time you’ll need to create a Snapshot policy with the desired labels to the source DP volume in order for Cloud Backup to back them up.
+** If you create local copies of Snapshots on the SnapMirror destination volume (irrespective of the SnapMirror labels used) these Snapshots will not be moved to the cloud as backups. At this time you'll need to create a Snapshot policy with the desired labels to the source DP volume in order for Cloud Backup to back them up.
+
+* FlexGroup volumes backups can't be moved to archival storage, nor can they use DataLock and Ransomware protection.
 
 * SVM-DR volume backup is supported with the following restrictions:
 ** Backups are supported from the ONTAP secondary only.
