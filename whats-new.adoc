@@ -19,7 +19,7 @@ Learn what's new in Cloud Backup.
 
 == 19 December 2022
 
-=== Enhancements to backing up applications and virtual machines
+=== Enhancements to Cloud Backup and Cloud Backup for Applications
 
 * SAP HANA databases
 ** Supports policy-based backup and restore of SAP HANA databases residing on Azure NetApp Files (ANF) 
