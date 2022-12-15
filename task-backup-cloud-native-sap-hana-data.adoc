@@ -47,9 +47,6 @@ You should manually add SAP HANA database hosts to assign policies and create ba
 Specify the key name, system details, username, and password and click *Add Key*.
 +
 You can delete or modify the user store keys.
-+
-NOTE: You should add user store keys for each host if you are adding a multi-host SAP HANA system.
-
 .   Click *Next*.
 .	In the *Storage Footprint* page, click *Add Storage* and perform the following:
 ..	Select the working environment and specify the NetApp account.

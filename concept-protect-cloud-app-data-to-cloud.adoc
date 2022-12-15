@@ -122,6 +122,7 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 
 * Retaining backups based on the policy
 * Restoring complete SAP HANA database from the specified backup
+* Backing up and restoring HANA Non-Data Volumes
 * Prescript and postscript support for backup and restore operations
 
 === Limitations
