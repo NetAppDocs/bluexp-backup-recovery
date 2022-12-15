@@ -61,12 +61,6 @@ Configured OSDBUser for the HANA database
 . The SAP HANA system must be in a stopped state.
 . You can provide a prescript to stop the SAP HANA system.
 
-*About this task*
-
-If the postscript fails during the restore operation, retention will not be triggered and they will get deleted as part of the cron job, which gets initiated every 24 hours.
-
-To resolve this issue, you should provide the HANA database recovery steps in the postscript before triggering the restore workflow using the old backups.  After completing the operation, backup delete operation, which is part of the restore workflow will go through
-
 *Steps*
 
 .	Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.

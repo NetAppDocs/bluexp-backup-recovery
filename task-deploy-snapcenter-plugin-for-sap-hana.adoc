@@ -15,7 +15,7 @@ summary:  Deploy the SnapCenter Plug-in for SAP HNAN on each of the SAP HANA dat
 [.lead]
 You should deploy the SnapCenter Plug-in for SAP HANA on each of the SAP HANA database hosts. Depending on whether the SAP HANA host has an SSH key based authentication enabled, you can follow one of the methods to deploy the plug-in.
 
-NOTE: Ensure that JAVA 11 is installed on each of the SAP-HANA database hosts.
+NOTE: Ensure that either Java 11 (64-bit) Oracle Java or OpenJDK is installed on each of the SAP HANA database hosts.
 
 == Configure a non-root user
 
