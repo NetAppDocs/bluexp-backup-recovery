@@ -69,8 +69,6 @@ Let's look at some examples of how this works:
 +
 You can see in this last case that if each backup file is locked for 44 days, you'll end up with many more backup files than would typically be retained with an hourly/24 retentions policy. Usually, when Cloud Backup creates the 25th backup file it would delete the oldest backup to keep the maximum retentions at 24 (based on the policy). The DataLock retention setting overrides the policy retention setting from your backup policy in this case. This could affect your storage costs as your backup files will be saved in the object store for a longer period of time.
 
-//CAUTION: Typical backup files are created using a "diff" method so that backup files remain very small as each new backup file is written per interval (weekly, monthly, etc.). When using DataLock, a complete backup file is created at each internal. This means that you'll be using much more storage space when you enable DataLock.
-
 === What is Ransomware protection
 
 Ransomware protection scans your backup files to look for evidence of a ransomware attack. The detection of ransomware attacks is performed using a checksum comparison. If potential ransomware is identified in a backup file versus the previous backup file, that newer backup file is replaced by the most recent backup file that does not show any signs of a ransomware attack. (The file that was identified as having a ransomware attack is deleted 1 day after it has been replaced.)
@@ -87,7 +85,7 @@ You can choose to run a scan before restoring data from a backup file, or skip t
 +
 You can run an on-demand ransomware protection scan at any time to verify the health of a specific backup file. This can be useful if you've had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
 
-CAUTION: A ransomware scan requires that the backup file is downloaded to your BlueXP environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
+//CAUTION: A ransomware scan requires that the backup file is downloaded to your BlueXP environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
 
 === DataLock and Ransomware Protection settings
 
@@ -154,7 +152,7 @@ NetApp StorageGRID
 * You must be using BlueXP 3.9.21 or greater
 ifdef::aws[]
 * For AWS:
-** The Connector must deployed in the cloud
+** The Connector can be deployed in the cloud or on your premises
 ** The following S3 permissions must be part of the IAM role that provides the Connector with permissions. They reside in the "backupS3Policy" section for the resource "arn:aws:s3:::netapp-backup-*":
 *** s3:GetObjectVersionTagging
 *** s3:GetBucketObjectLockConfiguration
@@ -183,8 +181,8 @@ ifdef::aws[]
 *** s3:PutObjectRetention
 *** s3:GetBucketLocation
 *** s3:GetObjectVersion
-+
-"s3:BypassGovernanceRetention" must be added only if you want your Admin users to be able to overwrite/delete backup files locked using Governance mode.
+//+
+//"s3:BypassGovernanceRetention" must be added only if you want your Admin users to be able to overwrite/delete backup files locked using Governance mode.
 +
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[View the full JSON format for the policy where you can copy and paste required permissions^].
 endif::aws[]
