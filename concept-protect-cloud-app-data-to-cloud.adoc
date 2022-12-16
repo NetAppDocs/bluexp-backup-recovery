@@ -26,10 +26,10 @@ The Cloud Backup for Applications architecture includes the following components
 * Cloud Backup for Applications is a set of data protection services hosted as a SaaS service by NetApp and is based on the BlueXP SaaS platform.
 +
 It orchestrates the data protection workflows for applications residing on NetApp Cloud Storage.
-* Cloud Backup for Applications UI is integrated with BlueXP UI.
+* Cloud Backup for Applications UI can be accessed from the BlueXP UI.
 +
 The Cloud Backup for Applications UI offers data protection capabilities for applications.
-* BlueXP Connector is a component that runs in your cloud network and interacts with storage systems and application specific plug-ins.
+* BlueXP Connector is a component that runs in user's cloud network and interacts with storage systems and application specific plug-ins.
 
 * The application specific plug-in is a component that runs on each application host and interacts with the databases running on the host while performing data protection operations.
 
@@ -118,11 +118,12 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 ** Scheduled backup based on the system-defined or custom policies
 +
 You can specify different scheduling frequencies such as hourly, daily, weekly, and monthly in the policy.
-
+** HANA System Replication (HSR) aware
 * Retaining backups based on the policy
 * Restoring complete SAP HANA database from the specified backup
-* Backing up and restoring HANA Non-Data Volumes
-* Prescript and postscript support for backup and restore operations
+* Backing up and restoring HANA Non-Data Volumes and global Non-Data Volumes
+* Prescript and postscript support using environmental variables for backup and restore operations
+* Creating action plan for failure scenarios using pre-exit option
 
 === Limitations
 
