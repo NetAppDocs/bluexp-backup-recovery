@@ -356,11 +356,11 @@ This operation could cause a one-time increase in cost to read the data from you
 ** Backups are supported from the ONTAP secondary only.
 ** The Snapshot policy applied to the volume must be one of the policies recognized by Cloud Backup, including daily, weekly, monthly, etc. The default "sm_created" policy (used for *Mirror All Snapshots*) is not recognized and the DP volume will not be shown in the list of volumes that can be backed up.
 
-* MetroCluster (MCC) backup is supported from ONTAP secondary only: MCC > SnapMirror > ONTAP > Cloud Backup > object storage.
-//* MetroCluster support:
-//** When using ONTAP 9.12.1 or greater, backup is supported when connected to the primary system. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover. You don't need to set up backup on the secondary system (in fact, you are restricted from doing so). Restore operations from the primary system populate data to both primary and secondary systems.
-//** When using ONTAP 9.12.0 and earlier, backup is supported only from the ONTAP secondary system.
-//** Backups of FlexGroup volumes are not supported at this time.
+//* MetroCluster (MCC) backup is supported from ONTAP secondary only: MCC > SnapMirror > ONTAP > Cloud Backup > object storage.
+* MetroCluster support:
+** When using ONTAP 9.12.1 or greater, backup is supported when connected to the primary system. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover. You don't need to set up backup on the secondary system (in fact, you are restricted from doing so). Restore operations from the primary system populate data to both primary and secondary systems.
+** When using ONTAP 9.12.0 and earlier, backup is supported only from the ONTAP secondary system.
+** Backups of FlexGroup volumes are not supported at this time.
 
 * Ad-hoc volume backup using the *Backup Now* button isn't supported on data protection volumes.
 
