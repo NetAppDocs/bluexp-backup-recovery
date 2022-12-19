@@ -1,0 +1,72 @@
+---
+sidebar: sidebar
+permalink: task-clone-cloud-native-oracle-data.html
+keywords: cloud native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle
+summary:  Clone the database either to the source or alternate host.
+---
+
+= Clone cloud native Oracle database
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can clone an Oracle database using the backup of the database either to the source database host or to an alternate host.
+
+You might clone databases for the following reasons:
+
+* To test functionality that must be implemented using the current database structure and content during application development cycles.
+* To populate data warehouses using data extraction and manipulation tools.
+* To recover data that was mistakenly deleted or changed. 
+
+*What you will need*
+
+Before cloning the database, you should understand the clone concepts and ensure that all the requirements are met. link:concept-clone-cloud-native-oracle-concepts.html[Learn more].
+
+*Steps*
+
+. Click image:icon-action.png[icon to select the action] corresponding to the database that you want to clone and click *View Details*.
+. Click image:icon-action.png[icon to select the action] corresponding to the data backup and click *Clone*.
+. In the Clone Details page, select one of the clone options.
+. Depending on the option selected, perform the following actions:
++
+|===
+| If you have selected... | Do this...
+
+a|
+*Basic*
+a|
+ . Select the clone host.
++
+If you want to create the clone on an alternate host, select the host having the same version of Oracle and OS as that of the source database host.
+. Specify the SID of the clone.
+. Select the clone naming scheme.
++
+If the database is cloned to the source host, the clone naming scheme will be auto-generated. If the database is cloned to an alternate host, clone naming scheme will be identical.
+. Specify the Oracle home path.
+. (Optional) Specify the database credentials.
+* Database credential: If the OS User authentication is disabled, you should provide a password for the sys user to define it on the target host.
+* ASM credential: If the OS user authentication is disabled on the target host, you should provide a sysasm privileged user's credentials to connect to the ASM instance on the target host.
+. Click *Next*.
+. Click *Clone*.
+a|
+*Specification file*
+a|
+. Click *Download File* to download the specification file.
+. Select the clone naming scheme.
++
+If you select, *Auto-generated*, you should specify the suffix.
+. Edit the specification file as per the requirement and upload it by clicking the *Browse* button.
+. Select the clone host.
++
+If you want to create the clone on an alternate host, select the host having the same version of Oracle and OS as that of the source database host.
+. Specify the SID of the clone.
+. (Optional) Specify the database credentials.
+* Database credential: If the OS User authentication is disabled, you should provide a password for the sys user to define it on the target host.
+* ASM credential: If the OS user authentication is disabled on the target host, you should provide a sysasm privileged user's credentials to connect to the ASM instance on the target host.
+. Click *Next*.
+. Click *Clone*.
+|===
+. Click image:button_plus_sign_square.png[icon to select the action] adjacent to *Filter By* and select *Clone options* > *Clones* to view the clones.
