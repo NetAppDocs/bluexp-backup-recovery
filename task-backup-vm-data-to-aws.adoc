@@ -15,6 +15,8 @@ summary: Back up your datastores from on-premises ONTAP to AWS.
 [.lead]
 You can back up one or more datastores to Amazon Web Services by integrating the SnapCenter Plug-in for VMware vSphere with BlueXP. This will help the VM administrators to easily and quickly back up and archive data for storage efficiency and accelerate cloud transition.
 
+If the datastore is associated with an archival policy, you will be provided with an option to select the archival tier. The supported archival tiers are Glacier and Glacier Deep.
+
 NOTE: Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before backing up datastores to the cloud.
 
 .Steps
@@ -37,4 +39,7 @@ Configure the ONTAP clusters that you want BlueXP to discover to back up your da
 .. In the AWS Secret Key field, specify the password for data encryption.
 .. Select the region where you want to create the backups.
 .. Specify the IP addresses of the ONTAP clusters that were added as the working environments.
+.. Select the archival tier.
++
+It is recommended to set the archival tier because this is an one time activity and you will not be allowed to set it up later.
 . Review the details and click *Activate Backup*.
