@@ -43,7 +43,10 @@ image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup and
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Select the cloud provider and enter the provider details
 
 [role="quick-margin-para"]
-Select Google Cloud as your provider and then enter the provider details. You also need to specify the IPspace in the ONTAP cluster where the volumes reside.
+Select Google Cloud as your provider and then enter the provider details. You also need to specify the IPspace in the ONTAP cluster where the volumes reside. You can also choose your own customer-managed keys for data encryption instead of using the default Google-managed encryption key.
+
+[role="quick-margin-para"]
+image:screenshot_backup_onprem_to_google.png[A screenshot that shows the cloud provider details when backing up volumes from an on-prem ONTAP system to a Google Cloud Storage bucket.]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Define the default backup policy
 
@@ -197,6 +200,9 @@ When you set up backup, you need to provide storage access keys for a service ac
 +
 You'll need to enter the keys in Cloud Backup later when you configure the backup service.
 
+Required information for using customer-managed keys for data encryption::
+You can use your own customer-managed keys for data encryption in the activation wizard instead of using the default Google-managed encryption keys. In this case you'll need to have the Key Ring and the Key Name. https://cloud.google.com/storage/docs/encryption/customer-managed-keys[See how to use your own keys^].
+
 == Enabling Cloud Backup
 
 Enable Cloud Backup at any time directly from the on-premises working environment.
@@ -217,6 +223,7 @@ image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup and
 .. The Google Access Key and Secret Key used to store the backups.
 .. The Google region where the backups will be stored.
 .. The IPspace in the ONTAP cluster where the volumes you want to back up reside. The intercluster LIFs for this IPspace must have outbound internet access.
+.. Whether you'll use the default Google-managed encryption key or choose your own customer-managed keys to manage encryption of your data. In this case you'll need to have the Key Ring and the Key Name. https://cloud.google.com/storage/docs/encryption/customer-managed-keys[See how to use your own keys^].
 +
 image:screenshot_backup_onprem_to_google.png[A screenshot that shows the cloud provider details when backing up volumes from an on-premises cluster to Google Cloud Storage.]
 

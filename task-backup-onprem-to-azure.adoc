@@ -143,6 +143,7 @@ Ensure that the Connector has the required networking connections.
 * An outbound internet connection to the Cloud Backup service over port 443 (HTTPS)
 * An HTTPS connection over port 443 to your Blob object storage
 * An HTTPS connection over port 443 to your ONTAP cluster management LIF
+* In order for the Cloud Backup Search & Restore functionality to work, Port 1433 must be open for communication between the Connector and the Azure Synapse SQL services.
 * Additional inbound security group rules are required for Azure and Azure Government deployments. See https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-azure.html[Rules for the Connector in Azure^] for details.
 
 . Enable a VNet Private Endpoint to Azure storage. This is needed if you have an ExpressRoute or VPN connection from your ONTAP cluster to the VNet and you want communication between the Connector and Blob storage to stay in your virtual private network (a *private* connection).
