@@ -24,7 +24,7 @@ Get started quickly by following these steps, or scroll down to the remaining se
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
 
 [role="quick-margin-list"]
-* You have discovered the on-premises cluster and added it to a working environment in BlueXP. See https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
+* You have discovered the on-premises cluster and added it as a working environment in BlueXP. See https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
 ** The cluster is running ONTAP 9.7P5 or later (ONTAP 9.8P13 and later is recommended).
 ** The cluster has a SnapMirror license -- it is included as part of the Premium Bundle or Data Protection Bundle.
 ** The cluster must have the required network connections to Google storage and to the Connector.
@@ -113,9 +113,9 @@ When you set up Cloud Backup, you are prompted for the IPspace to use. You shoul
 * The nodes' intercluster LIFs are able to access the object store.
 * DNS servers have been configured for the storage VM where the volumes are located. See how to https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html[configure DNS services for the SVM^].
 +
-If you're using Private Google Access or Private Service Connect, make sure your DNS servers have been configured to point storage.googleapis.com to the correct internal (private) IP address. 
+If you're using Private Google Access or Private Service Connect, make sure your DNS servers have been configured to point `storage.googleapis.com` to the correct internal (private) IP address. 
 * Note that if you use are using a different IPspace than the Default, then you might need to create a static route to get access to the object storage.
-* Update firewall rules, if necessary, to allow Cloud Backup service connections from ONTAP to object storage through port 443 and name resolution traffic from the storage VM to the DNS server over port 53 (TCP/UDP).
+* Update firewall rules, if necessary, to allow Cloud Backup connections from ONTAP to object storage through port 443, and name resolution traffic from the storage VM to the DNS server over port 53 (TCP/UDP).
 
 === Creating or switching Connectors
 
@@ -141,7 +141,7 @@ Ensure that the Connector has the required networking connections.
 
 . Enable Private Google Access (or Private Service Connect) on the subnet where you plan to deploy the Connector. https://cloud.google.com/vpc/docs/configure-private-google-access[Private Google Access^] or https://cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises[Private Service Connect^] are needed if you have a direct connection from your ONTAP cluster to the VPC and you want communication between the Connector and Google Cloud Storage to stay in your virtual private network (a *private* connection).
 +
-Follow the Google instructions for setting up these Private access options. Make sure your DNS servers have been configured to point www.googleapis.com and storage.googleapis.com to the correct internal (private) IP addresses.
+Follow the Google instructions for setting up these Private access options. Make sure your DNS servers have been configured to point `www.googleapis.com` and `storage.googleapis.com` to the correct internal (private) IP addresses.
 
 === Verify or add permissions to the Connector
 
@@ -246,7 +246,7 @@ image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup and
 
 . Enter the provider details and click *Next*.
 
-.. The Google Cloud Project where you want the Google Cloud Storage bucket to be created for backups. (The Project must have a Service Account that has the predefined Storage Admin role.)
+.. The Google Cloud Project where you want the Google Cloud Storage bucket to be created for backups. (The Project must have a Service Account that has a custom role with specific permissions - <<Preparing Google Cloud Storage for backups,as described here>>.)
 .. The Google Access Key and Secret Key used to store the backups.
 .. The Google region where the backups will be stored.
 .. The IPspace in the ONTAP cluster where the volumes you want to back up reside. The intercluster LIFs for this IPspace must have outbound internet access.

@@ -174,7 +174,7 @@ Tiering older backup files to archival storage saves money by using a less expen
 
 Archival storage is supported only for AWS S3 storage classes at this time. If your cluster is using ONTAP 9.12.1 or greater, and your StorageGRID is using 11.3 or greater, you can choose to tier backups to AWS S3 Glacier or S3 Glacier Deep Archive storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival tiers^].
 
-You'll need to sign up for a cloud provider subscription for the storage space where your backups will be located. And you'll need to set up an account. Then you'll enter your cloud provider credentials and select the storage class that you want to use. Cloud Backup creates the cloud bucket when you activate backup for the cluster. The information required for AWS archival storage is shown below.
+You'll need to sign up for a cloud provider subscription for the storage space where your backups will be located, and you'll need to add the https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html[AWS credentials^] to your account. Then you'll enter your cloud provider credentials and select the storage class that you want to use. Cloud Backup creates the cloud bucket when you activate backup for the cluster. The information required for AWS archival storage is shown below.
 
 image:screenshot_sg_archive_to_aws.png[A screenshot of the information you'll need to archive backup files to AWS S3.]
 
