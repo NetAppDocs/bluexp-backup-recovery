@@ -76,11 +76,11 @@ An S3 bucket is created automatically in the service account indicated by the S3
 
 Read the following requirements to make sure you have a supported configuration before you start backing up on-premises volumes to StorageGRID.
 
-The following image shows each component when backing up an on-prem ONTAP system to StorageGRID and the connections that you need to prepare between them:
+The following image shows each component when backing up an on-prem ONTAP system to StorageGRID and the connections that you need to prepare between them.
 
 image:diagram_cloud_backup_onprem_storagegrid.png[A diagram showing how Cloud Backup communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
-When the Connector and on-premises ONTAP system are installed in an on-prem location without internet access, the StorageGRID system must be located in the same on-prem data center.
+When the Connector and on-premises ONTAP system are installed in an on-prem location without internet access (a "dark site"), the StorageGRID system must be located in the same on-prem data center. Archival of older backup files to public cloud is not supported in dark site configurations.
 
 === Preparing your ONTAP clusters
 
@@ -154,7 +154,7 @@ When backing up data to StorageGRID, a Connector must be available on your premi
 
 NOTE: Cloud Backup functionality is built into the BlueXP Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[Cloud Backup What's New] to see the new features in each Cloud Backup release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
 
-//We also recommend that you create local backups of the Cloud Backup configuration data when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up Cloud Backup data in a dark site^].
+We highly recommend that you create local backups of the Cloud Backup configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up Cloud Backup data in a dark site^].
 
 === Preparing networking for the Connector
 
@@ -170,13 +170,18 @@ Ensure that the Connector has the required networking connections.
 
 === Preparing to tier older backup files to public cloud storage
 
-Tiering older backup files to archival storage saves money by using a less expensive storage class for backups that you may not need. StorageGRID doesn't offer archival storage, but you can move older backup files to public cloud archival storage. 
+Tiering older backup files to archival storage saves money by using a less expensive storage class for backups that you may not need. StorageGRID is an on-premises solution that doesn't offer archival storage, but you can move older backup files to public cloud archival storage. 
 
-Archival storage is supported only for AWS S3 storage classes at this time. If your cluster is using ONTAP 9.12.1 or greater, and your StorageGRID is using 11.3 or greater, you can choose to tier backups to AWS S3 Glacier or S3 Glacier Deep Archive storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival tiers^].
+Requirements::
+* Your cluster must be using ONTAP 9.12.1 or greater
+* Your StorageGRID must be using 11.3 or greater
+* Your StorageGRID must be https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[discovered and available in the BlueXP Canvas^]
+* Archival storage is supported only for AWS S3 storage classes at this time. You can choose to tier backups to AWS S3 Glacier or S3 Glacier Deep Archive storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival tiers^].  
+* You'll need to sign up for an AWS S3 subscription for the storage space where your backups will be located.
 
-You'll need to sign up for a cloud provider subscription for the storage space where your backups will be located, and you'll need to add the https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html[AWS credentials^] to your account. Then you'll enter your cloud provider credentials and select the storage class that you want to use. Cloud Backup creates the cloud bucket when you activate backup for the cluster. The information required for AWS archival storage is shown below.
+When defining the Archival settings for the backup policy for your cluster, you'll enter your cloud provider credentials and select the storage class that you want to use. Cloud Backup creates the cloud bucket when you activate backup for the cluster. The information required for AWS archival storage is shown below.
 
-image:screenshot_sg_archive_to_aws.png[A screenshot of the information you'll need to archive backup files to AWS S3.]
+image:screenshot_sg_archive_to_aws.png[A screenshot of the information you'll need to archive backup files from StorageGRID to AWS S3.]
 
 === License requirements
 

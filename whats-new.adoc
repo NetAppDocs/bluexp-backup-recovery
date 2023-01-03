@@ -17,12 +17,12 @@ Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
 == 5 January 2023
-
-=== Enhanced support for volumes in MetroCluster configurations
-
-When using ONTAP 9.12.1 or greater, backup is now supported when connected to the primary system in a MetroCluster configuration. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover.
-
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations[See Backup limitations for more information]. 
+//
+//=== Enhanced support for volumes in MetroCluster configurations
+//
+//When using ONTAP 9.12.1 or greater, backup is now supported when connected to the primary system in a MetroCluster configuration. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover.
+//
+//https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations[See Backup limitations for more information]. 
 
 === Ability to move older backup files to AWS S3 archival storage from StorageGRID systems
 
