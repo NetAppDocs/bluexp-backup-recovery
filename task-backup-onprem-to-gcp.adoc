@@ -217,7 +217,28 @@ You'll need to enter the keys in Cloud Backup later when you configure the backu
 
 ==== Using customer-managed encryption keys (CMEK)
 
-You can select your own customer-managed keys for data encryption in the activation wizard instead of using the default Google-managed encryption keys. In this case you'll need to have the Key Ring and the Key Name. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
+You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. In this case you'll need to have the Key Ring and the Key Name so you can add this information in the activation wizard. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
+
+You'll also need to add these required permissions in the role for the Connector for CMEK to work:
+
+[source,json]
+cloudkms.cryptoKeys.get
+cloudkms.cryptoKeys.getIamPolicy
+cloudkms.cryptoKeys.list
+cloudkms.cryptoKeys.setIamPolicy
+cloudkms.keyRings.get
+cloudkms.keyRings.getIamPolicy
+cloudkms.keyRings.list
+cloudkms.keyRings.setIamPolicy
+
+*CMEK considerations:*
+
+* Both HSM (Hardware-backed) and Software generated keys are supported.
+* Both newly created or imported Cloud KMS keys are supported.
+* Only regional keys are supported, global keys are not supported.
+* Currently, only the "Symmetric encrypt/decrypt" purpose is supported.
+* The service agent associated with the Storage Account is assigned the "CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter)" IAM role by Cloud Backup. 
+
 
 === Verify license requirements
 

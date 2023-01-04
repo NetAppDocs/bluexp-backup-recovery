@@ -87,9 +87,6 @@ Cloud Backup is supported in all GCP regions https://cloud.netapp.com/cloud-volu
 GCP Service Account::
 You need to have a service account in your Google Cloud Project that has the predefined Storage Admin role. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html[Learn how to create a service account^].
 
-Required information for using customer-managed encryption keys (CMEK)::
-You can use your own customer-managed keys for data encryption in the activation wizard instead of using the default Google-managed encryption keys. In this case you'll need to have the Key Ring and the Key Name. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
-
 Verify or add permissions to the Connector::
 
 To use the Cloud Backup "Search & Restore" functionality, you need to have specific permissions in the role for the Connector so that it can access the Google Cloud BigQuery service. See the permissions below, and follow the steps if you need to modify the policy.
@@ -117,6 +114,29 @@ bigquery.tables.list
 bigquery.tables.create
 
 . Click *Update* to save the edited role.
+
+Required information for using customer-managed encryption keys (CMEK)::
+You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. In this case you'll need to have the Key Ring and the Key Name so you can add this information in the activation wizard. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
++
+You'll also need to add these required permissions in the role for the Connector for CMEK to work:
++
+[source,json]
+cloudkms.cryptoKeys.get
+cloudkms.cryptoKeys.getIamPolicy
+cloudkms.cryptoKeys.list
+cloudkms.cryptoKeys.setIamPolicy
+cloudkms.keyRings.get
+cloudkms.keyRings.getIamPolicy
+cloudkms.keyRings.list
+cloudkms.keyRings.setIamPolicy
++
+*CMEK considerations:*
++
+* Both HSM (Hardware-backed) and Software generated keys are supported.
+* Both newly created or imported Cloud KMS keys are supported.
+* Only regional keys are supported, global keys are not supported.
+* Currently, only the "Symmetric encrypt/decrypt" purpose is supported.
+* The service agent associated with the Storage Account is assigned the "CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter)" IAM role by Cloud Backup. 
 
 == Enabling Cloud Backup on a new system
 
