@@ -16,7 +16,7 @@ summary: Learn what's new in Cloud Backup.
 Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
-== 5 January 2023
+== 6 January 2023
 //
 //=== Enhanced support for volumes in MetroCluster configurations
 //
@@ -28,7 +28,7 @@ Learn what's new in Cloud Backup.
 
 Now you can tier older backup files from StorageGRID systems to archival storage in AWS S3. This enables you to free up space on your StorageGRID systems, and save money by using an inexpensive storage class for old backup files. You can choose to tier backups to AWS S3 Glacier or S3 Glacier Deep Archive storage.
 
-This functionality is available if your cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-tier-older-backup-files-to-public-cloud-storage[Learn more here].
+This functionality is available if your cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more here].
 
 === Ability to select your own customer-managed keys for data encryption on Google Cloud
 

@@ -183,7 +183,7 @@ When defining the Archival settings for the backup policy for your cluster, you'
 
 image:screenshot_sg_archive_to_aws.png[A screenshot of the information you'll need to archive backup files from StorageGRID to AWS S3.]
 
-The archival policy settings you select will generate an information lifecycle management (ILM) policy in the cloud provider, and add the settings as "rules". If there is an existing active ILM policy, new rules will be added to the ILM policy to move the data to the archive tier. If there is an existing ILM policy in the "proposed" state, the creation and activation of a new ILM policy will not be possible.
+The archival policy settings you select will generate an information lifecycle management (ILM) policy in StorageGRID, and add the settings as "rules". If there is an existing active ILM policy, new rules will be added to the ILM policy to move the data to the archive tier. If there is an existing ILM policy in the "proposed" state, the creation and activation of a new ILM policy will not be possible. https://docs.netapp.com/us-en/storagegrid-116/ilm/index.html[Learn more about StorageGRID ILM policies and rules^].
 
 === License requirements
 

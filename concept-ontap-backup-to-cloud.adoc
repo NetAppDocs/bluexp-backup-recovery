@@ -39,7 +39,7 @@ Restore features:
 * Restore data from a specific point in time.
 * Restore a volume, a folder, or individual files, to the source system or to a different system.
 * Restore data to a working environment using a different subscription/account or that is in a different region.
-* Restores data on a block level, placing the data directly in the location you specify, all while preserving the original ACLs.
+* Data is restored on a block level, placing the data directly in the location you specify, all while preserving the original ACLs.
 * Browsable and searchable file catalogs for selecting individual folders and files for single file restore.
 
 == Supported ONTAP working environments and object storage providers
@@ -318,6 +318,8 @@ If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier
 endif::gcp[]
 
 * In StorageGRID, backups are associated with the _Standard_ storage class.
++
+If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater, you can archive older backup files to public cloud archival storage. Archival storage is supported only for AWS S3 storage classes at this time. You can choose to tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days. link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].
 
 See link:concept-cloud-backup-policies.html#archival-storage-settings[Archival storage settings] for more details about archiving older backup files.
 
