@@ -125,7 +125,8 @@ You must register the Azure Synapse Analytics Resource Provider with your Subscr
 "Microsoft.Synapse/workspaces/operationStatuses/read",
 "Microsoft.Synapse/workspaces/firewallRules/read",
 "Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action",
-"Microsoft.Synapse/workspaces/operationResults/read"
+"Microsoft.Synapse/workspaces/operationResults/read",
+"Microsoft.Synapse/workspaces/privateEndpointConnectionsApproval/action"
 +
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html[View the full JSON format for the policy^]
 
