@@ -46,6 +46,28 @@ You should configure a non-root user to deploy the plug-in.
 +
 In the above lines, replace the <LINUXUSER> with the non-root user that you created and save the file in the visudo utility.
 
+=== Deploy the plug-in using script
+
+If SSH key based authentication is enabled on the Oracle host for the non-root user, you can perform the following steps to deploy the plug-in. Before performing the steps, ensure that the SSH connection to the Connector is enabled.
+
+*Steps*
+
+. Log into the Connector VM.
+. Obtain the base mount path.
+`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
+. Deploy the plug-in using the helper script provided in the Connector.
+`sudo <base_mount_path>/scripts/oracle_plugin_copy_and_install.sh --host <host_name> --sshkey <ssh_key_file> --username <user_name> --port <ssh_port> --pluginport <plugin_port> --installdir <install_dir>`
+
+* host_name is the name of the Oracle host and this is a mandatory parameter.
+* ssh_key_file is the SSH key of the non-root user and used to connect to the Oracle host. This is a mandatory parameter.
+* user_name: Non-root user with SSH privileges on the Oracle host and this is an optional parameter. Default value is ec2-user.
+* ssh_port: SSH port on the Oracle host and this is an optional parameter. Default value is 22
+* plugin_port: Port used by the plug-in and this is an optional parameter. Default value is 8145
+* install_dir: Directory where the plug-in will be deployed and this is an optional parameter. Default value is /opt.
+
+For example:
+`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/oracle_plugin_copy_and_install.sh --host xxx.xx.x.x --sshkey /keys/netapp-ssh.ppk`
+
 === Deploy the plug-in manually
 
 If SSH key based authentication is not enabled on the Oracle host, you should perform the following manual steps to deploy the plug-in.
@@ -70,28 +92,6 @@ The _snapcenter_linux_host_plugin_scs.bin_ should be copied to a location that i
 . Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
 . Restart SPL: `systemctl restart spl`
-
-=== Deploy the plug-in using script
-
-If SSH key based authentication is enabled on the Oracle host for the non-root user, you can perform the following steps to deploy the plug-in. Before performing the steps, ensure that the SSH connection to the Connector is enabled.
-
-*Steps*
-
-. Log into the Connector VM.
-. Obtain the base mount path.
-`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
-. Deploy the plug-in using the helper script provided in the Connector.
-`sudo <base_mount_path>/scripts/oracle_plugin_copy_and_install.sh --host <host_name> --sshkey <ssh_key_file> --username <user_name> --port <ssh_port> --pluginport <plugin_port> --installdir <install_dir>`
-
-* host_name is the name of the Oracle host and this is a mandatory parameter.
-* ssh_key_file is the SSH key of the non-root user and used to connect to the Oracle host. This is a mandatory parameter.
-* user_name: Non-root user with SSH privileges on the Oracle host and this is an optional parameter. Default value is ec2-user.
-* ssh_port: SSH port on the Oracle host and this is an optional parameter. Default value is 22
-* plugin_port: Port used by the plug-in and this is an optional parameter. Default value is 8145
-* install_dir: Directory where the plug-in will be deployed and this is an optional parameter. Default value is /opt.
-
-For example:
-`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/oracle_plugin_copy_and_install.sh --host xxx.xx.x.x --sshkey /keys/netapp-ssh.ppk`
 
 == Add host
 
