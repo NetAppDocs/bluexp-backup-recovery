@@ -16,7 +16,7 @@ summary: Learn what's new in Cloud Backup.
 Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
-== 6 January 2023
+== 9 January 2023
 //
 //=== Enhanced support for volumes in MetroCluster configurations
 //
@@ -146,7 +146,7 @@ The following updates have been made to the https://docs.netapp.com/us-en/cloud-
 * A column for "Workload" is available so you can filter the page to view jobs for the following Backup services: Volumes, Applications, Virtual Machines, and Kubernetes.
 * You can add new columns for "User Name" and "Job Type" if you want to view these details for a specific backup job.
 * The Job Details page displays all the sub-jobs that are running to complete the main job.
-* The page automatically refreshes every 15 minutes so that you’ll always see the most recent job status results. And you can click the *Refresh* button to update the page immediately.
+* The page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. And you can click the *Refresh* button to update the page immediately.
 
 === AWS cross-account backup enhancements
 
@@ -232,7 +232,7 @@ This functionality already exists for Amazon S3 buckets.
 
 === Support has been added to back up SnapLock Enterprise volumes
 
-Now you can use Cloud Backup to back up SnapLock Enterprise volumes to public and private clouds. This feature requires that your ONTAP system is running ONTAP 9.11.1 or later. SnapLock Compliance volumes, however, aren’t currently supported.
+Now you can use Cloud Backup to back up SnapLock Enterprise volumes to public and private clouds. This feature requires that your ONTAP system is running ONTAP 9.11.1 or later. SnapLock Compliance volumes, however, aren't currently supported.
 
 === Now you can create backup files in the public cloud when using an on-premises Connector
 
