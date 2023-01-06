@@ -35,37 +35,6 @@ You should create a non-root user to deploy the plug-in.
 +
 In the above lines, replace the <LINUXUSER> with the non-root user that you created and save in the visuod utility.
 
-== Deploy the plug-in manually
-
-If SSH key based authentication is not enabled on the HANA host, you should perform the following manual steps to deploy the plug-in.
-
-*Steps*
-
-. Log into the Connector VM.
-
-. Download the Linux host plug-in binary.
-`# sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'``
-
-. Obtain the base mount path.
-`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint``
-
-. Obtain the binary path of the downloaded plug-in.
-`sudo ls <base_mount_path> $(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin``
-
-. Copy `snapcenter_linux_host_plugin_scs.bin`` to each of the SAP HANA database hosts either using scp or other alternate methods.
-
-. On the SAP HANA database host, run the following command to enable execute permissions for the binary.
-`chmod +x snapcenter_linux_host_plugin_scs.bin`
-
-. Deploy the SAP HANA plug-in as a sudo non-root user.
-``./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root-user>``
-
-. Copy `certificate.p12`` from `<base_mount_path>/client/certificate/`` path of the Connector VM to `/var/opt/snapcenter/spl/etc/`` on the plug-in host.
-
-.. Navigate to `/var/opt/snapcenter/spl/etc`` and execute the keytool command to import the certificate.
-`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt``
-.. Restart SPL: `systemctl restart spl``
-
 == Deploy the plug-in using SSH key based authentication
 
 If SSH key based authentication is enabled on the HANA host, you can perform the following steps to deploy the plug-in. Before performing the steps, ensure that the SSH connection to the Connector is enabled.
@@ -86,3 +55,34 @@ If SSH key based authentication is enabled on the HANA host, you can perform the
 * ssh_port: SSH port on the HANA host, and this is an optional parameter. Default value is 22.
 * plugin_port: Port used by the plug-in, and this is an optional parameter. Default value is 8145.
 * install_dir: Directory where the plug-in will be deployed, and this is an optional parameter. Default value is /opt.
+
+== Deploy the plug-in manually
+
+If SSH key based authentication is not enabled on the HANA host, you should perform the following manual steps to deploy the plug-in.
+
+*Steps*
+
+. Log into the Connector VM.
+
+. Download the Linux host plug-in binary.
+`# sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
+
+. Obtain the base mount path.
+`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
+
+. Obtain the binary path of the downloaded plug-in.
+`sudo ls <base_mount_path> $(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
+
+. Copy `snapcenter_linux_host_plugin_scs.bin` to each of the SAP HANA database hosts either using scp or other alternate methods.
+
+. On the SAP HANA database host, run the following command to enable execute permissions for the binary.
+`chmod +x snapcenter_linux_host_plugin_scs.bin`
+
+. Deploy the SAP HANA plug-in as a sudo non-root user.
+`./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root-user>`
+
+. Copy `certificate.p12` from `<base_mount_path>/client/certificate/` path of the Connector VM to `/var/opt/snapcenter/spl/etc/` on the plug-in host.
+
+.. Navigate to `/var/opt/snapcenter/spl/etc` and execute the keytool command to import the certificate.
+`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
+.. Restart SPL: `systemctl restart spl`
