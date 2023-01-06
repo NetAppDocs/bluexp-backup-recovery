@@ -25,10 +25,10 @@ You should create a non-root user to deploy the plug-in.
 
 . Log into the Connector VM.
 . Download the Linux host plug-in binary.
-`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'``
+`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
 . Obtain the base mount path.
 `sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
-. Copy lines 1 to 16 from the `oracle_checksum_scs.txt`` file located at `base_mount_path/version/sc-linux-host-plugin/`
+. Copy lines 1 to 16 from the `oracle_checksum_scs.txt` file located at `base_mount_path/version/sc-linux-host-plugin/`
 . Log into the SAP HANA database host and perform the following steps:
 .. Create the non-root user account, private key pair, and assign the permissions.
 .. Paste the lines that you copied in step 4 to the `/etc/sudoers` file by using the visudo Linux utility.
