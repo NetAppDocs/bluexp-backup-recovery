@@ -16,10 +16,36 @@ summary: Learn what's new in Cloud Backup.
 Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
+== 9 January 2023
+//
+//=== Enhanced support for volumes in MetroCluster configurations
+//
+//When using ONTAP 9.12.1 or greater, backup is now supported when connected to the primary system in a MetroCluster configuration. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover.
+//
+//https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations[See Backup limitations for more information]. 
+
+=== Ability to move older backup files to AWS S3 archival storage from StorageGRID systems
+
+Now you can tier older backup files from StorageGRID systems to archival storage in AWS S3. This enables you to free up space on your StorageGRID systems, and save money by using an inexpensive storage class for old backup files. You can choose to tier backups to AWS S3 Glacier or S3 Glacier Deep Archive storage.
+
+This functionality is available if your cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more here].
+
+=== Ability to select your own customer-managed keys for data encryption on Google Cloud
+
+When backing up data from your ONTAP systems to Google Cloud Storage, now you can select your own customer-managed keys for data encryption in the activation wizard instead of using the default Google-managed encryption keys. Just set up your customer-managed encryption keys first, and then enter the details when activating Cloud Backup.
+
+=== "Storage Admin" role no longer needed for the service account to create backups in Google Cloud Storage
+
+In earlier releases, the "Storage Admin" role was required for the service account that enables Cloud Backup to access Google Cloud Storage buckets. Now you can create a custom role with a reduced set of permissions to be assigned to the service account. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups[See how to prepare your Google Cloud Storage for backups].
+
+=== Ability to download the Job Monitoring results page as a .csv report
+
+After you filter the Job Monitoring page to display the jobs and actions you are interested in, now you can generate and download a .csv file of that data. Then you can analyze the information, or send the report to other people in your organization. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report[See how to generate a Job Monitoring report].
 
 == 19 December 2022
 
 === Enhancements to Cloud Backup for Applications
+
 * SAP HANA databases
 ** Supports policy-based backup and restore of SAP HANA databases residing on Azure NetApp Files (ANF) 
 ** Supports custom policies
@@ -32,7 +58,7 @@ Learn what's new in Cloud Backup.
 ** Supports Oracle 21c
 ** Supports cloning of cloud native Oracle database
 
-=== Enhancements to Cloud Backup 
+=== Enhancements to Cloud Backup for Virtual Machines
 
 * Virtual machines
 ** Back up virtual machines from on-premises secondary storage
@@ -120,7 +146,7 @@ The following updates have been made to the https://docs.netapp.com/us-en/cloud-
 * A column for "Workload" is available so you can filter the page to view jobs for the following Backup services: Volumes, Applications, Virtual Machines, and Kubernetes.
 * You can add new columns for "User Name" and "Job Type" if you want to view these details for a specific backup job.
 * The Job Details page displays all the sub-jobs that are running to complete the main job.
-* The page automatically refreshes every 15 minutes so that you’ll always see the most recent job status results. And you can click the *Refresh* button to update the page immediately.
+* The page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. And you can click the *Refresh* button to update the page immediately.
 
 === AWS cross-account backup enhancements
 
@@ -143,6 +169,7 @@ If you want to use a different AWS account for your Cloud Volumes ONTAP backups 
 
 * Supports StorageGRID to back up one or more datastores
 * Create custom policies
+// end::whats-new[]
 
 == 19 September 2022
 
@@ -167,7 +194,6 @@ In the past, a file restored to the original volume was always restored as a new
 === Drag and drop to enable Cloud Backup to StorageGRID systems
 
 If the https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[StorageGRID^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP working environment onto the destination to initiate the Cloud Backup setup wizard.
-// end::whats-new[]
 
 == 18 August 2022
 
@@ -206,7 +232,7 @@ This functionality already exists for Amazon S3 buckets.
 
 === Support has been added to back up SnapLock Enterprise volumes
 
-Now you can use Cloud Backup to back up SnapLock Enterprise volumes to public and private clouds. This feature requires that your ONTAP system is running ONTAP 9.11.1 or later. SnapLock Compliance volumes, however, aren’t currently supported.
+Now you can use Cloud Backup to back up SnapLock Enterprise volumes to public and private clouds. This feature requires that your ONTAP system is running ONTAP 9.11.1 or later. SnapLock Compliance volumes, however, aren't currently supported.
 
 === Now you can create backup files in the public cloud when using an on-premises Connector
 

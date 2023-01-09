@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-monitor-backup-jobs.html
 keywords: cloud backup, cloud backup service, backup, restore, status, monitor, alert, notification
-summary: You can monitor the status of backup and restore jobs that you have initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you’re not logged into the system.
+summary: You can monitor the status of backup and restore jobs that you have initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
 ---
 
 = Monitoring the status of backup and restore jobs
@@ -13,7 +13,7 @@ summary: You can monitor the status of backup and restore jobs that you have ini
 :imagesdir: ./media/
 
 [.lead]
-You can monitor the status of backup and restore jobs that you have initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you’re not logged into the system.
+You can monitor the status of backup and restore jobs that you have initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
 
 == Use the Job Monitor to view backup and restore job status
 
@@ -48,15 +48,21 @@ If you are looking for specific jobs, you can:
 ** Virtual Machines
 ** Kubernetes
 
-Note that this page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. You can click the *Refresh* button to update the page immediately.
+Note that this page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. You can click the image:button_refresh.png[Refresh button] button to update the page immediately.
 
-To view details corresponding to a specific job, click the name of the job. You'll see all the sub-jobs that are running to complete the main job in the Job Details page.
+=== Download Job Monitoring results as a report
+
+If you want to download the contents of the main Job Monitoring page as a report after you've refined it, click the image:button_download.png[Download button] button. Cloud Backup generates a .CSV file that you can review and send to other groups as needed. The .CSV file includes up to 10,000 rows of data.
+
+=== View job details
+
+You can view details corresponding to a specific job by clicking the name of the job. You'll see all the sub-jobs that are running to complete the main job in the Job Details page.
 
 image:screenshot_backup_job_monitor_details.png[A screenshot showing the Job Details page.]
 
 == Use the Notification Center to review backup and restore alerts 
 
-The Notification Center tracks the progress of backup and restore jobs that you’ve initiated so you can verify whether the operation was successful or not. You can display the notifications by clicking the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you’re not logged into the system.
+The Notification Center tracks the progress of backup and restore jobs that you've initiated so you can verify whether the operation was successful or not. You can display the notifications by clicking the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system.
 
 At this time, there are four events that will trigger email alerts:
 
