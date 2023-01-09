@@ -56,6 +56,9 @@ image:screenshot_backup_provider_settings_storagegrid.png[A screenshot that show
 The default policy backs up volumes every day and retains the most recent 30 backup copies of each volume. Change to hourly, daily, weekly, monthly, or yearly backups, or select one of the system-defined policies that provide more options. You can also change the number of backup copies you want to retain.
 
 [role="quick-margin-para"]
+If your cluster is using ONTAP 9.12.1 or greater and you're using StorageGRID 11.3 or greater, you can choose to tier older backups to either AWS S3 Glacier or S3 Glacier Deep Archive storage after a certain number of days for further cost optimization.
+
+[role="quick-margin-para"]
 Optionally, when using ONTAP 9.11.1 and greater, you can choose to protect your backups from deletion and ransomware attacks by configuring one of the _DataLock and Ransomware Protection_ settings. link:concept-cloud-backup-policies.html[Learn more about the available Cloud Backup policy configuration settings^].
 
 [role="quick-margin-para"]
@@ -73,11 +76,11 @@ An S3 bucket is created automatically in the service account indicated by the S3
 
 Read the following requirements to make sure you have a supported configuration before you start backing up on-premises volumes to StorageGRID.
 
-The following image shows each component when backing up an on-prem ONTAP system to StorageGRID and the connections that you need to prepare between them:
+The following image shows each component when backing up an on-prem ONTAP system to StorageGRID and the connections that you need to prepare between them.
 
 image:diagram_cloud_backup_onprem_storagegrid.png[A diagram showing how Cloud Backup communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
-When the Connector and on-premises ONTAP system are installed in an on-prem location without internet access, the StorageGRID system must be located in the same on-prem data center.
+When the Connector and on-premises ONTAP system are installed in an on-prem location without internet access (a "dark site"), the StorageGRID system must be located in the same on-prem data center. Archival of older backup files to public cloud is not supported in dark site configurations.
 
 === Preparing your ONTAP clusters
 
@@ -119,6 +122,8 @@ Supported StorageGRID versions::
 StorageGRID 10.3 and later is supported.
 +
 To use DataLock & Ransomware Protection for your backups, your StorageGRID systems must be running version 11.6.0.3 or greater. 
++
+To tier older backups to cloud archival storage, your StorageGRID systems must be running version 11.3 or greater.
 
 S3 credentials::
 You must have created an S3 tenant account to control access to your StorageGRID storage. https://docs.netapp.com/us-en/storagegrid-116/admin/creating-tenant-account.html[See the StorageGRID docs for details^].
@@ -149,7 +154,7 @@ When backing up data to StorageGRID, a Connector must be available on your premi
 
 NOTE: Cloud Backup functionality is built into the BlueXP Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[Cloud Backup What's New] to see the new features in each Cloud Backup release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
 
-//We also recommend that you create local backups of the Cloud Backup configuration data when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up Cloud Backup data in a dark site^].
+We highly recommend that you create local backups of the Cloud Backup configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up Cloud Backup data in a dark site^].
 
 === Preparing networking for the Connector
 
@@ -162,6 +167,23 @@ Ensure that the Connector has the required networking connections.
 * An HTTPS connection over port 443 to the StorageGRID Gateway Node
 * An HTTPS connection over port 443 to your ONTAP cluster management LIF
 * An outbound internet connection over port 443 to Cloud Backup (not required when the Connector is installed in a "dark" site)
+
+=== Preparing to archive older backup files to public cloud storage
+
+Tiering older backup files to archival storage saves money by using a less expensive storage class for backups that you may not need. StorageGRID is an on-premises (private cloud) solution that doesn't offer archival storage, but you can move older backup files to public cloud archival storage. 
+
+Requirements::
+* Your cluster must be using ONTAP 9.12.1 or greater
+* Your StorageGRID must be using 11.3 or greater
+* Your StorageGRID must be https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[discovered and available in the BlueXP Canvas^]
+* Archival storage is supported only for AWS S3 storage classes at this time. You can choose to tier backups to AWS S3 Glacier or S3 Glacier Deep Archive storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival tiers^].  
+* You'll need to sign up for an AWS S3 subscription for the storage space where your backups will be located.
+
+When defining the Archival settings for the backup policy for your cluster, you'll enter your cloud provider credentials and select the storage class that you want to use. Cloud Backup creates the cloud bucket when you activate backup for the cluster. The information required for AWS archival storage is shown below.
+
+image:screenshot_sg_archive_to_aws.png[A screenshot of the information you'll need to archive backup files from StorageGRID to AWS S3.]
+
+The archival policy settings you select will generate an information lifecycle management (ILM) policy in StorageGRID, and add the settings as "rules". If there is an existing active ILM policy, new rules will be added to the ILM policy to move the data to the archive tier. If there is an existing ILM policy in the "proposed" state, the creation and activation of a new ILM policy will not be possible. https://docs.netapp.com/us-en/storagegrid-116/ilm/index.html[Learn more about StorageGRID ILM policies and rules^].
 
 === License requirements
 
@@ -198,7 +220,8 @@ image:screenshot_backup_provider_settings_storagegrid.png[A screenshot that show
 
 .. Enter the name for the default policy. You don't need to change the name.
 .. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
-.. Optionally, when using ONTAP 9.11.1 and greater, you can choose to protect your backups from deletion and ransomware attacks by configuring _DataLock and Ransomware Protection_. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
+.. If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion and ransomware attacks by configuring _DataLock and Ransomware Protection_. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
+.. If your cluster is using ONTAP 9.12.1 or greater, and you're using StorageGRID 11.3 or greater, you can choose to tier older backups to either AWS S3 Glacier or S3 Glacier Deep Archive storage after a certain number of days for further cost optimization. <<Preparing to archive older backup files to public cloud storage,See how to configure your systems for this functionality>>.
 +
 image:screenshot_backup_onprem_policy.png[A screenshot that shows the Cloud Backup settings where you can choose your backup schedule and retention period.]
 +

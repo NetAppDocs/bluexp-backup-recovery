@@ -24,8 +24,8 @@ Get started quickly by following these steps, or scroll down to the remaining se
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
 
 [role="quick-margin-list"]
-* You have discovered the on-premises cluster and added it to a working environment in BlueXP. See https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
-** The cluster is running ONTAP 9.7P5 or later.
+* You have discovered the on-premises cluster and added it as a working environment in BlueXP. See https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
+** The cluster is running ONTAP 9.7P5 or later (ONTAP 9.8P13 and later is recommended).
 ** The cluster has a SnapMirror license -- it is included as part of the Premium Bundle or Data Protection Bundle.
 ** The cluster must have the required network connections to Google storage and to the Connector.
 * The Connector must have the required network connections to Google storage and to the cluster.
@@ -43,7 +43,10 @@ image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup and
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Select the cloud provider and enter the provider details
 
 [role="quick-margin-para"]
-Select Google Cloud as your provider and then enter the provider details. You also need to specify the IPspace in the ONTAP cluster where the volumes reside.
+Select Google Cloud as your provider and then enter the provider details. You'll need to specify the IPspace in the ONTAP cluster where the volumes reside. You can also choose your own customer-managed keys for data encryption instead of using the default Google-managed encryption key.
+
+[role="quick-margin-para"]
+image:screenshot_backup_onprem_to_google.png[A screenshot that shows the cloud provider details when backing up volumes from an on-prem ONTAP system to a Google Cloud Storage bucket.]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Define the default backup policy
 
@@ -110,9 +113,9 @@ When you set up Cloud Backup, you are prompted for the IPspace to use. You shoul
 * The nodes' intercluster LIFs are able to access the object store.
 * DNS servers have been configured for the storage VM where the volumes are located. See how to https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html[configure DNS services for the SVM^].
 +
-If you're using Private Google Access or Private Service Connect, make sure your DNS servers have been configured to point storage.googleapis.com to the correct internal (private) IP address. 
+If you're using Private Google Access or Private Service Connect, make sure your DNS servers have been configured to point `storage.googleapis.com` to the correct internal (private) IP address. 
 * Note that if you use are using a different IPspace than the Default, then you might need to create a static route to get access to the object storage.
-* Update firewall rules, if necessary, to allow Cloud Backup service connections from ONTAP to object storage through port 443 and name resolution traffic from the storage VM to the DNS server over port 53 (TCP/UDP).
+* Update firewall rules, if necessary, to allow Cloud Backup connections from ONTAP to object storage through port 443, and name resolution traffic from the storage VM to the DNS server over port 53 (TCP/UDP).
 
 === Creating or switching Connectors
 
@@ -138,7 +141,7 @@ Ensure that the Connector has the required networking connections.
 
 . Enable Private Google Access (or Private Service Connect) on the subnet where you plan to deploy the Connector. https://cloud.google.com/vpc/docs/configure-private-google-access[Private Google Access^] or https://cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises[Private Service Connect^] are needed if you have a direct connection from your ONTAP cluster to the VPC and you want communication between the Connector and Google Cloud Storage to stay in your virtual private network (a *private* connection).
 +
-Follow the Google instructions for setting up these Private access options. Make sure your DNS servers have been configured to point www.googleapis.com and storage.googleapis.com to the correct internal (private) IP addresses.
+Follow the Google instructions for setting up these Private access options. Make sure your DNS servers have been configured to point `www.googleapis.com` and `storage.googleapis.com` to the correct internal (private) IP addresses.
 
 === Verify or add permissions to the Connector
 
@@ -146,7 +149,7 @@ To use the Cloud Backup "Search & Restore" functionality, you need to have speci
 
 .Steps
 
-. In link:https://console.cloud.google.com[Cloud Console^], go to the *Roles* page.
+. In the https://console.cloud.google.com[Google Cloud Console^], go to the *Roles* page.
 
 . Using the drop-down list at the top of the page, select the project or organization that contains the role that you want to edit.
 
@@ -170,6 +173,73 @@ bigquery.tables.create
 
 . Click *Update* to save the edited role.
 
+=== Preparing Google Cloud Storage for backups
+
+When you set up backup, you need to provide storage access keys for a service account that has specific permissions. A service account enables Cloud Backup to authenticate and access Cloud Storage buckets used to store backups. The keys are required so that Google Cloud Storage knows who is making the request.
+
+.Steps
+
+. In the https://console.cloud.google.com[Google Cloud Console^], go to the *Roles* page.
+
+. https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role[Create a new role^] with the following permissions:
++
+[source,json]
+storage.buckets.create
+storage.buckets.delete
+storage.buckets.get
+storage.buckets.list
+storage.buckets.update
+storage.buckets.getIamPolicy
+storage.multipartUploads.create
+storage.objects.create
+storage.objects.delete
+storage.objects.get
+storage.objects.list
+storage.objects.update
+
+. In the Google Cloud console, https://console.cloud.google.com/iam-admin/serviceaccounts[go to the Service accounts page^].
+
+. Select your Cloud project.
+
+. Click *Create service account* and provide the required information:
+
+.. *Service account details*: Enter a name and description.
+.. *Grant this service account access to project*: Select the custom role that you just created.
+.. Click *Done*.
+
+. Go to https://console.cloud.google.com/storage/settings[GCP Storage Settings^] and create access keys for the service account:
+
+.. Select a project, and click *Interoperability*. If you haven't already done so, click *Enable interoperability access*.
+
+.. Under *Access keys for service accounts*, click *Create a key for a service account*, select the service account that you just created, and click *Create Key*.
++
+You'll need to enter the keys in Cloud Backup later when you configure the backup service.
+
+==== Using customer-managed encryption keys (CMEK)
+
+You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. In this case you'll need to have the Key Ring and the Key Name so you can add this information in the activation wizard. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
+
+You'll also need to add these required permissions in the role for the Connector for CMEK to work:
+
+[source,json]
+cloudkms.cryptoKeys.get
+cloudkms.cryptoKeys.getIamPolicy
+cloudkms.cryptoKeys.list
+cloudkms.cryptoKeys.setIamPolicy
+cloudkms.keyRings.get
+cloudkms.keyRings.getIamPolicy
+cloudkms.keyRings.list
+cloudkms.keyRings.setIamPolicy
+
+*CMEK considerations:*
+
+* Both HSM (Hardware-backed) and Software generated keys are supported.
+* Both newly created or imported Cloud KMS keys are supported.
+* Only regional keys are supported, global keys are not supported.
+* Currently, only the "Symmetric encrypt/decrypt" purpose is supported.
+* The service agent associated with the Storage Account is assigned the "CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter)" IAM role by Cloud Backup. 
+
+
 === Verify license requirements
 
 * Before you can activate Cloud Backup for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from Google, or purchase and activate a Cloud Backup BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
@@ -180,22 +250,6 @@ bigquery.tables.create
 * You need to have a Google subscription for the object storage space where your backups will be located.
 +
 You can create backups from on-premises systems to Google Cloud Storage in all regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]. You specify the region where backups will be stored when you set up the service.
-
-=== Preparing Google Cloud Storage for backups
-
-When you set up backup, you need to provide storage access keys for a service account that has Storage Admin permissions. A service account enables Cloud Backup to authenticate and access Cloud Storage buckets used to store backups. The keys are required so that Google Cloud Storage knows who is making the request.
-
-.Steps
-
-. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account[Create a service account that has the predefined Storage Admin role^].
-
-. Go to https://console.cloud.google.com/storage/settings[GCP Storage Settings^] and create access keys for the service account:
-
-.. Select a project, and click *Interoperability*. If you haven’t already done so, click *Enable interoperability access*.
-
-.. Under *Access keys for service accounts*, click *Create a key for a service account*, select the service account that you just created, and click *Create Key*.
-+
-You'll need to enter the keys in Cloud Backup later when you configure the backup service.
 
 == Enabling Cloud Backup
 
@@ -213,10 +267,11 @@ image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup and
 
 . Enter the provider details and click *Next*.
 
-.. The Google Cloud Project where you want the Google Cloud Storage bucket to be created for backups. (The Project must have a Service Account that has the predefined Storage Admin role.)
+.. The Google Cloud Project where you want the Google Cloud Storage bucket to be created for backups. (The Project must have a Service Account that has a custom role with specific permissions - <<Preparing Google Cloud Storage for backups,as described here>>.)
 .. The Google Access Key and Secret Key used to store the backups.
 .. The Google region where the backups will be stored.
 .. The IPspace in the ONTAP cluster where the volumes you want to back up reside. The intercluster LIFs for this IPspace must have outbound internet access.
+.. Whether you'll use the default Google-managed encryption key or choose your own customer-managed keys to manage encryption of your data. To use a CMEK, you'll need to have the Key Ring and the Key Name. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
 +
 image:screenshot_backup_onprem_to_google.png[A screenshot that shows the cloud provider details when backing up volumes from an on-premises cluster to Google Cloud Storage.]
 

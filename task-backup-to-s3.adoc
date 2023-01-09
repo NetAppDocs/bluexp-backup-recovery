@@ -22,7 +22,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
 
 [role="quick-margin-list"]
-* You're running Cloud Volumes ONTAP 9.7P5 or later in AWS.
+* You're running Cloud Volumes ONTAP 9.7P5 or later in AWS (ONTAP 9.8P13 and later is recommended).
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
 * You have subscribed to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[BlueXP Marketplace Backup offering], an https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS annual contract], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated] a Cloud Backup BYOL license from NetApp.
 * The IAM role that provides the BlueXP Connector with permissions includes S3 permissions from the latest https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html[BlueXP policy^].

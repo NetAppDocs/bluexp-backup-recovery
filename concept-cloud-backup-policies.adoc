@@ -222,7 +222,7 @@ If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older b
 endif::azure[]
 
 ifdef::gcp[]
-* In GCP, backups are associated with the _Standard_ storage class by default.
+* In GCP, backups are associated with the _Standard_ storage class.
 +
 If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. (This functionality is not currently available for Cloud Volumes ONTAP systems.) link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
 //You can use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. However, you configure these other storage classes through Google, not through the Cloud Backup UI. See the Google topic https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the default storage class for a Google Cloud Storage bucket.
@@ -230,4 +230,4 @@ endif::gcp[]
 
 * In StorageGRID, backups are associated with the _Standard_ storage class.
 +
-There is no archival tier available at this time.
+If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater, you can archive older backup files to public cloud archival storage. Archival storage is supported only for AWS S3 storage classes at this time. You can choose to tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days. link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].

@@ -19,8 +19,6 @@ When you use Cloud Backup in a SaaS environment where the BlueXP Connector is de
 
 This topic describes how to back up critical Cloud Backup data to your connected StorageGRID system. It also describes how to restore the data onto a new Connector when necessary.
 
-NOTE: You should plan to back up this Cloud Backup data periodically so you'll always have access to the most recent data.
-
 == Back up critical Cloud Backup data
 
 There are 2 types of data that you need to back up:
@@ -28,7 +26,9 @@ There are 2 types of data that you need to back up:
 * Cloud Backup database
 * Indexed Catalog files (used for Search & Restore functionality)
 
-No volume data is ever included in the Cloud Backup database or Indexed Catalog files.
+NOTE: You should plan to back up this Cloud Backup data periodically so you'll always have access to the most recent data.
+
+Note that no volume data is ever included in the Cloud Backup database or Indexed Catalog files.
 
 === Back up the Cloud Backup database
 
@@ -47,7 +47,7 @@ docker exec -it ds_mysql_1 sh
 
 . You'll need the MySQL DB password, so copy the value of the key "MYSQL_ROOT_PASSWORD".
 
-. Back up the Cloud Backup MySQL DB entering the following command:
+. Back up the Cloud Backup MySQL DB by entering the following command:
 +
 [source,cli]
 mysqldump --user root --password -p cloud_backup --result-file=mysql.dump.cloud_backup.sql
@@ -57,11 +57,11 @@ mysqldump --user root --password -p cloud_backup --result-file=mysql.dump.cloud_
 [source,cli]
 docker cp ds_mysql_1:/mysql.dump.cloud_backup.sql .
 
-. Copy the backup to a secure location in your network. You can use a local StorageGRID system if you are creating ONTAP volume backups to that location.
+. Copy the backups to a secure location in your network. You can use a local StorageGRID system if you are creating ONTAP volume backups to that location.
 
 === Back up the Indexed Catalog files
 
-The Indexed Catalog is used for Search & Restore functionality. It contains information about every volume and every backup file - making your searches very quick and efficient when restoring volume data.
+The Indexed Catalog is used for Search & Restore functionality. It contains information about every volume and every backup file - making your searches very quick and efficient when looking for volume data that you want to restore.
 
 . On the Connector host system, change the directory to "/tmp".
 
@@ -80,18 +80,24 @@ If your on-premises Connector has a catastrophic failure, you'll need to install
 
 There are 4 tasks you'll need to perform to return your Cloud Backup system to a working state:
 
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[Install a new Connector on a new on-premises Linux host^]
+* Install a new BlueXP Connector
 * Restore the Cloud Backup database
 * Restore the Indexed Catalog files
-* Rediscover all of your on-prem ONTAP systems to the BlueXP UI
+* Rediscover all of your on-prem ONTAP systems and StorageGRID systems to the BlueXP UI
 
 Once you verify that your system is back in a working order, we recommend that you create new backup files.
 
+=== Install a new Connector on a new on-premises Linux host
+
+When installing a new BlueXP Connector, make sure you download the same release of software as you had installed on the original Connector. Periodic changes to the Cloud Backup database structure may make newer software releases incompatible with the original database backups. You can https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software to the most current version after restoring the Backup database^].
+
+. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[Install the BlueXP Connector on a new on-premises Linux host^]
+
+. Log into BlueXP using the admin user credentials that you just created.
+
 === Restore the Cloud Backup database
 
-. After installing the new Connector, log into the Connector host system using the appropriate credentials.
-
-. Copy the MySQL backup from the secure location to the new Connector host.
+. Copy the MySQL backups from the secure location to the new Connector host.
 
 . Copy the backup into the MySQL docker container using the following command:
 +
@@ -108,6 +114,7 @@ docker exec -it ds_mysql_1 sh
 . You'll need the MySQL DB password, so copy the value of the key "MYSQL_ROOT_PASSWORD".
 
 . Restore the Cloud Backup MySQL DB using the following command:
++
 [source,cli]
 mysql -u root -p cloud_backup < mysql.dump.cloud_backup.sql
 
@@ -129,16 +136,55 @@ Check if the volumes that are shown are the same as those that existed in your o
 . Copy the Indexed Catalog backup zip file from the secure location to the new Connector host in the "/tmp" folder.
 
 . Unzip the "catalogxxxxxx.zip" file using the following command:
++
 [source,cli]
 unzip catalogxxxxxx.zip
 
 . Run the *ls* command to make sure that the folder "catalogxxxxxx" has been created with the subfolders "changes" and "snapshots" underneath.
 
-=== Discover your clusters and verify Cloud Backup settings
+=== Discover your ONTAP clusters and StorageGRID systems
 
-. https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html#discovering-clusters-from-the-canvas-page[Discover all the on-prem ONTAP working environments^] that were available in your previous environment.
+. https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector[Discover all the on-prem ONTAP working environments^] that were available in your previous environment.
 
-. Optionally, https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[Discover your StorageGRID systems^]. 
+. https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[Discover your StorageGRID systems^]. 
+
+=== Set up the StorageGRID environment details
+
+Add the details of the StorageGRID system associated with your ONTAP working environments as they were set up on the original Connector setup using the https://docs.netapp.com/us-en/cloud-manager-automation/index.html[BlueXP APIs^].
+
+You'll need to perform these steps for each ONTAP system that is backing up data to StorageGRID.
+
+. Extract the authorization token using the following oauth/token API.
++
+[source,http]
+curl 'http://10.193.192.202/oauth/token' -X POST -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100101 Firefox/108.0' -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/json' -d '{"username":admin@netapp.com,"password":"Netapp@123","grant_type":"password"}
+> '
++
+This API will return a response like the following. You can retrieve the authorization token as shown below.
++
+[source,text]
+{"expires_in":21600,"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJlMGFiZjRiIn0eyJzdWIiOiJvY2NtYXV0aHwxIiwiYXVkIjpbImh0dHBzOi8vYXBpLmNsb3VkLm5ldGFwcC5jb20iXSwiaHR0cDovL2Nsb3VkLm5ldGFwcC5jb20vZnVsbF9uYW1lIjoiYWRtaW4iLCJodHRwOi8vY2xvdWQubmV0YXBwLmNvbS9lbWFpbCI6ImFkbWluQG5ldGFwcC5jb20iLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiaWF0IjoxNjcyNzM2MDIzLCJleHAiOjE2NzI3NTc2MjMsImlzcyI6Imh0dHA6Ly9vY2NtYXV0aDo4NDIwLyJ9CJtRpRDY23PokyLg1if67bmgnMcYxdCvBOY-ZUYWzhrWbbY_hqUH4T-114v_pNDsPyNDyWqHaKizThdjjHYHxm56vTz_Vdn4NqjaBDPwN9KAnC6Z88WA1cJ4WRQqj5ykODNDmrv5At_f9HHp0-xVMyHqywZ4nNFalMvAh4xESc5jfoKOZc-IOQdWm4F4LHpMzs4qFzCYthTuSKLYtqSTUrZB81-o-ipvrOqSo1iwIeHXZJJV-UsWun9daNgiYd_wX-4WWJViGEnDzzwOKfUoUoe1Fg3ch--7JFkFl-rrXDOjk1sUMumN3WHV9usp1PgBE5HAcJPrEBm0ValSZcUbiA"}
+
+. Extract the Working Environment ID and the X-Agent-Id using the tenancy/external/resource API.
++
+[source,http]
+curl -X GET http://10.193.192.202/tenancy/external/resource?account=account-DARKSITE1 -H 'accept: application/json' -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJlMGFiZjRiIn0eyJzdWIiOiJvY2NtYXV0aHwxIiwiYXVkIjpbImh0dHBzOi8vYXBpLmNsb3VkLm5ldGFwcC5jb20iXSwiaHR0cDovL2Nsb3VkLm5ldGFwcC5jb20vZnVsbF9uYW1lIjoiYWRtaW4iLCJodHRwOi8vY2xvdWQubmV0YXBwLmNvbS9lbWFpbCI6ImFkbWluQG5ldGFwcC5jb20iLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiaWF0IjoxNjcyNzIyNzEzLCJleHAiOjE2NzI3NDQzMTMsImlzcyI6Imh0dHA6Ly9vY2NtYXV0aDo4NDIwLyJ9X_cQF8xttD0-S7sU2uph2cdu_kN-fLWpdJJX98HODwPpVUitLcxV28_sQhuopjWobozPelNISf7KvMqcoXc5kLDyX-yE0fH9gr4XgkdswjWcNvw2rRkFzjHpWrETgfqAMkZcAukV4DHuxogHWh6-DggB1NgPZT8A_szHinud5W0HJ9c4AaT0zC-sp81GaqMahPf0KcFVyjbBL4krOewgKHGFo_7ma_4mF39B1LCj7Vc2XvUd0wCaJvDMjwp19-KbZqmmBX9vDnYp7SSxC1hHJRDStcFgJLdJHtowweNH2829KsjEGBTTcBdO8SvIDtctNH_GAxwSgMT3zUfwaOimPw'
++
+This API will return a response like the following. The value under the "resourceIdentifier" denotes the _WorkingEnvironment Id_ and the value under "agentId" denotes _x-agent-id_.
++
+[source,text]
+[{"resourceIdentifier":"OnPremWorkingEnvironment-pMtZND0M","resourceType":"ON_PREM","agentId":"vB_1xShPpBtUosjD7wfBlLIhqDgIPA0wclients","resourceClass":"ON_PREM","name":"CBSFAS8300-01-02","metadata":"{\"clusterUuid\": \"2cb6cb4b-dc07-11ec-9114-d039ea931e09\"}","workspaceIds":["workspace2wKYjTy9"],"agentIds":["vB_1xShPpBtUosjD7wfBlLIhqDgIPA0wclients"]}]
+
+. Update the Cloud Backup database with the details of the StorageGRID system associated with the Working Environments. Make sure to enter the Fully Qualified Domain Name of the StorageGRID, as well as the Access-Key and Storage-Key as shown below:
++
+[source,http]
+curl -X POST 'http://10.193.192.202/account/account-DARKSITE1/providers/cloudmanager_cbs/api/v1/sg/credentials/working-environment/OnPremWorkingEnvironment-pMtZND0M' \
+> --header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJlMGFiZjRiIn0eyJzdWIiOiJvY2NtYXV0aHwxIiwiYXVkIjpbImh0dHBzOi8vYXBpLmNsb3VkLm5ldGFwcC5jb20iXSwiaHR0cDovL2Nsb3VkLm5ldGFwcC5jb20vZnVsbF9uYW1lIjoiYWRtaW4iLCJodHRwOi8vY2xvdWQubmV0YXBwLmNvbS9lbWFpbCI6ImFkbWluQG5ldGFwcC5jb20iLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiaWF0IjoxNjcyNzIyNzEzLCJleHAiOjE2NzI3NDQzMTMsImlzcyI6Imh0dHA6Ly9vY2NtYXV0aDo4NDIwLyJ9X_cQF8xttD0-S7sU2uph2cdu_kN-fLWpdJJX98HODwPpVUitLcxV28_sQhuopjWobozPelNISf7KvMqcoXc5kLDyX-yE0fH9gr4XgkdswjWcNvw2rRkFzjHpWrETgfqAMkZcAukV4DHuxogHWh6-DggB1NgPZT8A_szHinud5W0HJ9c4AaT0zC-sp81GaqMahPf0KcFVyjbBL4krOewgKHGFo_7ma_4mF39B1LCj7Vc2XvUd0wCaJvDMjwp19-KbZqmmBX9vDnYp7SSxC1hHJRDStcFgJLdJHtowweNH2829KsjEGBTTcBdO8SvIDtctNH_GAxwSgMT3zUfwaOimPw' \
+> --header 'x-agent-id: vB_1xShPpBtUosjD7wfBlLIhqDgIPA0wclients' \
+> -d '
+> { "storage-server" : "sr630ip15.rtp.eng.netapp.com:10443", "access-key": "2ZMYOAVAS5E70MCNH9", "secret-password": "uk/6ikd4LjlXQOFnzSzP/T0zR4ZQlG0w1xgWsB" }'
+
+=== Verify Cloud Backup settings
 
 . Select each ONTAP working environment and click *View Backups* next to the Backup and recovery service in the right-panel.
 +
@@ -146,6 +192,6 @@ You should be able to see all the backups that have been created for your volume
 
 . From the Restore Dashboard, under the Search & Restore section, click *Indexing Settings*.
 +
-Make sure that the working environments which had Indexed Cataloging enabled in previously remain enabled.
+Make sure that the working environments which had Indexed Cataloging enabled previously remain enabled.
 
 . From the Search & Restore page, run a few catalog searches to confirm that the Indexed Catalog restore has been completed successfully.

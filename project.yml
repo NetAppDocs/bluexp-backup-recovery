@@ -196,6 +196,8 @@ sidebar:
           url: /reference-azure-backup-tiers.html
         - title: Supported Google archive storage tiers
           url: /reference-google-backup-tiers.html
+        - title: Back up the Cloud Backup database in a dark site
+          url: /reference-backup-cbs-db-in-dark-site.html
         - title: Configure Backup for multi-account access in Azure
           url: /reference-backup-multi-account-azure.html
     - title: Knowledge and support

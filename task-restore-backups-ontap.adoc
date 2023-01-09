@@ -75,7 +75,7 @@ See the requirements and restore steps for the type of restore operation you wan
 
 Before you start restoring a volume, folder, or file, you should know the name of the volume from which you want to restore, the name of the working environment where the volume resides, and the approximate date of the backup file that you want to restore from.
 
-*Note:* If the backup file for the volume that you want to restore resides in archival storage (starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur a cost. Additionally, the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, and 9.12.1 for Google Archive.
+*Note:* If the backup file containing the data that you want to restore resides in archival storage (starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur a cost. Additionally, the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, and 9.12.1 for Google Archive and StorageGRID.
 
 ifdef::aws[]
 link:reference-aws-backup-tiers.html[Learn more about restoring from AWS archival storage].
@@ -328,13 +328,13 @@ You have a few options for the location when restoring folders and file(s).
 
 You can restore a volume, folder, or files from an ONTAP backup file using Search & Restore. Search & Restore enables you to search for a specific volume, folder, or file from all backups stored on cloud storage for a particular provider, and then perform a restore. You don't need to know the exact working environment name or volume name - the search looks through all volume backup files.
 
-The search operation also looks across all local Snapshot copies that exist for your ONTAP volumes too. Since restoring data from a local Snapshot copy can be faster and less costly than restoring from a backup file, you may want to restore data from the Snapshot. You can restore the Snapshot as a new volume from the Volume Details page on the Canvas.
+The search operation also looks across all local Snapshot copies that exist for your ONTAP volumes too. Since restoring data from a local Snapshot copy can be faster and less costly than restoring from a backup file, you may want to restore data from the Snapshot. You can restore the Snapshot as a new volume from the Volume Details page on the Canvas (not from Cloud Backup).
 
 When you restore a volume from a backup file, Cloud Backup creates a _new_ volume using the data from the backup. You can restore the data as a volume in the original working environment, or to a different working environment that's located in the same cloud account as the source working environment. You can also restore volumes to an on-premises ONTAP system.
 
 You can restore folders or files to the original volume location, to a different volume in the same working environment, or to a different working environment that's using the same cloud account. You can also restore folders and files to a volume on an on-premises ONTAP system.
 
-If the backup file for the volume that you want to restore resides in archival storage (available starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur additional cost. Note that the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, and 9.12.1 for Google Archive.
+If the backup file for the volume that you want to restore resides in archival storage (available starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur additional cost. Note that the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, and 9.12.1 for Google Archive and StorageGRID.
 
 ifdef::aws[]
 link:reference-aws-backup-tiers.html[Learn more about restoring from AWS archival storage].
@@ -405,8 +405,8 @@ Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP
 
 ** The ONTAP version must be 9.8 or greater.
 ** The storage VM (SVM) on which the volume resides must have a configured data LIF.
-** NFS must be enabled on the volume.
-** The SnapDiff RPC Server must be activated on the SVM. BlueXP does this automatically when you enable Indexing on the working environment.
+** NFS must be enabled on the volume (both NFS and SMB/CIFS volumes are supported).
+** The SnapDiff RPC Server must be activated on the SVM. BlueXP does this automatically when you enable Indexing on the working environment. (SnapDiff is the technology that quickly identifies the file and directory differences between two Snapshot copies.)
 
 ifdef::aws[]
 * AWS requirements:
