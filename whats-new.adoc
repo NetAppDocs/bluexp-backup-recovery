@@ -151,6 +151,7 @@ The following updates have been made to the https://docs.netapp.com/us-en/cloud-
 === AWS cross-account backup enhancements
 
 If you want to use a different AWS account for your Cloud Volumes ONTAP backups than you're using for the source volumes, you must add the destination AWS account credentials in BlueXP, and you must add the permissions "s3:PutBucketPolicy" and "s3:PutBucketOwnershipControls" to the IAM role that provides BlueXP with permissions. In the past you needed to configure many settings in the AWS Console - you don't need to do that anymore.
+// end::whats-new[]
 
 == 28 September 2022
 
@@ -169,7 +170,6 @@ If you want to use a different AWS account for your Cloud Volumes ONTAP backups 
 
 * Supports StorageGRID to back up one or more datastores
 * Create custom policies
-// end::whats-new[]
 
 == 19 September 2022
 
@@ -341,13 +341,3 @@ This option is available when enabling backup in a new working environment, or f
 === New Job Monitor is available to see the in-process status of all backup and restore jobs
 
 The Job Monitor can be very helpful when you have initiated an operation against multiple volumes, like changing the backup policy, or deleting backups, so you can see when the operation has completed on all volumes. link:task-monitor-backup-jobs.html[See how to use the Job Monitor].
-
-== 2 January 2022
-
-=== Ability to back up persistent volumes from your AKS Kubernetes clusters to Azure Blob storage
-
-If your AKS cluster has NetApp Astra Trident installed, and it's using Cloud Volumes ONTAP for Azure as backend storage for the cluster, then you can back up and restore volumes to and from Azure Blob storage. link:task-backup-kubernetes-to-azure.html[Go here for details].
-
-=== Cloud Backup service charges have been changed in this release to align more closely with industry standards
-
-Instead of paying NetApp for capacity based on the size of your backup files, now you pay only for the data that you protect, calculated by the logical used capacity (before ONTAP efficiencies) of the source ONTAP volumes which are being backed up. This capacity is also known as Front-End Terabytes (FETB).

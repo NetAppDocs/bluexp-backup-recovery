@@ -17,7 +17,7 @@ Cloud Backup is a service for BlueXP (formerly Cloud Manager) working environmen
 
 When necessary, you can restore an entire _volume_ from a backup to the same or different working environment. When backing up ONTAP data, you can also choose to restore or one or more _files_ from a backup to the same or different working environment.
 
-https://cloud.netapp.com/cloud-backup-service[Learn more about Cloud Backup^].
+https://bluexp.netapp.com/cloud-backup[Learn more about Cloud Backup^].
 
 Backup & Restore can be used to:
 
