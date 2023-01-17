@@ -47,7 +47,7 @@ This table provides a comparison of the 2 methods.
 
 | Browse through a folder-style structure to find the volume, folder, or file within a single backup file | Search for a volume, folder, or file across *all backup files* by partial or full volume name, partial or full folder/file name, size range, and additional search filters
 | Volume and file restore works with backup files stored in Amazon S3, Azure Blob, Google Cloud, and NetApp StorageGRID | Volume and file restore works with backup files stored in Amazon S3, Azure Blob, Google Cloud, and NetApp StorageGRID
-| Restore volumes, folder, and files from StorageGRID in sites with no internet access | Not supported in dark sites
+| Restore volumes, folder, and files from StorageGRID in sites with no internet access | Restore volumes, folder, and files from StorageGRID in sites with no internet access
 | Does not handle files that have been renamed or deleted | Handles newly created/deleted/renamed directories and newly created/deleted/renamed files
 | Browse for results across public and private clouds | Browse for results across public clouds and local Snapshots copies
 | No additional cloud provider resources required | Additional bucket and public cloud provider resources required per account
@@ -123,7 +123,7 @@ endif::azure[]
 ifdef::gcp[]
 * For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC
 endif::gcp[]
-* For StorageGRID, the Connector must be deployed in your premises
+* For StorageGRID, the Connector must be deployed in your premises; with or without internet access
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
@@ -395,7 +395,7 @@ endif::azure[]
 ifdef::gcp[]
 * For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC
 endif::gcp[]
-* For StorageGRID, the Connector must be deployed in your premises; with internet connectivity
+* For StorageGRID, the Connector must be deployed in your premises; with or without internet access
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
@@ -441,6 +441,7 @@ endif::gcp[]
 Depending on your configuration, there are 2 ways that Search & Restore is implemented:
 +
 ** If there are no cloud provider credentials in your account, then the Indexed Catalog information is stored on the Connector.
+** If you are using a Connector in a dark site, then the Indexed Catalog information is stored on the Connector (requires Connector version 3.9.25 or greater).
 ** If you have https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html[AWS credentials^] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html[Azure credentials^] in the account, then the Indexed Catalog is stored at the cloud provider, just like with a Connector deployed in the cloud. (If you have both credentials, AWS is selected by default.)
 +
 Even though you are using an on-premises Connector, the cloud provider requirements must be met for both Connector permissions and cloud provider resources. See the AWS and Azure requirements above when using this implementation. 
