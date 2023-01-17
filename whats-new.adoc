@@ -38,6 +38,13 @@ When backing up data from your ONTAP systems to Google Cloud Storage, now you ca
 
 In earlier releases, the "Storage Admin" role was required for the service account that enables Cloud Backup to access Google Cloud Storage buckets. Now you can create a custom role with a reduced set of permissions to be assigned to the service account. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups[See how to prepare your Google Cloud Storage for backups].
 
+=== Support has been added to restore data using Search & Restore in sites without internet access
+
+If you are backing up data from an on-prem ONTAP cluster to StorageGRID in a site with no internet access, also known as a dark site or offline site, now you can use the Search & Restore restore option to restore data when necessary. This functionality requires that the BlueXP Connector (version 3.9.25 or greater) is deployed in the offline site.
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore[See how to restore ONTAP data using Search & Restore].
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[See how to install the Connector in your offline site].
+
 === Ability to download the Job Monitoring results page as a .csv report
 
 After you filter the Job Monitoring page to display the jobs and actions you are interested in, now you can generate and download a .csv file of that data. Then you can analyze the information, or send the report to other people in your organization. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report[See how to generate a Job Monitoring report].
