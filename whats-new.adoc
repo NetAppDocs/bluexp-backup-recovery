@@ -28,11 +28,11 @@ Learn what's new in Cloud Backup.
 
 Now you can tier older backup files from StorageGRID systems to archival storage in AWS S3. This enables you to free up space on your StorageGRID systems, and save money by using an inexpensive storage class for old backup files. You can choose to tier backups to AWS S3 Glacier or S3 Glacier Deep Archive storage.
 
-This functionality is available if your cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more here].
+This functionality is available if your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more here].
 
 === Ability to select your own customer-managed keys for data encryption on Google Cloud
 
-When backing up data from your ONTAP systems to Google Cloud Storage, now you can select your own customer-managed keys for data encryption in the activation wizard instead of using the default Google-managed encryption keys. Just set up your customer-managed encryption keys first, and then enter the details when activating Cloud Backup.
+When backing up data from your ONTAP systems to Google Cloud Storage, now you can select your own customer-managed keys for data encryption in the activation wizard instead of using the default Google-managed encryption keys. Just set up your customer-managed encryption keys in Google first, and then enter the details when activating Cloud Backup.
 
 === "Storage Admin" role no longer needed for the service account to create backups in Google Cloud Storage
 
@@ -40,7 +40,7 @@ In earlier releases, the "Storage Admin" role was required for the service accou
 
 === Support has been added to restore data using Search & Restore in sites without internet access
 
-If you are backing up data from an on-prem ONTAP cluster to StorageGRID in a site with no internet access, also known as a dark site or offline site, now you can use the Search & Restore restore option to restore data when necessary. This functionality requires that the BlueXP Connector (version 3.9.25 or greater) is deployed in the offline site.
+If you are backing up data from an on-prem ONTAP cluster to StorageGRID in a site with no internet access, also known as a dark site or offline site, now you can use the Search & Restore option to restore data when necessary. This functionality requires that the BlueXP Connector (version 3.9.25 or greater) is deployed in the offline site.
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore[See how to restore ONTAP data using Search & Restore].
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[See how to install the Connector in your offline site].

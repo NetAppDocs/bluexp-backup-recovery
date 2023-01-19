@@ -170,7 +170,7 @@ Ensure that the Connector has the required networking connections.
 
 === Preparing to archive older backup files to public cloud storage
 
-Tiering older backup files to archival storage saves money by using a less expensive storage class for backups that you may not need. StorageGRID is an on-premises (private cloud) solution that doesn't offer archival storage, but you can move older backup files to public cloud archival storage. 
+Tiering older backup files to archival storage saves money by using a less expensive storage class for backups that you may not need. StorageGRID is an on-premises (private cloud) solution that doesn't provide archival storage, but you can move older backup files to public cloud archival storage. When used in this fashion, data that is tiered to cloud storage, or restored from cloud storage, goes between StorageGRID and the cloud storage - BlueXP is not involved in this data transfer.
 
 Requirements::
 * Your cluster must be using ONTAP 9.12.1 or greater
@@ -178,6 +178,15 @@ Requirements::
 * Your StorageGRID must be https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[discovered and available in the BlueXP Canvas^]
 * Archival storage is supported only for AWS S3 storage classes at this time. You can choose to tier backups to AWS S3 Glacier or S3 Glacier Deep Archive storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival tiers^].  
 * You'll need to sign up for an Amazon S3 account for the storage space where your backups will be located.
+* StorageGRID should have full-control access to the bucket (`s3:*`); however, if this is not possible, the bucket policy must grant the following S3 permissions to StorageGRID:
+** `s3:AbortMultipartUpload`
+** `s3:DeleteObject`
+** `s3:GetObject`
+** `s3:ListBucket`
+** `s3:ListBucketMultipartUploads`
+** `s3:ListMultipartUploadParts`
+** `s3:PutObject`
+** `s3:RestoreObject`
 
 When defining the Archival settings for the backup policy for your cluster, you'll enter your cloud provider credentials and select the storage class that you want to use. Cloud Backup creates the cloud bucket when you activate backup for the cluster. The information required for AWS archival storage is shown below.
 
