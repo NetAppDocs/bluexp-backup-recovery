@@ -109,4 +109,3 @@ After assigning the policy, you can create an on-demand backup of the applicatio
 ..	Select the retention value and specify the backup name.
 ..	(Optional) Specify the scripts, and path for the scripts.
 ..	Click *Create Backup*.
-

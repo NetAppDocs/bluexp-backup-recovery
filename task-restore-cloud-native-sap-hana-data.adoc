@@ -29,7 +29,7 @@ In the event of data loss, you can restore the data and non-data files and then 
 .	In the *Restore System* page, enter the scripts.
 
 +
-For the restore workflow, the following environmental variables are available as part of prescript and postscript. For prescripts and postscripts see, link:/task-backup-cloud-native-sap-hana-data#prescripts-and-postscripts[Prescripts and Postscripts]
+For the restore workflow, the following environmental variables are available as part of prescript and postscript. For prescripts and postscripts see, link:/task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts[Prescripts and Postscripts]
 +
 |===
 | Environmental Variable | Description

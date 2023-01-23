@@ -15,14 +15,13 @@ summary:  Deploy the SnapCenter Plug-in for SAP HNAN on each of the SAP HANA dat
 [.lead]
 You should deploy the SnapCenter Plug-in for SAP HANA on each of the SAP HANA database hosts. Depending on whether the SAP HANA host has an SSH key based authentication enabled, you can follow one of the methods to deploy the plug-in.
 
-NOTE: Ensure that either Java 11 (64-bit) Oracle Java or OpenJDK is installed on each of the SAP HANA database hosts.
-
 == Prerequisites
 
+* Ensure that either Java 11 (64-bit) Oracle Java or OpenJDK is installed on each of the SAP HANA database hosts.
 * You should have added the working environment and created the Connector.
 * Ensure that the Connector has connectivity to the working environment 
 * Ensure that the BlueXP user has the “Account Admin” role.
-* You should have deployed the SnapCenter Plug-in for SAP HANA. link:task-deploy-snapcenter-plugin-for-sap-hana.html[Learn more]
+* You should have deployed the SnapCenter Plug-in for SAP HANA. 
 * While adding the SAP HANA database hosts, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA database hosts securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA database host.  
 * For HANA System Replication (HSR), to protect the HANA systems, you should manually register both primary and secondary HANA systems.
 * Connector should have the communication enabled to the SSH port (default: 22) if SSH based deployment is used.
@@ -67,7 +66,7 @@ If SSH key based authentication is enabled on the HANA host, you can perform the
 * plugin_port: Port used by the plug-in, and this is an optional parameter. Default value is 8145.
 * install_dir: Directory where the plug-in will be deployed, and this is an optional parameter. Default value is /opt.
 
-After deploying the plug-in, link:task-add-host-discover-oracle-databases.html#add-sap-hana-database-hosts[Add SAP HANA database hosts]
+After deploying the plug-in, link:task-deploy-snapcenter-plugin-for-sap-hana.html#add-sap-hana-database-hosts[Add SAP HANA database hosts]
 
 == Deploy the plug-in manually
 
@@ -106,7 +105,6 @@ If SSH key based authentication is not enabled on the HANA host, you should perf
 +
 For example, 
 `docker exec -it cloudmanager_scs_cloud curl -ik https://172.0.0.10:8145/getVersion --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
-
 
 == Add SAP HANA database hosts
 
@@ -154,7 +152,7 @@ After adding the multitenant database container or single container type SAP HAN
 .	Select *Cloud Native* > *SAP HANA* and click *Next*.
 .	In the *Applications* page, click image:icon-action.png[icon to select the action] corresponding to the system for which you want to add the Non-Data Volumes and select *Manage System* > *Non-Data Volume*.
 
-=== Add Global Non-Data Volumes
+=== Add  Global Non-Data Volumes
 After adding the multitenant database container or single container type SAP HANA system, you can add the Global Non-Data Volumes of the HANA system.
 
 *Steps*
