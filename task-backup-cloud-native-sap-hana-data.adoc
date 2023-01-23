@@ -15,83 +15,22 @@ summary: Create a scheduled or on-demand backups of SAP HANA database.
 [.lead]
 Before creating a backup of the SAP HANA database, you should add the SAP HANA database hosts and assign either a pre-canned policy or the policy that you created.
 
-== Add SAP HANA database hosts
+== Create a policy for protecting SAP HANA database
 
-You should manually add SAP HANA database hosts to assign policies and create backups. Auto discovery of SAP HANA database host is not supported.
+You can create policies if you do not want to use or edit the pre-canned policies.
 
-*What you will need*
+.	In the *Applications* page, from the Settings drop-down list, select *Policies*.
+.	Click *Create policy*.
+.	Specify a policy name.
+.	(Optional) Edit the format of the Snapshot copy name.
+.	Select policy type.
+.	Specify the schedule and retention details.
+.	(Optional) Specify the scripts.
+.	Click *Create*.
 
-* You should have added the working environment and created the Connector.
-* Ensure that the Connector has connectivity to the working environment 
-* Ensure that the BlueXP user has the “Account Admin” role.
-* You should have deployed the SnapCenter Plug-in for SAP HANA. link:task-deploy-snapcenter-plugin-for-sap-hana.html[Learn more]
-* While adding the SAP HANA database hosts, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA database hosts securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA database host.  
-* For HANA System Replication (HSR), to protect the HANA systems, you should manually register both primary and secondary HANA systems.
+=== Prescripts and postscripts
 
-*Steps*
-
-.	In the *BlueXP* UI, click *Protection* > *Backup and recovery* > *Applications*.
-.	Click *Discover Applications*.
-.	Select *Cloud Native* > *SAP HANA* and click *Next*.
-.	In the *Applications* page, click *Add System*.  
-.	In the *System Details* page, perform the following actions:
-..	Select the System Type as Multi-tenant database container or Single Container.
-..	Enter the SAP HANA system name.
-..	Specify the SID of the SAP HANA system.
-..	(Optional) Specify HDBSQL OS user.
-..	Select Plug-in host.  
-(Optional) If the host is not added or if you want to add multiple hosts, click *Add Plug-in Host*.
-..	If HANA system is configured with HANA System replication, enable *HANA System Replication (HSR) System*.
-..	Click *HDB Secure User Store Keys* text box to add user store keys details.
-+
-Specify the key name, system details, username, and password and click *Add Key*.
-+
-You can delete or modify the user store keys.
-.   Click *Next*.
-.	In the *Storage Footprint* page, click *Add Storage* and perform the following:
-..	Select the working environment and specify the NetApp account.
-+
-Go to *Canvas* page to add a new working environment
-..	Select the required volumes.
-..	Click *Add Storage*.
-.	Review all the details and click *Add System*.
-
-NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed
-
-You can modify and remove the SAP HANA systems using REST API. Before removing the HANA system, you should delete all the associated backups and remove protection.
-
-== Add Non-Data Volumes
-After adding the multitenant database container or single container type SAP HANA system, you can add the Non-Data Volumes of the HANA system.
-
-*Steps*
-
-.   In the *BlueXP* UI, click *Protection* > *Backup and recovery* > *Applications*.
-.	Click *Discover Applications*.
-.	Select *Cloud Native* > *SAP HANA* and click *Next*.
-.	In the *Applications* page, click image:icon-action.png[icon to select the action] corresponding to the system for which you want to add the Non-Data Volumes and select *Manage System* > *Non-Data Volume*.
-
-== Add Global Non-Data Volumes
-After adding the multitenant database container or single container type SAP HANA system, you can add the Global Non-Data Volumes of the HANA system.
-
-*Steps*
-
-.	In the *BlueXP* UI, click *Protection* > *Backup and recovery* > *Applications*.
-.	Click *Discover Applications*.
-.	Select *Cloud Native* > *SAP HANA* and click *Next*.
-.	In the *Applications* page, click *Add System*.
-.	In the *System Details* page, perform the following actions:
-..	From System Type drop-down, select *Global Non-Data Volume*.
-..	Enter the SAP HANA system name.
-..	Specify the associated SIDs of the SAP HANA system.
-..	Select the plug-in host
-+
-(Optional) To add multiple hosts, click on *Add Plug-in Host* and specify the host name and port and click *Add Host*.
-..	Click *Next*.
-..	Review all the details and click *Add System*.  
-
-== Prescripts and postscripts
-
-You can provide prescripts, postscripts, and exit scripts while creating a policy.  These scripts are run on the HANA host while creating backups. 
+You can provide prescripts, postscripts, and exit scripts while creating a policy.  These scripts are run on the HANA host during data protection. 
 
 The supported format for scripts are .sh, python script, perl script, and so on.
 
@@ -103,9 +42,9 @@ command: umount
 command: /mnt/scripts/pre_script.sh
 command: /mnt/scripts/post_script.sh`
 
-== Environmental variables
+=== Environmental variables
 
-For the restore workflow, the following environmental variables are available as part of prescript and postscript.
+For the data protection workflow, the following environmental variables are available as part of prescript and postscript.
 
 |===
 | Environmental Variable | Description
@@ -135,19 +74,6 @@ schedule_type
 a|
 Only for scheduled backup
 |===
-
-== Create a policy for protecting SAP HANA database
-
-You can create policies if you do not want to use or edit the pre-canned policies.
-
-.	In the *Applications* page, from the Settings drop-down list, select *Policies*.
-.	Click *Create policy*.
-.	Specify a policy name.
-.	(Optional) Edit the format of the Snapshot copy name.
-.	Select policy type.
-.	Specify the schedule and retention details.
-.	(Optional) Specify the scripts.
-.	Click *Create*.
 
 == Create a backup of the SAP HANA Database
 
