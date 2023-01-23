@@ -210,8 +210,8 @@ At this time, you can can select and restore only a single folder. And only file
 
 [NOTE] 
 ====
-* You can't restore folders or files if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the files you need.
-* Folder-level restore is not currently supported when the backup file resides in archival storage. In this case, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
+* Folder-level restore is not currently supported if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the folder and files you need.
+* Folder-level restore is not currently supported if the backup file resides in archival storage. In this case, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
 ====
 
 ==== Prerequisites
@@ -348,8 +348,8 @@ endif::gcp[]
 
 [NOTE] 
 ====
-* You can't restore folders or files if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the files you need.
-* Folder-level restore is not currently supported when the backup file resides in archival storage. In this case, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
+* Folder-level restore is not currently supported if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the folder and files you need.
+* Folder-level restore is not currently supported if the backup file resides in archival storage. In this case, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
 ====
 
 Before you start, you should have some idea of the name or location of the volume or file you want to restore.
