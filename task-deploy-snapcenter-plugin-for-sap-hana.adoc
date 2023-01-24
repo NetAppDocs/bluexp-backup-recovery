@@ -5,7 +5,7 @@ keywords: Cloud Manager, BlueXP, SnapCenter Plug-in for SAP HANA, SAP HANA, data
 summary:  Deploy the SnapCenter Plug-in for SAP HNAN on each of the SAP HANA database hosts.
 ---
 
-= Deploy SnapCenter Plug-in for SAP HANA and SAP HANA database hosts 
+= Deploy SnapCenter Plug-in for SAP HANA and add database hosts 
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -21,7 +21,7 @@ You should deploy the SnapCenter Plug-in for SAP HANA on each of the SAP HANA da
 * You should have added the working environment and created the Connector.
 * Ensure that the Connector has connectivity to the working environment 
 * Ensure that the BlueXP user has the “Account Admin” role.
-* You should have deployed the SnapCenter Plug-in for SAP HANA. 
+* You should have deployed the SnapCenter Plug-in for SAP HANA before adding the database host. 
 * While adding the SAP HANA database hosts, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA database hosts securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA database host.  
 * For HANA System Replication (HSR), to protect the HANA systems, you should manually register both primary and secondary HANA systems.
 * Connector should have the communication enabled to the SSH port (default: 22) if SSH based deployment is used.
@@ -90,7 +90,7 @@ If SSH key based authentication is not enabled on the HANA host, you should perf
 . On the SAP HANA database host, run the following command to enable execute permissions for the binary.
 `chmod +x snapcenter_linux_host_plugin_scs.bin`
 
-. Deploy the SAP HANA plug-in as a sudo non-root user.
+. Deploy the SAP HANA plug-in as a sudo SnapCenter user.
 `./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root-user>`
 
 . Copy `certificate.p12` from `<base_mount_path>/client/certificate/` path of the Connector VM to `/var/opt/snapcenter/spl/etc/` on the plug-in host.
@@ -101,10 +101,9 @@ If SSH key based authentication is not enabled on the HANA host, you should perf
 
 . Validate that the plug-in is reachable from the Connector by running the below command from the Connector:
 +
-`docker exec -it cloudmanager_scs_cloud curl -ik https://<Plugin Host FQDN/IP>:<Plugin Port>/getVersion --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
+`docker exec -it cloudmanager_scs_cloud curl -ik https://<Plug-in Host FQDN/IP>:<Plugin Port>/getVersion --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
 +
-For example, 
-`docker exec -it cloudmanager_scs_cloud curl -ik https://172.0.0.10:8145/getVersion --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
+Plug-in host is the fully qualified domain name (FQDN) or the IP address of the host.
 
 == Add SAP HANA database hosts
 

@@ -30,7 +30,7 @@ You can create policies if you do not want to use or edit the pre-canned policie
 
 === Prescripts and postscripts
 
-You can provide prescripts, postscripts, and exit scripts while creating a policy.  These scripts are run on the HANA host during data protection. 
+You can provide prescripts, postscripts, and exit scripts while creating a policy.  These scripts are run on the HANA host during data protection operation. 
 
 The supported format for scripts are .sh, python script, perl script, and so on.
 
@@ -44,7 +44,7 @@ command: /mnt/scripts/post_script.sh`
 
 === Environmental variables
 
-For the data protection workflow, the following environmental variables are available as part of prescript and postscript.
+For the backup workflow, the following environmental variables are available as part of prescript and postscript.
 
 |===
 | Environmental Variable | Description
@@ -108,4 +108,6 @@ After assigning the policy, you can create an on-demand backup of the applicatio
 .	For One time, select either Snapshot copy based, or File based perform the following steps:
 ..	Select the retention value and specify the backup name.
 ..	(Optional) Specify the scripts, and path for the scripts.
++
+For more information, see link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts[Prescripts and Postscripts]
 ..	Click *Create Backup*.
