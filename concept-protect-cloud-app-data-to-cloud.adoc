@@ -17,7 +17,7 @@ summary: BlueXP offers efficient, application consistent, policy-based backup, a
 Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within BlueXP (formerly Cloud Manager) offers efficient, application consistent, policy-based protection of the following applications:
 
 * Oracle databases residing on Amazon FSx for NetApp ONTAP and Cloud Volumes ONTAP
-* SAP HANA systems residing on Azure NetApp Files (ANF).
+* SAP HANA systems residing on Azure NetApp Files
 
 == Architecture
 
@@ -102,7 +102,7 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 * Operating System:
 ** RHEL 7.5 or later, 8.x platforms certified by SAP HANA    
 ** SLES 12 SP5 or later and 15 SPX platforms certified by SAP HANA 
-* Storage System: Azure NetApp Files (ANF)
+* Storage System: Azure NetApp Files
 * Storage layouts: For data and log, Azure supports only NFSv4.1.
 * Database layouts: 
 ** Single container version 1.0SPS12
