@@ -103,7 +103,7 @@ If SSH key based authentication is enabled on the Oracle host for the SnapCenter
 * ssh_port: SSH port on the Oracle host and this is an optional parameter. Default value is 22
 * plugin_port: Port used by the plug-in and this is an optional parameter. Default value is 8145
 * install_dir: Directory where the plug-in will be deployed and this is an optional parameter. Default value is /opt.
-
++
 For example:
 `sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/oracle_plugin_copy_and_install.sh --host xxx.xx.x.x --sshkey /keys/netapp-ssh.ppk`
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.

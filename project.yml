@@ -126,7 +126,7 @@ sidebar:
                       url: /reference-configure-fsx-for-ontap.html
                     - title: Configure Cloud Volumes ONTAP
                       url: /reference-configure-cloud-volumes-ontap.html
-                    - title: Add host and discover Oracle databases
+                    - title: Deploy SnapCenter Plug-in for Oracle and add database host
                       url: /task-add-host-discover-oracle-databases.html
                     - title: Back up Oracle database
                       url: /task-backup-cloud-native-oracle-data.html
@@ -138,7 +138,7 @@ sidebar:
                     - title: Configure Azure NetApp Files
                       flavor: azure
                       url: /reference-configure-azure-netapp-files.html
-                    - title: Deploy SnapCenter Plug-in for SAP HANA
+                    - title: Deploy SnapCenter Plug-in for SAP HANA and add database host
                       flavor: azure
                       url: /task-deploy-snapcenter-plugin-for-sap-hana.html
                     - title: Back up SAP HANA database
