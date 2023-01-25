@@ -26,10 +26,9 @@ In the event of data loss, you can restore the data and non-data files and then 
 
 .	Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.
 .	Click image:icon-action.png[icon to select the action] corresponding to the data backup that you want to use for restoring and click *Restore*.
-.	In the *Restore System* page, enter the scripts.
-
+.	In the *Restore System* page, enter the scripts. link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts[Learn more.]
 +
-For the restore workflow, the following environmental variables are available as part of prescript and postscript. For prescripts and postscripts see, link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts[Prescripts and Postscripts]
+For the restore workflow, the following environmental variables are available as part of prescript and postscript. 
 +
 |===
 | Environmental Variable | Description
