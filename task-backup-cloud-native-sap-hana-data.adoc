@@ -34,7 +34,7 @@ You can provide prescripts, postscripts, and exit scripts while creating a polic
 
 The supported format for scripts are .sh, python script, perl script, and so on.
 
-The prescript and the postscript should be registered by the host admin into `/opt/NetApp/snapcenter/scc/etc/allowed_commands.config file`
+The prescript and the postscript should be registered by the host admin into `/opt/NetApp/snapcenter/scc/etc/allowed_commands.config` file.
 
 `[root@scspa2622265001 etc]# cat allowed_commands.config
 command: mount
