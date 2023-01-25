@@ -101,9 +101,7 @@ If SSH key based authentication is not enabled on the HANA host, you should perf
 
 . Validate that the plug-in is reachable from the Connector by running the below command from the Connector:
 +
-`docker exec -it cloudmanager_scs_cloud curl -ik https://<Plug-in Host FQDN/IP>:<Plugin Port>/getVersion --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
-+
-Plug-in host is the fully qualified domain name (FQDN) or the IP address of the host.
+`docker exec -it cloudmanager_scs_cloud curl -ik https://<FQDN or IP of the plug-in host>:<plug-in port>/getVersion --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
 
 == Add SAP HANA database hosts
 
