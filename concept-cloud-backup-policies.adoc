@@ -212,7 +212,7 @@ image:screenshot_archive_tier_settings.png[A screenshot of the Archival Policy s
 ifdef::aws[]
 * In AWS, backups start in the _Standard_ storage class and transition to the _Standard-Infrequent Access_ storage class after 30 days.
 +
-If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
+If your cluster is using ONTAP 9.10.1 or greater, you can tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
 +
 Note that if you choose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available for future backup policies for that cluster. And if you select no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
 endif::aws[]
@@ -220,16 +220,24 @@ endif::aws[]
 ifdef::azure[]
 * In Azure, backups are associated with the _Cool_ access tier.
 +
-If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to _Azure Archive_ storage after a certain number of days for further cost optimization. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
+If your cluster is using ONTAP 9.10.1 or greater, you can tier older backups to _Azure Archive_ storage. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
 endif::azure[]
 
 ifdef::gcp[]
 * In GCP, backups are associated with the _Standard_ storage class.
 +
-If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. (This functionality is not currently available for Cloud Volumes ONTAP systems.) link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
+If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
 //You can use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. However, you configure these other storage classes through Google, not through the Cloud Backup UI. See the Google topic https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the default storage class for a Google Cloud Storage bucket.
 endif::gcp[]
 
 * In StorageGRID, backups are associated with the _Standard_ storage class.
 +
-If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater, you can archive older backup files to public cloud archival storage. Archival storage is supported only for AWS S3 storage classes at this time. You can choose to tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days. link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].
+If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.4 or greater, you can archive older backup files to public cloud archival storage. 
+ifdef::aws[]
+* For AWS, you can tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
+endif::aws[]
+ifdef::azure[]
+* For Azure, you can tier older backups to _Azure Archive_ storage. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
+endif::azure[]
+
+link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].

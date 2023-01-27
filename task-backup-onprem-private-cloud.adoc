@@ -172,6 +172,8 @@ Ensure that the Connector has the required networking connections.
 
 Tiering older backup files to archival storage saves money by using a less expensive storage class for backups that you may not need. StorageGRID is an on-premises (private cloud) solution that doesn't provide archival storage, but you can move older backup files to public cloud archival storage. When used in this fashion, data that is tiered to cloud storage, or restored from cloud storage, goes between StorageGRID and the cloud storage - BlueXP is not involved in this data transfer.
 
+Current support enables you to archive backups to AWS _S3 Glacier_/_S3 Glacier Deep Archive_ or _Azure Archive_ storage.
+
 *ONTAP Requirements*
 
 * Your cluster must be using ONTAP 9.12.1 or greater
@@ -198,6 +200,7 @@ Tiering older backup files to archival storage saves money by using a less expen
 *Azure Blob requirements*
 
 * You'll need to sign up for an Azure Subscription for the storage space where your archived backups will be located.
+* The activation wizard enables you to use an existing Resource Group to manage the Blob container that will store the backups, or you can create a new Resource Group.
 
 When defining the Archival settings for the backup policy for your cluster, you'll enter your cloud provider credentials and select the storage class that you want to use. Cloud Backup creates the cloud bucket when you activate backup for the cluster. The information required for AWS and Azure archival storage is shown below.
 

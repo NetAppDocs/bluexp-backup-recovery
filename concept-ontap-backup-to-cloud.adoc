@@ -118,16 +118,15 @@ Cloud Backup supports the following types of volumes:
 ** SnapLock Compliance volumes aren't currently supported.
 * FlexGroup volumes (requires ONTAP 9.12.1 or later) 
 
-[NOTE]
-====
-*FlexGroup volume restore limitations*: 
+See the sections on <<Limitations,Backup and Restore Limitations>> for additional requirements and limitations.
 
-* Full volume restore is supported only for on-prem ONTAP systems (Cloud Volumes ONTAP systems are not currently supported).
-* Directory/folder restore is not currently supported. 
-* File-level restore is supported for both on-prem ONTAP and Cloud Volumes ONTAP systems.
-
-====
+// [NOTE]
+// ====
+// *FlexGroup volume restore limitations*: 
+// * Directory/folder restore is not currently supported. 
 // * Volumes can be restored to a single aggregate at this time.
+// * Full volume restore is supported only for on-prem ONTAP systems (Cloud Volumes ONTAP systems are not currently supported).
+// ====
 
 == Cost
 
@@ -313,13 +312,13 @@ endif::azure[]
 ifdef::gcp[]
 * In GCP, backups are associated with the _Standard_ storage class.
 +
-If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. (This functionality is not currently available for Cloud Volumes ONTAP systems.) link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
+If your cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
 //You can also use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. You configure these other storage classes through Google. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the storage class.
 endif::gcp[]
 
 * In StorageGRID, backups are associated with the _Standard_ storage class.
 +
-If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater, you can archive older backup files to public cloud archival storage. Archival storage is supported only for AWS S3 storage classes at this time. You can choose to tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days. link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].
+If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.4 or greater, you can archive older backup files to public cloud archival storage after a certain number of days. Current support is for AWS S3 Glacier/S3 Glacier Deep Archive or Azure Archive storage tiers. link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].
 
 See link:concept-cloud-backup-policies.html#archival-storage-settings[Archival storage settings] for more details about archiving older backup files.
 
@@ -372,7 +371,7 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * WORM/Compliance mode on an object store is only supported on Amazon S3 and StorageGRID at this time. This is known as the DataLock feature, and it must be managed using Cloud Backup settings, not using the cloud provider interface.
 
-=== File and Folder Restore limitations
+=== Restore limitations
 
 These limitations apply to both the Search & Restore and the Browse & Restore methods of restoring files and folders; unless called out specifically.
 
@@ -381,6 +380,8 @@ These limitations apply to both the Search & Restore and the Browse & Restore me
 * Search & Restore can restore 1 file at a time.
 
 * Browse & Restore and Search & Restore can restore 1 folder at a time.
+
+* Directory/folder restore is not currently supported on FlexGroup volumes. 
 
 * Restoring from FlexGroup volumes to FlexVol volumes, or FlexVol volumes to FlexGroup volumes is not supported.
 
