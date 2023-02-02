@@ -287,7 +287,7 @@ If your cluster is using ONTAP 9.11.1 or greater, you can protect your backups f
 
 The backup retention period is the same as the backup schedule retention period; plus 14 days. For example, _weekly_ backups with _5_ copies retained will lock each backup file for 5 weeks. _Monthly_ backups with _6_ copies retained will lock each backup file for 6 months.
 
-Support is currently available when your backup destination is Amazon S3 or NetApp StorageGRID. Other storage provider destinations will be added in future releases.
+Support is currently available when your backup destination is Amazon S3, Azure Blob, or NetApp StorageGRID. Other storage provider destinations will be added in future releases.
 
 See link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[DataLock and Ransomware protection^] for more details about how DataLock and Ransomware protection works.
 
