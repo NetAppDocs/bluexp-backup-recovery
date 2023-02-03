@@ -108,7 +108,7 @@ DataLock protection and ransomware protection are disabled.
 
 * *Governance*
 +
-DataLock is set to _Governance_ mode where users with s3:BypassGovernanceRetention permissions (link:concept-cloud-backup-policies.html#requirements[see below]) can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+DataLock is set to _Governance_ mode where users with `s3:BypassGovernanceRetention` permission (link:concept-cloud-backup-policies.html#requirements[see below]) can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
 * *Compliance*
 +
@@ -149,7 +149,7 @@ DataLock is set to _Compliance_ mode where no users can overwrite or delete back
 
 You can enable DataLock and Ransomware protection on ONTAP volumes from the following working environments when using object storage in the following public and private cloud providers. Additional cloud providers will be added in future releases.
 
-[cols=2*,options="header",cols="50,50",width="80%"]
+[cols=2*,options="header",cols="55,45",width="80%"]
 |===
 
 | Source Working Environment
@@ -273,9 +273,11 @@ endif::gcp[]
 +
 If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.4 or greater, you can archive older backup files to public cloud archival storage. 
 ifdef::aws[]
++
 ** For AWS, you can tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
 endif::aws[]
 ifdef::azure[]
++
 ** For Azure, you can tier older backups to _Azure Archive_ storage. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
 endif::azure[]
 +
