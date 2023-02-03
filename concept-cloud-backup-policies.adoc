@@ -102,41 +102,41 @@ You can choose from the following settings for each backup policy:
 
 .AWS
 --
-* None (Default)
+* *None* (Default)
 +
 DataLock protection and ransomware protection are disabled.
 
-* Governance
+* *Governance*
 +
 DataLock is set to _Governance_ mode where users with s3:BypassGovernanceRetention permissions (link:concept-cloud-backup-policies.html#requirements[see below]) can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
-* Compliance
+* *Compliance*
 +
 DataLock is set to _Compliance_ mode where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 --
 
 .Azure
 --
-* None (Default)
+* *None* (Default)
 +
 DataLock protection and ransomware protection are disabled.
 
-* Unlocked
+* *Unlocked*
 +
 Backup files are protected during the retention period. The retention period can be increased or decreased. Typically used for 24 hours to test the system. Ransomware protection is enabled.
 
-* Locked
+* *Locked*
 +
 Backup files are protected during the retention period. The retention period can be increased, but it can't be decreased. Satisfies full regulatory compliance. Ransomware protection is enabled.
 --
 
 .StorageGRID
 --
-* None (Default)
+* *None* (Default)
 +
 DataLock protection and ransomware protection are disabled.
 
-* Compliance
+* *Compliance*
 +
 DataLock is set to _Compliance_ mode where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 --
@@ -273,10 +273,10 @@ endif::gcp[]
 +
 If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.4 or greater, you can archive older backup files to public cloud archival storage. 
 ifdef::aws[]
-* For AWS, you can tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
+** For AWS, you can tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
 endif::aws[]
 ifdef::azure[]
-* For Azure, you can tier older backups to _Azure Archive_ storage. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
+** For Azure, you can tier older backups to _Azure Archive_ storage. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
 endif::azure[]
-
++
 link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].

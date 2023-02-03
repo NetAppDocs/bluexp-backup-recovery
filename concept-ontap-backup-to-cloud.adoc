@@ -24,7 +24,7 @@ Backup features:
 * Back up independent copies of your data volumes to low-cost object storage.
 * Apply a single backup policy to all volumes in a cluster, or assign different backup policies to volumes that have unique recovery point objectives.
 * Create a backup policy to be applied to all future volumes created in the cluster.
-* Make immutable backup files so they are locked for the retention period.
+* Make immutable backup files so they are locked and protected for the retention period.
 * Scan backup files for possible ransomware attack - and remove/replace infected backups automatically.
 * Tier older backup files to archival storage to save costs.
 * Delete the backup relationship so you can archive unneeded source volumes while retaining volume backups.
@@ -40,7 +40,7 @@ Restore features:
 * Restore a volume, a folder, or individual files, to the source system or to a different system.
 * Restore data to a working environment using a different subscription/account or that is in a different region.
 * Data is restored on a block level, placing the data directly in the location you specify, all while preserving the original ACLs.
-* Browsable and searchable file catalogs for selecting individual folders and files for single file restore.
+* Browsable and searchable file catalogs for easy selection of individual folders and files for single file restore.
 
 == Supported ONTAP working environments and object storage providers
 
@@ -359,7 +359,7 @@ This operation could cause a one-time increase in cost to read the data from you
 
 //* MetroCluster (MCC) backup is supported from ONTAP secondary only: MCC > SnapMirror > ONTAP > Cloud Backup > object storage.
 * MetroCluster support:
-** When using ONTAP 9.12.1 or greater, backup is supported when connected to the primary system. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover. You don't need to set up backup on the secondary system (in fact, you are restricted from doing so). Restore operations from the primary system populate data to both primary and secondary systems.
+** When using ONTAP 9.12.1 or greater, backup is supported when connected to the primary system. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover. You don't need to set up backup on the secondary system (in fact, you are restricted from doing so).
 ** When using ONTAP 9.12.0 and earlier, backup is supported only from the ONTAP secondary system.
 ** Backups of FlexGroup volumes are not supported at this time.
 
@@ -385,8 +385,6 @@ These limitations apply to both the Search & Restore and the Browse & Restore me
 
 * Restoring from FlexGroup volumes to FlexVol volumes, or FlexVol volumes to FlexGroup volumes is not supported.
 
-//* File level restore using Search & Restore is not supported when the Connector is installed on a site without internet access (dark site).
-//
 * You can't restore individual folders if the backup file resides in archival storage.
 
 * The file being restored must be using the same language as the language on the destination volume. You will receive an error message if the languages are not the same.
