@@ -87,6 +87,8 @@ ifdef::gcp[]
 link:reference-google-backup-tiers.html[Learn more about restoring from Google archival storage].
 endif::gcp[]
 
+NOTE: The High priority is not supported when restoring data from Azure to StorageGRID systems.
+
 === Browse & Restore supported working environments and object storage providers
 
 You can restore a volume, folder, or individual files, from an ONTAP backup file to the following working environments:
@@ -328,7 +330,7 @@ You have a few options for the location when restoring folders and file(s).
 
 You can restore a volume, folder, or files from an ONTAP backup file using Search & Restore. Search & Restore enables you to search for a specific volume, folder, or file from all backups stored on cloud storage for a particular provider, and then perform a restore. You don't need to know the exact working environment name or volume name - the search looks through all volume backup files.
 
-The search operation also looks across all local Snapshot copies that exist for your ONTAP volumes too. Since restoring data from a local Snapshot copy can be faster and less costly than restoring from a backup file, you may want to restore data from the Snapshot. You can restore the Snapshot as a new volume from the Volume Details page on the Canvas (not from Cloud Backup).
+The search operation also looks across all local Snapshot copies that exist for your ONTAP volumes too. Since restoring data from a local Snapshot copy can be faster and less costly than restoring from a backup file, you may want to restore data from the Snapshot. You can restore the Snapshot as a new volume https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[from the Volume Details page on the Canvas^] (not from Cloud Backup).
 
 When you restore a volume from a backup file, Cloud Backup creates a _new_ volume using the data from the backup. You can restore the data as a volume in the original working environment, or to a different working environment that's located in the same cloud account as the source working environment. You can also restore volumes to an on-premises ONTAP system.
 
@@ -350,6 +352,7 @@ endif::gcp[]
 ====
 * Folder-level restore is not currently supported if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the folder and files you need.
 * Folder-level restore is not currently supported if the backup file resides in archival storage. In this case, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
+* The High restore priority is not supported when restoring data from Azure to StorageGRID systems.
 ====
 
 Before you start, you should have some idea of the name or location of the volume or file you want to restore.

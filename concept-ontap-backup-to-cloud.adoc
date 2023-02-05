@@ -359,7 +359,7 @@ This operation could cause a one-time increase in cost to read the data from you
 
 //* MetroCluster (MCC) backup is supported from ONTAP secondary only: MCC > SnapMirror > ONTAP > Cloud Backup > object storage.
 * MetroCluster support:
-** When using ONTAP 9.12.1 or greater, backup is supported when connected to the primary system. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover. You don't need to set up backup on the secondary system (in fact, you are restricted from doing so).
+** When using ONTAP 9.12.1 GA or greater, backup is supported when connected to the primary system. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover. You don't need to set up backup on the secondary system (in fact, you are restricted from doing so).
 ** When using ONTAP 9.12.0 and earlier, backup is supported only from the ONTAP secondary system.
 ** Backups of FlexGroup volumes are not supported at this time.
 
@@ -388,3 +388,5 @@ These limitations apply to both the Search & Restore and the Browse & Restore me
 * You can't restore individual folders if the backup file resides in archival storage.
 
 * The file being restored must be using the same language as the language on the destination volume. You will receive an error message if the languages are not the same.
+
+* The _High_ restore priority is not supported when restoring data from Azure to StorageGRID systems.

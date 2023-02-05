@@ -43,7 +43,7 @@ Now you restore volume data to different storage VMs in your ONTAP clusters. In 
 
 === Enhanced support for volumes in MetroCluster configurations
 
-When using ONTAP 9.12.1 or greater, backup is now supported when connected to the primary system in a MetroCluster configuration. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover.
+When using ONTAP 9.12.1 GA or greater, backup is now supported when connected to the primary system in a MetroCluster configuration. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover.
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations[See Backup limitations for more information]. 
 
