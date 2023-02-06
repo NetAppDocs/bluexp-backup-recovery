@@ -73,7 +73,7 @@ See the requirements and restore steps for the type of restore operation you wan
 
 == Restoring ONTAP data using Browse & Restore
 
-Before you start restoring a volume, folder, or file, you should know the name of the volume from which you want to restore, the name of the working environment where the volume resides, and the approximate date of the backup file that you want to restore from.
+Before you start restoring a volume, folder, or file, you should know the name of the volume from which you want to restore, the name of the working environment and SVM where the volume resides, and the approximate date of the backup file that you want to restore from.
 
 *Note:* If the backup file containing the data that you want to restore resides in archival storage (starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur a cost. Additionally, the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, and 9.12.1 for Google Archive and StorageGRID.
 
@@ -86,6 +86,8 @@ endif::azure[]
 ifdef::gcp[]
 link:reference-google-backup-tiers.html[Learn more about restoring from Google archival storage].
 endif::gcp[]
+
+NOTE: The High priority is not supported when restoring data from Azure to StorageGRID systems.
 
 === Browse & Restore supported working environments and object storage providers
 
@@ -135,7 +137,7 @@ When you restore a volume from a backup file, Cloud Backup creates a _new_ volum
 
 image:diagram_browse_restore_volume.png["A diagram that shows the flow to perform a volume restore operation using Browse & Restore."]
 
-As you can see, you need to know the working environment name, volume name, and backup file date to perform a volume restore.
+As you can see, you need to know the working environment name, storage VM, volume name, and backup file date to perform a volume restore.
 
 The following video shows a quick walkthrough of restoring a volume:
 
@@ -176,7 +178,7 @@ ifdef::gcp[]
 endif::gcp[]
 * When restoring from StorageGRID, enter the FQDN of the StorageGRID server and the port that ONTAP should use for HTTPS communication with StorageGRID, select the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume will reside.
 
-. Enter the name you want to use for the restored volume, and select the Storage VM and Aggregate where the volume will reside. By default, *<source_volume_name>_restore* is used as the volume name.
+. Enter the name you want to use for the restored volume, and select the Storage VM and Aggregate where the volume will reside. When restoring a FlexGroup volume you can choose multiple aggregates. By default, *<source_volume_name>_restore* is used as the volume name.
 +
 image:screenshot_restore_new_vol_name.png[A screenshot of entering the name of the new volume that you want to restore.]
 +
@@ -286,7 +288,7 @@ image:screenshot_restore_select_files.png[A screenshot of the Select Items page 
 . In the _Select Items_ page, select the folder or file(s) that you want to restore and click *Continue*. To assist you in finding the item:
 * You can click the folder or file name if you see it.
 * You can click the search icon and enter the name of the folder or file to navigate directly to the item.
-* You can navigate down levels in folders using the image:button_subfolder.png[] button at the end of the row to find specific files.
+* You can navigate down levels in folders using the image:button_subfolder.png[""] button at the end of the row to find specific files.
 +
 As you select files they are added to the left side of the page so you can see the files that you have already chosen. You can remove a file from this list if needed by clicking the *x* next to the file name.
 
@@ -317,7 +319,7 @@ You have a few options for the location when restoring folders and file(s).
 * When you have chosen *Select Target Folder*, as shown above:
 +
 ** You can select any folder.
-** You can hover over a folder and click image:button_subfolder.png[] at the end of the row to drill down into subfolders, and then select a folder.
+** You can hover over a folder and click image:button_subfolder.png[""] at the end of the row to drill down into subfolders, and then select a folder.
 
 +
 * If you have selected the same destination Working Environment and Volume as where the source folder/file was located, you can select *Maintain Source Folder Path* to restore the folder, or file(s), to the same folder where they existed in the source structure. All the same folders and sub-folders must already exist; folders are not created. When restoring files to their original location, you can choose to overwrite the source file(s) or to create new file(s).
@@ -328,7 +330,7 @@ You have a few options for the location when restoring folders and file(s).
 
 You can restore a volume, folder, or files from an ONTAP backup file using Search & Restore. Search & Restore enables you to search for a specific volume, folder, or file from all backups stored on cloud storage for a particular provider, and then perform a restore. You don't need to know the exact working environment name or volume name - the search looks through all volume backup files.
 
-The search operation also looks across all local Snapshot copies that exist for your ONTAP volumes too. Since restoring data from a local Snapshot copy can be faster and less costly than restoring from a backup file, you may want to restore data from the Snapshot. You can restore the Snapshot as a new volume from the Volume Details page on the Canvas (not from Cloud Backup).
+The search operation also looks across all local Snapshot copies that exist for your ONTAP volumes too. Since restoring data from a local Snapshot copy can be faster and less costly than restoring from a backup file, you may want to restore data from the Snapshot. You can restore the Snapshot as a new volume https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[from the Volume Details page on the Canvas^] (not from Cloud Backup).
 
 When you restore a volume from a backup file, Cloud Backup creates a _new_ volume using the data from the backup. You can restore the data as a volume in the original working environment, or to a different working environment that's located in the same cloud account as the source working environment. You can also restore volumes to an on-premises ONTAP system.
 
@@ -350,6 +352,7 @@ endif::gcp[]
 ====
 * Folder-level restore is not currently supported if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the folder and files you need.
 * Folder-level restore is not currently supported if the backup file resides in archival storage. In this case, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
+* The High restore priority is not supported when restoring data from Azure to StorageGRID systems.
 ====
 
 Before you start, you should have some idea of the name or location of the volume or file you want to restore.
@@ -419,7 +422,7 @@ endif::aws[]
 ifdef::azure[]
 * Azure requirements:
 
-** You must register the Azure Synapse Analytics Resource Provider with your Subscription. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider[See how to register this resource provider for your subscription^]. You must be the Subscription *Owner* or *Contributor* to register the resource provider.
+** You must register the Azure Synapse Analytics Resource Provider (called "Microsoft.Synapse") with your Subscription. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider[See how to register this resource provider for your subscription^]. You must be the Subscription *Owner* or *Contributor* to register the resource provider.
 
 ** Specific Azure Synapse Workspace and Data Lake Storage Account permissions must be added to the user role that provides BlueXP with permissions. link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector[Make sure all the permissions are configured correctly].
 +
@@ -531,7 +534,7 @@ Note that the results also identify local volume Snapshot copies that contain th
 
 . Select the destination location where you want the volume, folder, or file(s) to be restored and click *Restore*.
 +
-* For volumes, you can select the original destination working environment or you can select an alternate working environment.
+* For volumes, you can select the original destination working environment or you can select an alternate working environment. When restoring a FlexGroup volume you can choose multiple aggregates. 
 * For folders, you can restore to the original location or you can select an alternate location; including the working environment, volume, and folder.
 * For files, you can restore to the original location or you can select an alternate location; including the working environment, volume, and folder. When selecting the original location, you can choose to overwrite the source file(s) or to create new file(s).
 +

@@ -38,6 +38,8 @@ There are two restore priorities you can choose when retrieving data from Azure 
 +
 Each method has a different per-GB retrieval fee and per-request fee. For detailed Azure Archive pricing by Azure Region, visit the https://azure.microsoft.com/en-us/pricing/details/storage/blobs/[Azure pricing page^].
 
+NOTE: The High priority is not supported when restoring data from Azure to StorageGRID systems.
+
 How long will it take to restore my data archived in Azure Archive?::
 There are 2 parts that make up the restore time:
 

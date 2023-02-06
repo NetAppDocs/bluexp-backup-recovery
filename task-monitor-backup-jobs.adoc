@@ -25,7 +25,7 @@ You can view a list of all the backup and restore operations and their current s
 * Warning
 * Failed
 
-Note that system-initiated jobs, such ongoing backup operations, are not reflected in the *Job Monitoring* tab -- only user-initiated jobs are displayed.
+NOTE: System-initiated jobs, such ongoing backup operations, are not reflected in the *Job Monitoring* tab -- only user-initiated jobs are displayed.
 
 .Steps
 
@@ -35,7 +35,7 @@ Note that system-initiated jobs, such ongoing backup operations, are not reflect
 +
 image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore jobs in the Job Monitoring dashboard.]
 
-This screenshot shows the default column/field headings. You can click image:button_plus_sign_round.png[] to show and hide column headings, or to add 2 additional headings for "User Name" and "Type".
+This screenshot shows the default column/field headings. You can click image:button_plus_sign_round.png[the plus sign button] to show and hide column headings, or to add 2 additional headings for "User Name" and "Type".
 
 If you are looking for specific jobs, you can:
 
@@ -48,11 +48,11 @@ If you are looking for specific jobs, you can:
 ** Virtual Machines
 ** Kubernetes
 
-Note that this page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. You can click the image:button_refresh.png[Refresh button] button to update the page immediately.
+Note that this page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. You can click the image:button_refresh.png[Refresh] button to update the page immediately.
 
 === Download Job Monitoring results as a report
 
-If you want to download the contents of the main Job Monitoring page as a report after you've refined it, click the image:button_download.png[Download button] button. Cloud Backup generates a .CSV file that you can review and send to other groups as needed. The .CSV file includes up to 10,000 rows of data.
+If you want to download the contents of the main Job Monitoring page as a report after you've refined it, click the image:button_download.png[Download] button. Cloud Backup generates a .CSV file that you can review and send to other groups as needed. The .CSV file includes up to 10,000 rows of data.
 
 === View job details
 
