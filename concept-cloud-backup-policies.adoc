@@ -43,9 +43,11 @@ Note that Yearly backups will be deleted automatically from the source system af
 
 == DataLock and Ransomware protection
 
-Cloud Backup provides support for DataLock and Ransomware protection for your volume backups. These features enable you to lock your backup files and scan them to detect possible ransomware on backup files. This is an optional setting that you can define in your backup policies when you want extra protection for your volume backups for a cluster.
+Cloud Backup provides support for DataLock and Ransomware protection for your volume backups. These features enable you to lock your backup files and scan them to detect possible ransomware on the backup files. This is an optional setting that you can define in your backup policies when you want extra protection for your volume backups for a cluster.
 
 Both of these features protect your backup files so that you'll always have a valid backup file to recover data from in case of a ransomware attack on your source data. It's also helpful to meet certain regulatory requirements where backups need to be locked and retained for a certain period of time. When DataLock and Ransomware Protection is enabled, the cloud bucket that is provisioned as a part of Cloud Backup activation will have object locking and object versioning enabled.
+
+https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware[See the DataLock and Ransomware protection blog for more details^].
 
 This feature does not provide protection for your source volumes; only for the backups of those source volumes. Use NetApp https://cloud.netapp.com/ci-sde-plp-cloud-secure-info-trial?hsCtaTracking=fefadff4-c195-4b6a-95e3-265d8ce7c0cd%7Cb696fdde-c026-4007-a39e-5e986c4d27c6[Cloud Insights and Cloud Secure^], or some of the https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html[anti-ransomware protections provided from ONTAP^] to protect your source volumes.
 
@@ -85,35 +87,69 @@ You can choose to run a scan before restoring data from a backup file, or skip t
 +
 You can run an on-demand ransomware protection scan at any time to verify the health of a specific backup file. This can be useful if you've had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
 
-//CAUTION: A ransomware scan requires that the backup file is downloaded to your BlueXP environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
-
 === DataLock and Ransomware Protection settings
 
 Each backup policy provides a section for _DataLock and Ransomware Protection_ that you can apply to your backup files.
 
-image:screenshot_datalock_ransomware_settings.png[A screenshot of the DataLock and Ransomware Protection settings when creating a backup policy.]
+image:screenshot_datalock_ransomware_settings.png["A screenshot of the DataLock and Ransomware Protection settings for AWS, Azure, and StorageGRID when creating a backup policy."]
 
 You can choose from the following settings for each backup policy:
 
-* None (Default)
+// start tabbed area
+
+[role="tabbed-block"]
+====
+
+.AWS
+--
+* *None* (Default)
 +
 DataLock protection and ransomware protection are disabled.
 
-* Governance (Not available with StorageGRID)
+* *Governance*
 +
-DataLock is set to _Governance_ mode where users with specific permissions (link:concept-cloud-backup-policies.html#requirements[see below]) can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+DataLock is set to _Governance_ mode where users with `s3:BypassGovernanceRetention` permission (link:concept-cloud-backup-policies.html#requirements[see below]) can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 
-* Compliance
+* *Compliance*
 +
 DataLock is set to _Compliance_ mode where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+--
 
-NOTE: The StorageGRID S3 Object Lock feature provides a single DataLock mode that is equivalent to Compliance mode. An equivalent Governance mode is not supported, so no users have the capability to bypass retention settings, overwrite protected backups, or delete locked backups.
+.Azure
+--
+* *None* (Default)
++
+DataLock protection and ransomware protection are disabled.
+
+* *Unlocked*
++
+Backup files are protected during the retention period. The retention period can be increased or decreased. Typically used for 24 hours to test the system. Ransomware protection is enabled.
+
+* *Locked*
++
+Backup files are protected during the retention period. The retention period can be increased, but it can't be decreased. Satisfies full regulatory compliance. Ransomware protection is enabled.
+--
+
+.StorageGRID
+--
+* *None* (Default)
++
+DataLock protection and ransomware protection are disabled.
+
+* *Compliance*
++
+DataLock is set to _Compliance_ mode where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
+--
+
+====
+
+// end tabbed area
 
 === Supported working environments and object storage providers
 
 You can enable DataLock and Ransomware protection on ONTAP volumes from the following working environments when using object storage in the following public and private cloud providers. Additional cloud providers will be added in future releases.
 
-[cols=2*,options="header",cols="50,50",width="80%"]
+[cols=2*,options="header",cols="55,45",width="80%"]
 |===
 
 | Source Working Environment
@@ -123,10 +159,10 @@ ifdef::aws[]
 | Cloud Volumes ONTAP in AWS
 | Amazon S3
 endif::aws[]
-//ifdef::azure[]
-// | Cloud Volumes ONTAP in Azure
-// | Azure Blob
-//endif::azure[]
+ifdef::azure[]
+| Cloud Volumes ONTAP in Azure
+| Azure Blob
+endif::azure[]
 //ifdef::gcp[]
 // | Cloud Volumes ONTAP in Google
 // | Google Cloud Storage
@@ -136,9 +172,9 @@ endif::aws[]
 ifdef::aws[]
 Amazon S3
 endif::aws[]
-//ifdef::azure[]
-//Azure Blob
-//endif::azure[]
+ifdef::azure[]
+Azure Blob
+endif::azure[]
 //ifdef::gcp[]
 //Google Cloud Storage
 //endif::gcp[]
@@ -148,7 +184,7 @@ NetApp StorageGRID
 
 === Requirements
 
-* Your clusters must running ONTAP 9.11.1 or greater
+* Your clusters must running ONTAP 9.11.1 or greater (9.12.1 in the case of Azure)
 * You must be using BlueXP 3.9.21 or greater
 ifdef::aws[]
 * For AWS:
@@ -186,6 +222,10 @@ ifdef::aws[]
 +
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[View the full JSON format for the policy where you can copy and paste required permissions^].
 endif::aws[]
+ifdef::azure[]
+* For Azure:
+** The Connector can be deployed in the cloud or on your premises
+endif::azure[]
 * For StorageGRID:
 ** The Connector must be deployed on your premises (it can be installed in a site with or without internet access)
 ** StorageGRID 11.6.0.3 and greater is required for full support of DataLock capabilities
@@ -193,7 +233,8 @@ endif::aws[]
 === Restrictions
 
 * DataLock and Ransomware protection is not available if you have configured archival storage in the backup policy.
-* The DataLock option you select when activating Cloud Backup (either Governance or Compliance) must be used for all backup policies for that cluster. You cannot use both Governance and Compliance mode locking on a single cluster.
+* The DataLock option you select when activating Cloud Backup must be used for all backup policies for that cluster. 
+* You cannot use both DataLock modes on a single cluster.
 * If you enable DataLock, all volume backups will be locked. You can't mix locked and non-locked volume backups for a single cluster.
 * DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can't enable this feature after Cloud Backup has been activated.
 
@@ -210,7 +251,7 @@ image:screenshot_archive_tier_settings.png[A screenshot of the Archival Policy s
 ifdef::aws[]
 * In AWS, backups start in the _Standard_ storage class and transition to the _Standard-Infrequent Access_ storage class after 30 days.
 +
-If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
+If your cluster is using ONTAP 9.10.1 or greater, you can tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
 +
 Note that if you choose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available for future backup policies for that cluster. And if you select no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
 endif::aws[]
@@ -218,16 +259,26 @@ endif::aws[]
 ifdef::azure[]
 * In Azure, backups are associated with the _Cool_ access tier.
 +
-If your cluster is using ONTAP 9.10.1 or greater, you can choose to tier older backups to _Azure Archive_ storage after a certain number of days for further cost optimization. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
+If your cluster is using ONTAP 9.10.1 or greater, you can tier older backups to _Azure Archive_ storage. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
 endif::azure[]
 
 ifdef::gcp[]
 * In GCP, backups are associated with the _Standard_ storage class.
 +
-If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. (This functionality is not currently available for Cloud Volumes ONTAP systems.) link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
+If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
 //You can use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. However, you configure these other storage classes through Google, not through the Cloud Backup UI. See the Google topic https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the default storage class for a Google Cloud Storage bucket.
 endif::gcp[]
 
 * In StorageGRID, backups are associated with the _Standard_ storage class.
 +
-If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater, you can archive older backup files to public cloud archival storage. Archival storage is supported only for AWS S3 storage classes at this time. You can choose to tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days. link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].
+If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.4 or greater, you can archive older backup files to public cloud archival storage. 
+ifdef::aws[]
++
+** For AWS, you can tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
+endif::aws[]
+ifdef::azure[]
++
+** For Azure, you can tier older backups to _Azure Archive_ storage. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
+endif::azure[]
++
+link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].

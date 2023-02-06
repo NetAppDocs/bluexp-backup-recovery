@@ -16,13 +16,38 @@ summary: Learn what's new in Cloud Backup.
 Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
+== 6 February 2023
+
+=== Ability to move older backup files to Azure archival storage from StorageGRID systems
+
+Now you can tier older backup files from StorageGRID systems to archival storage in Azure. This enables you to free up space on your StorageGRID systems, and save money by using an inexpensive storage class for old backup files.
+
+This functionality is available if your on-prem cluster is using ONTAP 9.12.1 or greater and your StorageGRID system is using 11.4 or greater. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more here^].
+
+=== DataLock and Ransomware protection can be configured for backup files in Azure Blob
+
+DataLock and Ransomware Protection is now supported for backup files stored in Azure Blob. If your Cloud Volumes ONTAP or on-prem ONTAP system are running ONTAP 9.12.1 or greater, now you can lock your backup files and scan them to detect possible ransomware. https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can protect your backups by using DataLock and Ransomware protection^].
+
+=== Backup and restore FlexGroup volume enhancements
+
+* Now you can choose multiple aggregates when restoring a FlexGroup volume. In the last release you could only select a single aggregate.
+* FlexGroup volume restore is now supported on Cloud Volumes ONTAP systems. In the last release you could only restore to on-prem ONTAP systems.
+
+=== Cloud Volumes ONTAP systems can move older backups to Google Archival storage
+
+Backup files are initially created in the Google Standard storage class. Now you can use Cloud Backup to tier older backups to Google Archive storage for further cost optimization. The last release only supported this functionality with on-prem ONTAP clusters - now Cloud Volumes ONTAP systems deployed in Google Cloud are supported.
+
+=== Volume Restore operations now enable you to select the SVM where you want to restore volume data
+
+Now you restore volume data to different storage VMs in your ONTAP clusters. In the past there was no ability to choose the storage VM.
+
+=== Enhanced support for volumes in MetroCluster configurations
+
+When using ONTAP 9.12.1 GA or greater, backup is now supported when connected to the primary system in a MetroCluster configuration. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover.
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations[See Backup limitations for more information]. 
+
 == 9 January 2023
-//
-//=== Enhanced support for volumes in MetroCluster configurations
-//
-//When using ONTAP 9.12.1 or greater, backup is now supported when connected to the primary system in a MetroCluster configuration. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover.
-//
-//https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations[See Backup limitations for more information]. 
 
 === Ability to move older backup files to AWS S3 archival storage from StorageGRID systems
 
@@ -109,6 +134,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-
 === Ability to restore data from backups to a specific aggregate on Cloud Volumes ONTAP systems
 
 In earlier releases you could select the aggregate only when restoring data to on-prem ONTAP systems. This functionality now works when restoring data to Cloud Volumes ONTAP systems.
+// end::whats-new[]
 
 == 2 November 2022
 
@@ -158,7 +184,6 @@ The following updates have been made to the https://docs.netapp.com/us-en/cloud-
 === AWS cross-account backup enhancements
 
 If you want to use a different AWS account for your Cloud Volumes ONTAP backups than you're using for the source volumes, you must add the destination AWS account credentials in BlueXP, and you must add the permissions "s3:PutBucketPolicy" and "s3:PutBucketOwnershipControls" to the IAM role that provides BlueXP with permissions. In the past you needed to configure many settings in the AWS Console - you don't need to do that anymore.
-// end::whats-new[]
 
 == 28 September 2022
 
@@ -219,7 +244,7 @@ Note that additional permissions are needed in the Connector role to use this fu
 
 Cloud Backup now has object lock support for ransomware-safe backups. If your cluster is using ONTAP 9.11.1 or greater, and your backup destination is Amazon S3, a new backup policy option called _DataLock and Ransomware Protection_ is now available. DataLock protects your backup files from being modified or deleted, and Ransomware protection scans your backup files to look for evidence of a ransomware attack on your backup files. https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can use DataLock and Ransomware protection to protect your backups^].
 
-Note that additional permissions are needed in the Connector role to use this functionality. A Connector deployed using version 3.9.21 software includes these permissions. You'll need to manually add the permissions if you deployed the Connector using an earlier release. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html#set-up-s3-permissions[See how to add these permissions, if necessary^].
+Note that additional permissions are needed in the Connector role to use this functionality. A Connector deployed using version 3.9.21 software includes these permissions. You'll need to manually add the permissions if you deployed the Connector using an earlier release. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html#set-up-s3-permissions[See how to add these permissions if necessary^].
 
 === Cloud Backup now supports policies created using custom SnapMirror labels
 
