@@ -120,14 +120,6 @@ Cloud Backup supports the following types of volumes:
 
 See the sections on <<Limitations,Backup and Restore Limitations>> for additional requirements and limitations.
 
-// [NOTE]
-// ====
-// *FlexGroup volume restore limitations*: 
-// * Directory/folder restore is not currently supported. 
-// * Volumes can be restored to a single aggregate at this time.
-// * Full volume restore is supported only for on-prem ONTAP systems (Cloud Volumes ONTAP systems are not currently supported).
-// ====
-
 == Cost
 
 There are two types of costs associated with using Cloud Backup with ONTAP systems: resource charges and service charges.
@@ -369,7 +361,7 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * ONTAP doesn't support fan-out of SnapMirror relationships from a single volume to multiple object stores; therefore, this configuration is not supported by Cloud Backup.
 
-* WORM/Compliance mode on an object store is only supported on Amazon S3 and StorageGRID at this time. This is known as the DataLock feature, and it must be managed using Cloud Backup settings, not using the cloud provider interface.
+* WORM/Compliance mode on an object store is supported on Amazon S3, Azure, and StorageGRID at this time. This is known as the DataLock feature, and it must be managed using Cloud Backup settings, not using the cloud provider interface.
 
 === Restore limitations
 
@@ -379,7 +371,9 @@ These limitations apply to both the Search & Restore and the Browse & Restore me
 
 * Search & Restore can restore 1 file at a time.
 
-* Browse & Restore and Search & Restore can restore 1 folder at a time.
+* When using ONTAP 9.13.0 or greater, Browse & Restore and Search & Restore can restore a folder along with all files and sub-folders within it.
++
+When using a version of ONTAP before 9.13.0, Browse & Restore and Search & Restore can restore 1 folder at a time.
 
 * Directory/folder restore is not currently supported on FlexGroup volumes. 
 
@@ -389,4 +383,4 @@ These limitations apply to both the Search & Restore and the Browse & Restore me
 
 * The file being restored must be using the same language as the language on the destination volume. You will receive an error message if the languages are not the same.
 
-* The _High_ restore priority is not supported when restoring data from Azure to StorageGRID systems.
+* The _High_ restore priority is not supported when restoring data from Azure archival storage to StorageGRID systems.

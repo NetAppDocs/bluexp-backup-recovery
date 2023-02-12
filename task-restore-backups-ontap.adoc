@@ -87,7 +87,7 @@ ifdef::gcp[]
 link:reference-google-backup-tiers.html[Learn more about restoring from Google archival storage].
 endif::gcp[]
 
-NOTE: The High priority is not supported when restoring data from Azure to StorageGRID systems.
+NOTE: The High priority isn't supported when restoring data from Azure archival storage to StorageGRID systems.
 
 === Browse & Restore supported working environments and object storage providers
 
@@ -208,7 +208,7 @@ If you only need to restore a few files from an ONTAP volume backup, you can cho
 
 If you select multiple files, all the files are restored to the same destination volume that you choose. So if you want to restore files to different volumes, you'll need to run the restore process multiple times.
 
-At this time, you can can select and restore only a single folder. And only files from that folder are restored - no sub-folders, or files in sub-folders, are restored.
+When using ONTAP 9.13.0 or greater, you can restore a folder along with all files and sub-folders within it. When using a version of ONTAP before 9.13.0, only files from that folder are restored - no sub-folders, or files in sub-folders, are restored.
 
 [NOTE] 
 ====
@@ -336,6 +336,8 @@ When you restore a volume from a backup file, Cloud Backup creates a _new_ volum
 
 You can restore folders or files to the original volume location, to a different volume in the same working environment, or to a different working environment that's using the same cloud account. You can also restore folders and files to a volume on an on-premises ONTAP system.
 
+When using ONTAP 9.13.0 or greater, you can restore a folder along with all files and sub-folders within it. When using a version of ONTAP before 9.13.0, only files from that folder are restored - no sub-folders, or files in sub-folders, are restored.
+
 If the backup file for the volume that you want to restore resides in archival storage (available starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur additional cost. Note that the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, and 9.12.1 for Google Archive and StorageGRID.
 
 ifdef::aws[]
@@ -352,7 +354,7 @@ endif::gcp[]
 ====
 * Folder-level restore is not currently supported if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the folder and files you need.
 * Folder-level restore is not currently supported if the backup file resides in archival storage. In this case, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
-* The High restore priority is not supported when restoring data from Azure to StorageGRID systems.
+* The High restore priority is not supported when restoring data from Azure archival storage to StorageGRID systems.
 ====
 
 Before you start, you should have some idea of the name or location of the volume or file you want to restore.
