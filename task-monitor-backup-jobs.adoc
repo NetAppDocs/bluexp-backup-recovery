@@ -25,7 +25,7 @@ You can view a list of all the backup and restore operations and their current s
 * Warning
 * Failed
 
-NOTE: System-initiated jobs, such ongoing backup operations, are not reflected in the *Job Monitoring* tab -- only user-initiated jobs are displayed.
+NOTE: System-initiated jobs, such ongoing backup operations, are not reflected in the *Job Monitoring* tab at this time -- only user-initiated jobs are displayed.
 
 .Steps
 
@@ -35,30 +35,37 @@ NOTE: System-initiated jobs, such ongoing backup operations, are not reflected i
 +
 image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore jobs in the Job Monitoring dashboard.]
 
-This screenshot shows the default column/field headings. You can click image:button_plus_sign_round.png[the plus sign button] to show and hide column headings, or to add 2 additional headings for "User Name" and "Type".
+This screenshot shows the default column/field headings. You can click image:button_plus_sign_round.png[the plus sign button] to show and hide column headings, or to add four additional columns for "Working Environment", "SVM", "User Name" and "Workloads".
 
-If you are looking for specific jobs, you can:
+=== Searching and filtering the list of jobs
 
-* use the time selector at the top left of the page to view jobs for a certain period of time
-* enter a part of the job name in the Search field
-* click *View Jobs* for a certain Status, for example, under "Failed" to view only Failed jobs
-* sort the results by using the filter in each column heading. For example, the filter for the "Workloads" column enables you to view jobs in the following catagories:
+By default, the Job Monitoring page shows jobs from the last 24 hours. You can sort the results by clicking each column heading to sort by Status, Start Time, Resource Name, and more. 
+
+If you are looking for specific jobs, or a specific group of jobs, you can click the *Advanced Search & Filtering* area to open the Search panel. This panel enables you to perform a free text search for any resource; for example "volume 1" or "application 3". You can also filter the jobs list according to the items in the drop-down menus.
+
+image:screenshot_backup_job_monitor_filters.png[A screenshot of setting the filters to view only jobs that match the filter criteria.]
+
+This screenshot show how you would search for all "Volume" "Backup" jobs for volumes named "Volume_1" in the past week.
+
+Most of the filters are self-explanatory. Note that the filter for the "Workloads" enables you to view jobs in the following catagories:
 ** Volumes (Cloud Volumes ONTAP and on-prem ONTAP volumes)
 ** Applications
 ** Virtual Machines
 ** Kubernetes
 
+You can by a specific "SVM" only if you have selected a Working Environment.
+
 Note that this page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. You can click the image:button_refresh.png[Refresh] button to update the page immediately.
-
-=== Download Job Monitoring results as a report
-
-If you want to download the contents of the main Job Monitoring page as a report after you've refined it, click the image:button_download.png[Download] button. Cloud Backup generates a .CSV file that you can review and send to other groups as needed. The .CSV file includes up to 10,000 rows of data.
 
 === View job details
 
 You can view details corresponding to a specific job by clicking the name of the job. You'll see all the sub-jobs that are running to complete the main job in the Job Details page.
 
 image:screenshot_backup_job_monitor_details.png[A screenshot showing the Job Details page.]
+
+=== Download Job Monitoring results as a report
+
+If you want to download the contents of the main Job Monitoring page as a report after you've refined it, click the image:button_download.png[Download] button. Cloud Backup generates a .CSV file that you can review and send to other groups as needed. The .CSV file includes up to 10,000 rows of data.
 
 == Use the Notification Center to review backup and restore alerts 
 
