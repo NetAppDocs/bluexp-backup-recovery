@@ -35,7 +35,7 @@ NOTE: System-initiated jobs, such ongoing backup operations, are not reflected i
 +
 image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore jobs in the Job Monitoring dashboard.]
 
-This screenshot shows the default column/field headings. You can click image:button_plus_sign_round.png[the plus sign button] to show and hide column headings, or to add four additional columns for "Working Environment", "SVM", "User Name" and "Workloads".
+This screenshot shows the default column/field headings. You can click image:button_plus_sign_round.png[the plus sign button] to show four additional columns for "Working Environment", "SVM", "User Name" and "Workloads".
 
 === Searching and filtering the list of jobs
 
@@ -47,15 +47,15 @@ image:screenshot_backup_job_monitor_filters.png[A screenshot of setting the filt
 
 This screenshot show how you would search for all "Volume" "Backup" jobs for volumes named "Volume_1" in the past week.
 
-Most of the filters are self-explanatory. Note that the filter for the "Workloads" enables you to view jobs in the following catagories:
+Most of the filters are self-explanatory. Note that the filter for "Workloads" enables you to view jobs in the following catagories:
 * Volumes (Cloud Volumes ONTAP and on-prem ONTAP volumes)
 * Applications
 * Virtual Machines
 * Kubernetes
 
-You can by a specific "SVM" only if you have selected a Working Environment.
+You can search for data within a specific "SVM" only if you have first selected a Working Environment.
 
-Note that this page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. You can click the image:button_refresh.png[Refresh] button to update the page immediately.
+Note that this page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. You can click the image:button_refresh.png[Refresh] button if you need to update the page immediately.
 
 === View job details
 
@@ -65,15 +65,15 @@ image:screenshot_backup_job_monitor_details.png[A screenshot showing the Job Det
 
 === Download Job Monitoring results as a report
 
-If you want to download the contents of the main Job Monitoring page as a report after you've refined it, click the image:button_download.png[Download] button. Cloud Backup generates a .CSV file that you can review and send to other groups as needed. The .CSV file includes up to 10,000 rows of data.
+If you want to download the contents of the main Job Monitoring page as a report after you've refined it, click the image:button_download.png[Download] button. Cloud Backup generates and downloads a .CSV file that you can review and send to other groups as needed. The .CSV file includes up to 10,000 rows of data.
 
 == Use the Notification Center to review backup and restore alerts 
 
 The Notification Center tracks the progress of backup and restore jobs that you've initiated so you can verify whether the operation was successful or not. You can display the notifications by clicking the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system.
 
-At this time, there are four events that will trigger email alerts:
+At this time, there are four backup and restore events that will trigger email alerts:
 
-* Cloud Backup activation failed on working environment
+* Cloud Backup activation failed on a working environment
 * Cloud Backup restore operation failed
 * Adhoc (on-demand) volume backup failed
 * Potential Ransomware attack detected on your system
@@ -83,4 +83,3 @@ By default, BlueXP Account Admins will receive emails for all "Critical" and "Re
 You'll need to select the notification types "Critical" and "Error" to receive the Cloud Backup email alerts.
 
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
-
