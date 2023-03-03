@@ -373,13 +373,15 @@ These limitations apply to both the Search & Restore and the Browse & Restore me
 
 * When using ONTAP 9.13.0 or greater, Browse & Restore and Search & Restore can restore a folder along with all files and sub-folders within it.
 +
-When using a version of ONTAP before 9.13.0, Browse & Restore and Search & Restore can restore 1 folder at a time.
+When using a version of ONTAP greater than 9.11.1 but before 9.13.0, the restore operation can restore only the selected folder and the files in that folder - no sub-folders, or files in sub-folders, are restored.
++
+When using a version of ONTAP before 9.11.1, folder restore is not supported.
 
 * Directory/folder restore is not currently supported on FlexGroup volumes. 
 
-* Restoring from FlexGroup volumes to FlexVol volumes, or FlexVol volumes to FlexGroup volumes is not supported.
-
 * You can't restore individual folders if the backup file resides in archival storage.
+
+* Restoring from FlexGroup volumes to FlexVol volumes, or FlexVol volumes to FlexGroup volumes is not supported.
 
 * The file being restored must be using the same language as the language on the destination volume. You will receive an error message if the languages are not the same.
 

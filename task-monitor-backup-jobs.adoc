@@ -45,9 +45,10 @@ If you're looking for specific jobs, or a specific group of jobs, you can click 
 
 image:screenshot_backup_job_monitor_filters.png[A screenshot of setting the filters to view only jobs that match the filter criteria.]
 
-This screenshot show how you would search for all "Volume" "Backup" jobs for volumes named "Volume_1" in the past week.
+This screenshot show how you would search for all "Volume" "Backup" jobs for volumes named "Volume_1" in the "past week".
 
-Most of the filters are self-explanatory. Note that the filter for "Workloads" enables you to view jobs in the following catagories:
+Most of the filters are self-explanatory. The filter for "Workloads" enables you to view jobs in the following catagories:
+
 * Volumes (Cloud Volumes ONTAP and on-prem ONTAP volumes)
 * Applications
 * Virtual Machines
