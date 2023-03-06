@@ -15,24 +15,21 @@ summary:  Restore the data files and then recover the database.
 [.lead]
 In the event of data loss, you can restore the data and non-data files and then recover the database.
 
-== Prescripts and postscripts
+== Restore cloud native SAP HANA database
 
-You can provide prescripts, postscripts, and exit scripts while creating a policy.  These scripts are run on the HANA host while performing restore operation. 
+*What you need*
 
-The supported format for scripts are .sh, python script, perl script, and so on.
+. The SAP HANA system must be in a stopped state.
+. You can provide a prescript to stop the SAP HANA system.
 
-The prescript and the postscript should be registered by the host admin into `/opt/NetApp/snapcenter/scc/etc/allowed_commands.config file``
+*Steps*
 
-`[root@scspa2622265001 etc]# cat allowed_commands.config
-command: mount
-command: umount
-command: /mnt/scripts/pre_script.sh
-command: /mnt/scripts/post_script.sh`
-
-== Environmental variables
-
-For the restore workflow, the following environmental variables are available as part of prescript and postscript.
-
+.	Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.
+.	Click image:icon-action.png[icon to select the action] corresponding to the data backup that you want to use for restoring and click *Restore*.
+.	In the *Restore System* page, enter the scripts. link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts[Learn more.]
++
+For the restore workflow, the following environmental variables are available as part of prescript and postscript. 
++
 |===
 | Environmental Variable | Description
 
@@ -53,19 +50,6 @@ OSDBUser
 a|
 Configured OSDBUser for the HANA database
 |===
-
-== Restore cloud native SAP HANA database
-
-*What you need*
-
-. The SAP HANA system must be in a stopped state.
-. You can provide a prescript to stop the SAP HANA system.
-
-*Steps*
-
-.	Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.
-.	Click image:icon-action.png[icon to select the action] corresponding to the data backup that you want to use for restoring and click *Restore*.
-.	In the *Restore System* page, enter the scripts.
 .	Click *Restore*.
 
 *After you finish*
