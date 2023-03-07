@@ -90,7 +90,7 @@ After you filter the Job Monitoring page to display the jobs and actions you are
 === Enhancements to Cloud Backup for Applications
 
 * SAP HANA databases
-** Supports policy-based backup and restore of SAP HANA databases residing on Azure NetApp Files (ANF) 
+** Supports policy-based backup and restore of SAP HANA databases residing on Azure NetApp Files
 ** Supports custom policies
 * Oracle databases
 ** Add hosts and deploy plug-in automatically
