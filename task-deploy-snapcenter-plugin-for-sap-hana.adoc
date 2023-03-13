@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-deploy-snapcenter-plugin-for-sap-hana.html
 keywords: Cloud Manager, BlueXP, SnapCenter Plug-in for SAP HANA, SAP HANA, database, host, deploy
-summary:  Deploy the SnapCenter Plug-in for SAP HNAN on each of the SAP HANA database hosts.
+summary:  Deploy the SnapCenter Plug-in for SAP HANA on each of the SAP HANA database hosts.
 ---
 
 = Deploy SnapCenter Plug-in for SAP HANA and add database hosts 
