@@ -106,7 +106,10 @@ Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP
 
 === Support for sites with no internet connectivity
 
-Cloud Backup can be used in a site with no internet connectivity (also known as an "offline" or "dark" site) to back up volume data from local on-premises ONTAP systems to local NetApp StorageGRID systems. Both volume and file restore are also supported in this configuration. In this case, you'll need to deploy the BlueXP Connector (minimum version 3.9.20) in the dark site. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
+Cloud Backup can be used in a site with no internet connectivity (also known as an "offline" or "dark" site) to back up volume data. Both volume and file restore are also supported in this configuration. In this case, you'll need to deploy the BlueXP Connector in the dark site. 
+
+* You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
+* You can back up data from Cloud Volumes ONTAP systems installed in AWS and Azure commercial regions to Amazon S3 or Azure Blob. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 == Supported volumes
 
@@ -119,14 +122,6 @@ Cloud Backup supports the following types of volumes:
 * FlexGroup volumes (requires ONTAP 9.12.1 or later) 
 
 See the sections on <<Limitations,Backup and Restore Limitations>> for additional requirements and limitations.
-
-// [NOTE]
-// ====
-// *FlexGroup volume restore limitations*: 
-// * Directory/folder restore is not currently supported. 
-// * Volumes can be restored to a single aggregate at this time.
-// * Full volume restore is supported only for on-prem ONTAP systems (Cloud Volumes ONTAP systems are not currently supported).
-// ====
 
 == Cost
 
@@ -369,7 +364,7 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * ONTAP doesn't support fan-out of SnapMirror relationships from a single volume to multiple object stores; therefore, this configuration is not supported by Cloud Backup.
 
-* WORM/Compliance mode on an object store is only supported on Amazon S3 and StorageGRID at this time. This is known as the DataLock feature, and it must be managed using Cloud Backup settings, not using the cloud provider interface.
+* WORM/Compliance mode on an object store is supported on Amazon S3, Azure, and StorageGRID at this time. This is known as the DataLock feature, and it must be managed using Cloud Backup settings, not using the cloud provider interface.
 
 === Restore limitations
 
@@ -379,14 +374,18 @@ These limitations apply to both the Search & Restore and the Browse & Restore me
 
 * Search & Restore can restore 1 file at a time.
 
-* Browse & Restore and Search & Restore can restore 1 folder at a time.
+* When using ONTAP 9.13.0 or greater, Browse & Restore and Search & Restore can restore a folder along with all files and sub-folders within it.
++
+When using a version of ONTAP greater than 9.11.1 but before 9.13.0, the restore operation can restore only the selected folder and the files in that folder - no sub-folders, or files in sub-folders, are restored.
++
+When using a version of ONTAP before 9.11.1, folder restore is not supported.
 
 * Directory/folder restore is not currently supported on FlexGroup volumes. 
 
-* Restoring from FlexGroup volumes to FlexVol volumes, or FlexVol volumes to FlexGroup volumes is not supported.
-
 * You can't restore individual folders if the backup file resides in archival storage.
+
+* Restoring from FlexGroup volumes to FlexVol volumes, or FlexVol volumes to FlexGroup volumes is not supported.
 
 * The file being restored must be using the same language as the language on the destination volume. You will receive an error message if the languages are not the same.
 
-* The _High_ restore priority is not supported when restoring data from Azure to StorageGRID systems.
+* The _High_ restore priority is not supported when restoring data from Azure archival storage to StorageGRID systems.
