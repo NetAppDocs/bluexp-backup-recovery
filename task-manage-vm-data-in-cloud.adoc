@@ -13,10 +13,10 @@ summary: You can view the datastores and virtual machines and edit the SnapCente
 :imagesdir: ./media/
 
 [.lead]
-You can view policies, datastores, and virtual machines before you back up and restore data. Depending upon the change in database, policies, or resource groups, you can refresh the updates from the BlueXP UI.
+You can view policies, datastores, and virtual machines before you back up and restore data. Depending upon the change in database, policies, or resource groups, you can view the updates from the BlueXP UI.
 
 == View policies
-You can view all the default pre-canned policies. For each of these policies, when you view the details, all the associated Cloud Backup for Virtual Machines policies and all the associated virtual machines are listed.
+You can view all the default pre-canned policies. For each of these policies, when you view the details, all the associated policies and virtual machines are listed.
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Virtual Machines*.
 . From the *Settings* drop-down, click *Policies*.
@@ -30,7 +30,7 @@ The datastores and virtual machines that are protected using the registered Snap
 .Steps
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Virtual Machines* > *Settings* > *SnapCenter Plug-in for VMware vSphere*.
-. Click the SnapCenter Plug-in for VMware vSphere for which you want to see the datastores and virtual machines.
+. Click the SnapCenter Plug-in for VMware vSphere host for which you want to see the datastores and virtual machines.
 
 == Edit the SnapCenter Plug-in for VMware vSphere Instance
 You can edit the details of the SnapCenter Plug-in for VMware vSphere in BlueXP.
@@ -43,11 +43,11 @@ You can edit the details of the SnapCenter Plug-in for VMware vSphere in BlueXP.
 . Click *Save*.
 
 == Refresh Protection Status
-When new volumes are added to the database, or if there is a change to the policy or resource group, you should refresh the protection.
+When new volumes are added to the database, or if there is a change to the policy or resource group, you should refresh the protection status.
 
 . Click *Backup and recovery* > *Virtual Machines*.
 . From the *Settings* drop-down, click *SnapCenter Plug-in for VMware vSphere*.
-. Click image:icon-action.png[action] corresponding to the SnapCenter Plug-in for VMware vSphere hosting the virtual machine and click *Refresh*.
+. Click image:icon-action.png[action] corresponding to the SnapCenter Plug-in for VMware vSphere host and click *Refresh*.
 +
 The new changes are discovered.
 . Click image:icon-action.png[action] corresponding to the datastore and click *Refresh Protection* to enable cloud protection for the changes.

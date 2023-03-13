@@ -15,7 +15,8 @@ summary: Back up your datastores from on-premises ONTAP to StorageGRID.
 [.lead]
 You can back up one or more datastores to StorageGRID by integrating the SnapCenter Plug-in for VMware vSphere with BlueXP. This will help the VM administrators to easily and quickly back up and archive data for storage efficiency and accelerate cloud transition.
 
-NOTE: Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before backing up datastores to the cloud.
+== Before you begin
+Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before backing up datastores to the cloud.
 
 .Steps
 
@@ -24,11 +25,11 @@ NOTE: Ensure that you have met all the link:concept-protect-vm-data.html#Require
 . In the Assign Policy page, select the policy and click *Next*.
 . Add the working environment.
 +
-Configure the ONTAP clusters that you want BlueXP to discover to back up your datastores. After adding the working environment for one of the datastores, it can be reused for all the other datastores residing on the same ONTAP cluster.
+Configure the cluster management LIF that you want BlueXP to discover. After adding the working environment for one of the datastores, it can be reused for all the other datastores residing on the same ONTAP cluster.
 +
 .. Click *Add Working Environment* corresponding to the SVM.
 .. In the Add Working Environment wizard:
-... Specify the IP address of the ONTAP cluster.
+... Specify the IP address of the cluster management LIF.
 ... Specify the credentials of the ONTAP cluster user.
 .. Click *Add Working Environment*.
 . Select *StorageGRID*.

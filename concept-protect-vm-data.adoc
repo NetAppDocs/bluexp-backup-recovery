@@ -14,17 +14,17 @@ summary: Know more about protecting data on your virtual machines and understand
 
 [.lead]
 
-You can protect data on your virtual machines by integrating the SnapCenter Plug-in for VMware vSphere with BlueXP (formerly Cloud Manager). You can back up datastores from on-premises primary and secondary storage to the cloud and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere with ease.
+You can protect data on your virtual machines by backing up datastores from on-premises primary and secondary storage to the cloud. When required you can restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere host. 
 
-You can back up datastores to Amazon Web Services S3 (supported archival tiers are Glacier and Deep Glacier), Microsoft Azure Blob (supported archival tier is Azure Archive), Google Cloud Platform, and StorageGRID.
+You can back up datastores to Amazon Web Services S3, Microsoft Azure Blob (supported archival tier is Azure Archive), Google Cloud Platform, and StorageGRID.
 
 == Requirements
-Read the following requirements to make sure that you have a supported configuration before you start backing up datastores and virtual machines to cloud services.
+Read the following requirements to make sure that you have a supported configuration before you start backing up datastores and virtual machines to a cloud provider.
 
 * SnapCenter Plug-in for VMware vSphere 4.6P1 or later
 ** You should be using SnapCenter Plug-in for VMware vSphere 4.7P1 or later to back up virtual machines from on-premises secondary storage.
 * ONTAP 9.8 or later
-* BlueXP 3.9 or later
+* BlueXP 
 * Only NFS datastores are supported. VMFS datastores based on iSCSI/FC/NVMe and vVols are not supported.
 * At least one backup should have been taken in SnapCenter Plug-in for VMware vSphere 4.6P1.
 * At least one daily, weekly, or monthly policy in SnapCenter Plug-in for VMware vSphere with no label or same label as that of the Virtual Machines policy in BlueXP.

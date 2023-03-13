@@ -15,17 +15,16 @@ summary: You can restore virtual machines from the cloud to the on-premises Snap
 [.lead]
 You can restore virtual machines from the cloud back to the on-premises vCenter. The backup will be restored to the exact same location from where the backup was taken. If the virtual machine was backed up using archival policy, then you can set the archival restore priority. 
 
-NOTE: You cannot restore virtual machines that are spanned across datastores.
+NOTE: You cannot restore virtual machines that span across datastores.
 
-.What you'll need
-
+== Before you begin
 Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before restoring virtual machines from the cloud.
 
 .Steps
 
-. In BlueXP UI, click *Protection* > *Backup and recovery* > *Virtual Machines* > *SnapCenter Plug-in for VMware vSphere* and select the SnapCenter Plug-in for VMware vSphere whose virtual machine you want to restore.
+. In BlueXP UI, click *Protection* > *Backup and recovery* > *Virtual Machines* > *SnapCenter Plug-in for VMware vSphere* and select the SnapCenter Plug-in for VMware vSphere host.
 
-NOTE: If the source virtual machine is moved to another location (vMotion), and if the user triggers a restore of that virtual machine from BlueXP, then the virtual machine will get restored to the original source location from where the backup was taken.
+NOTE: If the source virtual machine is moved to another location (vMotion), and if the user triggers a restore of that virtual machine from BlueXP, then the virtual machine is restored to the original source location from where the backup was taken.
 
 [start=2]
 . To restore from Datastore:
@@ -34,14 +33,14 @@ NOTE: If the source virtual machine is moved to another location (vMotion), and 
 .. Select the virtual machine that you want to restore from the backup.
 .. Select the *Archival Restore Priority* and click *Next*.
 +
-This option is available only if the virtual machine was protected using a policy that had archival settings configured. The supported archival restore priority for Amazon Web Services are high, standard, and low and the supported archival restore priority for Microsoft Azure are high and standard.
+This option is available only if the virtual machine is protected using a policy where archival settings are configured. The supported archival restore priority for Amazon Web Services are high, standard, and low and the supported archival restore priority for Microsoft Azure are high and standard.
 .. Review the details and click *Restore*.
 . To restore from Virtual Machines:
 .. Click image:icon-action.png[action] corresponding to the virtual machine that you want to restore and click *Restore*.
 .. Select the backup through which you want to restore the virtual machine.
 .. Select the *Archival Restore Priority* and click *Next*.
 +
-This option is available only if the virtual machine was protected using a policy that had archival settings configured. The supported archival restore priority for Amazon Web Services are high, standard, and low and the supported archival restore priority for Microsoft Azure are high and standard.
+This option is available only if the virtual machine is protected using a policy where archival settings are configured. The supported archival restore priority for Amazon Web Services are high, standard, and low and the supported archival restore priority for Microsoft Azure are high and standard.
 .. Review the details and click *Restore*.
 
 The VM is restored to the same location from where the backup was taken.
