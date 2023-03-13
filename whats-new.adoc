@@ -16,6 +16,20 @@ summary: Learn what's new in Cloud Backup.
 Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
+== 9 March 2023
+
+=== Folder-level restore operations now include all sub-folders and files
+
+In the past when you restored a folder, only files from that folder were restored - no sub-folders, or files in sub-folders, were restored. Now, if you are using ONTAP 9.13.0 or greater, all the sub-folders and files in the selected folder are restored. This can save a great deal of time and money in cases where you have multiple nested folders in a top-level folder.
+
+=== Ability to back up data from Cloud Volumes ONTAP systems in dark sites
+
+Now you can back up data from Cloud Volumes ONTAP systems installed in AWS and Azure commercial regions to Amazon S3 or Azure Blob. This requires that you install the Connector on a Linux host in the commercial region, and that you deploy the Cloud Volumes ONTAP system there as well. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+
+=== Job Monitor provides advanced filtering to find specific backup or restore jobs
+
+The Job Monitoring page has added advanced filtering so you can search for backup and restore jobs by time, workload (volumes, applications, virtual machines, or Kubernetes), job type, status, working environment, and storage VM. You can also enter free text to search for any resource, for example, "application_3".  https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs[See how to use the advanced filters].
+
 == 6 February 2023
 
 === Ability to move older backup files to Azure archival storage from StorageGRID systems
@@ -73,6 +87,7 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-o
 === Ability to download the Job Monitoring results page as a .csv report
 
 After you filter the Job Monitoring page to display the jobs and actions you are interested in, now you can generate and download a .csv file of that data. Then you can analyze the information, or send the report to other people in your organization. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report[See how to generate a Job Monitoring report].
+// end::whats-new[]
 
 == 19 December 2022
 
@@ -134,7 +149,6 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-
 === Ability to restore data from backups to a specific aggregate on Cloud Volumes ONTAP systems
 
 In earlier releases you could select the aggregate only when restoring data to on-prem ONTAP systems. This functionality now works when restoring data to Cloud Volumes ONTAP systems.
-// end::whats-new[]
 
 == 2 November 2022
 
