@@ -13,36 +13,28 @@ summary:  Perform a system refresh of a source SAP HANA system, which is the pro
 :imagesdir: ./media/
 
 [.lead]
-You can perform a system refresh of a source SAP HANA system, which is the production database to a target system.  The target system is refreshed with data from the source system and this target system can be used for data mining, auditing, and so on.  The target system is added with a volume but without data.
+You can perform a system refresh of a source SAP HANA system, which is the production database to a target system.  The target system is refreshed with data from the source system and this target system can be used for data mining, auditing, and so on.  
 
 == Prerequisites
 
 * You should add the source and target HANA systems manually into cloud backup application.
 * You should delete the unmounted cloned volumes manually.
-* Ensure that the HANA version is same on the target system (?) I think this is incomplete.
+* Ensure that the HANA version database version is same on source and the target system.
 * You should have decided on which refresh scripts to be used.
 ** The refresh scripts are available in the solution technical report (TR).
 ** You can customize the refresh scripts.
 
-== Environmental Variables
-
-For the system refresh workflow, the following environmental variables are available as part of the prescript and postscript.
-
-* CLONED_VOLUMES_MOUNT_PATH=172.23.10.10:/vol1-20230109-184501,172.23.10.10:/vol2-20230109-184511
-* VOL1_DESTINATION=172.23.10.10:/vol1-20230109-184501
-* VOL2_DESTINATION=172.23.10.10:/vol2-20230109-184511
-* HANA_DATABASE_TYPE="MULTIPLE_CONTAINERS"
-* TENANT_DATABASE_NAMES="TENANT1,TENANT2"
-
 *About this task*
 
-* System refresh is supported only for Multi-tenant database container HANA system.
-* System refresh operation works the same for subsequent refreshes.
-* The policies (protection) will continue after the system refresh. Will it continue in Target HANA system?
+* System refresh is supported only for multi-tenant database container HANA system.
+* The policies (protection) will continue after the system refresh. 
 * The new volumes created will have the following naming convention: <sourcevolumename>-<timestamp>
 ** Timestamp format: <year><month><day>-<hour><minute><second>
 +
 For example, if the source volume is vol1, the refreshed volume name will be vol1-20230109-184501
+
+NOTE: The new volume will be placed in the same capacity pool as that of the target volumes.
+
 * The Junction path will be the same as the volume name.
 
 *Steps*
@@ -52,17 +44,22 @@ For example, if the source volume is vol1, the refreshed volume name will be vol
 . Select *Cloud Native* > *SAP HANA* and click *Next*.
 . In the *Applications* page, click image:icon-action.png[icon to select the action] icon to select the action corresponding to the system that you want to refresh and select *System Refresh*.
 . In the *System Refresh* page, perform the following actions:
-.. Select Snapshot system and Snapshot copy
-.. Enter Export addresses to map the Snapshot copies
-.. Enter Prescript, Postscript, and Pre-exit script paths
-Pre-exit script is executed only when the system refresh operation fails.
+.. Select source system and Snapshot copy
+.. Enter Export addresses from which the new volumes can be accessed
+.. Enter Prescript, Postscript, and On Failure script paths
+On Failure script is executed only when the system refresh operation fails.
 .. Select *Delete associated SAP HANA backups*
 Only Snapshot copies will be deleted.
 If there are any existing backups of the target system and the above option is not selected, system refresh operation will fail.
-You can also delete the backups from the Topology page.
+You can also delete the backups from the *Topology* page.
 .. Click *Refresh*.
 
-*After you finish*
+== Environmental Variables
 
-Target HANA system can be protected with policies. After refresh, the storage volumes of the target system shall be inline updated by CBA, so backups taken after refresh shall contain Snapshot copies pertaining to the new volumes associated with the target HANA system. – Is this needed? If yes, need to simply this information
+For the system refresh workflow, the following environmental variables are available as part of the prescript and postscript.
+
+* CLONED_VOLUMES_MOUNT_PATH=172.23.10.10:/vol1-20230109-184501
+* VOL1_DESTINATION=172.23.10.10:/vol1-20230109-184501
+* HANA_DATABASE_TYPE="MULTIPLE_CONTAINERS"
+* TENANT_DATABASE_NAMES="TENANT1,TENANT2"
 
