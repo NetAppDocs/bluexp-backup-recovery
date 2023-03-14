@@ -109,7 +109,7 @@ sidebar:
             - title: Restore SQL Server database
               url: /task-restore-sql-data.html
         - title: Mount application backups
-            url: /task-mount-app-backup.html
+          url: /task-mount-app-backup.html
     - title: Back up, restore, and clone cloud native applications data
       entries:
         - title: Protect your cloud native applications data
