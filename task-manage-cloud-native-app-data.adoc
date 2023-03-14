@@ -95,22 +95,26 @@ You can run the following command to get the _<base_mount_path>_:
 
 *Steps*
 
-. Login to Connector.
-. Delete all the existing files located at _<base_mount_path>/client/certificate_ in the Connector virtual machine.
-. Copy the CA signed certificate and key file to the _<base_mount_path>/client/certificate_ in the Connector virtual machine.
+. Perform the following steps on the Connector:
+.. Login to Connector.
+.. Delete all the existing files located at _<base_mount_path>/client/certificate_ in the Connector virtual machine.
+.. Copy the CA signed certificate and key file to the _<base_mount_path>/client/certificate_ in the Connector virtual machine.
 +
 The file name should be certificate.pem and key.pem. The certificate.pem should have the entire chain of the certificates like intermediate CA and root CA.
-. Create the PKCS12 format of the certificate with the name certificate.p12 and keep at _<base_mount_path>/client/certificate_.
-. Copy the certificate.p12 and certificates for all the intermediate ca and root ca to the plug-in host at _/var/opt/snapcenter/spl/etc/_.
-. Log in to the plug-in host.
-. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.p12 file.
+.. Create the PKCS12 format of the certificate with the name certificate.p12 and keep at _<base_mount_path>/client/certificate_.
++
+Example: openssl pkcs12 -inkey key.pem -in certificate.pem -export -out certificate.p12
+.. Copy the certificate.p12 and certificates for all the intermediate ca and root ca to the plug-in host at _/var/opt/snapcenter/spl/etc/_.
+. Perform the following steps on the plug-in host:
+.. Log in to the plug-in host.
+.. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.p12 file.
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
-. Import the root CA and intermediate certificates.
+.. Import the root CA and intermediate certificates.
 `keytool -import -trustcacerts -keystore keystore.jks -storepass snapcenter -alias trustedca -file <certificate.crt>`
 +
 NOTE: The certfile.crt refers to the certificates of root CA as well as intermediate CA.
 
-. Restart SPL: `systemctl restart spl`
+.. Restart SPL: `systemctl restart spl`
 
 
 === Configure CA signed certificate for server certificate of plug-in
@@ -127,6 +131,8 @@ You can run the following command to get the _<base_mount_path>_:
 . Perform the following steps on the plug-in host:
 .. Navigate to the folder containing the SPL’s keystore _/var/opt/snapcenter/spl/etc_.
 .. Create the PKCS12 format of the certificate having both certificate and key with alias _splkeystore_.
++
+Example: openssl pkcs12 -inkey key.pem -in certificate.pem -export -out certificate.p12 -name splkeystore
 .. Add the CA certificate.
 `keytool -importkeystore -srckeystore <CertificatePathToImport> -srcstoretype pkcs12 -destkeystore keystore.jks -deststoretype JKS -srcalias splkeystore -destalias splkeystore -noprompt`
 .. Verify the certificates.

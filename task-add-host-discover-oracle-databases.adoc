@@ -61,8 +61,8 @@ A service account with _SnapCenter System_ role is created to perform scheduled 
 * Click *Account* > *Manage Account* > *Members* to view the service account.
 +
 NOTE: The service account (_SnapCenter-account-<accountid>_) is used for running the scheduled backup operations. You should never delete the service account.
-
-. In the Add Host page, perform the following:
+. Select Oracle as the application type.
+. In the Host details page, perform the following:
 .. Select *Using SSH*.
 .. Specify the  FQDN or IP address of the host where you want to install the plug-in.
 .. Specify the username (<<Configure a sudo for SnapCenter user,sudo SnapCenter user>>) using which the plug-in package will be copied to the host.
@@ -95,11 +95,11 @@ If SSH key based authentication is enabled on the Oracle host for the SnapCenter
 . Obtain the base mount path.
 `sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
 . Deploy the plug-in using the helper script provided in the Connector.
-`sudo <base_mount_path>/scripts/oracle_plugin_copy_and_install.sh --host <host_name> --sshkey <ssh_key_file> --username <user_name> --port <ssh_port> --pluginport <plugin_port> --installdir <install_dir>`
+`sudo <base_mount_path>/scripts/oracle_plugin_copy_and_install.sh --host <host_name> --sshkey <ssh_key_file> --username <name> --port <ssh_port> --pluginport <plugin_port> --installdir <install_dir>`
 
 * host_name is the name of the Oracle host and this is a mandatory parameter.
 * ssh_key_file is the SSH key of the SnapCenter user and used to connect to the Oracle host. This is a mandatory parameter.
-* user_name: SnapCenter user with SSH privileges on the Oracle host and this is an optional parameter. Default value is ec2-user.
+* user_name: SnapCenter user with SSH privileges on the Oracle host.
 * ssh_port: SSH port on the Oracle host and this is an optional parameter. Default value is 22
 * plugin_port: Port used by the plug-in and this is an optional parameter. Default value is 8145
 * install_dir: Directory where the plug-in will be deployed and this is an optional parameter. Default value is /opt.
@@ -116,7 +116,8 @@ A service account with _SnapCenter System_ role is created to perform scheduled 
 +
 NOTE: The service account (_SnapCenter-account-<accountid>_) is used for running the scheduled backup operations. You should never delete the service account.
 
-. In the Add Host page, perform the following:
+. Select Oracle as the application type.
+. In the Host details page, perform the following:
 .. Select *Manual*.
 .. Specify the  FQDN or IP address of the host where the plug-in is deployed.
 +
@@ -172,7 +173,8 @@ A service account with _SnapCenter System_ role is created to perform scheduled 
 +
 NOTE: The service account (_SnapCenter-account-<accountid>_) is used for running the scheduled backup operations. You should never delete the service account.
 
-. In the Add Host page, perform the following:
+. Select Oracle as the application type.
+. In the Host details page, perform the following:
 .. Select *Manual*.
 .. Specify the  FQDN or IP address of the host where the plug-in is deployed.
 +

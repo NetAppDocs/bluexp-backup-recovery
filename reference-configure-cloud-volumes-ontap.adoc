@@ -27,7 +27,7 @@ You can get started with Cloud Volumes ONTAP for your cloud environment in a few
 * link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html[Quick start for Cloud Volumes ONTAP in Azure]
 * link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html[Quick start for Cloud Volumes ONTAP in Google Cloud]
 
-You should use the same connector to manage both CVO working environment and Oracle databases.
+You should use the same connector to manage both CVO working environment and databases.
 
-* If you have the CVO working environment and Oracle databases in the same VPC or VNet, you can deploy the connector in the same VPC or VNet.
-* If you have the CVO working environment and Oracle databases in different VPCs or VNets, ensure that the VPCs or VNets are peered.
+* If you have the CVO working environment and databases in the same VPC or VNet, you can deploy the connector in the same VPC or VNet.
+* If you have the CVO working environment and databases in different VPCs or VNets, ensure that the VPCs or VNets are peered.

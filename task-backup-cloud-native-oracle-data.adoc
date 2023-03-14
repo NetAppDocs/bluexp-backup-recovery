@@ -26,6 +26,45 @@ You can create policies if you do not want to edit the pre-canned policies.
 . Specify a policy name.
 . (Optional) Edit the format of the backup name.
 . Specify the schedule and retention details.
+. (Optional) Enter the post-script path, arguments, and timeout value for post-script that will be executed after the successful backup.
++
+You should keep the post-scripts in the path _/var/opt/snapcenter/spl/scripts_.
++
+The supported environment variables are:
++
+|===
+| Environmental Variable | Description
+
+a|
+SC_ORACLE_SID
+a|
+Specifies the SID of the Oracle database.
+a|
+SC_HOST
+a|
+Specifies the hostname of the database
+a|
+SC_BACKUP_NAME
+a|
+Specifies the name of the backup. The data backup name and the log backup name are concatenated using delimiters.
+a|
+SC_BACKUP_POLICY_NAME
+a|
+Specifies the name of the policy used to create the backup.
+a|
+SC_PRIMARY_DATA_VOLUME_FULL_PATH
+a|
+Specifies the data volume paths concatenated using "," as delimiter.
+For ANF volumes, the information is concatenated using "/"
+_/{anfaccount}/{subscription_id}/{resource_group}/{capacity_pool}/{volumename}_
+a|
+SC_PRIMARY_ARCHIVELOGS_VOLUME_FULL_PATH
+a|
+Specifies the archive log volume paths concatenated using "," as delimiter.
+For ANF volumes, the information in concatenated using "/"
+_/{anfaccount}/{subscription_id}/{resource_group}/{capacity_pool}/{volumename}_
+|===
+
 . Click *Create*.
 
 == Create a backup of the Oracle Database
@@ -64,8 +103,6 @@ For information on how to fix this issue, refer to: https://kb.netapp.com/Advice
 
 == Limitations
 
-* Does not support online data or log only backups
-* Does not support offline backups
 * Does not support backing up of Oracle database residing on recursive mount points
 * Does not support consistency group Snapshots for Oracle databases residing on Multiple ASM disk groups with overlap of FSx volumes
 * If your Oracle databases are configured on ASM, ensure your SVM names are unique across the FSx systems. If you have same SVM name across FSx systems, back up of Oracle databases residing on those SVMs are not supported.
