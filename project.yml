@@ -150,9 +150,7 @@ sidebar:
                   url: /task-restore-cloud-native-oracle-data.html
                 - title: Restore cloud native SAP HANA database
                   flavor: azure
-                  url: /task-restore-cloud-native-sap-hana-data.html
-            - title: System refresh of SAP HANA system
-              url: /task-system-refresh-of-sap-hana-system.html      
+                  url: /task-restore-cloud-native-sap-hana-data.html               
             - title: Clone cloud native applications data
               entries:
                 - title: Clone cloud native Oracle database
