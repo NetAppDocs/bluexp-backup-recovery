@@ -25,3 +25,12 @@ An Account Admin needs to deploy a Connector in Azure NetApp Files that enables 
 NOTE: You cannot update the new connector_id from the UI.
 
 For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Create a Connector in Azure from BlueXP].
+
+* You should use the same connector to manage both Azure NetApp Files working environment and databases.
+* If you have the Azure NetApp Files working environment and databases in the same VPC, you can deploy the connector in the same VPC.
+* If you have the Azure NetApp Files working environment and databases in different VPCs and have NAS (NFS) workloads configured on Azure NetApp Files, then you can create the connector on either of the VPCs.
+
+After creating the connector, click *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment* and follow the prompts to add the working environment.
+Ensure that there is connectivity from the connector to the database hosts and Azure NetApp Files working environment. The connector should be able to connect to the cluster management IP address of the Azure NetApp Files working environment.
+
+IMPORTANT: After creating the Connector, click *Connector > Manage Connectors*; select the Connector name and copy the Connector ID.

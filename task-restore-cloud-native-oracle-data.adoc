@@ -23,8 +23,8 @@ If the Oracle 21c database is in STARTED state, the restore operation fails. You
 
 *Steps*
 
-. Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.
-. Click image:icon-action.png[icon to select the action] corresponding to the data backup that you want to use for restoring and click *Restore*.
+. Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *Restore*.
+. Select the restore point to which the database should be restored and click *Restore to original location*.
 . In the Restore Scope section, perform the following actions:
 +
 |===
@@ -70,7 +70,7 @@ Select *All Logs*.
 a|
 Want to recover to a specific System Change Number (SCN)
 a|
-Select *Until System Change Number* and specify the SCN.
+Select *Until SCN* and specify the SCN.
 a|
 Want to recover to a specific date and time
 a|
