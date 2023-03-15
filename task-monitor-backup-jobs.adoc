@@ -17,7 +17,7 @@ You can monitor the status of backup and restore jobs that you have initiated in
 
 == Use the Job Monitor to view backup and restore job status
 
-You can view a list of all the backup and restore operations and their current status in the *Job Monitoring* tab. This includes operations from your Cloud Volumes ONTAP, on-premises ONTAP, Applications, Virtual Machines, and Kubernetes systems. Each operation, or job, has a unique ID and a status. The status can be:
+You can view a list of all the backup and restore operations and their current status in the *Job Monitoring* tab. This includes operations from your Cloud Volumes ONTAP, on-premises ONTAP, Applications, Virtual Machines, and Kubernetes systems. Each operation, or job, has a unique ID and status. The status can be:
 
 * Success
 * In Progress
@@ -25,7 +25,11 @@ You can view a list of all the backup and restore operations and their current s
 * Warning
 * Failed
 
-NOTE: System-initiated jobs, such ongoing backup operations, are not reflected in the *Job Monitoring* tab at this time -- only user-initiated jobs are displayed.
+Both user-initiated backup and restore operations initiated from the Cloud Backup UI and API, and system-initiated jobs, such ongoing backup operations, are available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. 
+
+TIP: When running an earlier version of ONTAP on Cloud Volumes ONTAP systems, or for on-premises ONTAP systems, only user-initiated jobs are displayed at this time.
+
+//NOTE: System-initiated jobs, such ongoing backup operations, are not reflected in the *Job Monitoring* tab at this time -- only user-initiated jobs are displayed.
 
 .Steps
 
