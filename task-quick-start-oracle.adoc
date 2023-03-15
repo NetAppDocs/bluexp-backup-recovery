@@ -1,0 +1,42 @@
+---
+sidebar: sidebar
+permalink: task-quick-start-oracle.html
+keywords: Cloud Manager, BlueXP, configuration, support, Oracle
+summary:  Complete a few steps to get started with backing up Oracle database.
+---
+
+= Quick start
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+Get started quickly by following these steps.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
+
+[role="quick-margin-list"]
+* Operating System:
+** RHEL 7.5 or later and 8.x
+** OL 7.5 or later and 8.x
+* Storage System: 
+** Amazon FSx for ONTAP
+** Cloud Volumes ONTAP
+** Azure NetApp Files
+* Storage layouts:
+** NFS v3 and v4.1 (including dNFS) 
+** iSCSI with ASM (ASMFD, ASMLib and ASMUdev)
++
+NOTE: Azure NetApp Files does not support SAN environment.
+* Database layouts: Oracle Standard and Oracle Enterprise Standalone (legacy and multitenant CDB and PDB)
+* Database versions: 12cR2, 18c, 19c, and 21c
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Access BlueXP UI
+
+[role="quick-margin-list"]
+* link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-signing-up.html[Sign up to NetApp BlueXP website]
+* link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[Log into BlueXP], 
+* Set up a link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-setting-up-netapp-accounts.html[NetApp account].

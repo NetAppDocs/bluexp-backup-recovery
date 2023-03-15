@@ -116,8 +116,8 @@ sidebar:
           url: /concept-protect-cloud-app-data-to-cloud.html
         - title: Back up cloud native Oracle database
           entries:
-            - title: Access BlueXP
-              url: /reference-access-bluexp.html
+            - title: Quick start
+              url: /task-quick-start-oracle.html
             - title: Configure FSx for ONTAP
               url: /reference-configure-fsx-for-ontap.html
             - title: Configure Cloud Volumes ONTAP
@@ -149,7 +149,7 @@ sidebar:
           flavor: azure
           url: /task-restore-cloud-native-sap-hana-data.html
         - title: Refresh SAP HANA target system
-          url: /task-system-refresh-of-sap-hana-system.html
+          url: /task-refresh-sap-hana-target-system.html
         - title: Clone cloud native Oracle database
           entries:
             - title: Clone concepts and requirements
