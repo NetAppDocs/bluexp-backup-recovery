@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-monitor-backup-jobs.html
 keywords: cloud backup, cloud backup service, backup, restore, status, monitor, alert, notification
-summary: You can monitor the status of backup and restore jobs that you have initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
+summary: You can monitor the status of backup jobs that are scheduled or that you have initiated and restore jobs that you initiated in your working environments. You can see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
 ---
 
 = Monitor the status of backup and restore jobs
