@@ -25,6 +25,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 * You're running Cloud Volumes ONTAP 9.7P5 or later in Azure (ONTAP 9.8P13 and later is recommended).
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
 * You have subscribed to the https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[BlueXP Marketplace Backup offering^], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated^] a Cloud Backup BYOL license from NetApp.
+* You have a Connector installed in Azure. The Connector can be installed in a site with or without internet access.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable Cloud Backup on your new or existing system
 
@@ -76,9 +77,20 @@ Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
 License requirements::
 For Cloud Backup PAYGO licensing, a subscription through the Azure Marketplace is required before you enable Cloud Backup. Billing for Cloud Backup is done through this subscription. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html[You can subscribe from the Details & Credentials page of the working environment wizard^].
 +
-For Cloud Backup BYOL licensing, you need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[Learn how to manage your BYOL licenses].
+For Cloud Backup BYOL licensing, you need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[Learn how to manage your BYOL licenses]. A BYOL license must be used when the Connector and Cloud Volumes ONTAP system are deployed in a dark site.
 +
 And you need to have a Microsoft Azure subscription for the storage space where your backups will be located.
+
+Connector requirements::
+The Connector can be installed in an Azure region with or without internet access. At this time, only Azure Commercial sites are supported for sites without internet access.
+
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Deploy a Connector in Azure^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[Installing the Connector on a Linux host in an Azure region without internet access^]
+
+NOTE: Cloud Backup functionality is built into the BlueXP Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[Cloud Backup What's New] to see the new features in each Cloud Backup release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
+
+We highly recommend that you create local backups of the Cloud Backup configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up Cloud Backup data in a dark site^].
 
 Verify or add permissions to the Connector::
 
@@ -202,7 +214,7 @@ image:screenshot_backup_provider_settings_azure.png[A screenshot that shows the 
 .. Enter the name for the default policy. You don't need to change the name.
 .. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
 .. Optionally, when using ONTAP 9.12.1 and greater, you can choose to protect your backups from deletion and ransomware attacks by configuring one of the _DataLock and Ransomware Protection_ settings. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
-.. When using ONTAP 9.10.1 and greater, you can choose to tier backups to Azure Archive storage after a certain number of days for further cost optimization. link:reference-azure-backup-tiers.html[Learn more about using archival tiers].
+.. When using ONTAP 9.10.1 and greater, you can choose to tier backups to Azure Archive storage after a certain number of days for further cost optimization. This feature is not available when deployed in dark sites. link:reference-azure-backup-tiers.html[Learn more about using archival tiers].
 +
 image:screenshot_backup_policy_azure.png[A screenshot that shows the Cloud Backup settings where you can choose your schedule and backup retention.]
 
