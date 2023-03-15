@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: task-refresh-of-sap-hana-target-system.html
+permalink: task-refresh-sap-hana-target-system.html
 keywords: Cloud Manager, BlueXP, SnapCenter Plug-in for SAP HANA, SAP HANA, database, host, system refresh
 summary:  Perform a refresh from a source SAP HANA system, which is the production database to a target system.
 ---
 
-= Refresh of SAP HANA target system 
+= Refresh SAP HANA target system 
 :hardbreaks:
 :nofooter:
 :icons: font
