@@ -16,7 +16,7 @@ summary:  Restore the data files, control files, or both and then recover the da
 
 In the event of data loss, you can restore the data files, control files, or both and then recover the database.
 
-*What you will need*
+*Before you begin*
 
 If the Oracle 21c database is in STARTED state, the restore operation fails. You should run the following to restore the database successfully.
 `cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib ojdbc8-8.jar`

@@ -17,7 +17,7 @@ In the event of data loss, you can restore the data and non-data files and then 
 
 == Restore cloud native SAP HANA database
 
-*What you need*
+*Before you begin*
 
 . The SAP HANA system must be in a stopped state.
 . You can provide a prescript to stop the SAP HANA system.

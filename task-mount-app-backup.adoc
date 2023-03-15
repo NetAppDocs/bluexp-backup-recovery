@@ -16,7 +16,7 @@ summary: You can mount the SAP HANA and Oracle backups to the given database
 
 SnapCenter does not support restore of Oracle and HANA backups to alternate host. Thus, Cloud Backup for Applications allows you to mount the Oracle and HANA backups to the given host.
 
-*What you will need*
+*Before you begin*
 
 If you want to mount a backup that was moved to object store from secondary storage, you should add the primary working environment details and set the IP space. For more information, see link:task-manage-app-backups.html#set-ip-space-of-the-primary-working-environment[Set IP space of the primary working environment].
 

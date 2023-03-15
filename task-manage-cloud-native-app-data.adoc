@@ -88,7 +88,7 @@ You can configure CA signed certificate if you want to include additional securi
 
 The connector uses a self-signed certificate to communicate with plug-in. The self-signed certificate is imported to the keystore by the installation script. You can perform the following steps to replace the self-signed certificate with CA signed certificate.
 
-*What you will need*
+*Before you begin*
 
 You can run the following command to get the _<base_mount_path>_:
 `sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
@@ -121,7 +121,7 @@ NOTE: The certfile.crt refers to the certificates of root CA as well as intermed
 
 The CA certificate should have the exact name of the plug-in host with which the Connector virtual machine communicates.
 
-*What you will need*
+*Before you begin*
 
 You can run the following command to get the _<base_mount_path>_:
 `sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`

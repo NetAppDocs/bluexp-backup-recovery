@@ -1,0 +1,38 @@
+---
+sidebar: sidebar
+permalink: task-quick-start-hana.html
+keywords: Cloud Manager, BlueXP, configuration, support, SAP HANA
+summary:  Complete a few steps to get started with backing up SAP HANA database.
+---
+
+= Quick start
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+Get started quickly by following these steps.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
+
+[role="quick-margin-list"]
+* Operating System:
+** RHEL 7.5 or later, 8.x platforms certified by SAP HANA    
+** SLES 12 SP5 or later and 15 SPX platforms certified by SAP HANA 
+* Storage System: Azure NetApp Files
+* Storage layouts: For data and log, Azure supports only NFSv4.1.
+* Database layouts: 
+** Single container version 1.0SPS12
+** SAP HANA Multitenant Database Container (MDC) 2.0SPS4, 2.0SPS5, 2.0SPS6 with single or multiple tenants
+** SAP HANA single host system, SAP HANA multiple host system (without a standby host), HANA System Replication
+* SAP HANA plug-in on the database host  
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Access BlueXP UI
+
+[role="quick-margin-list"]
+. link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-signing-up.html[Sign up to NetApp BlueXP website]
+. link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[Log into BlueXP] 
+. Set up a link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-setting-up-netapp-accounts.html[NetApp account].
