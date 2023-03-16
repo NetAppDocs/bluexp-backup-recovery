@@ -26,7 +26,7 @@ You can create policies if you do not want to edit the pre-canned policies.
 . Specify a policy name.
 . (Optional) Edit the format of the backup name.
 . Specify the schedule and retention details.
-. (Optional) Enter the post-script path, arguments, and timeout value for post-script that will be executed after the successful backup.
+. (Optional) Enter the post-script path, arguments, and timeout value for post-script that will be executed after the successful backup to copy the snapshot to secondary storage.
 +
 You should keep the post-scripts in the path _/var/opt/snapcenter/spl/scripts_.
 +
