@@ -17,7 +17,7 @@ You can back up one or more datastores to Microsoft Azure by integrating the Sna
 
 If the datastore is associated with an archival policy, you will be provided with an option to select the archival tier. The supported archival tier is Azure Archive Blob Storage.
 
-== Before you begin
+.Before you begin
 Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before backing up datastores to the cloud.
 
 .Steps

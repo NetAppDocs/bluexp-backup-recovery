@@ -17,7 +17,7 @@ You can back up and archive one or more datastores to Amazon Web Services to imp
 
 If the datastore is associated with an archival policy, you have an option to select the archival tier. The supported archival tiers are Glacier and Glacier Deep.
 
-== Before you begin
+.Before you begin
 Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before backing up datastores to the cloud.
 
 .Steps

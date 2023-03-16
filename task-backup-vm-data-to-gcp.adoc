@@ -15,7 +15,7 @@ summary: Back up your datastores from on-premises ONTAP to Google Cloud Platform
 [.lead]
 You can back up one or more datastores to Google Cloud Platform by integrating the SnapCenter Plug-in for VMware vSphere with BlueXP. This will help the VM administrators to easily and quickly back up and archive data for storage efficiency and accelerate cloud transition.
 
-== Before you begin
+.Before you begin
 Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before backing up datastores to the cloud.
 
 .Steps

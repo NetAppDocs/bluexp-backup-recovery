@@ -17,14 +17,14 @@ You can restore virtual machines from the cloud back to the on-premises vCenter.
 
 NOTE: You cannot restore virtual machines that span across datastores.
 
-== Before you begin
+.Before you begin
 Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before restoring virtual machines from the cloud.
 
 .Steps
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Virtual Machines* > *SnapCenter Plug-in for VMware vSphere* and select the SnapCenter Plug-in for VMware vSphere host.
 
-NOTE: If the source virtual machine is moved to another location (vMotion), and if the user triggers a restore of that virtual machine from BlueXP, then the virtual machine is restored to the original source location from where the backup was taken.
+NOTE: If the source virtual machine is moved to another location (vMotion), and if the user triggers a restore of that virtual machine from BlueXP, then the virtual machine is restored to the source location from where the backup was taken.
 
 [start=2]
 . To restore from Datastore:
