@@ -43,7 +43,7 @@ image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore 
 +
 This screenshot shows the default column headings. 
 
-. To show four additional columns (Working Environment, SVM, User Name and Workloads), select image:button_plus_sign_round.png[the plus sign button].
+. To show four additional columns (Working Environment, SVM, User Name, and Workloads), select image:button_plus_sign_round.png[the plus sign button].
 
 === Search and filter the list of jobs
 
@@ -51,6 +51,7 @@ By default, the Job Monitoring page shows jobs from the last 24 hours.
 
 .Steps
 
+. Select the *Job Monitoring* tab.
 . To sort the results differently, select each column heading to sort by Status, Start Time, Resource Name, and more. 
 
 . If you're looking for specific jobs, or a specific group of jobs, select the *Advanced Search & Filtering* area to open the Search panel. 
@@ -79,7 +80,7 @@ TIP: You can search for data within a specific "SVM" only if you have first sele
 
 You can view details corresponding to a specific completed job.You can export details for a particular job in a JSON format. 
 
-You can view details such as backup job type (scheduled or on-demand), SnapMirror backup type (initial or periodic) start and end times, duration, amount of transferred data from working environment to object storage, average transfer rate, backup policy name, retention lock enabled, ranswomware scan performed, backup source details, backup target details. 
+You can view details such as backup job type (scheduled or on-demand), SnapMirror backup type (initial or periodic) start and end times, duration, amount of transferred data from working environment to object storage, average transfer rate, backup policy name, retention lock enabled, ranswomware scan performed, backup source details, and backup target details. 
 
 Restore jobs show details such as backup target provider (Amazon Web Services, Microsoft Azure, Google Cloud, on-premises), S3 bucket name, SVM name, source volume name, destination volume, Snapshot label, recovered objects count, file names, file sizes, last modification date, and full file path. 
 
@@ -102,6 +103,7 @@ You can download the contents of the main Job Monitoring page as a report after 
 
 .Steps
 
+. Select the *Job Monitoring* tab.
 . Select the image:button_download.png[Download] button. 
 . Locate the .CSV file in your download directory. 
 
@@ -145,6 +147,7 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operatio
 
 .Steps 
 
+. Select the *Job Monitoring* tab.
 . Display notifications by selecting the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. 
 . Review the notification. 
 
