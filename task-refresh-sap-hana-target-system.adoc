@@ -13,14 +13,17 @@ summary:  Perform a refresh from a source SAP HANA system, which is the producti
 :imagesdir: ./media/
 
 [.lead]
-You can perform a refresh from a source SAP HANA system, which is the production database to a target system.  The target system is refreshed with data from the source system and this target system can be used for data mining, auditing, and so on.  
+You can perform a refresh of a SAP HANA target system with the data of a SAP HANA source system. This can be used to provide the current production data into a test system. Cloud backup allows you to select a Snapshot copy from a source system and create a new ANF volume based on the Snapshot copy. Example scripts are available, which executes the required operations on the database host to recover the SAP HANA database.  
 
 *Before you begin*
 
+* You should install the SAP HANA target system before you execute the first refresh operation.
 * You should add the source and target HANA systems manually into cloud backup.
-* You should manually delete the unmounted cloned volumes.
 * Ensure that the SAP HANA database version is same on source and the target system.
-* You should have decided on which refresh scripts to be used. The refresh scripts are available in the solution technical report (TR).
+* You should have decided on which refresh scripts to be used. The refresh scripts are available in the solution technical report.
++
+https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-automation-example-scripts.html#script-sc-system-refresh-sh[Automation example scripts]
++
 You can customize the refresh scripts.
 * The following environmental variables are available as part of the prescript and postscript:
 ** CLONED_VOLUMES_MOUNT_PATH 
@@ -44,8 +47,6 @@ NOTE: The new volume will be placed in the same capacity pool as that of the tar
 *Steps*
 
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
-. Click *Discover Applications*.
-. Select *Cloud Native* > *SAP HANA* and click *Next*.
 . In the *Applications* page, click image:icon-action.png[icon to select the action] icon to select the action corresponding to the system that you want to refresh and select *System Refresh*.
 . In the *System Refresh* page, perform the following actions:
 .. Select source system and Snapshot copy.
