@@ -13,7 +13,7 @@ summary:  Perform a refresh from a source SAP HANA system, which is the producti
 :imagesdir: ./media/
 
 [.lead]
-You can perform a refresh of a SAP HANA target system with the data of a SAP HANA source system. This can be used to provide the current production data into a test system. Cloud backup allows you to select a Snapshot copy from a source system and create a new ANF volume based on the Snapshot copy. Example scripts are available, which executes the required operations on the database host to recover the SAP HANA database.  
+You can perform a refresh of a SAP HANA target system with the data of a SAP HANA source system. This can be used to provide the current production data into a test system. Cloud backup allows you to select a Snapshot copy from a source system and creates a new ANF volume based on the Snapshot copy. Example scripts are available, which executes the required operations on the database host to recover the SAP HANA database.  
 
 *Before you begin*
 
