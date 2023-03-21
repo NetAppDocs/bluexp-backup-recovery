@@ -22,6 +22,10 @@ In the event of data loss, you can restore the data and non-data files and then 
 * The SAP HANA system must be in a stopped state.
 * You can provide a prescript to stop the SAP HANA system.
 
+*About this task*
+
+If you enable the backups on a volume, Single File SnapRestore operation is performed.
+
 *Steps*
 
 .	Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.
