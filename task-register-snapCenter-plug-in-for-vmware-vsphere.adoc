@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: task-register-snapCenter-plug-in-for-vmware-vsphere.html
 keywords: register, registration, SnapCenter Plug-in for VMware vSphere
-summary: Register SnapCenter Plug-in for VMware vSphere in BlueXP.
+summary: Register SnapCenter Plug-in for VMware vSphere host in BlueXP.
 ---
 
-= Register SnapCenter Plug-in for VMware vSphere
+= Register SnapCenter Plug-in for VMware vSphere host
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -26,7 +26,7 @@ NOTE: You can register multiple SnapCenter Plug-in for VMware vSphere hosts in B
 .. In the SnapCenter Plug-in for VMware vSphere field, specify the FQDN or IP address of the SnapCenter Plug-in for VMware vSphere host.
 .. In the Port field, specify the port number on which the SnapCenter Plug-in for VMware vSphere host is running.
 +
-You should ensure that the port is open for communication to happen between SnapCenter Plug-in for VMware vSphere and BlueXP.
+You should ensure that the port is open for communication to happen between SnapCenter Plug-in for VMware vSphere host and BlueXP.
 .. In the Username and Password field, specify the credentials of the user with the administrator role.
 . Click *Register*.
 

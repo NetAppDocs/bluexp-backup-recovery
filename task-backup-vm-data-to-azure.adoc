@@ -13,7 +13,7 @@ summary: Back up your datastores from on-premises ONTAP to Azure.
 :imagesdir: ./media/
 
 [.lead]
-You can back up one or more datastores to Microsoft Azure by integrating the SnapCenter Plug-in for VMware vSphere with BlueXP. This will help the VM administrators to easily and quickly back up and archive data for storage efficiency and accelerate cloud transition.
+You can back up one or more datastores to Microsoft Azure by integrating the SnapCenter Plug-in for VMware vSphere host with BlueXP. This will help the VM administrators to easily and quickly back up and archive data for storage efficiency and accelerate cloud transition.
 
 If the datastore is associated with an archival policy, you will be provided with an option to select the archival tier. The supported archival tier is Azure Archive Blob Storage.
 

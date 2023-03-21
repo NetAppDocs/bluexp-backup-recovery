@@ -27,20 +27,30 @@ Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[
 NOTE: If the source virtual machine is moved to another location (vMotion), and if the user triggers a restore of that virtual machine from BlueXP, then the virtual machine is restored to the source location from where the backup was taken.
 
 [start=2]
-. To restore from Datastore:
-.. Click image:icon-action.png[action] corresponding to the datastore that you want to restore and click *View Details*.
-.. Click *Restore* corresponding to the backup you want to restore.
-.. Select the virtual machine that you want to restore from the backup.
-.. Select the *Archival Restore Priority* and click *Next*.
+. You can restore from the datastore or from virtual machines :
+
+|===
+| If you want to... | Do this... 
+
+a|
+Restore from datastore
+a|
+. Click image:icon-action.png[action] corresponding to the datastore that you want to restore and click *View Details*.
+. Click *Restore* corresponding to the backup you want to restore.
+. Select the virtual machine that you want to restore from the backup.
+. Select the *Archival Restore Priority* and click *Next*.
 +
 This option is available only if the virtual machine is protected using a policy where archival settings are configured. The supported archival restore priority for Amazon Web Services are high, standard, and low and the supported archival restore priority for Microsoft Azure are high and standard.
-.. Review the details and click *Restore*.
-. To restore from Virtual Machines:
-.. Click image:icon-action.png[action] corresponding to the virtual machine that you want to restore and click *Restore*.
-.. Select the backup through which you want to restore the virtual machine.
-.. Select the *Archival Restore Priority* and click *Next*.
+. Review the details and click *Restore*.
+a|
+Restore from virtual machines
+a|
+. Click image:icon-action.png[action] corresponding to the virtual machine that you want to restore and click *Restore*.
+. Select the backup through which you want to restore the virtual machine.
+. Select the *Archival Restore Priority* and click *Next*.
 +
 This option is available only if the virtual machine is protected using a policy where archival settings are configured. The supported archival restore priority for Amazon Web Services are high, standard, and low and the supported archival restore priority for Microsoft Azure are high and standard.
-.. Review the details and click *Restore*.
+. Review the details and click *Restore*.
+|===
 
 The VM is restored to the same location from where the backup was taken.
