@@ -57,11 +57,10 @@ You can deploy the plug-in either manually, using script, or automatically.
 ** On-demand backup
 ** Scheduled backup based on the system-defined or custom policies
 +
-You can specify different scheduling frequencies such as hourly, daily, weekly, and monthly in the policy.
+You can specify different scheduling frequencies such as hourly, daily, weekly, and monthly in the policy. You can also specify the post-scripts that will be executed after successful backup to copy the snapshot to secondary storage.
 * Retaining backups based on the policy
 * Restoring Oracle databases residing on Amazon FSx for NetApp ONTAP, Cloud Volumes ONTAP, and Azure NetApp Files
 ** Restoring complete Oracle database (data files + control file) from the specified backup
-** Restoring data files only and control files only from the specified backup
 ** Recovering Oracle database with until SCN, until time, all available logs, and no recovery options
 * Cloning of Oracle Databases residing on Amazon FSx for NetApp ONTAP and Cloud Volumes ONTAP to source or alternate target hosts
 ** Basic one-click clone
@@ -72,6 +71,7 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 * Monitoring backups, restore, clone, and other jobs
 * Displaying the protection summary on the dashboard
 * Sending alerts through email
+* Upgrade the host plug-in
 
 === Limitations
 

@@ -26,7 +26,9 @@ You can create policies if you do not want to edit the pre-canned policies.
 . Specify a policy name.
 . (Optional) Edit the format of the backup name.
 . Specify the schedule and retention details.
-. (Optional) Enter the post-script path, arguments, and timeout value for post-script that will be executed after the successful backup to copy the snapshot to secondary storage.
+. (Optional) Enter the post-script path and timeout value for post-script that will be executed after the successful backup to copy the snapshot to secondary storage.
++
+Optionally, you can also specify the arguments.
 +
 You should keep the post-scripts in the path _/var/opt/snapcenter/spl/scripts_.
 +
@@ -103,6 +105,5 @@ For information on how to fix this issue, refer to: https://kb.netapp.com/Advice
 
 == Limitations
 
-* Does not support backing up of Oracle database residing on recursive mount points
 * Does not support consistency group Snapshots for Oracle databases residing on Multiple ASM disk groups with overlap of FSx volumes
 * If your Oracle databases are configured on ASM, ensure your SVM names are unique across the FSx systems. If you have same SVM name across FSx systems, back up of Oracle databases residing on those SVMs are not supported.

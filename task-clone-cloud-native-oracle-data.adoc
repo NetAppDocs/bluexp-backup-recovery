@@ -64,8 +64,8 @@ If you select, *Auto-generated*, you should specify the suffix.
 If you want to create the clone on an alternate host, select the host having the same version of Oracle and OS as that of the source database host.
 . Specify the SID of the clone.
 . (Optional) Specify the database credentials.
-* Database credential: If the OS User authentication is disabled, you should provide a password for the sys user to define it on the target host.
-* ASM credential: If the OS user authentication is disabled on the target host, you should provide a sysasm privileged user's credentials to connect to the ASM instance on the target host.
+* Database credential: If the OS User authentication is disabled, you should specify the credentials of the database. These credentials can be used later to log into the database.
+* ASM credential: If the OS user authentication is disabled on the target host, you should specify the credential of the ASM instance running on the target host.
 . Click *Next*.
 . Click *Clone*.
 |===
