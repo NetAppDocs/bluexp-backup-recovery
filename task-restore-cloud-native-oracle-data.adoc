@@ -19,7 +19,7 @@ In the event of data loss, you can restore the data files, control files, or bot
 *Before you begin*
 
 If the Oracle 21c database is in STARTED state, the restore operation fails. You should run the following to restore the database successfully.
-`cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib ojdbc8-8.jar`
+`cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib/ojdbc8-8.jar`
 
 *Steps*
 
@@ -44,8 +44,6 @@ a|
 Select *All Data Files* and *Control Files*.
 |===
 +
-NOTE: Restore of datafiles with control files or only control files are not supported for iSCSI on ASM layout.
-+
 You can also select *Force in-place restore* checkbox.
 +
 In SAN layout, if SnapCenter Plug-in for Oracle finds any foreign files other than Oracle data files on the ASM diskgroup, connect and copy restore method is performed. The foreign files could be one or more of the following types:
@@ -57,6 +55,8 @@ In SAN layout, if SnapCenter Plug-in for Oracle finds any foreign files other th
 * ASM parameter file.
 +
 The *Force in-place restore* option overrides the foreign files of type parameter, password, and archive log. You should use the latest backup when *Force in-place restore* option is selected.
++
+NOTE: Restore of datafiles with control files or only control files for iSCSI on ASM layout and restore of tablespaces and PDBs are not supported.
 
 . In the Recovery Scope section, perform the following actions:
 +
@@ -88,9 +88,3 @@ Select the check box if you want to open the database in READ-WRITE mode after r
 . Click *Next* and review the details.
 . Click *Restore*.
 
-== Limitations
-
-* Does not support granular restores, for example restoring of tablespaces and PDBs
-* Both in-place and connect-and-copy restore methods are used if some of disk groups contain foreign files. However, using both the methods at the same time to perform restore is not supported and the restore operation fails. The database will be left in mounted state and you need to manually bring the database to open state.
-+
-The failure message due to the presence of foreign files are not displayed in the job page in UI due to a known issue. Check the connector logs if there is a failure during SAN pre-restore stage to know the cause of the issue.
