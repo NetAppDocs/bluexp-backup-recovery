@@ -13,17 +13,11 @@ summary: You can restore Oracle database from the cloud to the on-premises SnapC
 :imagesdir: ./media/
 
 [.lead]
-You can only restore the Oracle database to the same SnapCenter Server host, same SVM, or to the same database host. For a RAC database, the data will be restored to the on-premises node where the backup was created.
-
-NOTE: Restore of secondary backups through primary is supported.
+You can only restore the Oracle database to the same host where the backup was created. For a RAC database, the data will be restored to the on-premises node where the backup was created.
 
 Only full database with control file restore is supported. If the archive logs are not present in the AFS, you should specify the location that contains the archive logs required for recovery.
 
 IMPORTANT: Single File Restore (SFR) is not supported.
-
-*Before you begin*
-
-If you want to restore a backup that was moved to object store from secondary storage, you should add the primary working environment details and set the IP space. For more information, see link:task-manage-app-backups.html#set-ip-space-of-the-primary-working-environment[Set IP space of the primary working environment].
 
 *Steps*
 

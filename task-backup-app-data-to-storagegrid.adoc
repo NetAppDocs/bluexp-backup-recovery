@@ -16,10 +16,6 @@ summary: Complete a few steps to back up applications data from ONTAP to GCP.
 
 You can back up the applications data from ONTAP to StorageGRID by integrating Cloud Backup for Applications with BlueXP and on-premises SnapCenter.
 
-You can protect one or more applications simultaneously to StorageGRID using a single policy.
-
-IMPORTANT: You can protect only one application at a time if you are using the BlueXP GUI. However, if you are using REST APIs, you can protect multiple applications simultaneously.
-
 *What you will need*
 
 When backing up data to StorageGRID, a Connector must be available on your premises. You will either need to install a new Connector or make sure that the currently selected Connector resides on-prem. The Connector can be installed in a site with or without internet access.

@@ -16,10 +16,6 @@ summary: Complete a few steps to back up applications data from ONTAP to Azure.
 
 You can back up the applications data from ONTAP to Microsoft Azure by integrating Cloud Backup for Applications with BlueXP and on-premises SnapCenter.
 
-You can protect one or more applications simultaneously to the cloud using a single policy.
-
-IMPORTANT: You can protect only one application at a time if you are using the BlueXP GUI. However, if you are using REST APIs, you can protect multiple applications simultaneously.
-
 *Steps*
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.

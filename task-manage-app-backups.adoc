@@ -28,8 +28,8 @@ The associated applications are listed.
 +
 NOTE: You cannot edit or delete a policy, which is associated with an application.
 
-You can also view cloud extended SnapCenter policies, by running the `Get-SmResources` SnapCenter cmdlet.
-The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running Get-Help command_name. Alternatively, you can also refer the https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726[SnapCenter Software Cmdlet Reference Guide].
+You can also view cloud extended SnapCenter policies, by running the `Get-SmResources` cmdlet in SnapCenter.
+The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running Get-Help command_name.
 
 == View backups on cloud
 
@@ -42,14 +42,14 @@ IMPORTANT: The time taken for the backups to be listed depends on ONTAP's defaul
 
 * For Oracle databases, both data and log backups, SCN number for each backup, end date for each backup are listed. You can select only the data backup and restore the database to on-premises SnapCenter Server.
 * For Microsoft SQL Server databases, only the full backups and the end date for each backup are listed. You can select the backup and restore the database to on-premises SnapCenter Server.
-* For Microsoft SQL Server instance, backups are not listed instead only the databases under that instance is listed.
+* For Microsoft SQL Server instance, backups of the databases under that instance is listed.
 * For SAP HANA databases, only the data backups and the end date for each backup are listed. You can select the backup and perform mount operation.
 
 NOTE: The backups created before enabling cloud protection are not listed for restore.
 //Documented this for JIRA: AMS-8562
 
-You can also view these backups by running the `Get-SmBackup` SnapCenter cmdlet.
-The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running Get-Help command_name. Alternatively, you can also refer the https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726[SnapCenter Software Cmdlet Reference Guide].
+You can also view these backups by running the `Get-SmBackup` cmdlet in SnapCenter.
+The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running Get-Help command_name.
 
 == Database layout change
 
@@ -86,20 +86,6 @@ Jobs are created for all the Cloud Backup operations. You can monitor all the jo
 +
 When you initiate an operation, a window appears stating that the job is initiated. You can click the link to monitor the job.
 . Click the primary task to view the sub tasks and status of each of these sub tasks.
-
-== Set IP space of the primary working environment
-
-If you want to restore or mount a backup that was moved to object store from secondary storage, you should add the primary working environment details and set the IP space.
-
-*Steps*
-
-. In BlueXP UI, click *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment*.
-. Specify the primary working environment details and click *Add*.
-. Click *Backup and recovery* > *Volumes*.
-. Click image:icon-action.png[icon to select the action] corresponding to any of the volumes and click *Details*.
-. Click image:icon-action.png[icon to select the action] corresponding to the backup and click *Restore*.
-. In the wizard, select the newly added primary working environment as the destination.
-. Specify the IP space.
 
 == Configure CA Certificates
 

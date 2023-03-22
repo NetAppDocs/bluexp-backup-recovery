@@ -30,13 +30,14 @@ You should ensure that the port is open for the communication to happen between 
 +
 The tags are comma separated.
 .. In the Username and Password field, specify the credentials of the user with SnapCenterAdmin role.
+. Select the Connector from the *Connector* drop-down.
 . Click *Register*.
 
 *After you finish*
 
 Click *Backup & Restore* > *Applications* to view all the applications that are protected using the registered SnapCenter Server host.
 
-By default, the applications are automatically discovered every day midnight. You can configure the schedule to discover the applications.
+By default, the applications are automatically discovered every day midnight.
 
 NOTE: For SQL Server databases, the Application Name column displays the name in _application_name (instance name)_ format.
 

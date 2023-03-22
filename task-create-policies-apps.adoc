@@ -14,37 +14,7 @@ summary:  Either use the pre-canned policies or create your own policies to prot
 
 [.lead]
 
-You can either use one of the pre-canned policies or create a custom policy to back up the application data to cloud. You can create policies if you do not want to edit the pre-canned policies.
-
-The pre-canned policies are:
-|===
-| Policy Name | Label | Retention Value
-
-a|
-1 Year Daily LTR
-a|
-Daily
-a|
-366
-a|
-5 Years Daily LTR
-a|
-Daily
-a|
-1830
-a|
-7 Year Weekly LTR
-a|
-Weekly
-a|
-370
-a|
-10 Year Monthly LTR
-a|
-Monthly
-a|
-120
-|===
+You should create a policy to back up the application data to cloud.
 
 *Steps*
 
