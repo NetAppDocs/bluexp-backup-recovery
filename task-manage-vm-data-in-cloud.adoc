@@ -24,7 +24,7 @@ You can view all the default pre-canned policies. For each of these policies, wh
 
 The associated policies and virtual machines are listed.
 
-== View the datastores and virtual machines
+== View datastores and virtual machines
 The datastores and virtual machines that are protected using the registered SnapCenter Plug-in for VMware vSphere host are displayed.
 
 .Steps
@@ -38,8 +38,8 @@ You can edit the details of the SnapCenter Plug-in for VMware vSphere host in Bl
 .Steps
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Virtual Machines* > *Settings* > *SnapCenter Plug-in for VMware vSphere*.
-. Click image:icon-action.png[action] and select *Edit*
-. Modify the details as required
+. Click image:icon-action.png[action] and select *Edit*.
+. Modify the details as required.
 . Click *Save*.
 
 == Refresh Protection Status
