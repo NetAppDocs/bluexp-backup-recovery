@@ -14,7 +14,7 @@ summary: Complete a few steps to back up applications data from ONTAP to GCP.
 
 [.lead]
 
-You can back up the applications data from ONTAP to StorageGRID by integrating Cloud Backup for Applications with BlueXP and on-premises SnapCenter.
+Complete a few steps to back up the applications data from ONTAP to StorageGRID.
 
 *What you will need*
 
@@ -29,12 +29,12 @@ For information, see link:task-backup-onprem-private-cloud.html#creating-or-swit
 . In the Assign Policy page, select the policy and click *Next*.
 . Add the working environment.
 +
-Configure the ONTAP cluster that hosts the SVM on which the application is running. After adding the working environment for one of the applications, it can be reused for all the other applications residing on the same ONTAP cluster.
+Configure the cluster management LIF that you want BlueXP to discover. After adding the working environment for one of the applications, it can be reused for all the other applications residing on the same ONTAP cluster.
 +
 .. Select the SVM and click *Add Working Environment*.
 .. In the Add Working Environment wizard:
-... Specify the IP address of the ONTAP cluster.
-... Specify the admin credentials.
+... Specify the IP address of the cluster Management LIF.
+... Specify the credentials of the ONTAP cluster user.
 +
 Cloud Backup for Applications supports only cluster admin.
 .. Click *Add Working Environment*.
@@ -42,7 +42,7 @@ Cloud Backup for Applications supports only cluster admin.
 .. Specify the FQDN of the StorageGRID Server and the port on which the StorageGRID server is running.
 +
 Enter the details in the format FQDN:PORT.
-.. In the Access Key field, specify the key.
-.. In the Secret Key field, specify the password.
+.. In the Access Key field, specify the key for data encryption.
+.. In the Secret Key field, specify the password for data encryption.
 .. Specify the IP space.
 . Review the details and click *Activate Backup*.

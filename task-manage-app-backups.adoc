@@ -14,7 +14,7 @@ summary: You can view the policies and backups. Depending upon the change in dat
 
 [.lead]
 
-You can manage protection of applications by performing different operations from the BlueXP UI.
+You can manage protection of applications by viewing policies, viewing backups, viewing the changes to database layout, policies, and resource group, and monitoring all the operations from the BlueXP UI.
 
 == View policies
 
@@ -38,9 +38,9 @@ You can view the backups on cloud in the BlueXP UI.
 . Click *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *View Details*.
 
-IMPORTANT: The time taken for the backups to be listed depends on ONTAP's default replication schedule (maximum of 1 hour) and BlueXP (maximum of 6 hours).
+IMPORTANT: The time taken for the backups to be listed depends on ONTAP's default replication schedule.
 
-* For Oracle databases, both data and log backups, SCN number for each backup, end date for each backup are listed. You can select only the data backup and restore the database to on-premises SnapCenter Server.
+* For Oracle databases, both data and log backups, system change number (SCN) for each backup, end date for each backup are listed. You can select only the data backup and restore the database to on-premises SnapCenter Server.
 * For Microsoft SQL Server databases, only the full backups and the end date for each backup are listed. You can select the backup and restore the database to on-premises SnapCenter Server.
 * For Microsoft SQL Server instance, backups of the databases under that instance is listed.
 * For SAP HANA databases, only the data backups and the end date for each backup are listed. You can select the backup and perform mount operation.
@@ -53,7 +53,7 @@ The information regarding the parameters that can be used with the cmdlet and th
 
 == Database layout change
 
-When volumes are added to the database, SnapCenter Server will label the snapshots on the new volumes automatically as per the policy and the schedule. These new volumes will not have the object store endpoint and you should refresh by executing the following steps:
+When volumes are added to the database, SnapCenter Server labels the snapshots on the new volumes automatically as per the policy and the schedule. These new volumes will not have the object store endpoint and you should refresh the volumes by executing the following steps:
 
 . Click *Backup and recovery* > *Applications*.
 . From the *Settings* drop-down, click *SnapCenter Servers*.
@@ -62,12 +62,13 @@ When volumes are added to the database, SnapCenter Server will label the snapsho
 The new volumes are discovered.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *Refresh Protection* to enable cloud protection for the new volume.
 
-If a storage volume is removed from the application after configuring the cloud service, for new backups SnapCenter Server will only label the snapshots on which the application is residing. If the removed volume is not used by any other applications, then you should manually delete the object store relationship.
-If you update the application inventory, it will contain the current storage layout of the application.
+* If a storage volume is removed from the application after configuring the cloud provider, for new backups SnapCenter Server labels the snapshots on which the application is residing. 
+* You should manually delete the object store relationship if the removed volume is not used by any other applications.
+* If you update the application inventory, it will contain the current storage layout of the application.
 
 == Policy or resource group change
 
-If there is a change to the SnapCenter policy or resource group, you should refresh the protection.
+If there is a change to the SnapCenter policy or resource group, you should refresh the protection relationship.
 
 . Click *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *Refresh Protection*.
@@ -90,8 +91,6 @@ When you initiate an operation, a window appears stating that the job is initiat
 == Configure CA Certificates
 
 If you have CA certificates, you should manually copy the root CA certificates to the connector machine.
-
-However, if you do not have CA certificates, you can proceed without configuring CA certificates.
 
 *Steps*
 

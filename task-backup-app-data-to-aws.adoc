@@ -14,7 +14,7 @@ summary: Complete a few steps to back up applications data from ONTAP to AWS.
 
 [.lead]
 
-You can back up the applications data from ONTAP to Amazon Web Services by integrating Cloud Backup for Applications with BlueXP and on-premises SnapCenter.
+Complete a few steps to back up the applications data from ONTAP to Amazon Web Services.
 
 *Steps*
 
@@ -23,22 +23,22 @@ You can back up the applications data from ONTAP to Amazon Web Services by integ
 . In the Assign Policy page, select the policy and click *Next*.
 . Add the working environment.
 +
-Configure the ONTAP cluster that hosts the SVM on which the application is running. After adding the working environment for one of the applications, it can be reused for all the other applications residing on the same ONTAP cluster.
+Configure the cluster management LIF that you want BlueXP to discover. After adding the working environment for one of the applications, it can be reused for all the other applications residing on the same ONTAP cluster.
 +
 .. Select the SVM and click *Add Working Environment*.
 .. In the Add Working Environment wizard:
-... Specify the IP address of the ONTAP cluster.
-... Specify the admin credentials.
+... Specify the IP address of the cluster management LIF.
+... Specify the credentials of the ONTAP cluster user.
 +
 Cloud Backup for Applications supports only cluster admin.
 .. Click *Add Working Environment*.
 . Select *Amazon Web Services* as the cloud provider.
 .. Specify the AWS account.
-.. In the AWS Access Key field, specify the key.
-.. In the AWS Secret Key field, specify the password.
+.. In the AWS Access Key field, specify the key for data encryption.
+.. In the AWS Secret Key field, specify the password for data encryption.
 .. Select the region where you want to create the backups.
 .. Specify the IP space.
-.. Select the archive tier.
+.. Select the archival tier.
 +
 It is recommended to set the archival tier because this is an one time activity and you will not be allowed to set it up later.
 . Review the details and click *Activate Backup*.

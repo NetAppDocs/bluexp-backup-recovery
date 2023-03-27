@@ -26,16 +26,16 @@ IMPORTANT: Single File Restore (SFR) is not supported.
 . Select the location where you want to restore the database files.
 +
 |===
-| Option | Description
+| If you... | Do this...
 
 a|
-Restore the database to the same host where the backup was created
+Want to restore the database to the same SQL server host where the backups were created
 a|
-Select this option if you want to restore the database to the same SQL server where the backups are taken.
+Select *Restore the database to the same host where the backup was created*.
 a|
-Restore the database to an alternate host
+Want to restore the database to a different SQL server in the same or different host where backups were created
 a|
-Select this option if you want the database to be restored to a different SQL server in the same or different host where backups are taken.
+Select *Restore the database to an alternate host*.
 
 Select a host name, provide a database name (optional), select an instance, and specify the restore paths.
 

@@ -14,7 +14,7 @@ summary: BlueXP offers efficient, application consistent, policy-based backup, a
 
 [.lead]
 
-Cloud Backup is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup enabled within BlueXP (formerly Cloud Manager) offers efficient, application consistent, policy-based protection of the following applications:
+BlueXP Cloud Backup for Applications is a SaaS based service that provides application consistent data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications offer efficient, application consistent, policy-based protection of the following applications:
 
 * Oracle databases residing on Amazon FSx for NetApp ONTAP, Cloud Volumes ONTAP, and Azure NetApp Files
 * SAP HANA systems residing on Azure NetApp Files
