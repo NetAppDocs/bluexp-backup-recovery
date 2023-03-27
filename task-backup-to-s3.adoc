@@ -85,7 +85,7 @@ For an annual contract that enables you to back up both Cloud Volumes ONTAP data
 +
 For an annual contract that enables you to bundle Cloud Volumes ONTAP and Cloud Backup, you must set up the annual contract when you create a Cloud Volumes ONTAP working environment. This option doesn't enable you to back up on-prem data.
 +
-For Cloud Backup BYOL licensing, you need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[Learn how to manage your BYOL licenses]. A BYOL license must be used when the Connector and Cloud Volumes ONTAP system are deployed in a dark site.
+For Cloud Backup BYOL licensing, you need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[Learn how to manage your BYOL licenses]. You must use a BYOL license when the Connector and Cloud Volumes ONTAP system are deployed in a dark site.
 +
 And you need to have an AWS account for the storage space where your backups will be located.
 
@@ -97,7 +97,7 @@ Required information for using customer-managed keys for data encryption::
 You can choose your own customer-managed keys for data encryption in the activation wizard instead of using the default Amazon S3 encryption keys. In this case you'll need to have the encryption managed keys already set up. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html[See how to use your own keys^].
 
 Connector requirements::
-The Connector can be installed in an AWS region with or without internet access. At this time, only AWS Commercial sites are supported for sites without internet access.
+The Connector can be installed in an AWS region with or without internet access. When deployed in a site with no internet access, AWS C2S/SC2S and AWS Commercial sites are supported.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Deploy a Connector in AWS^]

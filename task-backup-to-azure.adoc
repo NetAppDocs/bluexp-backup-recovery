@@ -77,12 +77,12 @@ Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
 License requirements::
 For Cloud Backup PAYGO licensing, a subscription through the Azure Marketplace is required before you enable Cloud Backup. Billing for Cloud Backup is done through this subscription. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html[You can subscribe from the Details & Credentials page of the working environment wizard^].
 +
-For Cloud Backup BYOL licensing, you need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[Learn how to manage your BYOL licenses]. A BYOL license must be used when the Connector and Cloud Volumes ONTAP system are deployed in a dark site.
+For Cloud Backup BYOL licensing, you need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[Learn how to manage your BYOL licenses]. You must use a BYOL license when the Connector and Cloud Volumes ONTAP system are deployed in a dark site.
 +
 And you need to have a Microsoft Azure subscription for the storage space where your backups will be located.
 
 Connector requirements::
-The Connector can be installed in an Azure region with or without internet access. At this time, only Azure Commercial sites are supported for sites without internet access.
+The Connector can be installed in an Azure region with or without internet access. When deployed in a site with no internet access, Azure IL6 and Azure Commercial sites are supported.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Deploy a Connector in Azure^]
@@ -234,7 +234,11 @@ image:screenshot_backup_select_volumes.png[A screenshot of selecting the volumes
 
 .Result
 
-A Blob storage container is created automatically in the resource group you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups. You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
+A Blob storage container is created automatically in the resource group you entered, and the backup files are stored there. 
+
+The Volume Backup Dashboard is displayed so you can monitor the state of the backups. You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
+
+By default, Cloud Backup provisions the Blob container with Local redundancy (LRS) for cost optimization. You can change this setting to Zone redundancy (ZRS) if you want to make sure your data is replicated between different zones. See the Microsoft instructions for https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal[changing how your storage account is replicated^].
 
 == What's next?
 
