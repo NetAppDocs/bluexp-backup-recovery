@@ -21,7 +21,7 @@ You might clone databases for the following reasons:
 * To populate data warehouses using data extraction and manipulation tools.
 * To recover data that was mistakenly deleted or changed. 
 
-*WBefore you begin*
+*Before you begin*
 
 You should understand the clone concepts and ensure that all the requirements are met. link:concept-clone-cloud-native-oracle-concepts.html[Learn more].
 
@@ -47,7 +47,7 @@ If you want to create the clone on an alternate host, select the host having the
 If the database is cloned to the source host, the clone naming scheme will be auto-generated. If the database is cloned to an alternate host, clone naming scheme will be identical.
 . Specify the Oracle home path.
 . (Optional) Specify the database credentials.
-* Database credential: If the OS User authentication is disabled, you should provide a password for the sys user to define it on the target host.
+* Database credential: If the OS User authentication is disabled, you should provide a password for the sys user to connect to the cloned database on the same or target host.
 * ASM credential: If the OS user authentication is disabled on the target host, you should provide a sysasm privileged user's credentials to connect to the ASM instance on the target host.
 +
 NOTE: Ensure that the listener is up and running on the target host.
@@ -67,7 +67,7 @@ If you select, *Auto-generated*, you should specify the suffix.
 If you want to create the clone on an alternate host, select the host having the same version of Oracle and OS as that of the source database host.
 . Specify the SID of the clone.
 . (Optional) Specify the database credentials.
-* Database credential: If the OS User authentication is disabled, you should provide a password for the sys user to define it on the target host.
+* Database credential: If the OS User authentication is disabled, you should provide a password for the sys user to connect to the cloned database on the same or target host.
 * ASM credential: If the OS user authentication is disabled on the target host, you should provide a sysasm privileged user's credentials to connect to the ASM instance on the target host.
 +
 NOTE: Ensure that the listener is up and running on the target host.

@@ -13,9 +13,9 @@ summary: Create a scheduled or on-demand backups of Oracle database.
 :imagesdir: ./media/
 
 [.lead]
-You should assign either a pre-canned policy or the policy that you created and then take a backup.
+You can create a backup by assigning a pre-canned policy or the policy that you created.
 
-== Create policy for protecting Oracle database
+== Create policy to protect Oracle database
 
 You can create policies if you do not want to edit the pre-canned policies.
 
@@ -71,9 +71,9 @@ _/{anfaccount}/{subscription_id}/{resource_group}/{capacity_pool}/{volumename}_
 
 == Create a backup of the Oracle Database
 
-You can either assign a pre-canned policy or create a policy and then assign it to the database. Once the policy is assigned, the backups are created as per the schedule defined in the policy.
+You can assign a pre-canned policy or create a policy and then assign it to the database. Once the policy is assigned, the backups are created as per the schedule defined in the policy.
 
-NOTE: For Oracle, when creating ASM diskgroups, ensure that there are no common volumes across diskgroups. Each diskgroup needs to have dedicated volumes.
+NOTE: For Oracle, when creating ASM diskgroups, ensure that there are no common volumes across diskgroups. Each diskgroup should have dedicated volumes.
 
 *Steps*
 
@@ -84,7 +84,7 @@ If the database is protected using one or more policies, you can assign more pol
 +
 The backups will be created as per the schedule defined in the policy.
 +
-NOTE: The service account (_SnapCenter-account-<account_id>_) is used for running the scheduled backup operations.
+NOTE: The service account (_SnapCenter-account-<account_id>_) is used to run the scheduled backup operations.
 
 == Create on-demand backup of the Oracle database
 
@@ -95,15 +95,11 @@ After assigning the policy, you can create an on-demand backup of the applicatio
 . In the Applications page, click image:icon-action.png[icon to select the action] corresponding to the application and click *On-Demand Backup*.
 . If multiple policies are assigned to the application, select the policy, retention value, and then click *Create Backup*.
 
-*Find more information*
-
-After restoring a large database (250 GB or more), if you perform a full online backup on the same database the operation might fail with the following error:
-
-`failed with status code 500, error {\"error\":{\"code\":\"app_internal_error\",\"message\":\"Failed to create snapshot. Reason: Snapshot operation not allowed due to clones backed by snapshots. Try again after sometime.`
-
-For information on how to fix this issue, refer to: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Snapshot_operation_not_allowed_due_to_clones_backed_by_snapshots[Snapshot operation not allowed due to clones backed by snapshots].
-
 == Limitations
 
 * Does not support consistency group Snapshots for Oracle databases residing on Multiple ASM disk groups with overlap of FSx volumes
 * If your Oracle databases are configured on ASM, ensure your SVM names are unique across the FSx systems. If you have same SVM name across FSx systems, back up of Oracle databases residing on those SVMs are not supported.
+* After restoring a large database (250 GB or more), if you perform a full online backup on the same database the operation might fail with the following error:
+ `failed with status code 500, error {\"error\":{\"code\":\"app_internal_error\",\"message\":\"Failed to create snapshot. Reason: Snapshot operation not allowed due to clones backed by snapshots. Try again after sometime.`
++
+For information on how to fix this issue, refer to: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Snapshot_operation_not_allowed_due_to_clones_backed_by_snapshots[Snapshot operation not allowed due to clones backed by snapshots].

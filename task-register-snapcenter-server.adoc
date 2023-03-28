@@ -37,6 +37,8 @@ The tags are comma separated.
 
 Click *Backup & Restore* > *Applications* to view all the applications that are protected using the registered SnapCenter Server host. By default, the applications are automatically discovered every day midnight.
 
+IMPORTANT: If SVMs are added to SnapCenter using FQDN or IP address, applications running on these SVMs cannot be protected. Cloud Backup for Applications recognizes only the SVMs that are added by name or the SVMs discovered by SnapCenter that were added as part of the ONTAP cluster.
+
 The supported applications and their configurations are:
 
 *	Oracle database:

@@ -15,7 +15,7 @@ summary: Create a scheduled or on-demand backups of SAP HANA database.
 [.lead]
 Before creating a backup of the SAP HANA database, you should add the SAP HANA database hosts and assign either a pre-canned policy or the policy that you created.
 
-== Create a policy for protecting SAP HANA database
+== Create a policy to protect SAP HANA database
 
 You can create policies if you do not want to use or edit the pre-canned policies.
 

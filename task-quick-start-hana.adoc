@@ -22,8 +22,8 @@ Get started quickly by following these steps.
 * Operating System:
 ** RHEL 7.5 or later, 8.x platforms certified by SAP HANA    
 ** SLES 12 SP5 or later and 15 SPX platforms certified by SAP HANA 
-* Storage System: Azure NetApp Files
-* Storage layouts: For data and log, Azure supports only NFSv4.1.
+* NetApp Cloud Storage: Azure NetApp Files
+* Storage layouts: For data and log files, Azure supports only NFSv4.1.
 * Database layouts: 
 ** Single container version 1.0SPS12
 ** SAP HANA Multitenant Database Container (MDC) 2.0SPS4, 2.0SPS5, 2.0SPS6 with single or multiple tenants

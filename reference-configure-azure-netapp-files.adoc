@@ -13,7 +13,7 @@ summary:  Create the Azure NetApp Files working environment and the Connector
 :imagesdir: ./media/
 
 [.lead]
-You should create the Azure NetApp Files working environment and the Connector.
+Using BlueXP you should create a Azure NetApp Files working environment to add and manage volumes and additional data services. You should also create a Connector in Azure that enables BlueXP to manage resources and processes within your public cloud environment.
 
 == Create Azure NetApp Files working environment
 
@@ -27,10 +27,12 @@ NOTE: You cannot update the new connector_id from the UI.
 For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Create a Connector in Azure from BlueXP].
 
 * You should use the same connector to manage both Azure NetApp Files working environment and databases.
-* If you have the Azure NetApp Files working environment and databases in the same VPC, you can deploy the connector in the same VPC.
+* If you have the Azure NetApp Files working environment and databases in the same virtual private cloud (VPC), you can deploy the connector in the same VPC.
 * If you have the Azure NetApp Files working environment and databases in different VPCs and have NAS (NFS) workloads configured on Azure NetApp Files, then you can create the connector on either of the VPCs.
 
-After creating the connector, click *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment* and follow the prompts to add the working environment.
-Ensure that there is connectivity from the connector to the database hosts and Azure NetApp Files working environment. The connector should be able to connect to the Azure NetApp Files working environment.
+After creating the connector, perform the following:
 
-IMPORTANT: After creating the Connector, click *Connector > Manage Connectors*; select the Connector name and copy the Connector ID.
+* Add the working environment by clicking *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment*.
++
+Ensure that there is connectivity from the connector to the database hosts and Azure NetApp Files working environment. The connector should connect to the Azure NetApp Files working environment.
+* Copy the Connector ID by clicking *Connector > Manage Connectors* and selecting the Connector name.

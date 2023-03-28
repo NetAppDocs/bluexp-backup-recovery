@@ -28,7 +28,7 @@ The Cloud Backup architecture includes the following components.
 It orchestrates the data protection workflows for applications residing on NetApp Cloud Storage.
 * Cloud Backup UI offers data protection capabilities for applications and can be accessed from the BlueXP UI.
 
-* BlueXP Connector is a component that runs in user's cloud network and interacts with storage systems and application specific plug-ins.
+* BlueXP Connector is a component that runs in your cloud network and interacts with storage systems and application specific plug-ins.
 
 * The application specific plug-in is a component that runs on each application host and interacts with the databases running on the host while performing data protection operations.
 
@@ -50,7 +50,7 @@ IMPORTANT: Cloud Backup SaaS infrastructure is resilient to availability zone fa
 
 * Add host and deploy plug-in
 +
-You can deploy the plug-in either manually, using script, or automatically.
+You can deploy the plug-in manually, using script, or automatically.
 * Auto-discovery of Oracle databases
 * Backing up Oracle databases residing on Amazon FSx for NetApp ONTAP, Cloud Volumes ONTAP, and Azure NetApp Files
 ** Full (data + control + archive log files) backup
@@ -78,8 +78,8 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 * Does not support Oracle 11g
 * Does not support mount, catalog, and verification operations on backups
 * Does not support Oracle on RAC and Data Guard
-* For Cloud Volumes ONTAP HA, only one of the network interface IPs are used. If the connectivity of the IP goes down or if you cannot access the IP, the operations fail.
-* The network interface IP addresses of Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP needs to be unique in the BlueXP account and region.
+* For Cloud Volumes ONTAP HA, only one of the network interface IPs are used. If the connectivity of the IP goes down or if you cannot access the IP, data protection operations fail.
+* The network interface IP addresses of Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP must be unique in the BlueXP account and region.
 
 == Protect SAP HANA database
 
