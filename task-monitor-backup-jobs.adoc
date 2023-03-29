@@ -80,32 +80,34 @@ TIP: You can search for data within a specific "SVM" only if you have first sele
 
 You can view details corresponding to a specific completed job.You can export details for a particular job in a JSON format. 
 
-You can view details such as backup job type (scheduled or on-demand), SnapMirror backup type (initial or periodic) start and end times, duration, amount of transferred data from working environment to object storage, average transfer rate, backup policy name, retention lock enabled, ranswomware scan performed, backup source details, and backup target details. 
+You can view details such as backup job type (scheduled or on-demand), SnapMirror backup type (initial or periodic) start and end times, duration, amount of transferred data from working environment to object storage, average transfer rate, backup policy name, retention lock enabled, ransomware scan performed, backup source details, and backup target details. 
 
 Restore jobs show details such as backup target provider (Amazon Web Services, Microsoft Azure, Google Cloud, on-premises), S3 bucket name, SVM name, source volume name, destination volume, Snapshot label, recovered objects count, file names, file sizes, last modification date, and full file path. 
 
 NOTE: Job details appear only for NAS backup and restore jobs and not for SnapCenter jobs. Scheduled backup job details appear only for Cloud Volumes ONTAP systems beginning with ONTAP 9.13.0. Job details appear only for completed jobs. 
 
-//NEED NEW JOB DETAILS SCREEN
 
 .Steps 
 . Select the *Job Monitoring* tab.
 . Select the name of the job. 
+. Right-click on the Options menu and select *View Details*. 
 +
-In the Job Details page, you can see all the running sub-jobs that are needed to complete the main job.
+image:screenshot_backup_job_monitor_details.png[A screenshot showing backup job details]
 
-+
-image:screenshot_backup_job_monitor_details.png[A screenshot showing the Job Details page.]
+. Expand each section to see details. 
+
 
 === Download Job Monitoring results as a report
 
 You can download the contents of the main Job Monitoring page as a report after you've refined it. Cloud Backup generates and downloads a .CSV file that you can review and send to other groups as needed. The .CSV file includes up to 10,000 rows of data.
 
+From the Job Monitoring page, you can also download a JSON file containing the job details. 
+
 .Steps
 
 . Select the *Job Monitoring* tab.
-. Select the image:button_download.png[Download] button. 
-. Locate the .CSV file in your download directory. 
+. To download a CSV file, select the image:button_download.png[Download] button and locate the .CSV file in your download directory. 
+. To download a JSON file, right-click on the Options menu for the job and select *Download JSON File*. 
 
 
 == Review backup and restore alerts in the BlueXP Notification Center
