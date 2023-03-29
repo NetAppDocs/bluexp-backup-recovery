@@ -92,7 +92,7 @@ NOTE: Job details appear only for NAS backup and restore jobs and not for SnapCe
 . Select the name of the job. 
 . Right-click on the Options menu and select *View Details*. 
 +
-image:screenshot_backup_job_monitor_details.png[A screenshot showing backup job details]
+image:screenshot_backup_job_monitor_details2.png[A screenshot showing backup job details]
 
 . Expand each section to see details. 
 
