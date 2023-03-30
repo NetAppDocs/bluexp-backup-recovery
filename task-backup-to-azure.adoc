@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-backup-to-azure.html
 keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, azure, azure blob, back up volumes, cloud backup
-summary: Complete a few steps to get started backing up data from Cloud Volumes ONTAP to Azure Blob storage.
+summary: Complete a few steps to get started backing up volume data from your Cloud Volumes ONTAP systems to Azure Blob storage.
 ---
 
 = Backing up Cloud Volumes ONTAP data to Azure Blob storage
@@ -13,7 +13,7 @@ summary: Complete a few steps to get started backing up data from Cloud Volumes 
 :imagesdir: ./media/
 
 [.lead]
-Complete a few steps to get started backing up data from Cloud Volumes ONTAP to Azure Blob storage.
+Complete a few steps to get started backing up volume data from your Cloud Volumes ONTAP systems to Azure Blob storage.
 
 == Quick start
 
@@ -82,7 +82,7 @@ For Cloud Backup BYOL licensing, you need the serial number from NetApp that ena
 And you need to have a Microsoft Azure subscription for the storage space where your backups will be located.
 
 Connector requirements::
-The Connector can be installed in an Azure region with or without internet access. When deployed in a site with no internet access, Azure IL6 and Azure Commercial sites are supported.
+The Connector can be installed in an Azure region with or without internet access. When deployed in a site with no internet access, Azure IL6 secure regions and Azure Commercial regions are supported.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Deploy a Connector in Azure^]
@@ -150,7 +150,7 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 .. Click *Review + update* and then click *Update*.
 
 Supported Azure regions::
-Cloud Backup is supported in all Azure regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including Azure Government regions.
+Cloud Backup is supported in all Azure regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including Azure Government regions and https://learn.microsoft.com/en-us/azure/compliance/offerings/offering-dod-il6[Azure IL6^] secure regions.
 
 Required setup for creating backups in a different Azure subscription::
 By default, backups are created using the same subscription as the one used for your Cloud Volumes ONTAP system. If you want to use a different Azure subscription for your backups, you must link:reference-backup-multi-account-azure.html[log in to the Azure portal and link the two subscriptions].

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: concept-backup-to-cloud.html
-keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem, kubernetes, applications
-summary: Cloud Backup is a service for BlueXP working environments that provides backup and restore capabilities for protection and long-term archive of your data. Backups are automatically generated and stored in an object store in your public or private cloud account.
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, kubernetes, applications, virtual machines, backup and recovery
+summary: BlueXP backup and recovery provides efficient, secure, and cost-effective data protection for NetApp ONTAP data, databases, and virtual machines, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
 ---
 
 = Learn about Cloud Backup
@@ -13,7 +13,9 @@ summary: Cloud Backup is a service for BlueXP working environments that provides
 :imagesdir: ./media/
 
 [.lead]
-Cloud Backup is a service for BlueXP (formerly Cloud Manager) working environments that provides backup and restore capabilities for protection and long-term archive of your data. Backups are automatically generated and stored in an object store in your public or private cloud account.
+BlueXP backup and recovery (Cloud Backup) provides efficient, secure, and cost-effective data protection for NetApp ONTAP data, databases, and virtual machines, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
+
+The service performs block-level, incremental-forever replication and preserves all storage efficiencies, which significantly reduces the amount of data that's replicated and stored. Additionally, you pay only for what's protected and use the lowest-cost storage tiers available, which makes CLoud Backup very cost effective.
 
 When necessary, you can restore an entire _volume_ from a backup to the same or different working environment. When backing up ONTAP data, you can also choose to restore or one or more _files_ from a backup to the same or different working environment.
 
@@ -70,7 +72,7 @@ endif::gcp[]
 
 * Yearly backups start just after midnight on the first day of the year.
 
-The start time is based on the time zone set on each source ONTAP system. You can’t schedule backup operations at a user-specified time from the UI. For more information, contact your System Engineer.
+The start time is based on the time zone set on each source ONTAP system. You can't schedule backup operations at a user-specified time from the UI. For more information, contact your System Engineer.
 
 === Backup copies are associated with your NetApp account
 

@@ -127,8 +127,8 @@ Just select whether you want existing Snapshot copies to be exported, and click 
 
 == Change whether "yearly" snapshots are removed from the source system
 
-When you select the "Yearly" backup label for a backup policy for any of your volumes, the Snapshot copy that is created is very large. By default, these Yearly snapshots are deleted automatically from the source system after being transferred to object storage. You can change this default behavior from the Yearly Snapshot Deletion section.
+When you select the "yearly" backup label for a backup policy for any of your volumes, the Snapshot copy that is created is very large. By default, these yearly snapshots are deleted automatically from the source system after being transferred to object storage. You can change this default behavior from the Yearly Snapshot Deletion section.
 
-image:screenshot_backup_edit_yearly_snap_delete.png[A screenshot of the IPspace entry in the Advanced Settings page.]
+image:screenshot_backup_edit_yearly_snap_delete.png[A screenshot of the Yearly Snapshots entry in the Advanced Settings page.]
 
 Select *Disabled* and click *Apply* if you want to retain the yearly snapshots on the source system.

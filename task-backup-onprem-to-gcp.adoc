@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-backup-onprem-to-gcp.html
 keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, gcp, google cloud
-summary: Complete a few steps to get started backing up data from your on-premises ONTAP systems to Google Cloud Storage.
+summary: Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to Google Cloud Storage.
 ---
 
 = Backing up on-premises ONTAP data to Google Cloud Storage
@@ -13,7 +13,7 @@ summary: Complete a few steps to get started backing up data from your on-premis
 :imagesdir: ./media/
 
 [.lead]
-Complete a few steps to get started backing up data from your on-premises ONTAP systems to Google Cloud Storage.
+Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to Google Cloud Storage.
 
 Note that "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 

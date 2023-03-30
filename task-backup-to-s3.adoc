@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-backup-to-s3.html
 keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, aws, aws s3, amazon s3, s3 bucket, back up volumes, cloud backup
-summary: Complete a few steps to get started backing up data from Cloud Volumes ONTAP to Amazon S3.
+summary: Complete a few steps to get started backing up volume data from your Cloud Volumes ONTAP systems to Amazon S3.
 ---
 
 = Backing up Cloud Volumes ONTAP data to Amazon S3
@@ -13,7 +13,7 @@ summary: Complete a few steps to get started backing up data from Cloud Volumes 
 :imagesdir: ./media/
 
 [.lead]
-Complete a few steps to get started backing up data from Cloud Volumes ONTAP to Amazon S3.
+Complete a few steps to get started backing up volume data from your Cloud Volumes ONTAP systems to Amazon S3.
 
 == Quick start
 
@@ -25,7 +25,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 * You're running Cloud Volumes ONTAP 9.7P5 or later in AWS (ONTAP 9.8P13 and later is recommended).
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
 * You have subscribed to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[BlueXP Marketplace Backup offering], an https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS annual contract], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated] a Cloud Backup BYOL license from NetApp.
-* You have a Connector installed in AWS.
+* You have a Connector installed in AWS:
 ** The Connector can be installed in a site with or without internet access.
 ** The IAM role that provides the BlueXP Connector with permissions includes S3 permissions from the latest https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html[BlueXP policy^].
 
@@ -89,15 +89,12 @@ For Cloud Backup BYOL licensing, you need the serial number from NetApp that ena
 +
 And you need to have an AWS account for the storage space where your backups will be located.
 
-Supported AWS regions::
-Cloud Backup is supported in all AWS regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including AWS GovCloud regions.
-
 Required information for using customer-managed keys for data encryption::
 
 You can choose your own customer-managed keys for data encryption in the activation wizard instead of using the default Amazon S3 encryption keys. In this case you'll need to have the encryption managed keys already set up. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html[See how to use your own keys^].
 
 Connector requirements::
-The Connector can be installed in an AWS region with or without internet access. When deployed in a site with no internet access, AWS C2S/SC2S and AWS Commercial sites are supported.
+The Connector can be installed in an AWS region with or without internet access. When deployed in a site with no internet access, AWS C2S/SC2S secure regions and AWS Commercial regions are supported.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Deploy a Connector in AWS^]
@@ -176,6 +173,9 @@ Required AWS Cloud Volumes ONTAP permissions::
 When your Cloud Volumes ONTAP system is running ONTAP 9.12.1 or greater software, the IAM role that provides that working environment with permissions must include a new set of S3 permissions specifically for Cloud Backup from the latest https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html[Cloud Volumes ONTAP policy^].
 +
 If you created the Cloud Volumes ONTAP working environment using BlueXP version 3.9.23 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. 
+
+Supported AWS regions::
+Cloud Backup is supported in all AWS regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including AWS GovCloud regions and https://aws.amazon.com/federal/us-intelligence-community/[AWS C2S and SC2S^] secure regions.
 
 Required setup for creating backups in a different AWS account::
 By default, backups are created using the same account as the one used for your Cloud Volumes ONTAP system. If you want to use a different AWS account for your backups, you must:
