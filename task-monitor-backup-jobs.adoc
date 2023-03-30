@@ -78,7 +78,7 @@ TIP: You can search for data within a specific "SVM" only if you have first sele
 
 === View job details
 
-You can view details corresponding to a specific completed job.You can export details for a particular job in a JSON format. 
+You can view details corresponding to a specific completed job. You can export details for a particular job in a JSON format. 
 
 You can view details such as backup job type (scheduled or on-demand), SnapMirror backup type (initial or periodic) start and end times, duration, amount of transferred data from working environment to object storage, average transfer rate, backup policy name, retention lock enabled, ransomware scan performed, backup source details, and backup target details. 
 
