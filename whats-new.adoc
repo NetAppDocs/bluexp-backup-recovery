@@ -20,11 +20,17 @@ Learn what's new in Cloud Backup.
 
 === Ability to back up data from Cloud Volumes ONTAP systems in secret sites
 
-Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secret regions to Amazon S3 or Azure Blob. This requires that you install the Connector on a Linux host in the secret region, and that you deploy the Cloud Volumes ONTAP system there as well. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secret regions to Amazon S3 or Azure Blob. This requires that you install the Connector on a Linux host in the secret region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 === Ability to change the zone-redundancy aspect of your Azure storage account from LRS to ZRS
 
 When creating backups from Cloud Volumes ONTAP systems to Azure storage, by default, Cloud Backup provisions the Blob container with Local redundancy (LRS) for cost optimization. You can change this setting to Zone redundancy (ZRS) if you want your data to be replicated between different zones. See the Microsoft instructions for https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal[changing how your storage account is replicated^].
+
+=== Enhancements to the Job Monitor
+
+* Both user-initiated backup and restore operations initiated from the Cloud Backup UI and API, and system-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for On-premises ONTAP systems running ONTAP 9.13.1 or greater. Earlier ONTAP versions will display only user-initiated jobs.
+* In addition to being able to download a CSV file for reporting on all jobs, now you can download a JSON file for a single job and see its details. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report[Learn more].
+* Two new backup job alerts have been added: "Scheduled job failure" and "Restore job completes but with warnings". https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review all of the alerts that Cloud Backup can send].
 
 == 9 March 2023
 
@@ -34,7 +40,7 @@ In the past when you restored a folder, only files from that folder were restore
 
 === Ability to back up data from Cloud Volumes ONTAP systems in dark sites
 
-Now you can back up data from Cloud Volumes ONTAP systems installed in AWS and Azure commercial regions to Amazon S3 or Azure Blob. This requires that you install the Connector on a Linux host in the commercial region, and that you deploy the Cloud Volumes ONTAP system there as well. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+Now you can back up data from Cloud Volumes ONTAP systems installed in AWS and Azure commercial regions to Amazon S3 or Azure Blob. This requires that you install the Connector on a Linux host in the commercial region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 === Multiple enhancements to the Job Monitor
 
