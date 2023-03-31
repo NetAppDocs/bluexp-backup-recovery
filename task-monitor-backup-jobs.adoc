@@ -128,10 +128,10 @@ The following events trigger email alerts:
 | Event
 | Severity level
 | What you might do to troubleshoot
-| Cloud Backup activation failed on working environment | Severity? | Review the Cloud Backup requirements
-| Cloud Backup restore operation failed | Severity?| Review the details and retry restore operation
-| Adhoc (on-demand) volume backup failed | Severity? | Review the details and retry restore operation
-| Potential Ransomware attack detected on your system | Severity? | Review the warnings and initiate an on-demand backup
+| Cloud Backup activation failed on working environment | Critical | Review the Cloud Backup requirements
+| Cloud Backup restore operation failed | Critical| Review the details and retry restore operation
+| Adhoc (on-demand) volume backup failed | Error | Review the details and retry restore operation
+| Potential Ransomware attack detected on your system | Critical | Review the warnings and initiate an on-demand backup
 | Scheduled job failure | Error | Review the schedule details. Recreate the schedule
 | Restore job completes but with warnings | Warning | Review the warnings and retry the restore operation
 
