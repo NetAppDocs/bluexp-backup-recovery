@@ -84,7 +84,7 @@ You can view details such as backup job type (scheduled or on-demand), SnapMirro
 
 Restore jobs show details such as backup target provider (Amazon Web Services, Microsoft Azure, Google Cloud, on-premises), S3 bucket name, SVM name, source volume name, destination volume, Snapshot label, recovered objects count, file names, file sizes, last modification date, and full file path. 
 
-NOTE: Job details appear only for NAS backup and restore jobs and not for SnapCenter jobs. Scheduled backup job details appear only for Cloud Volumes ONTAP systems beginning with ONTAP 9.13.0. Job details appear only for completed jobs. 
+NOTE: Job details appear only for ONTAP volumes backup and restore jobs. Scheduled backup job details appear only for Cloud Volumes ONTAP systems beginning with ONTAP 9.13.0. Job details appear  for in-progress and completed jobs. 
 
 
 .Steps 
