@@ -106,11 +106,19 @@ Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP
 
 === Support for sites with no internet connectivity
 
-Cloud Backup can be used in a site with no internet connectivity (also known as "restricted" or "dark" sites) to back up volume data. Both volume and file restore are also supported in this configuration. In this case, you'll need to deploy the BlueXP Connector in the dark site. 
+Cloud Backup can be used in a site with no internet connectivity (also known as "private mode" or "dark" sites) to back up volume data. Both volume and file restore are also supported in this configuration. In this case, you'll need to deploy the BlueXP Connector in the dark site. 
 
 * You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
 * You can back up data from Cloud Volumes ONTAP systems installed in AWS commercial regions and AWS C2S/SC2S secure regions to Amazon S3. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3].
 * You can back up data from Cloud Volumes ONTAP systems installed in Azure commercial regions and Azure IL6 secure regions to Azure Blob. See link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+
+=== Support for sites with limited connectivity
+
+Cloud Backup can be used in a site with limited internet connectivity (also known as "restricted mode") to back up volume data. Both volume and file restore are also supported in this configuration. In this case, you'll need to deploy the BlueXP Connector in the restricted region. 
+
+//* You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
+* You can back up data from Cloud Volumes ONTAP systems installed in AWS commercial regions to Amazon S3. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3].
+* You can back up data from Cloud Volumes ONTAP systems installed in Azure commercial regions to Azure Blob. See link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 == Supported volumes
 

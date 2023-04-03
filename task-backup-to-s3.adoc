@@ -26,8 +26,9 @@ Get started quickly by following these steps or scroll down to the remaining sec
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
 * You have subscribed to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[BlueXP Marketplace Backup offering], an https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS annual contract], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated] a Cloud Backup BYOL license from NetApp.
 * You have a Connector installed in AWS:
-** The Connector can be installed in a site with or without internet access.
+** The Connector can be installed in a site with full internet access ("Standard mode") or with limited internet connectivity ("Restricted mode").
 ** The IAM role that provides the BlueXP Connector with permissions includes S3 permissions from the latest https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html[BlueXP policy^].
+//add - without internet access ("Private mode")
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable Cloud Backup on your new or existing system
 
@@ -94,15 +95,17 @@ Required information for using customer-managed keys for data encryption::
 You can choose your own customer-managed keys for data encryption in the activation wizard instead of using the default Amazon S3 encryption keys. In this case you'll need to have the encryption managed keys already set up. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html[See how to use your own keys^].
 
 Connector requirements::
-The Connector can be installed in an AWS region with or without internet access. When deployed in a site with no internet access, AWS C2S/SC2S secure regions and AWS Commercial regions are supported.
+The Connector can be installed in an AWS region with full or limited internet access ("Standard" or "Restricted" mode). 
+//When deployed in a site with no internet access, AWS C2S/SC2S secure regions and AWS Commercial regions are supported.
+//or without internet access
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Deploy a Connector in AWS^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[Installing the Connector on a Linux host in an AWS region without internet access^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[Installing the Connector manually on a Linux host in an AWS region^]
 
-NOTE: Cloud Backup functionality is built into the BlueXP Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[Cloud Backup What's New] to see the new features in each Cloud Backup release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
-
-We highly recommend that you create local backups of the Cloud Backup configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up Cloud Backup data in a dark site^].
+// NOTE: Cloud Backup functionality is built into the BlueXP Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[Cloud Backup What's New] to see the new features in each Cloud Backup release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
+//
+//We highly recommend that you create local backups of the Cloud Backup configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up Cloud Backup data in a dark site^].
 
 Required AWS Connector permissions::
 The IAM role that provides BlueXP with permissions must include S3 permissions from the latest https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[BlueXP policy^].
@@ -175,7 +178,8 @@ When your Cloud Volumes ONTAP system is running ONTAP 9.12.1 or greater software
 If you created the Cloud Volumes ONTAP working environment using BlueXP version 3.9.23 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. 
 
 Supported AWS regions::
-Cloud Backup is supported in all AWS regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including AWS GovCloud regions and https://aws.amazon.com/federal/us-intelligence-community/[AWS C2S and SC2S^] secure regions.
+Cloud Backup is supported in all AWS regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including AWS GovCloud regions.
+// and https://aws.amazon.com/federal/us-intelligence-community/[AWS C2S and SC2S^] secure regions.
 
 Required setup for creating backups in a different AWS account::
 By default, backups are created using the same account as the one used for your Cloud Volumes ONTAP system. If you want to use a different AWS account for your backups, you must:
