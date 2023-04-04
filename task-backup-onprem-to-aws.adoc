@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-backup-onprem-to-aws.html
 keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, aws, aws s3, amazon s3, govcloud, government
-summary: Complete a few steps to get started backing up data from your on-premises ONTAP systems to Amazon S3 storage.
+summary: Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to Amazon S3 storage.
 ---
 
 = Backing up on-premises ONTAP data to Amazon S3
@@ -13,7 +13,7 @@ summary: Complete a few steps to get started backing up data from your on-premis
 :imagesdir: ./media/
 
 [.lead]
-Complete a few steps to get started backing up data from your on-premises ONTAP systems to Amazon S3 storage.
+Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to Amazon S3 storage.
 
 Note that "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
@@ -90,7 +90,7 @@ If you already have a Connector deployed in your AWS VPC or on your premises, th
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html[Installing a Connector in your premises^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-aws-mktp.html#create-the-connector-in-an-aws-government-region[Installing a Connector in an AWS GovCloud region^]
 +
-Cloud Backup is supported in GovCloud regions when the Connector is deployed in the cloud - not when it's installed in your premises. Additionally, you must deploy the Connector from the AWS Marketplace. You can’t deploy the Connector in a Government region from the BlueXP SaaS website.
+Cloud Backup is supported in GovCloud regions when the Connector is deployed in the cloud - not when it's installed in your premises. Additionally, you must deploy the Connector from the AWS Marketplace. You can't deploy the Connector in a Government region from the BlueXP SaaS website.
 
 === Connector networking requirements
 

@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-backup-to-gcp.html
 keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, gcp, google cloud, back up volumes, cloud backup
-summary: Complete a few steps to get started backing up data from Cloud Volumes ONTAP to Google Cloud storage.
+summary: Complete a few steps to get started backing up volume data from your Cloud Volumes ONTAP systems to Google Cloud storage.
 ---
 
 = Backing up Cloud Volumes ONTAP data to Google Cloud Storage
@@ -13,7 +13,7 @@ summary: Complete a few steps to get started backing up data from Cloud Volumes 
 :imagesdir: ./media/
 
 [.lead]
-Complete a few steps to get started backing up data from Cloud Volumes ONTAP to Google Cloud Storage.
+Complete a few steps to get started backing up volume data from your Cloud Volumes ONTAP systems to Google Cloud Storage.
 
 == Quick start
 
@@ -26,6 +26,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 * You have a valid GCP subscription for the storage space where your backups will be located.
 * You have a service account in your Google Cloud Project that has the predefined Storage Admin role.
 * You have subscribed to the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved[BlueXP Marketplace Backup offering^], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated^] a Cloud Backup BYOL license from NetApp.
+* You have a Connector installed in Google Cloud.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable Cloud Backup on your new or existing system
 
@@ -83,6 +84,12 @@ Cloud Backup is supported in all GCP regions https://cloud.netapp.com/cloud-volu
 
 GCP Service Account::
 You need to have a service account in your Google Cloud Project that has the predefined Storage Admin role. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html[Learn how to create a service account^].
+
+Connector requirements::
+The Connector must be installed in an Google region with internet access.
+
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html[Deploy a Connector in Google Cloud^]
 
 Verify or add permissions to the Connector::
 

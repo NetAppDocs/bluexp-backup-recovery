@@ -106,10 +106,19 @@ Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP
 
 === Support for sites with no internet connectivity
 
-Cloud Backup can be used in a site with no internet connectivity (also known as an "offline" or "dark" site) to back up volume data. Both volume and file restore are also supported in this configuration. In this case, you'll need to deploy the BlueXP Connector in the dark site. 
+Cloud Backup can be used in a site with no internet connectivity (also known as "private mode" or "dark" sites) to back up volume data. Both volume and file restore are also supported in this configuration. In this case, you'll need to deploy the BlueXP Connector in the dark site. 
 
 * You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
-* You can back up data from Cloud Volumes ONTAP systems installed in AWS and Azure commercial regions to Amazon S3 or Azure Blob. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+* You can back up data from Cloud Volumes ONTAP systems installed in AWS commercial regions and AWS C2S/SC2S secure regions to Amazon S3. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3].
+* You can back up data from Cloud Volumes ONTAP systems installed in Azure commercial regions and Azure IL6 secure regions to Azure Blob. See link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+
+=== Support for sites with limited connectivity
+
+Cloud Backup can be used in a site with limited internet connectivity (also known as "restricted mode") to back up volume data. Both volume and file restore are also supported in this configuration. In this case, you'll need to deploy the BlueXP Connector in the restricted region. 
+
+//* You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
+* You can back up data from Cloud Volumes ONTAP systems installed in AWS commercial regions to Amazon S3. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3].
+* You can back up data from Cloud Volumes ONTAP systems installed in Azure commercial regions to Azure Blob. See link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 == Supported volumes
 
@@ -248,7 +257,7 @@ If you want to change the destination object store for a cluster in the future, 
 
 When you enable Cloud Backup for a working environment, all the volumes you initially select are backed up using the default backup policy that you define. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to the other volumes after Cloud Backup is activated.
 
-You can choose a combination of hourly, daily, weekly, monthly, and yearly backups of all volumes. You can also select one of the system-defined policies that provide backups and retention for 3 months, 1 year, and 7 years. These policies are:
+You can choose a combination of hourly, daily, weekly, monthly, and yearly backups of all volumes. The Snapshot policy applied to the volume must be one of the policies recognized by Cloud Backup. You can also select one of the system-defined policies that provide backups and retention for 3 months, 1 year, and 7 years. These policies are:
 
 [cols=5*,options="header",cols="35,16,16,16,26",width="80%"]
 |===
