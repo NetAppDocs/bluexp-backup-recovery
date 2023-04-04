@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: task-monitor-backup-jobs.html
 keywords: cloud backup, cloud backup service, backup, restore, status, monitor, alert, notification
-summary: You can monitor the status of backup and restore jobs that you have initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
+summary: You can monitor the status of backup jobs that are scheduled or that you have initiated and restore jobs that you initiated in your working environments. You can see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
 ---
 
-= Monitoring the status of backup and restore jobs
+= Monitor the status of backup and restore jobs
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,11 +13,13 @@ summary: You can monitor the status of backup and restore jobs that you have ini
 :imagesdir: ./media/
 
 [.lead]
-You can monitor the status of backup and restore jobs that you have initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
+You can monitor the status of backup jobs that are scheduled or that you have initiated and restore jobs that you initiated in your working environments. You can see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
 
-== Use the Job Monitor to view backup and restore job status
+== View backup and restore job status on the Job Monitor
 
-You can view a list of all the backup and restore operations and their current status in the *Job Monitoring* tab. This includes operations from your Cloud Volumes ONTAP, on-premises ONTAP, Applications, Virtual Machines, and Kubernetes systems. Each operation, or job, has a unique ID and status. The status can be:
+You can view a list of all the backup and restore operations and their current status in the *Job Monitoring* tab. This includes operations from your Cloud Volumes ONTAP, on-premises ONTAP, applications, virtual machines, and Kubernetes systems. Each operation, or job, has a unique ID and a status. 
+
+The backup and restore status can be:
 
 * Success
 * In Progress
@@ -25,9 +27,9 @@ You can view a list of all the backup and restore operations and their current s
 * Warning
 * Failed
 
-Both user-initiated backup and restore operations initiated from the Cloud Backup UI and API, and system-initiated jobs, such ongoing backup operations, are available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. 
+Both user-initiated backup and restore operations initiated from the Cloud Backup UI and API, and system-initiated jobs, such as ongoing scheduled backup operations, are available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. 
 
-TIP: When running an earlier version of ONTAP on Cloud Volumes ONTAP systems, or for on-premises ONTAP systems, only user-initiated jobs are displayed at this time.
+TIP: When running an earlier version of ONTAP on Cloud Volumes ONTAP systems, or for on-premises ONTAP systems, only user-initiated jobs are displayed.
 
 //NOTE: System-initiated jobs, such ongoing backup operations, are not reflected in the *Job Monitoring* tab at this time -- only user-initiated jobs are displayed.
 
@@ -35,22 +37,32 @@ TIP: When running an earlier version of ONTAP on Cloud Volumes ONTAP systems, or
 
 . From the BlueXP menu, select *Protection > Backup and recovery*.
 
-. Click the *Job Monitoring* tab.
+. Select the *Job Monitoring* tab.
 +
 image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore jobs in the Job Monitoring dashboard.]
++
+This screenshot shows the default column headings. 
 
-This screenshot shows the default column/field headings. You can click image:button_plus_sign_round.png[the plus sign button] to show four additional columns for "Working Environment", "SVM", "User Name" and "Workloads".
+. To show four additional columns (Working Environment, SVM, User Name, and Workloads), select image:button_plus_sign_round.png[the plus sign button].
 
-=== Searching and filtering the list of jobs
+=== Search and filter the list of jobs
 
-By default, the Job Monitoring page shows jobs from the last 24 hours. You can sort the results by clicking each column heading to sort by Status, Start Time, Resource Name, and more. 
+By default, the Job Monitoring page shows jobs from the last 24 hours. 
 
-If you're looking for specific jobs, or a specific group of jobs, you can click the *Advanced Search & Filtering* area to open the Search panel. This panel enables you to perform a free text search for any resource; for example "volume 1" or "application 3". You can also filter the jobs list according to the items in the drop-down menus.
+.Steps
 
-image:screenshot_backup_job_monitor_filters.png[A screenshot of setting the filters to view only jobs that match the filter criteria.]
+. Select the *Job Monitoring* tab.
+. To sort the results differently, select each column heading to sort by Status, Start Time, Resource Name, and more. 
 
+. If you're looking for specific jobs, or a specific group of jobs, select the *Advanced Search & Filtering* area to open the Search panel. 
++
+Use this panel to enter a free text search for any resource; for example "volume 1" or "application 3". You can also filter the jobs list according to the items in the drop-down menus.
++
+image:screenshot_backup_job_monitor_filters.png[A screenshot of setting the filters to view only jobs that match the filter criteria]
++
 This screenshot show how you would search for all "Volume" "Backup" jobs for volumes named "Volume_1" in the "past week".
 
++
 Most of the filters are self-explanatory. The filter for "Workloads" enables you to view jobs in the following catagories:
 
 * Volumes (Cloud Volumes ONTAP and on-prem ONTAP volumes)
@@ -58,33 +70,81 @@ Most of the filters are self-explanatory. The filter for "Workloads" enables you
 * Virtual Machines
 * Kubernetes
 
-You can search for data within a specific "SVM" only if you have first selected a Working Environment.
++
+TIP: You can search for data within a specific "SVM" only if you have first selected a Working Environment.
 
-Note that this page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. You can click the image:button_refresh.png[Refresh] button if you need to update the page immediately.
+. To update the page immediately, select the image:button_refresh.png[Refresh] button. Otherwise, this page refreshes every 15 minutes so that you'll always see the most recent job status results. 
 
 === View job details
 
-You can view details corresponding to a specific job by clicking the name of the job. You'll see all the sub-jobs that are running to complete the main job in the Job Details page.
+You can view details corresponding to a specific completed job. You can export details for a particular job in a JSON format. 
 
-image:screenshot_backup_job_monitor_details.png[A screenshot showing the Job Details page.]
+You can view details such as backup job type (scheduled or on-demand), SnapMirror backup type (initial or periodic) start and end times, duration, amount of transferred data from working environment to object storage, average transfer rate, backup policy name, retention lock enabled, ransomware scan performed, backup source details, and backup target details. 
+
+Restore jobs show details such as backup target provider (Amazon Web Services, Microsoft Azure, Google Cloud, on-premises), S3 bucket name, SVM name, source volume name, destination volume, Snapshot label, recovered objects count, file names, file sizes, last modification date, and full file path. 
+
+NOTE: Job details appear only for ONTAP volumes backup and restore jobs. Scheduled backup job details appear only for Cloud Volumes ONTAP systems beginning with ONTAP 9.13.0. Job details appear  for in-progress and completed jobs. 
+
+.Steps 
+. Select the *Job Monitoring* tab.
+. Select the name of the job. 
+. Select the Actions menu image:icon-action.png[Actions icon] and select *View Details*. 
++
+image:screenshot_backup_job_monitor_details2.png[A screenshot showing backup job details]
+
+. Expand each section to see details. 
 
 === Download Job Monitoring results as a report
 
-If you want to download the contents of the main Job Monitoring page as a report after you've refined it, click the image:button_download.png[Download] button. Cloud Backup generates and downloads a .CSV file that you can review and send to other groups as needed. The .CSV file includes up to 10,000 rows of data.
+You can download the contents of the main Job Monitoring page as a report after you've refined it. Cloud Backup generates and downloads a .CSV file that you can review and send to other groups as needed. The .CSV file includes up to 10,000 rows of data.
 
-== Use the Notification Center to review backup and restore alerts 
+From the Job Monitoring Details information, you can download a JSON file containing details for a single job. 
 
-The Notification Center tracks the progress of backup and restore jobs that you've initiated so you can verify whether the operation was successful or not. You can display the notifications by clicking the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system.
+.Steps
 
-At this time, there are four backup and restore events that will trigger email alerts:
+. Select the *Job Monitoring* tab.
+. To download a CSV file for all jobs, select the image:button_download.png[Download] button and locate the file in your download directory. 
+. To download a JSON file for a single job, select the Actions menu image:icon-action.png[Actions icon] for the job, select *Download JSON File*, and locate the file in your download directory.  
 
-* Cloud Backup activation failed on a working environment
-* Cloud Backup restore operation failed
-* Adhoc (on-demand) volume backup failed
-* Potential Ransomware attack detected on your system
+== Review backup and restore alerts in the BlueXP Notification Center
 
-By default, BlueXP Account Admins will receive emails for all "Critical" and "Recommendation" alerts. All other users and recipients are configured, by default, not to receive any notification emails. Emails can be sent to any BlueXP users who are part of your NetApp Cloud Account, or to any other recipients who need to be aware of backup and restore activity. 
+The BlueXP Notification Center tracks the progress of backup and restore jobs that you've initiated so you can verify whether the operation was successful or not. 
 
-You'll need to select the notification types "Critical" and "Error" to receive the Cloud Backup email alerts.
+In addition to viewing the alerts in the BlueXP list of notifications, you can configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
+
+The following events trigger email alerts:
+
+//* Cloud Backup activation failed on working environment
+//* Cloud Backup restore operation failed
+//* Adhoc (on-demand) volume backup failed
+//* Potential Ransomware attack detected on your system
+
+[cols=2*,options="header",cols="3a,1d"]
+|===
+| Event
+| Severity level
+| Adhoc (on-demand) volume backup failed | Error 
+| Cloud Backup activation failed on working environment | Critical 
+| Cloud Backup restore operation failed | Critical
+| Potential ransomware attack detected on your system | Critical 
+| Restore job completes but with warnings | Warning 
+| Scheduled job failure | Error 
+
+|===
+
+NOTE: Beginning with Cloud Volumes ONTAP 9.13.0, all alerts appear. For systems with Cloud Volumes ONTAP 9.13.0 and on-premises ONTAP, only the alert related to restore job completed with warnings appears. 
+
+By default, BlueXP Account Admins receive emails for all "Critical" and "Recommendation" alerts. All other users and recipients are configured, by default, not to receive any notification emails. Emails can be sent to any BlueXP users who are part of your NetApp Cloud Account, or to any other recipients who need to be aware of backup and restore activity. 
+
+To receive the Cloud Backup email alerts, you'll need to select the notification severity types "Critical" and "Error." 
 
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
+
+.Steps 
+
+. Select the *Job Monitoring* tab.
+. Display notifications by selecting the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. 
+. Review the notification. 
+
+
+
