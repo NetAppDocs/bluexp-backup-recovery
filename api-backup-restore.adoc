@@ -25,7 +25,7 @@ There are nine categories of endpoints defined within Cloud Backup:
 * ransomware scan - initiates a ransomware scan on a specific backup file
 *	restore - enables you to perform volume, file, and folder-level restore operations
 *	sfr - retrieves files from a backup file for single file-level restore operations (Browse & Restore)
-//* storagegrid - retrieves details about a StorageGRID server, and enables you to discover a StorageGRID server
+* storagegrid - retrieves details about a StorageGRID server, and enables you to discover a StorageGRID server
 *	working environment - manages the backup policies, and configures the destination object store associated with a working environment
 
 == Getting started
