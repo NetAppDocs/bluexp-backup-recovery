@@ -39,9 +39,8 @@ NOTE: If the connectivity from BlueXP Connector host to application host fails, 
 == Install the plug-in and add host from UI using SSH option
 
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
-If you have already added the host and if you want to add another host perform the following actions:
-.. Click *Applications* > *Manage Databases* > *Add*
-.. Go to Step5
++
+If you have already added a host and want to add another host, click *Applications* > *Manage Databases* > *Add* and then proceed with step 5.
 . Click *Discover Applications*.
 . Select *Cloud Native* and click *Next*.
 +

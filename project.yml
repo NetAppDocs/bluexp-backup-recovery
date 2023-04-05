@@ -110,7 +110,7 @@ sidebar:
               url: /task-restore-sql-data.html
         - title: Mount application backups
           url: /task-mount-app-backup.html
-    - title: Back up, restore, and clone cloud native applications data
+    - title: Back up and restore cloud native applications data
       entries:
         - title: Protect your cloud native applications data
           url: /concept-protect-cloud-app-data-to-cloud.html
