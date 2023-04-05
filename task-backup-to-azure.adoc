@@ -26,8 +26,9 @@ Get started quickly by following these steps or scroll down to the remaining sec
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
 * You have subscribed to the https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[BlueXP Marketplace Backup offering^], or you have purchased link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[and activated^] a Cloud Backup BYOL license from NetApp.
 * You have a Connector installed in Azure. The Connector can be installed in a site with full internet access ("Standard mode") or with limited internet connectivity ("Restricted mode").
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable Cloud Backup on your new or existing system
 //add - without internet access ("Private mode")
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable Cloud Backup on your new or existing system
 
 [role="quick-margin-list"]
 * New systems: Cloud Backup is enabled by default in the working environment wizard. Be sure to keep the option enabled.
@@ -86,8 +87,8 @@ The Connector can be installed in an Azure region with full or limited internet 
 //or without internet accessThe Connector can be installed in an Azure region with or without internet access. When deployed in a site with no internet access, Azure IL6 secure regions and Azure Commercial regions are supported.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Deploy a Connector in Azure^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[Installing the Connector manually on a Linux host in an Azure region^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-azure.html[Deploy a Connector in Azure^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html[Installing the Connector manually on a Linux host in an Azure region^]
 
 //NOTE: Cloud Backup functionality is built into the BlueXP Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[Cloud Backup What's New] to see the new features in each Cloud Backup release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
 //

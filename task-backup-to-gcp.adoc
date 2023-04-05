@@ -89,7 +89,7 @@ Connector requirements::
 The Connector must be installed in an Google region with internet access.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html[Deploy a Connector in Google Cloud^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-google.html[Deploy a Connector in Google Cloud^]
 
 Verify or add permissions to the Connector::
 
