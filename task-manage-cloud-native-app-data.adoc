@@ -66,7 +66,17 @@ You can delete a clone if you no longer require.
 
 If the Connector that was used during registering the application host no longer exists or is corrupted, you should deploy a new connector. After deploying the new connector, you should run the *connector-update* API to update the Connector details for all hosts registered using the old connector.
 
+*For Oracle database host*
+
+Before you update the connector, you should check the link:task-add-host-discover-oracle-databases.html#prerequisites[prerequisites.]
+
+. Click *Backup and recovery* > *Applications* 
+. Click image:icon-action.png[icon to select the action] corresponding to the application and click *View Details*.
+. Modify *Connector ID*.
+
 *For SAP HANA database host*
+
+Before you update the connector, you should check the link:task-deploy-snapcenter-plugin-for-sap-hana.html#prerequisites[prerequisites.]
 
 ----
 curl --location --request PATCH
@@ -119,7 +129,6 @@ NOTE: The format of the Intermediate CA and root CA certificate should be in .cr
 NOTE: The certificate.crt refers to the certificates of root CA as well as intermediate CA.
 
 .. Restart SPL: `systemctl restart spl`
-
 
 === Configure CA signed certificate for the plug-in
 

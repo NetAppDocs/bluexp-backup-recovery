@@ -18,7 +18,6 @@ In the event of data loss, you can restore the data and non-data files and then 
 *Before you begin*
 
 The SAP HANA system must be in a stopped state.
-+
 If the SAP HANA system is up and running, you can provide a prescript to stop the system.
 
 *About this task*
