@@ -25,7 +25,10 @@ Before adding the host, you should ensure that the prerequisites are met.
 
 * Ensure that either Java 11 (64-bit) Oracle Java or OpenJDK is installed on each of the SAP HANA database hosts.
 * You should have added the working environment and created the Connector.
-* Ensure that the Connector has connectivity to the working environment 
+* Ensure that the Connector has connectivity to the working environment.
++
+When the connector is lost or if you have created a new connector, to associate the connector with the existing application resources, refer
+link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[Cloud Backup Application Failed to validate connectivity from BlueXP connector host to application database host]
 * Ensure that the BlueXP user has the “Account Admin” role.
 * You should have created the SnapCenter user and configured sudo for the SnapCenter user. For information, refer to link:task-deploy-snapcenter-plugin-for-sap-hana.html#configure-sudo-for-snapcenter-user[Configure sudo for SnapCenter user.]
 * You should have installed the SnapCenter Plug-in for SAP HANA before adding the database host. 

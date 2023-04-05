@@ -26,6 +26,9 @@ Before adding the host, you should ensure that the prerequisites are met.
 
 * You should have created the working environment and the Connector.
 * Ensure that the Connector has connectivity to the working environment and Oracle database hosts.
++
+When the connector is lost or if you have created a new connector, to associate the connector with the existing application resources, refer
+link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[Cloud Backup Application Failed to validate connectivity from BlueXP connector host to application database host]
 * Ensure that the BlueXP user has the “Account Admin” role.
 * Ensure that either Java 11 (64-bit) Oracle Java or OpenJDK is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
 * Ensure that the Connector has the communication enabled to the SSH port (default: 22) if SSH based installation is performed.
@@ -36,6 +39,9 @@ NOTE: If the connectivity from BlueXP Connector host to application host fails, 
 == Install the plug-in and add host from UI using SSH option
 
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
+If you have already added the host and if you want to add another host perform the following actions:
+.. Click *Applications* > *Manage Databases* > *Add*
+.. Go to Step5
 . Click *Discover Applications*.
 . Select *Cloud Native* and click *Next*.
 +
@@ -89,8 +95,7 @@ Ensure that the SSH connection to the Connector is enabled.
 *Steps*
 
 . Log into the Connector VM.
-. Obtain the base mount path.
-`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
+. Change directory to `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts``
 . Install the plug-in using the script provided in the Connector.
 `linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
 
