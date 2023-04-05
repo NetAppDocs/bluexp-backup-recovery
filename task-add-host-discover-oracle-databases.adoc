@@ -60,11 +60,17 @@ You can close the SSH port on the application host after installing the plug-in.
 NOTE: The SSH private key is not stored anywhere in the application and is not used for any other operations.
 .. Click *Next*.
 . In the Configuration page, perform the following:
-.. Use the visudo Linux utility to edit the _/etc/sudoers.d/snapcenter_ file and paste the lines you copied.
+.. Configure sudo access for the SnapCenter user by copying the text to _/etc/sudoers.d/snapcenter_ file.
 .. Select the checkbox and click *Next*.
 . Review the details and click *Discover Applications*.
 +
 * Displays all the databases on the host. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
++
+* Installs the plug-in on the database host. 
++
+After the plug-in is installed, the discovery operation starts.
++
+You can monitor the Installation job from the *Job Monitoring* page.
 +
 * Click *Settings* and select *Hosts* to view all the hosts.
 +
@@ -86,17 +92,16 @@ Ensure that the SSH connection to the Connector is enabled.
 . Obtain the base mount path.
 `sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
 . Install the plug-in using the script provided in the Connector.
-`linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --installdir <plugin_install_path> --sshport <host_ssh_port>`
+`linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
 
 * plugin_host is the name of the Oracle host and this is a mandatory parameter.
 * host_user_name is the SnapCenter user with SSH privileges on the Oracle host and this is a mandatory parameter.
 * host_ssh_key is the SSH key of the SnapCenter user and used to connect to the Oracle host. This is a mandatory parameter.
 * plugin_port is the port used by the plug-in and this is an optional parameter. Default value is 8145
-* plugin_install_path is the directory where the plug-in will be installed and this is an optional parameter. Default value is /opt.
 * host_ssh_port is the SSH port on the Oracle host and this is an optional parameter. Default value is 22
 +
 For example:
-`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/oracle_plugin_copy_and_install.sh --host xxx.xx.x.x --sshkey /keys/netapp-ssh.ppk`
+`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host xxx.xx.x.x --sshkey /keys/netapp-ssh.ppk`
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . Click *Discover Applications*.
 . Select *Cloud Native* and click *Next*.
@@ -158,7 +163,7 @@ The _snapcenter_linux_host_plugin_scs.bin_ should be copied to a location that i
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
 . Restart SPL: `systemctl restart spl`
 . Validate that the plug-in is reachable from the Connector by running the below command from the Connector.
-`docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/getVersion --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
+`docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . Click *Discover Applications*.
 . Select *Cloud Native* and click *Next*.
