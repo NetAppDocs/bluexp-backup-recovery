@@ -62,9 +62,11 @@ You can delete a clone if you no longer require.
 . Click image:icon-action.png[icon to select the action] corresponding to the clone that you want to delete and click *Delete*.
 . (Optional) Select the *force delete* checkbox.
 
-== Update the Connector Details for SAP HANA database host
+== Update the Connector Details 
 
 If the Connector that was used during registering the application host no longer exists or is corrupted, you should deploy a new connector. After deploying the new connector, you should run the *connector-update* API to update the Connector details for all hosts registered using the old connector.
+
+*For SAP HANA database host*
 
 ----
 curl --location --request PATCH

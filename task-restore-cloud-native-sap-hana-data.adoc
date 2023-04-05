@@ -15,12 +15,11 @@ summary:  Restore the data files and then recover the database.
 [.lead]
 In the event of data loss, you can restore the data and non-data files and then recover the database.
 
-== Restore cloud native SAP HANA database
-
 *Before you begin*
 
-* The SAP HANA system must be in a stopped state.
-* You can provide a prescript to stop the SAP HANA system.
+The SAP HANA system must be in a stopped state.
++
+If the SAP HANA system is up and running, you can provide a prescript to stop the system.
 
 *About this task*
 
@@ -29,8 +28,8 @@ If you enable the backups on a volume, Single File SnapRestore operation is perf
 *Steps*
 
 .	Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.
-.	Click image:icon-action.png[icon to select the action] corresponding to the data backup that you want to use for restoring and click *Restore*.
-.	In the *Restore System* page, enter the scripts. link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts[Learn more.]
+.	Click image:icon-action.png[icon to select the action] corresponding to the data backup that you want to restore and click *Restore*.
+.	In the *Restore System* page, enter the scripts. link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts[Prescripts and postscripts.]
 +
 For the restore workflow, the following environmental variables are available as part of prescript and postscript. 
 +
@@ -56,9 +55,9 @@ Configured OSDBUser for the HANA database
 |===
 .	Click *Restore*.
 
-*After you finish*
+*What's next*
 
-* After restoring, manually recover the SAP HANA system or provide a postscript, which performs the SAP HANA system recovery.
+After restoring, manually recover the SAP HANA system or provide a postscript, which performs the SAP HANA system recovery.
 
 == Restore Non-Data Volume
 
