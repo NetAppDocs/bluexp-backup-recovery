@@ -228,10 +228,11 @@ You should upgrade the SnapCenter Plug-in for Oracle to gain access to the lates
 * Ensure that there are no operations running on the host.
 
 *Steps*
+
 . Click *Backup and recovery* > *Applications* > *Hosts*.
 . Verify if plug-in upgrade is available for any of the hosts by checking the Overall Status column.
 . Upgrade the plug-in from UI or using the command line.
-
++
 |===
 |Upgrade using UI | Upgrade using command line 
 

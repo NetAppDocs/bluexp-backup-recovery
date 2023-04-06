@@ -169,6 +169,7 @@ You should upgrade the SnapCenter Plug-in for SAP HANA database to gain access t
 * Ensure that there are no operations running on the host.
 
 *Steps*
+
 . Click *Backup and recovery* > *Applications* > *Hosts*.
 . Verify if plug-in upgrade is available for any of the hosts by checking the Overall Status column.
 . Log in to Connector VM.

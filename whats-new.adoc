@@ -35,6 +35,7 @@ Learn what's new in Cloud Backup.
 * BlueXP backup and recovery for Applications (hybrid) is driven from the SaaS control plane. 
 * Modified the hybrid REST APIs to align with cloud native APIs.
 * Supports email notification
+
 == 4 April 2023
 
 === Ability to back up data to the cloud from Cloud Volumes ONTAP systems in "Restricted" mode
