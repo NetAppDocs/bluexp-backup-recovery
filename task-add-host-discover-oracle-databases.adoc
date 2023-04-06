@@ -33,7 +33,7 @@ link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Securi
 * Ensure that either Java 11 (64-bit) Oracle Java or OpenJDK is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
 * Ensure that the Connector has the communication enabled to the SSH port (default: 22) if SSH based installation is performed.
 * Ensure that the Connector has the communication enabled to plug-in port (default: 8145) for the data protection operations to work.
-* Ensure that the you have the latest version of plug-in is installed. To upgrade the plug-in, refer to <<Upgrade SnapCenter Plug-in for Oracle>>.
+* Ensure that the you have the latest version of plug-in is installed. To upgrade the plug-in, refer to <<Upgrade SnapCenter Plug-in for Oracle Database>>.
 
 NOTE: If the connectivity from BlueXP Connector host to application host fails, refer https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[knowledge base article^] for information.
 
