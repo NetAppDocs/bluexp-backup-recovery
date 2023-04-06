@@ -243,3 +243,4 @@ a|
 . Change the directory to _/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts_
 . Run the following script.
 `sudo bash linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade`
+|===
