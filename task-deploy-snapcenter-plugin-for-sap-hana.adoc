@@ -34,8 +34,9 @@ link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Securi
 * You should have installed the SnapCenter Plug-in for SAP HANA before adding the database host. 
 * While adding the SAP HANA database hosts, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA database hosts securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA database host.  
 * For HANA System Replication (HSR), to protect the HANA systems, you should manually register both primary and secondary HANA systems.
-* Connector should have the communication enabled to the SSH port (default: 22) if SSH based installation is used.
-* Connector should have communication enabled to plug-in port (default: 8145) for the operations to work.
+* Ensure that the Connector has the communication enabled to the SSH port (default: 22) if SSH based installation is performed.
+* Ensure that the Connector has the communication enabled to plug-in port (default: 8145) for the data protection operations to work.
+* Ensure that the you have the latest version of plug-in is installed. To upgrade the plug-in, refer to <<Upgrade SnapCenter Plug-in for SAP HANA Database>>.
 
 NOTE: If the connectivity from BlueXP Connector host to application host fails, refer https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[knowledge base article^] for information.
 
@@ -158,6 +159,8 @@ If SSH key based authentication is not enabled on the HANA host, you should perf
 . Validate that the plug-in is reachable from the Connector by running the below command from the Connector:
 +
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
+
+== Upgrade SnapCenter Plug-in for SAP HANA Database
 
 == Add SAP HANA database hosts
 

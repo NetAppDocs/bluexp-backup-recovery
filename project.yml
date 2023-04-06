@@ -158,12 +158,6 @@ sidebar:
               url: /task-clone-cloud-native-oracle-data.html
         - title: Manage protection of cloud native application data
           url: /task-manage-cloud-native-app-data.html
-        - title: Upgrade the plug-ins
-          entries:
-            - title: Upgrade SnapCenter Plug-in for Oracle Database 
-              url: /task-upgrade-oracle-plug-in.html
-            - title: Upgrade SnapCenter Plug-in for SAP HANA Database
-              url: /task-upgrade-sap-hana-plug-in.html
     - title: Back up and restore Virtual Machines data
       entries:
         - title: Protect your Virtual Machines data
