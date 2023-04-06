@@ -27,17 +27,17 @@ Before adding the host, you should ensure that the prerequisites are met.
 * You should have created the working environment and the Connector.
 * Ensure that the Connector has connectivity to the working environment and Oracle database hosts.
 +
-When the connector is lost or if you have created a new connector, to associate the connector with the existing application resources, refer
-link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[Cloud Backup Application Failed to validate connectivity from BlueXP connector host to application database host]
+For information refer
+link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[Failed to validate connectivity from BlueXP connector host to application database host]
++
+When the connector is lost or if you have created a new connector, you should associate the connector with the existing application resources.  For instructions, see link:task-manage-cloud-native-app-data.html#update-the-connector-details[Update the Connector Details]
 * Ensure that the BlueXP user has the “Account Admin” role.
 * Ensure that either Java 11 (64-bit) Oracle Java or OpenJDK is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
 * Ensure that the Connector has the communication enabled to the SSH port (default: 22) if SSH based installation is performed.
 * Ensure that the Connector has the communication enabled to plug-in port (default: 8145) for the data protection operations to work.
 * Ensure that the you have the latest version of plug-in is installed. To upgrade the plug-in, refer to <<Upgrade SnapCenter Plug-in for Oracle Database>>.
 
-NOTE: If the connectivity from BlueXP Connector host to application host fails, refer https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[knowledge base article^] for information.
-
-== Install the plug-in and add host from UI using SSH option
+== Add host from UI using SSH option
 
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 +
@@ -54,7 +54,9 @@ NOTE: The service account (_SnapCenter-account-<accountid>_) is used to run the 
 . In the Host details page, perform the following:
 .. Select *Using SSH*.
 .. Specify the  FQDN or IP address of the host where you want to install the plug-in.
-.. Specify the sudo SnapCenter user using which the plug-in package will be copied to the host.
+.. Specify the non-root(sudo) user using which the plug-in package will be copied to the host.
++
+Root user is not supported.
 .. Specify the SSH and plug-in port.
 +
 Default SSH port is 22 and the plug-in port is 8145.
@@ -66,17 +68,17 @@ You can close the SSH port on the application host after installing the plug-in.
 NOTE: The SSH private key is not stored anywhere in the application and is not used for any other operations.
 .. Click *Next*.
 . In the Configuration page, perform the following:
-.. Configure sudo access for the SnapCenter user by copying the text to _/etc/sudoers.d/snapcenter_ file.
+.. Configure the sudo access for the non-root (sudo) user by copying the text to _/etc/sudoers.d/snapcenter_ file.
 .. Select the checkbox and click *Next*.
 . Review the details and click *Discover Applications*.
-+
-* Displays all the databases on the host. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
 +
 * Installs the plug-in on the database host. 
 +
 After the plug-in is installed, the discovery operation starts.
 +
 You can monitor the Installation job from the *Job Monitoring* page.
++
+* Displays all the databases on the host. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
 +
 * Click *Settings* and select *Hosts* to view all the hosts.
 +
@@ -86,7 +88,7 @@ NOTE: The filter to view a specific host does not work. When you specify a host 
 
 == Install the plug-in using script and add host from UI using manual option
 
-If SSH key based authentication is enabled on the Oracle host for the SnapCenter user, you can perform the following steps to install the plug-in.
+If SSH key based authentication is enabled on the Oracle host for the non-root (sudo) user, you can perform the following steps to install the plug-in.
 
 *Before you begin*
 
@@ -94,19 +96,6 @@ Ensure that the SSH connection to the Connector is enabled.
 
 *Steps*
 
-. Log into the Connector VM.
-. Change directory to `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts``
-. Install the plug-in using the script provided in the Connector.
-`linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
-
-* plugin_host is the name of the Oracle host and this is a mandatory parameter.
-* host_user_name is the SnapCenter user with SSH privileges on the Oracle host and this is a mandatory parameter.
-* host_ssh_key is the SSH key of the SnapCenter user and used to connect to the Oracle host. This is a mandatory parameter.
-* plugin_port is the port used by the plug-in and this is an optional parameter. Default value is 8145
-* host_ssh_port is the SSH port on the Oracle host and this is an optional parameter. Default value is 22
-+
-For example:
-`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host testhost --sshkey /keys/netapp-ssh.ppk`
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . Click *Discover Applications*.
 . Select *Cloud Native* and click *Next*.
@@ -126,13 +115,28 @@ Ensure that using the FQDN or IP address, the Connector can communicate with the
 .. Specify the plug-in port.
 +
 Default port is 8145.
-.. Specify the sudo SnapCenter user using which the plug-in package will be copied to the host.
+.. Specify the non-root (sudo) user using which the plug-in package will be copied to the host.
 .. Select the Connector.
 .. Select the check box to confirm that the plug-in is installed on the host.
 .. Click *Next*.
 . In the Configuration page, perform the following:
-.. Use the visudo Linux utility to edit the _/etc/sudoers.d/snapcenter_ file and paste the lines you copied.
+.. Configure sudo access for the SnapCenter user by copying the text to `/etc/sudoers.d/snapcenter` file.
 .. Select the checkbox and click *Next*.
+. Log into the Connector VM.
+. Change directory to `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts`
+. Install the plug-in using the script provided in the Connector.
+`sudo bash linux_plugin_copy_and_install.sh --host <plugin_host> --username
+<host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport
+<host_ssh_port>`
+
+* plugin_host is the name of the Oracle host and this is a mandatory parameter.
+* host_user_name is the SnapCenter user with SSH privileges on the Oracle host and this is a mandatory parameter.
+* host_ssh_key is the SSH key of the SnapCenter user and used to connect to the Oracle host. This is a mandatory parameter.
+* plugin_port is the port used by the plug-in and this is an optional parameter. Default value is 8145
+* host_ssh_port is the SSH port on the Oracle host and this is an optional parameter. Default value is 22
++
+For example:
+`sudo bash linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
 . Review the details and click *Discover Applications*.
 +
 * Displays all the databases on the host. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
@@ -149,26 +153,6 @@ If SSH key based authentication is not enabled on the Oracle database host, you 
 
 *Steps*
 
-. Log into the Connector VM.
-. Download the SnapCenter Linux host plug-in binary.
-`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
-. Obtain the base mount path.
-`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
-. Obtain the binary path of the downloaded plug-in.
-`sudo ls <base_mount_path> $(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
-. Copy _snapcenter_linux_host_plugin_scs.bin_ to each of the Oracle database hosts either using scp or other alternate methods.
-+
-The _snapcenter_linux_host_plugin_scs.bin_ should be copied to a location that is accessible by the SnapCenter user.
-. Log into the Oracle database host using the SnapCenter user account and run the following command to enable execute permissions for the binary.
-`chmod +x snapcenter_linux_host_plugin_scs.bin`
-. Install the Oracle plug-in as a sudo SnapCenter user.
-`./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<snapcenter-user>`
-. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
-. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
-`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
-. Restart SPL: `systemctl restart spl`
-. Validate that the plug-in is reachable from the Connector by running the below command from the Connector.
-`docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . Click *Discover Applications*.
 . Select *Cloud Native* and click *Next*.
@@ -180,7 +164,7 @@ A service account with _SnapCenter System_ role is created to perform scheduled 
 NOTE: The service account (_SnapCenter-account-<accountid>_) is used to run the scheduled backup operations. You should never delete the service account.
 
 . Select Oracle as the application type.
-. In the Host details page, perform the following:
+. In the *Host details* page, perform the following:
 .. Select *Manual*.
 .. Specify the  FQDN or IP address of the host where the plug-in is installed.
 +
@@ -188,13 +172,30 @@ Ensure that using the FQDN or IP address, the Connector can communicate with the
 .. Specify the plug-in port.
 +
 Default port is 8145.
-.. Specify the sudo SnapCenter user using which the plug-in package will be copied to the host.
+.. Specify the sudo non-root (sudo) user using which the plug-in package will be copied to the host.
 .. Select the Connector.
 .. Select the check box to confirm that the plug-in is installed on the host.
 .. Click *Next*.
-. In the Configuration page, perform the following:
-.. Use the visudo Linux utility to edit the _/etc/sudoers.d/snapcenter_ file and paste the lines you copied.
+. In the *Configuration* page, perform the following:
+.. Configure sudo access for the SnapCenter user by copying the text to `/etc/sudoers.d/snapcenter` file.
 .. Select the checkbox and click *Next*.
+. Log into the Connector VM.
+. Download the SnapCenter Linux host plug-in binary.
+`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
+. Change directory to: `cd /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data//var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin`
+. Copy _snapcenter_linux_host_plugin_scs.bin_ to each of the Oracle database hosts either using scp or other alternate methods.
++
+The _snapcenter_linux_host_plugin_scs.bin_ should be copied to a location that is accessible by the non-root (sudo).
+. Log into the Oracle database host using the non-root (sudo) account and run the following command to enable execute permissions for the binary.
+`chmod +x snapcenter_linux_host_plugin_scs.bin`
+. Install the Oracle plug-in as a sudo SnapCenter user.
+`./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root>`
+. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
+. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
+`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
+. Restart SPL: `systemctl restart spl`
+. Validate that the plug-in is reachable from the Connector by running the below command from the Connector.
+`docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
 . Review the details and click *Discover Applications*.
 +
 * Displays all the databases on the host. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
@@ -204,6 +205,8 @@ Default port is 8145.
 NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed.
 +
 * Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and you can either edit them to meet your requirement or create a new policy.
++
+Navigate to BlueXP UI.
 
 == Configure Oracle database credentials
 
