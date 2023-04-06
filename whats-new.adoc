@@ -16,6 +16,46 @@ summary: Learn what's new in Cloud Backup.
 Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
+== 4 April 2023
+
+=== Ability to back up data to the cloud from Cloud Volumes ONTAP systems in "Restricted" mode
+
+Now you can back up data from Cloud Volumes ONTAP systems installed in AWS, Azure, and GCP commercial regions in "Restricted" mode. This requires that you first install the Connector in the "restricted" commercial region. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+
+//=== Ability to back up data from Cloud Volumes ONTAP systems in secret sites
+//
+//Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secret regions to Amazon S3 or Azure Blob. This requires that you install the Connector on a Linux host in the secret region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+
+=== Ability to back up your on-premises ONTAP volumes to ONTAP S3 using the API
+
+New functionality in the APIs enable you to back up your volume snapshots to ONTAP S3 using BlueXP Cloud Backup. This functionality is available only for On-Prem ONTAP systems at this time. For detailed instructions, see the Blog https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feature-Blog-April-23-Updates/ba-p/443075#toc-hId--846533830[Integration with ONTAP S3 as destination (Using REST APIs)^].
+
+=== Ability to change the zone-redundancy aspect of your Azure storage account from LRS to ZRS
+
+When creating backups from Cloud Volumes ONTAP systems to Azure storage, by default, Cloud Backup provisions the Blob container with Local redundancy (LRS) for cost optimization. You can change this setting to Zone redundancy (ZRS) if you want your data to be replicated between different zones. See the Microsoft instructions for https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal[changing how your storage account is replicated^].
+
+=== Enhancements to the Job Monitor
+
+* Both user-initiated backup and restore operations initiated from the Cloud Backup UI and API, and system-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for On-premises ONTAP systems running ONTAP 9.13.1 or greater. Earlier ONTAP versions will display only user-initiated jobs.
+* In addition to being able to download a CSV file for reporting on all jobs, now you can download a JSON file for a single job and see its details. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report[Learn more].
+* Two new backup job alerts have been added: "Scheduled job failure" and "Restore job completes but with warnings". https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review all of the alerts that Cloud Backup can send].
+
+== 9 March 2023
+
+=== Folder-level restore operations now include all sub-folders and files
+
+In the past when you restored a folder, only files from that folder were restored - no sub-folders, or files in sub-folders, were restored. Now, if you are using ONTAP 9.13.0 or greater, all the sub-folders and files in the selected folder are restored. This can save a great deal of time and money in cases where you have multiple nested folders in a top-level folder.
+
+=== Ability to back up data from Cloud Volumes ONTAP systems in dark sites
+
+Now you can back up data from Cloud Volumes ONTAP systems installed in AWS and Azure commercial regions to Amazon S3 or Azure Blob. This requires that you install the Connector on a Linux host in the commercial region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+
+=== Multiple enhancements to the Job Monitor
+
+* The Job Monitoring page has added advanced filtering so you can search for backup and restore jobs by time, workload (volumes, applications, virtual machines, or Kubernetes), job type, status, working environment, and storage VM. You can also enter free text to search for any resource, for example, "application_3".  https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs[See how to use the advanced filters].
+
+* Both user-initiated backup and restore operations initiated from the Cloud Backup UI and API, and system-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. Earlier versions of Cloud Volumes ONTAP systems, and on-premises ONTAP systems, will display only user-initiated jobs at this time.
+
 == 6 February 2023
 
 === Ability to move older backup files to Azure archival storage from StorageGRID systems
@@ -46,6 +86,7 @@ Now you restore volume data to different storage VMs in your ONTAP clusters. In 
 When using ONTAP 9.12.1 GA or greater, backup is now supported when connected to the primary system in a MetroCluster configuration. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover.
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations[See Backup limitations for more information]. 
+// end::whats-new[]
 
 == 9 January 2023
 
@@ -134,7 +175,6 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-
 === Ability to restore data from backups to a specific aggregate on Cloud Volumes ONTAP systems
 
 In earlier releases you could select the aggregate only when restoring data to on-prem ONTAP systems. This functionality now works when restoring data to Cloud Volumes ONTAP systems.
-// end::whats-new[]
 
 == 2 November 2022
 
