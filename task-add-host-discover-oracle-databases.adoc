@@ -67,7 +67,7 @@ You can close the SSH port on the application host after installing the plug-in.
 NOTE: The SSH private key is not stored anywhere in the application and is not used for any other operations.
 .. Click *Next*.
 . In the Configuration page, perform the following:
-.. Configure the sudo access for the non-root(sudo) user by copying the text to _/etc/sudoers.d/snapcenter_ file.
+.. Configure the sudo access for the non-root (sudo) user by copying the text to _/etc/sudoers.d/snapcenter_ file.
 .. Select the checkbox and click *Next*.
 . Review the details and click *Discover Applications*.
 +
@@ -119,10 +119,10 @@ Default port is 8145.
 .. Select the check box to confirm that the plug-in is installed on the host.
 .. Click *Next*.
 . In the Configuration page, perform the following:
-.. Configure sudo access for the SnapCenter user by copying the text to `/etc/sudoers.d/snapcenter`` file.
+.. Configure sudo access for the SnapCenter user by copying the text to `/etc/sudoers.d/snapcenter` file.
 .. Select the checkbox and click *Next*.
 . Log into the Connector VM.
-. Change directory to `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts``
+. Change directory to `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts`
 . Install the plug-in using the script provided in the Connector.
 `sudo bash linux_plugin_copy_and_install.sh --host <plugin_host> --username
 <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport
@@ -176,7 +176,7 @@ Default port is 8145.
 .. Select the check box to confirm that the plug-in is installed on the host.
 .. Click *Next*.
 . In the *Configuration* page, perform the following:
-.. Configure sudo access for the SnapCenter user by copying the text to `/etc/sudoers.d/snapcenter`` file.
+.. Configure sudo access for the SnapCenter user by copying the text to `/etc/sudoers.d/snapcenter` file.
 .. Select the checkbox and click *Next*.
 . Log into the Connector VM.
 . Download the SnapCenter Linux host plug-in binary.
@@ -197,11 +197,11 @@ The _snapcenter_linux_host_plugin_scs.bin_ should be copied to a location that i
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
 . Review the details and click *Discover Applications*.
 +
+* Displays all the databases on the host. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
++
 * Click *Settings* and select *Hosts* to view all the hosts.
 +
 NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed.
-+
-* Displays all the databases on the host. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
 +
 * Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and you can either edit them to meet your requirement or create a new policy.
 +

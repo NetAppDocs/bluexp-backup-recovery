@@ -25,7 +25,7 @@ Before adding the host, you should ensure that the prerequisites are met.
 
 * Ensure that either Java 11 (64-bit) Oracle Java or OpenJDK is installed on each of the SAP HANA database hosts.
 * You should have added the working environment and created the Connector.
-* Ensure that the Connector has connectivity to the working environment and SAP HANA database hosts.
+* Ensure that the Connector has connectivity to the SAP HANA database hosts.
 +
 For information refer
 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[Failed to validate connectivity from BlueXP connector host to application database host]
@@ -65,12 +65,11 @@ Ensure that the SSH connection to the Connector is enabled.
 
 *Steps*
 
-. Log in to Connector VM.
+. Log into Connector VM.
 . Change directory to `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts`
 . Install the plug-in using the script provided in the Connector.
 `sudo bash linux_plugin_copy_and_install.sh --host <plugin_host> --username
-<host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport
-<host_ssh_port>`
+<host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
 *Parameters*
 +
 |===
@@ -180,11 +179,11 @@ The _snapcenter_linux_host_plugin_scs.bin_ should be copied to a location that i
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
 . Review the details and click *Discover Applications*.
 +
+* Displays all the databases on the host. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure SAP HANA database credentials>>.
++
 * Click *Settings* and select *Hosts* to view all the hosts.
 +
 NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed.
-+
-* Displays all the databases on the host. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure SAP HANA database credentials>>.
 +
 * Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and you can either edit them to meet your requirement or create a new policy.
 +
