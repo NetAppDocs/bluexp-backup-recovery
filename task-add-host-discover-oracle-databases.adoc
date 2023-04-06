@@ -27,10 +27,9 @@ Before adding the host, you should ensure that the prerequisites are met.
 * You should have created the working environment and the Connector.
 * Ensure that the Connector has connectivity to the working environment and Oracle database hosts.
 +
-For information refer
-link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[Failed to validate connectivity from BlueXP connector host to application database host]
+For information on how to resolve the connectivity issue, refer to link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[Failed to validate connectivity from BlueXP connector host to application database host].
 +
-When the connector is lost or if you have created a new connector, you should associate the connector with the existing application resources.  For instructions, see link:task-manage-cloud-native-app-data.html#update-the-connector-details[Update the Connector Details]
+When the connector is lost or if you have created a new connector, you should associate the connector with the existing application resources. For instructions to update the Connector, see link:task-manage-cloud-native-app-data.html#update-the-connector-details[Update the Connector Details].
 * Ensure that the BlueXP user has the “Account Admin” role.
 * Ensure that either Java 11 (64-bit) Oracle Java or OpenJDK is installed on each of the Oracle database hosts and the JAVA_HOME variable is set appropriately.
 * Ensure that the Connector has the communication enabled to the SSH port (default: 22) if SSH based installation is performed.

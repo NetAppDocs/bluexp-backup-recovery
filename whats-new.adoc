@@ -22,7 +22,7 @@ Learn what's new in Cloud Backup.
 
 * SAP HANA databases
 ** Supports script based system refresh
-** Supports Single File Snapshot Restore when secondary storage is enabled
+** Supports Single-File-Snapshot-Restore if Azure NetApp Files backup is configured
 ** Supports plug-in upgrade
 * Oracle databases
 ** Enhancements to plug-in deployment by simplifying non-root sudo user configuration
