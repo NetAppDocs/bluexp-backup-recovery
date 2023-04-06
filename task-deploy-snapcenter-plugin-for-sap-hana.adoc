@@ -162,6 +162,20 @@ If SSH key based authentication is not enabled on the HANA host, you should perf
 
 == Upgrade SnapCenter Plug-in for SAP HANA Database
 
+You should upgrade the SnapCenter Plug-in for SAP HANA database to gain access to the latest new features and enhancements.
+
+*Before you begin*
+
+* Ensure that there are no operations running on the host.
+
+*Steps*
+. Click *Backup and recovery* > *Applications* > *Hosts*.
+. Verify if plug-in upgrade is available for any of the hosts by checking the Overall Status column.
+. Log in to Connector VM.
+. Change directory to _/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts_
+. Run the following script.
+`sudo bash linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade`
+
 == Add SAP HANA database hosts
 
 You should manually add SAP HANA database hosts to assign policies and create backups. Auto discovery of SAP HANA database host is not supported.

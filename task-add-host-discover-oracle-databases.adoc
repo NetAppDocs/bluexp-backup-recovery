@@ -221,22 +221,25 @@ The Oracle user should have sysdba privileges and ASM user should have sysasm pr
 
 == Upgrade SnapCenter Plug-in for Oracle Database
 
-You can upgrade SnapCenter Plug-in for Oracle from the UI or using command line.
+You should upgrade the SnapCenter Plug-in for Oracle to gain access to the latest new features and enhancements. You can upgrade from the BlueXP UI or using the command line.
 
 *Before you begin*
 
-* You must ensure that there are no operations running on the host.
+* Ensure that there are no operations running on the host.
 
 *Steps*
-. Click *Backup and recovery* > *Applications* > *Hosts*
+. Click *Backup and recovery* > *Applications* > *Hosts*.
+. Verify if plug-in upgrade is available for any of the hosts by checking the Overall Status column.
+. Upgrade the plug-in from UI or using the command line.
+
+|===
+|Upgrade using UI | Upgrade using command line 
+
+a|
 . Click image:icon-action.png[icon to select the action] corresponding to the host and click *Upgrade Plug-in*.
-. Select the check box and click *Upgrade*.
-
-Command line
-
-Script
-Log in to Connector VM
-cd to `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts`
-Execute the command below
-linux_plugin_copy_and_install.sh Collapse source
-sudo bash linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport 
+. Select the check box and click *Upgrade*. 
+a|
+. Log in to Connector VM.
+. Change the directory to _/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts_
+. Run the following script.
+`sudo bash linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade`
