@@ -1,0 +1,25 @@
+---
+sidebar: sidebar
+permalink: task-upgrade-oracle-plug-in.html
+keywords: Cloud Manager, BlueXP, SnapCenter Plug-in for Oracle, Oracle, database, host, upgrade, add host, discover
+summary:  Upgrade the SnapCenter Plug-in for Oracle Database.
+---
+
+= Upgrade SnapCenter Plug-in for Oracle Database
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can upgrade SnapCenter Plug-in for Oracle from the UI or using command line.
+
+*Before you begin*
+
+* You must ensure that there are no operations running on the host.* 
+
+*Steps*
+. Click *Backup and recovery* > *Applications* > *Hosts*
+. Click image:icon-action.png[icon to select the action] corresponding to the host and click *Upgrade Plug-in*.
+. Check *I have configured sudo access for "ec2-user" as per above steps* and click *Upgrade* icon.

@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: task-upgrade-sap-hana-plug-in.html
+keywords: Cloud Manager, BlueXP, SnapCenter Plug-in for SAP HANA Database, SAP HANA Database, database, host, upgrade, add host, discover
+summary:  Upgrade the SnapCenter Plug-in for SAP HANA Database.
+---
+
+= Upgrade SnapCenter Plug-in for SAP HANA Database
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can upgrade SnapCenter Plug-in for SAP HANA Database using command line.

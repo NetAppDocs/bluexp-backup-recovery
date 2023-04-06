@@ -105,7 +105,7 @@ Ensure that the SSH connection to the Connector is enabled.
 * host_ssh_port is the SSH port on the Oracle host and this is an optional parameter. Default value is 22
 +
 For example:
-`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host xxx.xx.x.x --sshkey /keys/netapp-ssh.ppk`
+`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host testhost --sshkey /keys/netapp-ssh.ppk`
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . Click *Discover Applications*.
 . Select *Cloud Native* and click *Next*.
