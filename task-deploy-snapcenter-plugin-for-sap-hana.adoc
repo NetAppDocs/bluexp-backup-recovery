@@ -25,12 +25,14 @@ Before adding the host, you should ensure that the prerequisites are met.
 
 * Ensure that either Java 11 (64-bit) Oracle Java or OpenJDK is installed on each of the SAP HANA database hosts.
 * You should have added the working environment and created the Connector.
-* Ensure that the Connector has connectivity to the working environment.
+* Ensure that the Connector has connectivity to the working environment and SAP HANA database hosts.
 +
-When the connector is lost or if you have created a new connector, to associate the connector with the existing application resources, refer
-link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[Cloud Backup Application Failed to validate connectivity from BlueXP connector host to application database host]
+For information refer
+link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host[Failed to validate connectivity from BlueXP connector host to application database host]
++
+When the connector is lost or if you have created a new connector, you should associate the connector with the existing application resources.  For instructions, see link:task-manage-cloud-native-app-data.html#update-the-connector-details[Update the Connector Details.]
 * Ensure that the BlueXP user has the “Account Admin” role.
-* You should have created the SnapCenter user and configured sudo for the SnapCenter user. For information, refer to link:task-deploy-snapcenter-plugin-for-sap-hana.html#configure-sudo-for-snapcenter-user[Configure sudo for SnapCenter user.]
+* You should have created the SnapCenter user and configured sudo for the non-root (sudo) user. For information, refer to link:task-deploy-snapcenter-plugin-for-sap-hana.html#configure-sudo-for-snapcenter-user[Configure sudo for SnapCenter user.]
 * You should have installed the SnapCenter Plug-in for SAP HANA before adding the database host. 
 * While adding the SAP HANA database hosts, you should add the HDB user store keys. The HDB secure user store key is used to store the connection information of SAP HANA database hosts securely on the client and HDBSQL client uses the secure user store key to connect to SAP HANA database host.  
 * For HANA System Replication (HSR), to protect the HANA systems, you should manually register both primary and secondary HANA systems.
@@ -41,31 +43,81 @@ NOTE: If the connectivity from BlueXP Connector host to application host fails, 
 
 == Configure sudo for SnapCenter user
 
-You should create a SnapCenter user to install the plug-in.
+Create a non-root (sudo) user to install the plug-in.
 
 *Steps*
 
 . Log into the Connector VM.
-. Download the Linux host plug-in binary.
-`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
-. Obtain the base mount path.
-`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
-. Copy lines 1 to 16 from the `oracle_checksum_scs.txt` file located at `base_mount_path/version/sc-linux-host-plugin/`
-. Log into the SAP HANA database host and perform the following steps:
-.. Create the SnapCenter user account, private key pair, and assign the permissions.
-.. Use the visudo Linux utility to edit the `/etc/sudoers` file and paste the lines you copied in step 4.
+. Change directory to: `cd to /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin`
+. Copy the contents of `sudoer.txt`
+. Log into the SAP HANA database host using root user account.
+.. Configure sudo access for the non-root user by copying the text copied in the step 3 to `/etc/sudoers.d/snapcenter` file.
 +
-In the lines you added to the `/etc/sudoers`, replace the <LINUXUSER> with the SnapCenter user that you created and save in the visuod utility.
+In the lines you added to the `/etc/sudoers.d/snapcenter` file, replace the `<LINUXUSER>` with the non-root user and `<USER_HOME_DIRECTORY>` with `home/<non-root-user>`
 
-== Install the plug-in using SSH key based authentication
+== Install the plug-in using script
 
-If SSH key based authentication is enabled on the HANA host for the SnapCenter user, you can perform the following steps to install the plug-in. 
+Configure SSH key based authentication for the SAP HANA host non-root user account and perform the following steps to install the plug-in.
 
 *Before your begin*
 
 Ensure that the SSH connection to the Connector is enabled.
 
 *Steps*
+
+. Log in to Connector VM.
+. Change directory to `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts`
+. Install the plug-in using the script provided in the Connector.
+`sudo bash linux_plugin_copy_and_install.sh --host <plugin_host> --username
+<host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport
+<host_ssh_port>`
+*Parameters*
++
+|===
+|Name | Description | Mandatory | Default 
+
+a|
+plugin_host 
+a|
+Specifies the SAP HANA host 
+a|
+Yes
+a|
+-
+a|
+host_user_name
+a|
+Specifies the SnapCenter user with SSH privileges on the SAP HANA host
+a|
+Yes
+a|
+-
+a|
+host_ssh_key
+a|
+Specifies the SSH key of the SnapCenter user and is used to connect to the SAP HANA host
+a|
+Yes
+a|
+-
+a|
+plugin_port
+a|
+Specifies the port used by the plug-in   
+a|
+No
+a|
+8145
+a|
+host_ssh_port 
+a|
+Specifies the SSH port on the SAP HANA host 
+a|
+No
+a|
+22
+|===
+For example, `sudo bash linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
 
 . Log into the Connector VM.
 
@@ -75,53 +127,6 @@ Ensure that the SSH connection to the Connector is enabled.
 . Install the plug-in.
 `# sudo <base_mount_path>/scripts/hana_plugin_copy_and_install.sh --host <host_name> --sshkey <ssh_key_file> --username <user_name> --port <ssh_port> --pluginport <plugin_port>`
 +
-*Parameters*
-+
-|===
-|Name | Description | Mandatory | Default 
-
-a|
-host_name 
-a|
-Specifies the host name
-a|
-Yes
-a|
--
-a|
-ssh_key_file
-a|
-Specifies the SSH key used to connect to the SAP HANA host
-a|
-Yes
-a|
--
-a|
-user_name
-a|
-Specifies the user with SSH privileges on the SAP HANA host
-a|
-No
-a|
-azureuser
-a|
-ssh_port
-a|
-Specifies the SSH port on the SAP HANA host
-a|
-No
-a|
-22
-a|
-plugin_port
-a|
-Specifies the port used by the plug-in
-a|
-No
-a|
-8145
-|===
-
 After installing the plug-in, you should add the link:task-deploy-snapcenter-plugin-for-sap-hana.html#add-sap-hana-database-hosts[SAP HANA database hosts.]
 
 == Install the plug-in manually
@@ -130,34 +135,60 @@ If SSH key based authentication is not enabled on the HANA host, you should perf
 
 *Steps*
 
-. Log into the Connector VM.
-
-. Download the Linux host plug-in binary.
-`# sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
-
-. Obtain the base mount path.
-`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
-
-. Obtain the binary path of the downloaded plug-in.
-`sudo ls <base_mount_path> $(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
-
-. Copy `snapcenter_linux_host_plugin_scs.bin` to each of the SAP HANA database hosts either using scp or other alternate methods.
-
-. On the SAP HANA database host, run the following command to enable execute permissions for the binary.
-`chmod +x snapcenter_linux_host_plugin_scs.bin`
-
-. Install the SAP HANA plug-in as a sudo SnapCenter user.
-`./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root-user>`
-
-. Copy `certificate.p12` from `<base_mount_path>/client/certificate/` path of the Connector VM to `/var/opt/snapcenter/spl/etc/` on the plug-in host.
-
-.. Navigate to `/var/opt/snapcenter/spl/etc` and execute the keytool command to import the certificate.
-`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
-.. Restart SPL: `systemctl restart spl`
-
-. Validate that the plug-in is reachable from the Connector by running the below command from the Connector:
+. In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
+. Click *Discover Applications*.
+. Select *Cloud Native* and click *Next*.
 +
+A service account with _SnapCenter System_ role is created to perform scheduled data protection operations for all the users in this account.
++
+* Click *Account* > *Manage Account* > *Members* to view the service account.
++
+NOTE: The service account (_SnapCenter-account-<accountid>_) is used to run the scheduled backup operations. You should never delete the service account.
+
+. Select SAP HANA as the application type.
+. In the *Host details* page, perform the following:
+.. Select *Manual*.
+.. Specify the  FQDN or IP address of the host where the plug-in is installed.
++
+Ensure that using the FQDN or IP address, the Connector can communicate with the database host.
+.. Specify the plug-in port.
++
+Default port is 8145.
+.. Specify the sudo non-root (sudo) user using which the plug-in package will be copied to the host.
+.. Select the Connector.
+.. Select the check box to confirm that the plug-in is installed on the host.
+.. Click *Next*.
+. In the *Configuration* page, perform the following:
+.. Configure sudo access for the SnapCenter user by copying the text to `/etc/sudoers.d/snapcenter`` file.
+.. Select the checkbox and click *Next*.
+. Log into the Connector VM.
+. Download the SnapCenter Linux host plug-in binary.
+`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
+. Change directory to: `cd /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data//var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin`
+. Copy _snapcenter_linux_host_plugin_scs.bin_ to each of the SAP HANA database hosts either using scp or other alternate methods.
++
+The _snapcenter_linux_host_plugin_scs.bin_ should be copied to a location that is accessible by the non-root (sudo).
+. Log into the SAP HANA database host using the non-root (sudo) account and run the following command to enable execute permissions for the binary.
+`chmod +x snapcenter_linux_host_plugin_scs.bin`
+. Install the SAP HANA plug-in as a sudo SnapCenter user.
+`./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root>`
+. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
+. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
+`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
+. Restart SPL: `systemctl restart spl`
+. Validate that the plug-in is reachable from the Connector by running the below command from the Connector.
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
+. Review the details and click *Discover Applications*.
++
+* Click *Settings* and select *Hosts* to view all the hosts.
++
+NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed.
++
+* Displays all the databases on the host. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure SAP HANA database credentials>>.
++
+* Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and you can either edit them to meet your requirement or create a new policy.
++
+Navigate to BlueXP UI.
 
 == Add SAP HANA database hosts
 
