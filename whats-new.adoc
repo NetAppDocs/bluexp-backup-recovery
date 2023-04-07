@@ -20,7 +20,7 @@ Learn what's new in Cloud Backup.
 
 === Ability to back up data to the cloud from Cloud Volumes ONTAP systems in "Restricted" mode
 
-Now you can back up data from Cloud Volumes ONTAP systems installed in AWS, Azure, and GCP commercial regions in "Restricted" mode. This requires that you first install the Connector in the "restricted" commercial region. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+Now you can back up data from Cloud Volumes ONTAP systems installed in AWS, Azure, and GCP commercial regions in "Restricted" mode. This requires that you first install the Connector in the "restricted" commercial region. https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-modes.html[Learn more about BlueXP deployment modes^]. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 //=== Ability to back up data from Cloud Volumes ONTAP systems in secret sites
 //
@@ -28,7 +28,7 @@ Now you can back up data from Cloud Volumes ONTAP systems installed in AWS, Azur
 
 === Ability to back up your on-premises ONTAP volumes to ONTAP S3 using the API
 
-New functionality in the APIs enable you to back up your volume snapshots to ONTAP S3 using BlueXP Cloud Backup. This functionality is available only for On-Prem ONTAP systems at this time. For detailed instructions, see the Blog https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feature-Blog-April-23-Updates/ba-p/443075#toc-hId--846533830[Integration with ONTAP S3 as destination (Using REST APIs)^].
+New functionality in the APIs enable you to back up your volume snapshots to ONTAP S3 using BlueXP Cloud Backup. This functionality is available only for On-Premises ONTAP systems at this time. For detailed instructions, see the Blog https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feature-Blog-April-23-Updates/ba-p/443075#toc-hId--846533830[Integration with ONTAP S3 as a destination^].
 
 === Ability to change the zone-redundancy aspect of your Azure storage account from LRS to ZRS
 
