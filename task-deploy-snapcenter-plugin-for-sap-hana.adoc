@@ -118,15 +118,7 @@ a|
 |===
 For example, `sudo bash linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
 
-. Log into the Connector VM.
-
-. Obtain the base mount path.
-`/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data`
-
-. Install the plug-in.
-`# sudo <base_mount_path>/scripts/hana_plugin_copy_and_install.sh --host <host_name> --sshkey <ssh_key_file> --username <user_name> --port <ssh_port> --pluginport <plugin_port>`
-+
-After installing the plug-in, you should add the link:task-deploy-snapcenter-plugin-for-sap-hana.html#add-sap-hana-database-hosts[SAP HANA database hosts.]
+After installing the plug-in, you should add the SAP HANA database host. <<Add SAP HANA database hosts, Learn more>>.
 
 == Install the plug-in manually
 
@@ -134,40 +126,13 @@ If SSH key based authentication is not enabled on the HANA host, you should perf
 
 *Steps*
 
-. In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
-. Click *Discover Applications*.
-. Select *Cloud Native* and click *Next*.
-+
-A service account with _SnapCenter System_ role is created to perform scheduled data protection operations for all the users in this account.
-+
-* Click *Account* > *Manage Account* > *Members* to view the service account.
-+
-NOTE: The service account (_SnapCenter-account-<accountid>_) is used to run the scheduled backup operations. You should never delete the service account.
-
-. Select SAP HANA as the application type.
-. In the *Host details* page, perform the following:
-.. Select *Manual*.
-.. Specify the  FQDN or IP address of the host where the plug-in is installed.
-+
-Ensure that using the FQDN or IP address, the Connector can communicate with the database host.
-.. Specify the plug-in port.
-+
-Default port is 8145.
-.. Specify the sudo non-root (sudo) user using which the plug-in package will be copied to the host.
-.. Select the Connector.
-.. Select the check box to confirm that the plug-in is installed on the host.
-.. Click *Next*.
-. In the *Configuration* page, perform the following:
-.. Configure sudo access for the SnapCenter user by copying the text to `/etc/sudoers.d/snapcenter`` file.
-.. Select the checkbox and click *Next*.
 . Log into the Connector VM.
 . Download the SnapCenter Linux host plug-in binary.
 `sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
-. Change directory to: `cd /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data//var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin`
-. Copy _snapcenter_linux_host_plugin_scs.bin_ to each of the SAP HANA database hosts either using scp or other alternate methods.
-+
-The _snapcenter_linux_host_plugin_scs.bin_ should be copied to a location that is accessible by the non-root (sudo).
-. Log into the SAP HANA database host using the non-root (sudo) account and run the following command to enable execute permissions for the binary.
+. Change directory to: `cd /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin`
+. Copy _snapcenter_linux_host_plugin_scs.bin_ to _/home/<non root user (sudo)>/.sc_netapp_ path for each of the SAP HANA database hosts either using scp or other alternate methods.
+. Log into the SAP HANA database host using the non-root (sudo) account.
+. Change directory to "/home/<non root user>/.sc_netapp/" and run the following command to enable execute permissions for the binary.
 `chmod +x snapcenter_linux_host_plugin_scs.bin`
 . Install the SAP HANA plug-in as a sudo SnapCenter user.
 `./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root>`
@@ -199,8 +164,6 @@ You should upgrade the SnapCenter Plug-in for SAP HANA database to gain access t
 
 *Steps*
 
-. Click *Backup and recovery* > *Applications* > *Hosts*.
-. Verify if plug-in upgrade is available for any of the hosts by checking the Overall Status column.
 . Log in to Connector VM.
 . Change directory to _/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts_
 . Run the following script.

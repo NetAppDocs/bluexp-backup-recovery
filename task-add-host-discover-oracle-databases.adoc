@@ -16,7 +16,7 @@ summary:  Install the SnapCenter Plug-in for Oracle on each of the Oracle databa
 You should install the SnapCenter Plug-in for Oracle on each of the Oracle database hosts, add the database hosts, and discover the databases on the host to assign policies and create backups.
 
 * If SSH is enabled for the database host, you can install the plug-in using one of the methods:
-** Install the plug-in and add host from the UI using SSH option. <<Install the plug-in and add host from UI using SSH option, Learn more>>.
+** Install the plug-in and add host from the UI using SSH option. <<Add host from UI using SSH option, Learn more>>.
 ** Install the plug-in using script and add host from the UI using manual option. <<Install the plug-in using script and add host from UI using manual option, Learn more>>.
 * If SSH is disabled, install the plug-in manually and add host from the UI using manual option. <<Install the plug-in manually and add host from UI using manual option, Learn more>>.
 
@@ -35,6 +35,7 @@ When the connector is lost or if you have created a new connector, you should as
 * Ensure that the Connector has the communication enabled to the SSH port (default: 22) if SSH based installation is performed.
 * Ensure that the Connector has the communication enabled to plug-in port (default: 8145) for the data protection operations to work.
 * Ensure that the you have the latest version of plug-in is installed. To upgrade the plug-in, refer to <<Upgrade SnapCenter Plug-in for Oracle Database>>.
+* Create a non root (sudo) account on the application host.
 
 == Add host from UI using SSH option
 
@@ -71,11 +72,7 @@ NOTE: The SSH private key is not stored anywhere in the application and is not u
 .. Select the checkbox and click *Next*.
 . Review the details and click *Discover Applications*.
 +
-* Installs the plug-in on the database host. 
-+
-After the plug-in is installed, the discovery operation starts.
-+
-You can monitor the Installation job from the *Job Monitoring* page.
+* After the plug-in is installed, the discovery operation starts. You can monitor the Installation job from the *Job Monitoring* page.
 +
 * Displays all the databases on the host. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
 +
@@ -87,7 +84,7 @@ NOTE: The filter to view a specific host does not work. When you specify a host 
 
 == Install the plug-in using script and add host from UI using manual option
 
-If SSH key based authentication is enabled on the Oracle host for the non-root (sudo) user, you can perform the following steps to install the plug-in.
+Configure SSH key based authentication for the Oracle host non-root user account and perform the following steps to install the plug-in.
 
 *Before you begin*
 
@@ -182,10 +179,11 @@ Default port is 8145.
 . Download the SnapCenter Linux host plug-in binary.
 `sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
 . Change directory to: `cd /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data//var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin`
-. Copy _snapcenter_linux_host_plugin_scs.bin_ to each of the Oracle database hosts either using scp or other alternate methods.
+. Copy _snapcenter_linux_host_plugin_scs.bin_ to _/home/<non root user (sudo)>/.sc_netapp_ path for each of the Oracle database hosts either using scp or other alternate methods. 
 +
 The _snapcenter_linux_host_plugin_scs.bin_ should be copied to a location that is accessible by the non-root (sudo).
-. Log into the Oracle database host using the non-root (sudo) account and run the following command to enable execute permissions for the binary.
+. Log into the Oracle database host using the non-root (sudo) account.
+. Change directory to _/home/<non root user>/.sc_netapp/_ and run the following command to enable execute permissions for the binary.
 `chmod +x snapcenter_linux_host_plugin_scs.bin`
 . Install the Oracle plug-in as a sudo SnapCenter user.
 `./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root>`
