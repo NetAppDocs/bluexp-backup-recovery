@@ -50,7 +50,7 @@ You can view total number of backups created, policies used for creating backups
 . Click *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *View Details*.
 
-IMPORTANT: The agent ID is associated to the Connector. If a Connector that was used during registering the SAP HANA host no longer exists, the subsequent backups of that application will fail because the agent ID of the new Connector is different. You should modify the Connector id in the host.
+IMPORTANT: The agent ID is associated to the Connector. If a Connector that was used during registering the SAP HANA host no longer exists, the subsequent backups of that application will fail because the agent ID of the new Connector is different. You should modify the Connector id in the host. For information, see <<Update the Connector Details>>.
 
 == Delete clone
 
@@ -64,20 +64,23 @@ You can delete a clone if you no longer require.
 
 == Update the Connector Details 
 
-If the Connector that was used during registering the application host no longer exists or is corrupted, you should deploy a new connector. After deploying the new connector, you should run the *connector-update* API to update the Connector details for all hosts registered using the old connector.
+You should deploy a new Connector, if the Connector that was used during registering the application host no longer exists or is corrupted. After deploying the new connector, you should run the *connector-update* API to update the Connector details for all hosts registered using the old connector.
 
-*For Oracle database host*
+|===
+| If you are on... | Do this...
 
-Before you update the connector, you should check the link:task-add-host-discover-oracle-databases.html#prerequisites[prerequisites.]
-
+a|
+Oracle database host
+a|
+. Ensure that all the link:task-add-host-discover-oracle-databases.html#prerequisites[prerequisites] are met.
 . Click *Backup and recovery* > *Applications* 
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *View Details*.
 . Modify *Connector ID*.
-
-*For SAP HANA database host*
-
-Before you update the connector, you should check the link:task-deploy-snapcenter-plugin-for-sap-hana.html#prerequisites[prerequisites.]
-
+a|
+SAP HANA database host
+a|
+. Ensure that all the link:task-deploy-snapcenter-plugin-for-sap-hana.html#prerequisites[prerequisites] are met.
+. Run the following command:
 ----
 curl --location --request PATCH
 'https://snapcenter.cloudmanager.cloud.netapp.com/api/saphana/hosts/connector/update' \
@@ -89,8 +92,21 @@ curl --location --request PATCH
 "new_connector_id": "New connector Id"
 }
 ----
-
 Connector details will get updated successfully if all the hosts have SnapCenter Plug-in for SAP HANA service installed and running and also if they are all reachable from the new connector.
+|===
+
+After updating the Connector details for Oracle or SAP HANA hosts, perform the following to ensure that the Connector details were updated successfully.
+
+. Login into BlueXP Connector VM and perform the following steps:
+.. Validate that the plug-in is reachable from the Connector by running the below command from the Connector.
+`docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/getVersion --cert/config/client/certificate/certificate.pem --key/config/client/certificate/key.pem`
+.. Obtain the base mount path.
+`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
+.. Copy certificate.p12 from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
+. Log in to the plug-in host and perform the follwing steps:
+.. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.p12 file.
+`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
+.. Restart SPL: `systemctl restart spl`
 
 == Configure CA signed certificate
 
