@@ -121,9 +121,7 @@ Default port is 8145.
 . Log into the Connector VM.
 . Change directory to `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts`
 . Install the plug-in using the script provided in the Connector.
-`sudo bash linux_plugin_copy_and_install.sh --host <plugin_host> --username
-<host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport
-<host_ssh_port>`
+`sudo bash linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
 
 * plugin_host is the name of the Oracle host and this is a mandatory parameter.
 * host_user_name is the SnapCenter user with SSH privileges on the Oracle host and this is a mandatory parameter.
@@ -178,10 +176,8 @@ Default port is 8145.
 . Log into the Connector VM.
 . Download the SnapCenter Linux host plug-in binary.
 `sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
-. Change directory to: `cd /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data//var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin`
+. Change directory to: `cd /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin`
 . Copy _snapcenter_linux_host_plugin_scs.bin_ to _/home/<non root user (sudo)>/.sc_netapp_ path for each of the Oracle database hosts either using scp or other alternate methods. 
-+
-The _snapcenter_linux_host_plugin_scs.bin_ should be copied to a location that is accessible by the non-root (sudo).
 . Log into the Oracle database host using the non-root (sudo) account.
 . Change directory to _/home/<non root user>/.sc_netapp/_ and run the following command to enable execute permissions for the binary.
 `chmod +x snapcenter_linux_host_plugin_scs.bin`
