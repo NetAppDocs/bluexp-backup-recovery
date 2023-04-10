@@ -123,9 +123,8 @@ If you already have a Connector deployed in your Google Cloud Platform VPC, then
 //If you already have a Connector deployed in your Google Cloud Platform VPC or on your premises, then you're all set. If not, then you'll need to create a Connector in either of those locations to back up ONTAP data to Google Cloud storage. You can't use a Connector that's deployed in another cloud provider.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
-//* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[Getting started with Connectors^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-google.html[Installing a Connector in GCP^]
-//* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html[Installing a Connector in your premises^]
+//* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-on-prem.html[Installing a Connector in your premises^]
 
 === Preparing networking for the Connector
 
@@ -135,8 +134,7 @@ Ensure that the Connector has the required networking connections.
 
 . Ensure that the network where the Connector is installed enables the following connections:
 
-* An outbound internet connection to the Cloud Backup service over port 443 (HTTPS)
-* An HTTPS connection over port 443 to your Google Cloud storage
+* An HTTPS connection over port 443 to the Cloud Backup service and to your Google Cloud storage (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#endpoints-contacted-for-day-to-day-operations[see the list of endpoints^])
 * An HTTPS connection over port 443 to your ONTAP cluster management LIF
 
 . Enable Private Google Access (or Private Service Connect) on the subnet where you plan to deploy the Connector. https://cloud.google.com/vpc/docs/configure-private-google-access[Private Google Access^] or https://cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises[Private Service Connect^] are needed if you have a direct connection from your ONTAP cluster to the VPC and you want communication between the Connector and Google Cloud Storage to stay in your virtual private network (a *private* connection).

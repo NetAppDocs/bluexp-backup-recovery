@@ -25,7 +25,7 @@ You can create the NetApp FSx either using BlueXP or AWS. If you have created us
 
 An Account Admin needs to deploy a Connector in AWS that enables BlueXP to manage resources and processes within your public cloud environment.
 
-For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Creating a Connector in AWS from BlueXP].
+For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html[Creating a Connector in AWS from BlueXP].
 
 * You should use the same connector to manage both FSx working environment and Oracle databases.
 * If you have the FSx working environment and Oracle databases in the same VPC, you can deploy the connector in the same VPC.
@@ -35,8 +35,8 @@ For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup
 +
 NOTE: For using NAS (NFS) workloads, you should have transit gateway between the Oracle database VPC and FSx VPC. The NFS IP address which is a floating IP address can be accessed from another VPC only through transit gateway. We cannot access the floating IP addresses by peering the VPCs.
 
-After creating the connector, click *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment* and follow the prompts to add the working environment.
-Ensure that there is connectivity from the connector to the Oracle database hosts and FSx working environment. The connector should be able to connect to the cluster management IP address of the FSx working environment.
+After creating the Connector, click *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment* and follow the prompts to add the working environment.
+Ensure that there is connectivity from the Connector to the Oracle database hosts and FSx working environment. The Connector should be able to connect to the cluster management IP address of the FSx working environment.
 
 IMPORTANT: After creating the Connector, click *Connector > Manage Connectors*; select the Connector name and copy the Connector ID.
 
