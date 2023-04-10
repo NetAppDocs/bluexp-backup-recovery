@@ -129,7 +129,7 @@ In earlier releases, the "Storage Admin" role was required for the service accou
 If you are backing up data from an on-prem ONTAP cluster to StorageGRID in a site with no internet access, also known as a dark site or offline site, now you can use the Search & Restore option to restore data when necessary. This functionality requires that the BlueXP Connector (version 3.9.25 or greater) is deployed in the offline site.
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore[See how to restore ONTAP data using Search & Restore].
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[See how to install the Connector in your offline site].
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html[See how to install the Connector in your offline site].
 
 === Ability to download the Job Monitoring results page as a .csv report
 
@@ -178,7 +178,7 @@ Because of a change in Cloud Backup, you need to change the following Connector 
 
 |===
 
-See the full list of endpoints for your https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html#outbound-internet-access[AWS^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html#outbound-internet-access[Google Cloud^], or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html#outbound-internet-access[Azure^] cloud environment.
+See the full list of endpoints for your https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-aws.html#outbound-internet-access[AWS^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#outbound-internet-access[Google Cloud^], or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-azure.html#outbound-internet-access[Azure^] cloud environment.
 
 === Support for selecting the Google Archival storage class in the UI
 
@@ -341,7 +341,7 @@ In the past you needed to deploy the Connector in the same cloud provider as whe
 
 If your on-prem ONTAP cluster resides in a site with no internet access, also known as a dark site or offline site, now you can use Cloud Backup to back up volume data to a NetApp StorageGRID system that resides in the same site. This functionality requires that the BlueXP Connector (version 3.9.19 or greater) is also deployed in the offline site.
 
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html[See how to install the Connector in your offline site].
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html[See how to install the Connector in your offline site].
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html[See how to back up ONTAP data to StorageGRID in your offline site].
 
 === Cloud Backup for Virtual Machines 1.1.0 is now GA
@@ -417,19 +417,3 @@ Now you can search for a volume or file across *all ONTAP backup files* by parti
 If your GKE cluster has NetApp Astra Trident installed, and it's using Cloud Volumes ONTAP for GCP as backend storage for the cluster, then you can back up and restore your persistent volumes to and from Google Cloud storage. link:task-backup-kubernetes-to-gcp.html[Go here for details].
 
 === The Beta capability to use Cloud Data Sense to scan your Cloud Backup files has been discontinued in this release
-
-== 14 February 2022
-
-=== Now you can assign backup policies to individual volumes in a single cluster
-
-In the past you could assign only a single backup policy to all volumes in a cluster. Now you can create multiple backup policies for a single cluster and apply different policies to different volumes. link:task-manage-backups-ontap#changing-the-policy-assigned-to-existing-volumes[See how to create new backup policies for a cluster and assign them to selected volumes].
-
-=== A new option enables you to automatically apply a default backup policy to newly created volumes
-
-In the past, new volumes created in a working environment after Cloud Backup was activated required that you manually apply a backup policy. Now, regardless of if the volume was created in BlueXP, System Manager, the CLI, or by using APIs, Cloud Backup will discover the volume and apply the backup policy you have chosen as the default policy.
-
-This option is available when enabling backup in a new working environment, or from the _Manage Volumes_ page for existing working environments.
-
-=== New Job Monitor is available to see the in-process status of all backup and restore jobs
-
-The Job Monitor can be very helpful when you have initiated an operation against multiple volumes, like changing the backup policy, or deleting backups, so you can see when the operation has completed on all volumes. link:task-monitor-backup-jobs.html[See how to use the Job Monitor].

@@ -25,7 +25,7 @@ You can create the FSx for ONTAP working environment either using BlueXP or AWS.
 
 An Account Admin needs to create a Connector in AWS that enables BlueXP to manage resources and processes within your public cloud environment.
 
-For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html[Creating a Connector in AWS from BlueXP].
+For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html[Creating a Connector in AWS from BlueXP].
 
 * You should use the same connector to manage both FSx for ONTAP working environment and databases.
 * If you have the FSx for ONTAP working environment and databases in the same virtual private cloud (VPC), you can deploy the connector in the same VPC.
@@ -35,7 +35,8 @@ For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup
 +
 NOTE: For using NAS (NFS) workloads, you should have transit gateway between the database VPC and Amazon VPC. The NFS IP address which is a floating IP address can be accessed from another VPC only through transit gateway. We cannot access the floating IP addresses by peering the VPCs.
 
-After creating the connector, perform the following:
+After creating the Connector, click *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment* and follow the prompts to add the working environment.
+Ensure that there is connectivity from the Connector to the Oracle database hosts and FSx working environment. The Connector should be able to connect to the cluster management IP address of the FSx working environment.
 
 * Add the working environment by clicking *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment*.
 +
