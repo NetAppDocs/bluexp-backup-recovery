@@ -14,4 +14,4 @@ summary:  Access BlueXP.
 
 [.lead]
 
-You should link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-signing-up.html[sign up to NetApp BlueXP website], link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[log into BlueXP], and then set up a link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-setting-up-netapp-accounts.html[NetApp account].
+You should link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-signing-up.html[sign up to NetApp BlueXP website], link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[log into BlueXP], and then set up a link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-netapp-accounts.html[NetApp account].
