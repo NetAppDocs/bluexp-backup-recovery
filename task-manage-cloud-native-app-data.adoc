@@ -18,24 +18,7 @@ summary: View the backup details and monitor the status of all the jobs.
 
 You can monitor the status of the jobs that have been initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems.
 
-You can view a list of all the operations and their status. Each operation, or job, has a unique ID and a status. The status can be:
-
-* Successful
-* In Progress
-* Queued
-* Warning
-* Failed
-
-*Steps*
-
-. Click *Backup and recovery*.
-. Click *Job Monitoring*
-+
-You can click the name of a job to view details corresponding to that operation. If you are looking for specific job, you can:
-
-* use the time selector at the top of the page to view jobs for a certain time range
-* enter a part of the job name in the Search field
-* sort the results by using the filter in each column heading
+For more information, refer to link:https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html[Monitor job status].
 
 == Audit data
 
