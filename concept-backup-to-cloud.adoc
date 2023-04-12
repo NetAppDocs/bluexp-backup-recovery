@@ -21,7 +21,7 @@ When necessary, you can restore an entire _volume_ from a backup to the same or 
 
 https://bluexp.netapp.com/cloud-backup[Learn more about Cloud Backup^].
 
-Backup recovery can be used to:
+Backup and recovery can be used to:
 
 * Back up and restore ONTAP volume data from Cloud Volumes ONTAP and on-premises ONTAP systems. link:concept-ontap-backup-to-cloud.html[See detailed features here].
 * Back up and restore Kubernetes persistent volumes. link:concept-kubernetes-backup-to-cloud.html[See detailed features here].
