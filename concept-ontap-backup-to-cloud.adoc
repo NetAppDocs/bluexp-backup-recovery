@@ -109,16 +109,24 @@ Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP
 Cloud Backup can be used in a site with limited internet connectivity (also known as "restricted mode") to back up and restore volume data. In this case, you'll need to deploy the BlueXP Connector in the restricted region. 
 
 //* You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
+ifdef::aws[]
 * You can back up data from Cloud Volumes ONTAP systems installed in AWS commercial regions to Amazon S3. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3].
+endif::aws[]
+ifdef::azure[]
 * You can back up data from Cloud Volumes ONTAP systems installed in Azure commercial regions to Azure Blob. See link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+endif::azure[]
 
 === Support for sites with no internet connectivity
 
 Cloud Backup can be used in a site with no internet connectivity (also known as "private mode" or "dark" sites) to back up volume data. In this case, you'll need to deploy the BlueXP Connector in the dark site. 
 
 * You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
+//ifdef::aws[]
 //* You can back up data from Cloud Volumes ONTAP systems installed in AWS commercial regions and AWS C2S/SC2S secure regions to Amazon S3. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3].
+//endif::aws[]
+//ifdef::azure[]
 //* You can back up data from Cloud Volumes ONTAP systems installed in Azure commercial regions and Azure IL6 secure regions to Azure Blob. See link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+//endif::azure[]
 
 == Supported volumes
 
@@ -317,7 +325,6 @@ ifdef::gcp[]
 * In GCP, backups are associated with the _Standard_ storage class.
 +
 If your cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days for further cost optimization. link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
-//You can also use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. You configure these other storage classes through Google. See the Google topic link:https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the storage class.
 endif::gcp[]
 
 * In StorageGRID, backups are associated with the _Standard_ storage class.
@@ -347,9 +354,7 @@ This operation could cause a one-time increase in cost to read the data from you
 
 === Backup limitations
 
-* The ability to tier older backup files to archival storage requires that the cluster is running ONTAP 9.10.1 or greater. Restoring volumes from backup files that reside in archival storage also requires that the destination cluster is running ONTAP 9.10.1+.
-
-* When creating or editing a backup policy when no volumes are assigned to the policy, the number of retained backups can be a maximum of 1018. As a workaround you can reduce the number of backups to create the policy. Then you can edit the policy to create up to 4000 backups after you assign volumes to the policy.
+* When creating or editing a backup policy when no volumes are assigned to the policy, the number of retained backups can be a maximum of 1018. After you assign volumes to the policy, you can edit the policy to create up to 4000 backups.
 
 * When backing up data protection (DP) volumes:
 ** Relationships with the SnapMirror labels `app_consistent` and `all_source_snapshot` won't be backed up to cloud.
