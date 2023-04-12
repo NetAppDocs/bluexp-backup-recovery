@@ -67,11 +67,13 @@ With Cloud Backup Reports tab, you can create the Backup inventory report, filte
 . Select *Backup inventory report*. 
 . Select the account, working environment, and SVM. 
 . Select the timeframe: last 24 hours, week, or month. 
-. (Optional): Filter the results by job status.
+. (Optional) Filter the results by job status.
+. (Optional) Export the report contents in .CSV format.
 
 == Schedule a report
 
 You can schedule the report to run daily, weekly, or monthly. 
+
 .Steps
 
 . From the top menu, select *Reports*. 
@@ -79,10 +81,12 @@ You can schedule the report to run daily, weekly, or monthly.
 . Select the account, working environment, and SVM. 
 . Set the frequency of daily, weekly, or monthly. 
 . Select *Create*. 
-. (Optional) Export the report contents in .CSV format.
+
 
 == Delete report schedules
+When you no longer want the report to run on the schedule, delete the schedule. 
 
+.Steps 
 
 . From the top menu, select *Reports*. 
 . Select *Backup inventory report*. 
