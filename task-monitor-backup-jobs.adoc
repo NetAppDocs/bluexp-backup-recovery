@@ -13,7 +13,7 @@ summary: You can monitor the status of backup jobs that are scheduled or that yo
 :imagesdir: ./media/
 
 [.lead]
-You can monitor the status of backup jobs that are scheduled or that you have initiated and restore jobs that you initiated in your working environments. You can see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
+You can monitor the status of backup jobs that you initiated or are scheduled and restore jobs that you initiated. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.  
 
 == View backup and restore job status on the Job Monitor
 
@@ -146,5 +146,9 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operatio
 . Display notifications by selecting the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. 
 . Review the notification. 
 
+== Review operation activity in the BlueXP Timeline
 
+You can view details of backup and restore operations for further investigation in the BlueXP Timeline. The BlueXP Timeline provides details of each event, whether user-initiated or system-initiated and shows actions initiated in the UI or via the API. 
+
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html[Learn about the differences between the Timeline and the Notification Center^].
 
