@@ -191,14 +191,18 @@ sidebar:
         - title: Cloud Backup policy settings
           url: /concept-cloud-backup-policies.html
         - title: Supported AWS archive storage tiers
+          flavor: aws
           url: /reference-aws-backup-tiers.html
         - title: Supported Azure archive access tiers
+          flavor: azure
           url: /reference-azure-backup-tiers.html
         - title: Supported Google archive storage tiers
+          flavor: gcp
           url: /reference-google-backup-tiers.html
         - title: Back up the Cloud Backup database in a dark site
           url: /reference-backup-cbs-db-in-dark-site.html
         - title: Configure Backup for multi-account access in Azure
+          flavor: azure
           url: /reference-backup-multi-account-azure.html
     - title: Knowledge and support
       entries:
