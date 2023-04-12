@@ -23,9 +23,9 @@ Cloud Backup reports help you accomplish the following:
 
 NOTE: Report activities are monitored in the Job Monitoring log so that you can audit all activities. link:task-monitor-backup-jobs.html[Learn about Job Monitoring].
 
-== What you'll need
+== Reports scope
 
-You'll need the following items: 
+The Reporting scope covers the following aspects:
 
 * *Connector location*: On-premises or the cloud
 * *Source*: Cloud Volumes ONTAP or on-premises
@@ -42,7 +42,7 @@ The Backup inventory report shows the following information and more:
 * Backup target
 * Applied backup policy
 * Encryption style (provider-managed key or user-managed key)
-* Ransomware protection status (governance, compliance, or none)
+* DataLock and Ransomware protection status (governance, compliance, or none)
 * Archive enabled status
 * Count of backup copies
 * Backup type (scheduled or user initiated ad-hoc backup)
