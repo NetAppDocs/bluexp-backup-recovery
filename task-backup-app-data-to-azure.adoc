@@ -14,7 +14,7 @@ summary: Complete a few steps to back up applications data from ONTAP to Azure.
 
 [.lead]
 
-Complete a few steps to back up the applications data from ONTAP to Microsoft Azure.
+Complete a few steps to back up the applications data from ONTAP to Microsoft Azure. 
 
 *Steps*
 
