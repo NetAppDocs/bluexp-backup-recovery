@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-mount-app-backup.html
 keywords: mount, mount application backups, Oracle database, SAP HANA database
-summary: You can mount the SAP HANA and Oracle backups to the given database
+summary: You can mount the SAP HANA and Oracle backups to the specified host.
 ---
 
 = Mount application backups
@@ -14,11 +14,9 @@ summary: You can mount the SAP HANA and Oracle backups to the given database
 
 [.lead]
 
-SnapCenter does not support restore of Oracle and HANA backups to alternate host. Thus, Cloud Backup for Applications allows you to mount the Oracle and HANA backups to the given host.
+BlueXP backup and recovery for applications allow you to mount the Oracle and HANA backups to the alternate host. 
 
-*What you will need*
-
-If you want to mount a backup that was moved to object store from secondary storage, you should add the primary working environment details and set the IP space. For more information, see link:task-manage-app-backups.html#set-ip-space-of-the-primary-working-environment[Set IP space of the primary working environment].
+SnapCenter does not support restore of Oracle and HANA backups to alternate host. Thus, mount option is provided for you to mount the Oracle and HANA backups to the alternate host.
 
 *Steps*
 
@@ -27,12 +25,13 @@ If you want to mount a backup that was moved to object store from secondary stor
 . Click image:icon-action.png[icon to select the action] corresponding to the protected application and select *View Details*.
 . Click image:icon-action.png[icon to select the action] corresponding to the backup and select *Mount*.
 .. Specify one of the following:
-... For NAS environment, specify the FQDN or IP address of the host to which alternate volumes restored from object store are to be exported.
-... For SAN environment, specify the initiators of the host to which LUNs of alternate volume restored from object store are to be mapped.
-.. Specify the suffix that will be added to the alternate volume name.
+... For NAS environment, specify the FQDN or IP address of the host to which the volumes restored from object store are to be exported.
+... For SAN environment, specify the initiators of the host to which LUNs of the volumes restored from object store are to be mapped.
+.. Specify the suffix that will be added to the volume name.
 .. If the snapshot is in archival storage, specify the priority to retrieve your data from the archival storage.
 .. Click *Mount*.
 
-This operation mounts only the storage on the given host. You should manually mount the filesystem and bring up the database. After utilizing the alternate volume, the storage Administrator can delete the volume from the ONTAP cluster.
+This operation mounts only the storage on the given host. You should manually mount the filesystem and bring up the database. After utilizing the volume, the storage Administrator can delete the volume from the ONTAP cluster.
 
-For information on how to bring up the SAP HANA database see, https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html[TR-4667: Automating SAP HANA System Copy and Clone Operations with SnapCenter^].
+* For information on how to bring up the Oracle database see, https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_bring_up_Oracle_Database_in_another_NFS_host_after_mounting_storage_from_backup_in_Cloud_Backup_for_Applications[Knowledge base article].
+* For information on how to bring up the SAP HANA database see, https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-copy-workflow-with-snapcenter.html[TR-4667: Overview of SAP system copy workflow with SnapCenter^] and https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html[TR-4667: Overview of SAP system clone workflow with SnapCenter^].
