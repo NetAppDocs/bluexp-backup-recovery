@@ -1,0 +1,59 @@
+---
+sidebar: sidebar
+permalink: task-refresh-sap-hana-target-system.html
+keywords: Cloud Manager, BlueXP, SnapCenter Plug-in for SAP HANA, SAP HANA, database, host, system refresh
+summary:  Perform a refresh from a source SAP HANA system, which is the production database to a target system.
+---
+
+= Refresh SAP HANA target system 
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform a refresh of a SAP HANA target system with the data of a SAP HANA source system. This can be used to provide the current production data into a test system. Cloud backup allows you to select a Snapshot copy from a source system and creates a new ANF volume based on the Snapshot copy. Example scripts are available, which executes the required operations on the database host to recover the SAP HANA database.  
+
+*Before you begin*
+
+* You should install the SAP HANA target system before you execute the first refresh operation.
+* You should add the source and target HANA systems manually into cloud backup.
+* Ensure that the SAP HANA database version is same on source and the target system.
+* You should have decided on which refresh scripts to be used. The refresh scripts are available in the solution technical report.
++
+https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-automation-example-scripts.html#script-sc-system-refresh-sh[Automation example scripts]
++
+You can customize the refresh scripts.
+* The following environmental variables are available as part of the prescript and postscript:
+** CLONED_VOLUMES_MOUNT_PATH 
+** <SOURCEVOLUME>_DESTINATION
+** HANA_DATABASE_TYPE 
+** TENANT_DATABASE_NAMES 
+
+*About this task*
+
+* System refresh is supported only for multi-tenant database container HANA system.
+* The existing policies will be valid after the system refresh. 
+* The new volumes created will have the following naming convention: <sourcevolumename>-<timestamp>
+** Timestamp format: <year><month><day>-<hour><minute><second>
++
+For example, if the source volume is vol1, the refreshed volume name will be vol1-20230109-184501
+
+NOTE: The new volume will be placed in the same capacity pool as that of the target volumes.
+
+* The junction path will be the same as the volume name.
+
+*Steps*
+
+. In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
+. In the *Applications* page, click image:icon-action.png[icon to select the action] icon to select the action corresponding to the system that you want to refresh and select *System Refresh*.
+. In the *System Refresh* page, perform the following actions:
+.. Select source system and Snapshot copy.
+.. Enter Export addresses from which the new volumes can be accessed.
+.. Enter prescript, postscript, and on failure script paths.
+On failure script is executed only when the system refresh operation fails.
+.. Select *Delete associated SAP HANA backups*
+Only Snapshot copies will be deleted. If there are any existing backups of the target system and the above option is not selected, system refresh operation will fail.
+You can also delete the backups from the *Topology* page.
+.. Click *Refresh*.

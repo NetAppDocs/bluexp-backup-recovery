@@ -16,6 +16,26 @@ summary: Learn what's new in Cloud Backup.
 Learn what's new in Cloud Backup.
 
 // tag::whats-new[]
+== 14 April 2023
+
+=== Enhancements to BlueXP backup and recovery for applications (cloud native)
+
+* SAP HANA databases
+** Supports script based system refresh
+** Supports Single-File-Snapshot-Restore if Azure NetApp Files backup is configured
+** Supports plug-in upgrade
+* Oracle databases
+** Enhancements to plug-in deployment by simplifying non-root sudo user configuration
+** Supports plug-in upgrade
+** Supports auto-discovery and policy driven protection of Oracle databases on Azure NetApp Files
+** Supports restore of Oracle database to original location with granular recovery
+
+=== Enhancements to BlueXP backup and recovery for applications (hybrid)
+
+* BlueXP backup and recovery for applications (hybrid) is driven from the SaaS control plane. 
+* Modified the hybrid REST APIs to align with cloud native APIs.
+* Supports email notification
+
 == 4 April 2023
 
 === Ability to back up data to the cloud from Cloud Volumes ONTAP systems in "Restricted" mode

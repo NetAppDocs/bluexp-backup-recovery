@@ -25,10 +25,14 @@ Before cloning an Oracle database, you should ensure that prerequisites are comp
 * You should have created a backup of the database.
 You should have successfully created online data and log backup for the cloning operation to succeed.
 
-* In the asm_diskstring parameter, you should configure AFD:* if you are using ASMFD or configure ORCL:* if you are using ASMLIB.
+* In the asm_diskstring parameter, you should configure:
+** AFD:* if you are using ASMFD 
+** ORCL:* if you are using ASMLIB
+** /dev/<exact_device_location> if you are using ASMUDEV
 
 * If you are creating the clone on an alternate host, the alternate host should meet the following requirements:
 ** The plug-in should be installed on the alternate host.
+** Oracle software should be installed on the alternate host.
 ** The clone host should be able to discover LUNs from storage if you are cloning a database residing on iSCSI SAN storage.
 If you are cloning to an alternate host, then make sure that an iSCSI session is established between the storage and the alternate host.
 ** If the source database is an ASM database:
@@ -37,12 +41,9 @@ If you are cloning to an alternate host, then make sure that an iSCSI session is
 *** The name of the data diskgroup can be configured but ensure that the name is not used by any other ASM diskgroup on the host where the clone will be performed.
 *** Data files residing on the ASM diskgroup are provisioned as part of the clone workflow.
 
-== Clone limitations
+== Limitations
 
-* Scheduled clones (Clone LifeCycle management) is not supported.
-* Cloning a cloned database is not supported.
 * Cloning of databases residing on Qtree is not supported.
-* Cloning of archive log backups is not supported.
 * Backing up a cloned database is not supported.
 
 == Clone methods
@@ -247,7 +248,7 @@ This parameter will be populated for application volumes. Example: asmrac1.gdl.e
 * SC_ORACLE_HOME specifies the path of the target database’s Oracle home directory.
 Example: /ora01/app/oracle/product/18.1.0/db_1
 
-* SC_BACKUP_NAME" specifies the name of the backup.
+* SC_BACKUP_NAME specifies the name of the backup.
 This parameter will be populated for application volumes. Examples:
 ** If the database is not running in ARCHIVELOG mode: DATA@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0|LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267_1
 ** If the database is running in ARCHIVELOG mode: DATA@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0|LOG@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-21- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-22-2021_12.16.48.9267_1
@@ -258,7 +259,7 @@ Example: oracle
 * SC_ORIGINAL_OS_GROUP specifies the operating system group of the source database.
 Example: oinstall
 
-* SC_TARGET_SID" specifies the SID of the cloned database.
+* SC_TARGET_SID specifies the SID of the cloned database.
 For PDB clone workflow, the value of this parameter will not be predefined. This parameter will be populated for application volumes.
 Example: clonedb
 
