@@ -18,7 +18,7 @@ Learn what's new in Cloud Backup.
 // tag::whats-new[]
 == 14 April 2023
 
-=== Enhancements to BlueXP backup and recovery for Applications (cloud native)
+=== Enhancements to BlueXP backup and recovery for applications (cloud native)
 
 * SAP HANA databases
 ** Supports script based system refresh
@@ -30,9 +30,9 @@ Learn what's new in Cloud Backup.
 ** Supports auto-discovery and policy driven protection of Oracle databases on Azure NetApp Files
 ** Supports restore of Oracle database to original location with granular recovery
 
-=== Enhancements to BlueXP backup and recovery for Applications (hybrid)
+=== Enhancements to BlueXP backup and recovery for applications (hybrid)
 
-* BlueXP backup and recovery for Applications (hybrid) is driven from the SaaS control plane. 
+* BlueXP backup and recovery for applications (hybrid) is driven from the SaaS control plane. 
 * Modified the hybrid REST APIs to align with cloud native APIs.
 * Supports email notification
 

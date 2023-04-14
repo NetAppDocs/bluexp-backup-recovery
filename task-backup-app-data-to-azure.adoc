@@ -30,7 +30,7 @@ Configure the cluster management LIF that you want BlueXP to discover. After add
 ... Specify the IP address of the cluster management LIF.
 ... Specify the credentials of the ONTAP cluster user.
 +
-BlueXP backup and recovery for Applications only support cluster admin.
+BlueXP backup and recovery for applications only support cluster admin.
 .. Click *Add Working Environment*.
 . Select *Microsoft Azure* as the cloud provider.
 .. Specify the Azure subscription ID.

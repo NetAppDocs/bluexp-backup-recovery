@@ -14,7 +14,7 @@ summary: You can mount the SAP HANA and Oracle backups to the specified host.
 
 [.lead]
 
-BlueXP backup and recovery for Applications allow you to mount the Oracle and HANA backups to the alternate host. 
+BlueXP backup and recovery for applications allow you to mount the Oracle and HANA backups to the alternate host. 
 
 SnapCenter does not support restore of Oracle and HANA backups to alternate host. Thus, mount option is provided for you to mount the Oracle and HANA backups to the alternate host.
 
