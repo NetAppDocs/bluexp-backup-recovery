@@ -18,7 +18,7 @@ You can restore virtual machines from the cloud back to the on-premises vCenter.
 NOTE: You cannot restore virtual machines that span across datastores.
 
 .Before you begin
-Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before restoring virtual machines from the cloud.
+Ensure that you have met all the link:concept-protect-vm-data.html[requirements] before restoring virtual machines from the cloud.
 
 .Steps
 
