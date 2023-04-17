@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: reference-backup-multi-account-azure.html
 keywords: microsoft azure, azure, regions, blob, multiple accounts, multiple regions, backup
-summary: Cloud Backup enables you to create backup files in an Azure account that is different than where your source Cloud Volumes ONTAP volumes reside, and that is different than the account where the BlueXP Connector resides.
+summary: BlueXP backup and recovery enables you to create backup files in an Azure account that is different than where your source Cloud Volumes ONTAP volumes reside, and that is different than the account where the BlueXP Connector resides.
 ---
 
 = Configure backup for multi-account access in Azure
@@ -13,7 +13,7 @@ summary: Cloud Backup enables you to create backup files in an Azure account tha
 :imagesdir: ./media/
 
 [.lead]
-Cloud Backup enables you to create backup files in an Azure account that is different than where your source Cloud Volumes ONTAP volumes reside. And both of those accounts can be different than the account where the BlueXP Connector resides.
+BlueXP backup and recovery enables you to create backup files in an Azure account that is different than where your source Cloud Volumes ONTAP volumes reside. And both of those accounts can be different than the account where the BlueXP Connector resides.
 
 These steps are required only when you are https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[backing up Cloud Volumes ONTAP data to Azure Blob storage^].
 
@@ -114,4 +114,4 @@ image:screenshot_azure_networking5.png[]
 +
 Now the storage account (in subscription 1) has access to the Cloud Volumes ONTAP system which is running in subscription 2.
 
-. Retry enabling Cloud Backup on the Cloud Volumes ONTAP system and this time it should be successful.
+. Retry enabling BlueXP backup and recovery on the Cloud Volumes ONTAP system and this time it should be successful.
