@@ -272,9 +272,10 @@ homepage:
         - title: Back up on-premises applications data to StorageGRID
           url: /task-backup-app-data-to-storagegrid.html
         - title: Back up cloud native Oracle database
-          url: task-backup-cloud-native-oracle-data.html
+          url: /task-backup-cloud-native-oracle-data.html
         - title: Back up cloud native SAP HANA database
-          url: task-backup-cloud-native-sap-hana-data.html
+          flavor: azure
+          url: /task-backup-cloud-native-sap-hana-data.html
     - title: Back up and restore virtual machines data
       links:
         - title: Back up datastores to Amazon Web Services
@@ -289,7 +290,7 @@ homepage:
         - title: Back up datastores to StorageGRID
           url: /task-backup-vm-data-to-storagegrid.html
         - title: Restore virtual machines from the cloud
-          url: task-restore-vm-data.html
+          url: /task-restore-vm-data.html
     - title: Restore data from ONTAP backup files
       links:
         - title: Restore ONTAP volumes
