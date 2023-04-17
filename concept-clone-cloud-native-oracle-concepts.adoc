@@ -199,6 +199,7 @@ NOTE: The _CurrentTimeStampNumber_ provides the uniqueness in volume name.
 === Auto-generated naming scheme
 
 If you select the cloning scheme as *Auto-generated*, the location of mount points and the name of the diskgroups of the cloned database will be appended with a suffix. 
+
 * If you have selected the basic clone method, the suffixed will be the *Clone SID*.
 * If you have selected the specification file method, the suffix will be the *Suffix* that was specified while downloading the clone specification file.
 
