@@ -100,6 +100,7 @@ You can choose from the following settings for each backup policy:
 [role="tabbed-block"]
 ====
 
+ifdef::aws[]
 .AWS
 --
 * *None* (Default)
@@ -114,7 +115,9 @@ DataLock is set to _Governance_ mode where users with `s3:BypassGovernanceRetent
 +
 DataLock is set to _Compliance_ mode where no users can overwrite or delete backup files during the retention period. Ransomware protection is enabled.
 --
+endif::aws[]
 
+ifdef::azure[]
 .Azure
 --
 * *None* (Default)
@@ -129,6 +132,7 @@ Backup files are protected during the retention period. The retention period can
 +
 Backup files are protected during the retention period. The retention period can be increased, but it can't be decreased. Satisfies full regulatory compliance. Ransomware protection is enabled.
 --
+endif::azure[]
 
 .StorageGRID
 --
