@@ -21,13 +21,13 @@ You can restore a *folder* to a volume in the original working environment, to a
 
 You can restore *files* to a volume in the original working environment, to a volume in a different working environment that's using the same cloud account, or to a volume on an on-premises ONTAP system.
 
-A valid Cloud Backup license is required to restore data from backup files to a production system.
+A valid BlueXP backup and recovery license is required to restore data from backup files to a production system.
 
 == The Restore Dashboard
 
 You use the Restore Dashboard to perform volume, folder, and file restore operations. You access the Restore Dashboard by clicking *Backup and recovery* from the BlueXP menu, and then clicking the *Restore* tab. You can also click image:screenshot_gallery_options.gif[More button] > *View Restore Dashboard* from the Backup and recovery service from the Services panel.
 
-NOTE: Cloud Backup must already be activated for at least one working environment and initial backup files must exist.
+NOTE: BlueXP backup and recovery must already be activated for at least one working environment and initial backup files must exist.
 
 image:screenshot_restore_dashboard.png["The Restore Dashboard showing the options to use the Browse & Restore or Search & Restore functionality."]
 
@@ -133,7 +133,7 @@ NOTE: You can't restore folders or files if the backup file has been configured 
 
 === Restoring volumes using Browse & Restore
 
-When you restore a volume from a backup file, Cloud Backup creates a _new_ volume using the data from the backup. You can restore the data to a volume in the original working environment or to a different working environment that's located in the same cloud account as the source working environment. You can also restore volumes to an on-premises ONTAP system.
+When you restore a volume from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. You can restore the data to a volume in the original working environment or to a different working environment that's located in the same cloud account as the source working environment. You can also restore volumes to an on-premises ONTAP system.
 
 image:diagram_browse_restore_volume.png["A diagram that shows the flow to perform a volume restore operation using Browse & Restore."]
 
@@ -198,7 +198,7 @@ endif::gcp[]
 
 .Result
 
-Cloud Backup creates a new volume based on the backup you selected. You can link:task-manage-backups-ontap.html[manage the backup settings for this new volume] as required.
+BlueXP backup and recovery creates a new volume based on the backup you selected. You can link:task-manage-backups-ontap.html[manage the backup settings for this new volume] as required.
 
 Note that restoring a volume from a backup file that resides in archival storage can take many minutes or hours depending on the archive tier and the restore priority. You can click the *Job Monitoring* tab to see the restore progress.
 
@@ -233,7 +233,7 @@ The process goes like this:
 
 . Select the source working environment, volume, and backup file in which the folder or file(s) reside.
 
-. Cloud Backup displays the folders and files that exist within the selected backup file.
+. BlueXP backup and recovery displays the folders and files that exist within the selected backup file.
 
 . Select the folder or file(s) that you want to restore from that backup.
 
@@ -330,9 +330,9 @@ You have a few options for the location when restoring folders and file(s).
 
 You can restore a volume, folder, or files from an ONTAP backup file using Search & Restore. Search & Restore enables you to search for a specific volume, folder, or file from all backups stored on cloud storage for a particular provider, and then perform a restore. You don't need to know the exact working environment name or volume name - the search looks through all volume backup files.
 
-The search operation also looks across all local Snapshot copies that exist for your ONTAP volumes too. Since restoring data from a local Snapshot copy can be faster and less costly than restoring from a backup file, you may want to restore data from the Snapshot. You can restore the Snapshot as a new volume https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[from the Volume Details page on the Canvas^] (not from Cloud Backup).
+The search operation also looks across all local Snapshot copies that exist for your ONTAP volumes too. Since restoring data from a local Snapshot copy can be faster and less costly than restoring from a backup file, you may want to restore data from the Snapshot. You can restore the Snapshot as a new volume https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[from the Volume Details page on the Canvas^] (not from BlueXP backup and recovery).
 
-When you restore a volume from a backup file, Cloud Backup creates a _new_ volume using the data from the backup. You can restore the data as a volume in the original working environment, or to a different working environment that's located in the same cloud account as the source working environment. You can also restore volumes to an on-premises ONTAP system.
+When you restore a volume from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. You can restore the data as a volume in the original working environment, or to a different working environment that's located in the same cloud account as the source working environment. You can also restore volumes to an on-premises ONTAP system.
 
 You can restore folders or files to the original volume location, to a different volume in the same working environment, or to a different working environment that's using the same cloud account. You can also restore folders and files to a volume on an on-premises ONTAP system.
 
@@ -418,7 +418,7 @@ ifdef::aws[]
 
 ** Specific Amazon Athena, AWS Glue, and AWS S3 permissions must be added to the user role that provides BlueXP with permissions. link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Make sure all the permissions are configured correctly].
 +
-Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add the Athena and Glue permissions to the BlueXP user role now. These are new, and they are required for Search & Restore.
+Note that if you were already using BlueXP backup and recovery with a Connector you configured in the past, you'll need to add the Athena and Glue permissions to the BlueXP user role now. These are new, and they are required for Search & Restore.
 endif::aws[]
 
 ifdef::azure[]
@@ -428,7 +428,7 @@ ifdef::azure[]
 
 ** Specific Azure Synapse Workspace and Data Lake Storage Account permissions must be added to the user role that provides BlueXP with permissions. link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector[Make sure all the permissions are configured correctly].
 +
-Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add the Azure Synapse Workspace and Data Lake Storage Account permissions to the BlueXP user role now. These are new, and they are required for Search & Restore.
+Note that if you were already using BlueXP backup and recovery with a Connector you configured in the past, you'll need to add the Azure Synapse Workspace and Data Lake Storage Account permissions to the BlueXP user role now. These are new, and they are required for Search & Restore.
 
 ** The Connector must be configured *without* a proxy server for HTTP communication to the internet. If you have configured an HTTP proxy server for your Connector, you can't use Search & Replace functionality.
 endif::azure[]
@@ -438,7 +438,7 @@ ifdef::gcp[]
 
 ** Specific Google BigQuery permissions must be added to the user role that provides BlueXP with permissions. link:task-backup-onprem-to-gcp.html#verify-or-add-permissions-to-the-connector[Make sure all the permissions are configured correctly].
 +
-Note that if you were already using Cloud Backup with a Connector you configured in the past, you'll need to add the BigQuery permissions to the BlueXP user role now. These are new, and they are required for Search & Restore.
+Note that if you were already using BlueXP backup and recovery with a Connector you configured in the past, you'll need to add the BigQuery permissions to the BlueXP user role now. These are new, and they are required for Search & Restore.
 endif::gcp[]
 
 * StorageGRID requirements:
@@ -471,13 +471,13 @@ The Search Results page displays all the locations that have a file or volume th
 
 image:diagram_search_restore_vol_file.png["A diagram that shows the flow to perform a volume, folder, or file restore operation using Search & Restore."]
 
-As you can see, you really only need to know a partial name and Cloud Backup searches through all backup files that match your search.
+As you can see, you really only need to know a partial name and BlueXP backup and recovery searches through all backup files that match your search.
 
 === Enabling the Indexed Catalog for each working environment
 
 Before you can use Search & Restore, you need to enable "Indexing" on each source working environment from which you're planning to restore volumes or files. This allows the Indexed Catalog to track every volume and every backup file - making your searches very quick and efficient.
 
-When you enable this functionality, Cloud Backup enables SnapDiff v3 on the SVM for your volumes, and it performs the following actions:
+When you enable this functionality, BlueXP backup and recovery enables SnapDiff v3 on the SVM for your volumes, and it performs the following actions:
 
 ifdef::aws[]
 * For backups stored in AWS, it provisions a new S3 bucket and the https://aws.amazon.com/athena/faqs/[Amazon Athena interactive query service^] and https://aws.amazon.com/glue/faqs/[AWS Glue serverless data integration service^].

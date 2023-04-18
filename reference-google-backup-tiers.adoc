@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: reference-google-backup-tiers.html
 keywords: google, storage classes, archive
-summary: Cloud Backup supports one Google archival storage class and most regions.
+summary: BlueXP backup and recovery supports one Google archival storage class and most regions.
 ---
 
 = Google archival storage classes and restore retrieval times
@@ -13,15 +13,15 @@ summary: Cloud Backup supports one Google archival storage class and most region
 :imagesdir: ./media/
 
 [.lead]
-Cloud Backup supports one Google archival storage class and most regions.
+BlueXP backup and recovery supports one Google archival storage class and most regions.
 
-== Supported Google archival storage classes for Cloud Backup
+== Supported Google archival storage classes for BlueXP backup and recovery
 
 When backup files are initially created they're stored in _Standard_ storage. This tier is optimized for storing data that's infrequently accessed; but that also allows you to access it immediately.
 
-If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the Cloud Backup UI after a certain number of days (typically more than 30 days) for further cost optimization. Data in this tier will require a higher retrieval cost, so you need to consider how often you may need to restore data from these archived backup files. See the section about <<Restoring data from archival storage,restoring data from archival storage>>.
+If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the BlueXP backup and recovery UI after a certain number of days (typically more than 30 days) for further cost optimization. Data in this tier will require a higher retrieval cost, so you need to consider how often you may need to restore data from these archived backup files. See the section about <<Restoring data from archival storage,restoring data from archival storage>>.
 
-Note that when you configure Cloud Backup with this type of lifecycle rule, you must not configure any lifecycle rules when setting up the bucket in your Google account.
+Note that when you configure BlueXP backup and recovery with this type of lifecycle rule, you must not configure any lifecycle rules when setting up the bucket in your Google account.
 
 https://cloud.google.com/storage/docs/storage-classes[Learn about Google storage classes^].
 

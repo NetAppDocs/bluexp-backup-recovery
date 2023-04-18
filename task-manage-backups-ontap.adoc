@@ -59,8 +59,8 @@ You can change the attributes for a backup policy that is currently applied to v
 
 [NOTE]
 ====
-* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating Cloud Backup for this cluster, any policies that you edit must be configured with the same DataLock setting (Governance or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating Cloud Backup, you can't enable DataLock now.
-* When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available when editing backup policies. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option when editing a policy.
+* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating BlueXP backup and recovery for this cluster, any policies that you edit must be configured with the same DataLock setting (Governance or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery, you can't enable DataLock now.
+* When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating BlueXP backup and recovery, then that tier will be the only archive tier available when editing backup policies. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option when editing a policy.
 ====
 
 .Steps
@@ -95,20 +95,20 @@ ifdef::gcp[]
 link:reference-google-backup-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
 endif::gcp[]
 +
-image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for Cloud Backup.]
+image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for BlueXP backup and recovery.]
 +
 Note that any backup files that have been tiered to archival storage are left in that tier if you stop tiering backups to archive - they are not automatically moved back to the standard tier. Only new volume backups will reside in the standard tier.
 
 == Adding a new backup policy
 
-When you enable Cloud Backup for a working environment, all the volumes you initially select are backed up using the default backup policy that you defined. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to other volumes.
+When you enable BlueXP backup and recovery for a working environment, all the volumes you initially select are backed up using the default backup policy that you defined. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to other volumes.
 
 If you want to apply a new backup policy to certain volumes in a working environment, you first need to add the backup policy to the working environment. Then you can <<Changing the policy assigned to existing volumes,apply the policy to volumes in that working environment>>.
 
 [NOTE]
 ====
-* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating Cloud Backup for this cluster, any additional policies you create must be configured with the same DataLock setting (Governance or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating Cloud Backup, you can't create new policies that use DataLock.
-* When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating Cloud Backup, then that tier will be the only archive tier available for future backup policies for that cluster. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
+* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating BlueXP backup and recovery for this cluster, any additional policies you create must be configured with the same DataLock setting (Governance or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery, you can't create new policies that use DataLock.
+* When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating BlueXP backup and recovery, then that tier will be the only archive tier available for future backup policies for that cluster. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
 ====
 
 .Steps
@@ -141,7 +141,7 @@ ifdef::gcp[]
 link:reference-google-backup-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
 endif::gcp[]
 +
-image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for Cloud Backup.]
+image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for BlueXP backup and recovery.]
 
 == Changing the policy assigned to existing volumes
 
@@ -167,7 +167,7 @@ image:screenshot_backup_manage_volumes_page_change.png[The Manage Volumes page w
 +
 image:screenshot_backup_change_policy.png[A screenshot showing how to select a new policy to apply to selected volumes.]
 +
-NOTE: If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating Cloud Backup for this cluster, you'll only see other policies that have been configured with DataLock. And if you did not enable _DataLock and Ransomware Protection_ when activating Cloud Backup, you'll only see other policies that don't have DataLock configured.
+NOTE: If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating BlueXP backup and recovery for this cluster, you'll only see other policies that have been configured with DataLock. And if you did not enable _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery, you'll only see other policies that don't have DataLock configured.
 
 . Click *Save* to commit your changes.
 
@@ -177,7 +177,7 @@ You can create an on-demand backup at any time to capture the current state of t
 
 The backup name includes the timestamp so you can identify your on-demand backup from other scheduled backups.
 
-If you enabled _DataLock and Ransomware Protection_ when activating Cloud Backup for this cluster, the on-demand backup also will be configured with DataLock, and the retention period will be 30 days. Ransomware scans are not supported for ad-hoc backups. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about DataLock and Ransomware protection^].
+If you enabled _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery for this cluster, the on-demand backup also will be configured with DataLock, and the retention period will be 30 days. Ransomware scans are not supported for ad-hoc backups. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about DataLock and Ransomware protection^].
 
 Note that when creating an ad-hoc backup, a Snapshot is created on the source volume. Since this Snapshot is not part of a normal Snapshot schedule, it will not rotate off. You may want to manually delete this Snapshot from the source volume once the backup is complete. This will allow blocks related to this Snapshot to be freed up. The name of the Snapshot will begin with `cbs-snapshot-adhoc-`. https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html[See how to delete a Snapshot using the ONTAP CLI^].
 
@@ -229,15 +229,15 @@ The Ransomware Scan column will show that the scan is In Progress.
 
 == Deleting backups
 
-Cloud Backup enables you to delete a single backup file, delete all backups for a volume, or delete all backups of all volumes in a working environment. You might want to delete all backups if you no longer need the backups, or if you deleted the source volume and want to remove all backups.
+BlueXP backup and recovery enables you to delete a single backup file, delete all backups for a volume, or delete all backups of all volumes in a working environment. You might want to delete all backups if you no longer need the backups, or if you deleted the source volume and want to remove all backups.
 
 Note that you can't delete backup files that you have locked using DataLock and Ransomware protection. The "Delete" option will be unavailable from the UI if you have selected one or more locked backup files.
 
-CAUTION: If you plan to delete a working environment or cluster that has backups, you must delete the backups *before* deleting the system. Cloud Backup doesn’t automatically delete backups when you delete a system, and there is no current support in the UI to delete the backups after the system has been deleted. You'll continue to be charged for object storage costs for any remaining backups.
+CAUTION: If you plan to delete a working environment or cluster that has backups, you must delete the backups *before* deleting the system. BlueXP backup and recovery doesn’t automatically delete backups when you delete a system, and there is no current support in the UI to delete the backups after the system has been deleted. You'll continue to be charged for object storage costs for any remaining backups.
 
 === Deleting all backup files for a working environment
 
-Deleting all backups for a working environment does not disable future backups of volumes in this working environment. If you want to stop creating backups of all volumes in a working environment, you can deactivate backups <<Deactivating Cloud Backup for a working environment,as described here>>.
+Deleting all backups for a working environment does not disable future backups of volumes in this working environment. If you want to stop creating backups of all volumes in a working environment, you can deactivate backups <<Deactivating BlueXP backup and recovery for a working environment,as described here>>.
 
 .Steps
 
@@ -301,7 +301,7 @@ You don't necessarily need to delete the source volume. You can delete the backu
 
 This feature is available only if your system is running ONTAP 9.12.1 or greater.
 
-You can't delete the source volume from the Cloud Backup user interface. However, you can open the Volume Details page on the Canvas, and https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[delete the volume from there].
+You can't delete the source volume from the BlueXP backup and recovery user interface. However, you can open the Volume Details page on the Canvas, and https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[delete the volume from there].
 
 NOTE: You can't delete individual volume backup files once the relationship has been deleted. You can, however, link:task-manage-backups-ontap.html#deleting-all-backup-files-for-a-volume[delete all backups for the volume] if you want to remove all backup files.
 
@@ -329,13 +329,13 @@ When you view the list of backups for each volume, you'll see the "Relationship 
 
 image:screenshot_backup_view_no_relationship.png[A screenshot showing the Relationship Deleted status after you delete a volume backup relationship.]
 
-== Deactivating Cloud Backup for a working environment
+== Deactivating BlueXP backup and recovery for a working environment
 
-Deactivating Cloud Backup for a working environment disables backups of each volume on the system, and it also disables the ability to restore a volume. Any existing backups will not be deleted. This does not unregister the backup service from this working environment - it basically allows you to pause all backup and restore activity for a period of time.
+Deactivating BlueXP backup and recovery for a working environment disables backups of each volume on the system, and it also disables the ability to restore a volume. Any existing backups will not be deleted. This does not unregister the backup service from this working environment - it basically allows you to pause all backup and restore activity for a period of time.
 
 Note that you'll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you <<Deleting all backup files for a working environment,delete the backups>>.
 //
-//TIP: The backup retention period is ignored when Cloud Backup is deactivated. Therefore, older backup files are not aged-out and removed from object storage while the working environment is deactivated.
+//TIP: The backup retention period is ignored when BlueXP backup and recovery is deactivated. Therefore, older backup files are not aged-out and removed from object storage while the working environment is deactivated.
 
 .Steps
 
@@ -351,15 +351,15 @@ image:screenshot_disable_backups.png[A screenshot of the Deactivate Backup butto
 
 NOTE: An *Activate Backup* button appears for that working environment while backup is disabled. You can click this button when you want to re-enable backup functionality for that working environment.
 
-== Unregistering Cloud Backup for a working environment
+== Unregistering BlueXP backup and recovery for a working environment
 
-You can unregister Cloud Backup for a working environment if you no longer want to use backup functionality and you want to stop being charged for backups in that working environment. Typically this feature is used when you're planning to delete a working environment, and you want to cancel the backup service.
+You can unregister BlueXP backup and recovery for a working environment if you no longer want to use backup functionality and you want to stop being charged for backups in that working environment. Typically this feature is used when you're planning to delete a working environment, and you want to cancel the backup service.
 
-You can also use this feature if you want to change the destination object store where your cluster backups are being stored. After you unregister Cloud Backup for the working environment, then you can enable Cloud Backup for that cluster using the new cloud provider information.
+You can also use this feature if you want to change the destination object store where your cluster backups are being stored. After you unregister BlueXP backup and recovery for the working environment, then you can enable BlueXP backup and recovery for that cluster using the new cloud provider information.
 
-Before you can unregister Cloud Backup, you must perform the following steps, in this order:
+Before you can unregister BlueXP backup and recovery, you must perform the following steps, in this order:
 
-* Deactivate Cloud Backup for the working environment
+* Deactivate BlueXP backup and recovery for the working environment
 * Delete all backups for that working environment
 
 The unregister option is not available until these two actions are complete.

@@ -6,7 +6,7 @@ lead: BlueXP backup and recovery (Cloud Backup) provides efficient, secure, and 
 summary: BlueXP backup and recovery (Cloud Backup) provides efficient, secure, and cost-effective data protection for NetApp ONTAP data, databases, and virtual machines, both on premises and in the cloud.
 ---
 
-= Cloud Backup documentation
+= BlueXP backup and recovery documentation
 :hardbreaks:
 :nofooter:
 :icons: font
