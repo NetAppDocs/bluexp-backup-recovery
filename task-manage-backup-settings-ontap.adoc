@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-manage-backup-settings-ontap.html
 keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots
-summary: You can change many cluster-level backup settings that you set when activating Cloud Backup for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more.
+summary: You can change many cluster-level backup settings that you set when activating BlueXP backup and recovery for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more.
 ---
 
 = Managing cluster-level backup settings
@@ -13,7 +13,7 @@ summary: You can change many cluster-level backup settings that you set when act
 :imagesdir: ./media/
 
 [.lead]
-You can change many cluster-level backup settings that you set when activating Cloud Backup for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more.
+You can change many cluster-level backup settings that you set when activating BlueXP backup and recovery for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more.
 
 Cluster-level backup settings are available in the _Advanced Settings_ page.
 
@@ -82,7 +82,7 @@ Just select the new IPspace and click *Apply*. After that you'll be able to sele
 
 == Change the network bandwidth available to upload backups to object storage
 
-When you activate Cloud Backup for a working environment, by default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice that backup traffic is affecting normal user workloads, you can throttle the amount of network bandwidth that is used during the transfer. You can choose a value between 1 and 1,000 Mbps as the maximum transfer rate. 
+When you activate BlueXP backup and recovery for a working environment, by default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice that backup traffic is affecting normal user workloads, you can throttle the amount of network bandwidth that is used during the transfer. You can choose a value between 1 and 1,000 Mbps as the maximum transfer rate. 
 
 image:screenshot_backup_edit_transfer_rate.png[A screenshot of the Maximum Transfer Rate entry in the Advanced Settings page.]
 
@@ -105,9 +105,9 @@ endif::aws[]
 
 == Change the automatic backup setting for future volumes
 
-If you did not enable the automatic backup of future volumes when you activated Cloud Backup, then you can start making automatic backups of new volumes in the Automatic Backup section. You can also select the backup policy that will be applied to those new volumes. Having a backup policy assigned to newly created volumes ensures that all your data is protected.
+If you did not enable the automatic backup of future volumes when you activated BlueXP backup and recovery, then you can start making automatic backups of new volumes in the Automatic Backup section. You can also select the backup policy that will be applied to those new volumes. Having a backup policy assigned to newly created volumes ensures that all your data is protected.
 
-If you enabled the automatic backup of future volumes when you activated Cloud Backup, then you can change the backup policy that will be used for the newly created volumes in the Automatic Backup section. 
+If you enabled the automatic backup of future volumes when you activated BlueXP backup and recovery, then you can change the backup policy that will be used for the newly created volumes in the Automatic Backup section. 
 
 Note that the policy that you want to apply to new volumes must already exist. link:task-manage-backups-ontap.html#adding-a-new-backup-policy[See how to create a new backup policy for a working environment].
 

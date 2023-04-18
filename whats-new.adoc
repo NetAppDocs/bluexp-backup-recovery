@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: whats-new.html
 keywords: what's new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore
-summary: Learn what's new in Cloud Backup.
+summary: Learn what's new in BlueXP backup and recovery.
 ---
 
-= What's new with Cloud Backup
+= What's new with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Learn what's new in Cloud Backup.
 :imagesdir: ./media/
 
 [.lead]
-Learn what's new in Cloud Backup.
+Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 == 14 April 2023
@@ -48,17 +48,17 @@ Now you can back up data from Cloud Volumes ONTAP systems installed in AWS, Azur
 
 === Ability to back up your on-premises ONTAP volumes to ONTAP S3 using the API
 
-New functionality in the APIs enable you to back up your volume snapshots to ONTAP S3 using BlueXP Cloud Backup. This functionality is available only for On-Premises ONTAP systems at this time. For detailed instructions, see the Blog https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feature-Blog-April-23-Updates/ba-p/443075#toc-hId--846533830[Integration with ONTAP S3 as a destination^].
+New functionality in the APIs enable you to back up your volume snapshots to ONTAP S3 using BlueXP backup and recovery. This functionality is available only for On-Premises ONTAP systems at this time. For detailed instructions, see the Blog https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feature-Blog-April-23-Updates/ba-p/443075#toc-hId--846533830[Integration with ONTAP S3 as a destination^].
 
 === Ability to change the zone-redundancy aspect of your Azure storage account from LRS to ZRS
 
-When creating backups from Cloud Volumes ONTAP systems to Azure storage, by default, Cloud Backup provisions the Blob container with Local redundancy (LRS) for cost optimization. You can change this setting to Zone redundancy (ZRS) if you want your data to be replicated between different zones. See the Microsoft instructions for https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal[changing how your storage account is replicated^].
+When creating backups from Cloud Volumes ONTAP systems to Azure storage, by default, BlueXP backup and recovery provisions the Blob container with Local redundancy (LRS) for cost optimization. You can change this setting to Zone redundancy (ZRS) if you want your data to be replicated between different zones. See the Microsoft instructions for https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal[changing how your storage account is replicated^].
 
 === Enhancements to the Job Monitor
 
-* Both user-initiated backup and restore operations initiated from the Cloud Backup UI and API, and system-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for On-premises ONTAP systems running ONTAP 9.13.1 or greater. Earlier ONTAP versions will display only user-initiated jobs.
+* Both user-initiated backup and restore operations initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for On-premises ONTAP systems running ONTAP 9.13.1 or greater. Earlier ONTAP versions will display only user-initiated jobs.
 * In addition to being able to download a CSV file for reporting on all jobs, now you can download a JSON file for a single job and see its details. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report[Learn more].
-* Two new backup job alerts have been added: "Scheduled job failure" and "Restore job completes but with warnings". https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review all of the alerts that Cloud Backup can send].
+* Two new backup job alerts have been added: "Scheduled job failure" and "Restore job completes but with warnings". https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review all of the alerts that BlueXP backup and recovery can send].
 
 == 9 March 2023
 
@@ -74,7 +74,7 @@ Now you can back up data from Cloud Volumes ONTAP systems installed in AWS and A
 
 * The Job Monitoring page has added advanced filtering so you can search for backup and restore jobs by time, workload (volumes, applications, virtual machines, or Kubernetes), job type, status, working environment, and storage VM. You can also enter free text to search for any resource, for example, "application_3".  https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs[See how to use the advanced filters].
 
-* Both user-initiated backup and restore operations initiated from the Cloud Backup UI and API, and system-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. Earlier versions of Cloud Volumes ONTAP systems, and on-premises ONTAP systems, will display only user-initiated jobs at this time.
+* Both user-initiated backup and restore operations initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. Earlier versions of Cloud Volumes ONTAP systems, and on-premises ONTAP systems, will display only user-initiated jobs at this time.
 
 == 6 February 2023
 
@@ -95,7 +95,7 @@ DataLock and Ransomware Protection is now supported for backup files stored in A
 
 === Cloud Volumes ONTAP systems can move older backups to Google Archival storage
 
-Backup files are initially created in the Google Standard storage class. Now you can use Cloud Backup to tier older backups to Google Archive storage for further cost optimization. The last release only supported this functionality with on-prem ONTAP clusters - now Cloud Volumes ONTAP systems deployed in Google Cloud are supported.
+Backup files are initially created in the Google Standard storage class. Now you can use BlueXP backup and recovery to tier older backups to Google Archive storage for further cost optimization. The last release only supported this functionality with on-prem ONTAP clusters - now Cloud Volumes ONTAP systems deployed in Google Cloud are supported.
 
 === Volume Restore operations now enable you to select the SVM where you want to restore volume data
 
@@ -118,11 +118,11 @@ This functionality is available if your on-prem cluster is using ONTAP 9.12.1 or
 
 === Ability to select your own customer-managed keys for data encryption on Google Cloud
 
-When backing up data from your ONTAP systems to Google Cloud Storage, now you can select your own customer-managed keys for data encryption in the activation wizard instead of using the default Google-managed encryption keys. Just set up your customer-managed encryption keys in Google first, and then enter the details when activating Cloud Backup.
+When backing up data from your ONTAP systems to Google Cloud Storage, now you can select your own customer-managed keys for data encryption in the activation wizard instead of using the default Google-managed encryption keys. Just set up your customer-managed encryption keys in Google first, and then enter the details when activating BlueXP backup and recovery.
 
 === "Storage Admin" role no longer needed for the service account to create backups in Google Cloud Storage
 
-In earlier releases, the "Storage Admin" role was required for the service account that enables Cloud Backup to access Google Cloud Storage buckets. Now you can create a custom role with a reduced set of permissions to be assigned to the service account. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups[See how to prepare your Google Cloud Storage for backups].
+In earlier releases, the "Storage Admin" role was required for the service account that enables BlueXP backup and recovery to access Google Cloud Storage buckets. Now you can create a custom role with a reduced set of permissions to be assigned to the service account. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups[See how to prepare your Google Cloud Storage for backups].
 
 === Support has been added to restore data using Search & Restore in sites without internet access
 
