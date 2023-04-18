@@ -116,7 +116,7 @@ For example, if you have a 10 TB BYOL license, all capacity beyond the 10 TB is 
 
 You won’t be charged from your pay-as-you-go subscription during your free trial or if you haven’t exceeded your BYOL license.
 
-link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription[Learn how to set up a pay-as-you-go subscription].
+link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-paygo-subscription[Learn how to set up a pay-as-you-go subscription].
 
 === Bring your own license
 
@@ -124,7 +124,7 @@ BYOL is term-based (12, 24, or 36 months) _and_ capacity-based in 1 TB increment
 
 You'll receive a serial number that you enter in the BlueXP Digital Wallet page to enable the service. When either limit is reached, you'll need to renew the license. The Backup BYOL license applies to all source systems associated with your https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html[BlueXP account^].
 
-link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license[Learn how to manage your BYOL licenses].
+link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
 
 == How BlueXP backup and recovery works
 
