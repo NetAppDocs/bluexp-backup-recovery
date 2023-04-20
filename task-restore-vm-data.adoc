@@ -27,7 +27,7 @@ Ensure that you have met all the link:concept-protect-vm-data.html[requirements]
 NOTE: If the source virtual machine is moved to another location (vMotion), and if the user triggers a restore of that virtual machine from BlueXP, then the virtual machine is restored to the source location from where the backup was taken.
 
 [start=2]
-. You can restore from the datastore or from virtual machines :
+. You can restore from the datastore or from virtual machines:
 
 |===
 | If you want to... | Do this... 
