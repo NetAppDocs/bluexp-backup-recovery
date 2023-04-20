@@ -44,7 +44,7 @@ NOTE:  A single BlueXP Connector can communicate with multiple storage systems a
 
 IMPORTANT: Cloud Backup SaaS infrastructure is resilient to availability zone failures within a region. It supports regional failures by failing over to a new region and this failover involves a downtime of around 2 hours.
 
-== Protect Oracle database
+== Protect Oracle databases
 
 === Features
 
@@ -81,7 +81,7 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 * For Cloud Volumes ONTAP HA, only one of the network interface IPs are used. If the connectivity of the IP goes down or if you cannot access the IP, data protection operations fail.
 * The network interface IP addresses of Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP must be unique in the BlueXP account and region.
 
-== Protect SAP HANA database
+== Protect SAP HANA databases
 
 === Features
 
