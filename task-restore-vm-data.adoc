@@ -5,7 +5,7 @@ keywords: restore virtual machines
 summary: You can restore virtual machines from the cloud to the on-premises SnapCenter.
 ---
 
-= Restore virtual machines from the cloud
+= Restore virtual machines data from the cloud
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: You can restore virtual machines from the cloud to the on-premises Snap
 :imagesdir: ./media/
 
 [.lead]
-You can restore virtual machines from the cloud back to the on-premises vCenter. The backup will be restored to the exact same location from where the backup was taken. If the virtual machine was backed up using archival policy, then you can set the archival restore priority. 
+You can restore virtual machines data from the cloud back to the on-premises vCenter. The backup will be restored to the exact same location from where the backup was taken. If the virtual machine was backed up using archival policy, then you can set the archival restore priority. 
 
 NOTE: You cannot restore virtual machines that span across datastores.
 
