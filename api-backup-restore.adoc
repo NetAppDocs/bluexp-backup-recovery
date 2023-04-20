@@ -15,7 +15,7 @@ summary: The BlueXP backup and recovery capabilities that are available through 
 [.lead]
 The BlueXP backup and recovery capabilities that are available through the web UI are also available through the RESTful API.
 
-There are nine categories of endpoints defined within BlueXP backup and recovery:
+There are ten categories of endpoints defined within BlueXP backup and recovery:
 
 *	backup - manages backup operations of cloud and on-premises resources, and retrieves details of the backup data
 *	catalog - manages the indexed catalog search for files based on a query (Search & Restore)
