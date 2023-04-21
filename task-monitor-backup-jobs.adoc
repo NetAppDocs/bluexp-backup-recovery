@@ -29,9 +29,16 @@ The backup and restore status can be:
 
 Both user-initiated backup and restore operations initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs, such as ongoing scheduled backup operations, are available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. 
 
-TIP: When running an earlier version of ONTAP on Cloud Volumes ONTAP systems, or for on-premises ONTAP systems, only user-initiated jobs are displayed.
+[TIP] 
+====
+* When running an earlier version of ONTAP on Cloud Volumes ONTAP systems, or for on-premises ONTAP systems, only user-initiated jobs are displayed.
+* If you've upgraded your Cloud Volumes ONTAP systems to 9.13.x and you don't see ongoing scheduled backup operations in the Job Monitor, then you'll need to restart the BlueXP backup and recovery service. link:reference-restart-backup.html[Learn how to restart BlueXP backup and recovery^].
+====
 
-//NOTE: System-initiated jobs, such ongoing backup operations, are not reflected in the *Job Monitoring* tab at this time -- only user-initiated jobs are displayed.
+//When ONTAP 9.13.1 comes out for on-prem ONTAP systems, use something like this text instead of the paragraph and 2 bullets above:
+//Both user-initiated backup and restore operations initiated from the Cloud Backup UI and API, and system-initiated jobs such as ongoing scheduled backup operations, are available in the Job Monitoring tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater and on-prem ONTAP systems running ONTAP 9.13.1 or greater. When running earlier versions of ONTAP, only user-initiated jobs are displayed.
+
+//NOTE: If you've upgraded your ONTAP systems to 9.13.x and you don't see ongoing scheduled backup operations in the Job Monitor, then you'll need to restart the BlueXP backup and recovery service. <link>: Learn how to restart BlueXP backup and recovery.
 
 .Steps
 

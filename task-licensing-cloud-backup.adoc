@@ -34,16 +34,16 @@ When the free trial ends, you'll be switched over automatically to the PAYGO sub
 
 For pay-as-you-go, you'll pay your cloud provider for object storage costs and for NetApp backup licensing costs on an hourly basis in a single subscription. You should subscribe even if you have a free trial or if you bring your own license (BYOL):
 
-* Subscribing ensures that there’s no disruption of service after your free trial ends. When the trial ends, you’ll be charged hourly according to the amount of data that you back up.
+* Subscribing ensures that there's no disruption of service after your free trial ends. When the trial ends, you'll be charged hourly according to the amount of data that you back up.
 * If you back up more data than allowed by your BYOL license, then data backup continues through your pay-as-you-go subscription. For example, if you have a 10 TiB BYOL license, all capacity beyond the 10 TiB is charged through the PAYGO subscription.
 
-You won’t be charged from your pay-as-you-go subscription during your free trial or if you haven’t exceeded your BYOL license.
+You won't be charged from your pay-as-you-go subscription during your free trial or if you haven't exceeded your BYOL license.
 
 There are a few PAYGO plans for BlueXP backup and recovery:
 
 * A "Cloud Backup" package that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
-* A "CVO Professional" package that enables you to bundle Cloud Volumes ONTAP and BlueXP backup and recovery. This includes unlimited backups for the Cloud Volumes ONTAP system using the license (backup capacity is not counted against the licensed capacity). This option doesn’t enable you to back up on-premises ONTAP data.
-* A "CVO Edge Cache" package has the same capabilities as the "CVO Professional" package, but it also includes support for the https://docs.netapp.com/us-en/cloud-manager-file-cache/concept-gfc.html[BlueXP edge caching^] service. You are entitled to deploy one Global File Cache Edge system for each 3 TiB of provisioned capacity on the Cloud Volumes ONTAP system. This option is available through the Azure and Google Marketplaces, and it doesn’t enable you to back up on-premises ONTAP data.
+* A "CVO Professional" package that enables you to bundle Cloud Volumes ONTAP and BlueXP backup and recovery. This includes unlimited backups for the Cloud Volumes ONTAP system using the license (backup capacity is not counted against the licensed capacity). This option doesn't enable you to back up on-premises ONTAP data.
+* A "CVO Edge Cache" package has the same capabilities as the "CVO Professional" package, but it also includes support for the https://docs.netapp.com/us-en/cloud-manager-file-cache/concept-gfc.html[BlueXP edge caching^] service. You are entitled to deploy one Global File Cache Edge system for each 3 TiB of provisioned capacity on the Cloud Volumes ONTAP system. This option is available through the Azure and Google Marketplaces, and it doesn't enable you to back up on-premises ONTAP data.
 
 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing[Learn more about these capacity-based license packages].
 
@@ -68,9 +68,9 @@ When using AWS, there are two annual contracts available from the https://aws.am
 
 * A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
 +
-If you want to use this option, set up your subscription from the Marketplace page and then https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#associate-an-aws-subscription[associate the subscription with your AWS credentials^]. Note that you’ll also need to pay for your Cloud Volumes ONTAP systems using this annual contract subscription since you can assign only one active subscription to your AWS credentials in BlueXP.
+If you want to use this option, set up your subscription from the Marketplace page and then https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#associate-an-aws-subscription[associate the subscription with your AWS credentials^]. Note that you'll also need to pay for your Cloud Volumes ONTAP systems using this annual contract subscription since you can assign only one active subscription to your AWS credentials in BlueXP.
 
-* A "CVO Professional" plan that enables you to bundle Cloud Volumes ONTAP and BlueXP backup and recovery. This includes unlimited backups for the Cloud Volumes ONTAP system using the license (backup capacity is not counted against the licensed capacity). This option doesn’t enable you to back up on-premises ONTAP data.
+* A "CVO Professional" plan that enables you to bundle Cloud Volumes ONTAP and BlueXP backup and recovery. This includes unlimited backups for the Cloud Volumes ONTAP system using the license (backup capacity is not counted against the licensed capacity). This option doesn't enable you to back up on-premises ONTAP data.
 +
 See the https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing topic^] to learn more about this licensing option.
 +
@@ -93,7 +93,7 @@ Bring-your-own licenses from NetApp provide 1-, 2-, or 3-year terms. You pay onl
 
 The BYOL BlueXP backup and recovery license is a floating license where the total capacity is shared across all systems associated with your BlueXP account. For ONTAP systems, you can get a rough estimate of the capacity you'll need by running the CLI command `volume show -fields logical-used-by-afs` for the volumes you plan to back up.
 
-If you don’t have a BlueXP backup and recovery BYOL license, click the chat icon in the lower-right of BlueXP to purchase one.
+If you don't have a BlueXP backup and recovery BYOL license, click the chat icon in the lower-right of BlueXP to purchase one.
 
 Optionally, if you have an unassigned node-based license for Cloud Volumes ONTAP that you won't be using, you can convert it to a BlueXP backup and recovery license with the same dollar-equivalence and the same expiration date. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html#exchange-unassigned-node-based-licenses[Go here for details^].
 
@@ -103,7 +103,7 @@ You use the BlueXP digital wallet to manage BYOL licenses. You can add new licen
 
 After you've purchased your BlueXP backup and recovery license, you activate the license in BlueXP either by entering the BlueXP backup and recovery serial number and NSS account, or by uploading the NLF license file. The steps below show how to get the NLF license file if you plan to use that method.
 
-If you're running BlueXP backup and recovery in an on-premises site that doesn’t have internet access, meaning that you’ve deployed the BlueXP Connector on a host in the offline on-premises site, you’ll need to obtain the license file from an internet-connected system. Activating the license using the serial number and NSS account is not available for offline (dark site) installations.
+If you're running BlueXP backup and recovery in an on-premises site that doesn't have internet access, meaning that you've deployed the BlueXP Connector on a host in the offline on-premises site, you'll need to obtain the license file from an internet-connected system. Activating the license using the serial number and NSS account is not available for offline (dark site) installations.
 
 .Steps
 
@@ -158,7 +158,7 @@ You can update your BlueXP backup and recovery license before it expires so that
 +
 After you pay for the license and it is registered with the NetApp Support Site, BlueXP automatically updates the license in the BlueXP digital wallet and the Data Services Licenses page will reflect the change in 5 to 10 minutes.
 
-. If BlueXP can't automatically update the license (for example, when installed in a dark site), then you’ll need to manually upload the license file.
+. If BlueXP can't automatically update the license (for example, when installed in a dark site), then you'll need to manually upload the license file.
 .. You can <<Obtain your BlueXP backup and recovery license file,obtain the license file from the NetApp Support Site>>.
 .. On the BlueXP digital wallet page _Data Services Licenses_ tab, click image:screenshot_horizontal_more_button.gif[More icon] for the service serial number you are updating, and click *Update License*.
 +
