@@ -27,8 +27,8 @@ NOTE: You cannot update the new connector_id from the UI.
 For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Create a Connector in Azure from BlueXP].
 
 * You should use the same connector to manage both Azure NetApp Files working environment and databases.
-* If you have the Azure NetApp Files working environment and databases in the same virtual private cloud (VPC), you can deploy the connector in the same VPC.
-* If you have the Azure NetApp Files working environment and databases in different VPCs and have NAS (NFS) workloads configured on Azure NetApp Files, then you can create the connector on either of the VPCs.
+* If you have the Azure NetApp Files working environment and databases in the same Virtual Network (VNet), you can deploy the connector in the same VNet.
+* If you have the Azure NetApp Files working environment and databases in different VNets and have NAS (NFS) workloads configured on Azure NetApp Files, then you can create the connector on either of the VNets.
 
 After creating the connector, perform the following:
 

@@ -5,7 +5,7 @@ keywords: manage, view backup, monitor jobs, monitor, Cloud Manager, BlueXP
 summary: View the backup details and monitor the status of all the jobs.
 ---
 
-= Manage protection of cloud native application data
+= Manage protection of cloud-native application data
 :hardbreaks:
 :nofooter:
 :icons: font

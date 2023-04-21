@@ -5,7 +5,7 @@ keywords: cloud native, application data, restore, data files, SAP HANA, databas
 summary:  Restore the data files and then recover the database.
 ---
 
-= Restore cloud native SAP HANA database
+= Restore cloud-native SAP HANA databases
 :hardbreaks:
 :nofooter:
 :icons: font

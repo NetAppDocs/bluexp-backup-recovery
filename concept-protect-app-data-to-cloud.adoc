@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: concept-protect-app-data-to-cloud.html
-keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database, Cloud Manager, BlueXP, cloud backup
+keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database, Cloud Manager, BlueXP, backup and recovery
 summary:  Integrate BlueXP backup and recovery for applications with BlueXP and on-premises SnapCenter to back up the application consistent Snapshots from on-premises ONTAP to cloud.
 ---
 
@@ -20,7 +20,7 @@ You can back up Oracle, Microsoft SQL, and SAP HANA applications data from on-pr
 
 For more information about BlueXP backup and recovery for applications, refer to:
 
-* https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration[Application aware backup with Cloud Backup and SnapCenter^]
+* https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration[Application aware backup with BlueXP backup and recovery and SnapCenter^]
 * https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications[BlueXP backup and recovery for applications podcast^]
 
 == Requirements
@@ -44,8 +44,4 @@ NOTE: If SVMs are added to SnapCenter using FQDN or IP address, applications run
 
 The following image shows each component when backing up to cloud and the connections that you need to prepare between them:
 
-image:diagram_cloud_backup_app.png[A diagram showing how Cloud Backup communicates with the on-premises applications and the destination storage where the backup files are located.]
-
-The following image shows each component when backing up to StorageGRID and the connections that you need to prepare between them:
-
-image:diagram_cloud_backup_onprem_storagegrid.png[A diagram showing how Cloud Backup communicates with the volumes on the source systems and the destination storage where the backup files are located.]
+image:diagram_cloud_backup_app.png[A diagram showing how BlueXP backup and recovery communicates with the on-premises applications and the destination storage where the backup files are located.]
