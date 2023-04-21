@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: task-restore-cloud-native-oracle-data.html
-keywords: cloud native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle
+keywords: cloud-native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle
 summary:  Restore the data files, control files, or both and then recover the database.
 ---
 
-= Restore cloud native Oracle database
+= Restore cloud-native Oracle databases
 :hardbreaks:
 :nofooter:
 :icons: font

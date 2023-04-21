@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: task-clone-cloud-native-oracle-data.html
-keywords: cloud native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle
+keywords: cloud-native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle
 summary:  Clone the database either to the source or alternate host.
 ---
 
-= Clone cloud native Oracle database
+= Clone cloud-native Oracle databases
 :hardbreaks:
 :nofooter:
 :icons: font
