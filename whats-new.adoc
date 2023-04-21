@@ -18,7 +18,7 @@ Learn what's new in BlueXP backup and recovery.
 // tag::whats-new[]
 == 14 April 2023
 
-=== Enhancements to BlueXP backup and recovery for applications (cloud native)
+=== Enhancements to BlueXP backup and recovery for applications (cloud-native)
 
 * SAP HANA databases
 ** Supports script based system refresh
@@ -33,7 +33,7 @@ Learn what's new in BlueXP backup and recovery.
 === Enhancements to BlueXP backup and recovery for applications (hybrid)
 
 * BlueXP backup and recovery for applications (hybrid) is driven from the SaaS control plane. 
-* Modified the hybrid REST APIs to align with cloud native APIs.
+* Modified the hybrid REST APIs to align with cloud-native APIs.
 * Supports email notification
 
 == 4 April 2023
@@ -149,7 +149,7 @@ After you filter the Job Monitoring page to display the jobs and actions you are
 ** Supports policy-based backup and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP
 ** Supports restore of Oracle databases using connect-and-copy method
 ** Supports Oracle 21c
-** Supports cloning of cloud native Oracle database
+** Supports cloning of cloud-native Oracle database
 
 === Enhancements to Cloud Backup for Virtual Machines
 
@@ -289,7 +289,7 @@ If the https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-sto
 
 == 18 August 2022
 
-=== Support has been added to protect cloud native applications data
+=== Support has been added to protect cloud-native applications data
 
 Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within BlueXP offers efficient, application consistent, policy-based backup and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP.
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html[Learn more^].

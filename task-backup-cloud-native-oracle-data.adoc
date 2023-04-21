@@ -5,7 +5,7 @@ keywords: admin role, service account, pre-canned policies, cloud manager, BlueX
 summary: Create a scheduled or on-demand backups of Oracle database.
 ---
 
-= Back up cloud native Oracle database
+= Back up cloud-native Oracle databases
 :hardbreaks:
 :nofooter:
 :icons: font
