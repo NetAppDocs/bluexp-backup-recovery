@@ -59,6 +59,7 @@ a|
 . Click *Backup and recovery* > *Applications* 
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *View Details*.
 . Modify *Connector ID*.
+ifdef::azure[]
 a|
 SAP HANA database host
 a|
@@ -75,7 +76,8 @@ curl --location --request PATCH
 "new_connector_id": "New connector Id"
 }
 ----
-Connector details will get updated successfully if all the hosts have SnapCenter Plug-in for SAP HANA service installed and running and also if they are all reachable from the new connector.
+Connector details will get updated successfully if all the hosts have SnapCenter Plug-in for SAP HANA service installed and running and also if they are all reachable from the new Connector.
+endif::azure[]
 |===
 
 After updating the Connector details for Oracle or SAP HANA hosts, perform the following to ensure that the Connector details were updated successfully.
@@ -86,7 +88,7 @@ After updating the Connector details for Oracle or SAP HANA hosts, perform the f
 .. Obtain the base mount path.
 `sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
 .. Copy certificate.p12 from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
-. Log in to the plug-in host and perform the follwing steps:
+. Log in to the plug-in host and perform the following steps:
 .. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.p12 file.
 `keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
 .. Restart SPL: `systemctl restart spl`
