@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: task-report-inventory.html
-keywords: cloud backup, cloud backup service, backup, restore, report, inventory
-summary: With Cloud Backup reports, you can ensure that critical data is protected according to your organization’s defined policies and efficiently support audit for compliance processes. With the Backup inventory report, you can see all your backups for a specific account, working environment or SVM inventory. 
+keywords: cloud backup, cloud backup service, backup and recovery, backup, restore, report, inventory
+summary: With BlueXP backup and recovery reports, you can ensure that critical data is protected according to your organization’s defined policies and efficiently support audit for compliance processes. With the Backup inventory report, you can see all your backups for a specific account, working environment or SVM inventory. 
 ---
 
 = Report on data protection coverage
@@ -13,10 +13,10 @@ summary: With Cloud Backup reports, you can ensure that critical data is protect
 :imagesdir: ./media/
 
 [.lead]
-With Cloud Backup reports, you can ensure that critical data is protected according to your organization’s defined policies and provide audits for compliance needs. With the Backup inventory report, you can see all your backups for a specific account, working environment or SVM inventory.  
+With BlueXP backup and recovery reports, you can ensure that critical data is protected according to your organization’s defined policies and provide audits for compliance needs. With the Backup inventory report, you can see all your backups for a specific account, working environment or SVM inventory.  
 
 
-Cloud Backup reports help you accomplish the following: 
+BlueXP backup and recovery reports help you accomplish the following: 
 
 * *Operations visibility*: Monitor your service level agreements regarding data protection, backup success rate, and backup window alignment to business needs. 
 * *Compliance and auditing*: Use operational and inventory reports in your internal and external audit processes for ongoing monitoring of compliance.
@@ -52,14 +52,14 @@ The Backup inventory report shows the following information and more:
 
 NOTE: The Backup inventory report doesn't include expired or failed backup information. 
 
-The top of the report includes a graph that shows the following infomation: 
+The top of the report includes a graph that shows the following information: 
 
 * Count of volumes in scope with at least one backup
 * Total of inactive volumes plus active volumes
 
 
 == Create a Backup inventory report
-With Cloud Backup Reports tab, you can create the Backup inventory report, filter its contents, schedule it to run later, and optionally send the report via email to selected recipients. 
+From the BlueXP backup and recovery Reports tab, you can create the Backup inventory report, filter its contents, schedule it to run later, and optionally send the report via email to selected recipients. 
 
 .Steps
 
