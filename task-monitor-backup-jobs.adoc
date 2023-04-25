@@ -27,18 +27,17 @@ The backup and restore status can be:
 * Warning
 * Failed
 
-Both user-initiated backup and restore operations initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs, such as ongoing scheduled backup operations, are available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. 
+Both user-initiated backup and restore operations initiated from the Cloud Backup UI and API, and system-initiated jobs such as ongoing scheduled backup operations, are available in the Job Monitoring tab. However, this is true only for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater and on-premises ONTAP systems running ONTAP 9.13.1 or greater. When running earlier versions of ONTAP, only user-initiated jobs are displayed.
 
-[TIP] 
-====
-* When running an earlier version of ONTAP on Cloud Volumes ONTAP systems, or for on-premises ONTAP systems, only user-initiated jobs are displayed.
-* If you've upgraded your Cloud Volumes ONTAP systems to 9.13.x and you don't see ongoing scheduled backup operations in the Job Monitor, then you'll need to restart the BlueXP backup and recovery service. link:reference-restart-backup.html[Learn how to restart BlueXP backup and recovery^].
-====
+NOTE: If you've upgraded your ONTAP systems to 9.13.x and you don't see ongoing scheduled backup operations in the Job Monitor, then you'll need to restart the BlueXP backup and recovery service. link:reference-restart-backup.html[Learn how to restart BlueXP backup and recovery].
 
-//When ONTAP 9.13.1 comes out for on-prem ONTAP systems, use something like this text instead of the paragraph and 2 bullets above:
-//Both user-initiated backup and restore operations initiated from the Cloud Backup UI and API, and system-initiated jobs such as ongoing scheduled backup operations, are available in the Job Monitoring tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater and on-prem ONTAP systems running ONTAP 9.13.1 or greater. When running earlier versions of ONTAP, only user-initiated jobs are displayed.
-
-//NOTE: If you've upgraded your ONTAP systems to 9.13.x and you don't see ongoing scheduled backup operations in the Job Monitor, then you'll need to restart the BlueXP backup and recovery service. <link>: Learn how to restart BlueXP backup and recovery.
+//Old content; just in case:
+//Both user-initiated backup and restore operations initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs, such as ongoing scheduled backup operations, are available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. 
+//[TIP] 
+//====
+//* When running an earlier version of ONTAP on Cloud Volumes ONTAP systems, or for on-premises ONTAP systems, only user-initiated jobs are displayed.
+//* If you've upgraded your Cloud Volumes ONTAP systems to 9.13.x and you don't see ongoing scheduled backup operations in the Job Monitor, then you'll need to restart the BlueXP backup and recovery service. link:reference-restart-backup.html[Learn how to restart BlueXP backup and recovery^].
+//====
 
 .Steps
 
@@ -93,6 +92,7 @@ Restore jobs show details such as backup target provider (Amazon Web Services, M
 NOTE: Job details appear only for ONTAP volumes backup and restore jobs. Scheduled backup job details appear only for Cloud Volumes ONTAP systems beginning with ONTAP 9.13.0. Job details appear  for in-progress and completed jobs. 
 
 .Steps 
+
 . Select the *Job Monitoring* tab.
 . Select the name of the job. 
 . Select the Actions menu image:icon-action.png[Actions icon] and select *View Details*. 
@@ -143,7 +143,7 @@ NOTE: Beginning with Cloud Volumes ONTAP 9.13.0, all alerts appear. For systems 
 
 By default, BlueXP Account Admins receive emails for all "Critical" and "Recommendation" alerts. All other users and recipients are configured, by default, not to receive any notification emails. Emails can be sent to any BlueXP users who are part of your NetApp Cloud Account, or to any other recipients who need to be aware of backup and restore activity. 
 
-To receive the BlueXP backup and recovery email alerts, you'll need to select the notification severity types "Critical" and "Error." 
+To receive the BlueXP backup and recovery email alerts, you'll need to select the notification severity types "Critical", "Warning", and "Error."
 
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
 
@@ -152,6 +152,3 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operatio
 . Select the *Job Monitoring* tab.
 . Display notifications by selecting the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. 
 . Review the notification. 
-
-
-
