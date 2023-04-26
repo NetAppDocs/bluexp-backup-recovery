@@ -20,15 +20,15 @@ Learn what's new in BlueXP backup and recovery.
 
 === Ability to back up data from Cloud Volumes ONTAP systems in secure regions
 
-Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secret region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 === Folder-level restore operations are now supported from archival storage and from DataLock
 
-s
+If a backup file has been configured with DataLock & Ransomware protection, or if the backup file resides in archival storage, now folder-level restore operations are supported if the cluster is running ONTAP 9.13.1 or greater.
 
-=== FlexGroup volumes backup with DataLock
+=== FlexGroup volumes can be backed up and protected using DataLock and Ransomware protection
 
-k
+FlexGroup volume backups can use DataLock and Ransomware protection when the cluster is running ONTAP 9.13.1 or greater.
 
 === Enhancements to the Job Monitor
 
@@ -409,17 +409,3 @@ There are a few changes to how licensing is implemented with Cloud Backup:
 * The Free Trial starts the day the Marketplace subscription starts. For example, if you activate the Free Trial after you have been using a Marketplace subscription for 30 days for a Cloud Volumes ONTAP system, the Cloud Backup Trial will not be available.
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-licensing-cloud-backup.html[Learn more about the available licensing models].
-
-== 4 April 2022
-
-=== Cloud Backup for Applications 1.1.0 (powered by SnapCenter) is now GA
-
-The new Cloud Backup for Applications capability enables you to offload existing application consistent Snapshots (backups) for Oracle and Microsoft SQL from on-premises primary storage to cloud object storage in Amazon S3 or Azure Blob.
-
-When required, you can restore this data from cloud to on-premises.
-
-link:concept-protect-app-data-to-cloud.html[Learn more about protecting on-premises applications data to the cloud].
-
-=== New Search & Restore feature to search for volumes or files across all ONTAP backup files
-
-Now you can search for a volume or file across *all ONTAP backup files* by partial or full volume name, partial or full file name, size range, and additional search filters. This is a great new way to find the data you want to restore if you are not sure which cluster or volume was the source for the data. link:task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore[Learn how to use Search & Restore].
