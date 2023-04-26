@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: concept-protect-cloud-app-data-to-cloud.html
-keywords: backing up, back up, backup, backup application data, Amazon EC2, Amazon Web services, Amazon FSx, Cloud Backup, Oracle database, requirements, prerequisites, Cloud Volumes ONTAP, Cloud Manager, BlueXP, cloud backup
+keywords: backing up, back up, backup, backup application data, Amazon EC2, Amazon Web services, Amazon FSx, Oracle database, requirements, prerequisites, Cloud Volumes ONTAP, Cloud Manager, BlueXP
 summary: BlueXP offers efficient, application consistent, policy-based backup, and restore of Oracle® databases residing on Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP.
 ---
 
@@ -21,12 +21,12 @@ BlueXP backup and recovery for applications is a SaaS based service that provide
 
 == Architecture
 
-The Cloud Backup architecture includes the following components.
+The BlueXP backup and recovery for applications architecture includes the following components.
 
-* Cloud Backup is a set of data protection services hosted as a SaaS service by NetApp and is based on the BlueXP SaaS platform.
+* The BlueXP backup and recovery is a set of data protection services hosted as a SaaS service by NetApp and is based on the BlueXP SaaS platform.
 +
 It orchestrates the data protection workflows for applications residing on NetApp Cloud Storage.
-* Cloud Backup UI offers data protection capabilities for applications and can be accessed from the BlueXP UI.
+* BlueXP UI offers data protection capabilities for applications and can be accessed from the BlueXP UI.
 
 * BlueXP Connector is a component that runs in your cloud network and interacts with storage systems and application specific plug-ins.
 
@@ -36,13 +36,13 @@ The following image shows each component and the connections that you need to pr
 
 image:diagram_nativecloud_backup_app.png[A diagram showing how each component and the connections need to be prepared.]
 
-For any user-initiated request, the Cloud Backup UI communicates with the BlueXP SaaS which upon validating the request processes the same. If the request is to run a workflow such as a backup, restore, or clone, the SaaS service initiates the workflow and where required, forwards the call to the BlueXP Connector. The Connector then communicates with storage system and application specific plug-in as part of running the workflow tasks.
+For any user-initiated request, the BlueXP UI communicates with the BlueXP SaaS which upon validating the request processes the same. If the request is to run a workflow such as a backup, restore, or clone, the SaaS service initiates the workflow and where required, forwards the call to the BlueXP Connector. The Connector then communicates with storage system and application specific plug-in as part of running the workflow tasks.
 
 The Connector can be deployed in the same VPC or VNet as that of the applications, or in a different one. If the Connector and applications are on different network, you should establish a network connectivity between them.
 
 NOTE:  A single BlueXP Connector can communicate with multiple storage systems and multiple application plug-ins. You will need a single Connector to manage your applications as long as there is connectivity between the Connector and application hosts.
 
-IMPORTANT: Cloud Backup SaaS infrastructure is resilient to availability zone failures within a region. It supports regional failures by failing over to a new region and this failover involves a downtime of around 2 hours.
+IMPORTANT: The BlueXP SaaS infrastructure is resilient to availability zone failures within a region. It supports regional failures by failing over to a new region and this failover involves a downtime of around 2 hours.
 
 == Protect Oracle databases
 
