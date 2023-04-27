@@ -22,17 +22,10 @@ You should create Azure NetApp Files working environments where your databases a
 == Create a connector
 A BlueXP account admin should deploy a Connector in Azure that enables BlueXP to manage resources and processes within your public cloud environment.
 
-NOTE: You cannot update the new connector_id from the UI.
-
 For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Create a Connector in Azure from BlueXP].
 
-* You should use the same connector to manage both Azure NetApp Files working environment and databases.
+* Ensure that there is connectivity from the connector to the database hosts.
 * If you have the Azure NetApp Files working environment and databases in the same Virtual Network (VNet), you can deploy the connector in the same VNet.
 * If you have the Azure NetApp Files working environment and databases in different VNets and have NAS (NFS) workloads configured on Azure NetApp Files, then you can create the connector on either of the VNets.
 
-After creating the connector, perform the following:
-
-* Add the working environment by clicking *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment*.
-+
-Ensure that there is connectivity from the connector to the database hosts and Azure NetApp Files working environment. The connector should connect to the Azure NetApp Files working environment.
-* Copy the Connector ID by clicking *Connector > Manage Connectors* and selecting the Connector name.
+After creating the connector, add the working environment by clicking *Storage* > *Canvas* > *My Working Environments* > *Add Working Environment*.
