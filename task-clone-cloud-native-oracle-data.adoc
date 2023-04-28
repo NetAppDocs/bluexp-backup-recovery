@@ -13,7 +13,7 @@ summary:  Clone the database either to the source or alternate host.
 :imagesdir: ./media/
 
 [.lead]
-You can clone an Oracle database using the backup of the database either to the source database host or to an alternate host.
+You can clone an Oracle database residing on Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP using the backup of the database either to the source database host or to an alternate host.
 
 You might clone databases for the following reasons:
 
