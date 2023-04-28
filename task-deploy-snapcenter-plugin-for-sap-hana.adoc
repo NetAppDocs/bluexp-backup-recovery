@@ -138,15 +138,8 @@ The plug-in binary is available at: _cd /var/lib/docker/volumes/service-manager-
 . Restart SPL: `systemctl restart spl`
 . Validate that the plug-in is reachable from the Connector by running the below command from the Connector.
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert  config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
-. Review the details and click *Discover Applications*.
-+
-* Displays all the databases on the host.
-+
-* Click *Settings* and select *Hosts* to view all the hosts.
-+
-NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed.
-+
-* Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and you can either edit them to meet your requirement or create a new policy.
+
+After installing the plug-in, you should <<Add SAP HANA database hosts>>.
 
 == Upgrade SnapCenter Plug-in for SAP HANA Database
 
@@ -196,12 +189,9 @@ Go to *Canvas* page to add a new working environment
 
 NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed.
 
-*What's next*
-
 You can modify or remove the SAP HANA systems from the UI and also by using REST API.  
 
 Before removing the SAP HANA system, you should delete all the associated backups and remove the protection.
-
 
 
 === Add Non-Data Volumes

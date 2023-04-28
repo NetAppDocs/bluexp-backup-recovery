@@ -50,7 +50,7 @@ IMPORTANT: The BlueXP SaaS infrastructure is resilient to availability zone fail
 
 * Add host and deploy plug-in
 +
-You can deploy the plug-in manually, using script, or automatically.
+You can deploy plugin using UI, script, or manually.
 * Auto-discovery of Oracle databases
 * Backing up Oracle databases residing on Amazon FSx for NetApp ONTAP, Cloud Volumes ONTAP, and Azure NetApp Files
 ** Full (data + control + archive log files) backup
