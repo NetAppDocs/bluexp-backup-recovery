@@ -50,7 +50,7 @@ System-initiated jobs, such ongoing backup operations, are now available in the 
 
 === Enhancements to BlueXP backup and recovery for applications (hybrid)
 
-* BlueXP backup and recovery for applications (hybrid) is driven from the SaaS control plane. 
+* BlueXP backup and recovery for applications (hybrid) is driven from the SaaS control plane
 * Modified the hybrid REST APIs to align with cloud-native APIs.
 * Supports email notification
 

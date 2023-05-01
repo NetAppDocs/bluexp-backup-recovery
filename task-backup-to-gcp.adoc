@@ -120,9 +120,11 @@ bigquery.tables.create
 . Click *Update* to save the edited role.
 
 Required information for using customer-managed encryption keys (CMEK)::
-You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. In this case you'll need to have the Key Ring and the Key Name so you can add this information in the activation wizard. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
+You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. If you're planning to use your own customer-managed keys: 
 +
-You'll also need to add these required permissions in the role for the Connector for CMEK to work:
+* You'll need to have the Key Ring and the Key Name so you can add this information in the activation wizard. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
++
+* You'll need to verify that these required permissions are included in the role for the Connector:
 +
 [source,json]
 cloudkms.cryptoKeys.get
@@ -134,13 +136,15 @@ cloudkms.keyRings.getIamPolicy
 cloudkms.keyRings.list
 cloudkms.keyRings.setIamPolicy
 +
-*CMEK considerations:*
+* You'll need to enable the Google "Cloud Key Management Service (KMS)" API in your project. See the https://cloud.google.com/apis/docs/getting-started#enabling_apis[Google Cloud documentation: Enabling APIs] for details.
 +
-* Both HSM (Hardware-backed) and Software generated keys are supported.
-* Both newly created or imported Cloud KMS keys are supported.
-* Only regional keys are supported, global keys are not supported.
-* Currently, only the "Symmetric encrypt/decrypt" purpose is supported.
-* The service agent associated with the Storage Account is assigned the "CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter)" IAM role by BlueXP backup and recovery. 
+* *CMEK considerations:*
++
+** Both HSM (Hardware-backed) and Software generated keys are supported.
+** Both newly created or imported Cloud KMS keys are supported.
+** Only regional keys are supported, global keys are not supported.
+** Currently, only the "Symmetric encrypt/decrypt" purpose is supported.
+** The service agent associated with the Storage Account is assigned the "CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter)" IAM role by BlueXP backup and recovery. 
 
 == Enabling BlueXP backup and recovery on a new system
 
