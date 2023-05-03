@@ -358,7 +358,8 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * FlexGroup volume backups can't be moved to archival storage.
 
-* FlexGroup volume backups can use DataLock and Ransomware protection when the cluster is running ONTAP 9.13.1 or greater.
+* FlexGroup volume backups can't use DataLock and Ransomware protection.
+//can use DataLock and Ransomware protection when the cluster is running ONTAP 9.13.1 or greater.
 
 * SVM-DR volume backup is supported with the following restrictions:
 ** Backups are supported from the ONTAP secondary only.
@@ -376,7 +377,7 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * ONTAP doesn't support fan-out of SnapMirror relationships from a single volume to multiple object stores; therefore, this configuration is not supported by BlueXP backup and recovery.
 
-* WORM/Compliance mode on an object store is supported on Amazon S3, Azure, and StorageGRID at this time. This is known as the DataLock feature, and it must be managed using BlueXP backup and recovery settings, not using the cloud provider interface.
+* WORM/Compliance mode on an object store is supported on Amazon S3, Azure, and StorageGRID at this time. This is known as the DataLock feature, and it must be managed by using BlueXP backup and recovery settings, not by using the cloud provider interface.
 
 === Restore limitations
 

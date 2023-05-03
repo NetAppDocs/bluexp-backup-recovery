@@ -26,9 +26,13 @@ Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/S
 
 If a backup file has been configured with DataLock & Ransomware protection, or if the backup file resides in archival storage, now folder-level restore operations are supported if the cluster is running ONTAP 9.13.1 or greater.
 
-=== FlexGroup volumes can be backed up and protected using DataLock and Ransomware protection
+=== Cross-region and cross-project customer-managed keys are supported when backing up volumes to Google Cloud
 
-FlexGroup volume backups can use DataLock and Ransomware protection when the cluster is running ONTAP 9.13.1 or greater.
+Now you can choose a project for a bucket that is different than the project of the CMEK key when using your own customer-managed keys.
+
+//=== FlexGroup volumes can be backed up and protected using DataLock and Ransomware protection
+//
+//FlexGroup volume backups can use DataLock and Ransomware protection when the cluster is running ONTAP 9.13.1 or greater.
 
 === Enhancements to the Job Monitor
 

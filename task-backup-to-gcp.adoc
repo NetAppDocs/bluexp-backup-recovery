@@ -120,7 +120,7 @@ bigquery.tables.create
 . Click *Update* to save the edited role.
 
 Required information for using customer-managed encryption keys (CMEK)::
-You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. If you're planning to use your own customer-managed keys: 
+You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. Both cross-region and cross-project keys are supported, so you can choose a project for a bucket that is different than the project of the CMEK key. If you're planning to use your own customer-managed keys: 
 +
 * You'll need to have the Key Ring and the Key Name so you can add this information in the activation wizard. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
 +
@@ -136,11 +136,11 @@ cloudkms.keyRings.getIamPolicy
 cloudkms.keyRings.list
 cloudkms.keyRings.setIamPolicy
 +
-* You'll need to enable the Google "Cloud Key Management Service (KMS)" API in your project. See the https://cloud.google.com/apis/docs/getting-started#enabling_apis[Google Cloud documentation: Enabling APIs] for details.
+* You'll need to verify that the Google "Cloud Key Management Service (KMS)" API is enabled in your project. See the https://cloud.google.com/apis/docs/getting-started#enabling_apis[Google Cloud documentation: Enabling APIs] for details.
 +
 * *CMEK considerations:*
 +
-** Both HSM (Hardware-backed) and Software generated keys are supported.
+** Both HSM (Hardware-backed) and Software-generated keys are supported.
 ** Both newly created or imported Cloud KMS keys are supported.
 ** Only regional keys are supported, global keys are not supported.
 ** Currently, only the "Symmetric encrypt/decrypt" purpose is supported.
