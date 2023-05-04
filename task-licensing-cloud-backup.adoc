@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-licensing-cloud-backup.html
 keywords: license, licensing, install, updating license, paygo license, byol license, nlf, license generator, backup license, add backup license, update backup license, annual
-summary: You can license BlueXP backup and recovery by purchasing a pay-as-you-go (PAYGO) or annual marketplace subscription from your cloud provider, or by purchasing a bring-your-own-license (BYOL) from NetApp. A valid license is required to activate BlueXP backup and recovery on a working environment, to create backups of your production data, and to restore backup data to a production system.
+summary: You can license BlueXP backup and recovery by purchasing a pay-as-you-go or annual marketplace subscription from your cloud provider, or by purchasing a bring-your-own-license from NetApp. A valid license is required to activate BlueXP backup and recovery on a working environment, to create backups of your production data, and to restore backup data to a production system.
 ---
 
 = Set up licensing for BlueXP backup and recovery
