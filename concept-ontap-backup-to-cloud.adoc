@@ -118,7 +118,7 @@ endif::azure[]
 
 === Support for sites with no internet connectivity
 
-BlueXP backup and recovery can be used in a site with no internet connectivity (also known as "private mode" or "dark" sites) to back up volume data. In this case, you'll need to deploy the BlueXP Connector in the dark site. 
+BlueXP backup and recovery can be used in a site with no internet connectivity (also known as "private mode" or "dark" sites) to back up volume data. In this case, you'll need to deploy the BlueXP Connector in private mode. 
 
 * You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
 //ifdef::aws[]
@@ -214,7 +214,7 @@ Note that a 30-day free trial is available when you initially sign up with a PAY
 ifdef::aws[]
 When using AWS, two annual contracts are available for 12, 24, or 36 month terms:
 
-* A "BlueXP backup and recovery" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
+* A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
 
 * A "CVO Professional" plan that enables you to bundle Cloud Volumes ONTAP and BlueXP backup and recovery. This includes unlimited backups for Cloud Volumes ONTAP volumes charged against this license (backup capacity is not counted against the license).
 endif::aws[]
@@ -348,10 +348,6 @@ This operation could cause a one-time increase in cost to read the data from you
 
 == Limitations
 
-//The following is a known issue that will be fixed in a future release:
-//
-//* During a restore operation, if the backup was created on a system running ONTAP version 9.10.1 or later, and the system where the volume is being restored is running ONTAP version 9.10.0 or earlier, then the restore fails with either system disruption or in some cases the restore is successful, but the volume is corrupted.
-
 === Backup limitations
 
 * When creating or editing a backup policy when no volumes are assigned to the policy, the number of retained backups can be a maximum of 1018. After you assign volumes to the policy, you can edit the policy to create up to 4000 backups.
@@ -360,7 +356,10 @@ This operation could cause a one-time increase in cost to read the data from you
 ** Relationships with the SnapMirror labels `app_consistent` and `all_source_snapshot` won't be backed up to cloud.
 ** If you create local copies of Snapshots on the SnapMirror destination volume (irrespective of the SnapMirror labels used) these Snapshots will not be moved to the cloud as backups. At this time you'll need to create a Snapshot policy with the desired labels to the source DP volume in order for BlueXP backup and recovery to back them up.
 
-* FlexGroup volume backups can't be moved to archival storage, nor can they use DataLock and Ransomware protection.
+* FlexGroup volume backups can't be moved to archival storage.
+
+* FlexGroup volume backups can't use DataLock and Ransomware protection.
+//can use DataLock and Ransomware protection when the cluster is running ONTAP 9.13.1 or greater.
 
 * SVM-DR volume backup is supported with the following restrictions:
 ** Backups are supported from the ONTAP secondary only.
@@ -378,7 +377,7 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * ONTAP doesn't support fan-out of SnapMirror relationships from a single volume to multiple object stores; therefore, this configuration is not supported by BlueXP backup and recovery.
 
-* WORM/Compliance mode on an object store is supported on Amazon S3, Azure, and StorageGRID at this time. This is known as the DataLock feature, and it must be managed using BlueXP backup and recovery settings, not using the cloud provider interface.
+* WORM/Compliance mode on an object store is supported on Amazon S3, Azure, and StorageGRID at this time. This is known as the DataLock feature, and it must be managed by using BlueXP backup and recovery settings, not by using the cloud provider interface.
 
 === Restore limitations
 
@@ -394,9 +393,11 @@ When using a version of ONTAP greater than 9.11.1 but before 9.13.0, the restore
 +
 When using a version of ONTAP before 9.11.1, folder restore is not supported.
 
-* Directory/folder restore is not currently supported on FlexGroup volumes. 
+* Directory/folder restore is supported for data that resides in archival storage only when the cluster is running ONTAP 9.13.1 and greater. 
 
-* You can't restore individual folders if the backup file resides in archival storage.
+* Directory/folder restore is supported for data that is protected using DataLock only when the cluster is running ONTAP 9.13.1 and greater. 
+
+* Directory/folder restore is not currently supported on FlexGroup volume backups. 
 
 * Restoring from FlexGroup volumes to FlexVol volumes, or FlexVol volumes to FlexGroup volumes is not supported.
 
