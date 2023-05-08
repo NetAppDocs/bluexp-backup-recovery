@@ -15,9 +15,9 @@ summary: When using BlueXP backup and recovery in a site without internet access
 [.lead]
 When using BlueXP backup and recovery in a site without internet access, you'll want to back up critical BlueXP backup and recovery files periodically in case you have an issue with the BlueXP Connector host system. This will enable you to deploy a new Connector and restore the critical BlueXP backup and recovery data.
 
-When you use BlueXP backup and recovery in a SaaS environment where the BlueXP Connector is deployed at your cloud provider, or on your own host system that has internet access, all the important BlueXP backup and recovery configuration data is backed up and stored in the cloud. When you're using BlueXP backup and recovery in a site with no internet access, also known as a "dark site", this BlueXP backup and recovery information is stored only on the local Connector system.
+When you use BlueXP backup and recovery in a SaaS environment where the BlueXP Connector is deployed at your cloud provider, or on your own host system that has internet access, all the important BlueXP backup and recovery configuration data is backed up and stored in the cloud. When you're using BlueXP backup and recovery in a site with no internet access, known as "restricted mode' or a "dark site", this BlueXP backup and recovery information is stored only on the local Connector system.
 
-This topic describes how to back up critical BlueXP backup and recovery data to your connected StorageGRID system. It also describes how to restore the data onto a new Connector when necessary.
+We'll describe how to back up critical BlueXP backup and recovery data to your connected StorageGRID system, and how to restore the data onto a new Connector when necessary.
 
 == Back up critical BlueXP backup and recovery data
 
