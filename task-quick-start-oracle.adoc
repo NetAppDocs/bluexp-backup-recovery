@@ -1,0 +1,50 @@
+---
+sidebar: sidebar
+permalink: task-quick-start-oracle.html
+keywords: Cloud Manager, BlueXP, configuration, support, Oracle
+summary:  Complete a few steps to get started with backing up Oracle database.
+---
+
+= Quick start
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+Get started quickly by following these steps.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
+
+[role="quick-margin-list"]
+* Operating System:
+** RHEL 7.5 or later and 8.x
+** OL 7.5 or later and 8.x
+* NetApp Cloud Storage: 
+** Amazon FSx for ONTAP
+** Cloud Volumes ONTAP
+** Azure NetApp Files
+* Storage layouts:
+** NFS v3 and v4.1 (including dNFS) 
+** iSCSI with ASM (ASMFD, ASMLib and ASMUdev)
++
+NOTE: Azure NetApp Files does not support SAN environment.
+* Database layouts: Oracle Standard and Oracle Enterprise Standalone (legacy and multitenant CDB and PDB)
+* Database versions: 12cR2, 18c, 19c, and 21c
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Sign up to BlueXP
+
+[role="quick-margin-list"]
+BlueXP is accessible from a web-based console. When you get started with BlueXP, your first step is to sign up using your existing NetApp Support Site credentials or by creating a NetApp cloud login. For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-sign-up-saas.html[Sign up to BlueXP].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Log into BlueXP
+
+[role="quick-margin-list"]
+After you sign up to BlueXP, you can log in from the web-based console. For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[Log into BlueXP]. 
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Manage your BlueXP account
+
+[role="quick-margin-list"]
+You can administer your account by managing users, service accounts, workspaces, and Connectors. For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-netapp-accounts.html[Manage your BlueXP account].

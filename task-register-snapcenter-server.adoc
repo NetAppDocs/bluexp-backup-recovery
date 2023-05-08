@@ -14,7 +14,7 @@ summary: Complete a few steps to register the SnapCenter Server.
 
 [.lead]
 
-Only a user with SnapCenterAdmin role can register the host on which SnapCenter Server 4.6 or later is running. You can register multiple SnapCenter Server hosts.
+Only a user with SnapCenterAdmin role can register the host on which SnapCenter Server 4.6 or later is running. You can register multiple SnapCenter Server hosts in BlueXP.
 
 *Steps*
 
@@ -23,22 +23,21 @@ Only a user with SnapCenterAdmin role can register the host on which SnapCenter 
 . Click *Register SnapCenter Server*.
 . Specify the following details:
 .. In the SnapCenter Server field, specify the FQDN or IP address of the SnapCenter Server host.
-.. In the Port field, specify the port number on which the SnapCenter Server is running.
+.. In the Port field, specify the port number on which the SnapCenter Server host is running.
 +
-You should ensure that the port is open for the communication to happen between SnapCenter Server and the Cloud Backup for Applications.
+You should ensure that the port is open for communication to happen between SnapCenter Server and BlueXP.
 .. In the Tags field, specify a site name, city name, or any custom name with which you want to tag the SnapCenter Server.
 +
 The tags are comma separated.
 .. In the Username and Password field, specify the credentials of the user with SnapCenterAdmin role.
+. Select the Connector from the *Connector* drop-down.
 . Click *Register*.
 
 *After you finish*
 
-Click *Backup & Restore* > *Applications* to view all the applications that are protected using the registered SnapCenter Server host.
+Click *Backup & Restore* > *Applications* to view all the applications that are protected using the registered SnapCenter Server host. By default, the applications are automatically discovered every day midnight.
 
-By default, the applications are automatically discovered every day midnight. You can configure the schedule to discover the applications.
-
-NOTE: For SQL Server databases, the Application Name column displays the name in _application_name (instance name)_ format.
+IMPORTANT: If SVMs are added to SnapCenter using FQDN or IP address, applications running on these SVMs cannot be protected. BlueXP backup and recovery for applications recognizes only the SVMs that are added by name or the SVMs discovered by SnapCenter that were added as part of the ONTAP cluster.
 
 The supported applications and their configurations are:
 
@@ -58,7 +57,7 @@ You should have at least one backup on both primary and secondary sites. You can
 
 ** Non-data Volumes (NDV) resources such as HANA binaries, HANA archive log volume, HANA shared volume, and so on
 
-The following databases will not be displayed:
+The following databases are not displayed:
 
 * Databases that have no backups
 * Databases that have only on-demand or hourly policy

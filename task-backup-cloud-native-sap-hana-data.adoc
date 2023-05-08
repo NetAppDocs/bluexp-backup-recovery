@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: task-backup-cloud-native-sap-hana-data.html
-keywords: cloud native, application data, back up, policy, pre-canned policies, scheduled backups, on-demand backups, cloud manager, BlueXP, add hosts, create policy, SAP HANA Database
+keywords: cloud-native, application data, back up, policy, pre-canned policies, scheduled backups, on-demand backups, cloud manager, BlueXP, add hosts, create policy, SAP HANA Database
 summary: Create a scheduled or on-demand backups of SAP HANA database.
 ---
 
-= Back up cloud native SAP HANA database
+= Back up cloud-native SAP HANA databases
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,9 +13,9 @@ summary: Create a scheduled or on-demand backups of SAP HANA database.
 :imagesdir: ./media/
 
 [.lead]
-Before creating a backup of the SAP HANA database, you should add the SAP HANA database hosts and assign either a pre-canned policy or the policy that you created.
+You can create a backup by assigning a pre-canned policy or the policy that you created.
 
-== Create a policy for protecting SAP HANA database
+== Create a policy to protect SAP HANA database
 
 You can create policies if you do not want to use or edit the pre-canned policies.
 
@@ -25,7 +25,7 @@ You can create policies if you do not want to use or edit the pre-canned policie
 .	(Optional) Edit the format of the Snapshot copy name.
 .	Select policy type.
 .	Specify the schedule and retention details.
-.	(Optional) Specify the scripts. link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts[Learn more.]
+.	(Optional) Specify the scripts. link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts[Prescripts and postscripts.]
 .	Click *Create*.
 
 === Prescripts and postscripts
@@ -79,22 +79,27 @@ Only for scheduled backup
 
 You can either assign a pre-canned policy or create a policy and then assign it to the database. Once the policy is assigned, the backups are created as per the schedule defined in the policy.
 
+*Before you begin*
+
+You should have added the SAP HANA database hosts.
+link:task-deploy-snapcenter-plugin-for-sap-hana.html#add-sap-hana-database-hosts[Add SAP HANA database hosts]
+
 *About this task*
 
-For HANA System Replication (HSR), the scheduled backup job will trigger only for the primary HANA system and if the system fails over to the secondary HANA system, the existing schedules will trigger a backup on the current primary HANA system. If the policy is not assigned to both the HANA system, after failover, the schedules will fail.
+For HANA System Replication (HSR), the scheduled backup job triggers only for the primary HANA system and if the system fails over to the secondary HANA system, the existing schedules triggers a backup on the current primary HANA system. If the policy is not assigned to both the primary and secondary HANA system, after failover, the schedules will fail.
 
-If different policies are assigned to the HSR systems, the scheduled backup will be triggered for both the systems and the backup will fail for the secondary HANA system.
+If different policies are assigned to the HSR systems, the scheduled backup triggers for both the primary and secondary HANA systems and the backup will fail for the secondary HANA system.
 
 *Steps*
 
 . In the Applications page, if the database is not protected using any policy, click *Assign Policy*.
 +
-If the database is protected using one or more policies, you can assign more policies by clicking image:icon-action.png[icon to select the action] > *Assign Policy*.
+Though the database is protected using one or more policies, if needed, you can continue to assign more policies by clicking image:icon-action.png[icon to select the action] > *Assign Policy*.
 . Select the policy and click *Assign*.
 +
-The backups will be created as per the schedule defined in the policy.
+The backups are created as per the schedule defined in the policy.
 +
-NOTE: The service account (_SnapCenter-account-<account_id>_) is used for running the scheduled backup operations.
+NOTE: The service account (_SnapCenter-account-<account_id>_) is used to run the scheduled backup operations.
 
 == Create on-demand backup of the SAP HANA database
 

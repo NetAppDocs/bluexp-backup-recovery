@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: api-backup-restore.html
 keywords: api, apis, rest, restful, authorization, getting started, body, header, token, reference, expired token, expires, expired, token expired, list apis
-summary: The Cloud Backup capabilities that are available through the web UI are also available through RESTful APIs.
+summary: The BlueXP backup and recovery capabilities that are available through the web UI are also available through RESTful APIs.
 ---
 
-= Cloud Backup APIs
+= BlueXP backup and recovery APIs
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,9 +13,9 @@ summary: The Cloud Backup capabilities that are available through the web UI are
 :imagesdir: ./media/
 
 [.lead]
-The Cloud Backup capabilities that are available through the web UI are also available through the RESTful API.
+The BlueXP backup and recovery capabilities that are available through the web UI are also available through the RESTful API.
 
-There are nine categories of endpoints defined within Cloud Backup:
+There are ten categories of endpoints defined within BlueXP backup and recovery:
 
 *	backup - manages backup operations of cloud and on-premises resources, and retrieves details of the backup data
 *	catalog - manages the indexed catalog search for files based on a query (Search & Restore)
@@ -30,7 +30,7 @@ There are nine categories of endpoints defined within Cloud Backup:
 
 == Getting started
 
-To get started with the Cloud Backup APIs, you'll need to obtain a user token, your BlueXP account ID, and the BlueXP Connector ID.
+To get started with the BlueXP backup and recovery APIs, you'll need to obtain a user token, your BlueXP account ID, and the BlueXP Connector ID.
 
 When making API calls, you'll add the user token in the Authorization header, and the BlueXP Connector ID in the x-agent-id header. You should use the BlueXP account ID in the APIs.
 
@@ -85,7 +85,7 @@ This API will return a response like the following. You can retrieve the agent i
 
 == Example using the APIs
 
-The following example shows an API call to activate Cloud Backup on a working environment with a new policy that has daily, hourly, and weekly labels set, archive after days set to 180 days, in East-US-2 region in Azure cloud. Note that this only enables backup on the working environment, but no volumes are backed up. 
+The following example shows an API call to activate BlueXP backup and recovery on a working environment with a new policy that has daily, hourly, and weekly labels set, archive after days set to 180 days, in East-US-2 region in Azure cloud. Note that this only enables backup on the working environment, but no volumes are backed up. 
 
 If you choose "auto-backup-enabled": "true", then any volumes already existing in the system would be backed up, plus any future volumes will also be backed up.
 
@@ -174,4 +174,4 @@ curl --location --request GET 'https://api.bluexp.netapp.com/account/account-DpT
 
 == API reference
 
-Documentation for each Cloud Backup API is available from https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html.
+Documentation for each BlueXP backup and recovery API is available from https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html.

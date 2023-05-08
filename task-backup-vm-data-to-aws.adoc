@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-backup-vm-data-to-aws.html
-keywords: back up, backup, backup virtual machine data, aws, Amazon Web Services, cloud backup, backup datastores
+keywords: back up, backup, backup datastore, aws, Amazon Web Services, backup datastores
 summary: Back up your datastores from on-premises ONTAP to AWS.
 ---
 
@@ -18,7 +18,7 @@ You can back up and archive one or more datastores to Amazon Web Services to imp
 If the datastore is associated with an archival policy, you have an option to select the archival tier. The supported archival tiers are Glacier and Glacier Deep.
 
 .Before you begin
-Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before backing up datastores to the cloud.
+Ensure that you have met all the link:concept-protect-vm-data.html[requirements] before backing up datastores to the cloud.
 
 .Steps
 

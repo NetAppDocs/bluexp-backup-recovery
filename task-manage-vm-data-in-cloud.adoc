@@ -5,7 +5,7 @@ keywords: manage backups, virtual machines, view datastores, view virtual machin
 summary: You can view the datastores and virtual machines and edit the SnapCenter Plug-in for VMware vSphere instances.
 ---
 
-= Manage protection of virtual machines
+= Manage protection of datastores and virtual machines data
 :hardbreaks:
 :nofooter:
 :icons: font

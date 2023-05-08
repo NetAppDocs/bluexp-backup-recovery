@@ -5,7 +5,7 @@ keywords: restore virtual machines
 summary: You can restore virtual machines from the cloud to the on-premises SnapCenter.
 ---
 
-= Restore virtual machines from the cloud
+= Restore virtual machines data from the cloud
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,12 +13,12 @@ summary: You can restore virtual machines from the cloud to the on-premises Snap
 :imagesdir: ./media/
 
 [.lead]
-You can restore virtual machines from the cloud back to the on-premises vCenter. The backup will be restored to the exact same location from where the backup was taken. If the virtual machine was backed up using archival policy, then you can set the archival restore priority. 
+You can restore virtual machines data from the cloud back to the on-premises vCenter. The backup will be restored to the exact same location from where the backup was taken. If the virtual machine was backed up using archival policy, then you can set the archival restore priority. 
 
 NOTE: You cannot restore virtual machines that span across datastores.
 
 .Before you begin
-Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[requirements] before restoring virtual machines from the cloud.
+Ensure that you have met all the link:concept-protect-vm-data.html[requirements] before restoring virtual machines from the cloud.
 
 .Steps
 
@@ -27,7 +27,7 @@ Ensure that you have met all the link:concept-protect-vm-data.html#Requirements[
 NOTE: If the source virtual machine is moved to another location (vMotion), and if the user triggers a restore of that virtual machine from BlueXP, then the virtual machine is restored to the source location from where the backup was taken.
 
 [start=2]
-. You can restore from the datastore or from virtual machines :
+. You can restore from the datastore or from virtual machines:
 
 |===
 | If you want to... | Do this... 
