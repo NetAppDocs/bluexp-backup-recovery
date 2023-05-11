@@ -162,8 +162,6 @@ To use the BlueXP backup and recovery Search & Restore functionality, you need t
 "Microsoft.Network/networkInterfaces/delete",
 "Microsoft.Network/networkSecurityGroups/delete",
 "Microsoft.Resources/deployments/delete",
-"Microsoft.Network/publicIPAddresses/delete",
-"Microsoft.Storage/storageAccounts/blobServices/containers/write",
 "Microsoft.ManagedIdentity/userAssignedIdentities/assign/action",
 "Microsoft.Synapse/workspaces/write",
 "Microsoft.Synapse/workspaces/read",
