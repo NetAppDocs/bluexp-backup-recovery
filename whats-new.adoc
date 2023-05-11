@@ -24,7 +24,7 @@ If a backup file has been configured with DataLock & Ransomware protection, or i
 
 === Cross-region and cross-project customer-managed keys are supported when backing up volumes to Google Cloud
 
-Now you can choose a bucket that's in a different project than the project of your customer-managed encryption keys (CMEK).
+Now you can choose a bucket that's in a different project than the project of your customer-managed encryption keys (CMEK). https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups[Learn more about setting up your own customer-managed encryption keys].
 
 === AWS China regions are now supported for backup files
 

@@ -82,7 +82,7 @@ Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
 License requirements::
 For BlueXP backup and recovery PAYGO licensing, a BlueXP subscription is available in the AWS Marketplace that enables deployments of Cloud Volumes ONTAP and BlueXP backup and recovery. You need to https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[subscribe to this BlueXP subscription^] before you enable BlueXP backup and recovery. Billing for BlueXP backup and recovery is done through this subscription.
 +
-For an annual contract that enables you to back up both Cloud Volumes ONTAP data and on-premises ONTAP data, you need to subscribe from the https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS Marketplace page^] and then https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html[associate the subscription with your AWS credentials^].
+For an annual contract that enables you to back up both Cloud Volumes ONTAP data and on-premises ONTAP data, you need to subscribe from the https://aws.amazon.com/marketplace/pp/prodview-q7dg6zwszplri[AWS Marketplace page^] and then https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html[associate the subscription with your AWS credentials^].
 +
 For an annual contract that enables you to bundle Cloud Volumes ONTAP and BlueXP backup and recovery, you must set up the annual contract when you create a Cloud Volumes ONTAP working environment. This option doesn't enable you to back up on-prem data.
 +
