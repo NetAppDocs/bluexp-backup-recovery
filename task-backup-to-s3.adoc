@@ -26,9 +26,9 @@ Get started quickly by following these steps or scroll down to the remaining sec
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
 * You have subscribed to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[BlueXP Marketplace Backup offering], an https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS annual contract], or you have purchased link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[and activated] a BlueXP backup and recovery BYOL license from NetApp.
 * You have a Connector installed in AWS:
-** The Connector can be installed in a site with full internet access ("Standard mode") or with limited internet connectivity ("Restricted mode").
+** The Connector can be installed in a site with full internet access ("standard mode") or with limited internet connectivity ("restricted mode").
 ** The IAM role that provides the BlueXP Connector with permissions includes S3 permissions from the latest https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions.html[BlueXP policy^].
-//add - without internet access ("Private mode")
+// or without internet access ("private mode")
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable BlueXP backup and recovery on your new or existing system
 
@@ -82,7 +82,7 @@ Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
 License requirements::
 For BlueXP backup and recovery PAYGO licensing, a BlueXP subscription is available in the AWS Marketplace that enables deployments of Cloud Volumes ONTAP and BlueXP backup and recovery. You need to https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[subscribe to this BlueXP subscription^] before you enable BlueXP backup and recovery. Billing for BlueXP backup and recovery is done through this subscription.
 +
-For an annual contract that enables you to back up both Cloud Volumes ONTAP data and on-premises ONTAP data, you need to subscribe from the https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS Marketplace page^] and then https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-aws-accounts.html[associate the subscription with your AWS credentials^].
+For an annual contract that enables you to back up both Cloud Volumes ONTAP data and on-premises ONTAP data, you need to subscribe from the https://aws.amazon.com/marketplace/pp/prodview-q7dg6zwszplri[AWS Marketplace page^] and then https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-aws-accounts.html[associate the subscription with your AWS credentials^].
 +
 For an annual contract that enables you to bundle Cloud Volumes ONTAP and BlueXP backup and recovery, you must set up the annual contract when you create a Cloud Volumes ONTAP working environment. This option doesn't enable you to back up on-prem data.
 +
@@ -95,20 +95,23 @@ Required information for using customer-managed keys for data encryption::
 You can choose your own customer-managed keys for data encryption in the activation wizard instead of using the default Amazon S3 encryption keys. In this case you'll need to have the encryption managed keys already set up. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html[See how to use your own keys^].
 
 Connector requirements::
-The Connector can be installed in an AWS region with full or limited internet access ("Standard" or "Restricted" mode). 
-//When deployed in a site with no internet access, AWS C2S/SC2S secure regions and AWS Commercial regions are supported.
-//or without internet access
+The Connector can be installed in an AWS region with full or limited internet access ("standard" or "restricted" mode). https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-modes.html[See BlueXP deployment modes for details^].
+//, or in a site with no internet access ("private" mode)
 
 * https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Connectors^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html[Deploy a Connector in AWS^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-restricted-mode.html[Installing the Connector manually on a Linux host in an AWS region^]
-
-// NOTE: BlueXP backup and recovery functionality is built into the BlueXP Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's New] to see the new features in each BlueXP backup and recovery release, and then you can follow the steps to https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software^] when you want to use new features.
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html[Deploy a Connector in AWS in standard mode (full internet access)^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-restricted-mode.html[Install the Connector in restricted mode (limited outbound access)^]
+//* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html[Install the Connector in private mode (no internet access)^]
 //
-//We highly recommend that you create local backups of the BlueXP backup and recovery configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up BlueXP backup and recovery data in a dark site^].
+//[NOTE]
+//====
+//BlueXP backup and recovery functionality is built into the BlueXP Connector. When installed in private mode, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's new] to see the new features in each BlueXP backup and recovery release, and then you can follow the steps to https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode[upgrade the Connector software^] when you want to use new features.
+//
+//We highly recommend that you create local backups of the internal BlueXP backup and recovery configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up BlueXP backup and recovery data in a dark site^].
+//====
 
 Required AWS Connector permissions::
-The IAM role that provides BlueXP with permissions must include S3 permissions from the latest https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[BlueXP policy^].
+The IAM role that provides BlueXP with permissions must include S3 permissions from the latest https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[BlueXP policy^]. If the policy does not contain all of these permissions, see the https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html[AWS Documentation: Editing IAM policies].
 +
 Here are the specific permissions from the policy:
 +
@@ -170,7 +173,7 @@ Here are the specific permissions from the policy:
             ]
         },
 
-If you deployed the Connector using version 3.9.21 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. Specifically the "athena" and "glue" permissions, as they are required for Search & Restore.
+NOTE: When creating backups in AWS China regions, you need to change the AWS Resource Name "arn" under all _Resource_ sections in the IAM policies from "aws" to "aws-cn"; for example `arn:aws-cn:s3:::netapp-backup-*`.
 
 Required AWS Cloud Volumes ONTAP permissions::
 When your Cloud Volumes ONTAP system is running ONTAP 9.12.1 or greater software, the IAM role that provides that working environment with permissions must include a new set of S3 permissions specifically for BlueXP backup and recovery from the latest https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-set-up-iam-roles.html[Cloud Volumes ONTAP policy^].
@@ -178,8 +181,8 @@ When your Cloud Volumes ONTAP system is running ONTAP 9.12.1 or greater software
 If you created the Cloud Volumes ONTAP working environment using BlueXP version 3.9.23 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. 
 
 Supported AWS regions::
-BlueXP backup and recovery is supported in all AWS regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including AWS GovCloud regions.
-// and https://aws.amazon.com/federal/us-intelligence-community/[AWS C2S and SC2S^] secure regions.
+BlueXP backup and recovery is supported in all AWS regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including AWS GovCloud regions. 
+//It is also supported in https://aws.amazon.com/federal/us-intelligence-community/[AWS C2S and SC2S secure regions^].
 
 Required setup for creating backups in a different AWS account::
 By default, backups are created using the same account as the one used for your Cloud Volumes ONTAP system. If you want to use a different AWS account for your backups, you must:

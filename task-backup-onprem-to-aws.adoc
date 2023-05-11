@@ -145,7 +145,7 @@ All intercluster LIFs within the IPspace must have access to the object store. I
 
 * Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from AWS, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
 
-** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[AWS BlueXP Marketplace offering^] to use BlueXP backup and recovery. Billing for BlueXP backup and recovery is done through this subscription.
+** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[NetApp BlueXP offering from the AWS Marketplace^]. Billing for BlueXP backup and recovery is done through this subscription.
 ** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
 
 * You need to have an AWS subscription for the object storage space where your backups will be located.
@@ -163,7 +163,7 @@ You'll need to configure two sets of permissions:
 
 .Steps
 
-. Confirm that the following S3 permissions (from the latest https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[BlueXP policy^]) are part of the IAM role that provides the Connector with permissions.
+. Confirm that the following S3 permissions (from the latest https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[BlueXP policy^]) are part of the IAM role that provides the Connector with permissions. If they are not, see the https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html[AWS Documentation: Editing IAM policies].
 +
 [source,json]
 {
@@ -223,7 +223,7 @@ You'll need to configure two sets of permissions:
           ]
       },
 +
-If you deployed the Connector using version 3.9.21 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. Specifically the "athena" and "glue" permissions, as they're required for Search & Restore. See the https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html[AWS Documentation: Editing IAM policies].
+NOTE: When creating backups in AWS China regions, you need to change the AWS Resource Name "arn" under all _Resource_ sections in the IAM policies from "aws" to "aws-cn"; for example `arn:aws-cn:s3:::netapp-backup-*`.
 
 . When activating the service, the Backup wizard will prompt you to enter an access key and secret key. These credentials are passed to the ONTAP cluster so that ONTAP can back up and restore data to the S3 bucket. For that, you'll need to create an IAM user with the following permissions:
 +

@@ -19,7 +19,7 @@ BlueXP backup and recovery enables you to create backup policies with a variety 
 
 BlueXP backup and recovery enables you to create multiple backup policies with unique schedules for each working environment (cluster). You can assign different backup policies to volumes that have different recovery point objectives (RPO).
 
-Each backup policy provides a section for _Labels & Retention_ that you can apply to your backup files.
+Each backup policy provides a section for _Labels & Retention_ that you can apply to your backup files. Note that the Snapshot policy applied to the volume must be one of the policies recognized by BlueXP backup and recovery or backup files will not be created. 
 
 image:screenshot_backup_schedule_settings.png[A screenshot of the Backup Schedule settings when creating a backup policy.]
 
@@ -45,7 +45,7 @@ Note that Yearly backups will be deleted automatically from the source system af
 
 BlueXP backup and recovery provides support for DataLock and Ransomware protection for your volume backups. These features enable you to lock your backup files and scan them to detect possible ransomware on the backup files. This is an optional setting that you can define in your backup policies when you want extra protection for your volume backups for a cluster.
 
-Both of these features protect your backup files so that you'll always have a valid backup file to recover data from in case of a ransomware attack on your source data. It's also helpful to meet certain regulatory requirements where backups need to be locked and retained for a certain period of time. When DataLock and Ransomware Protection is enabled, the cloud bucket that is provisioned as a part of BlueXP backup and recovery activation will have object locking and object versioning enabled.
+Both of these features protect your backup files so that you'll always have a valid backup file to recover data from in case of a ransomware attack attempt on your backups. It's also helpful to meet certain regulatory requirements where backups need to be locked and retained for a certain period of time. When DataLock and Ransomware Protection is enabled, the cloud bucket that is provisioned as a part of BlueXP backup and recovery activation will have object locking and object versioning enabled.
 
 https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware[See the DataLock and Ransomware protection blog for more details^].
 
@@ -188,10 +188,9 @@ NetApp StorageGRID
 
 === Requirements
 
-* Your clusters must running ONTAP 9.11.1 or greater (9.12.1 in the case of Azure)
-* You must be using BlueXP 3.9.21 or greater
 ifdef::aws[]
 * For AWS:
+** Your clusters must running ONTAP 9.11.1 or greater 
 ** The Connector can be deployed in the cloud or on your premises
 ** The following S3 permissions must be part of the IAM role that provides the Connector with permissions. They reside in the "backupS3Policy" section for the resource "arn:aws:s3:::netapp-backup-*":
 *** s3:GetObjectVersionTagging
@@ -228,10 +227,12 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[
 endif::aws[]
 ifdef::azure[]
 * For Azure:
+** Your clusters must running ONTAP 9.12.1 or greater
 ** The Connector can be deployed in the cloud or on your premises
 endif::azure[]
 * For StorageGRID:
-** StorageGRID 11.6.0.3 and greater is required for full support of DataLock capabilities
+** Your clusters must running ONTAP 9.11.1 or greater 
+** Your StorageGRID systems must be running 11.6.0.3 or greater
 ** The Connector must be deployed on your premises (it can be installed in a site with or without internet access)
 ** The following S3 permissions must be part of the IAM role that provides the Connector with permissions:
 *** s3:GetObjectVersionTagging
@@ -268,6 +269,7 @@ endif::azure[]
 * You cannot use both DataLock modes on a single cluster.
 * If you enable DataLock, all volume backups will be locked. You can't mix locked and non-locked volume backups for a single cluster.
 * DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can't enable this feature after BlueXP backup and recovery has been activated.
+//* FlexGroup volumes are supported only when using ONTAP 9.13.1 or greater.
 
 == Archival storage settings
 

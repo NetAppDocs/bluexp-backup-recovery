@@ -215,10 +215,12 @@ You'll need to enter the keys in BlueXP backup and recovery later when you confi
 
 ==== Using customer-managed encryption keys (CMEK)
 
-You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. In this case you'll need to have the Key Ring and the Key Name so you can add this information in the activation wizard. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
+You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. Both cross-region and cross-project keys are supported, so you can choose a project for a bucket that is different than the project of the CMEK key. If you're planning to use your own customer-managed keys: 
 
-You'll also need to add these required permissions in the role for the Connector for CMEK to work:
+* You'll need to have the Key Ring and the Key Name so you can add this information in the activation wizard. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
 
+* You'll need to verify that these required permissions are included in the role for the Connector:
++
 [source,json]
 cloudkms.cryptoKeys.get
 cloudkms.cryptoKeys.getIamPolicy
@@ -229,20 +231,21 @@ cloudkms.keyRings.getIamPolicy
 cloudkms.keyRings.list
 cloudkms.keyRings.setIamPolicy
 
+* You'll need to verify that the Google "Cloud Key Management Service (KMS)" API is enabled in your project. See the https://cloud.google.com/apis/docs/getting-started#enabling_apis[Google Cloud documentation: Enabling APIs] for details.
+
 *CMEK considerations:*
 
-* Both HSM (Hardware-backed) and Software generated keys are supported.
+* Both HSM (Hardware-backed) and Software-generated keys are supported.
 * Both newly created or imported Cloud KMS keys are supported.
 * Only regional keys are supported, global keys are not supported.
 * Currently, only the "Symmetric encrypt/decrypt" purpose is supported.
 * The service agent associated with the Storage Account is assigned the "CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter)" IAM role by BlueXP backup and recovery. 
 
-
 === Verify license requirements
 
 * Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from Google, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
 
-** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project[Google^] BlueXP Marketplace offering to use BlueXP backup and recovery. Billing for BlueXP backup and recovery is done through this subscription.
+** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project[NetApp BlueXP offering from the Google Marketplace^]. Billing for BlueXP backup and recovery is done through this subscription.
 ** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
 
 * You need to have a Google subscription for the object storage space where your backups will be located.

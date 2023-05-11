@@ -212,8 +212,6 @@ You must register the Azure Synapse Analytics Resource Provider (called "Microso
 "Microsoft.Network/networkInterfaces/delete",
 "Microsoft.Network/networkSecurityGroups/delete",
 "Microsoft.Resources/deployments/delete",
-"Microsoft.Network/publicIPAddresses/delete",
-"Microsoft.Storage/storageAccounts/blobServices/containers/write",
 "Microsoft.ManagedIdentity/userAssignedIdentities/assign/action",
 "Microsoft.Synapse/workspaces/write",
 "Microsoft.Synapse/workspaces/read",
@@ -238,7 +236,7 @@ You can create backups from on-premises systems to Azure Blob in all regions htt
 
 * Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from Azure, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
 
-** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[Azure^] BlueXP Marketplace offering to use BlueXP backup and recovery. Billing for BlueXP backup and recovery is done through this subscription.
+** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[NetApp BlueXP offering from the Azure Marketplace^]. Billing for BlueXP backup and recovery is done through this subscription.
 ** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
 
 * You need to have an Azure subscription for the object storage space where your backups will be located.

@@ -186,7 +186,7 @@ sidebar:
       url: /api-backup-restore.html
     - title: Reference
       entries:
-        - title: BlueXP backup and recovery policy settings
+        - title: Backup policy settings
           url: /concept-cloud-backup-policies.html
         - title: Supported AWS archive storage tiers
           url: /reference-aws-backup-tiers.html
