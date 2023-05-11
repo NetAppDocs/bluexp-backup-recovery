@@ -17,7 +17,7 @@ Using BlueXP you should create an FSx for ONTAP working environment to add and m
 
 == Create FSx for ONTAP working environment
 
-You should create the FSx for ONTAP working environments where your databases are hosted. For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html[Get started with Amazon FSx for ONTAP] and link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html[Create and manage an Amazon FSx for ONTAP working environment].
+You should create the FSx for ONTAP working environments where your databases are hosted. For information, refer to link:https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/task-getting-started-fsx.html[Get started with Amazon FSx for ONTAP] and link:https://docs.netapp.com/us-en/bluexp-fsx-ontap/use/task-creating-fsx-working-environment.html[Create and manage an Amazon FSx for ONTAP working environment].
 
 You can create the FSx for ONTAP working environment either using BlueXP or AWS. If you have created using AWS, then you should discover the FSx for ONTAP systems in BlueXP.
 
@@ -25,7 +25,7 @@ You can create the FSx for ONTAP working environment either using BlueXP or AWS.
 
 An Account Admin needs to create a Connector in AWS that enables BlueXP to manage resources and processes within your public cloud environment.
 
-For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html[Creating a Connector in AWS from BlueXP].
+For information, refer to link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html[Creating a Connector in AWS from BlueXP].
 
 * You should use the same connector to manage both FSx for ONTAP working environment and databases.
 * If you have the FSx for ONTAP working environment and databases in the same virtual private cloud (VPC), you can deploy the connector in the same VPC.

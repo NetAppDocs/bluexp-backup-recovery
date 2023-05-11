@@ -330,7 +330,7 @@ You have a few options for the location when restoring folders and file(s).
 
 You can restore a volume, folder, or files from an ONTAP backup file using Search & Restore. Search & Restore enables you to search for a specific volume, folder, or file from all backups stored on cloud storage for a particular provider, and then perform a restore. You don't need to know the exact working environment name or volume name - the search looks through all volume backup files.
 
-The search operation also looks across all local Snapshot copies that exist for your ONTAP volumes too. Since restoring data from a local Snapshot copy can be faster and less costly than restoring from a backup file, you may want to restore data from the Snapshot. You can restore the Snapshot as a new volume https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[from the Volume Details page on the Canvas^] (not from BlueXP backup and recovery).
+The search operation also looks across all local Snapshot copies that exist for your ONTAP volumes too. Since restoring data from a local Snapshot copy can be faster and less costly than restoring from a backup file, you may want to restore data from the Snapshot. You can restore the Snapshot as a new volume https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[from the Volume Details page on the Canvas^] (not from BlueXP backup and recovery).
 
 When you restore a volume from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. You can restore the data as a volume in the original working environment, or to a different working environment that's located in the same cloud account as the source working environment. You can also restore volumes to an on-premises ONTAP system.
 
@@ -447,7 +447,7 @@ Depending on your configuration, there are 2 ways that Search & Restore is imple
 +
 ** If there are no cloud provider credentials in your account, then the Indexed Catalog information is stored on the Connector.
 ** If you are using a Connector in a dark site, then the Indexed Catalog information is stored on the Connector (requires Connector version 3.9.25 or greater).
-** If you have https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html[AWS credentials^] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html[Azure credentials^] in the account, then the Indexed Catalog is stored at the cloud provider, just like with a Connector deployed in the cloud. (If you have both credentials, AWS is selected by default.)
+** If you have https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-aws.html[AWS credentials^] or https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-azure.html[Azure credentials^] in the account, then the Indexed Catalog is stored at the cloud provider, just like with a Connector deployed in the cloud. (If you have both credentials, AWS is selected by default.)
 +
 Even though you are using an on-premises Connector, the cloud provider requirements must be met for both Connector permissions and cloud provider resources. See the AWS and Azure requirements above when using this implementation. 
  

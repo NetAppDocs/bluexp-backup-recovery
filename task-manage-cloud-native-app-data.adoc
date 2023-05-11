@@ -18,7 +18,7 @@ summary: View the backup details and monitor the status of all the jobs.
 
 You can monitor the status of the jobs that have been initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems.
 
-For more information, refer to link:https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html[Monitor job status].
+For more information, refer to link:https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Monitor job status].
 
 == Audit data
 
@@ -170,4 +170,4 @@ The CA files should be in pem format.
 
 The REST APIs to protect the applications to cloud is available at: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/.
 
-You should obtain the user token with federated authentication to access the REST APIs. For information to obtain the user token, refer to https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_user_token.html#create-a-user-token-with-federated-authentication[Create a user token with federated authentication].
+You should obtain the user token with federated authentication to access the REST APIs. For information to obtain the user token, refer to https://docs.netapp.com/us-en/bluexp-automation/platform/create_user_token.html#create-a-user-token-with-federated-authentication[Create a user token with federated authentication].
