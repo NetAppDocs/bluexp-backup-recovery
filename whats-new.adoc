@@ -42,7 +42,7 @@ Note that the IAM policies assigned to the BlueXP Connector need to change the A
 
 === Enhancements to the Job Monitor
 
-System-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for On-premises ONTAP systems running ONTAP 9.13.1 or greater. Earlier ONTAP versions will display only user-initiated jobs.
+System-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for on-premises ONTAP systems running ONTAP 9.13.1 or greater. Earlier ONTAP versions will display only user-initiated jobs.
 
 == 14 April 2023
 

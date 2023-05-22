@@ -63,7 +63,7 @@ docker cp ds_mysql_1:/mysql.dump.cloud_backup.sql .
 
 The Indexed Catalog is used for Search & Restore functionality. It contains information about every volume and every backup file - making your searches very quick and efficient when looking for volume data that you want to restore.
 
-. On the Connector host system, change the directory to "/tmp".
+. On the Connector host system, change the directory to "/opt/application/netapp/cbs".
 
 . Locate the Index Catalog folder. It starts with the string *catalog*.
 
@@ -133,7 +133,7 @@ Check if the volumes that are shown are the same as those that existed in your o
 
 === Restore the Indexed Catalog files
 
-. Copy the Indexed Catalog backup zip file from the secure location to the new Connector host in the "/tmp" folder.
+. Copy the Indexed Catalog backup zip file from the secure location to the new Connector host in the "/opt/application/netapp/cbs" folder.
 
 . Unzip the "catalogxxxxxx.zip" file using the following command:
 +
