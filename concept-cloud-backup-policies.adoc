@@ -73,7 +73,7 @@ You can see in this last case that if each backup file is locked for 44 days, yo
 
 === What is Ransomware protection
 
-Ransomware protection scans your backup files to look for evidence of a ransomware attack. The detection of ransomware attacks is performed using a checksum comparison. If potential ransomware is identified in a backup file versus the previous backup file, that newer backup file is replaced by the most recent backup file that does not show any signs of a ransomware attack. (The file that was identified as having a ransomware attack is deleted 1 day after it has been replaced.)
+Ransomware protection scans your backup files to look for evidence of a ransomware attack. The detection of ransomware attacks is performed using a checksum comparison. If potential ransomware is identified in a new backup file versus the previous backup file, that newer backup file is replaced by the most recent backup file that does not show any signs of a ransomware attack. (The file that was identified as having a ransomware attack is deleted 1 day after it has been replaced.)
 
 Ransomware scans happen at 3 points in the backup and restore process:
 
@@ -266,10 +266,10 @@ endif::azure[]
 
 * DataLock and Ransomware protection is not available if you have configured archival storage in the backup policy.
 * The DataLock option you select when activating BlueXP backup and recovery must be used for all backup policies for that cluster. 
-* You cannot use both DataLock modes on a single cluster.
+* You cannot use multiple DataLock modes on a single cluster.
 * If you enable DataLock, all volume backups will be locked. You can't mix locked and non-locked volume backups for a single cluster.
 * DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can't enable this feature after BlueXP backup and recovery has been activated.
-//* FlexGroup volumes are supported only when using ONTAP 9.13.1 or greater.
+* FlexGroup volumes can use DataLock and Ransomware protection only when using ONTAP 9.13.1 or greater.
 
 == Archival storage settings
 

@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: reference-backup-cbs-db-in-dark-site.html
 keywords: backup database, recover database
-summary: When using BlueXP backup and recovery in a site without internet access, you'll want to back up critical BlueXP backup and recovery files periodically in case you have an issue with the BlueXP Connector host system. This will enable you to deploy a new Connector and restore the critical BlueXP backup and recovery data.
+summary: When using BlueXP backup and recovery in a site with no internet access, known as "private mode", the BlueXP backup and recovery configuration data is backed up to the StorageGRID bucket where your backups are being stored. If you have an issue with the BlueXP Connector host system in the future, you can deploy a new Connector and restore the critical BlueXP backup and recovery data.
 ---
 
-= Back up and restore BlueXP backup and recovery data in a dark site
+= Restore BlueXP backup and recovery data in a dark site
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,66 +13,18 @@ summary: When using BlueXP backup and recovery in a site without internet access
 :imagesdir: ./media/
 
 [.lead]
-When using BlueXP backup and recovery in a site without internet access, you'll want to back up critical BlueXP backup and recovery files periodically in case you have an issue with the BlueXP Connector host system. This will enable you to deploy a new Connector and restore the critical BlueXP backup and recovery data.
+When using BlueXP backup and recovery in a site with no internet access, known as "private mode" or a "dark site", the BlueXP backup and recovery configuration data is backed up to the StorageGRID bucket where your backups are being stored. If you have an issue with the BlueXP Connector host system in the future, you can deploy a new Connector and restore the critical BlueXP backup and recovery data.
 
-When you use BlueXP backup and recovery in a SaaS environment where the BlueXP Connector is deployed at your cloud provider, or on your own host system that has internet access, all the important BlueXP backup and recovery configuration data is backed up and stored in the cloud. When you're using BlueXP backup and recovery in a site with no internet access, known as "restricted mode' or a "dark site", this BlueXP backup and recovery information is stored only on the local Connector system.
+Note that when you use BlueXP backup and recovery in a SaaS environment where the BlueXP Connector is deployed at your cloud provider, or on your own host system that has internet access, all the important BlueXP backup and recovery configuration data is backed up and protected in the cloud.
 
-We'll describe how to back up critical BlueXP backup and recovery data to your connected StorageGRID system, and how to restore the data onto a new Connector when necessary.
+There are 2 types of data that are backed up:
 
-== Back up critical BlueXP backup and recovery data
+* BlueXP backup and recovery database - contains a listing of all the volumes, backup files, backup policies, and configuration information.
+* Indexed Catalog files - contains detailed indexes that are used for Search & Restore functionality that make your searches very quick and efficient when looking for volume data that you want to restore.
 
-There are 2 types of data that you need to back up:
+This data is backed up once per day at midnight, and a maximum of 7 copies of each file are retained. In case of single connector serving multiple WEs, DBs backup will be located in the bucket of the first activated WE. 
 
-* BlueXP backup and recovery database
-* Indexed Catalog files (used for Search & Restore functionality)
-
-NOTE: You should plan to back up this BlueXP backup and recovery data periodically so you'll always have access to the most recent data.
-
-Note that no volume data is ever included in the BlueXP backup and recovery database or Indexed Catalog files.
-
-=== Back up the BlueXP backup and recovery database
-
-The BlueXP backup and recovery database contains a listing of all the volumes, backup files, backup policies, and configuration information.
-
-.Steps
-
-. Log into the Connector host system using the appropriate credentials.
-
-. Enter the MySQL container shell by entering the following command:
-+
-[source,cli]
-docker exec -it ds_mysql_1 sh
-
-. In the container shell, deploy the "env".
-
-. You'll need the MySQL DB password, so copy the value of the key "MYSQL_ROOT_PASSWORD".
-
-. Back up the BlueXP backup and recovery MySQL DB by entering the following command:
-+
-[source,cli]
-mysqldump --user root --password -p cloud_backup --result-file=mysql.dump.cloud_backup.sql
-
-. Copy the MySQL DB backup from the MySQL docker container by entering the following command:
-+
-[source,cli]
-docker cp ds_mysql_1:/mysql.dump.cloud_backup.sql .
-
-. Copy the backups to a secure location in your network. You can use a local StorageGRID system if you are creating ONTAP volume backups to that location.
-
-=== Back up the Indexed Catalog files
-
-The Indexed Catalog is used for Search & Restore functionality. It contains information about every volume and every backup file - making your searches very quick and efficient when looking for volume data that you want to restore.
-
-. On the Connector host system, change the directory to "/opt/application/netapp/cbs".
-
-. Locate the Index Catalog folder. It starts with the string *catalog*.
-
-. Zip the "catalog<_xxxxxx_>" folder by entering the following command:
-+
-[source,cli]
-zip -r catalogxxxxxx.zip catalogxxxxxx
-
-. Copy the zipped backup to a secure location in your network.
+TIP: No volume data is ever included in the BlueXP backup and recovery database or Indexed Catalog files.
 
 == Restore BlueXP backup and recovery data to a new Connector
 
@@ -87,17 +39,28 @@ There are 4 tasks you'll need to perform to return your BlueXP backup and recove
 
 Once you verify that your system is back in a working order, we recommend that you create new backup files.
 
+.What you'll need
+
+You'll need to access the most recent database and index backups from the StorageGRID bucket where your backup files are being stored:
+
+* BlueXP backup and recovery MySQL database file
++
+This file is named `CBS_DB_Backup_<day>_<month>_<year>`
+* Indexed Catalog backup zip file
++
+This file is named `Indexed_Catalog_DB_Backup_<day>_<month>_<year>`
+
 === Install a new Connector on a new on-premises Linux host
 
 When installing a new BlueXP Connector, make sure you download the same release of software as you had installed on the original Connector. Periodic changes to the BlueXP backup and recovery database structure may make newer software releases incompatible with the original database backups. You can https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access[upgrade the Connector software to the most current version after restoring the Backup database^].
 
-. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html[Install the BlueXP Connector on a new on-premises Linux host^]
+. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html[Install the BlueXP Connector on a new on-premises Linux host^].
 
 . Log into BlueXP using the admin user credentials that you just created.
 
 === Restore the BlueXP backup and recovery database
 
-. Copy the MySQL backups from the secure location to the new Connector host.
+. Copy the MySQL backups from the backup location to the new Connector host.
 
 . Copy the backup into the MySQL docker container using the following command:
 +
@@ -121,7 +84,7 @@ mysql -u root -p cloud_backup < mysql.dump.cloud_backup.sql
 . Verify that the BlueXP backup and recovery MySQL DB has been restored correctly using the following SQL commands:
 +
 [source,cli]
-# mysql -u root -p cloud_backup
+mysql -u root -p cloud_backup
 +
 Enter the password.
 +
@@ -133,7 +96,7 @@ Check if the volumes that are shown are the same as those that existed in your o
 
 === Restore the Indexed Catalog files
 
-. Copy the Indexed Catalog backup zip file from the secure location to the new Connector host in the "/opt/application/netapp/cbs" folder.
+. Copy the Indexed Catalog backup zip file from the backup location to the new Connector host in the "/opt/application/netapp/cbs" folder.
 
 . Unzip the "catalogxxxxxx.zip" file using the following command:
 +
