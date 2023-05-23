@@ -22,7 +22,7 @@ There are 2 types of data that are backed up:
 * BlueXP backup and recovery database - contains a listing of all the volumes, backup files, backup policies, and configuration information.
 * Indexed Catalog files - contains detailed indexes that are used for Search & Restore functionality that make your searches very quick and efficient when looking for volume data that you want to restore.
 
-This data is backed up once per day at midnight, and a maximum of 7 copies of each file are retained. In case of single connector serving multiple WEs, DBs backup will be located in the bucket of the first activated WE. 
+This data is backed up once per day at midnight, and a maximum of 7 copies of each file are retained. If the Connector is managing multiple on-premises ONTAP working environments, the BlueXP backup and recovery files will be located in the bucket of the working environment that was activated first. 
 
 TIP: No volume data is ever included in the BlueXP backup and recovery database or Indexed Catalog files.
 
@@ -45,10 +45,10 @@ You'll need to access the most recent database and index backups from the Storag
 
 * BlueXP backup and recovery MySQL database file
 +
-This file is named `CBS_DB_Backup_<day>_<month>_<year>`
+This file is located in the following location in the bucket `netapp-backup-<GUID>/mysql_backup/`, and it is named `CBS_DB_Backup_<day>_<month>_<year>.sql`.
 * Indexed Catalog backup zip file
 +
-This file is named `Indexed_Catalog_DB_Backup_<day>_<month>_<year>`
+This file is located in the following location in the bucket `netapp-backup-<GUID>/catalog_backup/`, and it is named `Indexed_Catalog_DB_Backup_<day>_<month>_<year>.zip`.
 
 === Install a new Connector on a new on-premises Linux host
 
@@ -60,12 +60,12 @@ When installing a new BlueXP Connector, make sure you download the same release 
 
 === Restore the BlueXP backup and recovery database
 
-. Copy the MySQL backups from the backup location to the new Connector host.
+. Copy the MySQL backup from the backup location to the new Connector host. We'll use the example file name "CBS_DB_Backup_23_05_2023.sql" below.
 
 . Copy the backup into the MySQL docker container using the following command:
 +
 [source,cli]
-docker cp mysql.dump.cloud_backup.sql ds_mysql_1:/.
+docker cp CBS_DB_Backup_23_05_2023.sql ds_mysql_1:/.
 
 . Enter the MySQL container shell using the following command:
 +
@@ -79,7 +79,7 @@ docker exec -it ds_mysql_1 sh
 . Restore the BlueXP backup and recovery MySQL DB using the following command:
 +
 [source,cli]
-mysql -u root -p cloud_backup < mysql.dump.cloud_backup.sql
+mysql -u root -p cloud_backup < CBS_DB_Backup_23_05_2023.sql
 
 . Verify that the BlueXP backup and recovery MySQL DB has been restored correctly using the following SQL commands:
 +
@@ -96,12 +96,12 @@ Check if the volumes that are shown are the same as those that existed in your o
 
 === Restore the Indexed Catalog files
 
-. Copy the Indexed Catalog backup zip file from the backup location to the new Connector host in the "/opt/application/netapp/cbs" folder.
+. Copy the Indexed Catalog backup zip file (we'll use the example file name "Indexed_Catalog_DB_Backup_23_05_2023.zip") from the backup location to the new Connector host in the "/opt/application/netapp/cbs" folder.
 
-. Unzip the "catalogxxxxxx.zip" file using the following command:
+. Unzip the "Indexed_Catalog_DB_Backup_23_05_2023.zip" file using the following command:
 +
 [source,cli]
-unzip catalogxxxxxx.zip
+unzip Indexed_Catalog_DB_Backup_23_05_2023.zip
 
 . Run the *ls* command to make sure that the folder "catalogxxxxxx" has been created with the subfolders "changes" and "snapshots" underneath.
 
