@@ -83,7 +83,7 @@ For BlueXP backup and recovery BYOL licensing, you need the serial number from N
 And you need to have a Microsoft Azure subscription for the storage space where your backups will be located.
 
 Connector requirements::
-The Connector can be installed in an Azure region with full or limited internet access ("standard" or "restricted" mode). https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-modes.html[See BlueXP deployment modes for details^].
+The Connector can be installed in an Azure region with full or limited internet access ("standard" or "restricted" mode). https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html[See BlueXP deployment modes for details^].
 //, or in a site with no internet access ("private" mode)
 
 * https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Connectors^]
