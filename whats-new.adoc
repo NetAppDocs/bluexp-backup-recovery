@@ -20,11 +20,11 @@ Learn what's new in BlueXP backup and recovery.
 
 === FlexGroup volumes can be backed up and protected using DataLock and Ransomware protection
 
-Backup policies for FlexGroup volumes can use DataLock and Ransomware protection when the cluster is running ONTAP 9.13.1 or greater.
+Backup policies for FlexGroup volumes now can use DataLock and Ransomware protection when the cluster is running ONTAP 9.13.1 or greater.
 
-=== d
+=== Automatic back up of critical BlueXP backup and recovery files in dark sites
 
-d
+When you're using BlueXP backup and recovery in a site with no internet access, known as a "private mode" deployment, the BlueXP backup and recovery information is stored only on the local Connector system. This new functionality automatically backs up critical BlueXP backup and recovery data to a bucket on your connected StorageGRID system so that you can restore this data onto a new Connector if necessary. https://docs.netapp.com/us-en/cloud-manager-backup-restore/reference-backup-cbs-db-in-dark-site.html[Learn more]
 
 //=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
 //

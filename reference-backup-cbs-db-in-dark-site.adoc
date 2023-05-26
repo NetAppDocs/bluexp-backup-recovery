@@ -48,7 +48,7 @@ You'll need to access the most recent database and index backups from the Storag
 This file is located in the following location in the bucket `netapp-backup-<GUID>/mysql_backup/`, and it is named `CBS_DB_Backup_<day>_<month>_<year>.sql`.
 * Indexed Catalog backup zip file
 +
-This file is located in the following location in the bucket `netapp-backup-<GUID>/catalog_backup/`, and it is named `Indexed_Catalog_DB_Backup_<day>_<month>_<year>.zip`.
+This file is located in the following location in the bucket `netapp-backup-<GUID>/catalog_backup/`, and it is named `Indexed_Catalog_DB_Backup_<db_name>_<day>_<month>_<year>.zip`.
 
 === Install a new Connector on a new on-premises Linux host
 
@@ -96,14 +96,14 @@ Check if the volumes that are shown are the same as those that existed in your o
 
 === Restore the Indexed Catalog files
 
-. Copy the Indexed Catalog backup zip file (we'll use the example file name "Indexed_Catalog_DB_Backup_23_05_2023.zip") from the backup location to the new Connector host in the "/opt/application/netapp/cbs" folder.
+. Copy the Indexed Catalog backup zip file (we'll use the example file name "Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip") from the backup location to the new Connector host in the "/opt/application/netapp/cbs" folder.
 
-. Unzip the "Indexed_Catalog_DB_Backup_23_05_2023.zip" file using the following command:
+. Unzip the "Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip" file using the following command:
 +
 [source,cli]
-unzip Indexed_Catalog_DB_Backup_23_05_2023.zip
+unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 
-. Run the *ls* command to make sure that the folder "catalogxxxxxx" has been created with the subfolders "changes" and "snapshots" underneath.
+. Run the *ls* command to make sure that the folder "catalogdb1" has been created with the subfolders "changes" and "snapshots" underneath.
 
 === Discover your ONTAP clusters and StorageGRID systems
 
