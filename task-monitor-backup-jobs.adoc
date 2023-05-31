@@ -49,9 +49,10 @@ image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore 
 +
 This screenshot shows the default column headings. 
 
-. To show four additional columns (Working Environment, SVM, User Name, and Workloads), select image:button_plus_sign_round.png[the plus sign button].
+. To show additional columns (Working Environment, SVM, User Name, Workloads, Policy, and Snapshot Label), select image:button_plus_sign_round.png[the plus sign button].
 
 === Search and filter the list of jobs
+You can filter the operations on the Job Monitoring page using several filters, such as backup policy and Snapshot label. 
 
 By default, the Job Monitoring page shows jobs from the last 24 hours. 
 
