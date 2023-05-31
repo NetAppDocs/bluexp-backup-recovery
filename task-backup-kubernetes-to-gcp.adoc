@@ -63,8 +63,8 @@ image:diagram_cloud_backup_k8s_cvo_gcp.png[A diagram showing how BlueXP backup a
 Note that the Private Endpoint is optional.
 
 Kubernetes cluster requirements::
-* You have discovered the Kubernetes cluster as a BlueXP working environment. https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-gke.html[See how to discover the Kubernetes cluster^].
-* Trident must be installed on the cluster, and the Trident version must be a minimum of 21.1. See https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html[how to install Trident^] or https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html[how to upgrade the Trident version^].
+* You have discovered the Kubernetes cluster as a BlueXP working environment. https://docs.netapp.com/us-en/bluexp-kubernetes/task/task-kubernetes-discover-gke.html[See how to discover the Kubernetes cluster^].
+* Trident must be installed on the cluster, and the Trident version must be a minimum of 21.1. See https://docs.netapp.com/us-en/bluexp-kubernetes/task/task-k8s-manage-trident.html[how to install Trident^] or https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html[how to upgrade the Trident version^].
 * The cluster must be using Cloud Volumes ONTAP on GCP for its' backend storage.
 * The Cloud Volumes ONTAP system must be in the same GCP region as the Kubernetes cluster, and it must be running ONTAP 9.7P5 or later (ONTAP 9.8P11 and later is recommended).
 +
@@ -120,14 +120,14 @@ Supported GCP regions::
 BlueXP backup and recovery is supported in all GCP regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^].
 
 License requirements::
-For BlueXP backup and recovery PAYGO licensing, a subscription through the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved[GCP Marketplace^] is required before you enable BlueXP backup and recovery. Billing for BlueXP backup and recovery is done through this subscription. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html[You can subscribe from the Details & Credentials page of the working environment wizard^].
+For BlueXP backup and recovery PAYGO licensing, a subscription through the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved[GCP Marketplace^] is required before you enable BlueXP backup and recovery. Billing for BlueXP backup and recovery is done through this subscription. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-gcp.html[You can subscribe from the Details & Credentials page of the working environment wizard^].
 +
 For BlueXP backup and recovery BYOL licensing, you need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
 +
 And you need to have a Google subscription for the storage space where your backups will be located.
 
 GCP Service Account::
-You need to have a service account in your Google Cloud Project that has the predefined Storage Admin role. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html[Learn how to create a service account^].
+You need to have a service account in your Google Cloud Project that has the predefined Storage Admin role. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-creating-gcp-service-account.html[Learn how to create a service account^].
 
 == Enabling BlueXP backup and recovery
 
