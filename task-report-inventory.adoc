@@ -60,17 +60,22 @@ The top of the report includes a graph that shows the following information:
 .Steps
 
 . From the top menu, select *Reports*. 
-. Select *Backup inventory report*. 
+. Select *Backup inventory*. 
 . Select *Create report*.
 . Select the account, working environment, and SVM. 
++
+TIP: You can select multiple working environments and SVMs. 
 . Select the timeframe: last 24 hours, week, or month. 
+. To have an email sent about the report, select *Create a subscription for this report*, select the delivery frequency, and email addresses for one or more email recipients
++
+NOTE: Email recipients can be BlueXP users or users who haven't signed into BlueXP. 
 . (Optional) Filter the results by job status.
-. (Optional) Export the report contents in .CSV format.
+. (Optional) Export the report contents in .CSV format by selecting *Download CSV*.
 
 
 == Create a Data Protection Job Activity report 
 
-Proactive monitoring can reduce effort required to monitor all resources in your ecosystem. Beginning with ONTAP 9.13.0, the Data Protection Job Activity report provides information about backup and restore operations that you can use with your SLA monitoring and track backup and recovery rates. 
+Proactive monitoring can reduce effort required to monitor all resources in your ecosystem. Beginning with ONTAP 9.13.0, the Data Protection Job Activity report provides information about snapshot, backup, clone, and restore operations that you can use with your SLA monitoring and track backup and recovery rates. 
 
 The report applies to BlueXP backup and recovery operations for Cloud Volumes ONTAP, on-premises, application, and Kubernetes. 
 
@@ -96,12 +101,12 @@ The charts at the top of the page show the following information:
 .Steps
 
 . From the top menu, select *Reports*. 
-. Select *Data Protection Job Activity report*. 
+. Select *Data protection job activity*. 
 . Select *Create report*.
 . Select the account, working environment, and SVM. 
 . Select the timeframe: last 24 hours, week, or month. 
 . (Optional) Filter the results by job status, job types (backup or restore), and resource.
-. (Optional) Export the report contents in .CSV format.
+. (Optional) Export the report contents in .CSV format by selecting *Download CSV*.
 
 == Schedule a report
 
