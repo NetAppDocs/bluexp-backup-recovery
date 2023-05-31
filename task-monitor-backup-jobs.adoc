@@ -113,6 +113,20 @@ From the Job Monitoring Details information, you can download a JSON file contai
 . To download a CSV file for all jobs, select the image:button_download.png[Download] button and locate the file in your download directory. 
 . To download a JSON file for a single job, select the Actions menu image:icon-action.png[Actions icon] for the job, select *Download JSON File*, and locate the file in your download directory.  
 
+== Review backup lifecycle jobs
+Monitoring of backup lifecycle flows helps you with audit completeness, accountability, and backup safety. To help you track the backup lifecycle, you might want to identify the expiration of all backup copies. 
+
+A backup lifecycle job tracks all snapshot copies that are deleted or in the queue to be deleted. Beginning with ONTAP 9.13, you can look at all job types called backup "lifecycle" on the Job Monitoring page.
+
+The backup "lifecycle" job type captures all snapshot deletion jobs initiated on a volume that is protected by BlueXP backup and recovery.  
+
+.Steps
+
+. Select the *Job Monitoring* tab.
+. Select the *Advanced Search & Filtering* area to open the Search panel. 
+. Select the job type of "lifecycle". 
+
+
 == Review backup and restore alerts in the BlueXP Notification Center
 
 The BlueXP Notification Center tracks the progress of backup and restore jobs that you've initiated so you can verify whether the operation was successful or not. 
