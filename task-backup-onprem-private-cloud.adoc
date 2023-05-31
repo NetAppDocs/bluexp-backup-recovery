@@ -24,7 +24,7 @@ Get started quickly by following these steps, or scroll down to the remaining se
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
 
 [role="quick-margin-list"]
-* You have discovered the on-premises cluster and added it to a working environment in BlueXP. See https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
+* You have discovered the on-premises cluster and added it to a working environment in BlueXP. See https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
 ** The cluster is running ONTAP 9.7P5 or later.
 ** The cluster has a SnapMirror license -- it is included as part of the Premium Bundle or Data Protection Bundle.
 ** The cluster must have the required network connections to StorageGRID and to the Connector.
@@ -86,7 +86,7 @@ When the Connector and on-premises ONTAP system are installed in an on-prem loca
 
 You need to discover your on-premises ONTAP clusters in BlueXP before you can start backing up volume data.
 
-https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Learn how to discover a cluster^].
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Learn how to discover a cluster^].
 
 ONTAP requirements::
 * Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
@@ -147,10 +147,10 @@ You must not enable StorageGRID object versioning manually on the object store b
 
 When backing up data to StorageGRID, a BlueXP Connector must be available on your premises. You'll either need to install a new Connector or make sure that the currently selected Connector resides on-prem. The Connector can be installed in a site with or without internet access.
 
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html[Installing the Connector on a Linux host with internet access^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html[Installing the Connector on a Linux host without internet access^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html[Switching between Connectors^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Connectors^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html[Installing the Connector on a Linux host with internet access^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html[Installing the Connector on a Linux host without internet access^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html[Switching between Connectors^]
 
 ==== Connector networking requirements
 
@@ -162,7 +162,7 @@ Ensure that the network where the Connector is installed enables the following c
 
 ==== Private mode (dark site) considerations
 
-* BlueXP backup and recovery functionality is built into the BlueXP Connector. When installed in private mode, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's New] to see the new features in each BlueXP backup and recovery release. When you want to use the new features, follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode[upgrade the Connector software^].
+* BlueXP backup and recovery functionality is built into the BlueXP Connector. When installed in private mode, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's New] to see the new features in each BlueXP backup and recovery release. When you want to use the new features, follow the steps to https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode[upgrade the Connector software^].
 
 * When using BlueXP backup and recovery in a SaaS environment, the BlueXP backup and recovery configuration data is backed up to the cloud. When using BlueXP backup and recovery in a site with no internet access, the BlueXP backup and recovery configuration data is backed up to the StorageGRID bucket where your backups are being stored. If you ever have a Connector failure in your private mode site, you can link:reference-backup-cbs-db-in-dark-site.html[restore the BlueXP backup and recovery data to a new Connector^].
 //
@@ -181,7 +181,7 @@ Current support enables you to archive backups to AWS _S3 Glacier_/_S3 Glacier D
 *StorageGRID Requirements*
 
 * Your StorageGRID must be using 11.4 or greater
-* Your StorageGRID must be https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[discovered and available in the BlueXP Canvas^].
+* Your StorageGRID must be https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html[discovered and available in the BlueXP Canvas^].
 
 *Amazon S3 requirements*
 

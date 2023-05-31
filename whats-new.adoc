@@ -24,11 +24,11 @@ Backup policies for FlexGroup volumes now can use DataLock and Ransomware protec
 
 === Automatic back up of critical BlueXP backup and recovery files in dark sites
 
-When you're using BlueXP backup and recovery in a site with no internet access, known as a "private mode" deployment, the BlueXP backup and recovery information is stored only on the local Connector system. This new functionality automatically backs up critical BlueXP backup and recovery data to a bucket on your connected StorageGRID system so that you can restore this data onto a new Connector if necessary. https://docs.netapp.com/us-en/cloud-manager-backup-restore/reference-backup-cbs-db-in-dark-site.html[Learn more]
+When you're using BlueXP backup and recovery in a site with no internet access, known as a "private mode" deployment, the BlueXP backup and recovery information is stored only on the local Connector system. This new functionality automatically backs up critical BlueXP backup and recovery data to a bucket on your connected StorageGRID system so that you can restore this data onto a new Connector if necessary. https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html[Learn more]
 
 //=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
 //
-//Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+//Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 == 8 May 2023
 
@@ -38,13 +38,13 @@ If a backup file has been configured with DataLock & Ransomware protection, or i
 
 === Cross-region and cross-project customer-managed keys are supported when backing up volumes to Google Cloud
 
-Now you can choose a bucket that's in a different project than the project of your customer-managed encryption keys (CMEK). https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups[Learn more about setting up your own customer-managed encryption keys].
+Now you can choose a bucket that's in a different project than the project of your customer-managed encryption keys (CMEK). https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups[Learn more about setting up your own customer-managed encryption keys].
 
 === AWS China regions are now supported for backup files
 
 The AWS China Beijing (cn-north-1) and Ningxia (cn-northwest-1) regions are now supported as destinations for your backup files if the cluster is running ONTAP 9.12.1 or greater.
 
-Note that the IAM policies assigned to the BlueXP Connector need to change the AWS Resource Name "arn" under all _Resource_ sections from "aws" to "aws-cn"; for example "arn:aws-cn:s3:::netapp-backup-*". See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html[Backing up on-prem ONTAP data to Amazon S3] for details.
+Note that the IAM policies assigned to the BlueXP Connector need to change the AWS Resource Name "arn" under all _Resource_ sections from "aws" to "aws-cn"; for example "arn:aws-cn:s3:::netapp-backup-*". See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-aws.html[Backing up on-prem ONTAP data to Amazon S3] for details.
 
 === Enhancements to the Job Monitor
 
@@ -74,7 +74,7 @@ System-initiated jobs, such ongoing backup operations, are now available in the 
 
 === Ability to back up data to the cloud from Cloud Volumes ONTAP systems in "Restricted" mode
 
-Now you can back up data from Cloud Volumes ONTAP systems installed in AWS, Azure, and GCP commercial regions in "restricted mode". This requires that you first install the Connector in the "restricted" commercial region. https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-modes.html[Learn more about BlueXP deployment modes^]. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+Now you can back up data from Cloud Volumes ONTAP systems installed in AWS, Azure, and GCP commercial regions in "restricted mode". This requires that you first install the Connector in the "restricted" commercial region. https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html[Learn more about BlueXP deployment modes^]. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 === Ability to back up your on-premises ONTAP volumes to ONTAP S3 using the API
 
@@ -87,8 +87,8 @@ When creating backups from Cloud Volumes ONTAP systems to Azure storage, by defa
 === Enhancements to the Job Monitor
 
 * Both user-initiated backup and restore operations initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. Earlier ONTAP versions will display only user-initiated jobs.
-* In addition to being able to download a CSV file for reporting on all jobs, now you can download a JSON file for a single job and see its details. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report[Learn more].
-* Two new backup job alerts have been added: "Scheduled job failure" and "Restore job completes but with warnings". https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review all of the alerts that BlueXP backup and recovery can send].
+* In addition to being able to download a CSV file for reporting on all jobs, now you can download a JSON file for a single job and see its details. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report[Learn more].
+* Two new backup job alerts have been added: "Scheduled job failure" and "Restore job completes but with warnings". https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review all of the alerts that BlueXP backup and recovery can send].
 // end::whats-new[]
 
 == 9 March 2023
@@ -99,11 +99,11 @@ In the past when you restored a folder, only files from that folder were restore
 
 === Ability to back up data from Cloud Volumes ONTAP systems in dark sites
 
-Now you can back up data from Cloud Volumes ONTAP systems installed in AWS and Azure commercial regions to Amazon S3 or Azure Blob. This requires that you install the Connector on a Linux host in the commercial region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+Now you can back up data from Cloud Volumes ONTAP systems installed in AWS and Azure commercial regions to Amazon S3 or Azure Blob. This requires that you install the Connector on a Linux host in the commercial region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 === Multiple enhancements to the Job Monitor
 
-* The Job Monitoring page has added advanced filtering so you can search for backup and restore jobs by time, workload (volumes, applications, virtual machines, or Kubernetes), job type, status, working environment, and storage VM. You can also enter free text to search for any resource, for example, "application_3".  https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs[See how to use the advanced filters].
+* The Job Monitoring page has added advanced filtering so you can search for backup and restore jobs by time, workload (volumes, applications, virtual machines, or Kubernetes), job type, status, working environment, and storage VM. You can also enter free text to search for any resource, for example, "application_3".  https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs[See how to use the advanced filters].
 
 * Both user-initiated backup and restore operations initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. Earlier versions of Cloud Volumes ONTAP systems, and on-premises ONTAP systems, will display only user-initiated jobs at this time.
 
@@ -113,11 +113,11 @@ Now you can back up data from Cloud Volumes ONTAP systems installed in AWS and A
 
 Now you can tier older backup files from StorageGRID systems to archival storage in Azure. This enables you to free up space on your StorageGRID systems, and save money by using an inexpensive storage class for old backup files.
 
-This functionality is available if your on-prem cluster is using ONTAP 9.12.1 or greater and your StorageGRID system is using 11.4 or greater. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more here^].
+This functionality is available if your on-prem cluster is using ONTAP 9.12.1 or greater and your StorageGRID system is using 11.4 or greater. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more here^].
 
 === DataLock and Ransomware protection can be configured for backup files in Azure Blob
 
-DataLock and Ransomware Protection is now supported for backup files stored in Azure Blob. If your Cloud Volumes ONTAP or on-prem ONTAP system are running ONTAP 9.12.1 or greater, now you can lock your backup files and scan them to detect possible ransomware. https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can protect your backups by using DataLock and Ransomware protection^].
+DataLock and Ransomware Protection is now supported for backup files stored in Azure Blob. If your Cloud Volumes ONTAP or on-prem ONTAP system are running ONTAP 9.12.1 or greater, now you can lock your backup files and scan them to detect possible ransomware. https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can protect your backups by using DataLock and Ransomware protection^].
 
 === Backup and restore FlexGroup volume enhancements
 
@@ -136,7 +136,7 @@ Now you restore volume data to different storage VMs in your ONTAP clusters. In 
 
 When using ONTAP 9.12.1 GA or greater, backup is now supported when connected to the primary system in a MetroCluster configuration. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover.
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations[See Backup limitations for more information]. 
+https://docs.netapp.com/us-en/bluexp-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations[See Backup limitations for more information]. 
 
 == 9 January 2023
 
@@ -144,7 +144,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-
 
 Now you can tier older backup files from StorageGRID systems to archival storage in AWS S3. This enables you to free up space on your StorageGRID systems, and save money by using an inexpensive storage class for old backup files. You can choose to tier backups to AWS S3 Glacier or S3 Glacier Deep Archive storage.
 
-This functionality is available if your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more here].
+This functionality is available if your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.3 or greater. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more here].
 
 === Ability to select your own customer-managed keys for data encryption on Google Cloud
 
@@ -152,18 +152,18 @@ When backing up data from your ONTAP systems to Google Cloud Storage, now you ca
 
 === "Storage Admin" role no longer needed for the service account to create backups in Google Cloud Storage
 
-In earlier releases, the "Storage Admin" role was required for the service account that enables BlueXP backup and recovery to access Google Cloud Storage buckets. Now you can create a custom role with a reduced set of permissions to be assigned to the service account. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups[See how to prepare your Google Cloud Storage for backups].
+In earlier releases, the "Storage Admin" role was required for the service account that enables BlueXP backup and recovery to access Google Cloud Storage buckets. Now you can create a custom role with a reduced set of permissions to be assigned to the service account. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups[See how to prepare your Google Cloud Storage for backups].
 
 === Support has been added to restore data using Search & Restore in sites without internet access
 
 If you are backing up data from an on-prem ONTAP cluster to StorageGRID in a site with no internet access, also known as a dark site or offline site, now you can use the Search & Restore option to restore data when necessary. This functionality requires that the BlueXP Connector (version 3.9.25 or greater) is deployed in the offline site.
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore[See how to restore ONTAP data using Search & Restore].
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html[See how to install the Connector in your offline site].
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore[See how to restore ONTAP data using Search & Restore].
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html[See how to install the Connector in your offline site].
 
 === Ability to download the Job Monitoring results page as a .csv report
 
-After you filter the Job Monitoring page to display the jobs and actions you are interested in, now you can generate and download a .csv file of that data. Then you can analyze the information, or send the report to other people in your organization. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report[See how to generate a Job Monitoring report].
+After you filter the Job Monitoring page to display the jobs and actions you are interested in, now you can generate and download a .csv file of that data. Then you can analyze the information, or send the report to other people in your organization. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report[See how to generate a Job Monitoring report].
 
 == 19 December 2022
 
@@ -208,7 +208,7 @@ Because of a change in Cloud Backup, you need to change the following Connector 
 
 |===
 
-See the full list of endpoints for your https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-aws.html#outbound-internet-access[AWS^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#outbound-internet-access[Google Cloud^], or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-azure.html#outbound-internet-access[Azure^] cloud environment.
+See the full list of endpoints for your https://docs.netapp.com/us-en/bluexp-setup-admin/task-set-up-networking-aws.html#outbound-internet-access[AWS^], https://docs.netapp.com/us-en/bluexp-setup-admin/task-set-up-networking-google.html#outbound-internet-access[Google Cloud^], or https://docs.netapp.com/us-en/bluexp-setup-admin/task-set-up-networking-azure.html#outbound-internet-access[Azure^] cloud environment.
 
 === Support for selecting the Google Archival storage class in the UI
 
@@ -220,7 +220,7 @@ This functionality is currently supported for on-prem ONTAP clusters using ONTAP
 
 Cloud Backup now supports backing up and restoring FlexGroup volumes. When using ONTAP 9.12.1 or greater, you can back up FlexGroup volumes to public and private cloud storage. If you have working environments that include FlexVol and FlexGroup volumes, once you update your ONTAP software, you can back up any of the FlexGroup volumes on those systems.
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#supported-volumes[See the full list of supported volume types].
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html#supported-volumes[See the full list of supported volume types].
 
 === Ability to restore data from backups to a specific aggregate on Cloud Volumes ONTAP systems
 
@@ -232,15 +232,15 @@ In earlier releases you could select the aggregate only when restoring data to o
 
 If there are any local Snapshot copies for volumes in your working environment that match your backup schedule labels (for example, daily, weekly, etc.), you can export those historic snapshots to object storage as backup files. This enables you to initialize your backups in the cloud by moving older snapshot copies into the baseline backup copy.
 
-This option is available when activating Cloud Backup for your working environments. You can also change this setting later in the https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-settings-ontap.html[Advanced Settings page].
+This option is available when activating Cloud Backup for your working environments. You can also change this setting later in the https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings-ontap.html[Advanced Settings page].
 
 === Cloud Backup can now be used for archiving volumes that you no longer need on the source system
 
-Now you can delete the backup relationship for a volume. This provides you with an archiving mechanism if you want to stop the creation of new backup files and delete the source volume, but retain all the existing backup files. This gives you the ability to restore the volume from the backup file in the future, if needed, while clearing space from your source storage system. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap.html#deleting-volume-backup-relationships[Learn how].
+Now you can delete the backup relationship for a volume. This provides you with an archiving mechanism if you want to stop the creation of new backup files and delete the source volume, but retain all the existing backup files. This gives you the ability to restore the volume from the backup file in the future, if needed, while clearing space from your source storage system. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backups-ontap.html#deleting-volume-backup-relationships[Learn how].
 
 === Support has been added to receive Cloud Backup alerts in email and in the Notification Center
 
-Cloud Backup has been integrated into the BlueXP Notification service. You can display Cloud Backup notifications by clicking the notification bell in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system. The email can be sent to any recipients who need to be aware of backup and restore activity. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status[Learn how].
+Cloud Backup has been integrated into the BlueXP Notification service. You can display Cloud Backup notifications by clicking the notification bell in the BlueXP menu bar. You can also configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system. The email can be sent to any recipients who need to be aware of backup and restore activity. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status[Learn how].
 
 === New Advanced Settings page enables you to change cluster-level backup settings
 
@@ -254,7 +254,7 @@ This new page enables you to change many cluster-level backup settings that you 
 * Whether "yearly" snapshots are removed from the source system
 * The ONTAP IPspace that is connected to object storage (in case of incorrect selection during activation)
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-settings-ontap.html[Learn more about managing cluster-level backup settings].
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings-ontap.html[Learn more about managing cluster-level backup settings].
 
 === Now you can restore backup files using Search & Restore when using an on-premises Connector
 
@@ -264,7 +264,7 @@ At this time, the Connector must be deployed in the Google Cloud Platform when u
 
 === Job Monitoring page has been updated 
 
-The following updates have been made to the https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html[Job Monitoring page]: 
+The following updates have been made to the https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Job Monitoring page]: 
 
 * A column for "Workload" is available so you can filter the page to view jobs for the following Backup services: Volumes, Applications, Virtual Machines, and Kubernetes.
 * You can add new columns for "User Name" and "Job Type" if you want to view these details for a specific backup job.
@@ -297,7 +297,7 @@ If you want to use a different AWS account for your Cloud Volumes ONTAP backups 
 
 === DataLock and Ransomware protection can be configured for backup files in StorageGRID systems
 
-The last release introduced _DataLock and Ransomware Protection_ for backups stored in Amazon S3 buckets. This release expands support to backup files stored in StorageGRID systems. If your cluster is using ONTAP 9.11.1 or greater, and your StorageGRID system is running version 11.6.0.3 or greater, this new backup policy option is available. https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can use DataLock and Ransomware protection to protect your backups^].
+The last release introduced _DataLock and Ransomware Protection_ for backups stored in Amazon S3 buckets. This release expands support to backup files stored in StorageGRID systems. If your cluster is using ONTAP 9.11.1 or greater, and your StorageGRID system is running version 11.6.0.3 or greater, this new backup policy option is available. https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can use DataLock and Ransomware protection to protect your backups^].
 
 Note that you'll need to be running a Connector with version 3.9.22 or greater software. The Connector must be installed in your premises, and it can be installed in a site with or without internet access.
 
@@ -315,26 +315,26 @@ In the past, a file restored to the original volume was always restored as a new
 
 === Drag and drop to enable Cloud Backup to StorageGRID systems
 
-If the https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html[StorageGRID^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP working environment onto the destination to initiate the Cloud Backup setup wizard.
+If the https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html[StorageGRID^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP working environment onto the destination to initiate the Cloud Backup setup wizard.
 
 == 18 August 2022
 
 === Support has been added to protect cloud-native applications data
 
 Cloud Backup for Applications is a SaaS based service that provides data protection capabilities for applications running on NetApp Cloud Storage. Cloud Backup for Applications enabled within BlueXP offers efficient, application consistent, policy-based backup and restore of Oracle databases residing on Amazon FSx for NetApp ONTAP.
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html[Learn more^].
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protect-cloud-app-data-to-cloud.html[Learn more^].
 
 === Search & Restore is now supported with backup files in Azure Blob
 
-The Search & Restore method of restoring volumes and files is now available for users who store their backup files in Azure Blob storage. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2[See how to restore your volumes and files using Search & Restore^].
+The Search & Restore method of restoring volumes and files is now available for users who store their backup files in Azure Blob storage. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#prerequisites-2[See how to restore your volumes and files using Search & Restore^].
 
-Note that additional permissions are needed in the Connector role to use this functionality. A Connector deployed using version 3.9.21 software (August 2022) includes these permissions. You'll need to manually add the permissions if you deployed the Connector using an earlier release. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector[See how to add these permissions, if necessary^].
+Note that additional permissions are needed in the Connector role to use this functionality. A Connector deployed using version 3.9.21 software (August 2022) includes these permissions. You'll need to manually add the permissions if you deployed the Connector using an earlier release. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector[See how to add these permissions, if necessary^].
 
 === We've added the ability to protect your backup files from deletion and ransomware attacks
 
-Cloud Backup now has object lock support for ransomware-safe backups. If your cluster is using ONTAP 9.11.1 or greater, and your backup destination is Amazon S3, a new backup policy option called _DataLock and Ransomware Protection_ is now available. DataLock protects your backup files from being modified or deleted, and Ransomware protection scans your backup files to look for evidence of a ransomware attack on your backup files. https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can use DataLock and Ransomware protection to protect your backups^].
+Cloud Backup now has object lock support for ransomware-safe backups. If your cluster is using ONTAP 9.11.1 or greater, and your backup destination is Amazon S3, a new backup policy option called _DataLock and Ransomware Protection_ is now available. DataLock protects your backup files from being modified or deleted, and Ransomware protection scans your backup files to look for evidence of a ransomware attack on your backup files. https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about how you can use DataLock and Ransomware protection to protect your backups^].
 
-Note that additional permissions are needed in the Connector role to use this functionality. A Connector deployed using version 3.9.21 software includes these permissions. You'll need to manually add the permissions if you deployed the Connector using an earlier release. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html#set-up-s3-permissions[See how to add these permissions if necessary^].
+Note that additional permissions are needed in the Connector role to use this functionality. A Connector deployed using version 3.9.21 software includes these permissions. You'll need to manually add the permissions if you deployed the Connector using an earlier release. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-aws.html#set-up-s3-permissions[See how to add these permissions if necessary^].
 
 === Cloud Backup now supports policies created using custom SnapMirror labels
 
@@ -346,7 +346,7 @@ Some of the Backup Policy pages have been redesigned to make it easier to view a
 
 === Drag and drop to enable Cloud Backup to Azure Blob and Google Cloud Storage
 
-If the https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html[Azure Blob^] or https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html[Google Cloud Storage^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP or Cloud Volumes ONTAP working environment (installed in Azure or GCP) onto the destination to initiate the Backup setup wizard.
+If the https://docs.netapp.com/us-en/bluexp-setup-admin/task-viewing-azure-blob.html[Azure Blob^] or https://docs.netapp.com/us-en/bluexp-setup-admin/task-viewing-gcp-storage.html[Google Cloud Storage^] destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP or Cloud Volumes ONTAP working environment (installed in Azure or GCP) onto the destination to initiate the Backup setup wizard.
 
 This functionality already exists for Amazon S3 buckets.
 
@@ -371,14 +371,14 @@ In the past you needed to deploy the Connector in the same cloud provider as whe
 
 If your on-prem ONTAP cluster resides in a site with no internet access, also known as a dark site or offline site, now you can use Cloud Backup to back up volume data to a NetApp StorageGRID system that resides in the same site. This functionality requires that the BlueXP Connector (version 3.9.19 or greater) is also deployed in the offline site.
 
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html[See how to install the Connector in your offline site].
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html[See how to back up ONTAP data to StorageGRID in your offline site].
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html[See how to install the Connector in your offline site].
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-private-cloud.html[See how to back up ONTAP data to StorageGRID in your offline site].
 
 === Cloud Backup for Virtual Machines 1.1.0 is now GA
 
 You can protect data on your virtual machines by integrating the SnapCenter Plug-in for VMware vSphere with BlueXP. You can back up datastores to the cloud and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere with ease.
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-data.html[Learn more about protecting virtual machines to cloud].
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protect-vm-data.html[Learn more about protecting virtual machines to cloud].
 
 === Cloud Restore instance is not needed for ONTAP Browse & Restore functionality
 
@@ -392,7 +392,7 @@ Note that the Cloud Restore instance/VM will be removed automatically if you wer
 
 === Browse & Restore support for files from Google Cloud and StorageGRID storage
 
-With the addition of the container for Browse & Restore operations (as described above), file restore operations now can be performed from backup files stored in Google Cloud and StorageGRID systems. Now Browse & Restore can be used to restore files across all public cloud providers and from StorageGRID. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-browse-restore[See how to use Browse & Restore to restore volumes and files from your ONTAP backups].
+With the addition of the container for Browse & Restore operations (as described above), file restore operations now can be performed from backup files stored in Google Cloud and StorageGRID systems. Now Browse & Restore can be used to restore files across all public cloud providers and from StorageGRID. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restoring-ontap-data-using-browse-restore[See how to use Browse & Restore to restore volumes and files from your ONTAP backups].
 
 === Drag and drop to enable Cloud Backup to S3 storage
 
@@ -400,28 +400,8 @@ If the Amazon S3 destination for your backups exists as a working environment on
 
 === Automatically apply a backup policy to newly created volumes in Kubernetes clusters
 
-If you added new persistent volumes to your Kubernetes clusters after Cloud Backup was activated, in the past you needed to remember to configure backups for those volumes. Now you can select a policy that will be applied automatically to newly created volumes https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-kubernetes.html#setting-a-backup-policy-to-be-assigned-to-new-volumes[from the _Backup Settings_ page] for clusters that have already activated Cloud Backup.
+If you added new persistent volumes to your Kubernetes clusters after Cloud Backup was activated, in the past you needed to remember to configure backups for those volumes. Now you can select a policy that will be applied automatically to newly created volumes https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backups-kubernetes.html#setting-a-backup-policy-to-be-assigned-to-new-volumes[from the _Backup Settings_ page] for clusters that have already activated Cloud Backup.
 
 === Cloud Backup APIs are now available for managing backup and restore operations
 
-The APIs are available at https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html. See link:api-backup-restore.html[this page] for an overview of the APIs.
-
-== 2 May 2022
-
-=== Search & Restore is now supported with backup files in Google Cloud Storage
-
-The Search & Restore method of restoring volumes and files was introduced in April for users who store their backup files in AWS. Now the capability is available for users who store their backup files in Google Cloud Storage. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2[See how to restore your volumes and files using Search & Restore].
-
-=== Configure a backup policy to be applied automatically to newly created volumes in Kubernetes clusters
-
-If you added new persistent volumes to your Kubernetes clusters after Cloud Backup was activated, in the past you needed to remember to configure backups for those volumes. Now you can select a policy that will be applied automatically to newly created volumes. This option is available in the setup wizard when activating Cloud Backup for a new Kubernetes cluster.
-
-=== Cloud Backup now requires a license before being activated on a working environment
-
-There are a few changes to how licensing is implemented with Cloud Backup:
-
-* You must sign up for a PAYGO Marketplace subscription from your cloud provider, or purchase a BYOL license from NetApp, before you can activate Cloud Backup.
-* The 30-day Free Trial is available only when using a PAYGO subscription from your cloud provider - it is not available when using the BYOL license.
-* The Free Trial starts the day the Marketplace subscription starts. For example, if you activate the Free Trial after you have been using a Marketplace subscription for 30 days for a Cloud Volumes ONTAP system, the Cloud Backup Trial will not be available.
-
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-licensing-cloud-backup.html[Learn more about the available licensing models].
+The APIs are available at https://docs.netapp.com/us-en/bluexp-automation/cbs/overview.html. See link:api-backup-restore.html[this page] for an overview of the APIs.
