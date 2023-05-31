@@ -29,7 +29,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 ** The Cloud Volumes ONTAP system must be running ONTAP 9.7P5 or later.
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
 * You have subscribed to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[BlueXP Marketplace Backup offering], an https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS annual contract], or you have purchased link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[and activated] a BlueXP backup and recovery BYOL license from NetApp.
-* The IAM role that provides the BlueXP Connector with permissions includes S3 permissions from the latest https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html[BlueXP policy^].
+* The IAM role that provides the BlueXP Connector with permissions includes S3 permissions from the latest https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[BlueXP policy^].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable BlueXP backup and recovery on your existing Kubernetes cluster
 
@@ -71,8 +71,8 @@ image:diagram_cloud_backup_k8s_cvo_aws.png[A diagram showing how BlueXP backup a
 Note that the VPC Endpoint is optional.
 
 Kubernetes cluster requirements::
-* You have discovered the Kubernetes cluster as a BlueXP working environment. https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-aws.html[See how to discover the Kubernetes cluster^].
-* Trident must be installed on the cluster, and the Trident version must be a minimum of 21.1. See https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html[how to install Trident^] or https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html[how to upgrade the Trident version^].
+* You have discovered the Kubernetes cluster as a BlueXP working environment. https://docs.netapp.com/us-en/bluexp-kubernetes/task/task-kubernetes-discover-aws.html[See how to discover the Kubernetes cluster^].
+* Trident must be installed on the cluster, and the Trident version must be a minimum of 21.1. See https://docs.netapp.com/us-en/bluexp-kubernetes/task/task-k8s-manage-trident.html[how to install Trident^] or https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html[how to upgrade the Trident version^].
 * The cluster must be using Cloud Volumes ONTAP on AWS for its' backend storage.
 * The Cloud Volumes ONTAP system must be in the same AWS region as the Kubernetes cluster, and it must be running ONTAP 9.7P5 or later (ONTAP 9.8P11 and later is recommended).
 +
@@ -127,7 +127,7 @@ spec:
 License requirements::
 For BlueXP backup and recovery PAYGO licensing, a subscription is available in the AWS Marketplace that enables deployments of Cloud Volumes ONTAP and BlueXP backup and recovery. You need to https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[subscribe to this BlueXP subscription^] before you enable BlueXP backup and recovery. Billing for BlueXP backup and recovery is done through this subscription.
 +
-For an annual contract that enables you to back up both Cloud Volumes ONTAP data and on-premises ONTAP data, you need to subscribe from the https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS Marketplace page^] and then https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html[associate the subscription with your AWS credentials^].
+For an annual contract that enables you to back up both Cloud Volumes ONTAP data and on-premises ONTAP data, you need to subscribe from the https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS Marketplace page^] and then https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-aws-accounts.html[associate the subscription with your AWS credentials^].
 +
 For an annual contract that enables you to bundle Cloud Volumes ONTAP and BlueXP backup and recovery, you must set up the annual contract when you create a Cloud Volumes ONTAP working environment. This option doesn't enable you to back up on-prem data.
 +

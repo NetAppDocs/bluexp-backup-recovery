@@ -76,24 +76,24 @@ Supported ONTAP versions::
 Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
 
 License requirements::
-For BlueXP backup and recovery PAYGO licensing, a subscription through the Azure Marketplace is required before you enable BlueXP backup and recovery. Billing for BlueXP backup and recovery is done through this subscription. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html[You can subscribe from the Details & Credentials page of the working environment wizard^].
+For BlueXP backup and recovery PAYGO licensing, a subscription through the Azure Marketplace is required before you enable BlueXP backup and recovery. Billing for BlueXP backup and recovery is done through this subscription. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-azure.html[You can subscribe from the Details & Credentials page of the working environment wizard^].
 +
 For BlueXP backup and recovery BYOL licensing, you need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses]. You must use a BYOL license when the Connector and Cloud Volumes ONTAP system are deployed in a dark site ("private mode").
 +
 And you need to have a Microsoft Azure subscription for the storage space where your backups will be located.
 
 Connector requirements::
-The Connector can be installed in an Azure region with full or limited internet access ("standard" or "restricted" mode). https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-modes.html[See BlueXP deployment modes for details^].
+The Connector can be installed in an Azure region with full or limited internet access ("standard" or "restricted" mode). https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html[See BlueXP deployment modes for details^].
 //, or in a site with no internet access ("private" mode)
 
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[Learn about Connectors^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-azure.html[Deploy a Connector in Azure in standard mode (full internet access)^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-restricted-mode.html[Install the Connector in restricted mode (limited outbound access)^]
-//* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html[Install the Connector in private mode (no internet access)^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Connectors^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html[Deploy a Connector in Azure in standard mode (full internet access)^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-restricted-mode.html[Install the Connector in restricted mode (limited outbound access)^]
+//* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html[Install the Connector in private mode (no internet access)^]
 
 //[NOTE]
 //====
-//BlueXP backup and recovery functionality is built into the BlueXP Connector. When installed in private mode, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's new] to see the new features in each BlueXP backup and recovery release, and then you can follow the steps to https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode[upgrade the Connector software^] when you want to use new features.
+//BlueXP backup and recovery functionality is built into the BlueXP Connector. When installed in private mode, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's new] to see the new features in each BlueXP backup and recovery release, and then you can follow the steps to https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode[upgrade the Connector software^] when you want to use new features.
 //
 //We highly recommend that you create local backups of the internal BlueXP backup and recovery configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up BlueXP backup and recovery data in a dark site^].
 //====
@@ -174,7 +174,7 @@ To use the BlueXP backup and recovery Search & Restore functionality, you need t
 "Microsoft.Synapse/workspaces/operationResults/read",
 "Microsoft.Synapse/workspaces/privateEndpointConnectionsApproval/action"
 +
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html[View the full JSON format for the policy^]
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html[View the full JSON format for the policy^]
 
 .. Click *Review + update* and then click *Update*.
 
@@ -194,7 +194,7 @@ You can use your own customer-managed keys for data encryption in the activation
 
 BlueXP backup and recovery is enabled by default in the working environment wizard. Be sure to keep the option enabled.
 
-See https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html[Launching Cloud Volumes ONTAP in Azure^] for requirements and details for creating your Cloud Volumes ONTAP system.
+See https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-azure.html[Launching Cloud Volumes ONTAP in Azure^] for requirements and details for creating your Cloud Volumes ONTAP system.
 
 NOTE: If you want to pick the name of the resource group, *disable* BlueXP backup and recovery when deploying Cloud Volumes ONTAP. Follow the steps for <<enabling-bluexp-backup-and-recovery-on-an-existing-system,enabling BlueXP backup and recovery on an existing system>> to enable BlueXP backup and recovery and choose the resource group.
 
