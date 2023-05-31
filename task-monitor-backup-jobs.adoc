@@ -117,7 +117,7 @@ From the Job Monitoring Details information, you can download a JSON file contai
 
 The BlueXP Notification Center tracks the progress of backup and restore jobs that you've initiated so you can verify whether the operation was successful or not. 
 
-In addition to viewing the alerts in the BlueXP list of notifications, you can configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
+In addition to viewing the alerts in the BlueXP list of notifications, you can configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system. https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
 
 The following events trigger email alerts:
 
@@ -140,7 +140,7 @@ By default, BlueXP Account Admins receive emails for all "Critical" and "Recomme
 
 To receive the BlueXP backup and recovery email alerts, you'll need to select the notification severity types "Critical", "Warning", and "Error."
 
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
 
 .Steps 
 

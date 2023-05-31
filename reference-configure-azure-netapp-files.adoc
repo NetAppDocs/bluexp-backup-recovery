@@ -17,12 +17,12 @@ Using BlueXP you should create a Azure NetApp Files working environment to add a
 
 == Create Azure NetApp Files working environment
 
-You should create Azure NetApp Files working environments where your databases are hosted. For more information, refer to link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/concept-azure-netapp-files.html[Learn about Azure NetApp Files] and link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-create-working-env.html[Create an Azure NetApp Files working environment].
+You should create Azure NetApp Files working environments where your databases are hosted. For more information, refer to link:https://docs.netapp.com/us-en/bluexp-azure-netapp-files/concept-azure-netapp-files.html[Learn about Azure NetApp Files] and link:https://docs.netapp.com/us-en/bluexp-azure-netapp-files/task-create-working-env.html[Create an Azure NetApp Files working environment].
 
 == Create a connector
 A BlueXP account admin should deploy a Connector in Azure that enables BlueXP to manage resources and processes within your public cloud environment.
 
-For information, refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html[Create a Connector in Azure from BlueXP].
+For information, refer to link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-creating-connectors-azure.html[Create a Connector in Azure from BlueXP].
 
 * Ensure that there is connectivity from the connector to the database hosts.
 * If you have the Azure NetApp Files working environment and databases in the same Virtual Network (VNet), you can deploy the connector in the same VNet.
