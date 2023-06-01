@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-monitor-backup-jobs.html
-keywords: cloud backup, cloud backup service, backup, restore, status, monitor, alert, notification
+keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification
 summary: You can monitor the status of backup jobs that are scheduled or that you have initiated and restore jobs that you initiated in your working environments. You can see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
 ---
 
@@ -117,15 +117,15 @@ From the Job Monitoring Details information, you can download a JSON file contai
 == Review backup lifecycle jobs
 Monitoring of backup lifecycle flows helps you with audit completeness, accountability, and backup safety. To help you track the backup lifecycle, you might want to identify the expiration of all backup copies. 
 
-A backup lifecycle job tracks all snapshot copies that are deleted or in the queue to be deleted. Beginning with ONTAP 9.13, you can look at all job types called backup "lifecycle" on the Job Monitoring page.
+A backup lifecycle job tracks all snapshot copies that are deleted or in the queue to be deleted. Beginning with ONTAP 9.13, you can look at all job types called "Backup Lifecycle" on the Job Monitoring page.
 
-The backup "lifecycle" job type captures all snapshot deletion jobs initiated on a volume that is protected by BlueXP backup and recovery.  
+The "Backup Lifecycle" job type captures all snapshot deletion jobs initiated on a volume that is protected by BlueXP backup and recovery.  
 
 .Steps
 
 . Select the *Job Monitoring* tab.
 . Select the *Advanced Search & Filtering* area to open the Search panel. 
-. Select the job type of "lifecycle". 
+. Select the job type of "Backup Lifecycle". 
 
 
 == Review backup and restore alerts in the BlueXP Notification Center

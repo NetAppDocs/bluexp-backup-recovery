@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-report-inventory.html
-keywords: cloud backup, cloud backup service, backup and recovery, backup, restore, report, inventory
+keywords: cloud backup, backup and recovery service, backup and recovery, backup, restore, report, inventory
 summary: With BlueXP backup and recovery reports, you can ensure that critical data is protected according to your organization’s defined policies and efficiently support audit for compliance processes. With the Backup inventory report, you can see all your backups for a specific account, working environment or SVM inventory. 
 ---
 
