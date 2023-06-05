@@ -15,7 +15,7 @@ summary: When using BlueXP backup and recovery in a site with no internet access
 [.lead]
 When using BlueXP backup and recovery in a site with no internet access, known as "private mode" or a "dark site", the BlueXP backup and recovery configuration data is backed up to the StorageGRID bucket where your backups are being stored. If you have an issue with the BlueXP Connector host system in the future, you can deploy a new Connector and restore the critical BlueXP backup and recovery data.
 
-Note that when you use BlueXP backup and recovery in a SaaS environment where the BlueXP Connector is deployed at your cloud provider, or on your own host system that has internet access, all the important BlueXP backup and recovery configuration data is backed up and protected in the cloud.
+Note that when you use BlueXP backup and recovery in a SaaS environment where the BlueXP Connector is deployed at your cloud provider, or on your own host system that has internet access, all the important BlueXP backup and recovery configuration data is backed up and protected in the cloud. If you have an issue with the Connector, just create a new Connector and add your working environments and the backup details are automatically restored.
 
 There are 2 types of data that are backed up:
 

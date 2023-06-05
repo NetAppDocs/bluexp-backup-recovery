@@ -22,6 +22,14 @@ Learn what's new in BlueXP backup and recovery.
 
 Backup policies for FlexGroup volumes now can use DataLock and Ransomware protection when the cluster is running ONTAP 9.13.1 or greater.
 
+=== New reporting features
+
+There is now a Reports tab where you can generate a Backup Inventory report, which includes all backups for a specific account, working environment, or SVM inventory. You can also create a Data Protection Job Activity report, which provides information about Snapshot, backup, clone, and restore operations that can help you with service level agreement monitoring. Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-report-inventory.html[Report on data protection coverage]. 
+
+===	Job Monitor enhancements
+
+You can now review _backup lifecycle_ as a Job Type on the Job Monitor page, helping you to track the entire backup lifecycle. You can also see details of all operations on the BlueXP Timeline. Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Monitor the status of backup and restore jobs]. 
+
 === Automatic back up of critical BlueXP backup and recovery files in dark sites
 
 When you're using BlueXP backup and recovery in a site with no internet access, known as a "private mode" deployment, the BlueXP backup and recovery information is stored only on the local Connector system. This new functionality automatically backs up critical BlueXP backup and recovery data to a bucket on your connected StorageGRID system so that you can restore this data onto a new Connector if necessary. https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html[Learn more]
