@@ -142,6 +142,7 @@ The following events trigger email alerts:
 | Severity level
 | Ad-hoc volume backup failed | Error 
 | Backup activation failed on working environment | Critical 
+| Backup files were not created because Snapshot policy labels do not match | Critical
 | Restore operation failed | Critical
 | Potential ransomware attack detected on your system | Critical 
 | Restore job completed, but with warnings | Warning 
