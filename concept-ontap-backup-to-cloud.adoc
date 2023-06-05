@@ -358,8 +358,8 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * FlexGroup volume backups can't be moved to archival storage.
 
-* FlexGroup volume backups can't use DataLock and Ransomware protection.
-//can use DataLock and Ransomware protection when the cluster is running ONTAP 9.13.1 or greater.
+* FlexGroup volume backups can use DataLock and Ransomware protection if the cluster is running ONTAP 9.13.1 or greater.
+//can't use DataLock and Ransomware protection.
 
 * SVM-DR volume backup is supported with the following restrictions:
 ** Backups are supported from the ONTAP secondary only.
