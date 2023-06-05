@@ -33,9 +33,10 @@ The BlueXP backup and recovery reports provide information about the following a
 
 
 == Create a Backup Inventory report
-From the BlueXP backup and recovery Reports tab, you can create the Backup Inventory report, filter its contents, schedule it to run later, and optionally send the report via email to selected recipients. 
+From the BlueXP backup and recovery Reports tab, you can create the Backup Inventory report and filter its contents. With the Backup Inventory report, you can see all your backups for a specific account, working environment or SVM inventory. 
 
-With the Backup Inventory report, you can see all your backups for a specific account, working environment or SVM inventory. The Backup Inventory report shows the following information and more: 
+
+The Backup Inventory report shows the following information and more: 
 
 * Account, working environment, and SVM 
 * Protected and non-protected volumes 
@@ -57,6 +58,12 @@ The top of the report includes a graph that shows the following information:
 * Count of volumes in scope with at least one backup
 * Total of inactive volumes plus active volumes
 
+The Backup Inventory report shows the following charts:
+
+* *Volume backup status*: Shows protected compared to non-protected volumes for the selected scope.
+* *Volumes by backup count*: Groups volumes by the number of available backup copies for this volume.
+
+
 .Steps
 
 . From the top menu, select *Reports*. 
@@ -66,9 +73,9 @@ The top of the report includes a graph that shows the following information:
 +
 TIP: You can select multiple working environments and SVMs. 
 . Select the timeframe: last 24 hours, week, or month. 
-. To have an email sent about the report, select *Create a subscription for this report*, select the delivery frequency, and email addresses for one or more email recipients
-+
-NOTE: Email recipients can be BlueXP users or users who haven't signed into BlueXP. 
+//. To have an email sent about the report, select *Create a subscription for this report*, select the delivery frequency, and email addresses for one or more email recipients
+//+
+//NOTE: Email recipients can be BlueXP users or users who haven't signed into BlueXP. 
 . (Optional) Filter the results by job status.
 . (Optional) Export the report contents in .CSV format by selecting *Download CSV*.
 
@@ -108,25 +115,23 @@ The charts at the top of the page show the following information:
 . (Optional) Filter the results by job status, job types (backup or restore), and resource.
 . (Optional) Export the report contents in .CSV format by selecting *Download CSV*.
 
-== Schedule a report
+//== Schedule a report
+//You can schedule the report to run daily, weekly, or monthly. 
 
-You can schedule the report to run daily, weekly, or monthly. 
+//.Steps
 
-.Steps
+//. From the top menu, select *Reports*. 
+//. Select the report you want to schedule. 
+//. Select the account, working environment, and SVM. 
+//. Set the frequency of daily, weekly, or monthly. 
+//. Select *Create*. 
 
-. From the top menu, select *Reports*. 
-. Select the report you want to schedule. 
-. Select the account, working environment, and SVM. 
-. Set the frequency of daily, weekly, or monthly. 
-. Select *Create*. 
+//== Delete report schedules
+//When you no longer want the report to run on the schedule, delete the schedule. 
 
+//.Steps 
 
-== Delete report schedules
-When you no longer want the report to run on the schedule, delete the schedule. 
-
-.Steps 
-
-. From the top menu, select *Reports*. 
-. Select the report. 
-. Select the *Actions* menu image:icon-action.png[Actions icon] and select *Delete*. 
-. Confirm the deletion. 
+//. From the top menu, select *Reports*. 
+//. Select the report. 
+//. Select the *Actions* menu image:icon-action.png[Actions icon] and select *Delete*. 
+//. Confirm the deletion. 
