@@ -201,7 +201,7 @@ sidebar:
         - title: Configure backup for multi-account access in Azure
           flavor: azure
           url: /reference-backup-multi-account-azure.html
-        - title: Back up the BlueXP backup and recovery database in a dark site
+        - title: Restore BlueXP backup and recovery database in a dark site
           url: /reference-backup-cbs-db-in-dark-site.html
         - title: Restart BlueXP backup and recovery
           url: /reference-restart-backup.html
