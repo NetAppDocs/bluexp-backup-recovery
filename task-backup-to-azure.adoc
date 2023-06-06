@@ -189,6 +189,8 @@ By default, backups are created using the same subscription as the one used for 
 
 Required information for using customer-managed keys for data encryption::
 You can use your own customer-managed keys for data encryption in the activation wizard instead of using the default Microsoft-managed encryption keys. In this case you will need to have the Azure Subscription, Key Vault name, and the Key. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview[See how to use your own keys^].
++
+Note that Backup and recovery supports _Azure access policies_ as the permission model. The _Azure role-based access control_ (Azure RBAC) permission model is not currently supported.
 
 == Enabling BlueXP backup and recovery on a new system
 

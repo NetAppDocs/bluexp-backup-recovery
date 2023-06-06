@@ -229,6 +229,8 @@ homepage:
           url: task-licensing-cloud-backup.html
         - title: Monitor the status of backup and restore jobs
           url: task-monitor-backup-jobs.html
+        - title: Create reports on data protection coverage
+          url: task-report-inventory.html
     - title: Back up ONTAP data to the cloud
       links:
         - title: Cloud Volumes ONTAP to Amazon S3

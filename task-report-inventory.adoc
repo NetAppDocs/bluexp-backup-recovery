@@ -27,7 +27,7 @@ NOTE: Report activities are monitored in the Job Monitoring log so that you can 
 The BlueXP backup and recovery reports provide information about the following aspects:
 
 * *Connector location*: On-premises or the cloud
-* *Source*: Cloud Volumes ONTAP, on-premises, applications, or Kubernetes
+* *Source*: Cloud Volumes ONTAP volumes, on-premises ONTAP volumes, applications, or Kubernetes persistent volumes
 * *Destination*: Any of the cloud providers, NetApp StorageGRID, or ONTAP S3
 * *ONTAP versions*: 9.13.0
 

@@ -246,6 +246,8 @@ You can create backups from on-premises systems to Azure Blob in all regions htt
 === Preparing Azure Blob storage for backups
 
 . You can use your own custom-managed keys for data encryption in the activation wizard instead of using the default Microsoft-managed encryption keys. In this case you will need to have the Azure Subscription, Key Vault name, and the Key. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview[See how to use your own keys^].
++
+Note that Backup and recovery supports _Azure access policies_ as the permission model. The _Azure role-based access control_ (Azure RBAC) permission model is not currently supported.
 
 . If you want to have a more secure connection over the public internet from your on-prem data center to the VNet, there is an option to configure an Azure Private Endpoint in the activation wizard. In this case you will need to know the VNet and Subnet for this connection. https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview[See details about using a Private Endpoint^].
 
