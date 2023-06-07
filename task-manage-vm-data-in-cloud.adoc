@@ -48,9 +48,6 @@ If you want to view the latest datastores and backups that have been added to th
 . Click *Backup and recovery* > *Virtual Machines*.
 . From the *Settings* drop-down, click *SnapCenter Plug-in for VMware vSphere*.
 . Click image:icon-action.png[action] corresponding to the SnapCenter Plug-in for VMware vSphere host and click *Refresh Resources and Backups*.
-+
-The new changes are discovered.
-. Click image:icon-action.png[action] corresponding to the datastore and click *Refresh Protection* to enable cloud protection for the changes.
 
 == Refresh policy or resource group
 
@@ -60,7 +57,7 @@ If there is a change to the policy or resource group, you should refresh the pro
 . Click image:icon-action.png[action] corresponding to the datastore and click *Refresh Protection*. 
 
 == Unregister SnapCenter Plug-in for VMware vSphere host
- All datastores and virtual machines associated with the SnapCenter Plug-in for VMware vSphere host will be unprotected.
+All datastores and virtual machines associated with the SnapCenter Plug-in for VMware vSphere host will be unprotected.
 
 . Click *Backup and recovery* > *Virtual Machines*.
 . From the *Settings* drop-down, click *SnapCenter Plug-in for VMware vSphere*.
