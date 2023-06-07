@@ -191,21 +191,15 @@ You should verify that the source and destination volumes are running compatible
 
 https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html[View compatible ONTAP versions for SnapMirror relationships^].
 
-=== ONTAP networking requirements 
 
-Review the requirements for these environments: 
-
-* Cloud Volumes ONTAP
-* ONTAP clusters 
-
-==== Requirements specific to Cloud Volumes ONTAP
+=== Cloud Volumes ONTAP networking requirements
 * The instance’s security group must include the required inbound and outbound rules: specifically, rules for ICMP and ports 11104 and 11105. These rules are included in the predefined security group.
 
 * To replicate data between two Cloud Volumes ONTAP systems in different subnets, the subnets must be routed together (this is the default setting).
 
 * To replicate data between two Cloud Volumes ONTAP systems in different cloud providers, you must have a VPN connection between the virtual networks.
 
-==== Requirements specific to ONTAP clusters
+=== On-premises ONTAP networking requirements
 * An active SnapMirror license must be installed.
 
 * If the cluster is on your premises, you should have a connection from your corporate network to your virtual network in AWS, Azure, or Google Cloud. This is typically a VPN connection.
@@ -232,11 +226,12 @@ You'll need to configure two sets of permissions:
 
 
 .Steps
-[%collapsible]
-====
+
 
 . Confirm that the following S3 permissions (from the latest https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[BlueXP policy^]) are part of the IAM role that provides the Connector with permissions. If they are not, see the https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html[AWS Documentation: Editing IAM policies].
 +
+[%collapsible]
+====
 [source,json]
 {
           "Sid": "backupPolicy",
@@ -294,10 +289,16 @@ You'll need to configure two sets of permissions:
               "arn:aws:s3:::netapp-backup-*"
           ]
       },
+
+ 
+====
 +
 NOTE: When creating backups in AWS China regions, you need to change the AWS Resource Name "arn" under all _Resource_ sections in the IAM policies from "aws" to "aws-cn"; for example `arn:aws-cn:s3:::netapp-backup-*`.
 
 . When you activate the service, the Backup wizard will prompt you to enter an access key and secret key. These credentials are passed to the ONTAP cluster so that ONTAP can back up and restore data to the S3 bucket. For that, you'll need to create an IAM user with the following permissions:
++
+[%collapsible]
+====
 +
 [source,json]
 {
@@ -349,9 +350,10 @@ NOTE: When creating backups in AWS China regions, you need to change the AWS Res
         }
     ]
 }
-# end collapsed snippet 
+ 
 ====
 
+// end collapsed snippet
 
 Refer to the https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html[AWS Documentation: Creating a Role to Delegate Permissions to an IAM User^] for details.
 
@@ -407,9 +409,28 @@ GqvbOz/oO2NWLLFCqI+xmkLcMiPrZy+/6Af+HH2mLCM4EsI2b+IpBmPkriWnnxo=
 cluster1::> security certificate install -vserver cluster1 -type server-ca
 Please enter Certificate: Press <Enter> when done
 
+
+
 == Activate backups on your ONTAP volumes
 
 Activate backups at any time directly from the on-premises working environment.
+
+A wizard takes you through the following major steps: 
+
+* Introduction
+* Select volumes
+* Define backup strategy, where you choose whether you want local Snapshots, replication, and backup. Then, you choose the architecture, local Snapshot policy, replication target and policy, backup information (provider, encryption, networking, backup policy, and export options). 
+* Review your selections 
+
+You can also show the API 
+
+.Steps 
+
+. 
+
+==============================================================
+
+*BEFORE 321:*
 
 .Steps
 
