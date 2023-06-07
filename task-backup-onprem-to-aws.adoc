@@ -21,21 +21,21 @@ Note that "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select system
 
 Get started quickly by following these steps. Details for each step are provided in the following sections in this topic.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Identify the configuration method you'll use
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Identify the connection method you'll use
 
 [role="quick-margin-para"]
 Choose whether you'll connect your on-premises ONTAP cluster directly to AWS S3 over the public internet, or whether you'll use a VPN or AWS Direct Connect and route traffic through a private VPC Endpoint interface to AWS S3.
 
 [role="quick-margin-para"]
-<<Network diagrams for connection options,See the available connection methods.>>
+<<Identify the connection method>>.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your BlueXP Connector
 
 [role="quick-margin-para"]
-If you already have a Connector deployed in your AWS VPC or on your premises, then you're all set. If not, then you'll need to create a Connector to back up ONTAP data to AWS S3 storage. You'll also need to customize network settings for the Connector so that it can connect to AWS S3.
+If you already have a Connector deployed in your AWS VPC or on your premises, then you're all set. If not, then you'll need to create a BlueXP Connector to back up ONTAP data to AWS S3 storage. You'll also need to customize network settings for the Connector so that it can connect to AWS S3.
 
 [role="quick-margin-para"]
-<<Prepare your Connector,See how to create a Connector and how to define required network settings.>>
+<<Prepare your BlueXP Connector,Learn how to create a Connector and how to define required network settings.>>
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Prepare your on-premises ONTAP cluster
 
@@ -43,30 +43,48 @@ If you already have a Connector deployed in your AWS VPC or on your premises, th
 Discover your ONTAP cluster in BlueXP, verify that the cluster meets minimum requirements, and customize network settings so the cluster can connect to AWS S3.
 
 [role="quick-margin-para"]
-<<Prepare your ONTAP cluster,See how to get your on-premises ONTAP cluster ready.>>
+<<Prepare your on-premises ONTAP cluster,Learn how to get your on-premises ONTAP cluster ready.>>
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Prepare Amazon S3 as your backup target
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Verify license requirements
+
+[role="quick-margin-para"]
+You'll need to check license requirements for both AWS and BlueXP.
+
+[role="quick-margin-para"]
+Refer to <<Verify license requirements>>.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Prepare source and destination systems for replication
+
+[role="quick-margin-para"]
+Ensure that the source and destination systems meet ONTAP version and networking requirements. 
+
+
+[role="quick-margin-para"]
+Refer to <<Prepare source and destination systems for replication>>.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Prepare Amazon S3 as your backup target
 
 [role="quick-margin-para"]
 Set up permissions for the Connector to create and manage the S3 bucket. You'll also need to set up permissions for the on-premises ONTAP cluster so it can read and write data to the S3 bucket.
 
 [role="quick-margin-para"]
-Optionally, you can set up your own custom-managed keys for data encryption instead of using the default Amazon S3 encryption keys. <<Prepare your AWS environment,See how to get your AWS S3 environment ready to receive ONTAP backups.>>
+Optionally, you can set up your own custom-managed keys for data encryption instead of using the default Amazon S3 encryption keys. <<Prepare Amazon S3 as your backup target,Learn how to get your AWS S3 environment ready to receive ONTAP backups.>>
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Enable BlueXP backup and recovery on the system
-
-[role="quick-margin-para"]
-Select the working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. Then follow the setup wizard to define the default backup policy and number of backups to retain, and select the volumes you want to back up.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png[Seven] Activate backups on your ONTAP volumes
 
 [role="quick-margin-para"]
-<<Enable BlueXP backup and recovery,See how to activate BlueXP backup and recovery on your volumes.>>
+Select the working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. Then follow the setup wizard to set the default backup policy, the number of backups to retain, and the volumes you want to back up.
 
-== Network diagrams for connection options
+[role="quick-margin-para"]
+<<Activate backups on your ONTAP volumes>>.
 
-There are two connection methods you can use when configuring backups from on-premises ONTAP systems to AWS S3.
+== Identify the connection method
 
-* Public connection - Directly connect the ONTAP system to AWS S3 using a public S3 endpoint.
-* Private connection - Use a VPN or AWS Direct Connect and route traffic through a VPC Endpoint interface that uses a private IP address.
+Choose which of the two connection methods you will use when configuring backups from on-premises ONTAP systems to AWS S3.
+
+* *Public connection* - Directly connect the ONTAP system to AWS S3 using a public S3 endpoint.
+* *Private connection* - Use a VPN or AWS Direct Connect and route traffic through a VPC Endpoint interface that uses a private IP address.
 
 The following diagram shows the *public connection* method and the connections that you need to prepare between the components. You can use a Connector that you've installed on your premises, or a Connector that you've deployed in the AWS VPC.
 
@@ -76,13 +94,15 @@ The following diagram shows the *private connection* method and the connections 
 
 image:diagram_cloud_backup_onprem_aws_private.png[A diagram showing how BlueXP backup and recovery communicates over a private connection with the volumes on the cluster and the AWS S3 storage where the backup files are located.]
 
-== Prepare your Connector
+== Prepare your BlueXP Connector
 
 The BlueXP Connector is the main software for BlueXP functionality. A Connector is required to back up and restore your ONTAP data.
 
-=== Creating or switching Connectors
+=== Create or switch Connectors
 
-If you already have a Connector deployed in your AWS VPC or on your premises, then you're all set. If not, then you'll need to create a Connector in either of those locations to back up ONTAP data to AWS S3 storage. You can't use a Connector that's deployed in another cloud provider.
+If you already have a Connector deployed in your AWS VPC or on your premises, then you're all set. 
+
+If not, then you'll need to create a Connector in one of those locations to back up ONTAP data to AWS S3 storage. You can't use a Connector that's deployed in another cloud provider.
 
 * https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Connectors^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html[Installing a Connector in AWS^]
@@ -92,6 +112,7 @@ If you already have a Connector deployed in your AWS VPC or on your premises, th
 BlueXP backup and recovery is supported in GovCloud regions when the Connector is deployed in the cloud - not when it's installed in your premises. Additionally, you must deploy the Connector from the AWS Marketplace. You can't deploy the Connector in a Government region from the BlueXP SaaS website.
 
 === Connector networking requirements
+Ensure that the following networking requirements are met:
 
 * Ensure that the network where the Connector is installed enables the following connections:
 +
@@ -103,7 +124,12 @@ BlueXP backup and recovery is supported in GovCloud regions when the Connector i
 
 * If you have a Direct Connect or VPN connection from your ONTAP cluster to the VPC, and you want communication between the Connector and S3 to stay in your AWS internal network (a *private* connection), you'll need to enable a VPC Endpoint interface to S3. <<Configure your system for a private connection using a VPC endpoint interface,See how to set up a VPC endpoint interface.>>
 
-== Prepare your ONTAP cluster
+== Prepare your on-premises ONTAP cluster
+Preparing your on-premises ONTAP cluster involves the following steps: 
+
+* Discover the ONTAP cluster in BlueXP
+* Verify ONTAP requirements
+* Verify cluster networking requirements
 
 === Discover your ONTAP cluster in BlueXP
 
@@ -111,19 +137,21 @@ You need to discover your on-premises ONTAP cluster in BlueXP before you can sta
 
 https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Learn how to discover a cluster^].
 
-=== ONTAP requirements
+=== Verify ONTAP requirements
+The following ONTAP requirements are needed: 
 
 * Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
 * A SnapMirror license (included as part of the Premium Bundle or Data Protection Bundle).
 +
 *Note:* The "Hybrid Cloud Bundle" is not required when using BlueXP backup and recovery.
 +
-See how to https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html[manage your cluster licenses^].
+Learn how to https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html[manage your cluster licenses^].
 * Time and time zone are set correctly.
 +
-See how to https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html[configure your cluster time^].
+Learn how to https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html[configure your cluster time^].
 
-=== Cluster networking requirements
+=== Verify cluster networking requirements
+The following cluster networking requirements are needed: 
 
 * The cluster requires an inbound HTTPS connection from the Connector to the cluster management LIF.
 * An intercluster LIF is required on each ONTAP node that hosts the volumes you want to back up. These intercluster LIFs must be able to access the object store.
@@ -142,6 +170,7 @@ All intercluster LIFs within the IPspace must have access to the object store. I
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Ensure that your ONTAP cluster has permissions to access the S3 bucket].
 
 == Verify license requirements
+You'll need to verify license requirements for both AWS and BlueXP: 
 
 * Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from AWS, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
 
@@ -152,7 +181,47 @@ All intercluster LIFs within the IPspace must have access to the object store. I
 +
 You can create backups from on-premises systems to Amazon S3 in all regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including AWS GovCloud regions. You specify the region where backups will be stored when you set up the service.
 
-== Prepare your AWS environment
+
+== Prepare source and destination systems for replication
+Before you activate backups in BlueXP backup and recovery, ensure that the source and destination systems meet ONTAP version and networking requirements. 
+
+=== ONTAP version requirements 
+
+You should verify that the source and destination volumes are running compatible ONTAP versions before replicating data.
+
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html[View compatible ONTAP versions for SnapMirror relationships^].
+
+=== ONTAP networking requirements 
+
+Review the requirements for these environments: 
+
+* Cloud Volumes ONTAP
+* ONTAP clusters 
+
+==== Requirements specific to Cloud Volumes ONTAP
+* The instance’s security group must include the required inbound and outbound rules: specifically, rules for ICMP and ports 11104 and 11105. These rules are included in the predefined security group.
+
+* To replicate data between two Cloud Volumes ONTAP systems in different subnets, the subnets must be routed together (this is the default setting).
+
+* To replicate data between two Cloud Volumes ONTAP systems in different cloud providers, you must have a VPN connection between the virtual networks.
+
+==== Requirements specific to ONTAP clusters
+* An active SnapMirror license must be installed.
+
+* If the cluster is on your premises, you should have a connection from your corporate network to your virtual network in AWS, Azure, or Google Cloud. This is typically a VPN connection.
+
+* ONTAP clusters must meet additional subnet, port, firewall, and cluster requirements.
++
+Because you can replicate to Cloud Volumes ONTAP or an on-premises system, review peering requirements for on-premises ONTAP systems. Refer to https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html[View prerequisites for cluster peering in the ONTAP documentation^].
+
+
+
+== Prepare Amazon S3 as your backup target
+Preparing Amazon S3 as your backup target involves the following steps: 
+
+* Set up S3 permissions
+* Set up AWS keys for data encryption
+* Configure your system for a private connection using a VPC endpoint interface 
 
 === Set up S3 permissions
 
@@ -161,7 +230,10 @@ You'll need to configure two sets of permissions:
 * Permissions for the Connector to create and manage the S3 bucket.
 * Permissions for the on-premises ONTAP cluster so it can read and write data to the S3 bucket.
 
+
 .Steps
+[%collapsible]
+====
 
 . Confirm that the following S3 permissions (from the latest https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[BlueXP policy^]) are part of the IAM role that provides the Connector with permissions. If they are not, see the https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html[AWS Documentation: Editing IAM policies].
 +
@@ -225,7 +297,7 @@ You'll need to configure two sets of permissions:
 +
 NOTE: When creating backups in AWS China regions, you need to change the AWS Resource Name "arn" under all _Resource_ sections in the IAM policies from "aws" to "aws-cn"; for example `arn:aws-cn:s3:::netapp-backup-*`.
 
-. When activating the service, the Backup wizard will prompt you to enter an access key and secret key. These credentials are passed to the ONTAP cluster so that ONTAP can back up and restore data to the S3 bucket. For that, you'll need to create an IAM user with the following permissions:
+. When you activate the service, the Backup wizard will prompt you to enter an access key and secret key. These credentials are passed to the ONTAP cluster so that ONTAP can back up and restore data to the S3 bucket. For that, you'll need to create an IAM user with the following permissions:
 +
 [source,json]
 {
@@ -277,14 +349,17 @@ NOTE: When creating backups in AWS China regions, you need to change the AWS Res
         }
     ]
 }
-+
-See the https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html[AWS Documentation: Creating a Role to Delegate Permissions to an IAM User^] for details.
+# end collapsed snippet 
+====
+
+
+Refer to the https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html[AWS Documentation: Creating a Role to Delegate Permissions to an IAM User^] for details.
 
 === Set up customer-managed AWS keys for data encryption
 
 If you want to use the default Amazon S3 encryption keys to encrypt the data passed between your on-prem cluster and the S3 bucket, then you are all set because the default installation uses that type of encryption.
 
-If you want to use your own customer-managed keys for data encryption instead of using the default keys, then you'll need to have the encryption managed keys already set up before you start the BlueXP backup and recovery wizard. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html[See how to use your own keys^].
+If instead you want to use your own customer-managed keys for data encryption rather than using the default keys, then you'll need to have the encryption managed keys already set up before you start the BlueXP backup and recovery wizard. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html[Refer to how to use your own keys^].
 
 === Configure your system for a private connection using a VPC endpoint interface
 
@@ -292,7 +367,9 @@ If you want to use a standard public internet connection, then all the permissio
 
 If you want to have a more secure connection over the internet from your on-prem data center to the VPC, there's an option to select an AWS PrivateLink connection in the Backup activation wizard. It's required if you plan to use a VPN or AWS Direct Connect to connect your on-premises system through a VPC Endpoint interface that uses a private IP address. This type of connection is shown in the link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options[second diagram].
 
-. Create an Interface endpoint configuration using the Amazon VPC console or the command line. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html[See details about using AWS PrivateLink for Amazon S3^].
+.Steps
+
+. Create an Interface endpoint configuration using the Amazon VPC console or the command line. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html[Refer to details about using AWS PrivateLink for Amazon S3^].
 
 . Modify the security group configuration that's associated with the BlueXP Connector. You must change the policy to "Custom" (from "Full Access"), and you must <<Set up S3 permissions,add the S3 permissions from the backup policy>> as shown earlier.
 +
@@ -330,9 +407,9 @@ GqvbOz/oO2NWLLFCqI+xmkLcMiPrZy+/6Af+HH2mLCM4EsI2b+IpBmPkriWnnxo=
 cluster1::> security certificate install -vserver cluster1 -type server-ca
 Please enter Certificate: Press <Enter> when done
 
-== Enable BlueXP backup and recovery
+== Activate backups on your ONTAP volumes
 
-Enable BlueXP backup and recovery at any time directly from the on-premises working environment.
+Activate backups at any time directly from the on-premises working environment.
 
 .Steps
 
