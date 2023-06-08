@@ -17,38 +17,72 @@ You can restore SQL Server database either to the same host or to the alternate 
 
 IMPORTANT: Single File Restore (SFR) is not supported.
 
-*Steps*
+.Steps
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . In the *Filter By* field, select the filter *Type* and from the drop-down select *SQL*.
 . Click *View Details* to view all the available backups.
 . Select the backup and click *Restore*.
-. Select the location where you want to restore the database files.
+. In the Restore options page, specify the location where you want to restore the database files.
 +
 |===
 | If you... | Do this...
 
+a| 
+Want to restore to the original location
 a|
-Want to restore the database to the same SQL server host where the backups were created
-a|
-Select *Restore the database to the same host where the backup was created*.
-a|
-Want to restore the database to a different SQL server in the same or different host where backups were created
-a|
-Select *Restore the database to an alternate host*.
+. Select *Restore to original location*.
+. If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
++
+NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
+. Click *Next*.
 
-Select a host name, provide a database name (optional), select an instance, and specify the restore paths.
-
+a|
+Want to temporarily restore to another storage and then copy the restored files to the original location
+a|
+. Select *Restore to original location*.
+. If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
++
+NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
+. Select *Change storage location*.
+. Click *Next*.
+. In the Storage mapping page, specify the alternate storage location details where the data restored from the object store will be stored temporarily.
+. Click *Next*.
+a|
+Want to restore to an alternate location
+a|
+. Select *Restore to alternate location*.
+. If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
++
+NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
+. Click *Next*.
+. In the Destination host page, select a host name, provide a database name (optional), select an instance, and specify the restore paths.
++
 NOTE: The file extension provided in the alternate path must be same as the file extension of the original database file.
+. Click *Next*.
 
-If the *Restore the database to an alternate host* option is not displayed in the Restore Scope page, clear the browser cache.
+a|
+Want to temporarily restore to another storage and then copy the restored files to the alternate location
+a|
+. Select *Restore to alternate location*.
+. If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
++
+NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
+. Select *Change storage location*.
+. Click *Next*.
+. In the Storage mapping page, specify the alternate storage location details where the data restored from the object store will be stored temporarily.
+. Click *Next*.
+. In the Destination host page, select a host name, provide a database name (optional), select an instance, and specify the restore paths.
++
+NOTE: The file extension provided in the alternate path must be same as the file extension of the original database file.
+. Click *Next*.
 |===
-. If the snapshot is in archival storage, specify the priority to restore your data from the archival storage.
-. On the *Pre Restore Options* page, select one of the following options:
+
+. In the *Pre-operations* select, select one of the following options:
 ** Select *Overwrite the database with same name during restore* to restore the database with the same name.
 ** Select *Retain SQL database replication settings* to restore the database and retain the existing replication settings.
 
-. On the *Post Restore Options* page, to specify the database state for restoring additional transactional logs, select one of the following options:
+. In the *Post-operations* section, to specify the database state for restoring additional transactional logs, select one of the following options:
 ** Select *Operational, but unavailable* if you are restoring all of the necessary backups now.
 +
 This is the default behavior, which leaves the database ready for use by rolling back the uncommitted transactions. You cannot restore additional transaction logs until you create a backup.
@@ -63,4 +97,5 @@ This option undoes uncommitted transactions, but saves the undone actions in a s
 +
 If the Undo directory option is enabled, more transaction logs are restored. If the restore operation for the transaction log is unsuccessful, the changes can be rolled back. The SQL Server documentation contains more information.
 
+. Click *Next*.
 . Review the details and click *Restore*.

@@ -91,8 +91,8 @@ sidebar:
               url: /task-restore-oracle-data.html
             - title: Restore SQL Server database
               url: /task-restore-sql-data.html
-        - title: Mount application backups
-          url: /task-mount-app-backup.html
+            - title: Restore SAP HANA database
+              url: /task-restore_hana-backup.html
     - title: Back up and restore cloud-native applications data
       entries:
         - title: Protect your cloud-native applications data

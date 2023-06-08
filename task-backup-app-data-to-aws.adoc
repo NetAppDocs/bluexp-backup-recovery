@@ -16,7 +16,7 @@ summary: Complete a few steps to back up applications data from ONTAP to AWS.
 
 Complete a few steps to back up the applications data from ONTAP to Amazon Web Services.
 
-*Steps*
+.Steps
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *Activate Backup*.
