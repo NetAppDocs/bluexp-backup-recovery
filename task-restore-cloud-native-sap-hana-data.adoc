@@ -17,12 +17,14 @@ In the event of data loss, you can restore the data and non-data files and then 
 
 *Before you begin*
 
-The SAP HANA system must be in a stopped state.
-If the SAP HANA system is up and running, you can provide a prescript to stop the system.
+* The SAP HANA system must be in a stopped state.
+* If the SAP HANA system is up and running, you can provide a prescript to stop the system.
 
 *About this task*
 
-If you enable the backups on a volume, Single File SnapRestore operation is performed.
+* If you enable the backups on a volume, Single File SnapRestore operation is performed.
+* For Non-Data Volumes and Global Non-Data Volumes, connect and copy restore operation is performed.
+** The Quality of Service (QoS) values for connect and copy restore operation are picked up from the source volumes of Non-Data Volumes or Global Non-Data Volumes.
 
 *Steps*
 
@@ -59,6 +61,8 @@ Configured OSDBUser for the HANA database
 After restoring, manually recover the SAP HANA system or provide a postscript, which performs the SAP HANA system recovery.
 
 == Restore Non-Data Volume
+
+*Steps*
 
 . In the *Applications* page, select Non-Data Volume from the drop-down box.
 . Click image:icon-action.png[icon to select the action] corresponding to the backup that you want to restore and click *Restore*.
