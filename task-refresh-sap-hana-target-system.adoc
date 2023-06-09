@@ -45,6 +45,8 @@ NOTE: The new volume will be placed in the same capacity pool as that of the tar
 * The junction path will be the same as the volume name.
 * The Quality of Service (QoS) settings are picked up from the volumes of the target HANA system and are applied to the new volumes.
 
+NOTE: QoS is applicable only for capacity pools of type "Manual".
+
 *Steps*
 
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.

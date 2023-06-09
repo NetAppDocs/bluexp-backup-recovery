@@ -26,6 +26,8 @@ In the event of data loss, you can restore the data and non-data files and then 
 * For Non-Data Volumes and Global Non-Data Volumes, connect and copy restore operation is performed.
 ** The Quality of Service (QoS) values for connect and copy restore operation are picked up from the source volumes of Non-Data Volumes or Global Non-Data Volumes.
 
+NOTE: QoS is applicable only for capacity pools of type "Manual".
+
 *Steps*
 
 .	Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *View Details*.
