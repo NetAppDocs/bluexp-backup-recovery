@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: concept-ontap-backup-to-cloud.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem
-summary: The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP cluster data. Backups are automatically generated and stored in an object store in your public or private cloud account, independent of volume Snapshot copies used for near-term recovery or cloning.
+summary: The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 additional copies of your data on 2 different storage systems along with 1 copy in the cloud.
 ---
 
-= Protect your ONTAP cluster data using BlueXP backup and recovery
+= Protect your ONTAP volume data using BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,23 @@ summary: The BlueXP backup and recovery service provides backup and restore capa
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP cluster data. Backups are automatically generated and stored in an object store in your public or private cloud account, independent of volume Snapshot copies used for near-term recovery or cloning.
+The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 additional copies of your data on 2 different storage systems along with 1 copy in the cloud.
+
+After activation, backup and recovery creates block-level, incremental forever backups that are stored on another ONTAP cluster and in object storage in the cloud. In addition to your source volume, you'll have a:
+
+* Snapshot copy of the volume on the source system
+* Replicated volume on a different storage system
+* Backup of the volume in object storage 
+
+image:diagram-321-overview.png["A diagram showing how backup files exist on the source system as Snapshot copies, as replicated volumes on the secondary storage system, and as a backup files in object storage."]
+
+BlueXP backup and recovery leverages NetApp's SnapMirror data replication technology to automatically make sure the copies are fully synchronized at all times by creating Snapshot copies and transferring them to the backup locations.
+
+The benefits of the 3-2-1 approach include:
+
+* Multiple data copies provide multi-layer protection against both internal (insider) and external cybersecurity threats.
+* Multiple media types ensure failover viability in the case of physical or logical failure of one media type.
+* The onsite copy facilitates quick restores, with the offsite copies at the ready just in case the onsite copy is compromised.
 
 When necessary, you can restore an entire _volume_, a _folder_, or one or more _files_, from a backup to the same or different working environment.
 
@@ -42,29 +58,40 @@ Restore features:
 * Data is restored on a block level, placing the data directly in the location you specify, all while preserving the original ACLs.
 * Browsable and searchable file catalogs for easy selection of individual folders and files for single file restore.
 
-== Supported ONTAP working environments and object storage providers
+== Supported ONTAP working environments and backup locations
 
-BlueXP backup and recovery enables you to back up ONTAP volumes from the following working environments to object storage in the following public and private cloud providers:
+BlueXP backup and recovery enables you to back up ONTAP volumes from the following source working environments to the following secondary working environments and object storage in public and private cloud providers. Snapshot copies reside on the source working environment.
 
-[cols=2*,options="header",cols="50,50",width="80%"]
+*Supported backup locations*
+
+[cols=3*,options="header",cols="33,33,33",width="90%"]
 |===
 
-| Source Working Environment
-| Backup File Destination
+| Source working environment
+| Secondary working environment
+| Destination object store
 
 ifdef::aws[]
 | Cloud Volumes ONTAP in AWS
+| Cloud Volumes ONTAP in AWS
+On-premises ONTAP system
 | Amazon S3
 endif::aws[]
 ifdef::azure[]
 | Cloud Volumes ONTAP in Azure
+| Cloud Volumes ONTAP in Azure
+On-premises ONTAP system
 | Azure Blob
 endif::azure[]
 ifdef::gcp[]
 | Cloud Volumes ONTAP in Google
+| Cloud Volumes ONTAP in Google
+On-premises ONTAP system
 | Google Cloud Storage
 endif::gcp[]
 | On-premises ONTAP system
+| Cloud Volumes ONTAP
+On-premises ONTAP system
 |
 ifdef::aws[]
 Amazon S3
@@ -76,29 +103,45 @@ ifdef::gcp[]
 Google Cloud Storage
 endif::gcp[]
 NetApp StorageGRID
+//ONTAP S3
 
 |===
 
-You can restore a volume, a folder, or individual files, from an ONTAP backup file to the following working environments:
+You can restore ONTAP data from a backup file that resides in a secondary working environment or in object storage to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
 
-[cols=2*,options="header",cols="50,50",width="80%"]
+*Supported restore locations*
+
+[cols=3*,options="header",cols="33,33,33",width="90%"]
 |===
 
-| Backup File Location
+2+| Backup File Location
 | Destination Working Environment
+
+| *Object Storage* | *Secondary System* |
 ifdef::aws[]
 | Amazon S3 | Cloud Volumes ONTAP in AWS
+On-premises ONTAP system
+| Cloud Volumes ONTAP in AWS
 On-premises ONTAP system
 endif::aws[]
 ifdef::azure[]
 | Azure Blob | Cloud Volumes ONTAP in Azure
 On-premises ONTAP system
+| Cloud Volumes ONTAP in Azure
+On-premises ONTAP system
 endif::azure[]
 ifdef::gcp[]
 | Google Cloud Storage | Cloud Volumes ONTAP in Google
 On-premises ONTAP system
+| Cloud Volumes ONTAP in Google
+On-premises ONTAP system
 endif::gcp[]
 | NetApp StorageGRID | On-premises ONTAP system
+Cloud Volumes ONTAP
+| On-premises ONTAP system
+// | ONTAP S3 | On-premises ONTAP system
+//Cloud Volumes ONTAP
+// | On-premises ONTAP system
 
 |===
 
@@ -142,13 +185,13 @@ See the sections on <<Limitations,Backup and Restore Limitations>> for additiona
 
 == Cost
 
-There are two types of costs associated with using BlueXP backup and recovery with ONTAP systems: resource charges and service charges.
+There are two types of costs associated with using BlueXP backup and recovery with ONTAP systems: resource charges and service charges. Both of these charges are for the backup to object portion of the service. There is no charge to create Snapshot copies or replicated volumes.
 
 *Resource charges*
 
 Resource charges are paid to the cloud provider for object storage capacity and for writing and reading backup files to the cloud.
 
-* For Backup, you pay your cloud provider for object storage costs.
+* For Backup to object storage, you pay your cloud provider for object storage costs.
 +
 Since BlueXP backup and recovery preserves the storage efficiencies of the source volume, you pay the cloud provider object storage costs for the data _after_ ONTAP efficiencies (for the smaller amount of data after deduplication and compression have been applied).
 
@@ -167,11 +210,11 @@ ifdef::gcp[]
 ** In Google, a new bucket is deployed, and the https://cloud.google.com/bigquery[Google Cloud BigQuery services^] are provisioned on an account/project level.
 endif::gcp[]
 
-* If you need to restore volume data from a backup file that has been moved to archival storage, then there's an additional per-GiB retrieval fee and per-request fee from the cloud provider.
+* If you need to restore volume data from a backup file that has been moved to archival object storage, then there's an additional per-GiB retrieval fee and per-request fee from the cloud provider.
 
 *Service charges*
 
-Service charges are paid to NetApp and cover both the cost to _create_ backups and to _restore_ volumes, or files, from those backups. You pay only for the data that you protect, calculated by the source logical used capacity (_before_ ONTAP efficiencies) of ONTAP volumes which are backed up to object storage. This capacity is also known as Front-End Terabytes (FETB).
+Service charges are paid to NetApp and cover both the cost to _create_ backups to object storage and to _restore_ volumes, or files, from those backups. You pay only for the data that you protect in object storage, calculated by the source logical used capacity (_before_ ONTAP efficiencies) of ONTAP volumes which are backed up to object storage. This capacity is also known as Front-End Terabytes (FETB).
 
 There are three ways to pay for the Backup service. The first option is to subscribe from your cloud provider, which enables you to pay per month. The second option is to get an annual contract. The third option is to purchase licenses directly from NetApp. Read the <<Licensing,Licensing>> section for details.
 
