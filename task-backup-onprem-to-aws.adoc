@@ -417,32 +417,36 @@ Activate backups at any time directly from the on-premises working environment.
 
 A wizard takes you through the following major steps: 
 
-* Select volumes
-* Define backup strategy, where you choose whether you want local Snapshots, replication, and backup. Then, you choose the architecture, local Snapshot policy, replication target and policy, backup information (provider, encryption, networking, backup policy, and export options). 
-* Review your selections 
+* <<Select volumes>>
+* <<Define the backup strategy>>, where you choose whether you want local Snapshots, replication, and backup. Then, you choose the architecture, local Snapshot policy, replication target and policy, backup provider, encryption, networking, backup policy, and export options. 
+* <<Review your selections>> 
 
-You can also show the API commands.  
+You can also <<Show the API commands>>.  
 
 === Start the wizard 
 
 .Steps 
 
-. Access the Activate backup and recovery wizard by doing one of the following: 
-
-* From the BlueXP backup and recovery left navigation, select *Activate backup and recovery*. 
-* From the BlueXP canvas, select the working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel.
+. Access the Activate backup and recovery wizard. From the BlueXP canvas, select the working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel.
 +
 If the Amazon S3 destination for your backups exists as a working environment on the Canvas, you can drag the ONTAP cluster onto the Amazon S3 object storage. Or, you can drag the ONTAP cluster to on-premises ONTAP storage. 
 
 + 
 The Introduction page of the wizard shows the protection options including local Snapshots, replication, and backups. 
-. Select *Next*. 
+
+
+. Do one of the following: 
+
+* If you already have a BlueXP Connector, you're all set. Just select *Next*. 
+* If you don't already have a BlueXP Connector, the *Add a Connector* option appears. Refer to ZZZ for details about how to add a Connector. 
+* If you don't have a BlueXP working environment set up, you first need to set one up. Refer to ZZZ for details about how to set up a working environment. 
+* If you have multiple working environments, select the one that you want to protect. 
 
 === Select volumes 
 
-Choose the volumes you want to protect. 
+Next, choose the volumes you want to protect. You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these for the working environment you chose to protect.  
 
-You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these for this working environment.  
+A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
 
 NOTE: If the volumes you choose have different Snapshot and replication policies than the policies you select later, the existing policies will be overwritten. 
 
@@ -524,10 +528,12 @@ TIP: If you want to create a custom policy, you can use System Manager or the ON
 .. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
 
 .. Optionally, when using ONTAP 9.11.1 and greater, you can choose to protect your backups from deletion and ransomware attacks by configuring one of the _DataLock and Ransomware Protection_ settings. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
++
+NOTE: If you plan to use DataLock, you must enable it in your first policy when activating BlueXP backup and recovery. You might want to protect your backups from deletion by using _DataLock_.
 
 .. Optionally, when using ONTAP 9.10.1 and greater, you can choose to tier backups to either S3 Glacier or S3 Glacier Deep Archive storage after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about using archival tiers^].
 
-*Important:* If you plan to use DataLock, you must enable it in your first policy when activating BlueXP backup and recovery.
+
 
 
 
@@ -550,7 +556,7 @@ An S3 bucket is created automatically in the service account indicated by the S3
 You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
 
 
-=== Show API commands 
+=== Show the API commands 
 You might want to display and optionally copy the API commands used in the Activate backup and recovery wizard. 
 
 .Steps 
