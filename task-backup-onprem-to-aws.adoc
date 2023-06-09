@@ -427,9 +427,11 @@ You can also <<Show the API commands>>.
 
 .Steps 
 
-. Access the Activate backup and recovery wizard. From the BlueXP canvas, select the working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel.
+. Access the Activate backup and recovery wizard using one of the following ways: 
+* From the BlueXP canvas, select the working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel.
 +
 If the Amazon S3 destination for your backups exists as a working environment on the Canvas, you can drag the ONTAP cluster onto the Amazon S3 object storage. Or, you can drag the ONTAP cluster to on-premises ONTAP storage. 
+* Select *Volumes* in the top bar. From the Volumes tab, select the *Actions ...* option and select *Activate 3-2-1 Protection*. 
 
 + 
 The Introduction page of the wizard shows the protection options including local Snapshots, replication, and backups. 
@@ -438,7 +440,7 @@ The Introduction page of the wizard shows the protection options including local
 . Do one of the following: 
 
 * If you already have a BlueXP Connector, you're all set. Just select *Next*. 
-* If you don't already have a BlueXP Connector, the *Add a Connector* option appears. Refer to ZZZ for details about how to add a Connector. 
+* If you don't already have a BlueXP Connector, the *Add a Connector* option appears. Refer to <<Prepare your BlueXP Connector>>. 
 * If you don't have a BlueXP working environment set up, you first need to set one up. Refer to ZZZ for details about how to set up a working environment. 
 * If you have multiple working environments, select the one that you want to protect. 
 
@@ -489,8 +491,9 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 * Backup: Backs up volumes to object storage  
 
 . *Architecture*: If you chose replication and backup, choose one of the following flows of information: 
-* Cascading: Information flows from the source to the secondary to object storage. 
-* Fan out: Information flows from the source to the secondary _and_ from the source to object storage. 
+* *Cascading*: Information flows from the source to the secondary to object storage. 
+* *Fan out*: Information flows from the source to the secondary _and_ from the source to object storage. 
++ For details, refer to ZZZ link. 
 
 . *Local Snapshot*: Choose the existing default Snapshot policy. 
 +
