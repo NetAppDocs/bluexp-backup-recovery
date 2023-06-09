@@ -26,7 +26,7 @@ Get started quickly by following these steps.
 * NetApp Cloud Storage: Azure NetApp Files
 * Storage layouts: For data and log files, Azure supports only NFSv4.1.
 * Database layouts: 
-** SAP HANA Multitenant Database Container (MDC) 2.0SPS4, 2.0SPS5, 2.0SPS6, 2.0SPS7 with single or multiple tenants  
+** SAP HANA Multitenant Database Container (MDC) 2.0SPS5, 2.0SPS6, 2.0SPS7 with single or multiple tenants  
 ** SAP HANA single host system, SAP HANA multiple host system (without a standby host), HANA System Replication
 * SAP HANA plug-in on the database host  
 
