@@ -57,13 +57,13 @@ a|
 SC_PRIMARY_DATA_VOLUME_FULL_PATH
 a|
 Specifies the data volume paths concatenated using "," as delimiter.
-For ANF volumes, the information is concatenated using "/"
+For Azure NetApp Files volumes, the information is concatenated using "/"
 _/{anfaccount}/{subscription_id}/{resource_group}/{capacity_pool}/{volumename}_
 a|
 SC_PRIMARY_ARCHIVELOGS_VOLUME_FULL_PATH
 a|
 Specifies the archive log volume paths concatenated using "," as delimiter.
-For ANF volumes, the information in concatenated using "/"
+For Azure NetApp Files volumes, the information in concatenated using "/"
 _/{anfaccount}/{subscription_id}/{resource_group}/{capacity_pool}/{volumename}_
 |===
 

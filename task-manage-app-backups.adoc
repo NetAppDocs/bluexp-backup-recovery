@@ -20,6 +20,8 @@ You can manage protection of applications by viewing policies, viewing backups, 
 
 You can view all the policies. For each of these policies, when you view the details all the associated applications are listed.
 
+.Steps
+
 . Click *Backup and recovery* > *Applications*.
 . From the *Settings* drop-down, click *Policies*.
 . Click *View Details* corresponding to policy whose details you want to view.
@@ -34,6 +36,8 @@ The information regarding the parameters that can be used with the cmdlet and th
 == View backups on cloud
 
 You can view the backups on cloud in the BlueXP UI.
+
+.Steps
 
 . Click *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *View Details*.
@@ -55,6 +59,8 @@ The information regarding the parameters that can be used with the cmdlet and th
 
 When volumes are added to the database, SnapCenter Server labels the snapshots on the new volumes automatically as per the policy and the schedule. These new volumes will not have the object store endpoint and you should refresh the volumes by executing the following steps:
 
+.Steps
+
 . Click *Backup and recovery* > *Applications*.
 . From the *Settings* drop-down, click *SnapCenter Servers*.
 . Click image:icon-action.png[icon to select the action] corresponding to the SnapCenter Server hosting the application and click *Refresh*.
@@ -70,10 +76,14 @@ The new volumes are discovered.
 
 If there is a change to the SnapCenter policy or resource group, you should refresh the protection relationship.
 
+.Steps
+
 . Click *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *Refresh Protection*.
 
 == Unregister SnapCenter Server
+
+.Steps
 
 . Click *Backup and recovery* > *Applications*.
 . From the *Settings* drop-down, click *SnapCenter Servers*.
@@ -82,6 +92,8 @@ If there is a change to the SnapCenter policy or resource group, you should refr
 == Monitor Jobs
 
 Jobs are created for all the Cloud Backup operations. You can monitor all the jobs and all the sub tasks that are performed as part of each task.
+
+.Steps
 
 . Click *Backup and recovery* > *Job Monitoring*.
 +
@@ -92,7 +104,7 @@ When you initiate an operation, a window appears stating that the job is initiat
 
 If you have CA certificates, you should manually copy the root CA certificates to the connector machine.
 
-*Steps*
+.Steps
 
 . Copy the certificate to the volume that can be accessed from the docker agent.
 +

@@ -16,13 +16,13 @@ summary: Complete a few steps to back up applications data from ONTAP to GCP.
 
 Complete a few steps to back up the applications data from ONTAP to StorageGRID.
 
-*What you will need*
+.Before you begin
 
 When backing up data to StorageGRID, a Connector must be available on your premises. You will either need to install a new Connector or make sure that the currently selected Connector resides on-prem. The Connector can be installed in a site with or without internet access.
 
 For information, see link:task-backup-onprem-private-cloud.html#creating-or-switching-connectors[Create Connectors for StorageGRID].
 
-*Steps*
+.Steps
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *Activate Backup*.
