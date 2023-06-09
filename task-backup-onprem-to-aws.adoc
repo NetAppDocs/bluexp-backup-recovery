@@ -295,11 +295,15 @@ You'll need to configure two sets of permissions:
 +
 NOTE: When creating backups in AWS China regions, you need to change the AWS Resource Name "arn" under all _Resource_ sections in the IAM policies from "aws" to "aws-cn"; for example `arn:aws-cn:s3:::netapp-backup-*`.
 
-. When you activate the service, the Backup wizard will prompt you to enter an access key and secret key. These credentials are passed to the ONTAP cluster so that ONTAP can back up and restore data to the S3 bucket. For that, you'll need to create an IAM user with the following permissions:
+. When you activate the service, the Backup wizard will prompt you to enter an access key and secret key. These credentials are passed to the ONTAP cluster so that ONTAP can back up and restore data to the S3 bucket. For that, you'll need to create an IAM user with the following permissions. 
++ 
+Refer to the https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html[AWS Documentation: Creating a Role to Delegate Permissions to an IAM User^].
+
 +
+
 [%collapsible]
 ====
-+
+
 [source,json]
 {
     "Version": "2012-10-17",
@@ -355,7 +359,7 @@ NOTE: When creating backups in AWS China regions, you need to change the AWS Res
 
 // end collapsed snippet
 
-Refer to the https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html[AWS Documentation: Creating a Role to Delegate Permissions to an IAM User^] for details.
+
 
 === Set up customer-managed AWS keys for data encryption
 
@@ -437,12 +441,11 @@ If the Amazon S3 destination for your backups exists as a working environment on
 The Introduction page of the wizard shows the protection options including local Snapshots, replication, and backups. 
 
 
-. Do one of the following: 
+. Continue with the following options: 
 
 * If you already have a BlueXP Connector, you're all set. Just select *Next*. 
 * If you don't already have a BlueXP Connector, the *Add a Connector* option appears. Refer to <<Prepare your BlueXP Connector>>. 
-* If you don't have a BlueXP working environment set up, you first need to set one up. Refer to ZZZ for details about how to set up a working environment. 
-* If you have multiple working environments, select the one that you want to protect. 
+
 
 === Select volumes 
 
@@ -455,16 +458,14 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 .Steps 
 . In the Select Volumes page of the wizard, select the volume or volumes you want to protect. 
 +
-NOTE: After you select the Volume style of FlexVol or FlexGroup, then you can select all volumes. 
-+
-* To back up all existing volumes and any volumes added in the future, check one volume first and then check the box in the title row. (image:button_backup_all_volumes.png[]).
+* After you select a volume, then you can select all volumes of that same style of FlexVol or FlexGroup. To back up all existing volumes and any volumes added in the future, check one volume first and then check the box in the title row. (image:button_backup_all_volumes.png[]).
 +
 TIP: We recommend this option so that all your volumes will be backed up and you'll never have to remember to enable backups for new volumes.
 
 * To back up individual volumes, check the box for each volume (image:button_backup_1_volume.png[]).
 
-+
-* If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "*Export existing Snapshot copies to object storage as backup copies*". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
+
+. If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "*Export existing Snapshot copies to object storage as backup copies*". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 
 
@@ -493,7 +494,8 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 . *Architecture*: If you chose replication and backup, choose one of the following flows of information: 
 * *Cascading*: Information flows from the source to the secondary to object storage. 
 * *Fan out*: Information flows from the source to the secondary _and_ from the source to object storage. 
-+ For details, refer to ZZZ link. 
++ 
+For details, refer to ZZZ link. 
 
 . *Local Snapshot*: Choose the existing default Snapshot policy. 
 +
@@ -512,7 +514,8 @@ TIP: If you want to create a custom policy, you can use System Manager or the ON
 The access key and secret key are for the IAM user you created to give the ONTAP cluster access to the S3 bucket.
 
 
-* *Bucket*: Either choose an existing S3 bucket or create a new one. 
+* *Bucket*: Either choose an existing S3 bucket or create a new one. Refer to https://docs.netapp.com/us-en/bluexp-s3-storage/task-add-s3-bucket.html[Add S3 buckets^].
+
 * *Encryption key*: If you created a new S3 bucket, enter encryption key information given to you from the provider. Choose whether you'll use the default Amazon S3 encryption keys, or choose your own customer-managed keys from your AWS account, to manage encryption of your data. 
 
 + 
@@ -527,14 +530,14 @@ NOTE: If you chose an existing bucket, encryption information is already availab
 +
 TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI. Refer to <link>.
 
-.. Enter the name for the default policy. You don't need to change the name.
-.. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
+//.. Enter the name for the default policy. You don't need to change the name.
+//.. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
 
-.. Optionally, when using ONTAP 9.11.1 and greater, you can choose to protect your backups from deletion and ransomware attacks by configuring one of the _DataLock and Ransomware Protection_ settings. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
-+
-NOTE: If you plan to use DataLock, you must enable it in your first policy when activating BlueXP backup and recovery. You might want to protect your backups from deletion by using _DataLock_.
+//.. Optionally, when using ONTAP 9.11.1 and greater, you can choose to protect your backups from deletion and ransomware attacks by configuring one of the _DataLock and Ransomware Protection_ settings. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
+//+
+//NOTE: If you plan to use DataLock, you must enable it in your first policy when activating BlueXP backup and recovery. You might want to protect your backups from deletion by using _DataLock_.
 
-.. Optionally, when using ONTAP 9.10.1 and greater, you can choose to tier backups to either S3 Glacier or S3 Glacier Deep Archive storage after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about using archival tiers^].
+//.. Optionally, when using ONTAP 9.10.1 and greater, you can choose to tier backups to either S3 Glacier or S3 Glacier Deep Archive storage after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about using archival tiers^].
 
 
 
@@ -552,7 +555,7 @@ This is the chance to review your selections and make adjustments, if necessary.
 
 
 .Result 
-BlueXP backup and recovery starts taking the initial backups of your volumes.
+BlueXP backup and recovery starts taking the initial backups of your volumes. The baseline transfer of the replicated volume and the backup file includes a full copy of the source data. Subsequent transfers contain differential copies of the source data contained in Snapshot copies.
 
 An S3 bucket is created automatically in the service account indicated by the S3 access key and secret key you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups.
 
