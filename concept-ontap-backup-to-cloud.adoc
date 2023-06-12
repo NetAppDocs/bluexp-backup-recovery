@@ -23,7 +23,7 @@ After activation, backup and recovery creates block-level, incremental forever b
 
 image:diagram-321-overview.png["A diagram showing how backup files exist on the source system as Snapshot copies, as replicated volumes on the secondary storage system, and as a backup files in object storage."]
 
-BlueXP backup and recovery leverages NetApp's SnapMirror data replication technology to automatically make sure the copies are fully synchronized at all times by creating Snapshot copies and transferring them to the backup locations.
+BlueXP backup and recovery leverages NetApp's SnapMirror data replication technology to ensure that all the backups are fully synchronized by creating Snapshot copies and transferring them to the backup locations.
 
 The benefits of the 3-2-1 approach include:
 
@@ -62,14 +62,14 @@ Restore features:
 
 BlueXP backup and recovery enables you to back up ONTAP volumes from the following source working environments to the following secondary working environments and object storage in public and private cloud providers. Snapshot copies reside on the source working environment.
 
-*Supported backup locations*
+=== Supported backup destinations
 
 [cols=3*,options="header",cols="33,33,33",width="90%"]
 |===
 
 | Source working environment
-| Secondary working environment
-| Destination object store
+| Destination working environment (Replication)
+| Destination object store (Backup)
 
 ifdef::aws[]
 | Cloud Volumes ONTAP in AWS
@@ -107,9 +107,9 @@ NetApp StorageGRID
 
 |===
 
-You can restore ONTAP data from a backup file that resides in a secondary working environment or in object storage to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
+You can restore ONTAP data from a backup file that resides in a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
 
-*Supported restore locations*
+=== Supported restore destinations
 
 [cols=3*,options="header",cols="33,33,33",width="90%"]
 |===
@@ -117,7 +117,7 @@ You can restore ONTAP data from a backup file that resides in a secondary workin
 2+| Backup File Location
 | Destination Working Environment
 
-| *Object Storage* | *Secondary System* |
+| *Object Storage (Backup)* | *Secondary System (Replication)* |
 ifdef::aws[]
 | Amazon S3 | Cloud Volumes ONTAP in AWS
 On-premises ONTAP system
@@ -146,30 +146,6 @@ Cloud Volumes ONTAP
 |===
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
-
-=== Support for sites with limited connectivity
-
-BlueXP backup and recovery can be used in a site with limited internet connectivity (also known as "restricted mode") to back up and restore volume data. In this case, you'll need to deploy the BlueXP Connector in the restricted region. 
-
-//* You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
-ifdef::aws[]
-* You can back up data from Cloud Volumes ONTAP systems installed in AWS commercial regions to Amazon S3. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3].
-endif::aws[]
-ifdef::azure[]
-* You can back up data from Cloud Volumes ONTAP systems installed in Azure commercial regions to Azure Blob. See link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
-endif::azure[]
-
-=== Support for sites with no internet connectivity
-
-BlueXP backup and recovery can be used in a site with no internet connectivity (also known as "private mode" or "dark" sites) to back up volume data. In this case, you'll need to deploy the BlueXP Connector in private mode. 
-
-* You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
-//ifdef::aws[]
-//* You can back up data from Cloud Volumes ONTAP systems installed in AWS commercial regions and AWS C2S/SC2S secure regions to Amazon S3. See link:task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3].
-//endif::aws[]
-//ifdef::azure[]
-//* You can back up data from Cloud Volumes ONTAP systems installed in Azure commercial regions and Azure IL6 secure regions to Azure Blob. See link:task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
-//endif::azure[]
 
 == Supported volumes
 
