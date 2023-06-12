@@ -16,6 +16,15 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
+
+== 30 June 2023
+
+=== Enhancements to BlueXP backup and recovery for virtual machines
+
+* Ability to protect NFS and VMFS type of datastores
+* Unregister SnapCenter Plug-in for VMware vSphere host
+* Refresh and discover latest datastores and backups
+
 == 8 May 2023
 
 === Folder-level restore operations are now supported from archival storage and from locked backups
