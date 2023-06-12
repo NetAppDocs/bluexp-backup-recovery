@@ -145,28 +145,28 @@ You must not enable StorageGRID object versioning manually on the object store b
 
 === Creating or switching Connectors
 
-When backing up data to StorageGRID, a Connector must be available on your premises. You'll either need to install a new Connector or make sure that the currently selected Connector resides on-prem. The Connector can be installed in a site with or without internet access.
+When backing up data to StorageGRID, a BlueXP Connector must be available on your premises. You'll either need to install a new Connector or make sure that the currently selected Connector resides on-prem. The Connector can be installed in a site with or without internet access.
 
 * https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Connectors^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html[Installing the Connector on a Linux host with internet access^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html[Installing the Connector on a Linux host without internet access^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html[Switching between Connectors^]
 
-NOTE: BlueXP backup and recovery functionality is built into the BlueXP Connector. When installed in a site with no internet connectivity, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's New] to see the new features in each BlueXP backup and recovery release, and then you can follow the steps to https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode[upgrade the Connector software^] when you want to use new features.
+==== Connector networking requirements
 
-We highly recommend that you create local backups of the BlueXP backup and recovery configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up BlueXP backup and recovery data in a dark site^].
-
-=== Preparing networking for the Connector
-
-Ensure that the Connector has the required networking connections.
-
-.Steps
-
-. Ensure that the network where the Connector is installed enables the following connections:
+Ensure that the network where the Connector is installed enables the following connections:
 
 * An HTTPS connection over port 443 to the StorageGRID Gateway Node
 * An HTTPS connection over port 443 to your ONTAP cluster management LIF
 * An outbound internet connection over port 443 to BlueXP backup and recovery (not required when the Connector is installed in a "dark" site)
+
+==== Private mode (dark site) considerations
+
+* BlueXP backup and recovery functionality is built into the BlueXP Connector. When installed in private mode, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's New] to see the new features in each BlueXP backup and recovery release. When you want to use the new features, follow the steps to https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode[upgrade the Connector software^].
+
+* When using BlueXP backup and recovery in a SaaS environment, the BlueXP backup and recovery configuration data is backed up to the cloud. When using BlueXP backup and recovery in a site with no internet access, the BlueXP backup and recovery configuration data is backed up to the StorageGRID bucket where your backups are being stored. If you ever have a Connector failure in your private mode site, you can link:reference-backup-cbs-db-in-dark-site.html[restore the BlueXP backup and recovery data to a new Connector^].
+//
+//We highly recommend that you create local backups of the BlueXP backup and recovery configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up BlueXP backup and recovery data in a dark site^].
 
 === Preparing to archive older backup files to public cloud storage
 
@@ -216,7 +216,7 @@ You'll need the serial number from NetApp that enables you to use the service fo
 
 TIP: PAYGO licensing is not supported when backing up files to StorageGRID.
 
-== Enabling BlueXP backup and recovery to StorageGRID
+== Enabling BlueXP backup and recovery
 
 Enable BlueXP backup and recovery at any time directly from the on-premises working environment.
 
