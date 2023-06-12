@@ -25,6 +25,34 @@ Learn what's new in BlueXP backup and recovery.
 * Unregister SnapCenter Plug-in for VMware vSphere host
 * Refresh and discover latest datastores and backups
 
+== 5 June 2023
+
+=== FlexGroup volumes can be backed up and protected using DataLock and Ransomware protection
+
+Backup policies for FlexGroup volumes now can use DataLock and Ransomware protection when the cluster is running ONTAP 9.13.1 or greater.
+
+=== New reporting features
+
+There is now a Reports tab where you can generate a Backup Inventory report, which includes all backups for a specific account, working environment, or SVM inventory. You can also create a Data Protection Job Activity report, which provides information about Snapshot, backup, clone, and restore operations that can help you with service level agreement monitoring. Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-report-inventory.html[Report on data protection coverage]. 
+
+===	Job Monitor enhancements
+
+You can now review _backup lifecycle_ as a Job Type on the Job Monitor page, helping you to track the entire backup lifecycle. You can also see details of all operations on the BlueXP Timeline. Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Monitor the status of backup and restore jobs]. 
+
+=== Additional notification alert for unmatched policy labels
+
+A new backup alert has been added: "Backup files were not created because Snapshot policy labels do not match". If the _label_ defined in a Backup policy does not have a matching _label_ in the Snapshot policy, then no backup file will be created. You'll need to use System Manager or the ONTAP CLI to add the missing label to the volume Snapshot policy.
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review all of the alerts that BlueXP backup and recovery can send].
+
+=== Automatic back up of critical BlueXP backup and recovery files in dark sites
+
+When you're using BlueXP backup and recovery in a site with no internet access, known as a "private mode" deployment, the BlueXP backup and recovery information is stored only on the local Connector system. This new functionality automatically backs up critical BlueXP backup and recovery data to a bucket on your connected StorageGRID system so that you can restore this data onto a new Connector if necessary. https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html[Learn more]
+
+//=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
+//
+//Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+
 == 8 May 2023
 
 === Folder-level restore operations are now supported from archival storage and from locked backups
