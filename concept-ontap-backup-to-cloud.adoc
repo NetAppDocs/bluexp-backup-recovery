@@ -67,9 +67,9 @@ BlueXP backup and recovery enables you to back up ONTAP volumes from the followi
 [cols=3*,options="header",cols="33,33,33",width="90%"]
 |===
 
-| Source working environment
-| Destination working environment (Replication)
-| Destination object store (Backup)
+| Source Working Environment
+| Destination Working Environment (Replication)
+| Destination Object Store (Backup)
 
 ifdef::aws[]
 | Cloud Volumes ONTAP in AWS
@@ -284,7 +284,7 @@ If you want to change the destination object store for a cluster in the future, 
 
 When you enable BlueXP backup and recovery for a working environment, all the volumes you initially select are backed up using the default backup policy that you define. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to the other volumes after BlueXP backup and recovery is activated.
 
-You can choose a combination of hourly, daily, weekly, monthly, and yearly backups of all volumes. The Snapshot policy applied to the volume must be one of the policies recognized by BlueXP backup and recovery or backup files will not be created. You can also select one of the system-defined policies that provide backups and retention for 3 months, 1 year, and 7 years. These policies are:
+You can choose a combination of hourly, daily, weekly, monthly, and yearly backups of all volumes. The Snapshot policy applied to the volume must have one of the labels recognized by the BlueXP backup and recovery policy or backup files will not be created. You can also select one of the system-defined policies that provide backups and retention for 3 months, 1 year, and 7 years. These policies are:
 
 [cols=5*,options="header",cols="35,16,16,16,26",width="80%"]
 |===

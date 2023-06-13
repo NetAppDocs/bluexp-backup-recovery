@@ -88,6 +88,8 @@ image:screenshot_backup_edit_transfer_rate.png[A screenshot of the Maximum Trans
 
 Select the *Limited* radio button and enter the maximum bandwidth that can be used, or select *Unlimited* to indicate that there is no limit.
 
+This setting does not affect the bandwidth allocated to any other replication relationships that may be configured for volumes in the working environment.
+
 ifdef::aws[]
 == Change the archival storage class
 

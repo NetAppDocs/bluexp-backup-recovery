@@ -41,19 +41,28 @@ Creates backups of your data to the cloud for protection and for long-term archi
 
 |===
 
-Snapshots are the basis of all the backup methods, and they are required to use the backup and recovery service. A Snapshot copy is a read-only, point-in-time image of a volume. The image consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last Snapshot copy was made. The Snapshot copy that is created on your volume is used to keep the replicated volume and backup file synchronized with changes made to the source volume - as shown in the figure.
+Snapshots are the basis of all the backup methods, and they are required in order to use the backup and recovery service. A Snapshot copy is a read-only, point-in-time image of a volume. The image consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last Snapshot copy was made. The Snapshot copy that is created on your volume is used to keep the replicated volume and backup file synchronized with changes made to the source volume - as shown in the figure.
 
 image:diagram-321-overview.png["A diagram showing how backup files exist on the source system as Snapshot copies, as replicated volumes on the secondary storage system, and as a backup files in object storage."]
 
-You can choose to create both replicated volumes on another ONTAP storage system and backup files in the cloud. Or you can choose to just create replicated volumes or backup files - its your choice. The service also enables you to select two Replication destinations if you want to protect your data in an additional location (both with and without creating backups).
+You can choose to create both replicated volumes on another ONTAP storage system and backup files in the cloud. Or you can choose to just create replicated volumes or backup files - its your choice. The service also enables you to select two replication destinations if you want to protect your data in an additional location (both with and without creating backup files).
 
-=== Comparison of different backup methods
+To summarize, these are the valid protection flows you can create for a volume, or all volumes, in your ONTAP working environment:
 
-The following table shows a generalized comparison of the three backup methods. While object storage space is typically less expensive than you on=premises disk storage, if you think you may restore data from the cloud frequently, then the egress fees from cloud providers can reduce some of your savings. You'll need to identify how often you may need to restore data from the backup files in the cloud.
+* Source volume -> Snapshot copy -> Replicated volume -> Backup file
+* Source volume -> Snapshot copy -> Backup file
+* Source volume -> Snapshot copy -> Replicated volume
+* Source volume -> Snapshot copy -> Replicated volume -> Replicated volume
 
-In addition to this criteria, cloud storage offers additional security options if you use the DataLock and Ransomware Protection feature, and additional cost savings by selecting archival storage classes for older backup files. 
+NOTE: The initial creation of a replicated volume or backup file includes a full copy of the source data - this is called a baseline transfer. Subsequent transfers contain only differential copies of the source data (the Snapshot).
 
-[cols=5*,options="header",cols="18,18,20,18,20",width="95%"]
+=== Comparison of the different backup methods
+
+The following table shows a generalized comparison of the three backup methods. While object storage space is typically less expensive than your on-premises disk storage, if you think you may restore data from the cloud frequently, then the egress fees from cloud providers can reduce some of your savings. You'll need to identify how often you may need to restore data from the backup files in the cloud.
+
+In addition to this criteria, cloud storage offers additional security options if you use the DataLock and Ransomware Protection feature, and additional cost savings by selecting archival storage classes for older backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about DataLock and Ransomware protection] and link:concept-cloud-backup-policies.html#archival-storage-settings[archival storage settings].
+
+[cols=5*,options="header",cols="18,18,22,18,22",width="100%"]
 |===
 | Backup type
 | Backup speed
@@ -63,7 +72,7 @@ In addition to this criteria, cloud storage offers additional security options i
 
 | *Snapshot* | 
 High |
-Medium (disk space) |
+Low (disk space) |
 High |
 Low
 | *Replication* | 
@@ -83,27 +92,29 @@ High (provider fees)
 
 When creating both replicated volumes and backup files, you can choose a fan-out or cascade architecture to back up your volumes.
 
-A fan-out architecture transfers the Snapshot copy to both the destination storage system and the backup object in the cloud.
+A _fan-out_ architecture transfers the Snapshot copy independently to both the destination storage system and the backup object in the cloud.
 
 image:diagram-321-fanout-detailed.png["A diagram showing how a Snapshot copy of a volume is used to create and update a replicated volume and a backup file."]
 
-A cascade architecture transfers the Snapshot copy to the destination storage system first, and then from that system to the backup object in the cloud. This method has less affect on the performance of the source storage system.
+A _cascade_ architecture transfers the Snapshot copy to the destination storage system first, and then that system transfers the copy to the backup object in the cloud. This method has less effect on the performance of the source storage system because it only transfers the copy once.
 
 image:diagram-321-cascade-detailed.png["A diagram showing how a Snapshot copy of a volume is used to create and update a replicated volume and a backup file."]
 
-== Will you use the default backup policies for Snapshots, replications, and backups
+== Will you use the default backup policies for snapshots, replications, and backups
 
 You can use the default policies provided by NetApp to create your backups, or you can create custom policies. When you use the activation wizard to enable the backup and recovery service for your volumes, you can select from the default policies and any other policies that already exist in the working environment (Cloud Volumes ONTAP or on-premises ONTAP system). If you want to use a policy different than those existing policies, you must create the policy before starting the activation wizard.
 
-* The default Snapshot policy creates hourly, daily, and weekly Snapshot copies, retaining six hourly, two daily, and two weekly Snapshot copies.
-* The default Replication policy replicates daily and weekly Snapshot copies, retaining seven daily and 52 weekly Snapshot copies.
-* The default Backup policy .......
+* The default Snapshot policy creates hourly, daily, and weekly Snapshot copies, retaining 6 hourly, 2 daily, and 2 weekly Snapshot copies.
+* The default Replication policy replicates daily and weekly Snapshot copies, retaining 7 daily and 52 weekly Snapshot copies.
+* The default Backup policy replicates daily and weekly Snapshot copies, retaining 7 daily and 52 weekly Snapshot copies.
 
-If you create custom policies for Replication or Backup, the labels defined by those policies must match labels that exist in your Snapshot policies of replicated volumes and backup files won't be created. You can create custom policies using System Manager or the ONTAP CLI.
+If you create custom policies for Replication or Backup, the labels defined by those policies must match labels that exist in your Snapshot policies of replicated volumes and backup files won't be created. You can create custom policies using System Manager or the ONTAP Command Line Interface (CLI).
 
+https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html[Create a Snapshot policy using the ONTAP CLI^]
+https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html[Create the Replication policy using the ONTAP CLI]
+https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy[Create the Backup policy using System Manager]
 
-
-=== Do you want the service to create the cloud buckets for you
+== Do you want the service to create the cloud buckets for you
 
 When creating backup files in cloud storage, by default the backup and recovery service will create the bucket (or container) where the backup files will reside. You can create the container yourself if you want to create the bucket with a certain name or properties. If you want to create your own container, you must create the container before starting the activation wizard.
 
@@ -120,14 +131,20 @@ You can create the container from BlueXP, or from your cloud provider.
 
 If you're already using BlueXP to manage your storage, then a BlueXP Connector has already been installed. If you plan to use the same Connector with BlueXP backup and recovery, then you're all set. If you need to use a different Connector, you'll need to install it before starting your backup and recovery implementation.
 
-BlueXP offers multiple deployment modes that enable you to use BlueXP in a way that meets your business and security requirements. _Standard mode_ leverages the BlueXP SaaS layer to provide full functionality, while _restricted mode_ and _private mode_ are available for organizations that have connectivity restrictions. https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html[Learn more about BlueXP deployment modes].
+BlueXP offers multiple deployment modes that enable you to use BlueXP in a way that meets your business and security requirements. _Standard mode_ leverages the BlueXP SaaS layer to provide full functionality, while _restricted mode_ and _private mode_ are available for organizations that have connectivity restrictions. 
 
-Add a table for SaaS mode with valid Connector locations for cloud providers and more?????
+https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html[Learn more about BlueXP deployment modes^].
+https://www.netapp.tv/details/30567[Watch this video about BlueXP deployment modes].
 
+=== Support for sites with full internet connectivity
 
-=== Support for sites with limited connectivity
+When BlueXP backup and recovery is used in a site with full internet connectivity (also known as "standard mode" or "SaaS mode"), you can create replicated volumes on any on-premises ONTAP or Cloud Volumes ONTAP systems managed by BlueXP, and you can create backup files on object storage in any of the supported cloud providers. link:concept-ontap-backup-to-cloud.html#supported-backup-destinations[See the full list of supported backup destinations].
 
-BlueXP backup and recovery can be used in a site with limited internet connectivity (also known as "restricted mode") to back up and restore volume data. In this case, you'll need to deploy the BlueXP Connector in the restricted region. 
+See the backup topic for the cloud provider where you plan to create backup files for the list of valid Connector locations. There are some restrictions where the Connector must be installed manually on a Linux machine or deployed in a specific cloud provider.
+
+=== Support for sites with limited internet connectivity
+
+BlueXP backup and recovery can be used in a site with limited internet connectivity (also known as "restricted mode") to back up volume data. In this case, you'll need to deploy the BlueXP Connector in the restricted region. 
 
 //* You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
 ifdef::aws[]
@@ -139,7 +156,7 @@ endif::azure[]
 
 === Support for sites with no internet connectivity
 
-BlueXP backup and recovery can be used in a site with no internet connectivity (also known as "private mode" or "dark" sites) to back up volume data. In this case, you'll need to deploy the BlueXP Connector in private mode. 
+BlueXP backup and recovery can be used in a site with no internet connectivity (also known as "private mode" or "dark" sites) to back up volume data. In this case, you'll need to deploy the BlueXP Connector on a Linux host in the same site. 
 
 * You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See link:task-backup-onprem-private-cloud.html[Backing up on-premises ONTAP data to StorageGRID] for details.
 //ifdef::aws[]
