@@ -84,7 +84,7 @@ NOTE: The filter to view a specific host does not work. When you specify a host 
 +
 * Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and you can either edit them to meet your requirement or create a new policy.
 
-== Install the plug-in using script and add host from UI using manual option
+== Add host from UI using manual option and install the plug-in using script
 
 Configure SSH key based authentication for the Oracle host non-root user account and perform the following steps to install the plug-in.
 
@@ -119,7 +119,7 @@ Default port is 8145.
 .. Select the checkbox and click *Next*.
 . Log into the Connector VM.
 . Install the plug-in using the script provided in the Connector.
-`sudo bash  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
+`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> 2>&1 | tee <filename>`
 
 +
 |===
@@ -168,7 +168,7 @@ a|
 |===
 +
 For example:
-`sudo bash  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
+`sudo  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
 . Review the details and click *Discover Applications*.
 +
 * After completing the discovery operation, all the databases on the host are displayed. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
@@ -179,7 +179,7 @@ NOTE: The filter to view a specific host does not work. When you specify a host 
 +
 * Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and you can either edit them to meet your requirement or create a new policy.
 
-== Install the plug-in manually and add host from UI using manual option
+== Add host from UI using manual option and install the plug-in manually
 
 If SSH key based authentication is not enabled on the Oracle database host, you should perform the following manual steps to install the plug-in and then add the host from UI using manual option.
 
@@ -274,5 +274,5 @@ a|
 a|
 . Log in to Connector VM.
 . Run the following script.
-`sudo bash /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade`
+`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade 2>&1 | tee <filename>`
 |===
