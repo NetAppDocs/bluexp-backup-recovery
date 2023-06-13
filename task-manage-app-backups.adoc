@@ -55,6 +55,20 @@ NOTE: The backups created before enabling cloud protection are not listed for re
 You can also view these backups by running the `Get-SmBackup` cmdlet in SnapCenter.
 The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running Get-Help command_name.
 
+== Deactivate Backup
+
+You can delete all the backups from SnapCenter and the object store. 
+
+.Steps
+
+. Click *Backup and recovery* > *Applications*.
+. Click image:icon-action.png[icon to select the action] corresponding to the application and click Deactivate Backup.
++
+By default the check box is selected and it deletes all the backups associated with the application from both SnapCenter and the object store.
++
+If you clear the checkbox, the backups are retained only in the object store but these backups cannot be used for application level restore. Later when you activate the backup for this application, the backups retained in object store are not listed for restore.
+. Click *Deactivate Backup*.
+
 == Database layout change
 
 When volumes are added to the database, SnapCenter Server labels the snapshots on the new volumes automatically as per the policy and the schedule. These new volumes will not have the object store endpoint and you should refresh the volumes by executing the following steps:
@@ -102,25 +116,64 @@ When you initiate an operation, a window appears stating that the job is initiat
 
 == Configure CA Certificates
 
-If you have CA certificates, you should manually copy the root CA certificates to the connector machine.
+You can configure CA signed certificate if you want to include additional security to your environment.
+
+=== Configure SnapCenter CA signed certificate in BlueXP Connector
+
+You should configure SnapCenter CA signed certificate in BlueXP Connector so that the Connector can verify the SnapCenter’s certificate.
+
+.Before you begin
+
+You should run the following command to get the _<base_mount_path>_:
+`sudo docker volume ls | grep snapcenter_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
 
 .Steps
 
-. Copy the certificate to the volume that can be accessed from the docker agent.
+. Log in to the Connector.
+`cd <base_mount_path> mkdir -p server/certificate`
+. Copy the root CA and intermediate CA files to the _<base_mount_path>/server/certificate_ directory. 
 +
-** `cd /var/lib/docker/volumes/cloudmanager_snapcenter_volume/_data/mkdir sc_certs`
-** `chmod 777 sc_certs`
-. Copy the RootCA certificate files to the above folder on the connector machine.
+The CA files should be in .pem format.
+. If you have CRL files, perform the following steps:
+.. `cd <base_mount_path> mkdir -p server/crl`
+.. Copy the CRL files to the _<base_mount_path>/server/crl_ directory. 
+. Connect to the cloudmanager_snapcenter and modify the enableCACert in config.yml to true.
+`sudo docker exec -t cloudmanager_snapcenter sed -i 's/enableCACert: false/enableCACert: true/g' /opt/netapp/cloudmanager-snapcenter/config/config.yml`
+. Restart cloudmanager_snapcenter container.
+`sudo docker restart cloudmanager_snapcenter`
+
+=== Configure CA signed certificate for BlueXP Connector
+
+You should perform the following steps on the Connector to use the CA certificate as the client certificate when the Connector is connecting with the SnapCenter.
+
+.Before you begin
+
+You should run the following command to get the _<base_mount_path>_:
+`sudo docker volume ls | grep snapcenter_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
+
+.Steps
+
+. Log in to the Connector.
+`cd <base_mount_path> mkdir -p server/certificate`
+. Copy the CA signed certificate and key file to the _<base_mount_path>/client/certificate_ in the Connector.
 +
-`cp <path on connector>/<filename> /var/lib/docker/volumes/cloudmanager_snapcenter_volume/_data/sc_certs`
-. Copy the CRL file to the volume which can be accessed from the docker agent.
+The file name should be certificate.pem and key.pem. The certificate.pem should have the entire chain of the certificates like intermediate CA and root CA.
+. Create the PKCS12 format of the certificate with the name certificate.p12 and keep at _<base_mount_path>/client/certificate_.
 +
-** `cd /var/lib/docker/volumes/cloudmanager_snapcenter_volume/_data/mkdir sc_crl`
-** `chmod 777 sc_crl`
-. Copy the CRL files to the above folder on the connector machine.
-+
-`cp <path on connector>/<filename> /var/lib/docker/volumes/cloudmanager_snapcenter_volume/_data/sc_crl`
-. After copying the certificates and CRL files, restart the Cloud Backup for Apps service.
-+
-** `sudo docker exec cloudmanager_snapcenter sed -i 's/skipSCCertValidation: true/skipSCCertValidation: false/g' /opt/netapp/cloudmanager-snapcenter-agent/config/config.yml`
-** `sudo docker restart cloudmanager_snapcenter`
+Example: openssl pkcs12 -inkey key.pem -in certificate.pem -export -out certificate.p12
+. Perform the following steps on the SnapCenter to validate the certificate sent by the Connector.
+.. Login to the SnapCenter Sever host.
+.. Click *Start* > *Start Search*.
+.. Type mmc and press *Enter*.
+.. Click *Yes*.
+.. In File menu, click *Add/Remove Snap-in*.
+.. Click *Certificates* > *Add* > *Computer account* > *Next*.
+.. Click *Local computer* > *Finish*.
+.. If you have no more snap-ins to add to the console, click *OK*.
+.. In the console tree, double-click *Certificates*.
+.. Right-click the *Trusted Root Certification Authorities store*.
+.. Click *Import* to import the certificates and follow the steps in the *Certificate Import Wizard*.
+. Connect to the cloudmanager_snapcenter and modify the sendCACert in config.yml to true.
+`sudo docker exec -t cloudmanager_snapcenter sed -i 's/sendCACert: false/sendCACert: true/g' /opt/netapp/cloudmanager-snapcenter/config/config.yml`
+. Restart cloudmanager_snapcenter container.
+`sudo docker restart cloudmanager_snapcenter`

@@ -37,6 +37,25 @@ a|
 +
 NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
 . Click *Next*.
+. Select *Database State* if you want to change the state of the database to the state required to perform restore and recovery operations.
++
+The various states of a database from higher to lower are open, mounted, started, and shutdown.
++
+* If the database is in a higher state but the state must be changed to a lower state to perform a restore operation, you must select this check box.
+* If the database is in a lower state but the state must be changed to a higher state to perform the restore operation, the database state is changed automatically even if you do not select the check box.
+* If a database is in the open state, and for restore the database needs to be in the mounted state, then the database state is changed only if you select this check box.
+. Specify the recovery scope.
++
+* Select *All Logs* if you want to recover to the last transaction.
+* Select *Until SCN (System Change Number)* if you want to recover to a specific SCN.
+* Select *Date and Time* if you want to recover to a specific data and time.
++ 
+You must specify the date and time of the database host's time zone.
+* Select *No recovery* if you do not want to recover.
+. If the archive logs are not present in the active file system, you should specify the location that contains the archive logs required for recovery.
+. Select the check box if you want to open the database after recovery.
++
+In a RAC setup, only the RAC instance that is used for recovery is opened after recovery.
 
 a|
 Want to temporarily restore to another storage and then copy the restored files to the original location
@@ -48,7 +67,28 @@ NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud 
 . Select *Change storage location*.
 . Click *Next*.
 . In the Storage mapping page, specify the alternate storage location details where the data restored from the object store will be stored temporarily.
++
+If you select an on-premises ONTAP system and if you haven not configured the cluster connection to the object storage, you are prompted for additional information regarding the object store.
 . Click *Next*.
+. Select *Database State* if you want to change the state of the database to the state required to perform restore and recovery operations.
++
+The various states of a database from higher to lower are open, mounted, started, and shutdown.
++
+* If the database is in a higher state but the state must be changed to a lower state to perform a restore operation, you must select this check box.
+* If the database is in a lower state but the state must be changed to a higher state to perform the restore operation, the database state is changed automatically even if you do not select the check box.
+* If a database is in the open state, and for restore the database needs to be in the mounted state, then the database state is changed only if you select this check box.
+. Specify the recovery scope.
++
+* Select *All Logs* if you want to recover to the last transaction.
+* Select *Until SCN (System Change Number)* if you want to recover to a specific SCN.
+* Select *Date and Time* if you want to recover to a specific data and time.
++ 
+You must specify the date and time of the database host's time zone.
+* Select *No recovery* if you do not want to recover.
+. If the archive logs are not present in the active file system, you should specify the location that contains the archive logs required for recovery.
+. Select the check box if you want to open the database after recovery.
++
+In a RAC setup, only the RAC instance that is used for recovery is opened after recovery.
 a|
 Want to restore to an alternate location
 a|
@@ -78,49 +118,10 @@ NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud 
 .. For SAN environment, specify the initiators of the host to which LUNs of the volumes restored from object store are to be mapped.
 . Click *Next*.
 |===
-
-. On the Recovery settings page, perform the following actions:
-.. Select *Database State* if you want to change the state of the database to the state required to perform restore and recovery operations.
-+
-The various states of a database from higher to lower are open, mounted, started, and shutdown. 
-+
-* If the database is in a higher state but the state must be changed to a lower state to perform a restore operation, you must select this check box.
-* If the database is in a lower state but the state must be changed to a higher state to perform the restore operation, the database state is changed automatically even if you do not select the check box.
-* If a database is in the open state, and for restore the database needs to be in the mounted state, then the database state is changed only if you select this check box.
-. Select the recovery scope.
-+
-|===
-| If you... | Do this...
-
-a|
-Want to recover to the last transaction
-a|
-Select *All Logs*.
-a|
-Want to recover to a specific System Change Number (SCN)
-a|
-Select *Until SCN (System Change Number)*.
-a|
-Want to recover to a specific data and time
-a|
-Select *Date and Time*.
-
-You must specify the date and time of the database host's time zone.
-a|
-Do not want to recover
-a|
-Select *No recovery*.
-a|
-Want to specify any external archive log locations
-a|
-If the archive logs are not present in the active file system, you should specify the location that contains the archive logs required for recovery.
-|===
-.. Select the check box if you want to open the database after recovery.
-+
-In a RAC setup, only the RAC instance that is used for recovery is opened after recovery.
-. Click *Next*.
 . Review the details and click *Restore*.
 
-The *Restore to alternate location* option mounts only the storage on the given host. You should manually mount the filesystem and bring up the database. After utilizing the volume, the storage Administrator can delete the volume from the ONTAP cluster.
+The *Restore to alternate location* option mounts the selected backup on the given host. You should manually bring up the database.
+
+You can use the *Unmount* option from the UI to unmount the backup.
 
 For information on how to bring up the Oracle database see, https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_bring_up_Oracle_Database_in_another_NFS_host_after_mounting_storage_from_backup_in_Cloud_Backup_for_Applications[Knowledge base article].

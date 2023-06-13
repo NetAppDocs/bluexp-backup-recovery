@@ -30,17 +30,18 @@ Read the following requirements to make sure that you have a supported configura
 * ONTAP 9.8 or later
 * BlueXP
 * SnapCenter Server 4.6 or later
-You should be using SnapCenter Server 4.7 if you want to use the following features:
-** Protect backups from on-premises secondary storage
-** Protect SAP HANA applications
-** Protect Oracle and SQL applications that are on VMware environment
-** Mount backups
-** Deactivate backups
-** Unregister SnapCenter Server
+** You should be using SnapCenter Server 4.7 or later if you want to use the following features:
+*** Protect backups from on-premises secondary storage
+*** Protect SAP HANA applications
+*** Protect Oracle and SQL applications that are on VMware environment
+*** Mount backups
+*** Deactivate backups
+*** Unregister SnapCenter Server
+** You should be using SnapCenter Server 4.9 if you want to use the following features:
+*** Mount file systems
+*** Restore to the alternate storage
 * At least one backup per application should be available in SnapCenter Server
 * At least one daily, weekly, or monthly policy in SnapCenter with no label or same label as that of the policy in BlueXP.
-
-NOTE: If SVMs are added to SnapCenter using FQDN or IP address, applications running on these SVMs cannot be protected. BlueXP backup and recovery for applications recognizes only the SVMs that are added by name or the SVMs discovered by SnapCenter that were added as part of the ONTAP cluster.
 
 The following image shows each component when backing up to cloud and the connections that you need to prepare between them:
 
