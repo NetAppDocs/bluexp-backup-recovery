@@ -168,7 +168,7 @@ a|
 |===
 +
 For example:
-`sudo  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
+`sudo  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk --pluginport 8145 --sshport 22 2>&1 | tee SCSPluginInstallLog`
 . Review the details and click *Discover Applications*.
 +
 * After completing the discovery operation, all the databases on the host are displayed. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
@@ -274,5 +274,5 @@ a|
 a|
 . Log in to Connector VM.
 . Run the following script.
-`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade 2>&1 | tee <filename>`
+`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade 2>&1 \| tee <filename>`
 |===

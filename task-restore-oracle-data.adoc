@@ -13,7 +13,7 @@ summary: You can restore Oracle database from the cloud to the on-premises SnapC
 :imagesdir: ./media/
 
 [.lead]
-You can restore SQL Server database either to the same host or to the alternate host. For a RAC database, the data is restored to the on-premises node where the backup was created.
+You can restore Oracle database either to the original location or to the alternate location. For a RAC database, the data is restored to the on-premises node where the backup was created.
 
 Only full database with control file restore is supported. If the archive logs are not present in the AFS, you should specify the location that contains the archive logs required for recovery.
 
@@ -122,6 +122,6 @@ NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud 
 
 The *Restore to alternate location* option mounts the selected backup on the given host. You should manually bring up the database.
 
-You can use the *Unmount* option from the UI to unmount the backup.
+After mounting the backup, you cannot mount it again until it is unmounted. You can use the *Unmount* option from the UI to unmount the backup.
 
 For information on how to bring up the Oracle database see, https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_bring_up_Oracle_Database_in_another_NFS_host_after_mounting_storage_from_backup_in_Cloud_Backup_for_Applications[Knowledge base article].

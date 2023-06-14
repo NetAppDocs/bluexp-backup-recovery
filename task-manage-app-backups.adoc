@@ -55,7 +55,7 @@ NOTE: The backups created before enabling cloud protection are not listed for re
 You can also view these backups by running the `Get-SmBackup` cmdlet in SnapCenter.
 The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running Get-Help command_name.
 
-== Deactivate Backup
+== Deactivate backup
 
 You can delete all the backups from SnapCenter and the object store. 
 
@@ -161,6 +161,10 @@ The file name should be certificate.pem and key.pem. The certificate.pem should 
 . Create the PKCS12 format of the certificate with the name certificate.p12 and keep at _<base_mount_path>/client/certificate_.
 +
 Example: openssl pkcs12 -inkey key.pem -in certificate.pem -export -out certificate.p12
+. Connect to the cloudmanager_snapcenter and modify the sendCACert in config.yml to true.
+`sudo docker exec -t cloudmanager_snapcenter sed -i 's/sendCACert: false/sendCACert: true/g' /opt/netapp/cloudmanager-snapcenter/config/config.yml`
+. Restart cloudmanager_snapcenter container.
+`sudo docker restart cloudmanager_snapcenter`
 . Perform the following steps on the SnapCenter to validate the certificate sent by the Connector.
 .. Login to the SnapCenter Sever host.
 .. Click *Start* > *Start Search*.
@@ -173,7 +177,3 @@ Example: openssl pkcs12 -inkey key.pem -in certificate.pem -export -out certific
 .. In the console tree, double-click *Certificates*.
 .. Right-click the *Trusted Root Certification Authorities store*.
 .. Click *Import* to import the certificates and follow the steps in the *Certificate Import Wizard*.
-. Connect to the cloudmanager_snapcenter and modify the sendCACert in config.yml to true.
-`sudo docker exec -t cloudmanager_snapcenter sed -i 's/sendCACert: false/sendCACert: true/g' /opt/netapp/cloudmanager-snapcenter/config/config.yml`
-. Restart cloudmanager_snapcenter container.
-`sudo docker restart cloudmanager_snapcenter`
