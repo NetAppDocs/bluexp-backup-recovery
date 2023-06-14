@@ -286,7 +286,9 @@ ifdef::aws[]
 +
 If your cluster is using ONTAP 9.10.1 or greater, you can tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
 +
-Note that if you choose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating BlueXP backup and recovery, then that tier will be the only archive tier available for future backup policies for that cluster. And if you select no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
+** If you select no archive tier in your first backup policy when activating BlueXP backup and recovery, then _S3 Glacier_ will be your only archive option for future policies.
+** If you select _S3 Glacier_ in your first backup policy, then you can change to the _S3 Glacier Deep Archive_ tier for future backup policies for that cluster.
+** If you select _S3 Glacier Deep Archive_ in your first backup policy, then that tier will be the only archive tier available for future backup policies for that cluster.
 endif::aws[]
 
 ifdef::azure[]

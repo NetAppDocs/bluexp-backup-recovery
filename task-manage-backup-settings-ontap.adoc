@@ -93,7 +93,7 @@ This setting does not affect the bandwidth allocated to any other replication re
 ifdef::aws[]
 == Change the archival storage class
 
-If you want to change the archival storage class that's used when your backup files have been stored for a certain number of days (typically more than 30 days), then you can make the change here. Any backup policies that are using archival storage are changed immediately to use this new storage class.
+If you want to change the archival storage class that's used when your backup files have been stored for a certain number of days (typically more than 30 days), then you can make the change here. Since this is a cluster-level setting, any backup policies that are using archival storage are changed immediately to use this new storage class.
 
 This option is available for on-premises ONTAP and Cloud Volumes ONTAP systems (using ONTAP 9.10.1 or greater) when you're writing backups files to Amazon S3.
 
