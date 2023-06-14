@@ -154,7 +154,7 @@ You should run the following command to get the _<base_mount_path>_:
 .Steps
 
 . Log in to the Connector.
-`cd <base_mount_path> mkdir -p server/certificate`
+`cd <base_mount_path> mkdir -p client/certificate`
 . Copy the CA signed certificate and key file to the _<base_mount_path>/client/certificate_ in the Connector.
 +
 The file name should be certificate.pem and key.pem. The certificate.pem should have the entire chain of the certificates like intermediate CA and root CA.

@@ -13,7 +13,14 @@ summary: You can restore SQL Server database from the cloud to the on-premises S
 :imagesdir: ./media/
 
 [.lead]
-You can restore SQL Server database either to the original location or to the alternate locationom the drop-down select *SQL*.
+You can restore SQL Server database either to the original location or to the alternate location.
+
+NOTE: Single File Restore (SFR), Recovery of log backups, and reseed of availability groups are not supported.
+
+.Steps
+
+. In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
+. In the *Filter By* field, select the filter *Type* and from the drop-down select *SQL*.
 . Click *View Details* to view all the available backups.
 . Select the backup and click *Restore*.
 . In the Restore options page, specify the location where you want to restore the database files.
