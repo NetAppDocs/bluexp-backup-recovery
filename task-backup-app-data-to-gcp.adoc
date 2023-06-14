@@ -16,7 +16,7 @@ summary: Complete a few steps to back up applications data from ONTAP to GCP.
 
 Complete a few steps to back up the applications data from ONTAP to Google Cloud Platform.
 
-*Steps*
+.Steps
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *Activate Backup*.
@@ -38,4 +38,7 @@ BlueXP backup and recovery for applications only support cluster admin.
 .. In the Google Cloud Secret Key field, specify the password for data encryption.
 .. Select the region where you want to create the backups.
 .. Specify the IP space.
+.. Select the archival tier.
++
+It is recommended to set the archival tier because this is an one time activity and you will not be allowed to set it up later.
 . Review the details and click *Activate Backup*.

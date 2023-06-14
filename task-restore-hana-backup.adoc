@@ -1,0 +1,38 @@
+---
+sidebar: sidebar
+permalink: task-restore-hana-backup.html
+keywords: restore, mount application backups, SAP HANA database
+summary: You can restore SAP HANA database from the cloud to the on-premises SnapCenter Server.
+---
+
+= Restore SAP HANA database
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+You can restore SAP HANA database to the same host.
+
+*Steps*
+
+. In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
+. In the *Filter By* field, select the filter *Type* and from the drop-down select *Oracle*.
+. Click *View Details* corresponding to the database that you want to restore and click *Restore*.
+. In the Restore options page, specify one of the following:
+.. For NAS environment, specify the FQDN or IP address of the host to which the volumes restored from object store are to be exported.
+.. For SAN environment, specify the initiators of the host to which LUNs of the volumes restored from object store are to be mapped.
+. If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
++
+NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
+. If there is not enough space on the source storage or the source storage is down, select *Change storage location*.
+. Click *Next*.
+. In the Storage mapping page, specify the alternate storage location details where the data restored from the object store will be stored temporarily.
+. Click *Next*.
+. Review the details and click *Restore*.
+
+This operation does only the storage export of the selected backup on the given host. You should manually mount the filesystem and bring up the database. After utilizing the volume, the storage Administrator can delete the volume from the ONTAP cluster.
+
+For information on how to bring up the SAP HANA database see, https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-copy-workflow-with-snapcenter.html[TR-4667: Overview of SAP system copy workflow with SnapCenter^] and https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html[TR-4667: Overview of SAP system clone workflow with SnapCenter^].

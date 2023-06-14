@@ -21,11 +21,11 @@ You might clone databases for the following reasons:
 * To populate data warehouses using data extraction and manipulation tools.
 * To recover data that was mistakenly deleted or changed. 
 
-*Before you begin*
+.Before you begin
 
 You should understand the clone concepts and ensure that all the requirements are met. link:concept-clone-cloud-native-oracle-concepts.html[Learn more].
 
-*Steps*
+.Steps
 
 . Click image:icon-action.png[icon to select the action] corresponding to the database that you want to clone and click *View Details*.
 . Click image:icon-action.png[icon to select the action] corresponding to the data backup and click *Clone*.

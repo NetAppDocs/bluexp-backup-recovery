@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: task-backup-cloud-native-oracle-data.html
-keywords: admin role, service account, pre-canned policies, cloud manager, BlueXP, scheduled backups, on-demand backups, create policy, Oracle database, backup limitations
-summary: Create a scheduled or on-demand backups of Oracle database.
+keywords: admin role, service account, pre-canned policies, cloud manager, BlueXP, scheduled backups, on-demand backups, create policy, Oracle database, backup limitations, RMAN, catalog, RMAN catalog
+summary: Create a policy with or without enabling RMAN, assign the policy, and then create scheduled or on-demand backups of Oracle database.
 ---
 
 = Back up cloud-native Oracle databases
@@ -13,7 +13,9 @@ summary: Create a scheduled or on-demand backups of Oracle database.
 :imagesdir: ./media/
 
 [.lead]
-You can create a backup by assigning a pre-canned policy or the policy that you created.
+You can create scheduled or on-demand backups by assigning a pre-canned policy or the policy that you created.
+
+You can also catalog the backups using Oracle Recovery Manager (RMAN) if you have enabled cataloging while creating a policy. The (RMAN) cataloging is supported only for the databases that are on Azure NetApp Files.
 
 == Create policy to protect Oracle database
 
@@ -26,6 +28,7 @@ You can create policies if you do not want to edit the pre-canned policies.
 . Specify a policy name.
 . (Optional) Edit the format of the backup name.
 . Specify the schedule and retention details.
+. If you have selected _daily_ and _weekly_ as the schedule and you want to enable RMAN cataloging, select *Catalog backup with Oracle Recovery Manager (RMAN)*.
 . (Optional) Enter the post-script path and timeout value for post-script that will be executed after the successful backup to copy the snapshot to secondary storage.
 +
 Optionally, you can also specify the arguments.
@@ -57,17 +60,29 @@ a|
 SC_PRIMARY_DATA_VOLUME_FULL_PATH
 a|
 Specifies the data volume paths concatenated using "," as delimiter.
-For ANF volumes, the information is concatenated using "/"
+For Azure NetApp Files volumes, the information is concatenated using "/"
 _/{anfaccount}/{subscription_id}/{resource_group}/{capacity_pool}/{volumename}_
 a|
 SC_PRIMARY_ARCHIVELOGS_VOLUME_FULL_PATH
 a|
 Specifies the archive log volume paths concatenated using "," as delimiter.
-For ANF volumes, the information in concatenated using "/"
+For Azure NetApp Files volumes, the information in concatenated using "/"
 _/{anfaccount}/{subscription_id}/{resource_group}/{capacity_pool}/{volumename}_
 |===
 
 . Click *Create*.
+
+== Configure RMAN catalog repository
+
+You can configure the recovery catalog database as the RMAN catalog repository. If you do not configure the repository, by default, the Control file of the target database becomes the RMAN catalog repository.
+
+.Steps
+
+. In the Applications page, click image:icon-action.png[icon to select the action] > *View Details*.
+. In the Database details section, click image:icon-edit-pen.png[iconto edit] to configure the RMAN catalog repository.
+. Specify the credentials to catalog backups with RMAN and the Transparent Network Substrate (TNS) name of catalog recovery database.
+. Click *Configure*.
+
 
 == Create a backup of the Oracle Database
 
