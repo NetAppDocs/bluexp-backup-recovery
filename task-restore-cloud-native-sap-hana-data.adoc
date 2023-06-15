@@ -64,6 +64,9 @@ After restoring, manually recover the SAP HANA system or provide a postscript, w
 
 == Restore Non-Data Volume
 
+*About this task*
+For connect and copy restore operation, select *Hide snapshot path* for the ANF storage volumes.
+
 *Steps*
 
 . In the *Applications* page, select Non-Data Volume from the drop-down box.
