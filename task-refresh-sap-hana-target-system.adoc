@@ -46,8 +46,6 @@ NOTE: The new volume will be placed in the same capacity pool as that of the tar
 * The “max throughput number” for the new volume is picked from the volume of the target system with manual Quality of Service (QoS) capacity pools.
 For auto QoS capacity pools the throughput is defined by the capacity of the source volume.
 
-NOTE: QoS is applicable only for capacity pools of type "Manual".
-
 *Steps*
 
 . In the BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
