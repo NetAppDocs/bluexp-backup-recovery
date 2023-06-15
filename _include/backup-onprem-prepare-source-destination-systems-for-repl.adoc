@@ -1,0 +1,28 @@
+
+== Prepare source and destination systems for replication
+Before you activate backups in BlueXP backup and recovery, ensure that the source and destination systems meet ONTAP version and networking requirements. 
+
+//This section and its subsections are an Include for Back up on-premises ONTAP to AWS, Azure, and GCP. 
+
+=== ONTAP version requirements 
+
+You should verify that the source and destination volumes are running compatible ONTAP versions before replicating data.
+
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html[View compatible ONTAP versions for SnapMirror relationships^].
+
+
+=== Cloud Volumes ONTAP networking requirements
+* The instance’s security group must include the required inbound and outbound rules: specifically, rules for ICMP and ports 11104 and 11105. These rules are included in the predefined security group.
+
+* To replicate data between two Cloud Volumes ONTAP systems in different subnets, the subnets must be routed together (this is the default setting).
+
+//* To replicate data between two Cloud Volumes ONTAP systems in different cloud providers, you must have a VPN connection between the virtual networks.
+
+=== On-premises ONTAP networking requirements
+* An active SnapMirror license must be installed.
+
+* If the cluster is on your premises, you should have a connection from your corporate network to your virtual network in AWS, Azure, or Google Cloud. This is typically a VPN connection.
+
+* ONTAP clusters must meet additional subnet, port, firewall, and cluster requirements.
++
+Because you can replicate to Cloud Volumes ONTAP or an on-premises system, review peering requirements for on-premises ONTAP systems. Refer to https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html[View prerequisites for cluster peering in the ONTAP documentation^].

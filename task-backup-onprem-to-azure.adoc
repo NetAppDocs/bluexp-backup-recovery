@@ -295,8 +295,12 @@ You’ll need to verify license requirements for both Azure and BlueXP:
 
 You can create backups from on-premises systems to Azure Blob in all regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including Azure Government regions. You specify the region where the backups will be stored when you set up the service.
 
+== Prepare source and destination systems for replication USING INCLUDE
+//This section uses an Include for all providers. 
 
-== Prepare source and destination systems for replication
+include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.adoc[]
+
+== Prepare source and destination systems for replication REMOVE WHEN INCLUDE WORKS
 Before you activate backups in BlueXP backup and recovery, ensure that the source and destination systems meet ONTAP version and networking requirements. 
 
 //Make this section and its subsections an Include for AWS, Azure, and GCP. 
