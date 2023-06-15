@@ -1,5 +1,5 @@
 
-== Prepare source and destination systems for replication
+//== Prepare source and destination systems for replication
 Before you activate backups in BlueXP backup and recovery, ensure that the source and destination systems meet ONTAP version and networking requirements. 
 
 //This section and its subsections are an Include for Back up on-premises ONTAP to AWS, Azure, and GCP. 
