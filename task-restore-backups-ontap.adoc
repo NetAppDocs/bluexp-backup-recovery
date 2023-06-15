@@ -46,12 +46,24 @@ This table provides a comparison of the 2 methods.
 | Search & Restore
 
 | Browse through a folder-style structure to find the volume, folder, or file within a single backup file | Search for a volume, folder, or file across *all backup files* by partial or full volume name, partial or full folder/file name, size range, and additional search filters
-| Volume and file restore works with backup files stored in Amazon S3, Azure Blob, Google Cloud, and NetApp StorageGRID | Volume and file restore works with backup files stored in Amazon S3, Azure Blob, Google Cloud, and NetApp StorageGRID
-| Restore volumes, folder, and files from StorageGRID in sites with no internet access | Restore volumes, folder, and files from StorageGRID in sites with no internet access
 | Does not handle file recovery if the file has been deleted or renamed, and the user doesn't know the original file name | Handles newly created/deleted/renamed directories and newly created/deleted/renamed files
-| Browse for results across public and private clouds | Browse for results across public clouds and local Snapshots copies
 | No additional cloud provider resources required | Additional bucket and public cloud provider resources required per account
 | No additional cloud provider costs required | Cost associated with public cloud provider resources when scanning your backups and volumes for search results
+
+|===
+
+Another table with functionality 
+
+[cols=7*,options="header",cols="14,14,14,14,14,14,14",width="100%"]
+|===
+| Backup Type
+3+| Browse & Restore
+3+| Search & Restore
+
+|  | *Restore volume* | *Restore files* | *Restore folder* | *Restore volume* | *Restore files* | *Restore folder* 
+| Snapshot copy | Yes | No | No | Yes | Yes | No 
+| Replicated volume | Yes | No | No | Yes | Yes | No 
+| Backup file | Yes | Yes | Yes | Yes | Yes | Yes 
 
 |===
 

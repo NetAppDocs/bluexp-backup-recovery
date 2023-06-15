@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: concept-ontap-backup-to-cloud.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem
-summary: The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 additional copies of your data on 2 different storage systems along with 1 copy in the cloud.
+summary: The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 additional copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 ---
 
 = Protect your ONTAP volume data using BlueXP backup and recovery
@@ -13,7 +13,7 @@ summary: The BlueXP backup and recovery service provides backup and restore capa
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 additional copies of your data on 2 different storage systems along with 1 copy in the cloud.
+The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 additional copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 
 After activation, backup and recovery creates block-level, incremental forever backups that are stored on another ONTAP cluster and in object storage in the cloud. In addition to your source volume, you'll have a:
 
@@ -35,7 +35,15 @@ When necessary, you can restore an entire _volume_, a _folder_, or one or more _
 
 == Features
 
-Backup features:
+Replication features:
+
+* Replicate data between ONTAP storage systems to support backup and disaster recovery.
+* Ensure the reliability of your DR environment with high availability.
+* Native ONTAP in-flight encryption set up via Pre-Shared Key (PSK) between the two systems.
+* Copied data is immutable until you make it writable and ready to use.
+* Replication is self-healing in the event of a transfer failure.
+
+Backup to object features:
 
 * Back up independent copies of your data volumes to low-cost object storage.
 * Apply a single backup policy to all volumes in a cluster, or assign different backup policies to volumes that have unique recovery point objectives.
@@ -45,14 +53,13 @@ Backup features:
 * Tier older backup files to archival storage to save costs.
 * Delete the backup relationship so you can archive unneeded source volumes while retaining volume backups.
 * Back up from cloud to cloud, and from on-premises systems to public or private cloud.
-* For Cloud Volumes ONTAP systems, your backups can reside on a different subscription/account or different region.
 * Backup data is secured with AES-256 bit encryption at-rest and TLS 1.2 HTTPS connections in-flight.
 * Use your own customer-managed keys for data encryption instead of using the default encryption keys from your cloud provider.
 * Support for up to 4,000 backups of a single volume.
 
 Restore features:
 
-* Restore data from a specific point in time.
+* Restore data from a specific point in time from local Snapshot copies, replicated volumes, or backed up volumes in object storage.
 * Restore a volume, a folder, or individual files, to the source system or to a different system.
 * Restore data to a working environment using a different subscription/account or that is in a different region.
 * Data is restored on a block level, placing the data directly in the location you specify, all while preserving the original ACLs.
@@ -161,7 +168,7 @@ See the sections on <<Limitations,Backup and Restore Limitations>> for additiona
 
 == Cost
 
-There are two types of costs associated with using BlueXP backup and recovery with ONTAP systems: resource charges and service charges. Both of these charges are for the backup to object portion of the service. There is no charge to create Snapshot copies or replicated volumes.
+There are two types of costs associated with using BlueXP backup and recovery with ONTAP systems: resource charges and service charges. Both of these charges are for the backup to object portion of the service. There is no charge to create Snapshot copies or replicated volumes - other than the disk space required to store the Snapshot copies and replicated volumes.
 
 *Resource charges*
 
@@ -202,16 +209,6 @@ BlueXP backup and recovery is available with the following consumption models:
 * *PAYGO*: An hourly subscription from your cloud provider's marketplace.
 * *Annual*: An annual contract from your cloud provider's marketplace.
 
-[NOTE]
-====
-If you purchase a BYOL license from NetApp, you also need to subscribe to the PAYGO offering from your cloud provider's marketplace. Your license is always charged first, but you'll be charged from the hourly rate in the marketplace in these cases:
-
-* If you exceed your licensed capacity
-* If the term of your license expires
-
-If you have an annual contract from a marketplace, all BlueXP backup and recovery consumption is charged against that contract. You can't mix and match an annual marketplace contract with a BYOL.
-====
-
 === Bring your own license
 
 BYOL is term-based (12, 24, or 36 months) _and_ capacity-based in 1 TiB increments. You pay NetApp to use the service for a period of time, say 1 year, and for a maximum amount capacity, say 10 TiB.
@@ -250,15 +247,13 @@ link:task-licensing-cloud-backup.html#use-an-annual-contract[Learn how to set up
 
 == How BlueXP backup and recovery works
 
-When you enable BlueXP backup and recovery on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. Volume snapshots are not included in the backup image. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum. BlueXP backup and recovery is built on top of the https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html[NetApp SnapMirror Cloud technology^].
-//
-//In most cases you'll use the BlueXP UI for all backup operations. However, starting with ONTAP 9.9.1 you can initiate volume backup operations of your on-premises ONTAP clusters using ONTAP System Manager. https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html[See how to use System Manager to back up your volumes to the cloud using BlueXP backup and recovery.^]
+When you enable BlueXP backup and recovery on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. Volume snapshots are not included in the backup image. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum. Backup to object storage is built on top of the https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html[NetApp SnapMirror Cloud technology^].
 
-CAUTION: Any actions taken directly from your cloud provider environment to manage or change backup files may corrupt the files and will result in an unsupported configuration.
+CAUTION: Any actions taken directly from your cloud provider environment to manage or change cloud backup files may corrupt the files and will result in an unsupported configuration.
 
 The following image shows the relationship between each component:
 
-image:diagram_cloud_backup_general.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination object storage where the backup files are located.]
+image:diagram-backup-recovery-general.png["A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the secondary storage system and destination object storage where the replicated volumes and backup files are located."]
 
 === Where backups reside
 
