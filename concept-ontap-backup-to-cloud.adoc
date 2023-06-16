@@ -42,6 +42,14 @@ Replication features:
 * Native ONTAP in-flight encryption set up via Pre-Shared Key (PSK) between the two systems.
 * Copied data is immutable until you make it writable and ready to use.
 * Replication is self-healing in the event of a transfer failure.
+* When compared to the https://docs.netapp.com/us-en/bluexp-replication/index.html[BlueXP replication service^], the replication feature in BlueXP backup and recovery includes the following features:
+** Replicate multiple FlexVol volumes at a time to a secondary system.
+** Restore a replicated volume to the source system or to a different system using the UI.
+//** Restore files and folders
+//** Manage replication policies
+//** 
+
+See <<Replication limitations,Replication limitations>> for a list of replication features that are unavailable with BlueXP backup and recovery.
 
 Backup to object features:
 
@@ -236,11 +244,11 @@ When using AWS, two annual contracts are available for 12, 24, or 36 month terms
 endif::aws[]
 
 ifdef::azure[]
-* When using Azure, you can request a private offer from NetApp, and then select the plan when you subscribe from the Azure Marketplace during BlueXP backup and recovery activation.
+When using Azure, you can request a private offer from NetApp, and then select the plan when you subscribe from the Azure Marketplace during BlueXP backup and recovery activation.
 endif::azure[]
 
 ifdef::gcp[]
-* When using GCP, you can request a private offer from NetApp, and then select the plan when you subscribe from the Google Cloud Marketplace during BlueXP backup and recovery activation.
+When using GCP, you can request a private offer from NetApp, and then select the plan when you subscribe from the Google Cloud Marketplace during BlueXP backup and recovery activation.
 endif::gcp[]
 
 link:task-licensing-cloud-backup.html#use-an-annual-contract[Learn how to set up annual contracts].
@@ -257,49 +265,55 @@ image:diagram-backup-recovery-general.png["A diagram showing how BlueXP backup a
 
 === Where backups reside
 
-Backup copies are stored in an object store that BlueXP creates in your cloud account. There's one object store per cluster/working environment, and BlueXP names the object store as follows: "netapp-backup-clusteruuid". Be sure not to delete this object store.
+* _Snapshot copies_ reside on the source volume in the source working environment.
 
+* _Replicated volumes_ reside on the secondary storage system - a Cloud Volumes ONTAP or on-premises ONTAP system.
+
+* _Backup copies_ are stored in an object store that BlueXP creates in your cloud account. There's one object store per cluster/working environment, and BlueXP names the object store as follows: "netapp-backup-clusteruuid". Be sure not to delete this object store.
 ifdef::aws[]
-* In AWS, BlueXP enables the https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html[Amazon S3 Block Public Access feature^] on the S3 bucket.
++
+** In AWS, BlueXP enables the https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html[Amazon S3 Block Public Access feature^] on the S3 bucket.
 endif::aws[]
-
 ifdef::azure[]
-* In Azure, BlueXP uses a new or existing resource group with a storage account for the Blob container. BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent[blocks public access to your blob data] by default.
++
+** In Azure, BlueXP uses a new or existing resource group with a storage account for the Blob container. BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent[blocks public access to your blob data] by default.
 endif::azure[]
-
 ifdef::gcp[]
-* In GCP, BlueXP uses a new or existing project with a storage account for the Google Cloud Storage bucket.
++
+** In GCP, BlueXP uses a new or existing project with a storage account for the Google Cloud Storage bucket.
 endif::gcp[]
-
-* In StorageGRID, BlueXP uses an existing storage account for the object store bucket.
-
++
+** In StorageGRID, BlueXP uses an existing storage account for the object store bucket.
++
 If you want to change the destination object store for a cluster in the future, you'll need to link:task-manage-backups-ontap.html#unregistering-bluexp-backup-and-recovery-for-a-working-environment[unregister BlueXP backup and recovery for the working environment^], and then enable BlueXP backup and recovery using the new cloud provider information.
 
 === Customizable backup schedule and retention settings
 
-When you enable BlueXP backup and recovery for a working environment, all the volumes you initially select are backed up using the default backup policy that you define. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to the other volumes after BlueXP backup and recovery is activated.
+When you enable BlueXP backup and recovery for a working environment, all the volumes you initially select are backed up using the policies that you select. You can select separate policies for Snapshot copies, replicated volumes, and backup files. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to the other volumes after BlueXP backup and recovery is activated.
 
-You can choose a combination of hourly, daily, weekly, monthly, and yearly backups of all volumes. The Snapshot policy applied to the volume must have one of the labels recognized by the BlueXP backup and recovery policy or backup files will not be created. You can also select one of the system-defined policies that provide backups and retention for 3 months, 1 year, and 7 years. These policies are:
+You can choose a combination of hourly, daily, weekly, monthly, and yearly backups of all volumes. For backup to object you can also select one of the system-defined policies that provide backups and retention for 3 months, 1 year, and 7 years. Backup protection policies that you have created on the cluster using ONTAP System Manager or the ONTAP CLI will also appear as selections. This includes policies created using custom SnapMirror labels. 
 
-[cols=5*,options="header",cols="35,16,16,16,26",width="80%"]
-|===
-| Backup Policy Name
-3+| Backups per interval...
-| Max. Backups
+NOTE: The Snapshot policy applied to the volume must have one of the labels that you're using in your replication policy and backup to object policy. If matching labels are not found, no backup files will be created. For example, if you want to create "weekly" replicated volumes and backup files, you must use a Snapshot policy that creates "weekly" Snapshot copies.
 
-|  | *Daily* | *Weekly* | *Monthly* |
-| Netapp3MonthsRetention | 30 | 13 | 3
-| 46
-| Netapp1YearRetention | 30 | 13 | 12
-| 55
-| Netapp7YearsRetention | 30 | 53 | 84
-| 167
+//These policies are:
+//
+//[cols=5*,options="header",cols="35,16,16,16,26",width="80%"]
+//|===
+//| Backup Policy Name
+//3+| Backups per interval...
+//| Max. Backups
+//
+//|  | *Daily* | *Weekly* | *Monthly* |
+//| Netapp3MonthsRetention | 30 | 13 | 3
+//| 46
+//| Netapp1YearRetention | 30 | 13 | 12
+//| 55
+//| Netapp7YearsRetention | 30 | 53 | 84
+//| 167
+//
+//|===
 
-|===
-
-Backup protection policies that you have created on the cluster using ONTAP System Manager or the ONTAP CLI will also appear as selections. This includes policies created using custom SnapMirror labels.
-
-Once you have reached the maximum number of backups for a category, or interval, older backups are removed so you always have the most current backups (and so obsolete backups don't continue to take up space in the cloud).
+Once you have reached the maximum number of backups for a category, or interval, older backups are removed so you always have the most current backups (and so obsolete backups don't continue to take up space).
 
 See link:concept-cloud-backup-policies.html#backup-schedules[Backup schedules^] for more details about how the available schedule options.
 
@@ -309,7 +323,7 @@ TIP: The retention period for backups of data protection volumes is the same as 
 
 === Backup file protection settings
 
-If your cluster is using ONTAP 9.11.1 or greater, you can protect your backups from deletion and ransomware attacks. Each backup policy provides a section for _DataLock and Ransomware Protection_ that can be applied to your backup files for a specific period of time - the _retention period_. _DataLock_ protects your backup files from being modified or deleted. _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack when a backup file is created, and when data from a backup file is being restored.
+If your cluster is using ONTAP 9.11.1 or greater, you can protect your backups in object storage from deletion and ransomware attacks. Each backup policy provides a section for _DataLock and Ransomware Protection_ that can be applied to your backup files for a specific period of time - the _retention period_. _DataLock_ protects your backup files from being modified or deleted. _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack when a backup file is created, and when data from a backup file is being restored.
 
 The backup retention period is the same as the backup schedule retention period; plus 14 days. For example, _weekly_ backups with _5_ copies retained will lock each backup file for 5 weeks. _Monthly_ backups with _6_ copies retained will lock each backup file for 6 months.
 
@@ -349,7 +363,7 @@ See link:concept-cloud-backup-policies.html#archival-storage-settings[Archival s
 
 == FabricPool tiering policy considerations
 
-There are certain things you need to be aware of when the volume you are backing up resides on a FabricPool aggregate and it has an assigned policy other than `none`:
+There are certain things you need to be aware of when the volume you are backing up resides on a FabricPool aggregate and it has an assigned tiering policy other than `none`:
 
 * The first backup of a FabricPool-tiered volume requires reading all local and all tiered data (from the object store). A backup operation does not "reheat" the cold data tiered in object storage.
 +
@@ -362,7 +376,19 @@ This operation could cause a one-time increase in cost to read the data from you
 
 == Limitations
 
-=== Backup limitations
+=== Replication limitations
+
+* You can select only one FlexGroup volume at a time for replication. You'll need to active backup separately for each FlexGroup volume.
++
+There is no limitation for FlexVol volumes - you can select all FlexVol volumes in your working environment and assign the same backup policies.
+
+* The following functionality is supported in the BlueXP replication service, but not when using the replication feature of BlueXP backup and recovery:
+
+** There is no support for a cascade configuration where replication occurs from volume A to volume B and from volume B to volume C. Support includes replication from volume A to volume B, and replication from volume A to multiple destinations.
+** There is no support for replicating data to and from FSx for ONTAP systems.
+** There is no support for creating a one-time replication of a volume.
+
+=== Backup to object limitations
 
 * When creating or editing a backup policy when no volumes are assigned to the policy, the number of retained backups can be a maximum of 1018. After you assign volumes to the policy, you can edit the policy to create up to 4000 backups.
 

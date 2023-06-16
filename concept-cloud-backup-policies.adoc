@@ -59,7 +59,7 @@ This feature does not provide protection for your source volumes; only for the b
 
 === What is DataLock
 
-DataLock protects your backup files from being modified or deleted for a certain period of time. This functionality uses technology from the object storage provider for "object locking". The period of time that the backup file is locked (and retained) is called the DataLock Retention Period. It is based on the backup policy schedule and retention setting that you defined; plus a 14 day buffer. Any DataLock retention policy that is less than 30 days is rounded up to 30 days minimum.
+DataLock protects your backup files from being modified or deleted for a certain period of time - also called immutable storage. This functionality uses technology from the object storage provider for "object locking". The period of time that the backup file is locked (and retained) is called the DataLock Retention Period. It is based on the backup policy schedule and retention setting that you defined; plus a 14 day buffer. Any DataLock retention policy that is less than 30 days is rounded up to 30 days minimum.
 
 Be aware that old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period expires.
 
