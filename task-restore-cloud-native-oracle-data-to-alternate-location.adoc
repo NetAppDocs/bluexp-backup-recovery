@@ -28,10 +28,7 @@ While initiating the restore operation, you are not allowed to modify the config
 
 Full recovery is enabled by default with _Until cancel_ set to true.
 
-There are some limitations related to restoring to alternate location.
-
-* Same database cannot be restored to different host more than once.
-* You should restore only when there are no baseline backups to avoid load on Azure Blob.
+Same database cannot be restored to the same alternate host more than once. The database restored to the alternate location should be deleted before restoring the same source database to the same alternate host.
 
 .Steps
 

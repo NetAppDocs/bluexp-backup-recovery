@@ -76,6 +76,10 @@ _/{anfaccount}/{subscription_id}/{resource_group}/{capacity_pool}/{volumename}_
 
 You can configure the recovery catalog database as the RMAN catalog repository. If you do not configure the repository, by default, the Control file of the target database becomes the RMAN catalog repository.
 
+.Before you begin
+
+You should manually register the target database with RMAN catalog database.
+
 .Steps
 
 . In the Applications page, click image:icon-action.png[icon to select the action] > *View Details*.
