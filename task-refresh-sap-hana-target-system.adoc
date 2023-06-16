@@ -43,9 +43,8 @@ For example, if the source volume is vol1, the refreshed volume name will be vol
 NOTE: The new volume will be placed in the same capacity pool as that of the target volumes.
 
 * The junction path will be the same as the volume name.
-* The Quality of Service (QoS) settings are picked up from the volumes of the target HANA system and are applied to the new volumes.
-
-NOTE: QoS is applicable only for capacity pools of type "Manual".
+* The “max throughput number” for the new volume is picked from the volume of the target system with manual Quality of Service (QoS) capacity pools.
+For auto QoS capacity pools the throughput is defined by the capacity of the source volume.
 
 *Steps*
 
@@ -56,7 +55,4 @@ NOTE: QoS is applicable only for capacity pools of type "Manual".
 .. Enter Export addresses from which the new volumes can be accessed.
 .. Enter prescript, postscript, and on failure script paths.
 On failure script is executed only when the system refresh operation fails.
-.. Select *Delete associated SAP HANA backups*
-Only Snapshot copies will be deleted. If there are any existing backups of the target system and the above option is not selected, system refresh operation will fail.
-You can also delete the backups from the *Topology* page.
 .. Click *Refresh*.

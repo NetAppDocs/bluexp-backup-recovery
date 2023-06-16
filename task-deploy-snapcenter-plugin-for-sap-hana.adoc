@@ -199,7 +199,7 @@ You can remove the SAP HANA database host using only REST APIs.
 *Steps*
 
 . Delete all the systems associated with the SAP HANA database host using the UI or by using the below REST API.
-`DELETE /saphana/and/systems/(id)`
+`DELETE /saphana/anf/systems/(id)`
 . Perform the following steps to remove the SAP HANA database host.
 .. Use GET REST API to get the ID of the SAP HANA database host that must be deleted.
 `GET /saphana/hosts`
@@ -269,4 +269,4 @@ After adding the SAP HANA database host, you can modify the hostname or the plug
     `]`
 `}`
 . Modify the hostname or plug-in port using the below PATCH API.
-`PATCH /saphana/hosts/(id)``
+`PATCH /saphana/hosts/(id)`
