@@ -54,11 +54,11 @@ This table provides a comparison of the 2 methods.
 
 Another table with functionality 
 
-[cols=7*,options="header",cols="14,14,14,14,14,14,14",width="100%"]
+[cols=7*,options="header",cols="14h,14,14,14,14,14,14",width="100%"]
 |===
 | Backup Type
-3+| Browse & Restore
-3+| Search & Restore
+3+^| Browse & Restore
+3+^| Search & Restore
 
 |  | *Restore volume* | *Restore files* | *Restore folder* | *Restore volume* | *Restore files* | *Restore folder* 
 | Snapshot copy | Yes | No | No | Yes | Yes | No 

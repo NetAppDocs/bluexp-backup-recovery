@@ -73,11 +73,13 @@ Restore features:
 * Data is restored on a block level, placing the data directly in the location you specify, all while preserving the original ACLs.
 * Browsable and searchable file catalogs for easy selection of individual folders and files for single file restore.
 
-== Supported ONTAP working environments and backup locations
+== Supported working environments for backup and restore operations
 
-BlueXP backup and recovery enables you to back up ONTAP volumes from the following source working environments to the following secondary working environments and object storage in public and private cloud providers. Snapshot copies reside on the source working environment.
+BlueXP backup and recovery supports ONTAP working environments and public and private cloud providers.
 
 === Supported backup destinations
+
+BlueXP backup and recovery enables you to back up ONTAP volumes from the following source working environments to the following secondary working environments and object storage in public and private cloud providers. Snapshot copies reside on the source working environment.
 
 [cols=3*,options="header",cols="33,33,33",width="90%"]
 |===
@@ -122,17 +124,17 @@ NetApp StorageGRID
 
 |===
 
-You can restore ONTAP data from a backup file that resides in a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
-
 === Supported restore destinations
+
+You can restore ONTAP data from a backup file that resides in a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
 
 [cols=3*,options="header",cols="33,33,33",width="90%"]
 |===
 
-2+| Backup File Location
+2+^| Backup File Location
 | Destination Working Environment
 
-| *Object Storage (Backup)* | *Secondary System (Replication)* |
+| *Object Store (Backup)* | *Secondary System (Replication)* |
 ifdef::aws[]
 | Amazon S3 | Cloud Volumes ONTAP in AWS
 On-premises ONTAP system
@@ -176,7 +178,9 @@ See the sections on <<Limitations,Backup and Restore Limitations>> for additiona
 
 == Cost
 
-There are two types of costs associated with using BlueXP backup and recovery with ONTAP systems: resource charges and service charges. Both of these charges are for the backup to object portion of the service. There is no charge to create Snapshot copies or replicated volumes - other than the disk space required to store the Snapshot copies and replicated volumes.
+There are two types of costs associated with using BlueXP backup and recovery with ONTAP systems: resource charges and service charges. Both of these charges are for the backup to object portion of the service. 
+
+There is no charge to create Snapshot copies or replicated volumes - other than the disk space required to store the Snapshot copies and replicated volumes.
 
 *Resource charges*
 
@@ -300,7 +304,7 @@ NOTE: The Snapshot policy applied to the volume must have one of the labels that
 //[cols=5*,options="header",cols="35,16,16,16,26",width="80%"]
 //|===
 //| Backup Policy Name
-//3+| Backups per interval...
+//3+^| Backups per interval...
 //| Max. Backups
 //
 //|  | *Daily* | *Weekly* | *Monthly* |
@@ -380,9 +384,9 @@ This operation could cause a one-time increase in cost to read the data from you
 
 * You can select only one FlexGroup volume at a time for replication. You'll need to active backup separately for each FlexGroup volume.
 +
-There is no limitation for FlexVol volumes - you can select all FlexVol volumes in your working environment and assign the same backup policies.
+There is no limitation for FlexVol volumes - you can select all FlexVol volumes in your working environment and assign the same backup policy.
 
-* The following functionality is supported in the BlueXP replication service, but not when using the replication feature of BlueXP backup and recovery:
+* The following functionality is supported in the https://docs.netapp.com/us-en/bluexp-replication/index.html[BlueXP replication service], but not when using the replication feature of BlueXP backup and recovery:
 
 ** There is no support for a cascade configuration where replication occurs from volume A to volume B and from volume B to volume C. Support includes replication from volume A to volume B, and replication from volume A to multiple destinations.
 ** There is no support for replicating data to and from FSx for ONTAP systems.
