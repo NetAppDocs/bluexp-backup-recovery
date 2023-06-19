@@ -15,7 +15,7 @@ summary: Create a policy with or without enabling RMAN, assign the policy, and t
 [.lead]
 You can create scheduled or on-demand backups by assigning a pre-canned policy or the policy that you created.
 
-You can also catalog the backups using Oracle Recovery Manager (RMAN) if you have enabled cataloging while creating a policy. The (RMAN) cataloging is supported only for the databases that are on Azure NetApp Files.
+You can also catalog the Oracle database backups using Oracle Recovery Manager (RMAN) if you have enabled cataloging while creating a policy. The (RMAN) cataloging is supported only for the databases that are on Azure NetApp Files. The cataloged backups can be used later for block-level restore or tablespace point-in-time recovery operations. The database must be in mounted or higher state for cataloging.
 
 == Create policy to protect Oracle database
 

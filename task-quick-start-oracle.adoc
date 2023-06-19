@@ -22,6 +22,7 @@ Get started quickly by following these steps.
 * Operating System:
 ** RHEL 7.5 or later and 8.x
 ** OL 7.5 or later and 8.x
+** SLES 15 SP4 
 * NetApp Cloud Storage: 
 ** Amazon FSx for ONTAP
 ** Cloud Volumes ONTAP
