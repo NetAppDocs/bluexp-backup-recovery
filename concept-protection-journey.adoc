@@ -96,9 +96,24 @@ A _fan-out_ architecture transfers the Snapshot copy independently to both the d
 
 image:diagram-321-fanout-detailed.png["A diagram showing how a Snapshot copy of a volume is used to create and update a replicated volume and a backup file."]
 
-A _cascade_ architecture transfers the Snapshot copy to the destination storage system first, and then that system transfers the copy to the backup object in the cloud. This method has less effect on the performance of the source storage system because it transfers the copy only once.
+A _cascade_ architecture transfers the Snapshot copy to the destination storage system first, and then that system transfers the copy to the backup object in the cloud.
 
 image:diagram-321-cascade-detailed.png["A diagram showing how a Snapshot copy of a volume is used to create and update a replicated volume and a backup file."]
+
+=== Comparison of the different architecture choices
+
+This table provides a comparison of the fan-out and cascade architectures.
+
+[cols=2*,options="header",cols="50,50"]
+|===
+
+| Fan-out
+| Cascade
+
+| Small performance impact on the source system because it is sending Snapshot copies to 2 distinct systems | Less effect on the performance of the source storage system because it sends the Snapshot copy only once
+| Easier to set up because all policies, networking, and ONTAP configurations are done on the source system | Requires some networking and ONTAP configuration to be done from the secondary system as well.
+
+|===
 
 == Will you use the default backup policies for snapshots, replications, and backups
 
@@ -111,8 +126,11 @@ You can use the default policies provided by NetApp to create your backups, or y
 If you create custom policies for replication or backup, the policy labels (for example, "daily" or "weekly") must match the labels that exist in your Snapshot policies or replicated volumes and backup files won't be created. You can create custom policies using System Manager or the ONTAP Command Line Interface (CLI).
 
 https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html[Create a snapshot policy using the ONTAP CLI^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html[Create the replication policy using the ONTAP CLI]
-https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy[Create the backup policy using System Manager]
+https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html[Create the replication policy using the ONTAP CLI^]
+https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy[Create the backup policy using System Manager^]
+https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description[Create a backup policy using the ONTAP CLI^]
+
+NOTE: If you are planning to create custom policies when using the cascading architecture, you'll need to create the backup policies on the secondary system where the replicated volumes will be created. If you're using the default policies, then you are all set. 
 
 == Do you want the service to create the cloud buckets for you
 
