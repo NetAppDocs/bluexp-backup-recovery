@@ -44,7 +44,7 @@ You can view the backups on cloud in the BlueXP UI.
 
 IMPORTANT: The time taken for the backups to be listed depends on ONTAP's default replication schedule.
 
-* For Oracle databases, both data and log backups, system change number (SCN) for each backup, end date for each backup are listed. You can select only the data backup and restore the database to original or alternate location. You can mount the data backup and log backup to alternate location.
+* For Oracle databases, both data and log backups, system change number (SCN) for each backup, end date for each backup are listed. You can select only the data backup and restore the database to original location. You can mount the data backup and log backup to alternate location.
 * For Microsoft SQL Server databases, only the full backups and the end date for each backup are listed. You can select the backup and restore the database to original or alternate location.
 * For Microsoft SQL Server instance, backups of the databases under that instance is listed.
 * For SAP HANA databases, only the data backups and the end date for each backup are listed. You can select the backup and perform storage export on a given host.

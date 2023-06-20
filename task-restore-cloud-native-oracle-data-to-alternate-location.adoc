@@ -14,7 +14,7 @@ summary:  Restore the Oracle database to alternate location
 
 [.lead]
 
-In the event of data loss, you can restore the Oracle database to alternate location only on Azure NetApp Files. The alternate location can be on a different host or on the same host but a different storage.
+In the event of data loss, you can restore the Oracle database to alternate location only on Azure NetApp Files. The alternate location can be on a different host or on the same host.
 
 .Before you begin
 
