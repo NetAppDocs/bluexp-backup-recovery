@@ -37,7 +37,16 @@ If you already have a Connector deployed in your Azure VNet or on your premises,
 [role="quick-margin-para"]
 <<Prepare your BlueXP Connector,Learn how to create a Connector and how to define required network settings.>>
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Prepare your on-premises ONTAP cluster
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Verify license requirements
+
+[role="quick-margin-para"]
+You'll need to check license requirements for both Azure and BlueXP.
+
+[role="quick-margin-para"]
+Refer to <<Verify license requirements>>.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Prepare your on-premises ONTAP cluster
 
 [role="quick-margin-para"]
 Discover your ONTAP cluster in BlueXP, verify that the cluster meets minimum requirements, and customize network settings so the cluster can connect to Azure.
@@ -46,13 +55,6 @@ Discover your ONTAP cluster in BlueXP, verify that the cluster meets minimum req
 <<Prepare your on-premises ONTAP cluster,Learn how to get your on-premises ONTAP cluster ready.>>
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Verify license requirements
-
-[role="quick-margin-para"]
-You'll need to check license requirements for both Azure and BlueXP.
-
-[role="quick-margin-para"]
-Refer to <<Verify license requirements>>.
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Prepare source and destination systems for replication
@@ -222,6 +224,23 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.htm
 
 
 
+== Verify license requirements
+
+You’ll need to verify license requirements for both Azure and BlueXP:
+
+* Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from Azure, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
+
+** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[NetApp BlueXP offering from the Azure Marketplace^]. Billing for BlueXP backup and recovery is done through this subscription.
+** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
+
+* You need to have an Azure subscription for the object storage space where your backups will be located.
+
+
+*Supported regions* 
+
+You can create backups from on-premises systems to Azure Blob in all regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including Azure Government regions. You specify the region where the backups will be stored when you set up the service.
+
+
 
 
 == Prepare your on-premises ONTAP cluster
@@ -258,21 +277,6 @@ When you set up BlueXP backup and recovery, you are prompted for the IPspace to 
 
 
 
-== Verify license requirements
-
-You’ll need to verify license requirements for both Azure and BlueXP:
-
-* Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from Azure, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
-
-** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[NetApp BlueXP offering from the Azure Marketplace^]. Billing for BlueXP backup and recovery is done through this subscription.
-** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
-
-* You need to have an Azure subscription for the object storage space where your backups will be located.
-
-
-*Supported regions* 
-
-You can create backups from on-premises systems to Azure Blob in all regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including Azure Government regions. You specify the region where the backups will be stored when you set up the service.
 
 == Prepare source and destination systems for replication
 //This section uses an Include for all providers. It includes "ONTAP version requirements", "Cloud Volumes ONTAP networking requirements", and "On-premises ONTAP networking requirements"

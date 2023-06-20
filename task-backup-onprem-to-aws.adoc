@@ -39,7 +39,15 @@ If you already have a Connector deployed in your AWS VPC or on your premises, th
 [role="quick-margin-para"]
 <<Prepare your BlueXP Connector,Learn how to create a Connector and how to define required network settings.>>
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Prepare your on-premises ONTAP cluster
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Verify license requirements
+
+[role="quick-margin-para"]
+You'll need to check license requirements for both AWS and BlueXP.
+
+[role="quick-margin-para"]
+Refer to <<Verify license requirements>>.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Prepare your on-premises ONTAP cluster
 
 [role="quick-margin-para"]
 Discover your ONTAP cluster in BlueXP, verify that the cluster meets minimum requirements, and customize network settings so the cluster can connect to AWS S3.
@@ -47,13 +55,7 @@ Discover your ONTAP cluster in BlueXP, verify that the cluster meets minimum req
 [role="quick-margin-para"]
 <<Prepare your on-premises ONTAP cluster,Learn how to get your on-premises ONTAP cluster ready.>>
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Verify license requirements
 
-[role="quick-margin-para"]
-You'll need to check license requirements for both AWS and BlueXP.
-
-[role="quick-margin-para"]
-Refer to <<Verify license requirements>>.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Prepare source and destination systems for replication
 
@@ -128,6 +130,21 @@ Ensure that the following networking requirements are met:
 
 
 
+== Verify license requirements
+You'll need to verify license requirements for both AWS and BlueXP: 
+
+* Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from AWS, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
+
+** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[NetApp BlueXP offering from the AWS Marketplace^]. Billing for BlueXP backup and recovery is done through this subscription.
+** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
+
+* You need to have an AWS subscription for the object storage space where your backups will be located.
+
+
+*Supported regions* 
+
+You can create backups from on-premises systems to Amazon S3 in all regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including AWS GovCloud regions. You specify the region where backups will be stored when you set up the service.
+
 
 == Prepare your on-premises ONTAP cluster
 
@@ -157,20 +174,6 @@ All intercluster LIFs within the IPspace must have access to the object store. I
 * If you are using a Private VPC Interface Endpoint in AWS for the S3 connection, then in order for HTTPS/443 to be used, you'll need to load the S3 endpoint certificate into the ONTAP cluster. <<Configure your system for a private connection using a VPC endpoint interface,See how to set up a VPC endpoint interface and load the S3 certificate.>>
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Ensure that your ONTAP cluster has permissions to access the S3 bucket].
 
-== Verify license requirements
-You'll need to verify license requirements for both AWS and BlueXP: 
-
-* Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from AWS, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
-
-** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[NetApp BlueXP offering from the AWS Marketplace^]. Billing for BlueXP backup and recovery is done through this subscription.
-** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
-
-* You need to have an AWS subscription for the object storage space where your backups will be located.
-
-
-*Supported regions* 
-
-You can create backups from on-premises systems to Amazon S3 in all regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including AWS GovCloud regions. You specify the region where backups will be stored when you set up the service.
 
 
 == Prepare source and destination systems for replication

@@ -24,6 +24,7 @@ Ensure that the following ONTAP requirements are met:
 *Note:* The "Hybrid Cloud Bundle" is not required when using BlueXP backup and recovery.
 +
 Learn how to https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html[manage your cluster licenses^].
+
 * Time and time zone are set correctly.
 +
 Learn how to https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html[configure your cluster time^].

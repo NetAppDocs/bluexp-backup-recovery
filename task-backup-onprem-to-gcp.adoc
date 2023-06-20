@@ -37,7 +37,15 @@ If you already have a Connector deployed in your Google Cloud or on your premise
 [role="quick-margin-para"]
 <<Prepare your BlueXP Connector,Learn how to create a Connector and how to define required network settings.>>
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Prepare your on-premises ONTAP cluster
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Verify license requirements
+
+[role="quick-margin-para"]
+You'll need to check license requirements for both Google Cloud and BlueXP.
+
+[role="quick-margin-para"]
+Refer to <<Verify license requirements>>.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Prepare your on-premises ONTAP cluster
 
 [role="quick-margin-para"]
 Discover your ONTAP cluster in BlueXP, verify that the cluster meets minimum requirements, and customize network settings so the cluster can connect to Google Cloud.
@@ -46,13 +54,7 @@ Discover your ONTAP cluster in BlueXP, verify that the cluster meets minimum req
 <<Prepare your on-premises ONTAP cluster,Learn how to get your on-premises ONTAP cluster ready.>>
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Verify license requirements
 
-[role="quick-margin-para"]
-You'll need to check license requirements for both Google Cloud and BlueXP.
-
-[role="quick-margin-para"]
-Refer to <<Verify license requirements>>.
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Prepare source and destination systems for replication
@@ -163,7 +165,18 @@ bigquery.tables.create
 
 . Select *Update* to save the edited role.
 
+== Verify license requirements
 
+* Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from Google, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
+
+** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project[NetApp BlueXP offering from the Google Marketplace^]. Billing for BlueXP backup and recovery is done through this subscription.
+** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
+
+* You need to have a Google subscription for the object storage space where your backups will be located.
+
+*Supported regions* 
+
+You can create backups from on-premises systems to Google Cloud Storage in all regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]. You specify the region where backups will be stored when you set up the service.
 
 == Prepare your on-premises ONTAP cluster 
 
@@ -193,18 +206,7 @@ If you're using Private Google Access or Private Service Connect, make sure your
 * Note that if you use are using a different IPspace than the Default, then you might need to create a static route to get access to the object storage.
 * Update firewall rules, if necessary, to allow BlueXP backup and recovery connections from ONTAP to object storage through port 443, and name resolution traffic from the storage VM to the DNS server over port 53 (TCP/UDP).
 
-== Verify license requirements
 
-* Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from Google, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
-
-** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project[NetApp BlueXP offering from the Google Marketplace^]. Billing for BlueXP backup and recovery is done through this subscription.
-** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
-
-* You need to have a Google subscription for the object storage space where your backups will be located.
-
-*Supported regions* 
-
-You can create backups from on-premises systems to Google Cloud Storage in all regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]. You specify the region where backups will be stored when you set up the service.
 
 == Prepare source and destination systems for replication
 //This section uses an Include for all providers. It includes "ONTAP version requirements", "Cloud Volumes ONTAP networking requirements", and "On-premises ONTAP networking requirements"
@@ -323,7 +325,7 @@ image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup and
 
 +
 If the Google Cloud Storage destination for your backups exists as a working environment on the Canvas, you can drag the ONTAP cluster onto the Google Cloud object storage.  
-* Select *Volumes* in the Backup and recovery bar. From the Volumes tab, select the *Actions (...)* option and select *Activate Backup* for a single volume. 
+* Select *Volumes* in the Backup and recovery bar. From the Volumes tab, select the *Actions (...)* option and select *Activate Backup* for a single volume (that does not already have replication or backup to object storage already enabled). . 
 
 + 
 The Introduction page of the wizard shows the protection options including local Snapshots, replication, and backups. If you did the second option in this step, the Define Backup Strategy page appears with one volume selected. 
@@ -377,9 +379,9 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 
 . In the Define backup strategy page, choose one or all of the following. All three are selected by default: 
 +
-* Local Snapshots: If you are performing replication or back up to object storage, local Snapshots must be created. 
-* Replication: Creates replicated volumes on another ONTAP storage system.  
-* Backup: Backs up volumes to object storage  
+* *Local Snapshots*: If you are performing replication or back up to object storage, local Snapshots must be created. 
+* *Replication*: Creates replicated volumes on another ONTAP storage system.  
+* *Backup*: Backs up volumes to object storage  
 
 . *Architecture*: If you chose replication and backup, choose one of the following flows of information: 
 * *Cascading*: Information flows from the source to the secondary and from the secondary to object storage. 
@@ -389,7 +391,7 @@ For details, refer to ZZZ link.
 
 . *Local Snapshot*: Choose an existing Snapshot policy. 
 +
-TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI. Refer to <link>.
+TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI `snapmirror policy create` command. Refer to https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[ONTAP CLI for `snapmirror policy`^].
 
 . *Replication*: Set the following options: 
 +
@@ -398,7 +400,7 @@ TIP: If you want to create a custom policy, you can use System Manager or the ON
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
 +
-* *Provider*: Select Google Cloud. 
+* *Provider*: Select *Google Cloud*. 
 * *Provider settings*: Enter the provider details and region where the backups will be stored.
 + 
 Either create a new bucket or select one that you've already created. 
