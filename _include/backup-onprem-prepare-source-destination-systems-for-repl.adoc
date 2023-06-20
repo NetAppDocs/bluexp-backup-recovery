@@ -21,7 +21,7 @@ https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-sn
 === On-premises ONTAP networking requirements
 * An active SnapMirror license must be installed.
 
-* If the cluster is on your premises, you should have a connection from your corporate network to your virtual network in AWS, Azure, or Google Cloud. This is typically a VPN connection.
+* If the cluster is on your premises, you should have a connection from your corporate network to your virtual network in the cloud provider. This is typically a VPN connection.
 
 * ONTAP clusters must meet additional subnet, port, firewall, and cluster requirements.
 +

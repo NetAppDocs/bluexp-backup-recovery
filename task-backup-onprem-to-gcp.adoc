@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-backup-onprem-to-gcp.html
 keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, gcp, google cloud
-summary: Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to Google Cloud Storage.
+summary: Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to a secondary storage system and to Google Cloud Storage.
 ---
 
 = Back up on-premises ONTAP data to Google Cloud Storage
@@ -13,7 +13,7 @@ summary: Complete a few steps to get started backing up volume data from your on
 :imagesdir: ./media/
 
 [.lead]
-Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to Google Cloud Storage.
+Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to a secondary storage system and to Google Cloud Storage.
 
 Note that "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
@@ -76,7 +76,7 @@ Optionally, you can set up your own custom-managed keys for data encryption inst
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png[Seven] Activate backups on your ONTAP volumes
 
 [role="quick-margin-para"]
-Select the working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. Then follow the setup wizard to set the default backup policy, the number of backups to retain, and the volumes you want to back up.
+Select the working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. Then follow the setup wizard to select the replication and backup policies that you'll use and the volumes you want to back up.
 
 [role="quick-margin-para"]
 <<Activate backups on your ONTAP volumes>>.
@@ -217,8 +217,9 @@ include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.a
 
 Preparing Google Cloud Storage as your backup target involves the following steps: 
 
-* Set up permissions
-* Set up customer-managed keys for data encryption
+* Set up permissions.
+* (Optional) Create your own buckets. (The service will create buckets for you if you want.)
+* (Optional) Set up customer-managed keys for data encryption
 //* Configure your system for a private connection using a VPC endpoint interface 
 
 === Set up permissions
@@ -262,6 +263,9 @@ storage.objects.update
 .. Under *Access keys for service accounts*, select *Create a key for a service account*, select the service account that you just created, and click *Create Key*.
 +
 You'll need to enter the keys in BlueXP backup and recovery later when you configure the backup service.
+
+=== Create your own buckets
+By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
 
 === Set up customer-managed encryption keys (CMEK) for data encryption
 
@@ -318,8 +322,8 @@ You can also <<Show the API commands>> at the review step, so you can copy the c
 image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup and recovery Enable button that is available after you select a working environment.]
 
 +
-If the Google Cloud Storage destination for your backups exists as a working environment on the Canvas, you can drag the ONTAP cluster onto the Google Cloud object storage. Or, you can drag the ONTAP cluster to on-premises ONTAP storage. 
-* Select *Volumes* in the Backup and recovery bar. From the Volumes tab, select the *Actions (...)* option and select *Activate 3-2-1 Protection* for a single volume. 
+If the Google Cloud Storage destination for your backups exists as a working environment on the Canvas, you can drag the ONTAP cluster onto the Google Cloud object storage.  
+* Select *Volumes* in the Backup and recovery bar. From the Volumes tab, select the *Actions (...)* option and select *Activate Backup* for a single volume. 
 
 + 
 The Introduction page of the wizard shows the protection options including local Snapshots, replication, and backups. If you did the second option in this step, the Define Backup Strategy page appears with one volume selected. 
@@ -335,6 +339,8 @@ The Introduction page of the wizard shows the protection options including local
 
 Choose the volumes you want to protect. You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these for the working environment you chose to protect.  
 
+NOTE: You can activate a backup only on a single FlexGroup volume at a time. 
+
 A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
 
 NOTE: If the volumes you choose have different Snapshot and replication policies than the policies you select later, the existing policies will be overwritten. 
@@ -343,7 +349,7 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 . In the Select Volumes page, select the volume or volumes you want to protect. 
 +
 * Optionally, filter the rows to show only volumes with certain volume types, styles and more to make the selection easier. 
-* After you select the first volume, then you can select all volumes of that same style: FlexVol or FlexGroup. To back up all existing volumes and any volumes added in the future, check one volume first and then check the box in the title row. (image:button_backup_all_volumes.png[]).
+* After you select the first volume, then you can select all FlexVol volumes. To back up all existing FlexVol volumes and any FlexVol volumes added in the future, check one volume first and then check the box in the title row. (image:button_backup_all_volumes.png[]).
 +
 TIP: We recommend this option so that all your volumes will be backed up and you'll never have to remember to enable backups for new volumes.
 
@@ -357,7 +363,7 @@ TIP: We recommend this option so that all your volumes will be backed up and you
 
 Defining the backup strategy involves setting the following options: 
 
-* Whether you want one or all of the backup options: local Snapshots, replication, and backup
+* Whether you want one or all of the backup options: local Snapshots, replication, and backup to object storage
 * Architecture
 * Local Snapshot policy
 * Replication target and policy
@@ -376,7 +382,7 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 * Backup: Backs up volumes to object storage  
 
 . *Architecture*: If you chose replication and backup, choose one of the following flows of information: 
-* *Cascading*: Information flows from the source to the secondary to object storage. 
+* *Cascading*: Information flows from the source to the secondary and from the secondary to object storage. 
 * *Fan out*: Information flows from the source to the secondary _and_ from the source to object storage. 
 + 
 For details, refer to ZZZ link. 
