@@ -19,7 +19,7 @@ You can restore SAP HANA database to the same host.
 *Steps*
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
-. In the *Filter By* field, select the filter *Type* and from the drop-down select *Oracle*.
+. In the *Filter By* field, select the filter *Type* and from the drop-down select *HANA*.
 . Click *View Details* corresponding to the database that you want to restore and click *Restore*.
 . In the Restore options page, specify one of the following:
 .. For NAS environment, specify the FQDN or IP address of the host to which the volumes restored from object store are to be exported.
@@ -29,7 +29,7 @@ You can restore SAP HANA database to the same host.
 NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
 . If there is not enough space on the source storage or the source storage is down, select *Change storage location*.
 . Click *Next*.
-. In the Storage mapping page, specify the alternate storage location details where the data restored from the object store will be stored temporarily.
+. In the Storage mapping page, specify the alternate storage location details where the data restored from the object store will be stored.
 . Click *Next*.
 . Review the details and click *Restore*.
 

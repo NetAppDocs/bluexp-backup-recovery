@@ -96,26 +96,13 @@ a|
 . If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
 +
 NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
-. Click *Next*.
-. In the Destination host page, select the host and specify the FQDN or IP address of the host on which the database will be mounted.
-.. For NAS environment, specify the FQDN or IP address of the host to which the volumes restored from object store are to be exported.
-.. For SAN environment, specify the initiators of the host to which LUNs of the volumes restored from object store are to be mapped.
-. Click *Next*.
-
-a|
-Want to temporarily restore to another storage and then copy the restored files to the alternate location
-a|
-. Select *Restore to alternate location*.
-. If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
-+
-NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
 . Select *Change storage location*.
 . Click *Next*.
 . In the Storage mapping page, specify the alternate storage location details where the data restored from the object store will be stored temporarily.
 . Click *Next*.
-. In the Destination host page, select the host and specify the FQDN or IP address of the host on which the database will be mounted.
-.. For NAS environment, specify the FQDN or IP address of the host to which the volumes restored from object store are to be exported.
-.. For SAN environment, specify the initiators of the host to which LUNs of the volumes restored from object store are to be mapped.
+. In the Destination host page, select the host on which the database will be mounted.
+.. (Optional) For NAS environment, specify the FQDN or IP address of the host to which the volumes restored from object store are to be exported.
+.. (Optional) For SAN environment, specify the initiators of the host to which LUNs of the volumes restored from object store are to be mapped.
 . Click *Next*.
 |===
 . Review the details and click *Restore*.

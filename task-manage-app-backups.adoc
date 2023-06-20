@@ -31,7 +31,7 @@ The associated applications are listed.
 NOTE: You cannot edit or delete a policy, which is associated with an application.
 
 You can also view cloud extended SnapCenter policies, by running the `Get-SmResources` cmdlet in SnapCenter.
-The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running Get-Help command_name.
+The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running Get-Help command name.
 
 == View backups on cloud
 
@@ -44,27 +44,27 @@ You can view the backups on cloud in the BlueXP UI.
 
 IMPORTANT: The time taken for the backups to be listed depends on ONTAP's default replication schedule.
 
-* For Oracle databases, both data and log backups, system change number (SCN) for each backup, end date for each backup are listed. You can select only the data backup and restore the database to on-premises SnapCenter Server.
-* For Microsoft SQL Server databases, only the full backups and the end date for each backup are listed. You can select the backup and restore the database to on-premises SnapCenter Server.
+* For Oracle databases, both data and log backups, system change number (SCN) for each backup, end date for each backup are listed. You can select only the data backup and restore the database to original or alternate location. You can mount the data backup and log backup to alternate location.
+* For Microsoft SQL Server databases, only the full backups and the end date for each backup are listed. You can select the backup and restore the database to original or alternate location.
 * For Microsoft SQL Server instance, backups of the databases under that instance is listed.
-* For SAP HANA databases, only the data backups and the end date for each backup are listed. You can select the backup and perform mount operation.
+* For SAP HANA databases, only the data backups and the end date for each backup are listed. You can select the backup and perform storage export on a given host.
 
 NOTE: The backups created before enabling cloud protection are not listed for restore.
 //Documented this for JIRA: AMS-8562
 
 You can also view these backups by running the `Get-SmBackup` cmdlet in SnapCenter.
-The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running Get-Help command_name.
+The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running Get-Help command name.
 
 == Deactivate backup
 
-You can delete all the backups from SnapCenter and the object store. 
+You can delete all the backups that are moved to object store from both SnapCenter and the object store. 
 
 .Steps
 
 . Click *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click Deactivate Backup.
 +
-By default the check box is selected and it deletes all the backups associated with the application from both SnapCenter and the object store.
+By default the check box is selected and it deletes all the backups that are moved to object store from both SnapCenter and the object store.
 +
 If you clear the checkbox, the backups are retained only in the object store but these backups cannot be used for application level restore. Later when you activate the backup for this application, the backups retained in object store are not listed for restore.
 . Click *Deactivate Backup*.
@@ -82,7 +82,7 @@ When volumes are added to the database, SnapCenter Server labels the snapshots o
 The new volumes are discovered.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *Refresh Protection* to enable cloud protection for the new volume.
 
-* If a storage volume is removed from the application after configuring the cloud provider, for new backups SnapCenter Server labels the snapshots on which the application is residing. 
+* If a storage volume is added to the application after configuring the cloud provider, SnapCenter Server labels the snapshots for new backups on which the application is residing. 
 * You should manually delete the object store relationship if the removed volume is not used by any other applications.
 * If you update the application inventory, it will contain the current storage layout of the application.
 
@@ -102,6 +102,10 @@ If there is a change to the SnapCenter policy or resource group, you should refr
 . Click *Backup and recovery* > *Applications*.
 . From the *Settings* drop-down, click *SnapCenter Servers*.
 . Click image:icon-action.png[icon to select the action] corresponding to the SnapCenter Server and click *Unregister*.
++
+By default the check box is selected and it deletes all the backups that are moved to object store from both SnapCenter and the object store.
++
+If you clear the checkbox, the backups are retained only in the object store but these backups cannot be used for application level restore. Later when you activate the backup for this application, the backups retained in object store are not listed for restore.
 
 == Monitor Jobs
 
@@ -144,7 +148,7 @@ The CA files should be in .pem format.
 
 === Configure CA signed certificate for BlueXP Connector
 
-You should perform the following steps on the Connector to use the CA certificate as the client certificate when the Connector is connecting with the SnapCenter.
+If 2way SSL is enabled in SnapCenter, you should perform the following steps on the Connector to use the CA certificate as the client certificate when the Connector is connecting with the SnapCenter.
 
 .Before you begin
 
