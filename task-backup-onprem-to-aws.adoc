@@ -89,7 +89,7 @@ Select the working environment and click *Enable > Backup Volumes* next to the B
 == Prepare your ONTAP clusters
 You'll need to prepare your source on-premises ONTAP system and any secondary on-premises ONTAP (or Cloud Volumes ONTAP systems - for the CVO topics).
 
-Preparing your on-premises ONTAP cluster involves the following steps: 
+Preparing your ONTAP clusters involves the following steps: 
 
 * Discover the ONTAP systems in BlueXP
 * Verify ONTAP requirements
@@ -102,7 +102,13 @@ Preparing your on-premises ONTAP cluster involves the following steps:
 
 
 === Discover your ONTAP systems in BlueXP
-Both your source on-premises ONTAP system and any secondary on-premises ONTAP or Cloud Volumes ONTAP systems must be available on the Canvas...
+Both your source on-premises ONTAP system and any secondary on-premises ONTAP or Cloud Volumes ONTAP systems must be available on the BlueXP Canvas.
+
+You'll need to know the cluster management IP address and the password for the admin user account to add the cluster.
+
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Learn how to discover a cluster^].
+
+
 
 === Verify ONTAP system requirements
 (3 current bullets from the INCLUDE, plus 1 new bullet that you have in the replication section that has the link to "ONTAP versions for SnapMirror")
@@ -147,7 +153,7 @@ All intercluster LIFs within the IPspace must have access to the object store. I
 ===  Verify ONTAP networking requirements for creating replicated volumes
 (2 sections you already have for Replication for CVO and on-prem systems)
 
-//This section uses an Include for all providers. It includes "ONTAP version requirements", "Cloud Volumes ONTAP networking requirements", and "On-premises ONTAP networking requirements"
+//This section uses an Include for all providers. It includes "ONTAP version requirements", "Cloud Volumes ONTAP networking requirements", and "On-premises ONTAP networking requirements"  NEED TO FIX INCLUDE TO remove 1st section on ONTAP version requirements. 
 
 include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.adoc[]
 
