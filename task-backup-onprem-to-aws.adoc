@@ -87,13 +87,14 @@ Select the working environment and click *Enable > Backup Volumes* next to the B
 == REWORK ATTEMPT: 
 
 == Prepare your ONTAP clusters
-You'll need to prepare your source on-premises ONTAP system and any secondary on-premises ONTAP (or Cloud Volumes ONTAP systems - for the CVO topics).
+You'll need to prepare your source on-premises ONTAP system and any secondary on-premises ONTAP or Cloud Volumes ONTAP systems.
 
 Preparing your ONTAP clusters involves the following steps: 
 
-* Discover the ONTAP systems in BlueXP
-* Verify ONTAP requirements
-* Verify cluster networking requirements
+* Discover your ONTAP systems in BlueXP
+* Verify ONTAP system requirements
+* Verify ONTAP networking requirements for backing up data to object storage
+* Verify ONTAP networking requirements for replicating volumes
 
 // This section used to use an include along with the 2 subsections of "Discover your ONTAP cluster in BlueXP" and "Verify ONTAP requirements"
 
@@ -105,7 +106,6 @@ Preparing your ONTAP clusters involves the following steps:
 Both your source on-premises ONTAP system and any secondary on-premises ONTAP or Cloud Volumes ONTAP systems must be available on the BlueXP Canvas.
 
 You'll need to know the cluster management IP address and the password for the admin user account to add the cluster.
-
 https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Learn how to discover a cluster^].
 
 
@@ -124,11 +124,11 @@ Ensure that the following ONTAP requirements are met:
 Learn how to https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html[manage your cluster licenses^].
 
 * Time and time zone are set correctly. Learn how to https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html[configure your cluster time^].
-* You should verify that the source and destination volumes are running compatible ONTAP versions before replicating data.
+* If you are going to replicate data, you should verify that the source and destination volumes are running compatible ONTAP versions before replicating data.
 +
 https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html[View compatible ONTAP versions for SnapMirror relationships^].
 
-=== Verify ONTAP networking requirements for creating object backups
+=== Verify ONTAP networking requirements for backing up data to object storage
 (current section with 7 bullets)
 
 The following ONTAP cluster networking requirements are needed: 
@@ -150,10 +150,10 @@ All intercluster LIFs within the IPspace must have access to the object store. I
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Ensure that your ONTAP cluster has permissions to access the S3 bucket].
 
 
-===  Verify ONTAP networking requirements for creating replicated volumes
+===  Verify ONTAP networking requirements for replicating volumes
 (2 sections you already have for Replication for CVO and on-prem systems)
 
-//This section uses an Include for all providers. It includes "ONTAP version requirements", "Cloud Volumes ONTAP networking requirements", and "On-premises ONTAP networking requirements"  NEED TO FIX INCLUDE TO remove 1st section on ONTAP version requirements. 
+//This section uses an Include for all providers. It includes "ONTAP version requirements" (REMOVED for REWORK), "Cloud Volumes ONTAP networking requirements", and "On-premises ONTAP networking requirements"  NEED TO FIX INCLUDE TO remove 1st section on ONTAP version requirements. 
 
 include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.adoc[]
 
