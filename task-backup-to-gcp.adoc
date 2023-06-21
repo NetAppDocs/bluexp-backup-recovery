@@ -213,11 +213,11 @@ image:screenshot_backup_to_gcp.png[Shows the BlueXP backup and recovery option i
 
 . Complete the pages in the wizard to deploy the system as described in https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-gcp.html[Launching Cloud Volumes ONTAP in GCP^].
 
-. When you want to initiate backups, continue with <<Activate backups on your ONTAP volumes>>.
+TIP: To modify backup settings or add replication, refer to link:../task-manage-backups-ontap.html[Manage ONTAP backups].
 
 .Result
 
-BlueXP backup and recovery is enabled on the system and backs up the volume you created every day and retains the most recent 30 backup copies.
+BlueXP backup and recovery is enabled on the system, backs up the volume you created every day, and retains the most recent 30 backup copies.
 
 === Enable BlueXP backup and recovery on an existing system
 
@@ -225,12 +225,13 @@ You can enable BlueXP backup and recovery at any time directly from the working 
 
 .Steps
 
-. Select the working environment and click *Enable* next to the Backup and recovery service in the right-panel.
+. From the BlueXP Canvas, select the working environment and select *Enable* next to the Backup and recovery service in the right-panel.
 +
 If the Google Cloud Storage destination for your backups exists as a working environment on the Canvas, you can drag the cluster onto the Google Cloud Storage working environment to initiate the setup wizard.
 +
 image:screenshot_backup_cvo_enable.png[A screenshot that shows the BlueXP backup and recovery Settings button which is available after you select a working environment.]
 
+TIP: To modify backup settings or add replication, refer to link:../task-manage-backups-ontap.html[Manage ONTAP backups].
 
 == Activate backups on your ONTAP volumes 
 
