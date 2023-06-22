@@ -4,11 +4,6 @@ Before you activate backups in BlueXP backup and recovery, ensure that the sourc
 
 //This section and its subsections are an Include for Back up on-premises ONTAP to AWS, Azure, and GCP. 
 
-//==== ONTAP version requirements 
-
-//You should verify that the source and destination volumes are running compatible ONTAP versions before replicating data.
-
-//https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html[View compatible ONTAP versions for SnapMirror relationships^].
 
 
 ==== Cloud Volumes ONTAP networking requirements

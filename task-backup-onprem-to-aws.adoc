@@ -47,13 +47,13 @@ You'll need to check license requirements for both AWS and BlueXP.
 [role="quick-margin-para"]
 Refer to <<Verify license requirements>>.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Prepare your on-premises ONTAP cluster
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Prepare your ONTAP clusters
 
 [role="quick-margin-para"]
-Discover your ONTAP cluster in BlueXP, verify that the cluster meets minimum requirements, and customize network settings so the cluster can connect to AWS S3.
+Discover your ONTAP clusters in BlueXP, verify that the clusters meet minimum requirements, and customize network settings so the clusters can connect to AWS S3.
 
 [role="quick-margin-para"]
-<<Prepare your on-premises ONTAP cluster,Learn how to get your on-premises ONTAP cluster ready.>>
+<<Prepare your ONTAP clusters,Learn how to get your ONTAP clusters ready.>>
 
 
 
@@ -142,52 +142,25 @@ You can create backups from on-premises systems to Amazon S3 in all regions http
 
 
 == Prepare your ONTAP clusters
-You'll need to prepare your source on-premises ONTAP system and any secondary on-premises ONTAP or Cloud Volumes ONTAP systems.
 
-Preparing your ONTAP clusters involves the following steps: 
+// This section uses an include along with the 2 subsections of "Discover your ONTAP cluster in BlueXP" and "Verify ONTAP requirements"
 
-* Discover your ONTAP systems in BlueXP
-* Verify ONTAP system requirements
-* Verify ONTAP networking requirements for backing up data to object storage
-* Verify ONTAP networking requirements for replicating volumes
-
-// This section used to use an include along with the 2 subsections of "Discover your ONTAP cluster in BlueXP" and "Verify ONTAP requirements"
-
-// include::../_include/backup-onprem-prepare-onprem-ONTAP-cluster.adoc[]
+include::../_include/backup-onprem-prepare-onprem-ONTAP-cluster.adoc[]
 
 
+// === Discover your ONTAP systems in BlueXP
+// FROM INCLUDE
 
-=== Discover your ONTAP systems in BlueXP
-Both your source on-premises ONTAP system and any secondary on-premises ONTAP or Cloud Volumes ONTAP systems must be available on the BlueXP Canvas.
-
-You'll need to know the cluster management IP address and the password for the admin user account to add the cluster.
-https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Learn how to discover a cluster^].
-
+// === Verify ONTAP system requirements
+// FROM INCLUDE
 
 
-=== Verify ONTAP system requirements
-// WAS FROM INCLUDE, but I pulled it out of include
-
-Ensure that the following ONTAP requirements are met: 
-
-* Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
-* A SnapMirror license (included as part of the Premium Bundle or Data Protection Bundle).
-+
-*Note:* The "Hybrid Cloud Bundle" is not required when using BlueXP backup and recovery.
-+
-Learn how to https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html[manage your cluster licenses^].
-
-* Time and time zone are set correctly. Learn how to https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html[configure your cluster time^].
-* If you are going to replicate data, you should verify that the source and destination volumes are running compatible ONTAP versions before replicating data.
-+
-https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html[View compatible ONTAP versions for SnapMirror relationships^].
 
 === Verify ONTAP networking requirements for backing up data to object storage
 
-
 You must configure the following requirements on the system that connects to object storage. 
 
-* When you use a fanout backup architecture, the following settings must be configured on the source system. 
+* When you use a fan-out backup architecture, the following settings must be configured on the source system. 
 * When you use a cascaded backup architecture, the following settings must be configured on the secondary system.
 
 The following ONTAP cluster networking requirements are needed: 
@@ -211,12 +184,9 @@ All intercluster LIFs within the IPspace must have access to the object store. I
 
 ===  Verify ONTAP networking requirements for replicating volumes
 
-//This section uses an Include for all providers. It includes "ONTAP version requirements" (REMOVED for REWORK), "Cloud Volumes ONTAP networking requirements", and "On-premises ONTAP networking requirements"  NEED TO FIX INCLUDE TO remove 1st section on ONTAP version requirements. 
+//This section uses an Include for all providers. It includes "Cloud Volumes ONTAP networking requirements", and "On-premises ONTAP networking requirements"   
 
 include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.adoc[]
-
-
-
 
 
 
