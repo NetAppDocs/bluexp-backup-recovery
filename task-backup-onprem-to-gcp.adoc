@@ -15,7 +15,7 @@ summary: Complete a few steps to get started backing up volume data from your on
 [.lead]
 Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to a secondary storage system and to Google Cloud Storage.
 
-Note that "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
+NOTE: "On-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
 
 == Quick start
 
@@ -186,8 +186,8 @@ include::../_include/backup-onprem-prepare-onprem-ONTAP-cluster.adoc[]
 
 You must configure the following requirements on the system that connects to object storage. 
 
-* When you use a fan-out backup architecture, the following settings must be configured on the source system. 
-* When you use a cascaded backup architecture, the following settings must be configured on the secondary system.
+* For a fan-out backup architecture, configure the following settings on the _source_ system. 
+* For a cascaded backup architecture, configure the following settings on the _secondary_ system.
 
 The following ONTAP cluster networking requirements are needed: 
 
@@ -407,12 +407,10 @@ TIP: If you want to create a custom policy, you can use System Manager or the ON
 Either create a new bucket or select one that you've already created. 
 +
 TIP: If you want to tier older backup files to Google Cloud Archive storage for further cost optimization, ensure that the bucket has the appropriate Lifecycle rule. 
-
 +
 Enter the Google Cloud access key and secret key. 
 
-
-
++
 * *Encryption key*: If you created a new Google Cloud storage account, enter encryption key information given to you from the provider. Choose whether you'll use the default Google Cloud encryption keys, or choose your own customer-managed keys from your Google Cloud account, to manage encryption of your data. 
 + 
 NOTE: If you chose an existing Google Cloud storage account, encryption information is already available, so you don't need to enter it now. 
@@ -423,14 +421,15 @@ If you choose to use your own customer-managed keys, enter the key ring and key 
 //"Also choose whether you'll be using a Private Endpoint. Private Endpoint is disabled by default."" Private Endpoint field is not visible for GCP. 
 +
 The IPspace in the ONTAP cluster where the volumes you want to back up reside. The intercluster LIFs for this IPspace must have outbound internet access.
-
++
 //.. Optionally, choose whether you'll use a Google Cloud private endpoint that you have previously configured. https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview[Learn about using an Azure private endpoint].
 
 
 
-* *Backup policy*: Select an existing backup policy. 
+. *Backup policy*: Select an existing backup policy. 
 +
 TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI. Refer to <link>.
+
 
 . *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "*Export existing Snapshot copies to object storage as backup copies*". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
 
@@ -444,8 +443,6 @@ TIP: If you want to create a custom policy, you can use System Manager or the ON
 //NOTE: If you plan to use DataLock, you must enable it in your first policy when activating BlueXP backup and recovery. You might want to protect your backups from deletion by using _DataLock_.
 
 //.. Optionally, when using ONTAP 9.10.1 and greater, you can choose to tier backups to either S3 Glacier or S3 Glacier Deep Archive storage after a certain number of days for further cost optimization. link:reference-aws-backup-tiers.html[Learn more about using archival tiers^].
-
-
 
 
 === Review your selections 
@@ -475,10 +472,6 @@ You might want to display and optionally copy the API commands used in the Activ
 
 . From the Activate backup and recovery wizard, select *View API request*. 
 . To copy the commands to the clipboard, select the *Copy* icon. 
-
-
-
-
 
 
 

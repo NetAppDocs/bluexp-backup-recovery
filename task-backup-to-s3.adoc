@@ -33,12 +33,8 @@ Get started quickly by following these steps or scroll down to the remaining sec
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your BlueXP Connector
 
 [role="quick-margin-para"]
-If you already have a Connector deployed in an AWS region, then you're all set. If not, then you'll need to install a BlueXP Connector in AWS to back up Cloud Volumes ONTAP data to AWS. 
-
-[role="quick-margin-para"]
-The Connector can be installed in a site with full internet access ("standard mode") or with limited internet connectivity ("restricted mode").
+If you already have a Connector deployed in an AWS region, then you're all set. If not, then you'll need to install a BlueXP Connector in AWS to back up Cloud Volumes ONTAP data to AWS. The Connector can be installed in a site with full internet access ("standard mode") or with limited internet connectivity ("restricted mode").
 // or without internet access ("private mode").
-
 [role="quick-margin-para"]
 <<Prepare your BlueXP Connector>>
 
@@ -131,6 +127,8 @@ The IAM role that provides BlueXP with permissions must include S3 permissions f
 
 Here are the specific permissions from the policy:
 
+[%collapsible]
+====
 [source,json]
 {
             "Sid": "backupPolicy",
@@ -188,6 +186,7 @@ Here are the specific permissions from the policy:
                 "arn:aws:s3:::netapp-backup-*"
             ]
         },
+====
 
 NOTE: When creating backups in AWS China regions, you need to change the AWS Resource Name "arn" under all _Resource_ sections in the IAM policies from "aws" to "aws-cn"; for example `arn:aws-cn:s3:::netapp-backup-*`.
 
@@ -197,7 +196,7 @@ When your Cloud Volumes ONTAP system is running ONTAP 9.12.1 or greater software
 If you created the Cloud Volumes ONTAP working environment using BlueXP version 3.9.23 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. 
 
 Supported AWS regions::
-BlueXP backup and recovery is supported in all AWS regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including AWS GovCloud regions. 
+BlueXP backup and recovery is supported in all AWS regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^], including AWS GovCloud regions. 
 //It is also supported in https://aws.amazon.com/federal/us-intelligence-community/[AWS C2S and SC2S secure regions^].
 
 Required setup for creating backups in a different AWS account::
@@ -232,7 +231,7 @@ include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.a
 
 Enabling BluXP backup and recovery is easy. The steps differ slightly depending on whether you have an existing Cloud Volumes ONTAP system or a new one. 
 
-=== Enable BlueXP backup and recovery on a new system
+*Enable BlueXP backup and recovery on a new system*
 
 BlueXP backup and recovery is enabled by default in the working environment wizard. Be sure to keep the option enabled.
 
@@ -257,7 +256,7 @@ image:screenshot_backup_to_gcp.png[Shows the BlueXP backup and recovery option i
 BlueXP backup and recovery is enabled on the system and backs up volumes every day and retains the most recent 30 backup copies.
 
 
-=== Enable BlueXP backup and recovery on an existing system
+*Enable BlueXP backup and recovery on an existing system*
 
 
 Enable BlueXP backup and recovery at any time directly from the working environment.

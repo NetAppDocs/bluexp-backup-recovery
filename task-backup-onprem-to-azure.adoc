@@ -15,7 +15,7 @@ summary: Complete a few steps to get started backing up volume data from your on
 [.lead]
 Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to a secondary storage system and to Azure Blob storage.
 
-Note that "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
+NOTE: "On-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
 
 == Quick start
 
@@ -158,9 +158,9 @@ You must register the Azure Synapse Analytics Resource Provider (called "Microso
 
 .. Select *Access control (IAM) > Roles*.
 
-.. Select the ellipsis (...) for the custom role and then select *Edit*.
+.. Select the ellipsis (*...*) for the custom role and then select *Edit*.
 
-.. Select JSON and add the following permissions:
+.. Select *JSON* and add the following permissions:
 +
 [%collapsible]
 ====
@@ -247,8 +247,8 @@ include::../_include/backup-onprem-prepare-onprem-ONTAP-cluster.adoc[]
 === Verify ONTAP networking requirements for backing up data to object storage
 You must configure the following requirements on the system that connects to object storage. 
 
-* When you use a fan-out backup architecture, the following settings must be configured on the source system. 
-* When you use a cascaded backup architecture, the following settings must be configured on the secondary system.
+* For a fan-out backup architecture, configure the following settings on the _source_ system. 
+* For a cascaded backup architecture, configure the following settings on the _secondary_ system.
 
 The following ONTAP cluster networking requirements are needed: 
 

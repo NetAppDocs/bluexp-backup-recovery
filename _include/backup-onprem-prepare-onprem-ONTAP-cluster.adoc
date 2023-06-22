@@ -20,7 +20,7 @@ https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Le
 
 
 
-=== Verify ONTAP requirements
+=== Verify ONTAP system requirements
 Ensure that the following ONTAP requirements are met: 
 
 * Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
