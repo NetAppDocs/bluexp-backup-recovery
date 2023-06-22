@@ -16,6 +16,22 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
+== 3 July 2023
+
+=== BlueXP backup and recovery now includes the ability to create replicated volumes
+
+BlueXP backup and recovery now enables you to implement a 3-2-1 strategy where you have 3 additional copies of your source data on 2 different storage systems along with 1 copy in the cloud. After activation, you'll have a:
+
+* Snapshot copy of the volume on the source system
+* Replicated volume on a different storage system
+* Backup of the volume in object storage
+
+See XXX section for details...
+
+=== fff
+
+fff
+
 == 5 June 2023
 
 === FlexGroup volumes can be backed up and protected using DataLock and Ransomware protection
@@ -63,6 +79,7 @@ Note that the IAM policies assigned to the BlueXP Connector need to change the A
 === Enhancements to the Job Monitor
 
 System-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for on-premises ONTAP systems running ONTAP 9.13.1 or greater. Earlier ONTAP versions will display only user-initiated jobs.
+// end::whats-new[]
 
 == 14 April 2023
 
