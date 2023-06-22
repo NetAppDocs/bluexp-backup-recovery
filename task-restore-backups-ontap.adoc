@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: task-restore-backups-ontap.html
-keywords: restoring, restore, restore volumes, restore files, restore folders, cloud backup, file restore, single file restore, folder restore, volume restore, browse and restore, search and restore, ONTAP
-summary: Backups are stored in an object store in your cloud account so that you can restore data from a specific point in time. You can restore an entire ONTAP volume from a backup file, or if you only need to restore a few files, you can restore a folder or individual files from a backup file.
+keywords: restoring, restore, restore volumes, restore files, restore folders, cloud backup, file restore, single file restore, folder restore, volume restore, browse and restore, search and restore, restore snapshot, restore replication, restore backup, ONTAP
+summary: Backups of your ONTAP volume data are available from the locations where you created backups, in Snapshot copies, replicated volumes, and/or backups stored in object storage. You can restore data from a specific point in time from any of these backup locations. You can restore an entire ONTAP volume from a backup file, or if you only need to restore a few files, you can restore a folder or individual files.
 ---
 
-= Restoring ONTAP data from backup files
+= Restore ONTAP data from backup files
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Backups are stored in an object store in your cloud account so that you
 :imagesdir: ./media/
 
 [.lead]
-Backups are stored in an object store in your cloud account so that you can restore data from a specific point in time. You can restore an entire ONTAP volume from a backup file, or if you only need to restore a few files, you can restore a folder or individual files from a backup file.
+Backups of your ONTAP volume data are available from the locations where you created backups: Snapshot copies, replicated volumes, and backups stored in object storage. You can restore data from a specific point in time from any of these backup locations. You can restore an entire ONTAP volume from a backup file, or if you only need to restore a few files, you can restore a folder or individual files.
 
 You can restore a *volume* (as a new volume) to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system.
 
@@ -22,6 +22,12 @@ You can restore a *folder* to a volume in the original working environment, to a
 You can restore *files* to a volume in the original working environment, to a volume in a different working environment that's using the same cloud account, or to a volume on an on-premises ONTAP system.
 
 A valid BlueXP backup and recovery license is required to restore data from backup files to a production system.
+
+To summarize, these are the valid flows you can use to restore volume data to an ONTAP working environment:
+
+* Backup file -> restored volume
+* Replicated volume -> restored volume
+* Snapshot copy -> restored volume
 
 == The Restore Dashboard
 
@@ -37,7 +43,7 @@ As you can see, the Restore Dashboard provides 2 different ways to restore data 
 
 In broad terms, _Browse & Restore_ is typically better when you need to restore a specific volume, folder, or file from the last week or month -- and you know the name and location of the file, and the date when it was last in good shape. _Search & Restore_ is typically better when you need to restore a volume, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
 
-This table provides a comparison of the 2 methods.
+This table provides a feature comparison of the 2 methods.
 
 [cols=2*,options="header",cols="50,50"]
 |===
@@ -47,12 +53,12 @@ This table provides a comparison of the 2 methods.
 
 | Browse through a folder-style structure to find the volume, folder, or file within a single backup file | Search for a volume, folder, or file across *all backup files* by partial or full volume name, partial or full folder/file name, size range, and additional search filters
 | Does not handle file recovery if the file has been deleted or renamed, and the user doesn't know the original file name | Handles newly created/deleted/renamed directories and newly created/deleted/renamed files
-| No additional cloud provider resources required | Additional bucket and public cloud provider resources required per account
-| No additional cloud provider costs required | Cost associated with public cloud provider resources when scanning your backups and volumes for search results
+| No additional cloud provider resources required | When restoring from the cloud, additional bucket and public cloud provider resources required per account
+| No additional cloud provider costs required | When restoring from the cloud, additional costs are required when scanning your backups and volumes for search results
 
 |===
 
-Another table with functionality 
+This table provides a list of valid restore operations based on the location where your back up files reside. 
 
 [cols=7*,options="header",cols="14h,14,14,14,14,14,14",width="100%"]
 |===
@@ -83,11 +89,11 @@ See the requirements and restore steps for the type of restore operation you wan
 //
 // image:screenshot_restore_services_actions.png[A screenshot showing how to select volume and file restore operations from the Services panel.]
 
-== Restoring ONTAP data using Browse & Restore
+== Restore ONTAP data using Browse & Restore
 
-Before you start restoring a volume, folder, or file, you should know the name of the volume from which you want to restore, the name of the working environment and SVM where the volume resides, and the approximate date of the backup file that you want to restore from.
+Before you start restoring a volume, folder, or file, you should know the name of the volume from which you want to restore, the name of the working environment and SVM where the volume resides, and the approximate date of the backup file that you want to restore from. You can restore ONTAP data from a Snapshot copy, a replicated volume, or from backups stored in object storage.
 
-*Note:* If the backup file containing the data that you want to restore resides in archival storage (starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur a cost. Additionally, the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, 9.12.1 for Google Archive and StorageGRID, and 9.13.1 for folder restore.
+*Note:* If the backup file containing the data that you want to restore resides in archival cloud storage (starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur a cost. Additionally, the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, 9.12.1 for Google Archive and StorageGRID, and 9.13.1 for folder restore.
 
 ifdef::aws[]
 link:reference-aws-backup-tiers.html[Learn more about restoring from AWS archival storage].
@@ -103,28 +109,65 @@ NOTE: The High priority isn't supported when restoring data from Azure archival 
 
 === Browse & Restore supported working environments and object storage providers
 
-You can restore a volume, folder, or individual files, from an ONTAP backup file to the following working environments:
+You can restore ONTAP data from a backup file that resides in a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
 
-[cols=2*,options="header",cols="35,50",width="70%"]
+*Note:* You can restore a volume from any backup file, but you can restore a folder or individual files only from a backup file in object storage at this time.
+
+[cols=3*,options="header",cols="33,33,33",width="90%"]
 |===
 
-| Backup File Location |
-Destination Working Environment
+2+^| Backup File Location
+| Destination Working Environment
+
+| *Object Store (Backup)* | *Secondary System (Replication)* |
 ifdef::aws[]
 | Amazon S3 | Cloud Volumes ONTAP in AWS
+On-premises ONTAP system
+| Cloud Volumes ONTAP in AWS
 On-premises ONTAP system
 endif::aws[]
 ifdef::azure[]
 | Azure Blob | Cloud Volumes ONTAP in Azure
 On-premises ONTAP system
+| Cloud Volumes ONTAP in Azure
+On-premises ONTAP system
 endif::azure[]
 ifdef::gcp[]
 | Google Cloud Storage | Cloud Volumes ONTAP in Google
 On-premises ONTAP system
+| Cloud Volumes ONTAP in Google
+On-premises ONTAP system
 endif::gcp[]
 | NetApp StorageGRID | On-premises ONTAP system
+Cloud Volumes ONTAP
+| On-premises ONTAP system
+// | ONTAP S3 | On-premises ONTAP system
+//Cloud Volumes ONTAP
+// | On-premises ONTAP system
 
 |===
+
+//
+//[cols=2*,options="header",cols="35,50",width="70%"]
+//|===
+//
+//| Backup File Location |
+//Destination Working Environment
+//ifdef::aws[]
+//| Amazon S3 | Cloud Volumes ONTAP in AWS
+//On-premises ONTAP system
+//endif::aws[]
+//ifdef::azure[]
+//| Azure Blob | Cloud Volumes ONTAP in Azure
+//On-premises ONTAP system
+//endif::azure[]
+//ifdef::gcp[]
+//| Google Cloud Storage | Cloud Volumes ONTAP in Google
+//On-premises ONTAP system
+//endif::gcp[]
+//| NetApp StorageGRID | On-premises ONTAP system
+//
+//|===
 
 For Browse & Restore, the Connector can be installed in the following locations:
 
@@ -138,14 +181,17 @@ ifdef::gcp[]
 * For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC
 endif::gcp[]
 * For StorageGRID, the Connector must be deployed in your premises; with or without internet access
+//* For ONTAP S3, the Connector must be deployed in your premises; with or without internet access
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
 NOTE: If the ONTAP version on your system is less than 9.13.1, then you can't restore folders or files if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the files you need.
 
-=== Restoring volumes using Browse & Restore
+=== Restore volumes using Browse & Restore
 
-When you restore a volume from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. You can restore the data to a volume in the original working environment or to a different working environment that's located in the same cloud account as the source working environment. You can also restore volumes to an on-premises ONTAP system.
+When you restore a volume from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. When using a cloud backup, you can restore the data to a volume in the original working environment or to a different working environment that's located in the same cloud account as the source working environment. You can also restore volumes to an on-premises ONTAP system.
+
+When restoring from a replicated volume, you can restore the volume to the original working environment or to a Cloud Volumes ONTAP or on-premises ONTAP system.
 
 image:diagram_browse_restore_volume.png["A diagram that shows the flow to perform a volume restore operation using Browse & Restore."]
 
@@ -214,7 +260,7 @@ BlueXP backup and recovery creates a new volume based on the backup you selected
 
 Note that restoring a volume from a backup file that resides in archival storage can take many minutes or hours depending on the archive tier and the restore priority. You can click the *Job Monitoring* tab to see the restore progress.
 
-=== Restoring folders and files using Browse & Restore
+=== Restore folders and files using Browse & Restore
 
 If you only need to restore a few files from an ONTAP volume backup, you can choose to restore a folder or individual files instead of restoring the entire volume. You can restore folders and files to an existing volume in the original working environment, or to a different working environment that's using the same cloud account. You can also restore folders and files to a volume on an on-premises ONTAP system.
 
@@ -253,7 +299,7 @@ image:diagram_browse_restore_file.png["A diagram that shows the flow to perform 
 
 As you can see, you need to know the working environment name, volume name, backup file date, and folder/file name to perform a folder or file restore.
 
-==== Restoring folders and files
+==== Restore folders and files
 
 Follow these steps to restore folders or files to a volume from an ONTAP volume backup. You should know the name of the volume and the date of the backup file that you want to use to restore the folder or file(s). This functionality uses Live Browsing so that you can view the list of directories and files within each backup file.
 
@@ -481,7 +527,7 @@ image:diagram_search_restore_vol_file.png["A diagram that shows the flow to perf
 
 As you can see, you really only need to know a partial name and BlueXP backup and recovery searches through all backup files that match your search.
 
-=== Enabling the Indexed Catalog for each working environment
+=== Enable the Indexed Catalog for each working environment
 
 Before you can use Search & Restore, you need to enable "Indexing" on each source working environment from which you're planning to restore volumes or files. This allows the Indexed Catalog to track every volume and every backup file - making your searches very quick and efficient.
 
@@ -511,7 +557,7 @@ image:screenshot_restore_enable_indexing.png[A screenshot showing the working en
 
 Depending on the size of the volumes in the working environment, and the number of backup files in the cloud, the initial indexing process could take up to an hour. After that it is transparently updated hourly with incremental changes to stay current.
 
-=== Restoring volumes, folders, and files using Search & Restore
+=== Restore volumes, folders, and files using Search & Restore
 
 After you have <<Enabling the Indexed Catalog for each working environment,enabled Indexing for your working environment>>, you can restore volumes, folders, and files using Search & Restore. This allows you to use a broad range of filters to find the exact file or volume that you want to restore from all backup files.
 

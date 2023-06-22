@@ -45,14 +45,15 @@ Snapshots are the basis of all the backup methods, and they are required to use 
 
 image:diagram-321-overview.png["A diagram showing how backup files exist on the source system as Snapshot copies, as replicated volumes on the secondary storage system, and as a backup files in object storage."]
 
-You can choose to create both replicated volumes on another ONTAP storage system and backup files in the cloud. Or you can choose just to create replicated volumes or backup files - it's your choice. The service also enables you to select two replication destinations if you want to protect your data in an additional location (both with and without creating backup files).
+You can choose to create both replicated volumes on another ONTAP storage system and backup files in the cloud. Or you can choose just to create replicated volumes or backup files - it's your choice. 
+//The service also enables you to select two replication destinations if you want to protect your data in an additional location (both with and without creating backup files).
 
 To summarize, these are the valid protection flows you can create for a volume, or all volumes, in your ONTAP working environment:
 
 * Source volume -> Snapshot copy -> Replicated volume -> Backup file
 * Source volume -> Snapshot copy -> Backup file
 * Source volume -> Snapshot copy -> Replicated volume
-* Source volume -> Snapshot copy -> Replicated volume -> Replicated volume
+//* Source volume -> Snapshot copy -> Replicated volume -> Replicated volume
 
 NOTE: The initial creation of a replicated volume or backup file includes a full copy of the source data - this is called a baseline transfer. Subsequent transfers contain only differential copies of the source data (the Snapshot).
 
