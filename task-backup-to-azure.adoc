@@ -48,13 +48,13 @@ You'll need to check license requirements for both Azure and BlueXP.
 [role="quick-margin-para"]
 Refer to <<Verify license requirements>>.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Prepare source and destination systems for replication
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Verify ONTAP networking requirements for replicating volumes
 
 [role="quick-margin-para"]
 Ensure that the source and destination systems meet ONTAP version and networking requirements. 
 
 [role="quick-margin-para"]
-<<Prepare source and destination systems for replication>>.
+<<Verify ONTAP networking requirements for replicating volumes>>.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Enable BlueXP backup and recovery 
 
@@ -87,6 +87,15 @@ image:diagram_cloud_backup_cvo_azure.png[A diagram showing how BlueXP backup and
 
 Supported ONTAP versions::
 Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
+
+Supported Azure regions::
+BlueXP backup and recovery is supported in all Azure regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including Azure Government regions. 
+//It is also supported in https://learn.microsoft.com/en-us/azure/compliance/offerings/offering-dod-il6[Azure IL6 secure regions^].
++
+By default, BlueXP backup and recovery provisions the Blob container with Local redundancy (LRS) for cost optimization. You can change this setting to Zone redundancy (ZRS) after BlueXP backup and recovery has been activated if you want to make sure your data is replicated between different zones. See the Microsoft instructions for https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal[changing how your storage account is replicated^].
+
+Required setup for creating backups in a different Azure subscription::
+By default, backups are created using the same subscription as the one used for your Cloud Volumes ONTAP system. If you want to use a different Azure subscription for your backups, you must link:reference-backup-multi-account-azure.html[log in to the Azure portal and link the two subscriptions].
 
 == Verify license requirements
 
@@ -193,14 +202,7 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.htm
 
 .. Click *Review + update* and then click *Update*.
 
-Supported Azure regions::
-BlueXP backup and recovery is supported in all Azure regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including Azure Government regions. 
-//It is also supported in https://learn.microsoft.com/en-us/azure/compliance/offerings/offering-dod-il6[Azure IL6 secure regions^].
-+
-By default, BlueXP backup and recovery provisions the Blob container with Local redundancy (LRS) for cost optimization. You can change this setting to Zone redundancy (ZRS) after BlueXP backup and recovery has been activated if you want to make sure your data is replicated between different zones. See the Microsoft instructions for https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal[changing how your storage account is replicated^].
 
-Required setup for creating backups in a different Azure subscription::
-By default, backups are created using the same subscription as the one used for your Cloud Volumes ONTAP system. If you want to use a different Azure subscription for your backups, you must link:reference-backup-multi-account-azure.html[log in to the Azure portal and link the two subscriptions].
 
 === Required information for using customer-managed keys for data encryption
 You can use your own customer-managed keys for data encryption in the activation wizard instead of using the default Microsoft-managed encryption keys. In this case you will need to have the Azure Subscription, Key Vault name, and the Key. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview[See how to use your own keys^].
@@ -217,7 +219,7 @@ include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.a
 
 
 //The following statement applies only to backup from CVO topics: 
-To replicate data between two Cloud Volumes ONTAP systems in different subnets, the subnets must be routed together (this is the default setting).
+* To replicate data between two Cloud Volumes ONTAP systems in different subnets, the subnets must be routed together (this is the default setting).
 
 == Enable BlueXP backup and recovery on Cloud Volumes ONTAP
 

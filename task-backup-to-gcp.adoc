@@ -177,7 +177,7 @@ include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.a
 
 
 //The following statement applies only to backup from CVO topics: 
-To replicate data between two Cloud Volumes ONTAP systems in different subnets, the subnets must be routed together (this is the default setting).
+* To replicate data between two Cloud Volumes ONTAP systems in different subnets, the subnets must be routed together (this is the default setting).
 
 
 == Enable BlueXP backup and recovery on Cloud Volumes ONTAP

@@ -77,7 +77,6 @@ Follow the setup wizard to select the replication and backup policies that you'l
 <<Activate backups on your ONTAP volumes>>.
 
 
-OLD STUFF:
 
 
 == Verify support for your configuration
@@ -129,9 +128,9 @@ The Connector must be installed in an AWS region with full or limited internet a
 === Verify or add permissions to the Connector
 
 The IAM role that provides BlueXP with permissions must include S3 permissions from the latest https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[BlueXP policy^]. If the policy does not contain all of these permissions, see the https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html[AWS Documentation: Editing IAM policies].
-+
+
 Here are the specific permissions from the policy:
-+
+
 [source,json]
 {
             "Sid": "backupPolicy",
@@ -226,7 +225,7 @@ include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.a
 
 
 //The following statement applies only to backup from CVO topics: 
-To replicate data between two Cloud Volumes ONTAP systems in different subnets, the subnets must be routed together (this is the default setting).
+* To replicate data between two Cloud Volumes ONTAP systems in different subnets, the subnets must be routed together (this is the default setting).
 
 
 == Enable BlueXP backup and recovery on Cloud Volumes ONTAP
