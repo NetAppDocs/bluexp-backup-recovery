@@ -90,10 +90,10 @@ After updating the Connector details for Oracle or SAP HANA hosts, perform the f
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/getVersion --cert/config/client/certificate/certificate.pem --key/config/client/certificate/key.pem`
 .. Obtain the base mount path.
 `sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
-.. Copy certificate.p12 from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
+.. Copy certificate.pem from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
 . Log in to the plug-in host and perform the following steps:
 .. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.p12 file.
-`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
+`keytool -import -alias agentcert -file certificate.pem  -keystore keystore.jks -deststorepass snapcenter -noprompt`
 .. Restart SPL: `systemctl restart spl`
 .. Perform one of the following:
 +
@@ -149,13 +149,13 @@ The file name should be certificate.pem and key.pem. The certificate.pem should 
 .. Create the PKCS12 format of the certificate with the name certificate.p12 and keep at _<base_mount_path>/client/certificate_.
 +
 Example: openssl pkcs12 -inkey key.pem -in certificate.pem -export -out certificate.p12
-.. Copy the certificate.p12 and certificates for all the intermediate CA and root CA to the plug-in host at _/var/opt/snapcenter/spl/etc/_.
+.. Copy the certificate.pem and certificates for all the intermediate CA and root CA to the plug-in host at _/var/opt/snapcenter/spl/etc/_.
 +
 NOTE: The format of the Intermediate CA and root CA certificate should be in .crt format.
 . Perform the following steps on the plug-in host to validate the certificate sent by the Connector.
 .. Log in to the plug-in host.
 .. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.p12 file.
-`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
+`keytool -import -alias agentcert -file certificate.pem  -keystore keystore.jks -deststorepass snapcenter -noprompt`
 .. Import the root CA and intermediate certificates.
 `keytool -import -trustcacerts -keystore keystore.jks -storepass snapcenter -alias trustedca -file <certificate.crt>`
 +
