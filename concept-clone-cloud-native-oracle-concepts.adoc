@@ -46,6 +46,7 @@ If you are cloning to an alternate host, then make sure that an iSCSI session is
 * Cloning of databases residing on Azure NetApp Files is not supported.
 * Cloning of databases residing on Qtree is not supported.
 * Backing up a cloned database is not supported.
+* If daily automatic backups are enabled on Amazon FSx for NetApp ONTAP, the clones cannot be deleted from BlueXP UI. You should delete the clone from the FSx UI and then try deleting the clone from BlueXP UI using force option.
 
 == Clone methods
 

@@ -65,7 +65,10 @@ Ensure that the SSH connection to the Connector is enabled.
 
 . Log into Connector VM.
 . Install the plug-in using the script provided in the Connector.
-`sudo bash  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
+`sudo bash /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> 2>&1 | tee <filename>`
++
+If you are using an older Connector, run the following command to install the plug-in.
+`sudo /var/lib/docker/volumes/cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> 2>&1 | tee <filename>`
 +
 |===
 |Name | Description | Mandatory | Default 
@@ -111,7 +114,7 @@ No
 a|
 22
 |===
-For example, `sudo bash /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
+For example, `sudo bash /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk 2>&1 | tee SCSPluginInstallLog
 
 After installing the plug-in, you should <<Add SAP HANA database hosts>>.
 
@@ -153,7 +156,11 @@ You should upgrade the SnapCenter Plug-in for SAP HANA database to gain access t
 
 . Log in to Connector VM.
 . Run the following script.
-`/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade`
+`/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade 2>&1 | tee <filename>`
++
++
+If you are using an older Connector, run the following command to upgrade the plug-in.
+`/var/lib/docker/volumes/cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade 2>&1 | tee <filename>`
 
 == Add SAP HANA database hosts
 

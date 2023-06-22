@@ -61,13 +61,13 @@ SC_PRIMARY_DATA_VOLUME_FULL_PATH
 a|
 Specifies the data volume paths concatenated using "," as delimiter.
 For Azure NetApp Files volumes, the information is concatenated using "/"
-_/{anfaccount}/{subscription_id}/{resource_group}/{capacity_pool}/{volumename}_
+_ /subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/{provider}/netAppAccounts/{anfaccount}/capacityPools/{capacity_pool}/volumes/{volumename}_
 a|
 SC_PRIMARY_ARCHIVELOGS_VOLUME_FULL_PATH
 a|
 Specifies the archive log volume paths concatenated using "," as delimiter.
 For Azure NetApp Files volumes, the information in concatenated using "/"
-_/{anfaccount}/{subscription_id}/{resource_group}/{capacity_pool}/{volumename}_
+_ /subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/{provider}/netAppAccounts/{anfaccount}/capacityPools/{capacity_pool}/volumes/{volumename}_
 |===
 
 . Click *Create*.

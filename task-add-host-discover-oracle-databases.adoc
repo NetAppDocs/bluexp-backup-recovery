@@ -120,6 +120,9 @@ Default port is 8145.
 . Log into the Connector VM.
 . Install the plug-in using the script provided in the Connector.
 `sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> 2>&1 | tee <filename>`
++
+If you are using an older Connector, run the following command to install the plug-in.
+`sudo /var/lib/docker/volumes/cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> 2>&1 | tee <filename>`
 
 +
 |===
@@ -275,4 +278,7 @@ a|
 . Log in to Connector VM.
 . Run the following script.
 `sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade 2>&1 \| tee <filename>`
++
+If you are using an older Connector, run the following command to upgrade the plug-in.
+`sudo /var/lib/docker/volumes/cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade 2>&1 \| tee <filename>`
 |===

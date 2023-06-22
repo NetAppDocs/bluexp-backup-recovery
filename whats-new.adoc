@@ -16,6 +16,29 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
+
+== 03 July 2023
+
+=== Enhancements to BlueXP backup and recovery for applications (cloud-native)
+
+* SAP HANA databases
+** Supports connect and copy restore of Non-Data Volumes and Global Non-Data  volumes having ANF secondary protection
+The Quality of Service (QoS) values for connect and copy restore operation are picked up from the source volumes of Non-Data Volumes or Global Non-Data Volumes
+* Oracle databases
+** Supports restore to alternate location
+** Supports Oracle Recovery Manager (RMAN) cataloging
+** Allows you to put the database host to maintenance mode to perform maintenance tasks
+* Virtual Machines
+** Supports protection of NFS and VMFS type of datastores
+** Allows you to unregister the SnapCenter Plug-in for VMware vSphere host
+** Supports refresh and discovery of latest datastores and backups
+
+=== Enhancements to BlueXP backup and recovery for applications (hybrid)
+
+* Supports restore to alternate location
+* Allows you to mount Oracle database backups
+* Supports moving backups from GCP to archival tier
+
 == 8 May 2023
 
 === Folder-level restore operations are now supported from archival storage and from locked backups
