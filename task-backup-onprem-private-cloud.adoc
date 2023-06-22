@@ -15,7 +15,7 @@ summary: Complete a few steps to get started backing up volume data from your on
 [.lead]
 Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to a secondary storage system and to object storage in your NetApp StorageGRID systems.
 
-Note that "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
+NOTE: "On-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
 
 
 == Quick start

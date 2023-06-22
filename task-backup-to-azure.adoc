@@ -31,10 +31,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your BlueXP Connector
 
 [role="quick-margin-para"]
-If you already have a Connector deployed in an Azure region, then you're all set. If not, then you'll need to install a BlueXP Connector in Azure to back up Cloud Volumes ONTAP data to Azure Blob storage. 
-
-[role="quick-margin-para"]
-The Connector can be installed in a site with full internet access ("standard mode") or with limited internet connectivity ("restricted mode").
+If you already have a Connector deployed in an Azure region, then you're all set. If not, then you'll need to install a BlueXP Connector in Azure to back up Cloud Volumes ONTAP data to Azure Blob storage. The Connector can be installed in a site with full internet access ("standard mode") or with limited internet connectivity ("restricted mode").
 // or without internet access ("private mode").
 
 [role="quick-margin-para"]
@@ -135,13 +132,13 @@ To use the BlueXP backup and recovery Search & Restore functionality, you need t
 
 . Identify the role assigned to the Connector virtual machine:
 
-.. In the Azure portal, open the Virtual machines service.
+.. In the Azure portal, open the virtual machines service.
 
 .. Select the Connector virtual machine.
 
 .. Under Settings, select *Identity*.
 
-.. Click *Azure role assignments*.
+.. Select *Azure role assignments*.
 
 .. Make note of the custom role assigned to the Connector virtual machine.
 
@@ -149,12 +146,14 @@ To use the BlueXP backup and recovery Search & Restore functionality, you need t
 
 .. In the Azure portal, open your Azure subscription.
 
-.. Click *Access control (IAM) > Roles*.
+.. Select *Access control (IAM) > Roles*.
 
-.. Click the ellipsis (...) for the custom role and then click *Edit*.
+.. Select the ellipsis (*...*) for the custom role and then select *Edit*.
 
-.. Click JSON and add the following permissions:
+.. Select *JSON* and add the following permissions:
 +
+[%collapsible]
+====
 [source,json]
 "Microsoft.Compute/virtualMachines/read",
 "Microsoft.Compute/virtualMachines/start/action",
@@ -197,6 +196,7 @@ To use the BlueXP backup and recovery Search & Restore functionality, you need t
 "Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action",
 "Microsoft.Synapse/workspaces/operationResults/read",
 "Microsoft.Synapse/workspaces/privateEndpointConnectionsApproval/action"
+====
 +
 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html[View the full JSON format for the policy^]
 
@@ -207,7 +207,7 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.htm
 === Required information for using customer-managed keys for data encryption
 You can use your own customer-managed keys for data encryption in the activation wizard instead of using the default Microsoft-managed encryption keys. In this case you will need to have the Azure Subscription, Key Vault name, and the Key. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview[See how to use your own keys^].
 
-Note that Backup and recovery supports _Azure access policies_ as the permission model. The _Azure role-based access control_ (Azure RBAC) permission model is not currently supported.
+BlueXP backup and recovery supports _Azure access policies_ as the permission model. The _Azure role-based access control_ (Azure RBAC) permission model is not currently supported.
 
 
 
@@ -225,7 +225,7 @@ include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.a
 
 Enabling BluXP backup and recovery is easy. The steps differ slightly depending on whether you have an existing Cloud Volumes ONTAP system or a new one. 
 
-=== Enable BlueXP backup and recovery on a new system
+*Enable BlueXP backup and recovery on a new system*
 
 BlueXP backup and recovery is enabled by default in the working environment wizard. Be sure to keep the option enabled.
 
@@ -253,7 +253,7 @@ image:screenshot_backup_to_gcp.png[Shows the BlueXP backup and recovery option i
 
 BlueXP backup and recovery is enabled on the system and backs up volumes every day and retains the most recent 30 backup copies.
 
-=== Enable BlueXP backup and recovery on an existing system
+*Enable BlueXP backup and recovery on an existing system*
 
 Enable BlueXP backup and recovery at any time directly from the working environment.
 
