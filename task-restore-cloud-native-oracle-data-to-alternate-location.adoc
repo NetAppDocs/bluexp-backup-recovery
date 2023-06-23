@@ -25,16 +25,16 @@ In the event of data loss, you can restore the Oracle database to alternate loca
 
 .About this task
 
-While initiating the restore operation, you are not allowed to modify the configurations except the Oracle home, maximum volume throughput, and database credentials. 
+While initiating the restore operation, you are not allowed to modify the configurations except the Oracle home, maximum volume throughput, Oracle SID, and database credentials. 
 
 Full recovery is enabled by default with _Until cancel_ set to true.
 
-Same database cannot be restored to the same alternate host more than once. The database restored to the alternate location should be deleted before restoring the same source database to the same alternate host.
+Same database cannot be restored to the same alternate host more than once. The database restored to the alternate location and the mounted files should be deleted before restoring the same source database to the same alternate host.
 
 .Steps
 
 . Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *Restore*.
 . Select the restore point to which the database should be restored and click *Restore to alternate location* > *Next*.
-. In the Configuration page, specify the details of the alternate location, SID, Oracle_Home, and storage throughput.
+. In the Configuration page, specify the details of the alternate location, SID, Oracle_Home, database credentials, and storage throughput.
 . Click *Next*, review the details and click *Restore*.
 
