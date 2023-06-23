@@ -15,7 +15,7 @@ summary: Complete a few steps to get started backing up volume data from your on
 [.lead]
 Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to a secondary storage system and to Amazon S3 cloud storage.
 
-Note that "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
+NOTE: "On-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
 
 
 
@@ -143,7 +143,7 @@ You can create backups from on-premises systems to Amazon S3 in all regions http
 
 == Prepare your ONTAP clusters
 
-// This section uses an include along with the 2 subsections of "Discover your ONTAP cluster in BlueXP" and "Verify ONTAP requirements"
+// This section uses an include along with the 2 subsections of "Discover your ONTAP cluster in BlueXP" and "Verify ONTAP system requirements"
 
 include::../_include/backup-onprem-prepare-onprem-ONTAP-cluster.adoc[]
 
@@ -160,8 +160,8 @@ include::../_include/backup-onprem-prepare-onprem-ONTAP-cluster.adoc[]
 
 You must configure the following requirements on the system that connects to object storage. 
 
-* When you use a fan-out backup architecture, the following settings must be configured on the source system. 
-* When you use a cascaded backup architecture, the following settings must be configured on the secondary system.
+* For a fan-out backup architecture, configure the following settings on the _source_ system. 
+* For a cascaded backup architecture, configure the following settings on the _secondary_ system.
 
 The following ONTAP cluster networking requirements are needed: 
 

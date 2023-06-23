@@ -32,10 +32,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your BlueXP Connector
 
 [role="quick-margin-para"]
-If you already have a Connector deployed in a GCP region, then you're all set. If not, then you'll need to install a BlueXP Connector in GCP to back up Cloud Volumes ONTAP data to Google Cloud Storage. 
-
-[role="quick-margin-para"]
-The Connector can be installed in a site with full internet access ("standard mode") or with limited internet connectivity ("restricted mode").
+If you already have a Connector deployed in a GCP region, then you're all set. If not, then you'll need to install a BlueXP Connector in GCP to back up Cloud Volumes ONTAP data to Google Cloud Storage. The Connector can be installed in a site with full internet access ("standard mode") or with limited internet connectivity ("restricted mode").
 // or without internet access ("private mode").
 
 [role="quick-margin-para"]
@@ -161,11 +158,11 @@ cloudkms.keyRings.setIamPolicy
 
 * You'll need to verify that the Google "Cloud Key Management Service (KMS)" API is enabled in your project. See the https://cloud.google.com/apis/docs/getting-started#enabling_apis[Google Cloud documentation: Enabling APIs] for details.
 
-* *CMEK considerations:*
+*CMEK considerations:*
 
-** Both HSM (Hardware-backed) and Software-generated keys are supported.
+** Both HSM (hardware-backed) and software-generated keys are supported.
 ** Both newly created or imported Cloud KMS keys are supported.
-** Only regional keys are supported, global keys are not supported.
+** Only regional keys are supported; global keys are not supported.
 ** Currently, only the "Symmetric encrypt/decrypt" purpose is supported.
 ** The service agent associated with the Storage Account is assigned the "CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter)" IAM role by BlueXP backup and recovery. 
 
@@ -184,7 +181,7 @@ include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.a
 
 Enabling BluXP backup and recovery is easy. The steps differ slightly depending on whether you have an existing Cloud Volumes ONTAP system or a new one. 
 
-=== Enable BlueXP backup and recovery on a new system
+*Enable BlueXP backup and recovery on a new system*
 
 BlueXP backup and recovery can be enabled when you complete the working environment wizard to create a new Cloud Volumes ONTAP system.
 
@@ -224,7 +221,7 @@ TIP: To modify backup settings or add replication, refer to link:../task-manage-
 
 BlueXP backup and recovery is enabled on the system, backs up the volume you created every day, and retains the most recent 30 backup copies.
 
-=== Enable BlueXP backup and recovery on an existing system
+*Enable BlueXP backup and recovery on an existing system*
 
 You can enable BlueXP backup and recovery at any time directly from the working environment.
 
