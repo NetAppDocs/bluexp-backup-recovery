@@ -359,7 +359,8 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 * *Cascading*: Information flows from the source to the secondary, and from secondary to object storage. 
 * *Fan out*: Information flows from the source to the secondary _and_ from the source to object storage. 
 + 
-For details, refer to ZZZ link. 
+For details about these architectures, refer to link:concept-protection-journey.html[Plan your protection journey]. 
+ 
 
 . *Local Snapshot*: Choose an existing Snapshot policy. 
 +
@@ -403,7 +404,7 @@ NOTE: If you chose an existing bucket, encryption information is already availab
 TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI `snapmirror policy create` command. Refer to https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[ONTAP CLI for `snapmirror policy`^].
 
 
-. *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "*Export existing Snapshot copies to object storage as backup copies*". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
+* *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Select *Next*. 
 

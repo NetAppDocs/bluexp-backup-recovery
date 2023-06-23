@@ -388,7 +388,8 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 * *Cascading*: Information flows from the source to the secondary and from the secondary to object storage. 
 * *Fan out*: Information flows from the source to the secondary _and_ from the source to object storage. 
 + 
-For details, refer to ZZZ link. 
+For details about these architectures, refer to link:concept-protection-journey.html[Plan your protection journey]. 
+
 
 . *Local Snapshot*: Choose an existing Snapshot policy. 
 +
@@ -407,7 +408,6 @@ TIP: If you want to create a custom policy, you can use System Manager or the ON
 Either create a new bucket or select one that you've already created. 
 +
 TIP: If you want to tier older backup files to Google Cloud Archive storage for further cost optimization, ensure that the bucket has the appropriate Lifecycle rule. 
-
 +
 Enter the Google Cloud access key and secret key. 
 
@@ -423,7 +423,7 @@ If you choose to use your own customer-managed keys, enter the key ring and key 
 //"Also choose whether you'll be using a Private Endpoint. Private Endpoint is disabled by default."" Private Endpoint field is not visible for GCP. 
 +
 The IPspace in the ONTAP cluster where the volumes you want to back up reside. The intercluster LIFs for this IPspace must have outbound internet access.
-
++
 //.. Optionally, choose whether you'll use a Google Cloud private endpoint that you have previously configured. https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview[Learn about using an Azure private endpoint].
 
 
@@ -432,7 +432,7 @@ The IPspace in the ONTAP cluster where the volumes you want to back up reside. T
 +
 TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI. Refer to <link>.
 
-. *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "*Export existing Snapshot copies to object storage as backup copies*". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
+* *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Select *Next*. 
 
