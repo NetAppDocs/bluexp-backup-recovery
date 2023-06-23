@@ -427,7 +427,7 @@ The IPspace in the ONTAP cluster where the volumes you want to back up reside. T
 
 
 
-. *Backup policy*: Select an existing backup policy. 
+* *Backup policy*: Select an existing backup policy. 
 +
 TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI. Refer to <link>.
 
