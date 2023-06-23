@@ -36,5 +36,9 @@ Same database cannot be restored to the same alternate host more than once. The 
 . Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *Restore*.
 . Select the restore point to which the database should be restored and click *Restore to alternate location* > *Next*.
 . In the Configuration page, specify the details of the alternate location, SID, Oracle_Home, database credentials, and storage throughput.
++
+For the database credential, if the OS User authentication is disabled, you should provide a password for the sys user to connect to the cloned database on the same or target host.
++
+NOTE: Ensure that the listener is up and running on the target host.
 . Click *Next*, review the details and click *Restore*.
 
