@@ -13,7 +13,7 @@ summary: BlueXP backup and recovery enables you to create backup files in an Azu
 :imagesdir: ./media/
 
 [.lead]
-BlueXP backup and recovery enables you to create backup files in an Azure account that is different than where your source Cloud Volumes ONTAP volumes reside. And both of those accounts can be different than the account where the BlueXP Connector resides.
+BlueXP backup and recovery enables you to create backup files in an Azure account that is different than where your source Cloud Volumes ONTAP volumes reside. Both of those accounts can be different than the account where the BlueXP Connector resides.
 
 These steps are required only when you are https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[backing up Cloud Volumes ONTAP data to Azure Blob storage^].
 
@@ -27,11 +27,11 @@ Note that if you want BlueXP to manage your Cloud Volumes ONTAP system in a diff
 
 . Select the subscription you are using as subscription 1 and click on the VNet where you want to set up peering.
 +
-image:screenshot_azure_peer1.png[]
+image:screenshot_azure_peer1.png[A screenshot of selecting subscription 1 and the VNet where you want to set up peering.]
 
 . Select *cbsnetwork* and from the left panel, click on *Peerings*, and then click *Add*.
 +
-image:screenshot_azure_peer2.png[]
+image:screenshot_azure_peer2.png[A screenshot of adding the peering for the VNet for subscription 1.]
 
 . Enter the following information on the Peering page and then click *Add*.
 
@@ -41,15 +41,15 @@ image:screenshot_azure_peer2.png[]
 * Under subscription, select the subscription 2.
 * Virtual network, select the virtual network in subscription 2 to which you want to set up the peering.
 +
-image:screenshot_azure_peer3.png[]
+image:screenshot_azure_peer3.png[A screenshot of selecting subscription 2 and the VNet where you want to set up peering.]
 
 . Perform the same steps in subscription 2 VNet and specify the subscription and remote VNet details of subscription 1.
 +
-image:screenshot_azure_peer4.png[]
+image:screenshot_azure_peer4.png[A screenshot of adding the peering for the VNet for subscription 2.]
 +
 The peering settings are added.
 +
-image:screenshot_azure_peer5.png[]
+image:screenshot_azure_peer5.png[A screenshot showing the results of the peering configuration.]
 
 == Create a private endpoint for the storage account
 
@@ -85,9 +85,9 @@ NOTE: You need network contributor permission to perform the following action.
   }
 }
 
-. Go to the storage account > Networking > Private endpoint connections and click *+ Private endpoint*.
+. Go to the Storage account > Networking > Private endpoint connections and click *+ Private endpoint*.
 +
-image:screenshot_azure_networking1.png[]
+image:screenshot_azure_networking1.png[A screenshot of opening the private endpoint configuration for your storage account.]
 
 . In the Private Endpoint _Basics_ page:
 
@@ -95,22 +95,22 @@ image:screenshot_azure_networking1.png[]
 * Enter an endpoint name.
 * Select the region.
 +
-image:screenshot_azure_networking2.png[]
+image:screenshot_azure_networking2.png[A screenshot showing the details of the private endpoint Basics page.]
 
 . In the _Resource_ page, select Target sub-resource as *blob*.
 +
-image:screenshot_azure_networking3.png[]
+image:screenshot_azure_networking3.png[A screenshot showing the details of the private endpoint Resource page.]
 
 . In the Configuration page:
 
 * Select the virtual network and subnet.
 * Click the *Yes* radio button to "Integrate with private DNS zone".
 +
-image:screenshot_azure_networking4.png[]
+image:screenshot_azure_networking4.png[A screenshot showing the details of the private endpoint Configuration page.]
 
 . In the Private DNS zone list, ensure that the Private Zone is selected from the correct Region, and click *Review + Create*.
 +
-image:screenshot_azure_networking5.png[]
+image:screenshot_azure_networking5.png[A screenshot showing the private zone selection from the private endpoint Configuration page.]
 +
 Now the storage account (in subscription 1) has access to the Cloud Volumes ONTAP system which is running in subscription 2.
 

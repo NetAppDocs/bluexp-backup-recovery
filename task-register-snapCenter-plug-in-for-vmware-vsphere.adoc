@@ -27,7 +27,7 @@ NOTE: You can register multiple SnapCenter Plug-in for VMware vSphere hosts in B
 .. In the Port field, specify the port number on which the SnapCenter Plug-in for VMware vSphere host is running.
 +
 You should ensure that communication is open between on-premises SnapCenter Plug-in for VMware vSphere host which is running on the default 8144 port and BlueXP Connector instance which could be either running in any cloud providers (Amazon Web Services, Microsoft Azure, Google Cloud Platform) or on-premises.
-.. In the Username and Password field, specify the credentials of the user with the administrator role.
+.. In the Username and Password field, specify the credentials of the vCenter user with the administrator role.
 . Click *Register*.
 
 *After you finish*

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-monitor-backup-jobs.html
-keywords: cloud backup, cloud backup service, backup, restore, status, monitor, alert, notification
+keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification
 summary: You can monitor the status of backup jobs that are scheduled or that you have initiated and restore jobs that you initiated in your working environments. You can see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
 ---
 
@@ -13,7 +13,7 @@ summary: You can monitor the status of backup jobs that are scheduled or that yo
 :imagesdir: ./media/
 
 [.lead]
-You can monitor the status of backup jobs that are scheduled or that you have initiated and restore jobs that you initiated in your working environments. You can see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix problems. You can also configure notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system.
+You can monitor the status of backup jobs that you initiated or are scheduled and restore jobs that you initiated. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.  
 
 == View backup and restore job status on the Job Monitor
 
@@ -49,9 +49,10 @@ image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore 
 +
 This screenshot shows the default column headings. 
 
-. To show four additional columns (Working Environment, SVM, User Name, and Workloads), select image:button_plus_sign_round.png[the plus sign button].
+. To show additional columns (Working Environment, SVM, User Name, Workloads, Policy, and Snapshot Label), select image:button_plus_sign_round.png[the plus sign button].
 
 === Search and filter the list of jobs
+You can filter the operations on the Job Monitoring page using several filters, such as backup policy and Snapshot label. 
 
 By default, the Job Monitoring page shows jobs from the last 24 hours. 
 
@@ -113,6 +114,20 @@ From the Job Monitoring Details information, you can download a JSON file contai
 . To download a CSV file for all jobs, select the image:button_download.png[Download] button and locate the file in your download directory. 
 . To download a JSON file for a single job, select the Actions menu image:icon-action.png[Actions icon] for the job, select *Download JSON File*, and locate the file in your download directory.  
 
+== Review backup lifecycle jobs
+Monitoring of backup lifecycle flows helps you with audit completeness, accountability, and backup safety. To help you track the backup lifecycle, you might want to identify the expiration of all backup copies. 
+
+A backup lifecycle job tracks all snapshot copies that are deleted or in the queue to be deleted. Beginning with ONTAP 9.13, you can look at all job types called "Backup Lifecycle" on the Job Monitoring page.
+
+The "Backup Lifecycle" job type captures all snapshot deletion jobs initiated on a volume that is protected by BlueXP backup and recovery.  
+
+.Steps
+
+. Select the *Job Monitoring* tab.
+. Select the *Advanced Search & Filtering* area to open the Search panel. 
+. Select the job type of "Backup Lifecycle". 
+
+
 == Review backup and restore alerts in the BlueXP Notification Center
 
 The BlueXP Notification Center tracks the progress of backup and restore jobs that you've initiated so you can verify whether the operation was successful or not. 
@@ -127,6 +142,7 @@ The following events trigger email alerts:
 | Severity level
 | Ad-hoc volume backup failed | Error 
 | Backup activation failed on working environment | Critical 
+| Backup files were not created because Snapshot policy labels do not match | Critical
 | Restore operation failed | Critical
 | Potential ransomware attack detected on your system | Critical 
 | Restore job completed, but with warnings | Warning 
@@ -147,3 +163,10 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html
 . Select the *Job Monitoring* tab.
 . Display notifications by selecting the (image:icon_bell.png[notification bell]) in the BlueXP menu bar. 
 . Review the notification. 
+
+== Review operation activity in the BlueXP Timeline
+
+You can view details of backup and restore operations for further investigation in the BlueXP Timeline. The BlueXP Timeline provides details of each event, whether user-initiated or system-initiated and shows actions initiated in the UI or via the API. 
+
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html[Learn about the differences between the Timeline and the Notification Center^].
+
