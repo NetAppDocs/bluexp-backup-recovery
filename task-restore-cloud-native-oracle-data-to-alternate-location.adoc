@@ -20,7 +20,6 @@ In the event of data loss, you can restore the Oracle database to alternate loca
 
 * If the Oracle 21c database is in STARTED state, the restore operation fails. You should run the following command to restore the database successfully.
 `cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib/ojdbc8-8.jar`
-* You should have created the control file directory same as the source database being restored. Ensure that the control file directory has sufficient permissions enabled for non root user and also the Oracle user.
 * You should ensure that the Oracle version on the alternate host is same as that of the original host.
 
 .About this task
@@ -28,8 +27,6 @@ In the event of data loss, you can restore the Oracle database to alternate loca
 While initiating the restore operation, you are not allowed to modify the configurations except the Oracle home, maximum volume throughput, Oracle SID, and database credentials. 
 
 Full recovery is enabled by default with _Until cancel_ set to true.
-
-Same database cannot be restored to the same alternate host more than once. The database restored to the alternate location and the mounted files should be deleted before restoring the same source database to the same alternate host.
 
 .Steps
 

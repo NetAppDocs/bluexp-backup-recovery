@@ -126,7 +126,7 @@ If SSH key based authentication is not enabled on the HANA host, you should perf
 
 *Steps*
 
-. To configure sudo for SnapCenter user, see <<Configure sudo for SnapCenter user>>
+. Log in to Connector VM.
 . Download the SnapCenter Linux host plug-in binary.
 `sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
 +
@@ -156,7 +156,7 @@ You should upgrade the SnapCenter Plug-in for SAP HANA database to gain access t
 
 *Steps*
 
-. Log in to Connector VM.
+. Configure sudo for SnapCenter user, For information, see <<Configure sudo for SnapCenter user>>.
 . Run the following script.
 `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade`
 +
