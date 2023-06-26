@@ -133,15 +133,12 @@ You can configure CA signed certificate if you want to include additional securi
 
 The connector uses a self-signed certificate to communicate with plug-in. The self-signed certificate is imported to the keystore by the installation script. You can perform the following steps to replace the self-signed certificate with CA signed certificate.
 
-.Before you begin
-
-You can run the following command to get the _<base_mount_path>_:
-`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
-
 .Steps
 
 . Perform the following steps on the Connector to use the CA certificate as the client certificate when the Connector is connecting with the plug-in.
 .. Login to Connector.
+.. Run the following command to get the _<base_mount_path>_:
+`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
 .. Delete all the existing files located at _<base_mount_path>/client/certificate_ in the Connector.
 .. Copy the CA signed certificate and key file to the _<base_mount_path>/client/certificate_ in the Connector.
 +
@@ -149,12 +146,12 @@ The file name should be certificate.pem and key.pem. The certificate.pem should 
 .. Create the PKCS12 format of the certificate with the name certificate.p12 and keep at _<base_mount_path>/client/certificate_.
 +
 Example: openssl pkcs12 -inkey key.pem -in certificate.pem -export -out certificate.p12
-.. Copy the certificate.pem and certificates for all the intermediate CA and root CA to the plug-in host at _/var/opt/snapcenter/spl/etc/_.
-+
-NOTE: The format of the Intermediate CA and root CA certificate should be in .crt format.
 . Perform the following steps on the plug-in host to validate the certificate sent by the Connector.
 .. Log in to the plug-in host.
-.. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.p12 file.
+.. Copy the certificate.pem and certificates for all the intermediate CA and root CA from the Connector to the plug-in host at _/var/opt/snapcenter/spl/etc/_.
++
+NOTE: The format of the Intermediate CA and root CA certificate should be in .crt format.
+.. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.pem file.
 `keytool -import -alias agentcert -file certificate.pem  -keystore keystore.jks -deststorepass snapcenter -noprompt`
 .. Import the root CA and intermediate certificates.
 `keytool -import -trustcacerts -keystore keystore.jks -storepass snapcenter -alias trustedca -file <certificate.crt>`
@@ -166,11 +163,6 @@ NOTE: The certificate.crt refers to the certificates of root CA as well as inter
 === Configure CA signed certificate for the plug-in
 
 The CA certificate should have the same name as registered in Cloud Backup for the plug-in host.
-
-.Before you begin
-
-You can run the following command to get the _<base_mount_path>_:
-`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
 
 .Steps
 
@@ -188,6 +180,8 @@ Example: openssl pkcs12 -inkey key.pem -in certificate.pem -export -out certific
 .. Restart SPL: `systemctl restart spl`
 . Perform the following steps on the Connector so that the Connector can verify the plug-in's certificate.
 .. Log in to the Connector as non-root user.
+.. Run the following command to get the _<base_mount_path>_:
+`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
 .. Copy the the root CA and intermediate CA files under the server directory.
 `cd <base_mount_path>`
 `mkdir server`
