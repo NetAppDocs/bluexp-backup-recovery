@@ -128,7 +128,7 @@ You should configure SnapCenter CA signed certificate in BlueXP Connector so tha
 
 .Before you begin
 
-You should run the following command to get the _<base_mount_path>_:
+You should run the following command in the BlueXP Connector to get the _<base_mount_path>_:
 `sudo docker volume ls | grep snapcenter_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
 
 .Steps

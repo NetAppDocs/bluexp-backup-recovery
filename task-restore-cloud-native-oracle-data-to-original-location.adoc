@@ -55,8 +55,6 @@ In Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP SAN layout, if SnapCenter 
 * ASM parameter file.
 +
 The *Force in-place restore* option overrides the foreign files of type parameter, password, and archive log. You should use the latest backup when *Force in-place restore* option is selected.
-+
-NOTE: Restore of datafiles with control files or only control files for iSCSI on ASM layout and restore of tablespaces and PDBs are not supported.
 
 . In the Recovery Scope section, perform the following actions:
 +

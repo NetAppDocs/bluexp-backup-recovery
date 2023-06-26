@@ -70,8 +70,10 @@ You can close the SSH port on the application host after installing the plug-in.
 NOTE: The SSH private key is not stored anywhere in the application and is not used for any other operations.
 .. Click *Next*.
 . In the Configuration page, perform the following:
-.. Configure the sudo access for the non-root (sudo) user by copying the text to _/etc/sudoers.d/snapcenter_ file.
-.. Select the checkbox and click *Next*.
+.. Configure sudo access for the SnapCenter user in the Oracle database host by logging in to the Linux machine running Oracle database.
+.. Copy the text displayed in BlueXP UI.
+.. Create the _/etc/sudoers.d/snapcenter_ file on the Linux machine and paste the copied text.
+.. In the BlueXP UI, select the checkbox and click *Next*.
 . Review the details and click *Discover Applications*.
 +
 * After the plug-in is installed, the discovery operation starts.
@@ -79,8 +81,6 @@ NOTE: The SSH private key is not stored anywhere in the application and is not u
 * After completing the discovery operation, all the databases on the host are displayed. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
 +
 * Click *Settings* and select *Hosts* to view all the hosts.
-+
-NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed.
 +
 * Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and you can either edit them to meet your requirement or create a new policy.
 
@@ -115,8 +115,10 @@ Default port is 8145.
 .. Select the check box to confirm that the plug-in is installed on the host.
 .. Click *Next*.
 . In the Configuration page, perform the following:
-.. Configure sudo access for the SnapCenter user by copying the text to `/etc/sudoers.d/snapcenter` file.
-.. Select the checkbox and click *Next*.
+.. Configure sudo access for the SnapCenter user in the Oracle database host by logging in to the Linux machine running Oracle database.
+.. Copy the text displayed in BlueXP UI.
+.. Create the _/etc/sudoers.d/snapcenter_ file on the Linux machine and paste the copied text.
+.. In the BlueXP UI, select the checkbox and click *Next*.
 . Log into the Connector VM.
 . Install the plug-in using the script provided in the Connector.
 `sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
@@ -171,14 +173,12 @@ a|
 |===
 +
 For example:
-`sudo  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk --pluginport 8145 --sshport 22`
-. Review the details and click *Discover Applications*.
+`sudo  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
+. In the BlueXP UI, review the details and click *Discover Applications*.
 +
 * After completing the discovery operation, all the databases on the host are displayed. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
 +
 * Click *Settings* and select *Hosts* to view all the hosts.
-+
-NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed.
 +
 * Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and you can either edit them to meet your requirement or create a new policy.
 
@@ -208,9 +208,11 @@ Default port is 8145.
 .. Select the Connector.
 .. Select the check box to confirm that the plug-in is installed on the host.
 .. Click *Next*.
-. In the *Configuration* page, perform the following:
-.. Configure sudo access for the SnapCenter user by copying the text to `/etc/sudoers.d/snapcenter` file.
-.. Select the checkbox and click *Next*.
+. In the Configuration page, perform the following:
+.. Configure sudo access for the SnapCenter user in the Oracle database host by logging in to the Linux machine running Oracle database.
+.. Copy the text displayed in BlueXP UI.
+.. Create the _/etc/sudoers.d/snapcenter_ file on the Linux machine and paste the copied text.
+.. In the BlueXP UI, select the checkbox and click *Next*.
 . Log into the Connector VM.
 . Download the SnapCenter Linux host plug-in binary.
 `sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
@@ -228,17 +230,13 @@ The plug-in binary is available at: _cd /var/lib/docker/volumes/service-manager-
 . Restart SPL: `systemctl restart spl`
 . Validate that the plug-in is reachable from the Connector by running the below command from the Connector.
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
-. Review the details and click *Discover Applications*.
+. In the BlueXP UI, review the details and click *Discover Applications*.
 +
 * After completing the discovery operation, all the databases on the host are displayed. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
 +
 * Click *Settings* and select *Hosts* to view all the hosts.
 +
-NOTE: The filter to view a specific host does not work. When you specify a host name in the filter, all the hosts are displayed.
-+
 * Click *Settings* and select *Policies* to view the pre-canned policies. Review the pre-canned policies and you can either edit them to meet your requirement or create a new policy.
-+
-Navigate to BlueXP UI.
 
 == Configure Oracle database credentials
 
@@ -273,7 +271,11 @@ You should upgrade the SnapCenter Plug-in for Oracle to gain access to the lates
 
 a|
 . Click image:icon-action.png[icon to select the action] corresponding to the host and click *Upgrade Plug-in*.
-. Select the check box and click *Upgrade*. 
+. In the Configuration page, perform the following:
+.. Configure sudo access for the SnapCenter user in the Oracle database host by logging in to the Linux machine running Oracle database.
+.. Copy the text displayed in BlueXP UI.
+.. Edit the _/etc/sudoers.d/snapcenter_ file on the Linux machine and paste the copied text.
+.. In the BlueXP UI, select the checkbox and click *Upgrade*. 
 a|
 . Log in to Connector VM.
 . Run the following script.
