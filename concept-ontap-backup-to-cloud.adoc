@@ -85,7 +85,7 @@ BlueXP backup and recovery enables you to back up ONTAP volumes from the followi
 |===
 
 | Source Working Environment
-| Destination Working Environment (Replication)
+| Secondary Working Environment (Replication)
 | Destination Object Store (Backup)
 
 ifdef::aws[]

@@ -27,7 +27,7 @@ We'll go over the following options:
 
 Before you select the features you'll use, here's a quick explanation of what each features does, and what type of protection it provides.
 
-[cols=2*,options="header",cols="25,65",width="90%"]
+[cols=2*,options="header",cols="20,70",width="90%"]
 |===
 | Backup type
 | Description
@@ -45,15 +45,14 @@ Snapshots are the basis of all the backup methods, and they are required to use 
 
 image:diagram-321-overview.png["A diagram showing how backup files exist on the source system as Snapshot copies, as replicated volumes on the secondary storage system, and as a backup files in object storage."]
 
-You can choose to create both replicated volumes on another ONTAP storage system and backup files in the cloud. Or you can choose just to create replicated volumes or backup files - it's your choice. 
-//The service also enables you to select two replication destinations if you want to protect your data in an additional location (both with and without creating backup files).
+You can choose to create both replicated volumes on another ONTAP storage system and backup files in the cloud. Or you can choose just to create replicated volumes or backup files - it's your choice. The service also enables you to select two replication destinations if you want to protect your data in an additional location (both with and without creating backup files).
 
 To summarize, these are the valid protection flows you can create for a volume, or all volumes, in your ONTAP working environment:
 
 * Source volume -> Snapshot copy -> Replicated volume -> Backup file
 * Source volume -> Snapshot copy -> Backup file
 * Source volume -> Snapshot copy -> Replicated volume
-//* Source volume -> Snapshot copy -> Replicated volume -> Replicated volume
+* Source volume -> Snapshot copy -> Replicated volume -> Replicated volume
 
 NOTE: The initial creation of a replicated volume or backup file includes a full copy of the source data - this is called a baseline transfer. Subsequent transfers contain only differential copies of the source data (the Snapshot).
 
@@ -132,6 +131,31 @@ https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custo
 https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description[Create a backup policy using the ONTAP CLI^]
 
 NOTE: If you are planning to create custom policies when using the cascading architecture, you'll need to create the backup policies on the secondary system where the replicated volumes will be created. If you're using the default policies, then you are all set. 
+
+Here are a few sample ONTAP CLI commands that may be helpful if you are creating custom policies. Note that you must use the _admin_ vserver (storage VM) as the `<vserver_name>` in these commands.
+
+[cols=2*,options="header",cols="30,70"]
+|===
+
+| Policy Description
+| Command
+
+| Simple backup to cloud
+| `snapmirror policy create -policy <policy_name> -transfer-priority normal -vserver <vserver_name> -create-snapshot-on-source false -type vault`
+`snapmirror policy add-rule -policy <policy_name> -vserver <vserver_name> -snapmirror-label <snapmirror_label> -keep`
+| Backup to cloud with DataLock and Ransomware protection
+| `snapmirror policy create -policy CloudBackupService-Enterprise -snapshot-lock-mode enterprise -vserver <vserver_name>`
+`snapmirror policy add-rule -policy CloudBackupService-Enterprise -retention-period 30days`
+| Backup to cloud with archival storage class
+| `snapmirror policy create -vserver <vserver_name> -policy <policy_name> -archive-after-days <days> -create-snapshot-on-source false -type vault`
+`snapmirror policy add-rule -policy <policy_name> -vserver <vserver_name> -snapmirror-label <snapmirror_label> -keep`
+| Simple replication to another storage system
+| `snapmirror policy create -policy <policy_name> -type async-mirror -vserver <vserver_name>`
+`snapmirror policy add-rule -policy <policy_name> -vserver <vserver_name> -snapmirror-label <snapmirror_label> -keep`
+
+|===
+
+NOTE: Only vault policies can be used for backup to cloud relationships.
 
 == Do you want the service to create the cloud buckets for you
 
