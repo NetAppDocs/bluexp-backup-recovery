@@ -173,7 +173,9 @@ a|
 |===
 +
 For example:
-`sudo  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
++
+* `sudo  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
+* `sudo /var/lib/docker/volumes/cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
 . In the BlueXP UI, review the details and click *Discover Applications*.
 +
 * After completing the discovery operation, all the databases on the host are displayed. If OS authentication is disabled for the database, click *Configure* to enable database authentication. For more information, refer to <<Configure Oracle database credentials>>.
@@ -217,7 +219,7 @@ Default port is 8145.
 . Download the SnapCenter Linux host plug-in binary.
 `sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
 +
-The plug-in binary is available at: _cd /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin_
+The plug-in binary is available at: _cd /var/lib/docker/volumes/service-manager[1]-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin_
 . Copy _snapcenter_linux_host_plugin_scs.bin_ from the above path to _/home/<non root user (sudo)>/.sc_netapp_ path for each of the Oracle database hosts either using scp or other alternate methods. 
 . Log into the Oracle database host using the non-root (sudo) account.
 . Change directory to _/home/<non root user>/.sc_netapp/_ and run the following command to enable execute permissions for the binary.
