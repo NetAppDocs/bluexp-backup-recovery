@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: task-manage-backups-ontap.html
 keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup
-summary: You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, creating new backup policies, enabling/disabling volume backups, pausing backups, deleting backups, and more.
+summary: You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, creating new backup policies, enabling/disabling volume backups, pausing backups, deleting backups, and more. This includes all types of backups, including Snapshot copies, replicated volumes, and backup files in object storage.
 ---
 
-= Managing backups for your ONTAP systems
+= Manage backups for your ONTAP systems
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,139 +13,49 @@ summary: You can manage backups for your Cloud Volumes ONTAP and on-premises ONT
 :imagesdir: ./media/
 
 [.lead]
-You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, creating new backup policies, enabling/disabling volume backups, pausing backups, deleting backups, and more.
+You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, enabling/disabling volume backups, pausing backups, deleting backups, and more. This includes all types of backups, including Snapshot copies, replicated volumes, and backup files in object storage.
 
-CAUTION: Do not manage or change backup files directly from your cloud provider environment. This may corrupt the files and will result in an unsupported configuration.
+//creating new backup policies, 
 
-== Viewing the volumes that are being backed up
+CAUTION: Do not manage or change backup files directly on your storage systems or from your cloud provider environment. This may corrupt the files and will result in an unsupported configuration.
 
-You can view a list of all the volumes that are currently being backed up in the Backup Dashboard.
+== View the backup status of volumes in your working environments
+
+You can view a list of all the volumes that are currently being backed up in the Volumes Backup Dashboard. This includes all types of backups, including Snapshot copies, replicated volumes, and backup files in object storage. You can also view the volumes in those working environments that are not currently being backed up.
 
 .Steps
 
 . From the BlueXP menu, select *Protection > Backup and recovery*.
 
-. Click the *Volumes* tab to view the list of backed up volumes for Cloud Volumes ONTAP and on-premises ONTAP systems.
+. Click the *Volumes* tab to view the list of backed up volumes for your Cloud Volumes ONTAP and on-premises ONTAP systems.
 +
-image:screenshot_backup_dashboard.png[A screenshot showing all the working environments and volumes that have backup files.]
+image:screenshot_backup_volumes_dashboard.png[A screenshot showing all the working environments and volumes that have backup files.]
 
-If you are looking for specific volumes in certain working environments, you can refine the list by working environment and volume, or you can use the search filter.
+. If you are looking for specific volumes in certain working environments, you can refine the list by working environment and volume. You can also use the search filter, or you can sort the columns based on volume style (FlexVol or FlexGroup), volume type, and more.
++
+To show additional columns (aggregates, security style (Windows or UNIX), snapshot policy, replication policy, and backup policy), select image:button_plus_sign_round.png[the plus sign button].
 
-== Enabling and disabling backups of volumes
+. Review the status of the protection options in the "Existing protection" column. The 3 icons stand for "Local Snapshot copies", "Replicated volumes", and "Backups in object storage". 
++
+The icon is blue when that backup type is activated, and it is grey when the backup type is inactive. You can hover your cursor over each icon to see the backup policy that is being used, and other pertinent information for each type of backup.
 
-You can activate backups for any new volumes if they are not currently being backed up. You can also activate backups for any volumes that you had previously deactivated.
+== Activate backup on additional volumes in a working environment
 
-You can deactivate backups for volumes so that no additional backups are generated. This also disables the ability to restore volume data from a backup file. This basically allows you to pause all backup and restore activity for a period of time. Any existing backups will not be deleted, so you'll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you <<Deleting all backup files for a volume,delete the backups>>.
+If you activated backup only on some of the volumes in a working environment when you first enabled BlueXP backup and recovery, you can activate backups on additional volumes later. You can also activate backups for any volumes that you had previously deactivated.
 
 .Steps
 
-. From the *Volumes* tab, select *Backup Settings*.
+. From the *Volumes* tab, identify the volume on which you want to activate backups, select the Actions menu image:icon-action.png[Actions icon] at the end of the row, and select *Activate backup*.
 +
-image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button which is available after you select a working environment.]
+image:screenshot_backup_additional_volumes.png[A screenshot showing how to activate backup on additional volumes in a working environment.]
 
-. From the _Backup Settings page_, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment and select *Manage Volumes*.
-+
-image:screenshot_backup_manage_volumes.png[A screenshot that shows the Manage Volumes button from the Backup Settings page.]
+. In the _Define backup strategy_ page, select the backup architecture, and then define the policies and other details for Local Snapshot copies, Replicated volumes, and Backup files. See the details for backup options from the initial volumes you activated in this working environment. Then click *Next*.
 
-. Select the checkbox for a volume, or volumes, that you want to change, and then click *Activate* or *Deactivate* depending on whether you want to start or stop backups for the volume.
-+
-image:screenshot_backup_manage_volumes_page.png[The Manage Volumes page where you can select or deselect volumes.]
+. Review the backup settings for this volume, and then click *Activate Backup*.
 
-. Click *Save* to commit your changes.
+== Change the backup policy assigned to existing volumes
 
-== Editing an existing backup policy
-
-You can change the attributes for a backup policy that is currently applied to volumes in a working environment. Changing the backup policy affects all existing volumes that are using the policy.
-
-[NOTE]
-====
-* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating BlueXP backup and recovery for this cluster, any policies that you edit must be configured with the same DataLock setting (Governance or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery, you can't enable DataLock now.
-* When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating BlueXP backup and recovery, then that tier will be the only archive tier available when editing backup policies. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option when editing a policy.
-====
-
-.Steps
-
-. From the *Volumes* tab, select *Backup Settings*.
-+
-image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button from the Volumes tab.]
-
-. From the _Backup Settings_ page, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment where you want to change the policy settings, and select *Manage Policies*.
-+
-image:screenshot_backup_modify_policy.png[A screenshot that shows the Manage Policies option from the Backup Settings page.]
-
-. From the _Manage Policies_ page, click *Edit* for the backup policy you want to change in that working environment.
-+
-Note you can click image:button_down_caret.png[down-arrow button] to view the full details for the policy.
-+
-image:screenshot_backup_manage_policy_page_edit.png[A screenshot that shows the Edit Policy button from the Manage Policies page.]
-
-. From the _Edit Policy_ page, click image:button_down_caret.png[down-arrow button] to expand the _Labels & Retention_ section to change the schedule and/or backup retention, and click *Save*.
-+
-image:screenshot_backup_edit_policy.png[A screenshot that shows the backup policy settings where you can modify the backup schedule and backup retention setting.]
-+
-If your cluster is running ONTAP 9.10.1 or greater, you also have the option to enable or disable tiering of backups to archival storage after a certain number of days.
-+
-ifdef::aws[]
-link:reference-aws-backup-tiers.html[Learn more about using AWS archival storage].
-endif::aws[]
-ifdef::azure[]
-link:reference-azure-backup-tiers.html[Learn more about using Azure archival storage].
-endif::azure[]
-ifdef::gcp[]
-link:reference-google-backup-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
-endif::gcp[]
-+
-image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for BlueXP backup and recovery.]
-+
-Note that any backup files that have been tiered to archival storage are left in that tier if you stop tiering backups to archive - they are not automatically moved back to the standard tier. Only new volume backups will reside in the standard tier.
-
-== Adding a new backup policy
-
-When you enable BlueXP backup and recovery for a working environment, all the volumes you initially select are backed up using the default backup policy that you defined. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to other volumes.
-
-If you want to apply a new backup policy to certain volumes in a working environment, you first need to add the backup policy to the working environment. Then you can <<Changing the policy assigned to existing volumes,apply the policy to volumes in that working environment>>.
-
-[NOTE]
-====
-* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating BlueXP backup and recovery for this cluster, any additional policies you create must be configured with the same DataLock setting (Governance or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery, you can't create new policies that use DataLock.
-* When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating BlueXP backup and recovery, then that tier will be the only archive tier available for future backup policies for that cluster. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
-====
-
-.Steps
-
-. From the *Volumes* tab, select *Backup Settings*.
-+
-image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button from the Volumes tab.]
-
-. From the _Backup Settings_ page, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment where you want to add the new policy, and select *Manage Policies*.
-+
-image:screenshot_backup_modify_policy.png[A screenshot that shows the Manage Policies option from the Backup Settings page.]
-
-. From the _Manage Policies_ page, click *Add New Policy*.
-+
-image:screenshot_backup_manage_policy_page_add.png[A screenshot that shows the Add New Policy button from the Manage Policies page.]
-
-. From the _Add New Policy_ page, click image:button_down_caret.png[down-arrow button] to expand the _Labels & Retention_ section to define the schedule and backup retention, and click *Save*.
-+
-image:screenshot_backup_add_new_policy.png[A screenshot that shows the backup policy settings where you can add the backup schedule and backup retention setting.]
-+
-If your cluster is running ONTAP 9.10.1 or greater, you also have the option to enable or disable tiering of backups to archival storage after a certain number of days.
-+
-ifdef::aws[]
-link:reference-aws-backup-tiers.html[Learn more about using AWS archival storage].
-endif::aws[]
-ifdef::azure[]
-link:reference-azure-backup-tiers.html[Learn more about using Azure archival storage].
-endif::azure[]
-ifdef::gcp[]
-link:reference-google-backup-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
-endif::gcp[]
-+
-image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for BlueXP backup and recovery.]
-
-== Changing the policy assigned to existing volumes
-
-You can change the backup policy assigned to your existing volumes if you want to change the frequency of taking backups, or if you want to change the retention value.
+You can change the backup policies assigned to your existing volumes if you want to change the frequency of taking backups, or if you want to change the retention value. You can change the policies for your Local Snapshot copies, Replicated volumes, and Backup files.
 
 Note that the policy that you want to apply to the volumes must already exist. <<Adding a new backup policy,See how to add a new backup policy for a working environment>>.
 
@@ -171,7 +81,7 @@ NOTE: If you enabled _DataLock and Ransomware Protection_ in the initial policy 
 
 . Click *Save* to commit your changes.
 
-== Creating a manual volume backup at any time
+== Create a manual volume backup at any time
 
 You can create an on-demand backup at any time to capture the current state of the volume. This can be useful if very important changes have been made to a volume and you don't want to wait for the next scheduled backup to protect that data, or if the volume is not currently being backed up and you want to capture its current state.
 
@@ -205,29 +115,143 @@ The list of all backup files is displayed along with details about the source vo
 +
 image:screenshot_backup_view_backups.png[A screenshot that shows the List of all backup files for a single volume.]
 
-== Running a ransomware scan on a volume backup
+== Run a ransomware scan on a volume backup
 
-NetApp ransomware protection software scans your backup files to look for evidence of a ransomware attack when a backup file is created, and when data from a backup file is being restored. You can also run an on-demand ransomware protection scan at any time to verify the usability of a specific backup file. This can be useful if you have had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
+NetApp ransomware protection software scans your backup files to look for evidence of a ransomware attack when a backup to object file is created, and when data from a backup file is being restored. You can also run an on-demand ransomware protection scan at any time to verify the usability of a specific backup file in object storage. This can be useful if you have had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
 
-This feature is available only if the volume backup was created from a system with ONTAP 9.11.1 or greater, and if you enabled _DataLock and Ransomware Protection_ in the backup policy.
-
-//NOTE: A ransomware scan requires that the backup file is downloaded to your BlueXP environment (where the Connector is installed). This can incur extra egress costs from your cloud provider if you have deployed the Connector on your premises. Therefore, we recommend that you deploy the Connector in the cloud, and that it is in the same region as the bucket where your backups are being stored.
+This feature is available only if the volume backup was created from a system with ONTAP 9.11.1 or greater, and if you enabled _DataLock and Ransomware Protection_ in the backup to object policy.
 
 .Steps
 
-. From the *Volumes* tab, click image:screenshot_horizontal_more_button.gif[More icon] for the source volume and select *Details & Backup List*.
+. From the *Volumes* tab, click image:screenshot_horizontal_more_button.gif[More icon] for the source volume and select *View volume details*.
 +
-image:screenshot_backup_view_backups_button.png[A screenshot that shows the Details & Backup List button which is available for a single volume.]
+image:screenshot_backup_view_backups_button.png[A screenshot that shows the View Volume Details button which is available for a single volume.]
 +
-The list of all backup files is displayed.
+The details for the volume are displayed.
++
+image:screenshot_backup_snapshot_list.png[A screenshot that shows the List of all backup files for a single volume.]
 
-. Click image:screenshot_horizontal_more_button.gif[More icon] for the volume backup file you want to scan and click *Ransomware Scan*.
+. Select *Backup* to see the list of backup to object storage files.
++
+image:screenshot_backup_select_backups_type.png["A screenshot that shows the list of all backup files for a single volume; either Snapshot copies, replicated volumes, or backups in object storage."]
+
+. Click image:screenshot_horizontal_more_button.gif[More icon] for the volume backup file you want to scan for ransomware and click *Scan for Ransomware*. 
 +
 image:screenshot_scan_one_backup.png[A screenshot showing how to run a ransomware scan on a single backup file.]
 +
-The Ransomware Scan column will show that the scan is In Progress.
+The Ransomware Protection column will show that the scan is In Progress.
 
-== Deleting backups
+== Disable backups of volumes
+
+You can deactivate backups for volumes so that no additional backups are generated. This also disables the ability to restore volume data from a backup file. This basically allows you to pause all backup and restore activity for a period of time. Any existing backups will not be deleted, so you'll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you <<Delete all backup files for a volume,delete the backups>>.
+
+.Steps
+
+. From the *Volumes* tab, select *Backup Settings*.
++
+image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button which is available after you select a working environment.]
+
+. From the _Backup Settings page_, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment and select *Manage Volumes*.
++
+image:screenshot_backup_manage_volumes.png[A screenshot that shows the Manage Volumes button from the Backup Settings page.]
+
+. Select the checkbox for a volume, or volumes, that you want to change, and then click *Activate* or *Deactivate* depending on whether you want to start or stop backups for the volume.
++
+image:screenshot_backup_manage_volumes_page.png[The Manage Volumes page where you can select or deselect volumes.]
+
+. Click *Save* to commit your changes.
+
+//== Edit an existing backup policy
+//
+//You can change the attributes for a backup policy that is currently applied to volumes in a working environment. Changing the backup policy affects all existing volumes that are using the policy.
+//
+//[NOTE]
+//====
+//* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating BlueXP backup and recovery for this cluster, any policies that you edit must be configured with the same DataLock setting (Governance or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery, you can't enable DataLock now.
+//* When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating BlueXP backup and recovery, then that tier will be the only archive tier available when editing backup policies. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option when editing a policy.
+//====
+//
+//.Steps
+//
+//. From the *Volumes* tab, select *Backup Settings*.
+//+
+//image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button from the Volumes tab.]
+//
+//. From the _Backup Settings_ page, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment where you want to change the policy settings, and select *Manage Policies*.
+//+
+//image:screenshot_backup_modify_policy.png[A screenshot that shows the Manage Policies option from the Backup Settings page.]
+//
+//. From the _Manage Policies_ page, click *Edit* for the backup policy you want to change in that working environment.
+//+
+//Note you can click image:button_down_caret.png[down-arrow button] to view the full details for the policy.
+//+
+//image:screenshot_backup_manage_policy_page_edit.png[A screenshot that shows the Edit Policy button from the Manage Policies page.]
+//
+//. From the _Edit Policy_ page, click image:button_down_caret.png[down-arrow button] to expand the _Labels & Retention_ section to change the schedule and/or backup retention, and click *Save*.
+//+
+//image:screenshot_backup_edit_policy.png[A screenshot that shows the backup policy settings where you can modify the backup schedule and backup retention setting.]
+//+
+//If your cluster is running ONTAP 9.10.1 or greater, you also have the option to enable or disable tiering of backups to archival storage after a certain number of days.
+//+
+//ifdef::aws[]
+//link:reference-aws-backup-tiers.html[Learn more about using AWS archival storage].
+//endif::aws[]
+//ifdef::azure[]
+//link:reference-azure-backup-tiers.html[Learn more about using Azure archival storage].
+//endif::azure[]
+//ifdef::gcp[]
+//link:reference-google-backup-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
+//endif::gcp[]
+//+
+//image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for BlueXP backup and recovery.]
+//+
+//Note that any backup files that have been tiered to archival storage are left in that tier if you stop tiering backups to archive - they are not automatically moved back to the standard tier. Only new volume backups will reside in the standard tier.
+//
+//== Add a new backup policy
+//
+//When you enable BlueXP backup and recovery for a working environment, all the volumes you initially select are backed up using the default backup policy that you defined. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to other volumes.
+//
+//If you want to apply a new backup policy to certain volumes in a working environment, you first need to add the backup policy to the working environment. Then you can <<Changing the policy assigned to existing volumes,apply the policy to volumes in that working environment>>.
+//
+//[NOTE]
+//====
+//* If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating BlueXP backup and recovery for this cluster, any additional policies you create must be configured with the same DataLock setting (Governance or Compliance). And if you did not enable _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery, you can't create new policies that use DataLock.
+//* When creating backups on AWS, if you chose _S3 Glacier_ or _S3 Glacier Deep Archive_ in your first backup policy when activating BlueXP backup and recovery, then that tier will be the only archive tier available for future backup policies for that cluster. And if you selected no archive tier in your first backup policy, then _S3 Glacier_ will be your only archive option for future policies.
+//====
+//
+//.Steps
+//
+//. From the *Volumes* tab, select *Backup Settings*.
+//+
+//image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button from the Volumes tab.]
+//
+//. From the _Backup Settings_ page, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment where you want to add the new policy, and select *Manage Policies*.
+//+
+//image:screenshot_backup_modify_policy.png[A screenshot that shows the Manage Policies option from the Backup Settings page.]
+//
+//. From the _Manage Policies_ page, click *Add New Policy*.
+//+
+//image:screenshot_backup_manage_policy_page_add.png[A screenshot that shows the Add New Policy button from the Manage Policies page.]
+//
+//. From the _Add New Policy_ page, click image:button_down_caret.png[down-arrow button] to expand the _Labels & Retention_ section to define the schedule and backup retention, and click *Save*.
+//+
+//image:screenshot_backup_add_new_policy.png[A screenshot that shows the backup policy settings where you can add the backup schedule and backup retention setting.]
+//+
+//If your cluster is running ONTAP 9.10.1 or greater, you also have the option to enable or disable tiering of backups to archival storage after a certain number of days.
+//+
+//ifdef::aws[]
+//link:reference-aws-backup-tiers.html[Learn more about using AWS archival storage].
+//endif::aws[]
+//ifdef::azure[]
+//link:reference-azure-backup-tiers.html[Learn more about using Azure archival storage].
+//endif::azure[]
+//ifdef::gcp[]
+//link:reference-google-backup-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
+//endif::gcp[]
+//+
+//image:screenshot_backup_modify_policy_page2.png[A screenshot that shows the tiering to archival storage settings for BlueXP backup and recovery.]
+
+== Delete backups
 
 BlueXP backup and recovery enables you to delete a single backup file, delete all backups for a volume, or delete all backups of all volumes in a working environment. You might want to delete all backups if you no longer need the backups, or if you deleted the source volume and want to remove all backups.
 
@@ -235,7 +259,7 @@ Note that you can't delete backup files that you have locked using DataLock and 
 
 CAUTION: If you plan to delete a working environment or cluster that has backups, you must delete the backups *before* deleting the system. BlueXP backup and recovery doesn't automatically delete backups when you delete a system, and there is no current support in the UI to delete the backups after the system has been deleted. You'll continue to be charged for object storage costs for any remaining backups.
 
-=== Deleting all backup files for a working environment
+=== Delete all backup files for a working environment
 
 Deleting all backups for a working environment does not disable future backups of volumes in this working environment. If you want to stop creating backups of all volumes in a working environment, you can deactivate backups <<Deactivating BlueXP backup and recovery for a working environment,as described here>>.
 
@@ -251,7 +275,7 @@ image:screenshot_delete_all_backups.png[A screenshot of selecting the Delete All
 
 . In the confirmation dialog box, enter the name of the working environment and click *Delete*.
 
-=== Deleting all backup files for a volume
+=== Delete all backup files for a volume
 
 Deleting all backups for a volume also disables future backups for that volume.
 
@@ -273,27 +297,31 @@ image:screenshot_delete_we_backups.png[A screenshot showing how to delete all ba
 
 . In the confirmation dialog box, enter the volume name and click *Delete*.
 
-=== Deleting a single backup file for a volume
+=== Delete a single backup file for a volume
 
-You can delete a single backup file. This feature is available only if the volume backup was created from a system with ONTAP 9.8 or greater.
+You can delete a single backup file if you no longer need it. This includes deleting a single backup of a volume Snapshot copy, of a replicated volume, and of a backup in object storage. 
 
 .Steps
 
-. From the *Volumes* tab, click image:screenshot_horizontal_more_button.gif[More icon] for the source volume and select *Details & Backup List*.
+. From the *Volumes* tab, click image:screenshot_horizontal_more_button.gif[More icon] for the source volume and select *View volume details*.
 +
-image:screenshot_backup_view_backups_button.png[A screenshot that shows the Details & Backup List button which is available for a single volume.]
+image:screenshot_backup_view_backups_button.png[A screenshot that shows the View Volume Details button which is available for a single volume.]
 +
-The list of all backup files is displayed.
+The details for the volume are displayed, and you can select *Snapshot*, *Replication*, or *Backup* to see the list of all backup files for the volume. By default, the available Snapshot copies are displayed.
 +
-image:screenshot_backup_view_backups.png[A screenshot that shows the List of all backup files for a single volume.]
+image:screenshot_backup_snapshot_list.png[A screenshot that shows the List of all backup files for a single volume.]
 
-. Click image:screenshot_horizontal_more_button.gif[More icon] for the volume backup file you want to delete and click *Delete*.
+. Select *Snapshot*, *Replication*, or *Backup* to see the type of backup files that you want to delete.
++
+image:screenshot_backup_select_backups_type.png["A screenshot that shows the list of all backup files for a single volume; either Snapshot copies, replicated volumes, or backups in object storage."]
+
+. Click image:screenshot_horizontal_more_button.gif[More icon] for the volume backup file you want to delete and click *Delete*. The screenshot below is from a backup file in object storage.
 +
 image:screenshot_delete_one_backup.png[A screenshot showing how to delete a single backup file.]
 
 . In the confirmation dialog box, click *Delete*.
 
-== Deleting volume backup relationships 
+== Delete volume backup relationships 
 
 Deleting the backup relationship for a volume provides you with an archiving mechanism if you want to stop the creation of new backup files and delete the source volume, but retain all the existing backup files. This gives you the ability to restore the volume from the backup file in the future, if needed, while clearing space from your source storage system.
 
@@ -329,7 +357,7 @@ When you view the list of backups for each volume, you'll see the "Relationship 
 
 image:screenshot_backup_view_no_relationship.png[A screenshot showing the Relationship Deleted status after you delete a volume backup relationship.]
 
-== Deactivating BlueXP backup and recovery for a working environment
+== Deactivate BlueXP backup and recovery for a working environment
 
 Deactivating BlueXP backup and recovery for a working environment disables backups of each volume on the system, and it also disables the ability to restore a volume. Any existing backups will not be deleted. This does not unregister the backup service from this working environment - it basically allows you to pause all backup and restore activity for a period of time.
 
@@ -351,7 +379,7 @@ image:screenshot_disable_backups.png[A screenshot of the Deactivate Backup butto
 
 NOTE: An *Activate Backup* button appears for that working environment while backup is disabled. You can click this button when you want to re-enable backup functionality for that working environment.
 
-== Unregistering BlueXP backup and recovery for a working environment
+== Unregister BlueXP backup and recovery for a working environment
 
 You can unregister BlueXP backup and recovery for a working environment if you no longer want to use backup functionality and you want to stop being charged for backups in that working environment. Typically this feature is used when you're planning to delete a working environment, and you want to cancel the backup service.
 
