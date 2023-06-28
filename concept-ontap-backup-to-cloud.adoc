@@ -267,6 +267,8 @@ The following image shows the relationship between each component:
 
 image:diagram-backup-recovery-general.png["A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the secondary storage system and destination object storage where the replicated volumes and backup files are located."]
 
+This diagram shows volumes being replicated to a Cloud Volumes ONTAP system, but volumes could be replicated to an on-premises ONTAP system as well.
+
 === Where backups reside
 
 * _Snapshot copies_ reside on the source volume in the source working environment.
