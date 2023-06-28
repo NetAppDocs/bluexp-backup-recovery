@@ -37,37 +37,45 @@ To show additional columns (aggregates, security style (Windows or UNIX), snapsh
 
 . Review the status of the protection options in the "Existing protection" column. The 3 icons stand for "Local Snapshot copies", "Replicated volumes", and "Backups in object storage". 
 +
-The icon is blue when that backup type is activated, and it is grey when the backup type is inactive. You can hover your cursor over each icon to see the backup policy that is being used, and other pertinent information for each type of backup.
+image:screenshot_backup_protection_status.png["A screenshot showing the status of the three types of protection: snapshots, replications, and backups."]
++
+Each icon is blue when that backup type is activated, and it's grey when the backup type is inactive. You can hover your cursor over each icon to see the backup policy that is being used, and other pertinent information for each type of backup.
 
 == Activate backup on additional volumes in a working environment
 
-If you activated backup only on some of the volumes in a working environment when you first enabled BlueXP backup and recovery, you can activate backups on additional volumes later. You can also activate backups for any volumes that you had previously deactivated.
+If you activated backup only on some of the volumes in a working environment when you first enabled BlueXP backup and recovery, you can activate backups on additional volumes later. 
+//You can also activate backups for any volumes that you had previously deactivated.
 
 .Steps
 
 . From the *Volumes* tab, identify the volume on which you want to activate backups, select the Actions menu image:icon-action.png[Actions icon] at the end of the row, and select *Activate backup*.
 +
-image:screenshot_backup_additional_volumes.png[A screenshot showing how to activate backup on additional volumes in a working environment.]
+image:screenshot_backup_additional_volume.png[A screenshot showing how to activate backup on additional volumes in a working environment.]
 
 . In the _Define backup strategy_ page, select the backup architecture, and then define the policies and other details for Local Snapshot copies, Replicated volumes, and Backup files. See the details for backup options from the initial volumes you activated in this working environment. Then click *Next*.
 
 . Review the backup settings for this volume, and then click *Activate Backup*.
 
-== Change the backup policy assigned to existing volumes
+== Change the backup policies assigned to existing volumes
 
-You can change the backup policies assigned to your existing volumes if you want to change the frequency of taking backups, or if you want to change the retention value. You can change the policies for your Local Snapshot copies, Replicated volumes, and Backup files.
+You can change the backup policies assigned to your existing volumes that have assigned policies. You can change the policies for your Local Snapshot copies, Replicated volumes, and Backup files.
 
-Note that the policy that you want to apply to the volumes must already exist. <<Adding a new backup policy,See how to add a new backup policy for a working environment>>.
+Note that any new Snapshot, replication, or backup policy that you want to apply to the volumes must already exist. 
+//<<Adding a new backup policy,See how to add a new backup policy for a working environment>>.
 
 .Steps
 
-. From the *Volumes* tab, select *Backup Settings*.
+. From the *Volumes* tab, identify the volume that you want to make policy changes, select the Actions menu image:icon-action.png[Actions icon] at the end of the row, and select *Edit backup strategy*.
 +
-image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button which is available after you select a working environment.]
+image:screenshot_edit_backup_strategy.png[A screenshot that shows the Edit backup strategy button which is available after you select a volume.]
 
-. From the _Backup Settings page_, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment where the volumes exist, and select *Manage Volumes*.
+. In the _Edit backup strategy_ page, make changes to the existing backup policies for Local Snapshot copies, Replicated volumes, and Backup files and click *Next*.
 +
-image:screenshot_backup_manage_volumes.png[A screenshot that shows the Manage Volumes button from the Backup Settings page.]
+If you enabled _DataLock and Ransomware Protection_ in the initial backup policy when activating BlueXP backup and recovery for this cluster, you'll only see other policies that have been configured with DataLock. And if you did not enable _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery, you'll only see other policies that don't have DataLock configured.
+
+. Review the backup settings for this volume, and then click *Activate Backup*.
+
+Multiple volumes??
 
 . Select the checkbox for a volume, or volumes, that you want to change the policy for, and then click *Change Policy*.
 +
@@ -76,8 +84,6 @@ image:screenshot_backup_manage_volumes_page_change.png[The Manage Volumes page w
 . In the _Change Policy_ page, select the policy that you want to apply to the volumes, and click *Change Policy*.
 +
 image:screenshot_backup_change_policy.png[A screenshot showing how to select a new policy to apply to selected volumes.]
-+
-NOTE: If you enabled _DataLock and Ransomware Protection_ in the initial policy when activating BlueXP backup and recovery for this cluster, you'll only see other policies that have been configured with DataLock. And if you did not enable _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery, you'll only see other policies that don't have DataLock configured.
 
 . Click *Save* to commit your changes.
 
@@ -107,10 +113,16 @@ You can view the list of all backup files that exist for each volume. This page 
 
 .Steps
 
-. From the *Volumes* tab, click image:screenshot_horizontal_more_button.gif[More icon] for the source volume and select *Details & Backup List*.
+. From the *Volumes* tab, click image:screenshot_horizontal_more_button.gif[More icon] for the source volume and select *View volume details*.
 +
-image:screenshot_backup_view_backups_button.png[A screenshot that shows the Details & Backup List button which is available for a single volume.]
+image:screenshot_backup_view_backups_button.png[A screenshot that shows the View Volume Details button which is available for a single volume.]
 +
+The details for the volume and the list of Snapshot copies are displayed by default.
++
+image:screenshot_backup_snapshot_list.png[A screenshot that shows the List of all backup files for a single volume.]
+
+
+
 The list of all backup files is displayed along with details about the source volume, destination location, and backup details.
 +
 image:screenshot_backup_view_backups.png[A screenshot that shows the List of all backup files for a single volume.]
