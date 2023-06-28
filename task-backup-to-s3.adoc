@@ -22,7 +22,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
 
 [role="quick-margin-list"]
-* You're running Cloud Volumes ONTAP 9.7P5 or later in AWS (ONTAP 9.8P13 and later is recommended).
+* You're running Cloud Volumes ONTAP 9.8 or later in AWS (ONTAP 9.8P13 and later is recommended).
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
 * You have subscribed to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[BlueXP Marketplace Backup offering], an https://aws.amazon.com/marketplace/pp/B086PDWSS8[AWS annual contract], or you have purchased link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[and activated] a BlueXP backup and recovery BYOL license from NetApp.
 * You have a Connector installed in AWS:
@@ -86,7 +86,7 @@ image:diagram_cloud_backup_cvo_aws.png[A diagram showing how BlueXP backup and r
 The VPC gateway endpoint must exist in your VPC already. https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html[Learn more about gateway endpoints^].
 
 Supported ONTAP versions::
-Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
+Minimum of ONTAP 9.8; ONTAP 9.8P13 and later is recommended.
 
 Required information for using customer-managed keys for data encryption::
 

@@ -23,7 +23,7 @@ https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Le
 === Verify ONTAP system requirements
 Ensure that the following ONTAP requirements are met: 
 
-* Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
+* Minimum of ONTAP 9.8; ONTAP 9.8P13 and later is recommended.
 * A SnapMirror license (included as part of the Premium Bundle or Data Protection Bundle).
 +
 *Note:* The "Hybrid Cloud Bundle" is not required when using BlueXP backup and recovery.

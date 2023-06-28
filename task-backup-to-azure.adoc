@@ -23,7 +23,7 @@ Get started quickly by following these steps or scroll down to the remaining sec
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
 
 [role="quick-margin-list"]
-* You're running Cloud Volumes ONTAP 9.7P5 or later in Azure (ONTAP 9.8P13 and later is recommended).
+* You're running Cloud Volumes ONTAP 9.8 or later in Azure (ONTAP 9.8P13 and later is recommended).
 * You have a valid cloud provider subscription for the storage space where your backups will be located.
 * You have subscribed to the https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[BlueXP Marketplace Backup offering^], or you have purchased link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[and activated^] a BlueXP backup and recovery BYOL license from NetApp.
 
@@ -83,7 +83,7 @@ The following image shows each component and the connections that you need to pr
 image:diagram_cloud_backup_cvo_azure.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
 Supported ONTAP versions::
-Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
+Minimum of ONTAP 9.8; ONTAP 9.8P13 and later is recommended.
 
 Supported Azure regions::
 BlueXP backup and recovery is supported in all Azure regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^]; including Azure Government regions. 
