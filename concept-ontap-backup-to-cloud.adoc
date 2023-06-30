@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: concept-ontap-backup-to-cloud.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem
-summary: The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 additional copies of your source data on 2 different storage systems along with 1 copy in the cloud.
+summary: The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 ---
 
 = Protect your ONTAP volume data using BlueXP backup and recovery
@@ -13,7 +13,7 @@ summary: The BlueXP backup and recovery service provides backup and restore capa
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 additional copies of your source data on 2 different storage systems along with 1 copy in the cloud.
+The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 
 After activation, backup and recovery creates block-level, incremental forever backups that are stored on another ONTAP cluster and in object storage in the cloud. In addition to your source volume, you'll have a:
 
@@ -31,7 +31,7 @@ The benefits of the 3-2-1 approach include:
 * Multiple media types ensure failover viability in the case of physical or logical failure of one media type.
 * The onsite copy facilitates quick restores, with the offsite copies at the ready just in case the onsite copy is compromised.
 
-When necessary, you can restore an entire _volume_, a _folder_, or one or more _files_, from a backup to the same or different working environment.
+When necessary, you can restore an entire _volume_, a _folder_, or one or more _files_, from any of the backup copies to the same or different working environment.
 
 == Features
 
@@ -47,7 +47,6 @@ When necessary, you can restore an entire _volume_, a _folder_, or one or more _
 ** Restore a replicated volume to the source system or to a different system using the UI.
 //** Restore files and folders
 //** Manage replication policies
-//** 
 
 See <<Replication limitations,Replication limitations>> for a list of replication features that are unavailable with BlueXP backup and recovery.
 
@@ -259,7 +258,8 @@ link:task-licensing-cloud-backup.html#use-an-annual-contract[Learn how to set up
 
 == How BlueXP backup and recovery works
 
-When you enable BlueXP backup and recovery on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. Volume snapshots are not included in the backup image. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum. Backup to object storage is built on top of the https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html[NetApp SnapMirror Cloud technology^].
+When you enable BlueXP backup and recovery on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum. Backup to object storage is built on top of the https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html[NetApp SnapMirror Cloud technology^].
+//Volume snapshots are not included in the backup image. 
 
 CAUTION: Any actions taken directly from your cloud provider environment to manage or change cloud backup files may corrupt the files and will result in an unsupported configuration.
 
@@ -444,6 +444,8 @@ When using a version of ONTAP before 9.11.1, folder restore is not supported.
 * Directory/folder restore is supported for data that is protected using DataLock only when the cluster is running ONTAP 9.13.1 and greater. 
 
 * Directory/folder restore is not currently supported on FlexGroup volume backups. 
+
+* Directory/folder restore is not currently supported from replications and/or local snapshots.
 
 * Restoring from FlexGroup volumes to FlexVol volumes, or FlexVol volumes to FlexGroup volumes is not supported.
 

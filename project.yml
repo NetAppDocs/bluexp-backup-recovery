@@ -68,6 +68,8 @@ sidebar:
           url: /task-manage-backups-ontap.html
         - title: Restore from ONTAP backups
           url: /task-restore-backups-ontap.html
+        - title: Manage cluster-level backup to object settings
+          url: /task-manage-backup-settings-ontap.html
     - title: Back up and restore on-premises applications data
       entries:
         - title: Protect your on-premises applications data
