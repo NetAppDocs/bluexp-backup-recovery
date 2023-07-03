@@ -18,17 +18,21 @@ Learn what's new in BlueXP backup and recovery.
 // tag::whats-new[]
 == 3 July 2023
 
-=== BlueXP backup and recovery now includes the ability to create replicated volumes
+=== BlueXP backup and recovery now includes the ability to schedule and create Snapshot copies and replicated volumes
 
-BlueXP backup and recovery now enables you to implement a 3-2-1 strategy where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud. After activation, you'll have a:
+BlueXP backup and recovery now enables you to implement a 3-2-1 strategy where you can have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud. After activation, you'll have a:
 
 * Snapshot copy of the volume on the source system
 * Replicated volume on a different storage system
 * Backup of the volume in object storage
 
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protection-journey.html[Learn more about the new full spectrum backup and restore capabilities].
+
+This new functionality also applies to recovery operations. You can perform restore operations from a Snapshot copy, from a replicated volume, or from a backup file in the cloud. This gives you the flexibility to choose the backup file that meets your recovery requirements, including cost and speed of recovery.
+
 === Ability to create your buckets for backup to object storage
 
-When you create backup files in cloud storage, by default, the backup and recovery service will create the buckets where the backup files will reside. You can create the buckets yourself if you want to use a certain name or assign special properties. If you want to create your own bucket, you must create it before starting the activation wizard.
+When you create backup files in object storage, by default, the backup and recovery service will create the buckets where the backup files will reside. You can create the buckets yourself if you want to use a certain name or assign special properties. If you want to create your own bucket, you must create it before starting the activation wizard.
 
 == 5 June 2023
 
