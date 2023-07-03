@@ -288,6 +288,38 @@ Note that Backup and recovery supports _Azure access policies_ as the permission
 
 . If you want to have a more secure connection over the public internet from your on-prem data center to the VNet, there is an option to configure an Azure Private Endpoint in the activation wizard. In this case you will need to know the VNet and Subnet for this connection. https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview[Refer to details about using a Private Endpoint^].
 
+=== Create your own buckets
+By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
+
+If you create your own buckets, you should use a bucket name of “netapp-backup”.  If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. You need to include `“Resource”: “arn:aws:s3:::*”` and assign all the necessary permissions that need to be associated with the bucket.
+
+[%collapsible]
+
+====
+"Action": [
+    "S3:ListBucket" 
+    "S3:GetBucketLocation" 
+]
+“Resource”: “arn:aws:s3:::*”,
+"Effect": "Allow" 
+}, 
+{ 
+    "Action": [
+        "S3:GetObject",
+        "S3:PutObject",
+        "S3:DeleteObject",
+        "S3:ListAllMyBuckets",
+        "S3:PutObjectTagging",
+        "S3:GetObjectTagging",
+        "S3:RestoreObject",
+        "S3:GetBucketObjectLockConfiguration",
+        "S3:GetObjectRetention",
+        "S3:PutBucketObjectLockConfiguration",
+        "S3:PutObjectRetention"    
+        ]
+    “Resource”: “arn:aws:s3:::*”, 
+====
+
 
 == Activate backups on your ONTAP volumes 
 
@@ -329,13 +361,11 @@ The Introduction page of the wizard shows the protection options including local
 
 Choose the volumes you want to protect. You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these for the working environment you chose to protect.  
 
-[NOTE]: 
+[NOTE] 
 ====
-
 * You can activate a backup only on a single FlexGroup volume at a time. 
-
 * The volumes you select must have the same SnapLock setting as well. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode aren’t currently supported.) You can’t select a combination of locked and unlocked volumes.
-==== 
+====
 
 A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
 

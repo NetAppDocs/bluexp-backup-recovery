@@ -313,11 +313,9 @@ The Introduction page of the wizard shows the protection options including local
 
 Choose the volumes you want to protect. You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these for the working environment you chose to protect.  
 
-[NOTE]: 
+[NOTE] 
 ====
-
 * You can activate a backup only on a single FlexGroup volume at a time. 
-
 * The volumes you select must have the same SnapLock setting as well. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode aren’t currently supported.) You can’t select a combination of locked and unlocked volumes.
 ====
 
