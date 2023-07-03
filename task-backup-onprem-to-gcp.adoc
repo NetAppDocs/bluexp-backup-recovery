@@ -272,34 +272,7 @@ You'll need to enter the keys in BlueXP backup and recovery later when you confi
 === Create your own buckets
 By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
 
-If you create your own buckets, you should use a bucket name of “netapp-backup”.  If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. You need to include `“Resource”: “arn:aws:s3:::*”` and assign all the necessary permissions that need to be associated with the bucket.
 
-[%collapsible]
-
-====
-"Action": [
-    "S3:ListBucket" 
-    "S3:GetBucketLocation" 
-]
-“Resource”: “arn:aws:s3:::*”,
-"Effect": "Allow" 
-}, 
-{ 
-    "Action": [
-        "S3:GetObject",
-        "S3:PutObject",
-        "S3:DeleteObject",
-        "S3:ListAllMyBuckets",
-        "S3:PutObjectTagging",
-        "S3:GetObjectTagging",
-        "S3:RestoreObject",
-        "S3:GetBucketObjectLockConfiguration",
-        "S3:GetObjectRetention",
-        "S3:PutBucketObjectLockConfiguration",
-        "S3:PutObjectRetention"    
-        ]
-    “Resource”: “arn:aws:s3:::*”, 
-==== 
 
 === Set up customer-managed encryption keys (CMEK) for data encryption
 

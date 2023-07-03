@@ -211,6 +211,11 @@ You can use your own customer-managed keys for data encryption in the activation
 
 BlueXP backup and recovery supports _Azure access policies_ as the permission model. The _Azure role-based access control_ (Azure RBAC) permission model is not currently supported.
 
+=== Create your own buckets
+
+By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
+
+If you create your own buckets, you should use a bucket name of “netapp-backup”.  
 
 
 ==  Verify ONTAP networking requirements for replicating volumes
