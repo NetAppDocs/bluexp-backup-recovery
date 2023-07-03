@@ -249,7 +249,7 @@ include::../_include/backup-onprem-prepare-onprem-ONTAP-cluster.adoc[]
 === Verify ONTAP networking requirements for backing up data to object storage
 You must configure the following requirements on the system that connects to object storage. 
 
-* For a fan-out backup architecture, configure the following settings on the _source_ system. 
+* For a fan-out backup architecture, configure the following settings on the _primary_ system. 
 * For a cascaded backup architecture, configure the following settings on the _secondary_ system.
 
 The following ONTAP cluster networking requirements are needed: 
@@ -287,6 +287,38 @@ include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.a
 Note that Backup and recovery supports _Azure access policies_ as the permission model. The _Azure role-based access control_ (Azure RBAC) permission model is not currently supported.
 
 . If you want to have a more secure connection over the public internet from your on-prem data center to the VNet, there is an option to configure an Azure Private Endpoint in the activation wizard. In this case you will need to know the VNet and Subnet for this connection. https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview[Refer to details about using a Private Endpoint^].
+
+=== Create your own buckets
+By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
+
+If you create your own buckets, you should use a bucket name of “netapp-backup”.  If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. You need to include `“Resource”: “arn:aws:s3:::*”` and assign all the necessary permissions that need to be associated with the bucket.
+
+[%collapsible]
+
+====
+"Action": [
+    "S3:ListBucket" 
+    "S3:GetBucketLocation" 
+]
+“Resource”: “arn:aws:s3:::*”,
+"Effect": "Allow" 
+}, 
+{ 
+    "Action": [
+        "S3:GetObject",
+        "S3:PutObject",
+        "S3:DeleteObject",
+        "S3:ListAllMyBuckets",
+        "S3:PutObjectTagging",
+        "S3:GetObjectTagging",
+        "S3:RestoreObject",
+        "S3:GetBucketObjectLockConfiguration",
+        "S3:GetObjectRetention",
+        "S3:PutBucketObjectLockConfiguration",
+        "S3:PutObjectRetention"    
+        ]
+    “Resource”: “arn:aws:s3:::*”, 
+====
 
 
 == Activate backups on your ONTAP volumes 
@@ -329,13 +361,11 @@ The Introduction page of the wizard shows the protection options including local
 
 Choose the volumes you want to protect. You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these for the working environment you chose to protect.  
 
-[NOTE]: 
+[NOTE] 
 ====
-
 * You can activate a backup only on a single FlexGroup volume at a time. 
-
 * The volumes you select must have the same SnapLock setting as well. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode aren’t currently supported.) You can’t select a combination of locked and unlocked volumes.
-==== 
+====
 
 A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
 
@@ -375,11 +405,11 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 +
 * *Local Snapshots*: If you are performing replication or back up to object storage, local Snapshots must be created. 
 * *Replication*: Creates replicated volumes on another ONTAP storage system.  
-* *Backup*: Backs up volumes to object storage  
+* *Backup*: Backs up volumes to object storage.  
 
 . *Architecture*: If you chose replication and backup, choose one of the following flows of information: 
-* *Cascading*: Information flows from the source to the secondary, and from secondary to object storage. 
-* *Fan out*: Information flows from the source to the secondary _and_ from the source to object storage. 
+* *Cascading*: Information flows from the primary to the secondary, and from secondary to object storage. 
+* *Fan out*: Information flows from the primary to the secondary _and_ from the primary to object storage. 
 + 
 For details about these architectures, refer to link:concept-protection-journey.html[Plan your protection journey]. 
  
@@ -391,7 +421,7 @@ TIP: If you want to create a custom policy, you can use System Manager or the ON
 
 . *Replication*: Set the following options: 
 +
-* *Replication target*: Select the destination working environment and SVM. Optionally, select the destination, aggregates and prefix or suffix that will be added to the replicated volume name. 
+* *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate or aggregates and prefix or suffix that will be added to the replicated volume name. 
 * *Replication policy*: Choose an existing replication policy. 
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
@@ -459,9 +489,9 @@ This is the chance to review your selections and make adjustments, if necessary.
 
 
 .Result 
-BlueXP backup and recovery starts taking the initial backups of your volumes. The baseline transfer of the replicated volume and the backup file includes a full copy of the source data. Subsequent transfers contain differential copies of the source data contained in Snapshot copies.
+BlueXP backup and recovery starts taking the initial backups of your volumes. The baseline transfer of the replicated volume and the backup file includes a full copy of the primary storage system data. Subsequent transfers contain differential copies of the primary storage system data contained in Snapshot copies.
 
-A replicated volume is created in the destination cluster that will be synchronized with the source volume. 
+A replicated volume is created in the destination cluster that will be synchronized with the primary volume. 
 
 A Blob storage account is created in the resource group you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups.
 

@@ -13,7 +13,7 @@ summary: Complete a few steps to get started backing up volume data from your on
 :imagesdir: ./media/
 
 [.lead]
-Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to a secondary storage system and to Google Cloud Storage.
+Complete a few steps to get started backing up volume data from your on-premises primary ONTAP systems to a secondary storage system and to Google Cloud Storage.
 
 NOTE: "On-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
 
@@ -188,7 +188,7 @@ include::../_include/backup-onprem-prepare-onprem-ONTAP-cluster.adoc[]
 
 You must configure the following requirements on the system that connects to object storage. 
 
-* For a fan-out backup architecture, configure the following settings on the _source_ system. 
+* For a fan-out backup architecture, configure the following settings on the _primary_ system. 
 * For a cascaded backup architecture, configure the following settings on the _secondary_ system.
 
 The following ONTAP cluster networking requirements are needed: 
@@ -272,6 +272,35 @@ You'll need to enter the keys in BlueXP backup and recovery later when you confi
 === Create your own buckets
 By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
 
+If you create your own buckets, you should use a bucket name of “netapp-backup”.  If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. You need to include `“Resource”: “arn:aws:s3:::*”` and assign all the necessary permissions that need to be associated with the bucket.
+
+[%collapsible]
+
+====
+"Action": [
+    "S3:ListBucket" 
+    "S3:GetBucketLocation" 
+]
+“Resource”: “arn:aws:s3:::*”,
+"Effect": "Allow" 
+}, 
+{ 
+    "Action": [
+        "S3:GetObject",
+        "S3:PutObject",
+        "S3:DeleteObject",
+        "S3:ListAllMyBuckets",
+        "S3:PutObjectTagging",
+        "S3:GetObjectTagging",
+        "S3:RestoreObject",
+        "S3:GetBucketObjectLockConfiguration",
+        "S3:GetObjectRetention",
+        "S3:PutBucketObjectLockConfiguration",
+        "S3:PutObjectRetention"    
+        ]
+    “Resource”: “arn:aws:s3:::*”, 
+==== 
+
 === Set up customer-managed encryption keys (CMEK) for data encryption
 
 You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. Both cross-region and cross-project keys are supported, so you can choose a project for a bucket that is different than the project of the CMEK key. 
@@ -344,11 +373,9 @@ The Introduction page of the wizard shows the protection options including local
 
 Choose the volumes you want to protect. You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these for the working environment you chose to protect.  
 
-[NOTE]: 
+[NOTE] 
 ====
-
 * You can activate a backup only on a single FlexGroup volume at a time. 
-
 * The volumes you select must have the same SnapLock setting as well. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode aren’t currently supported.) You can’t select a combination of locked and unlocked volumes.
 ====
 
@@ -390,11 +417,11 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 +
 * *Local Snapshots*: If you are performing replication or back up to object storage, local Snapshots must be created. 
 * *Replication*: Creates replicated volumes on another ONTAP storage system.  
-* *Backup*: Backs up volumes to object storage  
+* *Backup*: Backs up volumes to object storage.  
 
 . *Architecture*: If you chose replication and backup, choose one of the following flows of information: 
-* *Cascading*: Information flows from the source to the secondary and from the secondary to object storage. 
-* *Fan out*: Information flows from the source to the secondary _and_ from the source to object storage. 
+* *Cascading*: Information flows from the primary to the secondary and from the secondary to object storage. 
+* *Fan out*: Information flows from the primary to the secondary _and_ from the primary to object storage. 
 + 
 For details about these architectures, refer to link:concept-protection-journey.html[Plan your protection journey]. 
 
@@ -405,7 +432,7 @@ TIP: If you want to create a custom policy, you can use System Manager or the ON
 
 . *Replication*: Set the following options: 
 +
-* *Replication target*: Select the destination working environment and SVM. Optionally, select the destination, aggregates and prefix or suffix that will be added to the replicated volume name. 
+* *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate or aggregates and prefix or suffix that will be added to the replicated volume name. 
 * *Replication policy*: Choose an existing replication policy. 
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
@@ -465,7 +492,7 @@ This is the chance to review your selections and make adjustments, if necessary.
 
 
 .Result 
-BlueXP backup and recovery starts taking the initial backups of your volumes. The baseline transfer of the replicated volume and the backup file includes a full copy of the source data. Subsequent transfers contain differential copies of the source data contained in Snapshot copies.
+BlueXP backup and recovery starts taking the initial backups of your volumes. The baseline transfer of the replicated volume and the backup file includes a full copy of the primary storage system data. Subsequent transfers contain differential copies of the primary storage system data contained in Snapshot copies.
 
 A replicated volume is created in the destination cluster that will be synchronized with the source volume. 
 
