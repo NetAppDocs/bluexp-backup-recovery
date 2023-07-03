@@ -207,7 +207,7 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.htm
 
 
 === Required information for using customer-managed keys for data encryption
-You can use your own customer-managed keys for data encryption in the activation wizard instead of using the default Microsoft-managed encryption keys. In this case you will need to have the Azure Subscription, Key Vault name, and the Key. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview[See how to use your own keys^].
+You can use your own customer-managed keys for data encryption in the activation wizard instead of using the default Microsoft-managed encryption keys. In this case, you will need to have the Azure Subscription, Key Vault name, and the Key. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview[See how to use your own keys^].
 
 BlueXP backup and recovery supports _Azure access policies_ as the permission model. The _Azure role-based access control_ (Azure RBAC) permission model is not currently supported.
 
@@ -358,11 +358,11 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 +
 * *Local Snapshots*: If you are performing replication or back up to object storage, local Snapshots must be created. 
 * *Replication*: Creates replicated volumes on another ONTAP storage system.  
-* *Backup*: Backs up volumes to object storage  
+* *Backup*: Backs up volumes to object storage.  
 
 . *Architecture*: If you chose replication and backup, choose one of the following flows of information: 
-* *Cascading*: Information flows from the source to the secondary, and from secondary to object storage. 
-* *Fan out*: Information flows from the source to the secondary _and_ from the source to object storage. 
+* *Cascading*: Information flows from the primary storage system to the secondary, and from secondary to object storage. 
+* *Fan out*: Information flows from the primary storage system to the secondary _and_ from the primary to object storage. 
 + 
 For details about these architectures, refer to link:concept-protection-journey.html[Plan your protection journey]. 
  
@@ -374,7 +374,7 @@ TIP: If you want to create a custom policy, you can use System Manager or the ON
 
 . *Replication*: Set the following options: 
 +
-* *Replication target*: Select the destination working environment and SVM. Optionally, select the destination, aggregates and prefix or suffix that will be added to the replicated volume name. 
+* *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate or aggregates and prefix or suffix that will be added to the replicated volume name. 
 * *Replication policy*: Choose an existing replication policy. 
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
@@ -452,9 +452,9 @@ This is the chance to review your selections and make adjustments, if necessary.
 
 
 .Result 
-BlueXP backup and recovery starts taking the initial backups of your volumes. The baseline transfer of the replicated volume and the backup file includes a full copy of the source data. Subsequent transfers contain differential copies of the source data contained in Snapshot copies.
+BlueXP backup and recovery starts taking the initial backups of your volumes. The baseline transfer of the replicated volume and the backup file includes a full copy of the primary storage system data. Subsequent transfers contain differential copies of the primary storage data contained in Snapshot copies.
 
-A replicated volume is created in the destination cluster that will be synchronized with the source volume. 
+A replicated volume is created in the destination cluster that will be synchronized with the primary volume. 
 
 A Blob storage container is created in the resource group you entered, and the backup files are stored there. 
 
