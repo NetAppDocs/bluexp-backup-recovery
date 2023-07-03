@@ -20,17 +20,15 @@ Learn what's new in BlueXP backup and recovery.
 
 === BlueXP backup and recovery now includes the ability to create replicated volumes
 
-BlueXP backup and recovery now enables you to implement a 3-2-1 strategy where you have 3 additional copies of your source data on 2 different storage systems along with 1 copy in the cloud. After activation, you'll have a:
+BlueXP backup and recovery now enables you to implement a 3-2-1 strategy where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud. After activation, you'll have a:
 
 * Snapshot copy of the volume on the source system
 * Replicated volume on a different storage system
 * Backup of the volume in object storage
 
-See XXX section for details...
+=== Ability to create your buckets for backup to object storage
 
-=== fff
-
-fff
+When you create backup files in cloud storage, by default, the backup and recovery service will create the buckets where the backup files will reside. You can create the buckets yourself if you want to use a certain name or assign special properties. If you want to create your own bucket, you must create it before starting the activation wizard.
 
 == 5 June 2023
 

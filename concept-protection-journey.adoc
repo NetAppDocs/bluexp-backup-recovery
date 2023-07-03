@@ -45,14 +45,15 @@ Snapshots are the basis of all the backup methods, and they are required to use 
 
 image:diagram-321-overview.png["A diagram showing how backup files exist on the source system as Snapshot copies, as replicated volumes on the secondary storage system, and as a backup files in object storage."]
 
-You can choose to create both replicated volumes on another ONTAP storage system and backup files in the cloud. Or you can choose just to create replicated volumes or backup files - it's your choice. The service also enables you to select two replication destinations if you want to protect your data in an additional location (both with and without creating backup files).
+You can choose to create both replicated volumes on another ONTAP storage system and backup files in the cloud. Or you can choose just to create replicated volumes or backup files - it's your choice. 
+//The service also enables you to select two replication destinations if you want to protect your data in an additional location (both with and without creating backup files).
 
 To summarize, these are the valid protection flows you can create for a volume, or all volumes, in your ONTAP working environment:
 
 * Source volume -> Snapshot copy -> Replicated volume -> Backup file
 * Source volume -> Snapshot copy -> Backup file
 * Source volume -> Snapshot copy -> Replicated volume
-* Source volume -> Snapshot copy -> Replicated volume -> Replicated volume
+//* Source volume -> Snapshot copy -> Replicated volume -> Replicated volume
 
 NOTE: The initial creation of a replicated volume or backup file includes a full copy of the source data - this is called a baseline transfer. Subsequent transfers contain only differential copies of the source data (the Snapshot).
 
@@ -130,7 +131,9 @@ https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-po
 https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy[Create the backup policy using System Manager^]
 https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description[Create a backup policy using the ONTAP CLI^]
 
-NOTE: If you are planning to create custom policies when using the cascading architecture, you'll need to create the backup policies on the secondary system where the replicated volumes will be created. If you're using the default policies, then you are all set. 
+NOTE: If you are planning to create custom policies when using the cascading architecture, you'll need to create the backup to object policies on the secondary system where the replicated volumes will be created. If you're using the default policies, then you are all set. 
+
+You can create backup to object storage policies in the BleXP backup and recovery UI. See the section for link:task-manage-backups-ontap.html#add-a-new-backup-policy[adding a new backup policy] for details. You'll need to create Snapshot and Replication policies using System Manager or the ONTAP CLI.
 
 Here are a few sample ONTAP CLI commands that may be helpful if you are creating custom policies. Note that you must use the _admin_ vserver (storage VM) as the `<vserver_name>` in these commands.
 
@@ -166,7 +169,9 @@ You can create the container from BlueXP, or from your cloud provider.
 * https://docs.netapp.com/us-en/bluexp-s3-storage/task-add-s3-bucket.html[Create S3 buckets from BlueXP]
 * https://docs.netapp.com/us-en/bluexp-blob-storage/task-add-blob-storage.html[Create Azure Blob storage accounts from BlueXP]
 * https://docs.netapp.com/us-en/bluexp-google-cloud-storage/task-add-gcp-bucket.html[Create Google Cloud Storage buckets from BlueXP]
-* https://docs.netapp.com/us-en/storagegrid-117/tenant/creating-s3-bucket.html[Create S3 buckets for StorageGRID]
+//* https://docs.netapp.com/us-en/storagegrid-117/tenant/creating-s3-bucket.html[Create S3 buckets for StorageGRID]
+
+Note that you cannot create your own S3 buckets when creating you backups in StorageGRID systems.
 
 == Which BlueXP Connector deployment mode are you using
 
