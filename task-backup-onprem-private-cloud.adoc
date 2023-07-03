@@ -78,6 +78,8 @@ Select the working environment and click *Enable > Backup Volumes* next to the B
 
 The following image shows each component when backing up an on-prem ONTAP system to StorageGRID and the connections that you need to prepare between them.
 
+Optionally, you can connect to a secondary ONTAP system for replicated volumes using the public or private connection as well.
+
 image:diagram_cloud_backup_onprem_storagegrid.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
 When the Connector and on-premises ONTAP system are installed in an on-prem location without internet access (a "dark site"), the StorageGRID system must be located in the same on-prem data center. Archival of older backup files to public cloud is not supported in dark site configurations.
@@ -279,7 +281,13 @@ The Introduction page of the wizard shows the protection options including local
 
 Choose the volumes you want to protect. You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these for the working environment you chose to protect.  
 
-NOTE: You can activate a backup only on a single FlexGroup volume at a time. 
+[NOTE]: 
+====
+
+* You can activate a backup only on a single FlexGroup volume at a time. 
+
+* The volumes you select must have the same SnapLock setting as well. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode aren’t currently supported.) You can’t select a combination of locked and unlocked volumes.
+====
 
 A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
 

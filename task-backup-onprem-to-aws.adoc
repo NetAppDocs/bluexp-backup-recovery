@@ -84,6 +84,8 @@ Choose which of the two connection methods you will use when configuring backups
 * *Public connection* - Directly connect the ONTAP system to AWS S3 using a public S3 endpoint.
 * *Private connection* - Use a VPN or AWS Direct Connect and route traffic through a VPC Endpoint interface that uses a private IP address.
 
+Optionally, you can connect to a secondary ONTAP system for replicated volumes using the public or private connection as well.
+
 The following diagram shows the *public connection* method and the connections that you need to prepare between the components. You can use a Connector that you've installed on your premises, or a Connector that you've deployed in the AWS VPC.
 
 image:diagram_cloud_backup_onprem_aws_public.png[A diagram showing how BlueXP backup and recovery communicates over a public connection with the volumes on the cluster and the AWS S3 storage where the backup files are located.]
@@ -344,6 +346,36 @@ Refer to the https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_fo
 === Create your own buckets
 By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
 
+If you create your own buckets, you should use a bucket name of “netapp-backup”.  If you need to use a custom name, edit the “ontapcloud-instance-policy-netapp-backup" IAMRole for the existing CVOs and add the following list to the  S3 permissions. You need to include “Resource”: “arn:aws:s3:::*” and assign all the necessary permissions that need to be associated with the bucket.
+
+Permissions: 
+[%collapsible]
+
+====
+"Action": [
+    "S3:ListBucket" 
+    "S3:GetBucketLocation" 
+]
+“Resource”: “arn:aws:s3:::*”,
+"Effect": "Allow" 
+}, 
+{ 
+    "Action": [
+        "S3:GetObject",
+        "S3:PutObject",
+        "S3:DeleteObject",
+        "S3:ListAllMyBuckets",
+        "S3:PutObjectTagging",
+        "S3:GetObjectTagging",
+        "S3:RestoreObject",
+        "S3:GetBucketObjectLockConfiguration",
+        "S3:GetObjectRetention",
+        "S3:PutBucketObjectLockConfiguration",
+        "S3:PutObjectRetention"    
+        ]
+    “Resource”: “arn:aws:s3:::*”, 
+====
+
 === Set up customer-managed AWS keys for data encryption
 
 If you want to use the default Amazon S3 encryption keys to encrypt the data passed between your on-prem cluster and the S3 bucket, then you are all set because the default installation uses that type of encryption.
@@ -434,7 +466,13 @@ The Introduction page of the wizard shows the protection options including local
 
 Choose the volumes you want to protect. You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these for the working environment you chose to protect.  
 
-NOTE: You can activate a backup only on a single FlexGroup volume at a time. 
+[NOTE]: 
+====
+
+* You can activate a backup only on a single FlexGroup volume at a time. 
+
+* The volumes you select must have the same SnapLock setting as well. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode aren’t currently supported.) You can’t select a combination of locked and unlocked volumes.
+====
 
 A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
 
