@@ -218,6 +218,14 @@ By default, backups are created using the same account as the one used for your 
  "glue:BatchCreatePartition",
  "glue:BatchDeletePartition"
 
+Create your own buckets::
+
+By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
+
+If you create your own buckets, you should use a bucket name of “netapp-backup”.  
+
+
+
 ==  Verify ONTAP networking requirements for replicating volumes
 
 //This section uses an Include for all providers. It includes "Cloud Volumes ONTAP networking requirements", and "On-premises ONTAP networking requirements"   
