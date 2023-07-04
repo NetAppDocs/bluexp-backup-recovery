@@ -16,7 +16,7 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
-== 03 July 2023
+== 04 July 2023
 
 === Enhancements to BlueXP backup and recovery for applications (cloud-native)
 
