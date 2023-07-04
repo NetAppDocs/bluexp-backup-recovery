@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: task-restore-cloud-native-oracle-data.html
-keywords: cloud-native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle
-summary:  Restore the data files, control files, or both and then recover the database.
+permalink: task-restore-cloud-native-oracle-data-to-original-location.html
+keywords: cloud-native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle, original location
+summary:  Restore the data files, control files, or both to original location and then recover the database.
 ---
 
-= Restore cloud-native Oracle databases
+= Restore cloud-native Oracle databases to original location
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -14,14 +14,14 @@ summary:  Restore the data files, control files, or both and then recover the da
 
 [.lead]
 
-In the event of data loss, you can restore the data files, control files, or both and then recover the database.
+In the event of data loss, you can restore the data files, control files, or both to original location and then recover the database.
 
-*Before you begin*
+.Before you begin
 
 If the Oracle 21c database is in STARTED state, the restore operation fails. You should run the following command to restore the database successfully.
 `cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib/ojdbc8-8.jar`
 
-*Steps*
+.Steps
 
 . Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *Restore*.
 . Select the restore point to which the database should be restored and click *Restore to original location*.
@@ -55,8 +55,6 @@ In Amazon FSx for NetApp ONTAP or Cloud Volumes ONTAP SAN layout, if SnapCenter 
 * ASM parameter file.
 +
 The *Force in-place restore* option overrides the foreign files of type parameter, password, and archive log. You should use the latest backup when *Force in-place restore* option is selected.
-+
-NOTE: Restore of datafiles with control files or only control files for iSCSI on ASM layout and restore of tablespaces and PDBs are not supported.
 
 . In the Recovery Scope section, perform the following actions:
 +
