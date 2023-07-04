@@ -16,6 +16,30 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
+== 03 July 2023
+
+=== Enhancements to BlueXP backup and recovery for applications (cloud-native)
+
+* SAP HANA systems
+** Supports connect and copy restore of Non-Data Volumes and Global Non-Data volumes having Azure NetApp Files secondary protection
+
+* Oracle databases
+** Supports restore of Oracle databases on Azure NetApp Files to alternate location
+** Supports Oracle Recovery Manager (RMAN) cataloging of backups of Oracle databases on Azure NetApp Files
+** Allows you to put the database host to maintenance mode to perform maintenance tasks
+
+=== Enhancements to BlueXP backup and recovery for applications (hybrid)
+
+* Supports restore to alternate location 
+* Allows you to mount Oracle database backups
+* Supports moving backups from GCP to archival tier
+
+=== Enhancements to BlueXP backup and recovery for virtual machines (hybrid)
+
+* Supports protection of NFS and VMFS type of datastores
+* Allows you to unregister the SnapCenter Plug-in for VMware vSphere host
+* Supports refresh and discovery of latest datastores and backups
+
 == 5 June 2023
 
 === FlexGroup volumes can be backed up and protected using DataLock and Ransomware protection
@@ -43,6 +67,7 @@ When you're using BlueXP backup and recovery in a site with no internet access, 
 //=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
 //
 //Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+
 
 == 8 May 2023
 
