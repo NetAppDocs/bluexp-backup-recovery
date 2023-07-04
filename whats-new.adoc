@@ -16,7 +16,7 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
-== 3 July 2023
+== 4 July 2023
 
 === BlueXP backup and recovery now includes the ability to schedule and create Snapshot copies and replicated volumes
 
@@ -30,9 +30,19 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protection-journey.
 
 This new functionality also applies to recovery operations. You can perform restore operations from a Snapshot copy, from a replicated volume, or from a backup file in the cloud. This gives you the flexibility to choose the backup file that meets your recovery requirements, including cost and speed of recovery.
 
+Note that this new functionality and user interface is supported only for clusters running ONTAP 9.8 or greater. If your cluster has an earlier version of software, you can continue using the previous version of BlueXP backup and recovery. However, we recommend that you upgrade to a supported version of ONTAP to get the newest features and functionality. To continue using the older version of the software, follow these steps:
+
+. From the *Volumes* tab, select *Backup Settings*.
+
+. From the _Backup Settings_ page, click the radio button for *Display the previous BlueXP backup and recovery version*.
++
+Then you can manage your older clusters using the previous version of software.
+
 === Ability to create your buckets for backup to object storage
 
-When you create backup files in object storage, by default, the backup and recovery service will create the buckets where the backup files will reside. You can create the buckets yourself if you want to use a certain name or assign special properties. If you want to create your own bucket, you must create it before starting the activation wizard.
+When you create backup files in object storage, by default, the backup and recovery service will create the buckets in object storage for you. You can create the buckets yourself if you want to use a certain name or assign special properties. If you want to create your own bucket, you must create it before starting the activation wizard.
+
+This functionality is not currently supported when creating backup files to StorageGRID systems.
 
 == 5 June 2023
 

@@ -384,15 +384,18 @@ This operation could cause a one-time increase in cost to read the data from you
 
 === Replication limitations
 
-* You can select only one FlexGroup volume at a time for replication. You'll need to active backup separately for each FlexGroup volume.
+* You can select only one FlexGroup volume at a time for replication. You'll need to activate backup separately for each FlexGroup volume.
 +
-There is no limitation for FlexVol volumes - you can select all FlexVol volumes in your working environment and assign the same backup policy.
+There is no limitation for FlexVol volumes - you can select all FlexVol volumes in your working environment and assign the same backup policies.
 
 * The following functionality is supported in the https://docs.netapp.com/us-en/bluexp-replication/index.html[BlueXP replication service], but not when using the replication feature of BlueXP backup and recovery:
 
-** There is no support for a cascade configuration where replication occurs from volume A to volume B and from volume B to volume C. Support includes replication from volume A to volume B, and replication from volume A to multiple destinations.
+** There is no support for a cascade configuration where replication occurs from volume A to volume B and from volume B to volume C. Support includes replication from volume A to volume B.
 ** There is no support for replicating data to and from FSx for ONTAP systems.
 ** There is no support for creating a one-time replication of a volume.
+//, and replication from volume A to multiple destinations
+
+* When creating replications from on-premises ONTAP systems, if the ONTAP version on the target Cloud Volumes ONTAP system is 9.8, 9.9, or 9.11, only mirror-vault policies are allowed.
 
 === Backup to object limitations
 

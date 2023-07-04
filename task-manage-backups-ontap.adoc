@@ -348,7 +348,9 @@ CAUTION: If you plan to delete a working environment or cluster that has backups
 
 === Delete all backup files for a working environment
 
-Deleting all backups for a working environment does not disable future backups of volumes in this working environment. If you want to stop creating backups of all volumes in a working environment, you can deactivate backups <<Deactivating BlueXP backup and recovery for a working environment,as described here>>.
+Deleting all backups on object storage for a working environment does not disable future backups of volumes in this working environment. If you want to stop creating backups of all volumes in a working environment, you can deactivate backups <<Deactivating BlueXP backup and recovery for a working environment,as described here>>.
+
+Note that this action does not affect Snapshot copies or replicated volumes - these types of backup files are not deleted.
 
 .Steps
 
@@ -386,7 +388,7 @@ image:screenshot_delete_all_backups.png[A screenshot of selecting the Delete All
 
 === Delete a single backup file for a volume
 
-You can delete a single backup file if you no longer need it. This includes deleting a single backup of a volume Snapshot copy and of a backup in object storage. 
+You can delete a single backup file if you no longer need it. This includes deleting a single backup of a volume Snapshot copy or of a backup in object storage. 
 
 You can't delete replicated volumes (data protection volumes).
 
