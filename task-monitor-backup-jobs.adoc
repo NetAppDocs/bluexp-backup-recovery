@@ -52,6 +52,7 @@ This screenshot shows the default column headings.
 . To show additional columns (Working Environment, SVM, User Name, Workloads, Policy, and Snapshot Label), select image:button_plus_sign_round.png[the plus sign button].
 
 === Search and filter the list of jobs
+
 You can filter the operations on the Job Monitoring page using several filters, such as backup policy and Snapshot label. 
 
 By default, the Job Monitoring page shows jobs from the last 24 hours. 
@@ -90,7 +91,8 @@ You can view details such as backup job type (scheduled or on-demand), SnapMirro
 
 Restore jobs show details such as backup target provider (Amazon Web Services, Microsoft Azure, Google Cloud, on-premises), S3 bucket name, SVM name, source volume name, destination volume, Snapshot label, recovered objects count, file names, file sizes, last modification date, and full file path. 
 
-NOTE: Job details appear only for ONTAP volumes backup and restore jobs. Scheduled backup job details appear only for Cloud Volumes ONTAP systems beginning with ONTAP 9.13.0. Job details appear  for in-progress and completed jobs. 
+
+NOTE: Job details appear for ONTAP backup jobs (both ad-hoc and scheduled, with scheduled jobs appearing only for ONTAP 9.13.0 or later), and all restore jobs. Job details appear for in-progress and completed jobs.
 
 .Steps 
 
@@ -115,6 +117,7 @@ From the Job Monitoring Details information, you can download a JSON file contai
 . To download a JSON file for a single job, select the Actions menu image:icon-action.png[Actions icon] for the job, select *Download JSON File*, and locate the file in your download directory.  
 
 == Review backup lifecycle jobs
+
 Monitoring of backup lifecycle flows helps you with audit completeness, accountability, and backup safety. To help you track the backup lifecycle, you might want to identify the expiration of all backup copies. 
 
 A backup lifecycle job tracks all snapshot copies that are deleted or in the queue to be deleted. Beginning with ONTAP 9.13, you can look at all job types called "Backup Lifecycle" on the Job Monitoring page.
@@ -127,14 +130,13 @@ The "Backup Lifecycle" job type captures all snapshot deletion jobs initiated on
 . Select the *Advanced Search & Filtering* area to open the Search panel. 
 . Select the job type of "Backup Lifecycle". 
 
-
 == Review backup and restore alerts in the BlueXP Notification Center
 
 The BlueXP Notification Center tracks the progress of backup and restore jobs that you've initiated so you can verify whether the operation was successful or not. 
 
-In addition to viewing the alerts in the BlueXP list of notifications, you can configure BlueXP to send notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system. https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
+In addition to viewing the alerts in the Notification Center, you can configure BlueXP to send certain types of notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system. https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
 
-The following events trigger email alerts:
+The Notification Center displays numerous events, but only the following backup and restore events trigger email alerts:
 
 [cols=2*,options="header",cols="3a,1d"]
 |===
@@ -150,13 +152,13 @@ The following events trigger email alerts:
 
 |===
 
-NOTE: Beginning with Cloud Volumes ONTAP 9.13.0, all alerts appear. For systems with Cloud Volumes ONTAP 9.13.0 and on-premises ONTAP, only the alert related to restore job completed with warnings appears. 
+NOTE: Beginning with ONTAP 9.13.0, all alerts appear for Cloud Volumes ONTAP and on-premises ONTAP systems. For systems with Cloud Volumes ONTAP 9.13.0 and on-premises ONTAP, only the alert related to "Restore job completed, but with warnings" appears. 
 
-By default, BlueXP Account Admins receive emails for all "Critical" and "Recommendation" alerts. All other users and recipients are configured, by default, not to receive any notification emails. Emails can be sent to any BlueXP users who are part of your NetApp Cloud Account, or to any other recipients who need to be aware of backup and restore activity. 
+By default, BlueXP Account Admins receive emails for all "Critical" and "Recommendation" alerts. All other users and recipients are set up, by default, not to receive any notification emails. Emails can be sent to any BlueXP users who are part of your NetApp Cloud Account, or to any other recipients who need to be aware of backup and restore activity. 
 
-To receive the BlueXP backup and recovery email alerts, you'll need to select the notification severity types "Critical", "Warning", and "Error."
+To receive the BlueXP backup and recovery email alerts, you'll need to select the notification severity types "Critical", "Warning", and "Error" in the Alerts and Notifications Settings page.
 
-https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html[Learn how to send alert emails for backup and restore jobs^].
 
 .Steps 
 
@@ -169,4 +171,3 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html
 You can view details of backup and restore operations for further investigation in the BlueXP Timeline. The BlueXP Timeline provides details of each event, whether user-initiated or system-initiated and shows actions initiated in the UI or via the API. 
 
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html[Learn about the differences between the Timeline and the Notification Center^].
-

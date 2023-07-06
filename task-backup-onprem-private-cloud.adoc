@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup on-prem ontap, on-prem, on-premise
 summary: Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to object storage in your NetApp StorageGRID systems.
 ---
 
-= Backing up on-premises ONTAP data to StorageGRID
+= Back up on-premises ONTAP data to StorageGRID
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,93 +13,140 @@ summary: Complete a few steps to get started backing up volume data from your on
 :imagesdir: ./media/
 
 [.lead]
-Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to object storage in your NetApp StorageGRID systems.
+Complete a few steps to get started backing up volume data from your on-premises primary ONTAP systems to a secondary storage system and to object storage in your NetApp StorageGRID systems.
 
-Note that "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
+NOTE: "On-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
+
 
 == Quick start
 
-Get started quickly by following these steps, or scroll down to the remaining sections for full details.
+Get started quickly by following these steps. Details for each step are provided in the following sections in this topic.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Verify support for your configuration
-
-[role="quick-margin-list"]
-* You have discovered the on-premises cluster and added it to a working environment in BlueXP. See https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Discovering ONTAP clusters^] for details.
-** The cluster is running ONTAP 9.7P5 or later.
-** The cluster has a SnapMirror license -- it is included as part of the Premium Bundle or Data Protection Bundle.
-** The cluster must have the required network connections to StorageGRID and to the Connector.
-* You have a Connector installed on your premises.
-** The Connector can be installed in a site with or without internet access.
-** Networking for the Connector enables an outbound HTTPS connection to the ONTAP cluster and to StorageGRID.
-* You have purchased link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[and activated^] a BlueXP backup and recovery BYOL license from NetApp.
-* Your StorageGRID has version 10.3 or later with access keys that have S3 permissions.
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Enable BlueXP backup and recovery on the system
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Identify the connection method you'll use
 
 [role="quick-margin-para"]
-Select the source ONTAP working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel, and then follow the setup wizard.
+Review how you'll connect your on-premises ONTAP cluster directly to StorageGRID over the public internet, or whether you'll use a VPN and route traffic through a private VPC Endpoint interface to StorageGRID.
 
 [role="quick-margin-para"]
-image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup and recovery Enable button which is available after you select a working environment.]
+<<Identify the connection method>>.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Enter the StorageGRID details
-
-[role="quick-margin-para"]
-Select StorageGRID as the provider, and then enter the StorageGRID server and S3 tenant account details. You also need to specify the IPspace in the ONTAP cluster where the volumes reside.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your BlueXP Connector
 
 [role="quick-margin-para"]
-image:screenshot_backup_provider_settings_storagegrid.png[A screenshot that shows the cloud provider details when backing up volumes from an ONTAP cluster to StorageGRID.]
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Define the default backup policy
+If you already have a Connector deployed in your StorageGRID or on your premises, then you're all set. If not, then you'll need to create a BlueXP Connector to back up ONTAP data to StorageGRID. You'll also need to customize network settings for the Connector so that it can connect to StorageGRID.
 
 [role="quick-margin-para"]
-The default policy backs up volumes every day and retains the most recent 30 backup copies of each volume. Change to hourly, daily, weekly, monthly, or yearly backups, or select one of the system-defined policies that provide more options. You can also change the number of backup copies you want to retain.
+<<Prepare your BlueXP Connector,Learn how to create a Connector and how to define required network settings.>>
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Verify license requirements
 
 [role="quick-margin-para"]
-If your cluster is using ONTAP 9.12.1 or greater and your StorageGRID system is using version 11.4 or greater, you can choose to tier older backups to public cloud archive tiers after a certain number of days for further cost optimization. Current support is for AWS S3 Glacier/S3 Glacier Deep Archive or Azure Archive storage tiers.
+You'll need to check license requirements for both StorageGRID and BlueXP.
 
 [role="quick-margin-para"]
-If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion and ransomware attacks by configuring one of the _DataLock and Ransomware Protection_ settings. link:concept-cloud-backup-policies.html[Learn more about the available BlueXP backup and recovery policy configuration settings^].
+Refer to <<Verify license requirements>>.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Prepare your ONTAP clusters
 
 [role="quick-margin-para"]
-image:screenshot_backup_onprem_policy.png[A screenshot that shows the BlueXP backup and recovery settings where you can choose the backup schedule and retention period.]
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Select the volumes that you want to back up
+Discover your ONTAP clusters in BlueXP, verify that the clusters meet minimum requirements, and customize network settings so the clusters can connect to StorageGRID.
 
 [role="quick-margin-para"]
-Identify which volumes you want to back up using the default backup policy in the Select Volumes page. If you want to assign different backup policies to certain volumes, you can create additional policies and apply them to volumes later.
+<<Prepare your ONTAP clusters,Learn how to get your ONTAP clusters ready.>>
+
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Prepare StorageGRID as your backup target
 
 [role="quick-margin-para"]
-An S3 bucket is created automatically on StorageGRID in the service account indicated by the S3 access key and secret key you entered, and the backup files are stored there.
+Set up permissions for the Connector to create and manage the StorageGRID bucket. You'll also need to set up permissions for the on-premises ONTAP cluster so it can read and write data to the bucket.
 
-== Requirements
+[role="quick-margin-para"]
+Optionally, you can set up your own custom-managed keys for data encryption instead of using the default StorageGRID encryption keys. <<Prepare StorageGRID as your backup target,Learn how to get your StorageGRID environment ready to receive ONTAP backups.>>
 
-Read the following requirements to make sure you have a supported configuration before you start backing up on-premises volumes to StorageGRID.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Activate backups on your ONTAP volumes
 
-The following image shows each component when backing up an on-prem ONTAP system to StorageGRID and the connections that you need to prepare between them.
+[role="quick-margin-para"]
+Select the working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. Then follow the setup wizard to select the replication and backup policies that you'll use and the volumes you want to back up.
+
+[role="quick-margin-para"]
+<<Activate backups on your ONTAP volumes>>.
+
+
+
+== Identify the connection method
+
+The following image shows each component when backing up an on-premises ONTAP system to StorageGRID and the connections that you need to prepare between them.
+
+Optionally, you can connect to a secondary ONTAP system for replicated volumes using the public or private connection as well.
 
 image:diagram_cloud_backup_onprem_storagegrid.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
-When the Connector and on-premises ONTAP system are installed in an on-prem location without internet access (a "dark site"), the StorageGRID system must be located in the same on-prem data center. Archival of older backup files to public cloud is not supported in dark site configurations.
+When the Connector and on-premises ONTAP system are installed in an on-premises location without internet access (a "dark site"), the StorageGRID system must be located in the same on-premises data center. Archival of older backup files to public cloud is not supported in dark site configurations.
 
-=== Preparing your ONTAP clusters
 
-You need to discover your on-premises ONTAP clusters in BlueXP before you can start backing up volume data.
+== Prepare your BlueXP Connector
 
-https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Learn how to discover a cluster^].
+The BlueXP Connector is the main software for BlueXP functionality. A Connector is required to back up and restore your ONTAP data.
 
-ONTAP requirements::
-* Minimum of ONTAP 9.7P5; ONTAP 9.8P13 and later is recommended.
-* A SnapMirror license (included as part of the Premium Bundle or Data Protection Bundle).
-+
-*Note:* The "Hybrid Cloud Bundle" is not required when using BlueXP backup and recovery.
-+
-See how to https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html[manage your cluster licenses^].
-* Time and time zone are set correctly.
-+
-See how to https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html[configure your cluster time^].
+=== Create or switch Connectors
 
-Cluster networking requirements::
+When you back up data to StorageGRID, a BlueXP Connector must be available on your premises. You'll either need to install a new Connector or make sure that the currently selected Connector resides on-premises. The Connector can be installed in a site with or without internet access.
+
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Connectors^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html[Installing the Connector on a Linux host with internet access^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html[Installing the Connector on a Linux host without internet access^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html[Switching between Connectors^]
+
+=== Prepare Connector networking requirements
+Ensure that the network where the Connector is installed enables the following connections:
+
+* An HTTPS connection over port 443 to the StorageGRID Gateway Node
+* An HTTPS connection over port 443 to your ONTAP cluster management LIF
+* An outbound internet connection over port 443 to BlueXP backup and recovery (not required when the Connector is installed in a "dark" site)
+
+==== Private mode (dark site) considerations
+
+* BlueXP backup and recovery functionality is built into the BlueXP Connector. When it is installed in private mode, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's New] to see the new features in each BlueXP backup and recovery release. When you want to use the new features, follow the steps to https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode[upgrade the Connector software^].
+
+* When you use BlueXP backup and recovery in a SaaS environment, the BlueXP backup and recovery configuration data is backed up to the cloud. When you use BlueXP backup and recovery in a site with no internet access, the BlueXP backup and recovery configuration data is backed up to the StorageGRID bucket where your backups are being stored. If you ever have a Connector failure in your private mode site, you can link:reference-backup-cbs-db-in-dark-site.html[restore the BlueXP backup and recovery data to a new Connector^].
+//
+//We highly recommend that you create local backups of the BlueXP backup and recovery configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up BlueXP backup and recovery data in a dark site^].
+
+== Verify license requirements 
+
+Before you can activate BlueXP backup and recovery for your cluster, you'll need to purchase and activate a BlueXP backup and recovery BYOL license from NetApp. This license is for the account and can be used across multiple systems.
+
+You'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
+
+TIP: PAYGO licensing is not supported when backing up files to StorageGRID.
+
+
+== Prepare your ONTAP clusters
+
+// This section uses an include along with the 2 subsections of "Discover your ONTAP cluster in BlueXP" and "Verify ONTAP requirements"
+
+include::../_include/backup-onprem-prepare-onprem-ONTAP-cluster.adoc[]
+
+
+// === Discover your ONTAP systems in BlueXP
+// FROM INCLUDE
+
+// === Verify ONTAP system requirements
+// FROM INCLUDE
+
+
+
+=== Verify ONTAP networking requirements for backing up data to object storage
+
+You must configure the following requirements on the system that connects to object storage. 
+
+* When you use a fan-out backup architecture, the following settings must be configured on the primary storage system. 
+* When you use a cascaded backup architecture, the following settings must be configured on the secondary storage system.
+
+The following ONTAP cluster networking requirements are needed: 
+
+
 * The ONTAP cluster initiates an HTTPS connection over a user-specified port from the intercluster LIF to the StorageGRID Gateway Node for backup and restore operations. The port is configurable during backup setup.
 +
 ONTAP reads and writes data to and from object storage. The object storage never initiates, it just responds.
@@ -111,12 +158,24 @@ ONTAP reads and writes data to and from object storage. The object storage never
 When you set up BlueXP backup and recovery, you are prompted for the IPspace to use. You should choose the IPspace that each LIF is associated with. That might be the "Default" IPspace or a custom IPspace that you created.
 * The nodes' intercluster LIFs are able to access the object store (not required when the Connector is installed in a "dark" site).
 * DNS servers have been configured for the storage VM where the volumes are located. See how to https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html[configure DNS services for the SVM^].
-* Note that if you use are using a different IPspace than the Default, then you might need to create a static route to get access to the object storage.
+* If you use are using a different IPspace than the Default, then you might need to create a static route to get access to the object storage.
 * Update firewall rules, if necessary, to allow BlueXP backup and recovery service connections from ONTAP to object storage through the port you specified (typically port 443) and name resolution traffic from the storage VM to the DNS server over port 53 (TCP/UDP).
 
-=== Preparing StorageGRID
+
+
+===  Verify ONTAP networking requirements for replicating volumes
+
+//This section uses an Include for all providers. It includes "Cloud Volumes ONTAP networking requirements", and "On-premises ONTAP networking requirements"   
+
+include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.adoc[]
+
+
+
+== Prepare StorageGRID as your backup target
 
 StorageGRID must meet the following requirements. See the https://docs.netapp.com/us-en/storagegrid-116/[StorageGRID documentation^] for more information.
+
+// Per MN, BYOB not supported in July 2023 release. 
 
 Supported StorageGRID versions::
 StorageGRID 10.3 and later is supported.
@@ -126,6 +185,7 @@ To use DataLock & Ransomware Protection for your backups, your StorageGRID syste
 To tier older backups to cloud archival storage, your StorageGRID systems must be running version 11.3 or greater. Additionally, your StorageGRID systems must be discovered to the BlueXP Canvas.
 
 S3 credentials::
+
 You must have created an S3 tenant account to control access to your StorageGRID storage. https://docs.netapp.com/us-en/storagegrid-116/admin/creating-tenant-account.html[See the StorageGRID docs for details^].
 +
 When you set up backup to StorageGRID, the backup wizard prompts you for an S3 access key and secret key for a tenant account. The tenant account enables BlueXP backup and recovery to authenticate and access the StorageGRID buckets used to store backups. The keys are required so that StorageGRID knows who is making the request.
@@ -143,32 +203,9 @@ These access keys must be associated with a user who has the following permissio
 Object versioning::
 You must not enable StorageGRID object versioning manually on the object store bucket.
 
-=== Creating or switching Connectors
 
-When backing up data to StorageGRID, a BlueXP Connector must be available on your premises. You'll either need to install a new Connector or make sure that the currently selected Connector resides on-prem. The Connector can be installed in a site with or without internet access.
 
-* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Connectors^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html[Installing the Connector on a Linux host with internet access^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html[Installing the Connector on a Linux host without internet access^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html[Switching between Connectors^]
-
-==== Connector networking requirements
-
-Ensure that the network where the Connector is installed enables the following connections:
-
-* An HTTPS connection over port 443 to the StorageGRID Gateway Node
-* An HTTPS connection over port 443 to your ONTAP cluster management LIF
-* An outbound internet connection over port 443 to BlueXP backup and recovery (not required when the Connector is installed in a "dark" site)
-
-==== Private mode (dark site) considerations
-
-* BlueXP backup and recovery functionality is built into the BlueXP Connector. When installed in private mode, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's New] to see the new features in each BlueXP backup and recovery release. When you want to use the new features, follow the steps to https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode[upgrade the Connector software^].
-
-* When using BlueXP backup and recovery in a SaaS environment, the BlueXP backup and recovery configuration data is backed up to the cloud. When using BlueXP backup and recovery in a site with no internet access, the BlueXP backup and recovery configuration data is backed up to the StorageGRID bucket where your backups are being stored. If you ever have a Connector failure in your private mode site, you can link:reference-backup-cbs-db-in-dark-site.html[restore the BlueXP backup and recovery data to a new Connector^].
-//
-//We highly recommend that you create local backups of the BlueXP backup and recovery configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up BlueXP backup and recovery data in a dark site^].
-
-=== Preparing to archive older backup files to public cloud storage
+=== Prepare to archive older backup files to public cloud storage
 
 Tiering older backup files to archival storage saves money by using a less expensive storage class for backups that you may not need. StorageGRID is an on-premises (private cloud) solution that doesn't provide archival storage, but you can move older backup files to public cloud archival storage. When used in this fashion, data that is tiered to cloud storage, or restored from cloud storage, goes between StorageGRID and the cloud storage - BlueXP is not involved in this data transfer.
 
@@ -176,11 +213,11 @@ Current support enables you to archive backups to AWS _S3 Glacier_/_S3 Glacier D
 
 *ONTAP Requirements*
 
-* Your cluster must be using ONTAP 9.12.1 or greater
+* Your cluster must be using ONTAP 9.12.1 or greater.
 
 *StorageGRID Requirements*
 
-* Your StorageGRID must be using 11.4 or greater
+* Your StorageGRID must be using 11.4 or greater.
 * Your StorageGRID must be https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html[discovered and available in the BlueXP Canvas^].
 
 *Amazon S3 requirements*
@@ -206,70 +243,181 @@ When defining the Archival settings for the backup policy for your cluster, you'
 
 image:screenshot_sg_archive_to_cloud.png[A screenshot of the information you'll need to archive backup files from StorageGRID to AWS S3 or Azure Blob.]
 
-The archival policy settings you select will generate an information lifecycle management (ILM) policy in StorageGRID, and add the settings as "rules". If there is an existing active ILM policy, new rules will be added to the ILM policy to move the data to the archive tier. If there is an existing ILM policy in the "proposed" state, the creation and activation of a new ILM policy will not be possible. https://docs.netapp.com/us-en/storagegrid-116/ilm/index.html[Learn more about StorageGRID ILM policies and rules^].
+The archival policy settings you select will generate an information lifecycle management (ILM) policy in StorageGRID, and add the settings as "rules". 
 
-=== License requirements
+* If there is an existing active ILM policy, new rules will be added to the ILM policy to move the data to the archive tier. 
+* If there is an existing ILM policy in the "proposed" state, the creation and activation of a new ILM policy will not be possible. https://docs.netapp.com/us-en/storagegrid-117/ilm/index.html[Learn more about StorageGRID ILM policies and rules^].
 
-Before you can activate BlueXP backup and recovery for your cluster, you'll need to purchase and activate a BlueXP backup and recovery BYOL license from NetApp. This license is for the account and can be used across multiple systems.
 
-You'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
 
-TIP: PAYGO licensing is not supported when backing up files to StorageGRID.
+== Activate backups on your ONTAP volumes
 
-== Enabling BlueXP backup and recovery
+Activate backups at any time directly from your on-premises working environment.
 
-Enable BlueXP backup and recovery at any time directly from the on-premises working environment.
+A wizard takes you through the following major steps: 
 
-.Steps
+* <<Select the volumes that you want to back up>>
+* <<Define the backup strategy>>
+* <<Review your selections>> 
 
-. From the Canvas, select the on-premises working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel.
+You can also <<Show the API commands>> at the review step, so you can copy the code to automate backup activation for future working environments.  
+
+=== Start the wizard 
+
+.Steps 
+
+. Access the Activate backup and recovery wizard using one of the following ways: 
+* From the BlueXP canvas, select the working environment and select *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel.
 +
-If the StorageGRID destination for your backups exists as a working environment on the Canvas, you can drag the cluster onto the StorageGRID working environment to initiate the setup wizard.
-+
-image:screenshot_backup_onprem_enable.png[A screenshot that shows the Backup and recovery Enable button which is available after you select a working environment.]
+If the destination for your backups exists as a working environment on the Canvas, you can drag the ONTAP cluster onto the object storage. 
+* Select *Volumes* in the Backup and recovery bar. From the Volumes tab, select the *Actions (...)* option and select *Activate Backup* for a single volume (that does not already have replication or backup to object storage already enabled). 
 
-. Select *StorageGRID* as the provider, click *Next*, and then enter the provider details:
++ 
+The Introduction page of the wizard shows the protection options including local Snapshots, replication, and backups. If you did the second option in this step, the Define Backup Strategy page appears with one volume selected. 
 
-.. The FQDN of the StorageGRID Gateway Node.
-.. The port that ONTAP should use for HTTPS communication with StorageGRID.
-.. The Access Key and the Secret Key used to access the bucket to store backups.
-.. The IPspace in the ONTAP cluster where the volumes you want to back up reside. The intercluster LIFs for this IPspace must have outbound internet access (not required when the Connector is installed in a "dark" site).
-+
-Selecting the correct IPspace ensures that BlueXP backup and recovery can set up a connection from ONTAP to your StorageGRID object storage.
-+
-image:screenshot_backup_provider_settings_storagegrid.png[A screenshot that shows the cloud provider details when backing up volumes from an on-premises cluster to StorageGRID storage.]
 
-. Enter the backup policy details that will be used for your default policy and click *Next*. You can select an existing policy, or you can create a new policy by entering your selections in each section:
+. Continue with the following options: 
 
-.. Enter the name for the default policy. You don't need to change the name.
-.. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
-.. If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion and ransomware attacks by configuring _DataLock and Ransomware Protection_. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
-.. If your cluster is using ONTAP 9.12.1 or greater and your StorageGRID system is using version 11.4 or greater, you can choose to tier older backups to public cloud archive tiers after a certain number of days. Current support is for AWS S3 Glacier/S3 Glacier Deep Archive or Azure Archive storage tiers. <<Preparing to archive older backup files to public cloud storage,See how to configure your systems for this functionality>>.
-+
-image:screenshot_backup_onprem_policy.png[A screenshot that shows the BlueXP backup and recovery settings where you can choose your backup schedule and retention period.]
-+
-*Important:* If you plan to use DataLock, you must enable it in your first policy when activating BlueXP backup and recovery.
+* If you already have a BlueXP Connector, you're all set. Just select *Next*. 
+* If you don't already have a BlueXP Connector, the *Add a Connector* option appears. Refer to <<Prepare your BlueXP Connector>>. 
 
-. Select the volumes that you want to back up using the defined backup policy in the Select Volumes page. If you want to assign different backup policies to certain volumes, you can create additional policies and apply them to those volumes later.
 
+=== Select the volumes that you want to back up
+
+Choose the volumes you want to protect. You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these for the working environment you chose to protect.  
+
+[NOTE] 
+====
+* You can activate a backup only on a single FlexGroup volume at a time. 
+* The volumes you select must have the same SnapLock setting as well. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode aren’t currently supported.) You can’t select a combination of locked and unlocked volumes.
+====
+
+A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
+
+NOTE: If the volumes you choose have different Snapshot and replication policies than the policies you select later, the existing policies will be overwritten. 
+
+.Steps 
+. In the Select Volumes page, select the volume or volumes you want to protect. 
 +
-* To back up all existing volumes and any volumes added in the future, check the box "Back up all existing and future volumes...". We recommend this option so that all your volumes will be backed up and you'll never have to remember to enable backups for new volumes.
-* To back up only existing volumes, check the box in the title row (image:button_backup_all_volumes.png[]).
+* Optionally, filter the rows to show only volumes with certain volume types, styles and more to make the selection easier. 
+* After you select the first volume, then you can select all FlexVol volumes. To back up all existing FlexVol volumes and any FlexVol volumes added in the future, check one volume first and then check the box in the title row. (image:button_backup_all_volumes.png[]).
++
+TIP: We recommend this option so that all your volumes will be backed up and you'll never have to remember to enable backups for new volumes.
+
 * To back up individual volumes, check the box for each volume (image:button_backup_1_volume.png[]).
+
+
+. Select *Next*.
+
+
+=== Define the backup strategy 
+
+Defining the backup strategy involves setting the following options: 
+
+* Whether you want one or all of the backup options: local Snapshots, replication, and backup to object storage
+* Architecture
+* Local Snapshot policy
+* Replication target and policy
 +
-image:screenshot_backup_select_volumes.png[A screenshot of selecting the volumes that will be backed up.]
+NOTE: If the volumes you choose have different Snapshot and replication policies than the policies you select in this step, the existing policies will be overwritten. 
 
+* Backup to object storage information (provider, encryption, networking, backup policy, and export options). 
+
+
+.Steps 
+
+. In the Define backup strategy page, choose one or all of the following. All three are selected by default: 
 +
-* If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), an additional prompt is displayed "Export existing Snapshot copies to object storage as backup copies". Check this box if you want all historic Snapshots to be copied to object storage as backup files to ensure the most complete protection for your volumes.
+* *Local Snapshots*: If you are performing replication or back up to object storage, local Snapshots must be created. 
+* *Replication*: Creates replicated volumes on another ONTAP storage system.  
+* *Backup*: Backs up volumes to object storage.  
 
-. Click *Activate Backup* and BlueXP backup and recovery starts taking the initial backups of each selected volume.
+. *Architecture*: If you chose replication and backup, choose one of the following flows of information: 
+* *Cascading*: Information flows from the primary to the secondary to object storage and from the secondary to object storage. 
+* *Fan out*: Information flows from the primary to the secondary _and_ from the source to object storage. 
++ 
+For details about these architectures, refer to link:concept-protection-journey.html[Plan your protection journey].  
 
-.Result
+. *Local Snapshot*: Choose an existing Snapshot policy. 
++
+TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI `snapmirror policy create` command. Refer to https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[ONTAP CLI for `snapmirror policy`^].
 
-An S3 bucket is created automatically in the service account indicated by the S3 access key and secret key you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups. You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
+
+. *Replication*: Set the following options: 
++
+* *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate or aggregates and prefix or suffix that will be added to the replicated volume name. 
+* *Replication policy*: Choose an existing replication policy. 
+
+. *Back up to Object*: If you selected *Backup*, set the following options: 
++
+* *Provider*: Select *StorageGRID*. 
+* *Provider settings*: Enter the provider gateway node FQDN details, port, access key and secret key.
++
+The access key and secret key are for the IAM user you created to give the ONTAP cluster access to the bucket.
+
+* *Networking*: Choose the IPspace in the ONTAP cluster where the volumes you want to back up reside. The intercluster LIFs for this IPspace must have outbound internet access (not required when the Connector is installed in a "dark" site).
++
+TIP: Selecting the correct IPspace ensures that BlueXP backup and recovery can set up a connection from ONTAP to your StorageGRID object storage.
+
+* *Backup policy*: Select an existing backup policy. 
++
+TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI `snapmirror policy create` command. Refer to https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[ONTAP CLI for `snapmirror policy`^].
++
+If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion and ransomware attacks by configuring _DataLock and Ransomware Protection_. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
++
+If your cluster is using ONTAP 9.12.1 or greater and your StorageGRID system is using version 11.4 or greater, you can choose to tier older backups to public cloud archive tiers after a certain number of days. Current support is for AWS S3 Glacier/S3 Glacier Deep Archive or Azure Archive storage tiers. <<Preparing to archive older backup files to public cloud storage,See how to configure your systems for this functionality>>.
+
+* *Tier backup to public cloud*: Select the cloud provider that you want to tier backups to and enter the provider details. 
++
+Select or create a new StorageGRID cluster. For details about creating a StorageGRID cluster so BlueXP can discover it, refer to https://docs.netapp.com/us-en/storagegrid-117/[StorageGRID documentation^]. 
+
+* *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
+
+. Select *Next*. 
+
+//.. Enter the name for the default policy. You don't need to change the name.
+//.. Define the backup schedule and choose the number of backups to retain. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings[See the list of existing policies you can choose^].
+
+
+
+
+
+=== Review your selections 
+This is the chance to review your selections and make adjustments, if necessary. 
+
+.Steps 
+
+. In the Review page, review your selections. 
+. Optionally check the box to *Automatically synchronize the Snapshot policy labels with the replication and backup policy labels*. This creates Snapshots with a label that matches the labels in the replication and backup policies.  
+. Select *Activate Backup*. 
+
+
+.Result 
+BlueXP backup and recovery starts taking the initial backups of your volumes. The baseline transfer of the replicated volume and the backup file includes a full copy of the source data. Subsequent transfers contain differential copies of the primary storage data contained in Snapshot copies.
+
+A replicated volume is created in the destination cluster that will be synchronized with the primary storage volume. 
+
+An S3 bucket is created in the service account indicated by the S3 access key and secret key you entered, and the backup files are stored there.
+
+The Volume Backup Dashboard is displayed so you can monitor the state of the backups.
+
+You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
+
+
+=== Show the API commands 
+You might want to display and optionally copy the API commands used in the Activate backup and recovery wizard. You might want to do this to automate backup activation in future working environments. 
+
+.Steps 
+
+. From the Activate backup and recovery wizard, select *View API request*. 
+. To copy the commands to the clipboard, select the *Copy* icon. 
+
 
 == What's next?
 
 * You can link:task-manage-backups-ontap.html[manage your backup files and backup policies^]. This includes starting and stopping backups, deleting backups, adding and changing the backup schedule, and more.
 * You can link:task-manage-backup-settings-ontap.html[manage cluster-level backup settings^]. This includes changing the storage keys ONTAP uses to access cloud storage, changing the network bandwidth available to upload backups to object storage, changing the automatic backup setting for future volumes, and more.
 * You can also link:task-restore-backups-ontap.html[restore volumes, folders, or individual files from a backup file^] to an on-premises ONTAP system.
+
+
+

@@ -16,6 +16,34 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
+== 6 July 2023
+
+=== BlueXP backup and recovery now includes the ability to schedule and create Snapshot copies and replicated volumes
+
+BlueXP backup and recovery now enables you to implement a 3-2-1 strategy where you can have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud. After activation, you'll have a:
+
+* Snapshot copy of the volume on the source system
+* Replicated volume on a different storage system
+* Backup of the volume in object storage
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protection-journey.html[Learn more about the new full spectrum backup and restore capabilities].
+
+This new functionality also applies to recovery operations. You can perform restore operations from a Snapshot copy, from a replicated volume, or from a backup file in the cloud. This gives you the flexibility to choose the backup file that meets your recovery requirements, including cost and speed of recovery.
+
+Note that this new functionality and user interface is supported only for clusters running ONTAP 9.8 or greater. If your cluster has an earlier version of software, you can continue using the previous version of BlueXP backup and recovery. However, we recommend that you upgrade to a supported version of ONTAP to get the newest features and functionality. To continue using the older version of the software, follow these steps:
+
+. From the *Volumes* tab, select *Backup Settings*.
+
+. From the _Backup Settings_ page, click the radio button for *Display the previous BlueXP backup and recovery version*.
++
+Then you can manage your older clusters using the previous version of software.
+
+=== Ability to create your buckets for backup to object storage
+
+When you create backup files in object storage, by default, the backup and recovery service will create the buckets in object storage for you. You can create the buckets yourself if you want to use a certain name or assign special properties. If you want to create your own bucket, you must create it before starting the activation wizard.
+
+This functionality is not currently supported when creating backup files to StorageGRID systems.
+
 == 04 July 2023
 
 === Enhancements to BlueXP backup and recovery for applications (cloud-native)
@@ -68,7 +96,6 @@ When you're using BlueXP backup and recovery in a site with no internet access, 
 //
 //Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
-
 == 8 May 2023
 
 === Folder-level restore operations are now supported from archival storage and from locked backups
@@ -88,6 +115,7 @@ Note that the IAM policies assigned to the BlueXP Connector need to change the A
 === Enhancements to the Job Monitor
 
 System-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for on-premises ONTAP systems running ONTAP 9.13.1 or greater. Earlier ONTAP versions will display only user-initiated jobs.
+// end::whats-new[]
 
 == 14 April 2023
 
