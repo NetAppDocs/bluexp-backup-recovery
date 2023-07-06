@@ -22,6 +22,7 @@ Get started quickly by following these steps.
 * Operating System:
 ** RHEL 7.5 or later and 8.x
 ** OL 7.5 or later and 8.x
+** SLES 15 SP4 
 * NetApp Cloud Storage: 
 ** Amazon FSx for ONTAP
 ** Cloud Volumes ONTAP
@@ -32,7 +33,7 @@ Get started quickly by following these steps.
 +
 NOTE: Azure NetApp Files does not support SAN environment.
 * Database layouts: Oracle Standard and Oracle Enterprise Standalone (legacy and multitenant CDB and PDB)
-* Database versions: 12cR2, 18c, 19c, and 21c
+* Database versions: 19c and 21c
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Sign up to BlueXP
 

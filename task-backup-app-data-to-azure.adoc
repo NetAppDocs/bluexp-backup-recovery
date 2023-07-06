@@ -16,7 +16,7 @@ summary: Complete a few steps to back up applications data from ONTAP to Azure.
 
 Complete a few steps to back up the applications data from ONTAP to Microsoft Azure. 
 
-*Steps*
+.Steps
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
 . Click image:icon-action.png[icon to select the action] corresponding to the application and click *Activate Backup*.

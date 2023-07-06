@@ -1,0 +1,43 @@
+---
+sidebar: sidebar
+permalink: task-restore-cloud-native-oracle-data-to-alternate-location.html
+keywords: cloud-native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle, alternate location
+summary:  Restore the Oracle database to alternate location
+---
+
+= Restore cloud-native Oracle databases to alternate location
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+In the event of data loss, you can restore the Oracle database to alternate location only on Azure NetApp Files. The alternate location can be on a different host or on the same host.
+
+.Before you begin
+
+* If the Oracle 21c database is in STARTED state, the restore operation fails. You should run the following command to restore the database successfully.
+`cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib/ojdbc8-8.jar`
+* You should ensure that the Oracle version on the alternate host is same as that of the original host.
+
+.About this task
+
+While initiating the restore operation, you are not allowed to modify the configurations except the Oracle home, maximum volume throughput, Oracle SID, and database credentials. 
+
+Full recovery is enabled by default with _Until cancel_ set to true. 
+
+Archive log mode is turned off by default for the restored database. You can enable archive log mode and keep the archive logs on the NetApp volume if required.
+
+.Steps
+
+. Click image:icon-action.png[icon to select the action] corresponding to the database that you want to restore and click *Restore*.
+. Select the restore point to which the database should be restored and click *Restore to alternate location* > *Next*.
+. In the Configuration page, specify the details of the alternate location, SID, Oracle_Home, database credentials, and storage throughput.
++
+For the database credential, if the OS User authentication is disabled, you should provide a password for the sys user to connect to the restored database on the same or target host.
+. Click *Next*, review the details and click *Restore*.
++
+The progress of the restore operation can be viewed in the Job Monitor page. After the job is completed, click *Refresh Discovery* to view the restored database. However, you cannot protect the database that is restored to alternate location.
+

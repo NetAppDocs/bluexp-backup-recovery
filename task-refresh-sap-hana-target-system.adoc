@@ -13,7 +13,7 @@ summary:  Perform a refresh from a source SAP HANA system, which is the producti
 :imagesdir: ./media/
 
 [.lead]
-You can perform a refresh of a SAP HANA target system with the data of a SAP HANA source system. This can be used to provide the current production data into a test system. Cloud backup allows you to select a Snapshot copy from a source system and creates a new ANF volume based on the Snapshot copy. Example scripts are available, which executes the required operations on the database host to recover the SAP HANA database.  
+You can perform a refresh of a SAP HANA target system with the data of a SAP HANA source system. This can be used to provide the current production data into a test system. Cloud backup allows you to select a Snapshot copy from a source system and creates a new Azure NetApp Files volume based on the Snapshot copy. Example scripts are available, which executes the required operations on the database host to recover the SAP HANA database.  
 
 *Before you begin*
 
@@ -43,6 +43,8 @@ For example, if the source volume is vol1, the refreshed volume name will be vol
 NOTE: The new volume will be placed in the same capacity pool as that of the target volumes.
 
 * The junction path will be the same as the volume name.
+* The “max throughput number” for the new volume is picked from the volume of the target system with manual Quality of Service (QoS) capacity pools.
+For auto QoS capacity pools the throughput is defined by the capacity of the source volume.
 
 *Steps*
 
@@ -53,7 +55,4 @@ NOTE: The new volume will be placed in the same capacity pool as that of the tar
 .. Enter Export addresses from which the new volumes can be accessed.
 .. Enter prescript, postscript, and on failure script paths.
 On failure script is executed only when the system refresh operation fails.
-.. Select *Delete associated SAP HANA backups*
-Only Snapshot copies will be deleted. If there are any existing backups of the target system and the above option is not selected, system refresh operation will fail.
-You can also delete the backups from the *Topology* page.
 .. Click *Refresh*.
