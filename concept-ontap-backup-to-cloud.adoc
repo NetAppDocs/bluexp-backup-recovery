@@ -21,7 +21,7 @@ After activation, backup and recovery creates block-level, incremental forever b
 * Replicated volume on a different storage system
 * Backup of the volume in object storage 
 
-image:diagram-321-overview.png["A diagram showing how backup files exist on the source system as Snapshot copies, as replicated volumes on the secondary storage system, and as a backup files in object storage."]
+image:diagram-321-overview-mkt.png["A diagram showing how backup files exist on the source system as Snapshot copies, as replicated volumes on the secondary storage system, and as a backup files in object storage."]
 
 BlueXP backup and recovery leverages NetApp's SnapMirror data replication technology to ensure that all the backups are fully synchronized by creating Snapshot copies and transferring them to the backup locations.
 

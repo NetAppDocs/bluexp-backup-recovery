@@ -48,7 +48,7 @@ image:diagram-321-overview.png["A diagram showing how backup files exist on the 
 You can choose to create both replicated volumes on another ONTAP storage system and backup files in the cloud. Or you can choose just to create replicated volumes or backup files - it's your choice. 
 //The service also enables you to select two replication destinations if you want to protect your data in an additional location (both with and without creating backup files).
 
-To summarize, these are the valid protection flows you can create for a volume, or all volumes, in your ONTAP working environment:
+To summarize, these are the valid protection flows you can create for volumes in your ONTAP working environment:
 
 * Source volume -> Snapshot copy -> Replicated volume -> Backup file
 * Source volume -> Snapshot copy -> Backup file
@@ -93,11 +93,11 @@ High (provider fees)
 
 When creating both replicated volumes and backup files, you can choose a fan-out or cascade architecture to back up your volumes.
 
-A _fan-out_ architecture transfers the Snapshot copy independently to both the destination storage system and the backup object in the cloud.
+A *fan-out* architecture transfers the Snapshot copy independently to both the destination storage system and the backup object in the cloud.
 
 image:diagram-321-fanout-detailed.png["A diagram showing how a Snapshot copy of a volume is used to create and update a replicated volume and a backup file."]
 
-A _cascade_ architecture transfers the Snapshot copy to the destination storage system first, and then that system transfers the copy to the backup object in the cloud.
+A *cascade* architecture transfers the Snapshot copy to the destination storage system first, and then that system transfers the copy to the backup object in the cloud.
 
 image:diagram-321-cascade-detailed.png["A diagram showing how a Snapshot copy of a volume is used to create and update a replicated volume and a backup file."]
 
@@ -126,14 +126,16 @@ You can use the default policies provided by NetApp to create your backups, or y
 
 If you create custom policies for replication or backup, the policy labels (for example, "daily" or "weekly") must match the labels that exist in your Snapshot policies or replicated volumes and backup files won't be created. You can create custom policies using System Manager or the ONTAP Command Line Interface (CLI).
 
+https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html[Create a snapshot policy using System Manager^]
 https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html[Create a snapshot policy using the ONTAP CLI^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html[Create the replication policy using the ONTAP CLI^]
-https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy[Create the backup policy using System Manager^]
+https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html[Create a replication policy using System Manager^]
+https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html[Create a replication policy using the ONTAP CLI^]
+https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy[Create a backup policy using System Manager^]
 https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description[Create a backup policy using the ONTAP CLI^]
 
-NOTE: If you are planning to create custom policies when using the cascading architecture, you'll need to create the backup to object policies on the secondary system where the replicated volumes will be created. If you're using the default policies, then you are all set. 
+*Note:* When using System Manager, select *Asynchronous* as the policy type for replication policies, and select *Asynchronous* and *Back up to cloud* for backup to object policies.
 
-You can create backup to object storage policies in the BleXP backup and recovery UI. See the section for link:task-manage-backups-ontap.html#add-a-new-backup-policy[adding a new backup policy] for details. You'll need to create Snapshot and Replication policies using System Manager or the ONTAP CLI.
+You can create backup to object storage policies in the BlueXP backup and recovery UI. See the section for link:task-manage-backups-ontap.html#add-a-new-backup-policy[adding a new backup policy] for details. You'll need to create Snapshot and Replication policies using System Manager or the ONTAP CLI.
 
 Here are a few sample ONTAP CLI commands that may be helpful if you are creating custom policies. Note that you must use the _admin_ vserver (storage VM) as the `<vserver_name>` in these commands.
 
@@ -143,6 +145,8 @@ Here are a few sample ONTAP CLI commands that may be helpful if you are creating
 | Policy Description
 | Command
 
+| Simple Snapshot policy
+| `snapshot policy create -policy WeeklySnapshotPolicy -enabled true -schedule1 weekly -count1 10 -vserver ClusterA -snapmirror-label1 weekly`
 | Simple backup to cloud
 | `snapmirror policy create -policy <policy_name> -transfer-priority normal -vserver <vserver_name> -create-snapshot-on-source false -type vault`
 `snapmirror policy add-rule -policy <policy_name> -vserver <vserver_name> -snapmirror-label <snapmirror_label> -keep`
@@ -159,6 +163,40 @@ Here are a few sample ONTAP CLI commands that may be helpful if you are creating
 |===
 
 NOTE: Only vault policies can be used for backup to cloud relationships.
+
+=== Where do my policies reside?
+
+Backup policies reside in different locations depending on the backup architecture you plan to use: Fan-out or Cascading. Replication policies and Backup policies are not designed the same way because replications pair two ONTAP storage systems and backup to object uses a storage provider as the destination. 
+
+Snapshot policies always reside on the primary storage system.
+
+Replication policies always reside on the secondary storage system.
+
+Backup to object policies are created on the system where the source volume resides - this is the primary cluster for fan-out configurations, and the secondary cluster for cascading configurations. 
+
+These differences are shown in the table.
+
+[cols=4*,options="header",cols="25,25,25,25",width="100%"]
+|===
+| Architecture
+| Snapshot policy
+| Replication policy
+| Backup policy
+
+| *Fan-out* | 
+Primary |
+Secondary |
+Primary 
+| *Cascade* | 
+Primary |
+Secondary |
+Secondary |
+
+|===
+
+So if you're planning to create custom policies when using the cascading architecture, you'll need to create the replication and backup to object policies on the secondary system where the replicated volumes will be created. If you're planning to create custom policies when using the fan-out architecture, you'll need to create the replication policies on the secondary system where the replicated volumes will be created and backup to object policies on the primary system. 
+
+If you're using the default policies that exist on all ONTAP systems, then you're all set.
 
 == Do you want the service to create the cloud buckets for you
 
@@ -189,18 +227,18 @@ When BlueXP backup and recovery is used in a site with full internet connectivit
 See the backup topic for the cloud provider where you plan to create backup files for the list of valid Connector locations. There are some restrictions where the Connector must be installed manually on a Linux machine or deployed in a specific cloud provider.
 
 ifdef::aws[]
-* link:task-backup-to-s3.html[Back up Cloud Volumes ONTAP data to Amazon S3].
-* link:task-backup-onprem-to-aws.html[Back up on-premises ONTAP data to Amazon S3].
+* link:task-backup-to-s3.html[Back up Cloud Volumes ONTAP data to Amazon S3]
+* link:task-backup-onprem-to-aws.html[Back up on-premises ONTAP data to Amazon S3]
 endif::aws[]
 ifdef::azure[]
-* link:task-backup-to-azure.html[Back up Cloud Volumes ONTAP data to Azure Blob].
-* link:task-backup-onprem-to-azure.html[Back up on-premises ONTAP data to Azure Blob].
+* link:task-backup-to-azure.html[Back up Cloud Volumes ONTAP data to Azure Blob]
+* link:task-backup-onprem-to-azure.html[Back up on-premises ONTAP data to Azure Blob]
 endif::azure[]
 ifdef::gcp[]
-* link:task-backup-to-gcp.html[Back up Cloud Volumes ONTAP data to Google Cloud].
-* link:task-backup-onprem-to-gcp.html[Back up on-premises ONTAP data to Google Cloud].
+* link:task-backup-to-gcp.html[Back up Cloud Volumes ONTAP data to Google Cloud]
+* link:task-backup-onprem-to-gcp.html[Back up on-premises ONTAP data to Google Cloud]
 endif::gcp[]
-* link:task-backup-onprem-private-cloud.html[Back up on-premises ONTAP data to StorageGRID].
+* link:task-backup-onprem-private-cloud.html[Back up on-premises ONTAP data to StorageGRID]
 
 === Support for sites with limited internet connectivity
 
