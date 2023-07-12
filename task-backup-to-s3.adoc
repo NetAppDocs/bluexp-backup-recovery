@@ -217,7 +217,7 @@ By default, backups are created using the same account as the one used for your 
 Create your own buckets::
 By default, the service creates buckets for you. If you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
 +
-If you create your own buckets, you should use a bucket name of "netapp-backup".  
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn more about creating your own buckets^].  
 
 ==  Verify ONTAP networking requirements for replicating volumes
 

@@ -39,7 +39,7 @@ If you already have a Connector deployed in a GCP region, then you're all set. I
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Verify license requirements
 
 [role="quick-margin-para"]
-You'll need to check license requirements for both Azure and BlueXP.
+You'll need to check license requirements for both Google Cloud and BlueXP.
 
 [role="quick-margin-para"]
 <<Verify license requirements>>.
@@ -133,6 +133,7 @@ bigquery.tables.create
 . Select *Update* to save the edited role.
 
 === Required information for using customer-managed encryption keys (CMEK)
+
 You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. Both cross-region and cross-project keys are supported, so you can choose a project for a bucket that is different than the project of the CMEK key. If you're planning to use your own customer-managed keys: 
 
 * You'll need to have the Key Ring and the Key Name so you can add this information in the activation wizard. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
@@ -163,7 +164,7 @@ cloudkms.keyRings.setIamPolicy
 
 By default, the service creates buckets for you. If you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
 
-If you create your own buckets, you should use a bucket name of "netapp-backup". 
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn more about creating your own buckets^].
 
 ==  Verify ONTAP networking requirements for replicating volumes
 
