@@ -198,18 +198,37 @@ So if you're planning to create custom policies when using the cascading archite
 
 If you're using the default policies that exist on all ONTAP systems, then you're all set.
 
-== Do you want the service to create the cloud buckets for you
+== Do you want to create your own object storage container
 
-When you create backup files in cloud storage, by default, the backup and recovery service will create the buckets where the backup files will reside. You can create the buckets yourself if you want to use a certain name or assign special properties. If you want to create your own bucket, you must create it before starting the activation wizard.
+When you create backup files in object storage for a working environment, by default, the backup and recovery service creates the container (bucket or storage account) for the backup files in the object storage account that you have configured. The AWS or GCP bucket is named "netapp-backup-<uuid>" by default. The Azure Blob storage account is named "netappbackup<uuid>".
 
-You can create the container from BlueXP, or from your cloud provider.
+You can create the container yourself in the object provider account if you want to use a certain prefix or assign special properties. If you want to create your own container, you must create it before starting the activation wizard. The container must be used exclusively for storing ONTAP volume backup files - it cannot be used for any other purpose. The backup activation wizard will automatically discover your provisioned containers for the selected Account and credentials so that you can select the one you want to use.
+
+You can create the bucket from BlueXP, or from your cloud provider.
 
 * https://docs.netapp.com/us-en/bluexp-s3-storage/task-add-s3-bucket.html[Create S3 buckets from BlueXP]
 * https://docs.netapp.com/us-en/bluexp-blob-storage/task-add-blob-storage.html[Create Azure Blob storage accounts from BlueXP]
 * https://docs.netapp.com/us-en/bluexp-google-cloud-storage/task-add-gcp-bucket.html[Create Google Cloud Storage buckets from BlueXP]
 //* https://docs.netapp.com/us-en/storagegrid-117/tenant/creating-s3-bucket.html[Create S3 buckets for StorageGRID]
+//* ONTAP S3...
 
-Note that you cannot create your own S3 buckets when creating you backups in StorageGRID systems.
+*Note:* At this time you cannot use your own S3 buckets when creating backups in StorageGRID systems.
+
+If you plan to use a different bucket prefix than "netapp-backup-xxxxxx", then you'll need to modify the S3 permissions for the Connector IAM Role. See the topics for creating backups to AWS S3 for details.
+
+=== Advanced bucket settings
+
+If you plan to move older backup files to archival storage, or if you plan to enable DataLock and Ransomware protection to lock your backup files and scan them for possible ransomware, you'll need to create the container with certain configuration settings:
+
+* Archival storage on your own buckets is supported in AWS S3 storage at this time when using ONTAP 9.10.1 or greater software on your clusters. By default, backups start in the S3 _Standard_ storage class. Ensure that you create the bucket with the appropriate lifecycle rules:
+
+** Move the objects in the entire scope of the bucket to S3 _Standard-IA_ after 30 days.
+** Move the objects with the tag "smc_push_to_archive: true” to _Glacier Flexible Retrieval_ (formerly S3 Glacier)
+
+* DataLock and Ransomware protection is supported in AWS storage when using ONTAP 9.11.1 or greater software on your clusters, and Azure storage when using ONTAP 9.12.1 or greater software. 
+
+** For AWS, you must enable Object Locking on the bucket using a 30-day retention period.
+** For Azure, you need to create the Storage Class with version-level immutability support.
 
 == Which BlueXP Connector deployment mode are you using
 
