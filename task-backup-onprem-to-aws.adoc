@@ -327,7 +327,9 @@ Refer to the https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_fo
 
 By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
 
-If you create your own buckets, you should use a bucket name of “netapp-backup”.  If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. You need to include `“Resource”: “arn:aws:s3:::*”` and assign all the necessary permissions that need to be associated with the bucket.
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn more about creating your own buckets^].
+
+If you create your own buckets, you should use a bucket name of “netapp-backup”. If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. You need to include `“Resource”: “arn:aws:s3:::*”` and assign all the necessary permissions that need to be associated with the bucket.
 
 [%collapsible]
 

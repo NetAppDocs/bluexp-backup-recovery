@@ -208,7 +208,7 @@ BlueXP backup and recovery supports _Azure access policies_ as the permission mo
 
 By default, the service creates storage accounts for you. If you want to use your own storage accounts, you can create them before you start the backup activation wizard and then select those storage accounts in the wizard. 
 
-If you create your own storage accounts, you should use a storage account name of "netapp-backup".  
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn more about creating your own storage accounts^].
 
 ==  Verify ONTAP networking requirements for replicating volumes
 

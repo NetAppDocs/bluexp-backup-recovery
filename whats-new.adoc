@@ -38,9 +38,9 @@ Note that this new functionality and user interface is supported only for cluste
 +
 Then you can manage your older clusters using the previous version of software.
 
-=== Ability to create your buckets for backup to object storage
+=== Ability to create your storage container for backup to object storage
 
-When you create backup files in object storage, by default, the backup and recovery service will create the buckets in object storage for you. You can create the buckets yourself if you want to use a certain name or assign special properties. If you want to create your own bucket, you must create it before starting the activation wizard.
+When you create backup files in object storage, by default, the backup and recovery service will create the buckets in object storage for you. You can create the buckets yourself if you want to use a certain name or assign special properties. If you want to create your own bucket, you must create it before starting the activation wizard. https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn how to create your object storage buckets].
 
 This functionality is not currently supported when creating backup files to StorageGRID systems.
 

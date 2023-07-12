@@ -173,7 +173,6 @@ To use DataLock & Ransomware Protection for your backups, your StorageGRID syste
 To tier older backups to cloud archival storage, your StorageGRID systems must be running version 11.3 or greater. Additionally, your StorageGRID systems must be discovered to the BlueXP Canvas.
 
 S3 credentials::
-
 You must have created an S3 tenant account to control access to your StorageGRID storage. https://docs.netapp.com/us-en/storagegrid-117/admin/creating-tenant-account.html[See the StorageGRID docs for details^].
 +
 When you set up backup to StorageGRID, the backup wizard prompts you for an S3 access key and secret key for a tenant account. The tenant account enables BlueXP backup and recovery to authenticate and access the StorageGRID buckets used to store backups. The keys are required so that StorageGRID knows who is making the request.
