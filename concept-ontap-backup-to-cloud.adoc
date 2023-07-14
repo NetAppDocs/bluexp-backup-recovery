@@ -119,7 +119,7 @@ ifdef::gcp[]
 Google Cloud Storage
 endif::gcp[]
 NetApp StorageGRID
-//ONTAP S3
+ONTAP S3
 
 |===
 
@@ -155,9 +155,9 @@ endif::gcp[]
 | NetApp StorageGRID | On-premises ONTAP system
 Cloud Volumes ONTAP
 | On-premises ONTAP system
-// | ONTAP S3 | On-premises ONTAP system
-//Cloud Volumes ONTAP
-// | On-premises ONTAP system
+| ONTAP S3 | On-premises ONTAP system
+Cloud Volumes ONTAP
+| On-premises ONTAP system
 
 |===
 
@@ -271,6 +271,8 @@ This diagram shows volumes being replicated to a Cloud Volumes ONTAP system, but
 
 === Where backups reside
 
+Backups reside in deffent locations based on the type of backup:
+
 * _Snapshot copies_ reside on the source volume in the source working environment.
 
 * _Replicated volumes_ reside on the secondary storage system - a Cloud Volumes ONTAP or on-premises ONTAP system.
@@ -289,8 +291,10 @@ ifdef::gcp[]
 ** In GCP, BlueXP uses a new or existing project with a storage account for the Google Cloud Storage bucket.
 endif::gcp[]
 +
-** In StorageGRID, BlueXP uses an existing storage account for the object store bucket.
+** In StorageGRID, BlueXP uses an existing tenant account for the S3 bucket.
 +
+** In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
+
 If you want to change the destination object store for a cluster in the future, you'll need to link:task-manage-backups-ontap.html#unregistering-bluexp-backup-and-recovery-for-a-working-environment[unregister BlueXP backup and recovery for the working environment^], and then enable BlueXP backup and recovery using the new cloud provider information.
 
 === Customizable backup schedule and retention settings
