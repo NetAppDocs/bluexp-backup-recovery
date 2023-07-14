@@ -141,9 +141,9 @@ endif::gcp[]
 | NetApp StorageGRID | On-premises ONTAP system
 Cloud Volumes ONTAP
 | On-premises ONTAP system
-// | ONTAP S3 | On-premises ONTAP system
-//Cloud Volumes ONTAP
-// | On-premises ONTAP system
+| ONTAP S3 | On-premises ONTAP system
+Cloud Volumes ONTAP
+| On-premises ONTAP system
 
 |===
 
@@ -181,7 +181,7 @@ ifdef::gcp[]
 * For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC
 endif::gcp[]
 * For StorageGRID, the Connector must be deployed in your premises; with or without internet access
-//* For ONTAP S3, the Connector must be deployed in your premises; with or without internet access
+* For ONTAP S3, the Connector must be deployed in your premises; with or without internet access
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
@@ -237,7 +237,7 @@ ifdef::gcp[]
 * When restoring from Google Cloud Storage, select the Google Cloud Project and the Access Key and Secret Key to access the object storage, the region where the backups are stored, and the IPspace in the ONTAP cluster where the destination volume will reside.
 endif::gcp[]
 * When restoring from StorageGRID, enter the FQDN of the StorageGRID server and the port that ONTAP should use for HTTPS communication with StorageGRID, select the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume will reside.
-//* When restoring from ONTAP S3, do this...
+* When restoring from ONTAP S3, enter the FQDN of the ONTAP S3 server and the port that ONTAP should use for HTTPS communication with ONTAP S3, select the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume will reside.
 
 . Enter the name you want to use for the restored volume, and select the Storage VM and Aggregate where the volume will reside. When restoring a FlexGroup volume you can choose multiple aggregates. By default, *<source_volume_name>_restore* is used as the volume name.
 +
@@ -368,6 +368,7 @@ ifdef::gcp[]
 * When restoring from Google Cloud Storage, enter the IPspace in the ONTAP cluster where the destination volumes reside, and the Access Key and Secret Key needed to access the object storage.
 endif::gcp[]
 * When restoring from StorageGRID, enter the FQDN of the StorageGRID server and the port that ONTAP should use for HTTPS communication with StorageGRID, enter the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume resides.
+* When restoring from ONTAP S3, enter the FQDN of the ONTAP S3 server and the port that ONTAP should use for HTTPS communication with ONTAP S3, select the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume will reside.
 
 . Then select the *Volume* and the *Folder* where you want to restore the folder or file(s).
 +
@@ -476,6 +477,7 @@ ifdef::gcp[]
 * For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC
 endif::gcp[]
 * For StorageGRID, the Connector must be deployed in your premises; with or without internet access
+//* For ONTAP S3, the Connector must be deployed in your premises; with or without internet access
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
@@ -628,6 +630,7 @@ ifdef::gcp[]
 ** When restoring from Google Cloud Storage, select the IPspace in the ONTAP cluster where the destination volume will reside, and the Access Key and Secret Key to access the object storage. link:task-backup-onprem-to-gcp.html#requirements[See details about these requirements].
 endif::gcp[]
 ** When restoring from StorageGRID, enter the FQDN of the StorageGRID server and the port that ONTAP should use for HTTPS communication with StorageGRID, enter the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume resides. link:task-backup-onprem-private-cloud.html#requirements[See details about these requirements].
+//* When restoring from ONTAP S3, enter the FQDN of the ONTAP S3 server and the port that ONTAP should use for HTTPS communication with ONTAP S3, select the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume will reside.
 
 .Results
 
