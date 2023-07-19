@@ -24,10 +24,10 @@ Get started quickly by following these steps. Details for each step are provided
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Identify the connection method you'll use
 
 [role="quick-margin-para"]
-Review how you'll connect your on-premises ONTAP cluster directly to ONTAP S3 over the public internet, or whether you'll use a VPN and route traffic through a private VPC Endpoint interface to ONTAP S3.
+Review how you'll connect your primary on-premises ONTAP cluster to the secondary ONTAP cluster for replication and to the ONTAP cluster configured as an S3 server for backup to object storage.
 
 [role="quick-margin-para"]
-<<Identify the connection method>>.
+<<Identify the connection method.>>
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your BlueXP Connector
 
@@ -43,7 +43,7 @@ If you already have a Connector deployed in your premises, then you're all set. 
 You'll need to check license requirements for both the ONTAP systems and BlueXP.
 
 [role="quick-margin-para"]
-Refer to <<Verify license requirements>>.
+<<Verify license requirements.>>
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Prepare your ONTAP clusters
 
@@ -56,18 +56,19 @@ Discover your ONTAP primary and secondary clusters in BlueXP, verify that the cl
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Prepare ONTAP S3 as your backup target
 
 [role="quick-margin-para"]
-Set up permissions for the Connector to create and manage the ONTAP S3 bucket. You'll also need to set up permissions for the on-premises ONTAP cluster so it can read and write data to the S3 bucket.
+Set up permissions for the Connector so it can manage the ONTAP S3 bucket. You'll also need to set up permissions for the source on-premises ONTAP cluster so it can read and write data to the ONTAP S3 bucket.
 
 [role="quick-margin-para"]
-Optionally, you can set up your own custom-managed keys for data encryption instead of using the default ONTAP S3 encryption keys. <<Prepare ONTAP S3 as your backup target,Learn how to get your ONTAP S3 environment ready to receive ONTAP backups.>>
+<<Prepare ONTAP S3 as your backup target,Learn how to get your ONTAP S3 environment ready to receive ONTAP backups.>>
+//Optionally, you can set up your own customer-managed keys for data encryption instead of using the default ONTAP S3 encryption keys.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Activate backups on your ONTAP volumes
 
 [role="quick-margin-para"]
-Select the working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. Then follow the setup wizard to select the Snapshot, replication, and backup to object policies that you'll use and the volumes you want to back up.
+Select the source working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. Then follow the setup wizard to select the Snapshot, replication, and backup to object policies that you'll use and the volumes you want to back up.
 
 [role="quick-margin-para"]
-<<Activate backups on your ONTAP volumes>>.
+<<Activate backups on your ONTAP volumes.>>
 
 == Identify the connection method
 
@@ -77,7 +78,7 @@ Optionally, you can connect to a secondary ONTAP system in the same on-premises 
 
 image:diagram_cloud_backup_onprem_ontap_s3.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
-When the Connector and on-premises ONTAP system are installed in an on-premises location without internet access (a "private" mode deployment), the ONTAP S3 system must be located in the same on-premises data center. 
+When the Connector and source on-premises ONTAP system are installed in an on-premises location without internet access (a "private" mode deployment), the ONTAP S3 system must be located in the same on-premises data center. 
 
 == Prepare your BlueXP Connector
 
@@ -97,7 +98,7 @@ When you back up data to ONTAP S3, a BlueXP Connector must be available on your 
 Ensure that the network where the Connector is installed enables the following connections:
 
 * An HTTPS connection over port 443 to the ONTAP S3 server
-* An HTTPS connection over port 443 to your ONTAP cluster management LIF
+* An HTTPS connection over port 443 to your source ONTAP cluster management LIF
 * An outbound internet connection over port 443 to BlueXP backup and recovery (not required when the Connector is installed in a "dark" site)
 
 ==== Private mode (dark site) considerations
@@ -132,8 +133,11 @@ include::../_include/backup-onprem-prepare-onprem-ONTAP-cluster.adoc[]
 
 You must configure the following requirements on the system that connects to object storage. 
 
-* When you use a fan-out backup architecture, the following settings must be configured on the _primary_ storage system. 
-* When you use a cascaded backup architecture, the following settings must be configured on the _secondary_ storage system.
+[NOTE]
+====
+* When you use a fan-out backup architecture, the settings must be configured on the _primary_ storage system. 
+* When you use a cascaded backup architecture, the settings must be configured on the _secondary_ storage system.
+====
 
 The following ONTAP cluster networking requirements are needed: 
 
@@ -148,7 +152,7 @@ ONTAP reads and writes data to and from object storage. The object storage never
 When you set up BlueXP backup and recovery, you are prompted for the IPspace to use. You should choose the IPspace that each LIF is associated with. That might be the "Default" IPspace or a custom IPspace that you created.
 * The nodes' intercluster LIFs are able to access the object store (not required when the Connector is installed in a "dark" site).
 * DNS servers have been configured for the storage VM where the volumes are located. See how to https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html[configure DNS services for the SVM^].
-* If you use are using a different IPspace than the Default, then you might need to create a static route to get access to the object storage.
+* If you use are using a different IPspace than Default, then you might need to create a static route to get access to the object storage.
 * Update firewall rules, if necessary, to allow BlueXP backup and recovery service connections from ONTAP to object storage through the port you specified (typically port 443) and name resolution traffic from the storage VM to the DNS server over port 53 (TCP/UDP).
 
 ===  Verify ONTAP networking requirements for replicating volumes
@@ -159,10 +163,14 @@ include::../_include/backup-onprem-prepare-source-destination-systems-for-repl.a
 
 == Prepare ONTAP S3 as your backup target
 
-Your ONTAP system that is configured for S3 must meet the following requirements. See the https://docs.netapp.com/us-en/ontap/s3-config/index.html[ONTAP documentation^] for more information.
+You must enable a Simple Storage Service (S3) object storage server in the ONTAP cluster that you plan to use for object storage backups. See the https://docs.netapp.com/us-en/ontap/s3-config/index.html[ONTAP S3 documentation^] for details.
+
+*Note:* You can discover this cluster to the BlueXP Canvas, but it is not identified as being an S3 object storage server, and you can't drag and drop a source working environment onto this S3 working environment to initiate backup activation.
+
+This ONTAP system must meet the following requirements. 
 
 Supported ONTAP versions::
-ONTAP 9.8 and later is supported.
+ONTAP 9.8 and later is required for on-premises ONTAP systems.
 //+
 //To use DataLock & Ransomware Protection for your backups, your ONTAP S3 systems must be running version 11.6.0.3 or greater. 
 //+
@@ -183,6 +191,20 @@ These access keys must be associated with a user who has the following permissio
 "s3:DeleteObject",
 "s3:CreateBucket"
 
+S3 bucket options::
+The default bucket that BlueXP backup and recovery creates has a prefix of "netapp-backup". If you want to use your own bucket, you can create it before you start the backup activation wizard and then select that bucket in the wizard. https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-task.html[See the ONTAP docs for details about creating your own S3 bucket^]. 
++
+If you want to use a different prefix for your bucket, you'll need to customize the Connector permissions with the name you want to use. In the permissions you'll see a line `"Resource": ["arn:aws:s3:::netapp-backup*"]` in three places. You'll need to change "netapp-backup" to the prefix that you want to use. For example, if you want to use "backup-1" as the prefix for your bucket, you'll change this line to `"Resource": ["arn:aws:s3:::backup-1*"]`.
++
+If you want to use a different prefix for buckets that you'll use to back up volume data from additional clusters in this same BlueXP account, you can add another line with the prefix for the other buckets. For example:
++
+`"Resource": ["arn:aws:s3:::backup-1*"],`
+`"Resource": ["arn:aws:s3:::backup-2*"]`
++
+If you are creating your own bucket and do not use a standard prefix, you should change this line to `"Resource": ["arn:aws:s3:::*"]` so that any bucket is recognized. However, this may expose all your buckets instead of those you have designed to hold backup data from your volumes.
++
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[See additional details about creating your own buckets].
+
 //Object versioning::
 //You must not enable ONTAP S3 object versioning manually on the object store bucket.
 
@@ -192,9 +214,9 @@ Activate backups at any time directly from your on-premises working environment.
 
 A wizard takes you through the following major steps: 
 
-* <<Select the volumes that you want to back up>>
-* <<Define the backup strategy>>
-* <<Review your selections>> 
+* Select the volumes that you want to back up
+* Define the backup strategy
+* Review your selections 
 
 You can also <<Show the API commands>> at the review step, so you can copy the code to automate backup activation for future working environments.  
 
@@ -204,8 +226,8 @@ You can also <<Show the API commands>> at the review step, so you can copy the c
 
 . Access the Activate backup and recovery wizard using one of the following ways: 
 * From the BlueXP canvas, select the working environment and select *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel.
-+
-If the destination for your backups exists as a working environment on the Canvas, you can drag the ONTAP cluster onto the object storage. 
+//+
+//If the destination for your backups exists as a working environment on the Canvas, you can drag the ONTAP cluster onto the object storage. 
 * Select *Volumes* in the Backup and recovery bar. From the Volumes tab, select the *Actions (...)* option and select *Activate Backup* for a single volume (that does not already have replication or backup to object storage already enabled). 
 
 + 
@@ -223,7 +245,7 @@ Choose the volumes you want to protect. You can choose to protect FlexVol or Fle
 [NOTE] 
 ====
 * You can activate a backup only on a single FlexGroup volume at a time. 
-* The volumes you select must have the same SnapLock setting as well. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode aren't currently supported.) You can't select a combination of locked and unlocked volumes.
+* The volumes you select must have the same SnapLock setting as well. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode aren't currently supported.)
 ====
 
 A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
@@ -245,28 +267,27 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 
 === Define the backup strategy 
 
-Defining the backup strategy involves setting the following options: 
+Defining the backup strategy involves configuring the following options: 
 
-* Whether you want one or all of the backup options: local Snapshots, replication, and backup to object storage
-* Architecture
+* Protection options: Whether you want one or all of the backup options: local Snapshots, replication, and backup to object storage
+* Architecture: Whether you want to use a fan-out or cascading backup architecture
 * Local Snapshot policy
 * Replication target and policy
-+
-NOTE: If the volumes you choose have different Snapshot and replication policies than the policies you select in this step, the existing policies will be overwritten. 
-
+//+
+//NOTE: If the volumes you choose have different Snapshot and replication policies than the policies you select in this step, the existing policies will be overwritten. 
 * Backup to object storage information (provider, encryption, networking, backup policy, and export options). 
 
 .Steps 
 
-. In the Define backup strategy page, choose one or all of the following. All three are selected by default: 
+. In the Define Backup Strategy page, choose one or all of the following. All three are selected by default: 
 +
 * *Local Snapshots*: If you are performing replication or back up to object storage, local Snapshots must be created. 
 * *Replication*: Creates replicated volumes on another ONTAP storage system.  
 * *Backup*: Backs up volumes to S3 object storage.  
 
 . *Architecture*: If you chose both replication and backup, choose one of the following flows of information: 
-* *Cascading*: Information flows from the primary to the secondary, and then from the secondary to object storage. 
-* *Fan out*: Information flows from the primary to the secondary _and_ from the primary to object storage. 
+* *Cascading*: Backup data flows from the primary to the secondary system, and then from the secondary to object storage. 
+* *Fan out*: Backup data flows from the primary to the secondary system _and_ from the primary to object storage. 
 + 
 For details about these architectures, refer to link:concept-protection-journey.html#which-backup-architecture-will-you-use[Plan your protection journey].  
 
@@ -274,17 +295,17 @@ For details about these architectures, refer to link:concept-protection-journey.
 +
 TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI `snapmirror policy create` command. Refer to https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[ONTAP CLI for `snapmirror policy`^].
 
-. *Replication*: If you select *Replication*, set the following options: 
+. *Replication*: If you selected *Replication*, set the following options: 
 +
-* *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate or aggregates and prefix or suffix that will be added to the replicated volume name. 
+* *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate (or aggregates for FlexGroup volumes) and a prefix or suffix that will be added to the replicated volume name. 
 * *Replication policy*: Choose an existing replication policy. 
 
-. *Back up to Object*: If you select *Backup*, set the following options: 
+. *Back up to Object*: If you selected *Backup*, set the following options: 
 +
 * *Provider*: Select *ONTAP S3*. 
 * *Provider settings*: Enter the S3 server FQDN details, port, and the users' access key and secret key.
 +
-The access key and secret key are for the IAM user you created to give the ONTAP cluster access to the S3 bucket.
+The access key and secret key are for the user you created to give the ONTAP cluster access to the S3 bucket.
 
 * *Networking*: Choose the IPspace in the source ONTAP cluster where the volumes you want to back up reside. The intercluster LIFs for this IPspace must have outbound internet access (not required when the Connector is installed in a "dark" site).
 +
@@ -303,7 +324,7 @@ TIP: If you want to create a custom policy, you can use System Manager or the ON
 //+
 //Select or create a new ONTAP S3 cluster. For details about creating a ONTAP S3 cluster so BlueXP can discover it, refer to https://docs.netapp.com/us-en/storagegrid-117/[StorageGRID documentation^]. 
 
-* *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
+* *Export existing Snapshot copies to object storage as backup files*: If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Select *Next*. 
 

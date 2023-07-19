@@ -31,6 +31,6 @@ Ensure that the following ONTAP requirements are met:
 Learn how to https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html[manage your cluster licenses^].
 
 * Time and time zone are set correctly. Learn how to https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html[configure your cluster time^].
-* If you are going to replicate data, you should verify that the source and destination volumes are running compatible ONTAP versions before replicating data.
+* If you are going to replicate data, you should verify that the source and destination systems are running compatible ONTAP versions before replicating data.
 +
 https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html[View compatible ONTAP versions for SnapMirror relationships^].
