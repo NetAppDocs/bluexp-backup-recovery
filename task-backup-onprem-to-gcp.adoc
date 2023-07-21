@@ -379,9 +379,8 @@ For details about these architectures, refer to link:concept-protection-journey.
 
 . *Local Snapshot*: Choose an existing Snapshot policy. 
 +
-TIP: If you want to create a custom Snapshot policy, you can use BlueXP backup and recovery, System Manager or the ONTAP CLI `snapmirror policy create` command.
-link:task-policies-ontap.html[Create a policy using BlueXP backup and recovery] 
-https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[Use the `snapmirror policy`^ in ONTAP CLI].
+TIP: To create a custom policy, refer to
+link:task-policies-ontap.html[Create a policy].
 
 . *Replication*: Set the following options: 
 +
@@ -389,9 +388,8 @@ https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[Use t
 * *Replication policy*: Choose an existing replication policy. 
 
 +
-TIP: If you want to create a custom Replication policy, you can use BlueXP backup and recovery, System Manager or the ONTAP CLI `snapmirror policy create` command.
-link:task-policies-ontap.html[Create a policy using BlueXP backup and recovery] 
-https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[Use the `snapmirror policy`^ in ONTAP CLI].
+TIP: To create a custom policy, refer to
+link:task-policies-ontap.html[Create a policy].
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
 +
@@ -421,7 +419,8 @@ The IPspace in the ONTAP cluster where the volumes you want to back up reside. T
 * *Backup policy*: Select an existing Backup to object storage policy. 
 
 +
-TIP: If you want to create a custom Backup to object storage policy, link:task-policies-ontap.html[create a policy using BlueXP backup and recovery].
+TIP: To create a custom policy, refer to
+link:task-policies-ontap.html[Create a policy].
 
 * *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
 

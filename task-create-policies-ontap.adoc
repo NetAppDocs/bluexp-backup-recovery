@@ -40,7 +40,7 @@ Secondary |
 
 |===
 
-Create backup policies using the following tools depending on your environment, your preferences, and the backup type: 
+Create backup policies using the following tools depending on your environment, your preferences, and the protection type: 
 
 * BlueXP UI
 * System Manager UI
@@ -48,16 +48,16 @@ Create backup policies using the following tools depending on your environment, 
 
 
 
-[cols=4*,options="header",cols="25,20,30,25",width="100%"]
+[cols=4*,options="header",cols="20,30,25,25",width="100%"]
 |===
-| Backup type
-| BlueXP UI
-| System Manager UI
-| ONTAP CLI
+| Policy type
+| Create policy using BlueXP backup and recovery
+| Create policy using System Manager UI
+| Create policy using ONTAP CLI
 
-|Snapshots | Yes | Yes | Yes 
-|Replications| Yes | Yes | Yes 
-|Backups to object storage | Yes | No | No
+|Snapshot | Yes | Yes | Yes 
+|Replication| Yes | Yes | Yes 
+|Backup to object storage | Yes | Yes | Yes
 
 |===
 
