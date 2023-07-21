@@ -13,7 +13,7 @@ summary: You can monitor the status of local snapshots, replications, and backup
 :imagesdir: ./media/
 
 [.lead]
-You can monitor the status of local Snapshots, replications, and backup to object storage jobs that you initiated or that are scheduled, and restore jobs that you initiated. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.
+You can monitor the status of local Snapshots, replications, and backup to object storage jobs that you initiated, and restore jobs that you initiated. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.
 
 == View job status on the Job Monitor
 
@@ -140,8 +140,8 @@ The Notification Center displays numerous Snapshot, replication, backup to cloud
 | Activation |Backup and recovery activation failed for working environment | Error | Yes
 | Activation |Backup and recovery edit failed for working environment | Error | Yes
 | Local Snapshot | BlueXP backup and recovery ad-hoc Snapshot creation job failure | Error | Yes
-| Local Snapshot | BlueXP backup and recovery scheduled Snapshot creation job failure | Error | Yes
-| Replication | BlueXP backup and recovery scheduled replication job failure | Error | Yes
+| Local Snapshot | *To TEAM: I understand this is NOT IN AUG 7* BlueXP backup and recovery scheduled Snapshot creation job failure | Error | Yes
+| Replication | *To TEAM: I understand this is NOT IN Aug 7* BlueXP backup and recovery scheduled replication job failure | Error | Yes
 | Replication | BlueXP backup and recovery ad-hoc replication job failure | Error | Yes
 | Replication | BlueXP backup and recovery replication pause job failure | Error | No
 | Replication | BlueXP backup and recovery replication brake job failure | Error | No
