@@ -41,7 +41,7 @@ image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore 
 +
 This screenshot shows the default column headings. 
 
-. To show additional columns (Working Environment, SVM, User Name, Workload, Policy Name, Snapshot Label, Protection Type, Target Working Environment for replication jobs), select image:button_plus_sign_round.png[the plus sign button].
+. To show additional columns (Working Environment, SVM, User Name, Workload, Policy Name, Snapshot Label), select image:button_plus_sign_round.png[the plus sign button].
 
 === Search and filter the list of jobs
 
@@ -111,7 +111,7 @@ From the Job Monitoring Details information, you can download a JSON file contai
 
 Monitoring of retention (backup lifecycle) flows helps you with audit completeness, accountability, and backup safety. To help you track the backup lifecycle, you might want to identify the expiration of all backup copies. 
 
-A backup lifecycle job tracks all snapshot copies that are deleted or in the queue to be deleted. Beginning with ONTAP 9.13, you can look at all job types called "Backup Lifecycle" on the Job Monitoring page.
+A backup lifecycle job tracks all snapshot copies that are deleted or in the queue to be deleted. Beginning with ONTAP 9.13, you can look at all job types called "Retention" on the Job Monitoring page.
 
 The "Retention" job type captures all snapshot deletion jobs initiated on a volume that is protected by BlueXP backup and recovery.  
 
