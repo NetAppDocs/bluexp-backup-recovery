@@ -459,9 +459,8 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 . In the Select Volumes page, select the volume or volumes you want to protect. 
 +
 * Optionally, filter the rows to show only volumes with certain volume types, styles and more to make the selection easier. 
-* After you select the first volume, then you can select all FlexVol volumes. To back up all existing FlexVol volumes and any FlexVol volumes added in the future, check one volume first and then check the box in the title row. (image:button_backup_all_volumes.png[]).
-+
-TIP: We recommend this option so that all your volumes will be backed up and you'll never have to remember to enable backups for new volumes.
+* After you select the first volume, then you can select all FlexVol volumes. To back up all existing FlexVol volumes, check one volume first and then check the box in the title row. (image:button_backup_all_volumes.png[]).
+
 
 * To back up individual volumes, check the box for each volume (image:button_backup_1_volume.png[]).
 

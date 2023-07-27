@@ -16,6 +16,38 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
+== 7 Aug 2023 
+
+=== BlueXP backup and recovery now provides 3-2-1 protection to ONTAP S3
+
+Previously, with BlueXP backup and recovery you could activate backups to object storage for AWS, Azure, Google and StorageGRID. With this release, you can also activate backups to ONTAP S3.
+
+Learn more <link>. 
+
+
+=== BlueXP backup and recovery now includes existing Snapshots from a protected volume 
+
+Previously, when created a SnapMirror-to-cloud vault relationship that has a DP volume as the source, the process starts with the latest Snapshot on the DP volume and previously did not include older snapshots into the backup if the source volume is a "DP" type of volume.
+
+NOTE: This is supported if the source volume is "RW".
+
+With this release, pre-existing Snapshots from your ONTAP system with a source DP volume are transferred when activating backups to the cloud, retaining protection retention.  
+
+=== BlueXP backup and recovery no longer supports auto backup of FlexVol volumes added in the future
+
+Previously, to back up all existing FlexVol volumes and any FlexVol volumes added in the future, you could check a volume and then check the box in the title row. This feature for adding future FlexVol volumes has been removed. 
+
+
+=== BlueXP backup and recovery includes updates to the Job Monitoring
+
+The Job Monitoring page now provides more information related to the 3-2-1 strategy. The service also provides additional alert notifications related to the 3-2-1 strategy. 
+
+The "Backup lifecycle" filter has been renamed to "Retention". Use this filter to track the backup lifecycle and identify the expiration of all backup copies. The "Retention" job type captures all Snapshot deletion jobs initiated on a volume that is protected by BlueXP backup and recovery.  
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
+
+
+
 == 6 July 2023
 
 === BlueXP backup and recovery now includes the ability to schedule and create Snapshot copies and replicated volumes
