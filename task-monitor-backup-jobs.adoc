@@ -45,7 +45,7 @@ This screenshot shows the default column headings.
 
 === Search and filter the list of jobs
 
-You can filter the operations on the Job Monitoring page using several filters, such as policy, Snapshot label, protection, recovery, retention, or protection type (local Snapshot, replication, or backup to the cloud). 
+You can filter the operations on the Job Monitoring page using several filters, such as policy, Snapshot label, type of operation (protection, restore, retention, or other) and protection type (local Snapshot, replication, or backup to the cloud). 
 
 By default, the Job Monitoring page shows protection and recovery jobs from the last 24 hours. 
 
