@@ -65,7 +65,7 @@ sidebar:
         - title: Back up on-premises ONTAP to StorageGRID
           url: /task-backup-onprem-private-cloud.html
         - title: Back up on-premises ONTAP to ONTAP S3
-          url: /task-backup-onprem-ontap-s3.html
+          url: /task-backup-onprem-to-ontap-s3.html
         - title: Manage ONTAP backups
           url: /task-manage-backups-ontap.html
         - title: Restore from ONTAP backups
@@ -262,7 +262,7 @@ homepage:
         - title: On-premises ONTAP to StorageGRID
           url: task-backup-onprem-private-cloud.html
         - title: On-premises ONTAP to ONTAP S3
-          url: task-backup-onprem-ontap-s3.html
+          url: task-backup-onprem-to-ontap-s3.html
     - title: Manage ONTAP backup files
       links:
         - title: Enable volume backups on additional volumes

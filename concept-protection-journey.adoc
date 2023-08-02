@@ -259,7 +259,7 @@ ifdef::gcp[]
 * link:task-backup-onprem-to-gcp.html[Back up on-premises ONTAP data to Google Cloud]
 endif::gcp[]
 * link:task-backup-onprem-private-cloud.html[Back up on-premises ONTAP data to StorageGRID]
-* link:task-backup-onprem-ontap-s3.html[Back up on-premises ONTAP to ONTAP S3]
+* link:task-backup-onprem-to-ontap-s3.html[Back up on-premises ONTAP to ONTAP S3]
 
 === Support for sites with limited internet connectivity
 

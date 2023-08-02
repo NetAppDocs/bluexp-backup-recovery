@@ -220,6 +220,8 @@ BlueXP backup and recovery is available with the following consumption models:
 * *PAYGO*: An hourly subscription from your cloud provider's marketplace.
 * *Annual*: An annual contract from your cloud provider's marketplace.
 
+A Backup license is required only for backup and restore from object storage. Creating Snapshot copies and replicated volumes do not require a license.
+
 === Bring your own license
 
 BYOL is term-based (12, 24, or 36 months) _and_ capacity-based in 1 TiB increments. You pay NetApp to use the service for a period of time, say 1 year, and for a maximum amount capacity, say 10 TiB.
