@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
-permalink: task-backup-onprem-ontap-s3.html
+permalink: task-backup-onprem-to-ontap-s3.html
 keywords: backing up, back up, backup, backup on-prem ontap, on-prem, on-premises, back up volumes, cloud backup, ontap s3
-summary: Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to object storage in your ONTAP S3 systems.
+summary: Complete a few steps to get started backing up volume data from your primary on-premises ONTAP systems to a secondary ONTAP storage system and to S3 object storage in your ONTAP systems.
 ---
 
 = Back up on-premises ONTAP data to ONTAP S3
@@ -13,9 +13,9 @@ summary: Complete a few steps to get started backing up volume data from your on
 :imagesdir: ./media/
 
 [.lead]
-Complete a few steps to get started backing up volume data from your on-premises primary ONTAP systems to a secondary storage system and to object storage in your ONTAP S3 systems.
+Complete a few steps to get started backing up volume data from your primary on-premises ONTAP systems to a secondary ONTAP storage system and to S3 object storage in your ONTAP systems.
 
-NOTE: "On-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
+The primary on-premises ONTAP system can be a FAS, AFF, or ONTAP Select system. The secondary ONTAP system can be an on-premises ONTAP or Cloud Volumes ONTAP system. The object storage can be on an on-premises ONTAP system or a Cloud Volumes ONTAP system on which you have enabled a Simple Storage Service (S3) object storage server.
 
 == Quick start
 
@@ -27,7 +27,7 @@ Get started quickly by following these steps. Details for each step are provided
 Review how you'll connect your primary on-premises ONTAP cluster to the secondary ONTAP cluster for replication and to the ONTAP cluster configured as an S3 server for backup to object storage.
 
 [role="quick-margin-para"]
-<<Identify the connection method.>>
+<<Identify the connection method,Identify the connection method.>>
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your BlueXP Connector
 
@@ -40,15 +40,15 @@ If you already have a Connector deployed in your premises, then you're all set. 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Verify license requirements
 
 [role="quick-margin-para"]
-You'll need to check license requirements for both the ONTAP systems and BlueXP.
+You'll need to check license requirements for both the ONTAP systems and BlueXP backup and recovery.
 
 [role="quick-margin-para"]
-<<Verify license requirements.>>
+<<Verify license requirements,Verify license requirements.>>
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Prepare your ONTAP clusters
 
 [role="quick-margin-para"]
-Discover your ONTAP primary and secondary clusters in BlueXP, verify that the clusters meet minimum requirements, and customize network settings so the clusters can connect to ONTAP S3.
+Discover your primary and secondary ONTAP clusters in BlueXP, verify that the clusters meet minimum requirements, and customize network settings so the clusters can connect to ONTAP S3 object storage.
 
 [role="quick-margin-para"]
 <<Prepare your ONTAP clusters,Learn how to get your ONTAP clusters ready.>>
@@ -56,7 +56,7 @@ Discover your ONTAP primary and secondary clusters in BlueXP, verify that the cl
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Prepare ONTAP S3 as your backup target
 
 [role="quick-margin-para"]
-Set up permissions for the Connector so it can manage the ONTAP S3 bucket. You'll also need to set up permissions for the source on-premises ONTAP cluster so it can read and write data to the ONTAP S3 bucket.
+Set up permissions for the Connector so it can manage the ONTAP S3 bucket. You'll also need to set up permissions for the primary on-premises ONTAP cluster so it can read and write data to the ONTAP S3 bucket.
 
 [role="quick-margin-para"]
 <<Prepare ONTAP S3 as your backup target,Learn how to get your ONTAP S3 environment ready to receive ONTAP backups.>>
@@ -65,20 +65,22 @@ Set up permissions for the Connector so it can manage the ONTAP S3 bucket. You'l
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Activate backups on your ONTAP volumes
 
 [role="quick-margin-para"]
-Select the source working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. Then follow the setup wizard to select the Snapshot, replication, and backup to object policies that you'll use and the volumes you want to back up.
+Select the source working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. Then follow the setup wizard to select the volumes you want to back up, and the Snapshot, replication, and backup to object policies that you'll use.
 
 [role="quick-margin-para"]
-<<Activate backups on your ONTAP volumes.>>
+<<Activate backups on your ONTAP volumes,Activate backups on your ONTAP volumes.>>
 
 == Identify the connection method
 
-The following image shows each component when backing up an on-premises ONTAP system to ONTAP S3 and the connections that you need to prepare between them.
-
-Optionally, you can connect to a secondary ONTAP system in the same on-premises location to replicate volumes.
+The following image shows each component when backing up a primary on-premises ONTAP system to an on-premises ONTAP system configured for S3 and the connections that you need to prepare between them. It also shows a connection to a secondary ONTAP system in the same on-premises location to replicate volumes.
 
 image:diagram_cloud_backup_onprem_ontap_s3.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
 When the Connector and source on-premises ONTAP system are installed in an on-premises location without internet access (a "private" mode deployment), the ONTAP S3 system must be located in the same on-premises data center. 
+
+The following image shows each component when backing up a primary on-premises ONTAP system to a Cloud Volumes ONTAP system configured for S3 and the connections that you need to prepare between them. It also shows a connection to a secondary Cloud Volumes ONTAP system in the same cloud provider environment to replicate volumes.
+
+image:diagram_cloud_backup_onprem_ontap_s3_cloud.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination storage where the backup files are located.]
 
 == Prepare your BlueXP Connector
 
@@ -86,9 +88,10 @@ The BlueXP Connector is the main software for BlueXP functionality. A Connector 
 
 === Create or switch Connectors
 
-When you back up data to ONTAP S3, a BlueXP Connector must be available on your premises. You'll either need to install a new Connector or make sure that the currently selected Connector resides on-premises. The Connector can be installed in a site with or without internet access.
+When you back up data to ONTAP S3, a BlueXP Connector must be available on your premises or in the cloud. You'll either need to install a new Connector or make sure that the currently selected Connector resides in these locations. The on-premises Connector can be installed in a site with or without internet access.
 
 * https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Connectors^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html#how-to-create-a-connector[Install the Connector in your cloud environment^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html[Installing the Connector on a Linux host with internet access^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html[Installing the Connector on a Linux host without internet access^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html[Switching between Connectors^]
@@ -111,7 +114,7 @@ Ensure that the network where the Connector is installed enables the following c
 
 == Verify license requirements 
 
-Before you can activate BlueXP backup and recovery for your cluster, you'll need to purchase and activate a BlueXP backup and recovery BYOL license from NetApp. This license is for the account and can be used across multiple systems.
+Before you can activate BlueXP backup and recovery for your cluster, you'll need to purchase and activate a BlueXP backup and recovery BYOL license from NetApp. The license is for backup and restore to object storage - no license is needed to create Snapshot copies or replicated volumes. This license is for the account and can be used across multiple systems.
 
 You'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
 
@@ -145,7 +148,7 @@ The following ONTAP cluster networking requirements are needed:
 +
 ONTAP reads and writes data to and from object storage. The object storage never initiates, it just responds.
 +
-* ONTAP requires an inbound connection from the Connector to the cluster management LIF. The Connector must reside on your premises.
+* ONTAP requires an inbound connection from the Connector to the cluster management LIF.
 
 * An intercluster LIF is required on each ONTAP node that hosts the volumes you want to back up. The LIF must be associated with the _IPspace_ that ONTAP should use to connect to object storage. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html[Learn more about IPspaces^].
 +
@@ -171,6 +174,7 @@ This ONTAP system must meet the following requirements.
 
 Supported ONTAP versions::
 ONTAP 9.8 and later is required for on-premises ONTAP systems.
+ONTAP 9.9.1 and later is required for Cloud Volumes ONTAP systems.
 //+
 //To use DataLock & Ransomware Protection for your backups, your ONTAP S3 systems must be running version 11.6.0.3 or greater. 
 //+
@@ -198,8 +202,7 @@ If you want to use a different prefix for your bucket, you'll need to customize 
 +
 If you want to use a different prefix for buckets that you'll use to back up volume data from additional clusters in this same BlueXP account, you can add another line with the prefix for the other buckets. For example:
 +
-`"Resource": ["arn:aws:s3:::backup-1*"],`
-`"Resource": ["arn:aws:s3:::backup-2*"]`
+`"Resource": ["arn:aws:s3:::backup-1*","arn:aws:s3:::backup-2*"],`
 +
 If you are creating your own bucket and do not use a standard prefix, you should change this line to `"Resource": ["arn:aws:s3:::*"]` so that any bucket is recognized. However, this may expose all your buckets instead of those you have designed to hold backup data from your volumes.
 +
@@ -215,7 +218,7 @@ Activate backups at any time directly from your on-premises working environment.
 A wizard takes you through the following major steps: 
 
 * Select the volumes that you want to back up
-* Define the backup strategy
+* Define the backup strategy and policies
 * Review your selections 
 
 You can also <<Show the API commands>> at the review step, so you can copy the code to automate backup activation for future working environments.  
@@ -231,12 +234,12 @@ You can also <<Show the API commands>> at the review step, so you can copy the c
 * Select *Volumes* in the Backup and recovery bar. From the Volumes tab, select the *Actions (...)* option and select *Activate Backup* for a single volume (that does not already have replication or backup to object storage already enabled). 
 
 + 
-The Introduction page of the wizard shows the protection options including local Snapshots, replication, and backups. If you did the second option in this step, the Define Backup Strategy page appears with one volume selected. 
+The Introduction page of the wizard shows the protection options including local Snapshots, replications, and backups. If you did the second option in this step, the Define Backup Strategy page appears with one volume selected. 
 
 . Continue with the following options: 
 
 * If you already have a BlueXP Connector, you're all set. Just select *Next*. 
-* If you don't already have a BlueXP Connector, the *Add a Connector* option appears. Refer to <<Prepare your BlueXP Connector>>. 
+* If you don't have a BlueXP Connector, the *Add a Connector* option appears. Refer to <<Prepare your BlueXP Connector>>. 
 
 === Select the volumes that you want to back up
 
@@ -256,11 +259,8 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 
 . In the Select Volumes page, select the volume or volumes you want to protect. 
 +
-* Optionally, filter the rows to show only volumes with certain volume types, styles and more to make the selection easier. 
-* After you select the first volume, then you can select all FlexVol volumes. Check the box in the title row (image:button_backup_all_volumes.png[check mark]).
-//To back up all existing FlexVol volumes and any FlexVol volumes added in the future, check one volume first and then check the box in the title row.
-//+
-//TIP: We recommend this option so that all your volumes will be backed up and you'll never have to remember to enable backups for new volumes.
+* Optionally, filter the rows to show only volumes with certain volume types, styles, and more to make the selection easier. 
+* After you select the first volume, then you can select all FlexVol volumes (FlexGroup volumes can be selected one at a time only). Check the box in the title row (image:button_backup_all_volumes.png[check mark]).
 * To back up individual volumes, check the box for each volume (image:button_backup_1_volume.png[check mark]).
 
 . Select *Next*.
@@ -269,7 +269,7 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 
 Defining the backup strategy involves configuring the following options: 
 
-* Protection options: Whether you want one or all of the backup options: local Snapshots, replication, and backup to object storage
+* Protection options: Whether you want to implement one or all of the backup options: local Snapshots, replication, and backup to object storage
 * Architecture: Whether you want to use a fan-out or cascading backup architecture
 * Local Snapshot policy
 * Replication target and policy
@@ -283,7 +283,7 @@ Defining the backup strategy involves configuring the following options:
 +
 * *Local Snapshots*: If you are performing replication or back up to object storage, local Snapshots must be created. 
 * *Replication*: Creates replicated volumes on another ONTAP storage system.  
-* *Backup*: Backs up volumes to S3 object storage.  
+* *Backup*: Backs up volumes to ONTAP S3 object storage.  
 
 . *Architecture*: If you chose both replication and backup, choose one of the following flows of information: 
 * *Cascading*: Backup data flows from the primary to the secondary system, and then from the secondary to object storage. 
@@ -315,7 +315,7 @@ TIP: Selecting the correct IPspace ensures that BlueXP backup and recovery can s
 +
 TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI `snapmirror policy create` command. Refer to https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[ONTAP CLI for `snapmirror policy`^].
 
-//+
++
 //If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion and ransomware attacks by configuring _DataLock and Ransomware Protection_. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
 //+
 //If your cluster is using ONTAP 9.12.1 or greater and your ONTAP S3 system is using version 11.4 or greater, you can choose to tier older backups to public cloud archive tiers after a certain number of days. Current support is for AWS S3 Glacier/S3 Glacier Deep Archive or Azure Archive storage tiers. <<Preparing to archive older backup files to public cloud storage,See how to configure your systems for this functionality>>.
