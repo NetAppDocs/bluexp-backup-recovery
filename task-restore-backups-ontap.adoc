@@ -144,6 +144,7 @@ Cloud Volumes ONTAP
 | ONTAP S3 | On-premises ONTAP system
 Cloud Volumes ONTAP
 | On-premises ONTAP system
+Cloud Volumes ONTAP
 
 |===
 
@@ -181,7 +182,7 @@ ifdef::gcp[]
 * For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC
 endif::gcp[]
 * For StorageGRID, the Connector must be deployed in your premises; with or without internet access
-* For ONTAP S3, the Connector must be deployed in your premises; with or without internet access
+* For ONTAP S3, the Connector can be deployed in your premises (with or without internet access) or in a cloud provider environment
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
@@ -467,6 +468,7 @@ Cloud Volumes ONTAP
 | ONTAP S3 | On-premises ONTAP system
 Cloud Volumes ONTAP
 | On-premises ONTAP system
+Cloud Volumes ONTAP
 
 |===
 
@@ -482,7 +484,7 @@ ifdef::gcp[]
 * For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC
 endif::gcp[]
 * For StorageGRID, the Connector must be deployed in your premises; with or without internet access
-* For ONTAP S3, the Connector must be deployed in your premises; with or without internet access
+* For ONTAP S3, the Connector can be deployed in your premises (with or without internet access) or in a cloud provider environment
 
 Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
