@@ -414,7 +414,7 @@ The IPspace in the ONTAP cluster where the volumes you want to back up reside. T
 +
 TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI. Refer to <link>.
 
-* *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for read/write volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
+* *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Select *Next*. 
 
