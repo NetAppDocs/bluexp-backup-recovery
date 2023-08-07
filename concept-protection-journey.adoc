@@ -206,11 +206,12 @@ You can create the container yourself in the object provider account if you want
 
 You can create the bucket from BlueXP, or from your cloud provider.
 
-* https://docs.netapp.com/us-en/bluexp-s3-storage/task-add-s3-bucket.html[Create S3 buckets from BlueXP]
+* https://docs.netapp.com/us-en/bluexp-s3-storage/task-add-s3-bucket.html[Create Amazon S3 buckets from BlueXP]
 * https://docs.netapp.com/us-en/bluexp-blob-storage/task-add-blob-storage.html[Create Azure Blob storage accounts from BlueXP]
 * https://docs.netapp.com/us-en/bluexp-google-cloud-storage/task-add-gcp-bucket.html[Create Google Cloud Storage buckets from BlueXP]
+* https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-task.html[Create S3 buckets for ONTAP S3]
 //* https://docs.netapp.com/us-en/storagegrid-117/tenant/creating-s3-bucket.html[Create S3 buckets for StorageGRID]
-//* ONTAP S3...
+
 
 *Note:* At this time you cannot use your own S3 buckets when creating backups in StorageGRID systems.
 
@@ -258,6 +259,7 @@ ifdef::gcp[]
 * link:task-backup-onprem-to-gcp.html[Back up on-premises ONTAP data to Google Cloud]
 endif::gcp[]
 * link:task-backup-onprem-private-cloud.html[Back up on-premises ONTAP data to StorageGRID]
+* link:task-backup-onprem-to-ontap-s3.html[Back up on-premises ONTAP to ONTAP S3]
 
 === Support for sites with limited internet connectivity
 
@@ -275,7 +277,8 @@ endif::azure[]
 
 BlueXP backup and recovery can be used in a site with no internet connectivity (also known as "private mode" or "dark" sites) to back up volume data. In this case, you'll need to deploy the BlueXP Connector on a Linux host in the same site. 
 
-* You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See how to  link:task-backup-onprem-private-cloud.html[Back up on-premises ONTAP data to StorageGRID] for details.
+* You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See how to link:task-backup-onprem-private-cloud.html[Back up on-premises ONTAP data to StorageGRID] for details.
+* You can back up data from local on-premises ONTAP systems to local on-premises ONTAP systems or Cloud Volumes ONTAP systems configured for S3 object storage. See how to link:task-backup-onprem-to-ontap-s3.html[Back up on-premises ONTAP data to ONTAP S3] for details.
 //ifdef::aws[]
 //* You can back up data from Cloud Volumes ONTAP systems installed in AWS commercial regions and AWS C2S/SC2S secure regions to Amazon S3. See how to link:task-backup-to-s3.html[Back up Cloud Volumes ONTAP data to Amazon S3].
 //endif::aws[]
