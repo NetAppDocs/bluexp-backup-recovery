@@ -253,7 +253,7 @@ You'll need to configure two sets of permissions:
           "Resource": [
               "arn:aws:s3:::netapp-backup-*"
           ]
-      },
+      }
 
 ====
 +
