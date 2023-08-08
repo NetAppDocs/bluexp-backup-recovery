@@ -15,8 +15,15 @@ summary: Learn what's new in BlueXP backup and recovery.
 [.lead]
 Learn what's new in BlueXP backup and recovery.
 
-// tag::whats-new[]
 == 8 August 2023 
+
+[IMPORTANT]
+====
+Because of an important security enhancement, your Connector now requires outbound internet access to two additional endpoints in order to manage Backup and recovery resources within your public cloud environment for day-to-day operations. If these endpoints have not been whitelisted in your firewall you'll see an error in the UI about "Service Unavailable" or "Failed to determine service status":
+
+\https://api.cloud.netapp.com
+\https://netapp-cloud-account.auth0.com/userinfo 
+====
 
 === Support has been added to back up volumes to buckets on S3-configured ONTAP systems
 
