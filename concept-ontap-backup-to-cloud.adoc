@@ -119,7 +119,7 @@ ifdef::gcp[]
 Google Cloud Storage
 endif::gcp[]
 NetApp StorageGRID
-//ONTAP S3
+ONTAP S3
 
 |===
 
@@ -155,9 +155,10 @@ endif::gcp[]
 | NetApp StorageGRID | On-premises ONTAP system
 Cloud Volumes ONTAP
 | On-premises ONTAP system
-// | ONTAP S3 | On-premises ONTAP system
+| ONTAP S3 | On-premises ONTAP system
+Cloud Volumes ONTAP
+| On-premises ONTAP system
 //Cloud Volumes ONTAP
-// | On-premises ONTAP system
 
 |===
 
@@ -220,6 +221,8 @@ BlueXP backup and recovery is available with the following consumption models:
 * *PAYGO*: An hourly subscription from your cloud provider's marketplace.
 * *Annual*: An annual contract from your cloud provider's marketplace.
 
+A Backup license is required only for backup and restore from object storage. Creating Snapshot copies and replicated volumes do not require a license.
+
 === Bring your own license
 
 BYOL is term-based (12, 24, or 36 months) _and_ capacity-based in 1 TiB increments. You pay NetApp to use the service for a period of time, say 1 year, and for a maximum amount capacity, say 10 TiB.
@@ -271,6 +274,8 @@ This diagram shows volumes being replicated to a Cloud Volumes ONTAP system, but
 
 === Where backups reside
 
+Backups reside in deffent locations based on the type of backup:
+
 * _Snapshot copies_ reside on the source volume in the source working environment.
 
 * _Replicated volumes_ reside on the secondary storage system - a Cloud Volumes ONTAP or on-premises ONTAP system.
@@ -289,8 +294,10 @@ ifdef::gcp[]
 ** In GCP, BlueXP uses a new or existing project with a storage account for the Google Cloud Storage bucket.
 endif::gcp[]
 +
-** In StorageGRID, BlueXP uses an existing storage account for the object store bucket.
+** In StorageGRID, BlueXP uses an existing tenant account for the S3 bucket.
 +
+** In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
+
 If you want to change the destination object store for a cluster in the future, you'll need to link:task-manage-backups-ontap.html#unregistering-bluexp-backup-and-recovery-for-a-working-environment[unregister BlueXP backup and recovery for the working environment^], and then enable BlueXP backup and recovery using the new cloud provider information.
 
 === Customizable backup schedule and retention settings
