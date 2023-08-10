@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: reference-backup-cbs-db-in-dark-site.html
 keywords: backup database, recover database
-summary: When using BlueXP backup and recovery in a site with no internet access, known as "private mode", the BlueXP backup and recovery configuration data is backed up to the StorageGRID bucket where your backups are being stored. If you have an issue with the BlueXP Connector host system in the future, you can deploy a new Connector and restore the critical BlueXP backup and recovery data.
+summary: When using BlueXP backup and recovery in a site with no internet access, known as "private mode", the BlueXP backup and recovery configuration data is backed up to the StorageGRID or ONTAP S3 bucket where your backups are being stored. If you have an issue with the BlueXP Connector host system in the future, you can deploy a new Connector and restore the critical BlueXP backup and recovery data.
 ---
 
 = Restore BlueXP backup and recovery data in a dark site
@@ -13,7 +13,7 @@ summary: When using BlueXP backup and recovery in a site with no internet access
 :imagesdir: ./media/
 
 [.lead]
-When using BlueXP backup and recovery in a site with no internet access, known as "private mode" or a "dark site", the BlueXP backup and recovery configuration data is backed up to the StorageGRID bucket where your backups are being stored. If you have an issue with the BlueXP Connector host system in the future, you can deploy a new Connector and restore the critical BlueXP backup and recovery data.
+When using BlueXP backup and recovery in a site with no internet access, known as "private mode", the BlueXP backup and recovery configuration data is backed up to the StorageGRID or ONTAP S3 bucket where your backups are being stored. If you have an issue with the BlueXP Connector host system in the future, you can deploy a new Connector and restore the critical BlueXP backup and recovery data.
 
 Note that when you use BlueXP backup and recovery in a SaaS environment where the BlueXP Connector is deployed at your cloud provider, or on your own host system that has internet access, all the important BlueXP backup and recovery configuration data is backed up and protected in the cloud. If you have an issue with the Connector, just create a new Connector and add your working environments and the backup details are automatically restored.
 
@@ -41,7 +41,7 @@ Once you verify that your system is back in a working order, we recommend that y
 
 .What you'll need
 
-You'll need to access the most recent database and index backups from the StorageGRID bucket where your backup files are being stored:
+You'll need to access the most recent database and index backups from the StorageGRID or ONTAP S3 bucket where your backup files are being stored:
 
 * BlueXP backup and recovery MySQL database file
 +
@@ -107,7 +107,7 @@ unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 
 === Discover your ONTAP clusters and StorageGRID systems
 
-. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector[Discover all the on-prem ONTAP working environments^] that were available in your previous environment.
+. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector[Discover all the on-prem ONTAP working environments^] that were available in your previous environment. This includes the ONTAP system you have used as an S3 server.
 
 . https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html[Discover your StorageGRID systems^]. 
 
