@@ -19,7 +19,7 @@ Learn what's new in BlueXP backup and recovery.
 
 [IMPORTANT]
 ====
-Because of an important security enhancement, your Connector now requires outbound internet access to two additional endpoints in order to manage backup and recovery resources within your public cloud environment. If these endpoints have not been whitelisted in your firewall you'll see an error in the UI about "Service Unavailable" or "Failed to determine service status":
+Because of an important security enhancement, your Connector now requires outbound internet access to two additional endpoints in order to manage backup and recovery resources within your public cloud environment. If these endpoints have not been added to the "allowed" list in your firewall you'll see an error in the UI about "Service Unavailable" or "Failed to determine service status":
 
 \https://api.cloud.netapp.com
 \https://netapp-cloud-account.auth0.com/userinfo 
