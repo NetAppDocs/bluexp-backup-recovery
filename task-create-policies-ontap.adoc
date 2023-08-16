@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: task-create-policies-ontap.html
-keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, amazon s3, govcloud, government
-summary: Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to Amazon S3 cloud storage.
+keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, amazon s3, government
+summary: You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the type of backup, the backup architecture, the storage systems, and backup frequency. 
 ---
 
 = Create a policy to back up ONTAP data
