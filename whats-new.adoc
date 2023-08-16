@@ -15,7 +15,42 @@ summary: Learn what's new in BlueXP backup and recovery.
 [.lead]
 Learn what's new in BlueXP backup and recovery.
 
-// tag::whats-new[]
+== 1 August 2023 
+
+[IMPORTANT]
+====
+Because of an important security enhancement, your Connector now requires outbound internet access to two additional endpoints in order to manage backup and recovery resources within your public cloud environment. If these endpoints have not been added to the "allowed" list in your firewall you'll see an error in the UI about "Service Unavailable" or "Failed to determine service status":
+
+\https://api.cloud.netapp.com
+\https://netapp-cloud-account.auth0.com/userinfo 
+====
+
+=== Support has been added to back up volumes to buckets on S3-configured ONTAP systems
+
+Now you can use an ONTAP system which has been configured for the Simple Storage Service (S3) to back up volumes to object storage. This is supported for both on-premises ONTAP systems and Cloud Volumes ONTAP systems. This configuration is supported in cloud deployments and in on-premises locations without internet access (a "private" mode deployment).
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-ontap-s3.html[Learn more]. 
+
+=== Now you can include existing Snapshots from a protected volume in your backup files
+
+In the past you've had the ability to include existing Snapshot copies from read-write volumes in your initial backup file to object storage (instead of starting with the most recent Snapshot copy). Existing Snapshot copies from read-only volumes (data protection volumes) were not included in the backup file. Now you can choose to include older Snapshot copies in the backup file for "DP" volumes.
+//
+//*Note:* This is supported if the source volume is "RW".
+
+The backup wizard displays a prompt at the end of the backup steps where you can select these "existing Snapshots".  
+
+=== BlueXP backup and recovery no longer supports auto backup of volumes added in the future
+
+Previously you could check a box in the backup wizard to apply the selected backup policy to all future volumes added to the cluster. This feature has been removed based on user feedback and lack of usage of this feature. You'll need to manually enable backups for any new volumes added to the cluster.
+
+=== The Job Monitoring page has been updated with new features
+
+The Job Monitoring page now provides more information related to the 3-2-1 backup strategy. The service also provides additional alert notifications related to the backup strategy. 
+
+The "Backup lifecycle" Type filter has been renamed to "Retention". Use this filter to track the backup lifecycle and to identify the expiration of all backup copies. The "Retention" job type captures all Snapshot deletion jobs initiated on a volume that is protected by BlueXP backup and recovery.  
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
+
 == 6 July 2023
 
 === BlueXP backup and recovery now includes the ability to schedule and create Snapshot copies and replicated volumes
@@ -91,6 +126,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 === Automatic back up of critical BlueXP backup and recovery files in dark sites
 
 When you're using BlueXP backup and recovery in a site with no internet access, known as a "private mode" deployment, the BlueXP backup and recovery information is stored only on the local Connector system. This new functionality automatically backs up critical BlueXP backup and recovery data to a bucket on your connected StorageGRID system so that you can restore this data onto a new Connector if necessary. https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html[Learn more]
+// end::whats-new[]
 
 //=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
 //
@@ -115,7 +151,6 @@ Note that the IAM policies assigned to the BlueXP Connector need to change the A
 === Enhancements to the Job Monitor
 
 System-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for on-premises ONTAP systems running ONTAP 9.13.1 or greater. Earlier ONTAP versions will display only user-initiated jobs.
-// end::whats-new[]
 
 == 14 April 2023
 
@@ -156,7 +191,6 @@ When creating backups from Cloud Volumes ONTAP systems to Azure storage, by defa
 * Both user-initiated backup and restore operations initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. Earlier ONTAP versions will display only user-initiated jobs.
 * In addition to being able to download a CSV file for reporting on all jobs, now you can download a JSON file for a single job and see its details. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report[Learn more].
 * Two new backup job alerts have been added: "Scheduled job failure" and "Restore job completes but with warnings". https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review all of the alerts that BlueXP backup and recovery can send].
-// end::whats-new[]
 
 == 9 March 2023
 
@@ -431,44 +465,3 @@ In the past you needed to deploy the Connector in the same cloud provider as whe
 
 * Backup on a yearly schedule is now available. The default retention value is 1 for yearly backups, but you can change this value if you want to have access to many previous years' backup files.
 * You can name your backup policies so you can identify your policies with more descriptive text.
-
-== 14 June 2022
-
-=== Support has been added to back up on-premises ONTAP cluster data in sites without internet access
-
-If your on-prem ONTAP cluster resides in a site with no internet access, also known as a dark site or offline site, now you can use Cloud Backup to back up volume data to a NetApp StorageGRID system that resides in the same site. This functionality requires that the BlueXP Connector (version 3.9.19 or greater) is also deployed in the offline site.
-
-https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html[See how to install the Connector in your offline site].
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-private-cloud.html[See how to back up ONTAP data to StorageGRID in your offline site].
-
-=== Cloud Backup for Virtual Machines 1.1.0 is now GA
-
-You can protect data on your virtual machines by integrating the SnapCenter Plug-in for VMware vSphere with BlueXP. You can back up datastores to the cloud and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere with ease.
-
-https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protect-vm-data.html[Learn more about protecting virtual machines to cloud].
-
-=== Cloud Restore instance is not needed for ONTAP Browse & Restore functionality
-
-A separate Cloud Restore instance/virtual machine used to be required for file-level Browse & Restore operations from S3 and Blob storage. This instance shut down when not in use -- but it still added some time and cost when restoring files. This functionality has been replaced with a no-cost container that gets deployed on the Connector when needed. It provides the following advantages:
-
-* No added cost for file-level restore operations
-* Faster file-level restore operations
-* Support for Browse & Restore operations for files from the cloud when the Connector is installed on your premises
-
-Note that the Cloud Restore instance/VM will be removed automatically if you were previously using it. A Cloud Backup process will run once a day to delete all old Cloud Restore instances. This change is completely transparent -- there is no effect on your data, and you won't notice any changes to your backup or restore jobs.
-
-=== Browse & Restore support for files from Google Cloud and StorageGRID storage
-
-With the addition of the container for Browse & Restore operations (as described above), file restore operations now can be performed from backup files stored in Google Cloud and StorageGRID systems. Now Browse & Restore can be used to restore files across all public cloud providers and from StorageGRID. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restoring-ontap-data-using-browse-restore[See how to use Browse & Restore to restore volumes and files from your ONTAP backups].
-
-=== Drag and drop to enable Cloud Backup to S3 storage
-
-If the Amazon S3 destination for your backups exists as a working environment on the Canvas, you can drag your on-prem ONTAP cluster or Cloud Volumes ONTAP system (installed in AWS) onto the Amazon S3 working environment to initiate the setup wizard.
-
-=== Automatically apply a backup policy to newly created volumes in Kubernetes clusters
-
-If you added new persistent volumes to your Kubernetes clusters after Cloud Backup was activated, in the past you needed to remember to configure backups for those volumes. Now you can select a policy that will be applied automatically to newly created volumes https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backups-kubernetes.html#setting-a-backup-policy-to-be-assigned-to-new-volumes[from the _Backup Settings_ page] for clusters that have already activated Cloud Backup.
-
-=== Cloud Backup APIs are now available for managing backup and restore operations
-
-The APIs are available at https://docs.netapp.com/us-en/bluexp-automation/cbs/overview.html. See link:api-backup-restore.html[this page] for an overview of the APIs.

@@ -103,9 +103,20 @@ You use the BlueXP digital wallet to manage BYOL licenses. You can add new licen
 
 === Obtain your BlueXP backup and recovery license file
 
-After you've purchased your BlueXP backup and recovery license, you activate the license in BlueXP either by entering the BlueXP backup and recovery serial number and NSS account, or by uploading the NLF license file. The steps below show how to get the NLF license file if you plan to use that method.
+After you've purchased your BlueXP backup and recovery (Cloud Backup) license, you activate the license in BlueXP either by entering the BlueXP backup and recovery serial number and NSS account, or by uploading the NLF license file. The steps below show how to get the NLF license file if you plan to use that method.
 
-If you're running BlueXP backup and recovery in an on-premises site that doesn't have internet access, meaning that you've deployed the BlueXP Connector on a host in the offline on-premises site, you'll need to obtain the license file from an internet-connected system. Activating the license using the serial number and NSS account is not available for offline (dark site) installations.
+If you're running BlueXP backup and recovery in an on-premises site that doesn't have internet access, meaning that you've deployed the BlueXP Connector in https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html#private-mode[private mode^], you'll need to obtain the license file from an internet-connected system. Activating the license using the serial number and NSS account is not available for private mode installations.
+
+.Before you begin
+
+You'll need to have the following information before you start:
+
+* BlueXP backup and recovery serial number
++
+Locate this number from your Sales Order, or contact the account team for this information.
+* BlueXP Account ID
++
+You can find your BlueXP Account ID by selecting the *Account* drop-down from the top of BlueXP, and then clicking *Manage Account* next to your account. Your Account ID is in the Overview tab. For private mode site without internet access, use *account-DARKSITE1*.
 
 .Steps
 
@@ -120,8 +131,6 @@ image:screenshot_cloud_backup_license_step1.gif[A screenshot that shows a table 
 . Enter your BlueXP Account ID (this is called a Tenant ID on the support site) and click *Submit* to download the license file.
 +
 image:screenshot_cloud_backup_license_step2.gif[A screenshot that shows the get license dialog box where you enter your tenant ID and then click Submit to download the license file.]
-+
-You can find your BlueXP Account ID by selecting the *Account* drop-down from the top of BlueXP, and then clicking *Manage Account* next to your account. Your Account ID is in the Overview tab.
 
 === Add BlueXP backup and recovery BYOL licenses to your account
 
