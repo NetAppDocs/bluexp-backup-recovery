@@ -80,7 +80,7 @@ image:screenshot_policies_labels.png[Screenshot of Policies management page show
 . In the BlueXP UI, select *Volumes* > *Backup settings*.
 . From the Backup Settings page, select the volume, select the *Action* image:icon-action.png["Actions icon"] icon, and select *Manage policies*.
 +
-The Policies page appears. 
+The Policies management page appears. 
 +
 image:screenshot_policies_management.png["Policies management page"]
 
@@ -128,7 +128,7 @@ This example creates a Snapshot policy with two clusters:
 
 
 
-= Create a replication policy
+== Create a replication policy
 
 Your 3-2-1 strategy might include replicating a volume on a different storage system. The replication policy resides on the *secondary* storage system. 
 
@@ -139,11 +139,11 @@ Your 3-2-1 strategy might include replicating a volume on a different storage sy
 . Specify the transfer schedule. 
 . Select *Create*.
 
-= Create a backup to object storage policy
+== Create a backup-to-object-storage policy
 
 Your 3-2-1 strategy might include backing up a volume to object storage. 
 
-The backup to object storage policy resides in different storage system locations depending on the backup architecture: 
+This storage policy resides in different storage system locations depending on the backup architecture: 
 
 * Fan-out: Primary storage system
 * Cascading: Secondary storage system
