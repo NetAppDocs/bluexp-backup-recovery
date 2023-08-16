@@ -102,7 +102,7 @@ Rather than create a new policy from scratch, you can copy a policy and then cus
 Part of your 3-2-1 strategy involves creating a Snapshot copy of the volume on the *primary* storage system. 
 
 .Steps
-. In the Policies page, select *Create new policy* > *Create new Snapshot policy*.
+. In the Policies page, select *Create new policy* > *Create Snapshot policy*.
 . Specify the policy name. 
 . Enable the Snapshot label. You can have a maximum of 5 labels. 
 .. Specify the Snapshot labels denoting the schedule and retention. 
@@ -133,7 +133,7 @@ This example creates a Snapshot policy with two clusters:
 Your 3-2-1 strategy might include replicating a volume on a different storage system. The replication policy resides on the *secondary* storage system. 
 
 .Steps
-. In the Policies page, select *Create new policy* > *Create new Replication policy*.
+. In the Policies page, select *Create new policy* > *Create replication policy*.
 . In the Policy Details section, specify the policy name. 
 . Specify the SnapMirror labels (maximum of 5) denoting the retention for each label.
 . Specify the transfer schedule. 
@@ -150,7 +150,7 @@ This storage policy resides in different storage system locations depending on t
 
 
 .Steps
-. In the Policy management page, select *Create new policy* > *Create new Backup policy*.
+. In the Policy management page, select *Create new policy* > *Create backup policy*.
 . In the Policy Details section, specify the policy name. 
 . Specify the SnapMirror labels (maximum of 5) denoting the retention for each label.
 . Specify the transfer schedule. 
@@ -168,3 +168,26 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-polici
 
 . Select *Create*.
 
+== Edit a policy 
+
+You can edit a custom Snapshot, replication, or backup policy. 
+
+Changing the backup policy affects all volumes that are using that policy. 
+
+.Steps
+. In the Policy management page, select the policy, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit Snapshot policy*.
++
+NOTE: The process is the same for replication and backup policies. 
+
+. In the Policy Details section, make the changes. 
+. Select *Save*. 
+
+
+== Delete a policy 
+You can delete policies that are not associated with any volumes. 
+
+If a policy is associated with a volume and you want to delete the policy, you must remove the policy from the volume first. 
+
+.Steps
+. In the Policy management page, select the policy, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete Snapshot policy*.
+. Select *Delete*. 
