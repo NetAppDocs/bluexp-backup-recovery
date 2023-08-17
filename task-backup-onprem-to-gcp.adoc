@@ -32,7 +32,7 @@ Choose whether you'll connect your on-premises ONTAP cluster directly to Google 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your BlueXP Connector
 
 [role="quick-margin-para"]
-If you already have a Connector deployed in your Google Cloud or on your premises, then you're all set. If not, then you'll need to create a BlueXP Connector to back up ONTAP data to Google Cloud storage. You'll also need to customize network settings for the Connector so that it can connect to Google Cloud.
+If you already have a Connector deployed in your Google Cloud Platform VPC, then you're all set. If not, then you'll need to create a BlueXP Connector to back up ONTAP data to Google Cloud storage. You'll also need to customize network settings for the Connector so that it can connect to Google Cloud.
 
 [role="quick-margin-para"]
 <<Prepare your BlueXP Connector,Learn how to create a Connector and how to define required network settings.>>
