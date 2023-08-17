@@ -131,12 +131,12 @@ The BlueXP Notification Center tracks the progress of backup and restore jobs th
 
 In addition to viewing the alerts in the Notification Center, you can configure BlueXP to send certain types of notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system. https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
 
-The Notification Center displays numerous Snapshot, replication, backup to cloud, and restore events, but only the following events trigger email alerts:
+The Notification Center displays numerous Snapshot, replication, backup to cloud, and restore events, but only certain events trigger email alerts:
 
 [cols="1,2,1,1",options="header"]
 |===
 | Operation type
-| Operation
+| Event
 | Alert level
 | Email sent
 
