@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, b
 summary: You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the type of backup, the backup architecture, the storage systems, and backup frequency. 
 ---
 
-= Create a policy to back up ONTAP data
+= Manage backup policies for ONTAP volumes 
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: You can use the default backup policies provided by NetApp to create yo
 :imagesdir: ./media/
 
 [.lead]
-You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the type of backup, the backup architecture, the storage systems, and backup frequency. 
+You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the backup frequency, the time the backup is taken, and the number of backup files that are retained. 
 
 When you use the activation wizard to enable the backup and recovery service for your volumes, you can select from the default policies and any other policies that already exist in the working environment (Cloud Volumes ONTAP or on-premises ONTAP system). If you want to use a policy different than those existing policies, you must create the policy before starting the activation wizard.
 
@@ -48,18 +48,6 @@ Create backup policies using the following tools depending on your environment, 
 
 
 
-[cols=4*,options="header",cols="20,30,25,25",width="100%"]
-|===
-| Policy type
-| Create policy using BlueXP backup and recovery
-| Create policy using System Manager UI
-| Create policy using ONTAP CLI
-
-|Snapshot | Yes | Yes | Yes 
-|Replication| Yes | Yes | Yes 
-|Backup to object storage | Yes | Yes | Yes
-
-|===
 
 For instructions on creating policies using System Manager or ONTAP CLI, see the following: 
 
@@ -76,15 +64,16 @@ Part of the policy creation process involves identifying Snapshot and SnapMirror
 
 image:screenshot_policies_labels.png[Screenshot of Policies management page showing labels]
 
-.Steps to access policies
+== View backup policies for a working environment 
+
 . In the BlueXP UI, select *Volumes* > *Backup settings*.
-. From the Backup Settings page, select the volume, select the *Action* image:icon-action.png["Actions icon"] icon, and select *Manage policies*.
+. From the Backup Settings page, select the working environment, select the *Action* image:icon-action.png["Actions icon"] icon, and select *Manage policies*.
 +
 The Policies management page appears. 
 +
 image:screenshot_policies_management.png["Policies management page"]
 
-. Continue by creating a Snapshot, replication, or backup to object storage policy. 
+. Continue by creating a Snapshot policy, replication policy, or policy for backup to object storage. 
 
 == Duplicate a policy
 Rather than create a new policy from scratch, you can copy a policy and then customize the copy. 
@@ -112,7 +101,7 @@ Part of your 3-2-1 strategy involves creating a Snapshot copy of the volume on t
 image:screenshot_policies_create_labels.png["A screenshot of setting up Snapshot schedule labels"]
 . Select *Create*.
 
-.Example for cascading architecture
+=== Snapshot policy example using cascading architecture
 
 This example creates a Snapshot policy with two clusters: 
 

@@ -317,7 +317,7 @@ For details about these architectures, refer to link:concept-protection-journey.
 . *Local Snapshot*: Choose an existing Snapshot policy. 
 +
 TIP: To create a custom policy, refer to
-link:task-policies-ontap.html[Create a policy].
+link:task-create-policies-ontap.html[Create a policy].
 
 . *Replication*: Set the following options: 
 +
@@ -326,7 +326,7 @@ link:task-policies-ontap.html[Create a policy].
 
 +
 TIP: To create a custom policy, refer to
-link:task-policies-ontap.html[Create a policy].
+link:task-create-policies-ontap.html[Create a policy].
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
 +
@@ -342,7 +342,7 @@ TIP: Selecting the correct IPspace ensures that BlueXP backup and recovery can s
 * *Backup policy*: Select an existing Backup to object storage policy. 
 +
 TIP: To create a custom policy, refer to
-link:task-policies-ontap.html[Create a policy].
+link:task-create-policies-ontap.html[Create a policy].
 +
 If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion and ransomware attacks by configuring _DataLock and Ransomware Protection_. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
 +

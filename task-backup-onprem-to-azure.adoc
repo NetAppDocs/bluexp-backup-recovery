@@ -351,16 +351,14 @@ For details about these architectures, refer to link:concept-protection-journey.
  
 . *Local Snapshot*: Choose an existing Snapshot policy. 
 +
-TIP: To create a custom policy, refer to
-link:task-policies-ontap.html[Create a policy].
+TIP: To create a custom policy, refer to link:task-create-policies-ontap.html[Create a policy].
 
 . *Replication*: Set the following options: 
 +
 * *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate or aggregates and prefix or suffix that will be added to the replicated volume name. 
 * *Replication policy*: Choose an existing replication policy. 
 +
-TIP: To create a custom policy, refer to
-link:task-policies-ontap.html[Create a policy].
+TIP: To create a custom policy, refer to link:task-create-policies-ontap.html[Create a policy].
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
 +
@@ -393,8 +391,7 @@ NOTE: If you chose an existing Microsoft storage account, encryption information
 
 * *Backup policy*: Select an existing Backup to object storage policy. 
 +
-TIP: To create a custom policy, refer to
-link:task-policies-ontap.html[Create a policy].
+TIP: To create a custom policy, refer to link:task-create-policies-ontap.html[Create a policy].
 
 * *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
 
