@@ -25,7 +25,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.
 
 === Support for restoring files and folder from volumes in ONTAP S3 object storage
 
-Previously, you couldn't restore files and folders using the “Browse & Restore” feature when volumes were backed up to ONTAP S3 object storage.  This release removes that restriction.  
+Previously, you couldn't restore files and folders using the “Browse & Restore” feature when volumes were backed up to ONTAP S3 object storage. This release removes that restriction.  
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Learn more].
 
@@ -33,7 +33,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.
 
 While SnapLock Enterprise was already supported with FlexVol volumes, support for SnapLock Compliance is introduced in ONTAP 9.14 and is now supported in BlueXP backup and recovery. 
 
-With this release, you can back up FlexGroup volumes and FlexVol volumes to low-cost public cloud object storage or StorageGRID. 
+With this release, you can back up FlexGroup volumes and FlexVol volumes to low-cost public cloud object storage. 
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html[Learn more].
 
