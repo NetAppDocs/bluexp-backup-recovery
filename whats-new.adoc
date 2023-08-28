@@ -29,11 +29,9 @@ Previously, you couldn't restore files and folders using the “Browse & Restore
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Learn more].
 
-=== Support for SnapLock Compliance for FlexGroup and FlexVol volumes
+=== Additional support for backing up and restoring SnapLock volumes
 
-While SnapLock Enterprise was already supported with FlexVol volumes, support for SnapLock Compliance is introduced in ONTAP 9.14 and is now supported in BlueXP backup and recovery. 
-
-With this release, you can back up FlexGroup volumes and FlexVol volumes to low-cost public cloud object storage. 
+Backup and recovery now can back up both FlexVol and FlexGroup volumes that are configured using either SnapLock Compliance or SnapLock Enterprise protection modes. Your clusters must be running ONTAP 9.14 or greater for this support. Backing up FlexVol volumes using SnapLock Enterprise mode has been supported since ONTAP version 9.11.1. Earlier ONTAP releases provide no support for backing up SnapLock protection volumes.
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html[Learn more].
 
