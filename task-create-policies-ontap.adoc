@@ -62,12 +62,12 @@ TIP: When using System Manager, select *Asynchronous* as the policy type for rep
 
 Part of the policy creation process involves identifying Snapshot and SnapMirror labels that denote the schedule and retention. You can use predefined labels or create your own. 
 
-image:screenshot_policies_labels.png[Screenshot of Policies management page showing labels]
+//image:screenshot_policies_labels.png[Screenshot of Policies management page showing labels]
 
 == View backup policies for a working environment 
 
 . In the BlueXP UI, select *Volumes* > *Backup settings*.
-. From the Backup Settings page, select the working environment, select the *Action* image:icon-action.png["Actions icon"] icon, and select *Manage policies*.
+. From the Backup Settings page, select the working environment, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Manage backup policies*.
 +
 The Policies management page appears. 
 +
@@ -75,16 +75,7 @@ image:screenshot_policies_management.png["Policies management page"]
 
 . Continue by creating a Snapshot policy, replication policy, or policy for backup to object storage. 
 
-== Duplicate a policy
-Rather than create a new policy from scratch, you can copy a policy and then customize the copy. 
 
-.Steps
-
-. In the Policies page, specify the policy name.
-. Select the policy, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit Snapshot policy*. 
-. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Duplicate policy*. 
-. Customize the policy. 
-. Select *Save*.
 
 == Create a Snapshot policy
 
@@ -93,12 +84,15 @@ Part of your 3-2-1 strategy involves creating a Snapshot copy of the volume on t
 .Steps
 . In the Policies page, select *Create new policy* > *Create Snapshot policy*.
 . Specify the policy name. 
-. Enable the Snapshot label. You can have a maximum of 5 labels. 
+. Select the Snapshot schedule or schedules. You can have a maximum of 5 labels. Or, create a schedule. 
+. If you choose to create a schedule: 
+
+.. Select the frequency of hourly, daily, weekly, monthly, or yearly. 
 .. Specify the Snapshot labels denoting the schedule and retention. 
 .. Enter when and how often the Snapshot will be taken.
 .. Retention: Enter the number of Snapshots to keep.
 +
-image:screenshot_policies_create_labels.png["A screenshot of setting up Snapshot schedule labels"]
+//image:screenshot_policies_create_labels.png["A screenshot of setting up Snapshot schedule labels"]
 . Select *Create*.
 
 === Snapshot policy example using cascading architecture
@@ -122,7 +116,7 @@ This example creates a Snapshot policy with two clusters:
 Your 3-2-1 strategy might include replicating a volume on a different storage system. The replication policy resides on the *secondary* storage system. 
 
 .Steps
-. In the Policies page, select *Create new policy* > *Create replication policy*.
+. In the Policies page, select *Create new policy* > *Create new replication policy*.
 . In the Policy Details section, specify the policy name. 
 . Specify the SnapMirror labels (maximum of 5) denoting the retention for each label.
 . Specify the transfer schedule. 
@@ -139,21 +133,22 @@ This storage policy resides in different storage system locations depending on t
 
 
 .Steps
-. In the Policy management page, select *Create new policy* > *Create backup policy*.
+. In the Policy management page, select *Create new policy* > *Create new backup policy*.
 . In the Policy Details section, specify the policy name. 
 . Specify the SnapMirror labels (maximum of 5) denoting the retention for each label.
-. Specify the transfer schedule. 
-. (Optional) To protect your backups from being modified or deleted, select the *DataLock* option.
-+
-If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion by configuring _DataLock_. 
-
-+
-link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
-
+. Specify the settings, including the transfer schedule and when to archive backups. 
 
 . (Optional) To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. 
 + 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html#archival-storage-settings[Learn more about archival storage settings].
+
+. (Optional) To protect your backups from being modified or deleted, select the *DataLock & Ransomware protection* option.
++
+If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion by configuring _DataLock_ and _Ransomware protection_. 
+
++
+link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
+
 
 . Select *Create*.
 
@@ -164,11 +159,13 @@ You can edit a custom Snapshot, replication, or backup policy.
 Changing the backup policy affects all volumes that are using that policy. 
 
 .Steps
-. In the Policy management page, select the policy, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit Snapshot policy*.
+
+
+. In the Policies management page, select the policy, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit policy*.
 +
 NOTE: The process is the same for replication and backup policies. 
 
-. In the Policy Details section, make the changes. 
+. In the Edit Policy page, make the changes. 
 . Select *Save*. 
 
 
@@ -178,5 +175,5 @@ You can delete policies that are not associated with any volumes.
 If a policy is associated with a volume and you want to delete the policy, you must remove the policy from the volume first. 
 
 .Steps
-. In the Policy management page, select the policy, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete Snapshot policy*.
+. In the Policies management page, select the policy, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete Snapshot policy*.
 . Select *Delete*. 
