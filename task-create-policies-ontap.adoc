@@ -73,8 +73,10 @@ The Policies management page appears.
 +
 image:screenshot_policies_management.png["Policies management page"]
 
-. Continue by creating a Snapshot policy, replication policy, or policy for backup to object storage. 
++
+Snapshot policies are displayed by default. 
 
+. To view other policies that exist in the working environment, select either *Replication Policies* or *Backup Policies*. If the existing policies can be used for your backup plans, you’re all set. If you need to have a policy with different characteristics, you can create new policies from this page.
 
 
 == Create a Snapshot policy
