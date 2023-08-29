@@ -44,7 +44,7 @@ sidebar:
           url: /concept-ontap-backup-to-cloud.html
         - title: Plan your protection journey
           url: /concept-protection-journey.html
-        - title: Create a policy to back up ONTAP data
+        - title: Manage policies for ONTAP volumes
           url: /task-create-policies-ontap.html
         - title: Back up Cloud Volumes ONTAP to Amazon S3
           flavor: aws
