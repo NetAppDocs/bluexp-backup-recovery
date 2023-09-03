@@ -133,7 +133,17 @@ sidebar:
               url: /task-deploy-snapcenter-plugin-for-sap-hana.html
             - title: Back up SAP HANA databases
               flavor: azure
-              url: /task-backup-cloud-native-sap-hana-data.html                    
+              url: /task-backup-cloud-native-sap-hana-data.html
+        - title: Back up cloud-native SQL Server databases
+          entries:
+            - title: Quick start
+              url: /task-quick-start-sql.html
+            - title: Configure FSx for ONTAP
+              url: /reference-configure-fsx-for-ontap.html
+            - title: Add host and install SnapCenter Plug-in for SQL Server
+              url: /task-add-sqlhost-install-plugin-sql.html 
+            - title: Back up SQL Server databases
+              url: /task-backup-cloud-native-sql-data.html                   
         - title: Restore cloud-native Oracle databases
           entries:
             - title: Restore to original location
@@ -143,15 +153,17 @@ sidebar:
         - title: Restore cloud-native SAP HANA databases
           flavor: azure
           url: /task-restore-cloud-native-sap-hana-data.html
-        - title: Refresh SAP HANA target system
-          flavor: azure
-          url: /task-refresh-sap-hana-target-system.html
+        - title: Restore cloud-native SQL Server databases
+          url: /task-restore-cloud-native-sql-data.html
         - title: Clone cloud-native Oracle databases
           entries:
             - title: Clone concepts and requirements
               url: /concept-clone-cloud-native-oracle-concepts.html
             - title: Clone cloud-native Oracle databases
               url: /task-clone-cloud-native-oracle-data.html
+        - title: Refresh SAP HANA target system
+          flavor: azure
+          url: /task-refresh-sap-hana-target-system.html
         - title: Manage protection of cloud-native application data
           url: /task-manage-cloud-native-app-data.html
     - title: Back up and restore virtual machines data

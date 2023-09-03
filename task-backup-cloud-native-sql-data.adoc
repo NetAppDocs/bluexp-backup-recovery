@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: task-backup-cloud-native-sql-data.html
+keywords: BlueXP, scheduled backups, on-demand backups, create policy, SQL database
+summary: Create a policy, assign the policy, and then create on-demand backups of SQL database.
+---
+
+= Back up cloud-native Microsoft SQL Server databases
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+
+

@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: task-restore-cloud-native-sql-data.html
+keywords: restore, SQL database, BlueXP
+summary: You can restore SQL database from the cloud to the same host.
+---
+
+= Restore Microsoft SQL Server database
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+You can restore Microsoft SQL Server database to the same host.
+

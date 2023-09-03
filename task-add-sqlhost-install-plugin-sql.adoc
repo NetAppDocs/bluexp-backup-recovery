@@ -1,0 +1,24 @@
+---
+sidebar: sidebar
+permalink: task-add-sqlhost-install-plugin-sql.html
+keywords: Cloud Manager, BlueXP, SnapCenter Plug-in for SQL, SQL, database, host, install, add host, discover
+summary:  Install the SnapCenter Plug-in for SQL on each of the SQL database hosts.
+---
+
+= Install SnapCenter Plug-in for SQL Server and add database hosts
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You should install the SnapCenter Plug-in for SQL Server on each of the SQL database hosts, add the database hosts, and discover the database instances on the host to assign policies and create backups.
+
+== Install the SnapCenter Plug-in for SQL Server
+
+== Add the SQL Server database host
+
+== Discover the database instances
+
+== Configure the database instance credentials
