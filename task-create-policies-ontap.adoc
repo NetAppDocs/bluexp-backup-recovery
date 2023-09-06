@@ -49,22 +49,12 @@ Create backup policies using the following tools depending on your environment, 
 
 
 
-For instructions on creating policies using System Manager or ONTAP CLI, see the following: 
-
-https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html[Create a snapshot policy using System Manager^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html[Create a snapshot policy using the ONTAP CLI^]
-https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html[Create a replication policy using System Manager^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html[Create a replication policy using the ONTAP CLI^]
-https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy[Create a backup to object storage policy using System Manager^]
-https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description[Create a backup to object storage policy using the ONTAP CLI^]
 
 TIP: When using System Manager, select *Asynchronous* as the policy type for replication policies, and select *Asynchronous* and *Back up to cloud* for backup to object policies.
 
-Part of the policy creation process involves identifying Snapshot and SnapMirror labels that denote the schedule and retention. You can use predefined labels or create your own. 
 
-//image:screenshot_policies_labels.png[Screenshot of Policies management page showing labels]
 
-== View backup policies for a working environment 
+== View policies for a working environment 
 
 . In the BlueXP UI, select *Volumes* > *Backup settings*.
 . From the Backup Settings page, select the working environment, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Manage backup policies*.
@@ -82,6 +72,10 @@ Snapshot policies are displayed by default.
 == Create a Snapshot policy
 
 Part of your 3-2-1 strategy involves creating a Snapshot copy of the volume on the *primary* storage system. 
+
+Part of the policy creation process involves identifying Snapshot and SnapMirror labels that denote the schedule and retention. You can use predefined labels or create your own. 
+
+//image:screenshot_policies_labels.png[Screenshot of Policies management page showing labels]
 
 .Steps
 . In the Policies page, select *Create new policy* > *Create Snapshot policy*.
@@ -179,3 +173,14 @@ If a policy is associated with a volume and you want to delete the policy, you m
 .Steps
 . In the Policies management page, select the policy, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete Snapshot policy*.
 . Select *Delete*. 
+
+== Find more information
+
+For instructions on creating policies using System Manager or ONTAP CLI, see the following: 
+
+https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html[Create a Snapshot policy using System Manager^]
+https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html[Create a Snapshot policy using the ONTAP CLI^]
+https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html[Create a replication policy using System Manager^]
+https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html[Create a replication policy using the ONTAP CLI^]
+https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy[Create a backup to object storage policy using System Manager^]
+https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description[Create a backup to object storage policy using the ONTAP CLI^]
