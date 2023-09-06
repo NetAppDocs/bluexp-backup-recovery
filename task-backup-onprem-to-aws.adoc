@@ -452,6 +452,9 @@ You can choose to protect FlexVol or FlexGroup volumes; however, you cannot sele
 * The volumes you select must have the same SnapLock setting. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode require ONTAP 9.14 or later.)
 ====
 
+
+
+
 .Steps 
 
 Note that if the volumes you choose already have Snapshot or replication policies applied, then the policies you select later will overwrite these existing policies. 
