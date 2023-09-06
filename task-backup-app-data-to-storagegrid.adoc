@@ -45,4 +45,29 @@ Enter the details in the format FQDN:PORT.
 .. In the Access Key field, specify the key.
 .. In the Secret Key field, specify the password.
 .. Specify the IP space.
+.. Specify the archival tier.
++
+|===
+|If you select... | Perform the following...
+
+a|
+AWS 
+a|
+. Either select the StorageGrid cluster from the drop-down or add the cluster.
+. Specify the AWS account.
+. In the AWS Access Key field, specify the key.
+. In the AWS Secret Key field, specify the password.
+. Select the region where you want to create the backups.
+. Click *Save*.
+a|
+Azure
+a|
+. Either select the StorageGrid cluster from the drop-down or add the cluster.
+. Specify the Azure subscription ID.
+. Select the region where you want to create the backups.
+. Either create a new resource group or use an existing resource group.
+. Click *Save*.
+|===
++
+It is recommended to set the archival tier because this is an one time activity and you will not be allowed to set it up later.
 . Review the details and click *Activate Backup*.

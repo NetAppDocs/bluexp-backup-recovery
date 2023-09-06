@@ -25,8 +25,6 @@ You can restore SAP HANA database to the same host.
 .. For NAS environment, specify the FQDN or IP address of the host to which the volumes restored from object store are to be exported.
 .. For SAN environment, specify the initiators of the host to which LUNs of the volumes restored from object store are to be mapped.
 . If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
-+
-NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
 . If there is not enough space on the source storage or the source storage is down, select *Change storage location*.
 . Click *Next*.
 . In the Storage mapping page, specify the alternate storage location details where the data restored from the object store will be stored.
