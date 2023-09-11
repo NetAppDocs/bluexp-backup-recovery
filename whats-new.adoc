@@ -16,7 +16,7 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
-== 4 September 2023
+== 11 September 2023
 
 === New policies management for ONTAP data
 This release includes the ability within the UI to create custom Snapshot policies, replication policies, and policies for backups to object storage for ONTAP data. 

@@ -57,7 +57,7 @@ TIP: When using System Manager, select *Asynchronous* as the policy type for rep
 == View policies for a working environment 
 
 . In the BlueXP UI, select *Volumes* > *Backup settings*.
-. From the Backup Settings page, select the working environment, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Manage backup policies*.
+. From the Backup Settings page, select the working environment, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Policies management*.
 +
 The Policies management page appears. 
 +
