@@ -53,6 +53,7 @@ For auto QoS capacity pools the throughput is defined by the capacity of the sou
 . In the *System Refresh* page, perform the following actions:
 .. Select source system and Snapshot copy.
 .. Enter Export addresses from which the new volumes can be accessed.
+.. (Optional) Enter Maximum storage throughput (MIBs).
 .. Enter prescript, postscript, and on failure script paths.
 On failure script is executed only when the system refresh operation fails.
 .. Click *Refresh*.

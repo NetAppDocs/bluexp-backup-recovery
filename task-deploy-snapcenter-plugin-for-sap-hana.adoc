@@ -169,31 +169,44 @@ You should manually add SAP HANA database hosts to assign policies and create ba
 
 *Steps*
 
-.	In the *BlueXP* UI, click *Protection* > *Backup and recovery* > *Applications*.
-.	Click *Discover Applications*.
-.	Select *Cloud Native* > *SAP HANA* and click *Next*.
-.	In the *Applications* page, click *Add System*.  
+.	In the *BlueXP* UI, select *Protection* > *Backup and recovery* > *Applications*.
+.	Select *Discover Applications*.
+.	Select *Cloud Native* > *SAP HANA* and select *Next*.
+.	In the *Applications* page, select *Add System*.  
 .	In the *System Details* page, perform the following actions:
 ..	Select the System Type as Multi-tenant database container or Single Container.
 ..	Enter the SAP HANA system name.
 ..	Specify the SID of the SAP HANA system.
-..	(Optional) Modify HDBSQL OS user.
-..	Select Plug-in host.  
-(Optional) If the host is not added, click *Add Plug-in Host*.
+..	(Optional) Modify OSDB user.
+//..	Select Plug-in host.  
+//(Optional) If the host is not added, click *Add Plug-in Host*.
 ..	If HANA system is configured with HANA System replication, enable *HANA System Replication (HSR) System*.
-..	Click *HDB Secure User Store Keys* text box to add user store keys details.
+..	Select *HDB Secure User Store Keys* text box to add user store keys details.
 +
 Specify the key name, system details, username, and password and click *Add Key*.
 +
 You can delete or modify the user store keys.
-.   Click *Next*.
-.	In the *Storage Footprint* page, click *Add Storage* and perform the following:
+.   Select *Next*.
+. In the *Host Details* page, perform the following actions:
+.. Select *Add new host* or *Use existing host*.
+.. Select *Using SSH* or *Manual*.
++
+For Manual, enter the Host FQDN or IP, Connector, Username, SSH port, Plug-in port, and optionally add and validate the SSH private key.
++
+For SSH, enter the Host FQDN or IP, Connector, Username, and Plug-in port.
++
+.. Select *Next*.
+. In the *Host configuration* page, verify whether the configuration requirements are met.
++
+Select the check boxes to confirm.
+. Select *Next*.
+.	In the *Storage Footprint* page, select *Add Storage* and perform the following:
 ..	Select the working environment and specify the NetApp account.
 +
 From the left navigation pane, select BlueXP *Canvas* to add a new working environment.
 ..	Select the required volumes.
-..	Click *Add Storage*.
-.	Review all the details and click *Add System*.
+..	Select *Add Storage*.
+.	Review all the details and select *Add System*.
 
 You can modify or remove the SAP HANA systems from the UI.  
 
