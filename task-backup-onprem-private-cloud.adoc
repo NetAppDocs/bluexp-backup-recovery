@@ -272,7 +272,7 @@ You can choose to protect FlexVol or FlexGroup volumes; however, you cannot sele
 [NOTE] 
 ====
 * You can activate a backup only on a single FlexGroup volume at a time. 
-* The volumes you select must have the same SnapLock setting. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode aren't currently supported.)
+* The volumes you select must have the same SnapLock setting. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode require ONTAP 9.14 or later.)
 ====
 
 .Steps 
@@ -316,12 +316,17 @@ For details about these architectures, refer to link:concept-protection-journey.
 
 . *Local Snapshot*: Choose an existing Snapshot policy. 
 +
-TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI `snapmirror policy create` command. Refer to https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[ONTAP CLI for `snapmirror policy`^].
+TIP: To create a custom policy, refer to
+link:task-create-policies-ontap.html[Create a policy].
 
 . *Replication*: Set the following options: 
 +
 * *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate or aggregates and prefix or suffix that will be added to the replicated volume name. 
 * *Replication policy*: Choose an existing replication policy. 
+
++
+TIP: To create a custom policy, refer to
+link:task-create-policies-ontap.html[Create a policy].
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
 +
@@ -334,9 +339,10 @@ The access key and secret key are for the IAM user you created to give the ONTAP
 +
 TIP: Selecting the correct IPspace ensures that BlueXP backup and recovery can set up a connection from ONTAP to your StorageGRID object storage.
 
-* *Backup policy*: Select an existing backup policy. 
+* *Backup policy*: Select an existing Backup to object storage policy. 
 +
-TIP: If you want to create a custom policy, you can use System Manager or the ONTAP CLI `snapmirror policy create` command. Refer to https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[ONTAP CLI for `snapmirror policy`^].
+TIP: To create a custom policy, refer to
+link:task-create-policies-ontap.html[Create a policy].
 +
 If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion and ransomware attacks by configuring _DataLock and Ransomware Protection_. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
 +

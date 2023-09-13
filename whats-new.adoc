@@ -16,6 +16,25 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
+== 11 September 2023
+
+=== New policies management for ONTAP data
+This release includes the ability within the UI to create custom Snapshot policies, replication policies, and policies for backups to object storage for ONTAP data. 
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html[Learn more about policies].
+
+=== Support for restoring files and folder from volumes in ONTAP S3 object storage
+
+Previously, you couldn't restore files and folders using the “Browse & Restore” feature when volumes were backed up to ONTAP S3 object storage. This release removes that restriction.  
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Learn more about restoring data].
+
+=== Additional support for backing up and restoring SnapLock volumes
+
+Backup and recovery now can back up both FlexVol and FlexGroup volumes that are configured using either SnapLock Compliance or SnapLock Enterprise protection modes. Your clusters must be running ONTAP 9.14 or greater for this support. Backing up FlexVol volumes using SnapLock Enterprise mode has been supported since ONTAP version 9.11.1. Earlier ONTAP releases provide no support for backing up SnapLock protection volumes.
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html[Learn more about protecting ONTAP data].
+
 == 1 August 2023 
 
 [IMPORTANT]
@@ -79,6 +98,8 @@ When you create backup files in object storage, by default, the backup and recov
 
 This functionality is not currently supported when creating backup files to StorageGRID systems.
 
+// end::whats-new[] 
+
 == 04 July 2023
 
 === Enhancements to BlueXP backup and recovery for applications (cloud-native)
@@ -126,7 +147,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 === Automatic back up of critical BlueXP backup and recovery files in dark sites
 
 When you're using BlueXP backup and recovery in a site with no internet access, known as a "private mode" deployment, the BlueXP backup and recovery information is stored only on the local Connector system. This new functionality automatically backs up critical BlueXP backup and recovery data to a bucket on your connected StorageGRID system so that you can restore this data onto a new Connector if necessary. https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html[Learn more]
-// end::whats-new[]
+
 
 //=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
 //

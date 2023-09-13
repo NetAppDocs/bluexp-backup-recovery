@@ -169,10 +169,10 @@ Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP
 BlueXP backup and recovery supports the following types of volumes:
 
 * FlexVol read-write volumes
-* SnapMirror data protection (DP) destination volumes
-* SnapLock Enterprise volumes (requires ONTAP 9.11.1 or later)
-** SnapLock Compliance volumes aren't currently supported.
 * FlexGroup volumes (requires ONTAP 9.12.1 or later) 
+* SnapLock Enterprise volumes (requires ONTAP 9.11.1 or later)
+* SnapLock Compliance volumes (requires ONTAP 9.14 or later)
+* SnapMirror data protection (DP) destination volumes
 
 See the sections on <<Limitations,Backup and Restore Limitations>> for additional requirements and limitations.
 
