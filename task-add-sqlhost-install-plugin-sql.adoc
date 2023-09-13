@@ -13,12 +13,300 @@ summary:  Install the SnapCenter Plug-in for SQL on each of the SQL database hos
 :imagesdir: ./media/
 
 [.lead]
-You should install the SnapCenter Plug-in for SQL Server on each of the SQL database hosts, add the database hosts, and discover the database instances on the host to assign policies and create backups.
+You should install the SnapCenter Plug-in for SQL Server on each of the SQL database hosts, add the database hosts, discover the database instances, and configure the credentials for the database instances.
 
 == Install the SnapCenter Plug-in for SQL Server
 
+You should download plug-in *snapcenter_service_windows_host_plugin.exe* and then run the silent installer command to install the plug-in on the database host.
+
+.Before you begin
+
+You should ensure that the following prerequisites are met.
+
+* .Net 4.7.2 is installed
+* PowerShell 4.0 is installed
+* Minimum disk space of 5 GB is available
+* Minimum RAM size of 4 GB is available
+
+.Steps
+
+. Download the plug-in by running the API.
+`GET https://cloudmanager.netapp.com/account/<account_ID>/providers/cloudmanager_snapcenter/api/deploy/downloadWindowsPlugin`
++
+You can also access the .exe from the connector by running the command:
+`docker exec -it cloudmanager_snapcenter curl http://cloudmanager_snapcenter/deploy/downloadWindowsPlugin`
++
+The location of the file is _/var/lib/docker/volumes/cloudmanager_snapcenter_volume/_data/<agent version>/snapcenter_service_windows_host_plugin.exe_.
+. Copy _snapcenter_service_windows_host_plugin.exe_ from the connector to each of the MSSQL Server database hosts either using scp or other alternate methods.
+. Install the plug-in.
+'"C://<install_folder>/snapcenter_service_windows_host_plugin.exe"/silent/debuglog "C://<install_folder>/HA_Suite_Silent_Install_SCSQL_FRESH.log" /log"C://install_folder/" BI_SNAPCENTER_PORT=8145 ISFeatureInstall=SCSQL'
+. Copy the self signed certificate from _/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/client/certificate/certificate.pem_ to the MSSQL Server database hosts.
++
+You can also generate a self signed certificate if you do not use the default one.
+. Double-click the certificate to add it to the *Personal* and *Trusted Root Certification Authorities* store.
+
 == Add the SQL Server database host
+
+You should add the MSSQL database host using the host FQDN.
+
+'POST snapcenter.cloudmanager.cloud.netapp.com/api/v1/hosts'
+
+=== Parameters
+
+|===
+| Name | Type | Required
+
+a| 
+addr
+a|
+string
+a|
+True
+
+a| 
+connector_id
+a|
+string
+a|
+True
+
+a| 
+plugin_type
+a|
+string
+a|
+True
+
+a| 
+install_method
+a|
+string
+a|
+True
+
+a| 
+plugin_port
+a|
+number
+a|
+True
+
+a| 
+username
+a|
+string
+a|
+True
+
+|===
+
+=== Response
+
+If the API is executed successfully, response code 202 is displayed.
+
+Example:
+
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----
+
+== View the added SQL Server database hosts
+
+You can run this API to view all the added SQL Server database hosts.
+
+'GET snapcenter.cloudmanager.cloud.netapp.com/api/v1/hosts'
+
+=== Response
+
+If the API is executed successfully, response code 200 is displayed.
+
+Example:
+
+----
+{
+  "num_records": 1,
+    "total_records": 1,
+    "records": [
+        {
+            "id": "85bd4603-08f7-45f4-ba8e-a0b1e2a0f4d0",
+            "addr": "scspa2722211001.rtp.openenglab.netapp.com",
+            "status": "Running",
+            "connector_id": "fBf8Iwbp4BscBfD02qBwWm6I03gGAesRclients",
+            "plugin_port": 8145,
+            "plugins": [
+                {
+                    "type": "mssql"
+                }
+            ],
+            "os_type": "windows",
+            "platform": "onprem",
+            "username": "administrator",
+            "operating_mode": "production"
+        }
+    ],
+    "_links": {
+        "next": {}
+    }
+}
+----
 
 == Discover the database instances
 
+You can run this API and enter the host ID to discover all the MSSQL instances.
+
+'POST snapcenter.cloudmanager.cloud.netapp.com/api/mssql/instances/discovery'
+
+=== Parameter
+
+|===
+| Name | Type | Required
+
+a| 
+host_id
+a|
+string
+a|
+True
+
+|===
+
+=== Response
+
+If the API is executed successfully, response code 202 is displayed.
+
+Example:
+
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----
+
+== View the discovered database instances
+
+You can run this API to view all the discovered database instances.
+
+'GET snapcenter.cloudmanager.cloud.netapp.com/api/mssql/instances'
+
+=== Response
+
+If the API is executed successfully, response code 200 is displayed.
+
+Example:
+
+----
+{
+    "num_records": 2,
+    "total_records": 2,
+    "records": [
+        {
+            "id": "953e66de-10d9-4fd9-bdf2-bf4b0eaabfd7",
+            "name": "scspa2722211001\\NAMEDINSTANCE1",
+            "host_id": "85bd4603-08f7-45f4-ba8e-a0b1e2a0f4d0",
+            "status": "Running",
+            "auth_mode": 0,
+            "version": "",
+            "is_clustered": false,
+            "is_credentials_configured": false,
+            "protection_mode": ""
+        },
+        {
+            "id": "18e1b586-4c89-45bd-99c8-26268def787c",
+            "name": "scspa2722211001",
+            "host_id": "85bd4603-08f7-45f4-ba8e-a0b1e2a0f4d0",
+            "status": "Stopped",
+            "auth_mode": 0,
+            "version": "",
+            "is_clustered": false,
+            "is_credentials_configured": false,
+            "protection_mode": ""
+        }
+    ],
+    "_links": {
+        "next": {}
+    }
+}
+----
+
 == Configure the database instance credentials
+
+You can run this API to validate and set credentials for the database instances.
+
+'POST snapcenter.cloudmanager.cloud.netapp.com/api/mssql//api/mssql/credentials-configuration'
+
+=== Parameter
+
+|===
+| Name | Type | Required
+
+a| 
+host_id
+a|
+string
+a|
+True
+
+a| 
+instance_ids
+a|
+string
+a|
+True
+
+a| 
+username
+a|
+string
+a|
+True
+
+a| 
+password
+a|
+string
+a|
+True
+
+a| 
+auth_mode
+a|
+string
+a|
+True
+
+|===
+
+=== Response
+
+If the API is executed successfully, response code 202 is displayed.
+
+Example:
+
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----

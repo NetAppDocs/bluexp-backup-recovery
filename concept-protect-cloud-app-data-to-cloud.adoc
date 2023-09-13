@@ -124,5 +124,5 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 * Failover Cluster Instance (FCI) configuration is not supported
 * BlueXP UI does not support SQL database specific operations
 +
-All Microsoft SQL Server database specific operations are performed by running the APIs.
+All Microsoft SQL Server database specific operations are performed by running REST APIs.
 * Restore to alternate location is not supported

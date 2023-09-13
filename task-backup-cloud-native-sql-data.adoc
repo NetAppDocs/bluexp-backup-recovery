@@ -14,5 +14,258 @@ summary: Create a policy, assign the policy, and then create on-demand backups o
 
 [.lead]
 
+You can create scheduled or on-demand backups by assigning the policies that you created.
 
+== Create backup policy
+
+You can run this API to create the backup policy.
+
+'POST snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backup/policies'
+
+=== Parameters
+
+|===
+| Name | Type | Required
+
+a| 
+name
+a|
+string
+a|
+True
+
+a| 
+backup_type
+a|
+string
+a|
+True
+
+a| 
+copy_only_backup
+a|
+string
+a|
+False
+
+a| 
+is_system_defined
+a|
+string
+a|
+False
+
+a| 
+backup_name_format
+a|
+string
+a|
+True
+
+a| 
+schedule_type
+a|
+string
+a|
+True
+
+a| 
+start_time
+a|
+number
+a|
+True
+
+a| 
+hours_interval
+a|
+number
+a|
+True
+
+a| 
+minutes_interval
+a|
+number
+a|
+True
+
+a| 
+retention_type
+a|
+string
+a|
+True
+
+a| 
+retention_count
+a|
+number
+a|
+True
+
+a| 
+end_time
+a|
+number
+a|
+True
+
+|===
+
+=== Response
+
+If the API is executed successfully, response code 201 is displayed.
+
+Example:
+
+----
+{
+    "_links": {
+    "self": {
+        "href": "/api/resourcelink"
+      }
+    }
+}
+----
+
+== Assign policy to SQL database instance
+
+You can run this API to assign policy to SQL database instance.
+
+'POST snapcenter.cloudmanager.cloud.netapp.com/api/mssql/instances/{id}/policy-assignment'
+
+Where, _id_ is MSSQL instance ID obtained by running the discover database instance API. For more information, refer to link:task-add-sqlhost-install-plugin-sql.html#discover-the-database-instances[Discover the database instances].
+
+=== Parameters
+
+|===
+| Name | Type | Required
+
+a| 
+policy_id
+a|
+string
+a|
+True
+
+|===
+
+=== Response
+
+If the API is executed successfully, response code 202 is displayed.
+
+Example:
+
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----
+
+== Create an on-demand backup
+
+You can run this API to create an on-demand backup.
+
+'POST snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups'
+
+=== Parameters
+
+|===
+| Name | Type | Required
+
+a| 
+id
+
+NOTE: This is ID of the MSSQL database instance.
+a|
+string
+a|
+True
+
+a| 
+resource_type
+a|
+string
+a|
+True
+
+a| 
+policy_id
+a|
+string
+a|
+True
+
+a| 
+schedule_type
+a|
+string
+a|
+True
+
+|===
+
+=== Response
+
+If the API is executed successfully, response code 202 is displayed.
+
+Example:
+
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----
+
+== View the backups
+
+You can run these APIs to list view all the backups and also to view details of a particular backup.
+
+'GET snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups'
+
+'GET snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups/{id}'
+
+=== Response
+
+If the API is executed successfully, response code 200 is displayed.
+
+Example:
+
+----
+{
+    "total_records": 1,
+    "num_records": 1,
+    "records": [
+        {
+            "backup_id": "602d7796-8074-43fc-a178-eee8c78566ac",
+            "resource_id": "a779578d-cf78-46f3-923d-b9223255938c",
+            "backup_name": "Hourly_policy2_scspa2722211001_NAMEDINSTANCE1_2023_08_08_07_02_01_81269_0",
+            "policy_name": "policy2",
+            "schedule_type": "Hourly",
+            "start_time": "2023-08-08T07:02:10.203Z",
+            "end_time": "0001-01-01T00:00:00Z",
+            "backup_status": "success",
+            "backup_type": "FullBackup"
+        }
+    ],
+    "_links": {
+        "next": {}
+    }
+}
+----
 

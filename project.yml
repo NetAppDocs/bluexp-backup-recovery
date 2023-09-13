@@ -134,7 +134,7 @@ sidebar:
             - title: Back up SAP HANA databases
               flavor: azure
               url: /task-backup-cloud-native-sap-hana-data.html
-        - title: Back up cloud-native SQL Server databases
+        - title: Back up cloud-native SQL Server databases using REST APIs
           entries:
             - title: Quick start
               url: /task-quick-start-sql.html
