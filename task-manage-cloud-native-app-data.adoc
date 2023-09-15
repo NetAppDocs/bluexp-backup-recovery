@@ -92,7 +92,7 @@ After updating the Connector details for Oracle or SAP HANA hosts, perform the f
 `sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
 .. Copy certificate.pem from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
 . Log in to the plug-in host and perform the following steps:
-.. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.p12 file.
+.. Navigate to _/var/opt/snapcenter/spl/etc_ and run the keytool command to import the certificate.pem file.
 `keytool -import -alias agentcert -file certificate.pem  -keystore keystore.jks -deststorepass snapcenter -noprompt`
 .. Restart SPL: `systemctl restart spl`
 .. Perform one of the following:

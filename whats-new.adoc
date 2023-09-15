@@ -16,6 +16,24 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
+
+== 27 September 2023
+
+=== Enhancements to BlueXP backup and recovery for applications (cloud-native)
+
+* Microsoft SQL Server database
+** Supports backup, restore, and recovery of Microsoft SQL Server databases residing on Amazon FSx for NetApp ONTAP
+** All the operations are supported only through REST APIs.
+
+* SAP HANA systems
+** During system refresh, the auto mount and unmount of the volumes are performed using workflows instead of scripts
+** Supports addition, removal, edit, delete, maintain, and upgrade of the plug-in host using UI
+
+=== Enhancements to BlueXP backup and recovery for applications (hybrid)
+
+* Supports data lock and ransomware protection
+* Supports moving backups from StorageGrid to archival tier
+
 == 11 September 2023
 
 === New policies management for ONTAP data
@@ -70,6 +88,8 @@ The "Backup lifecycle" Type filter has been renamed to "Retention". Use this fil
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
 
+// end::whats-new[] 
+
 == 6 July 2023
 
 === BlueXP backup and recovery now includes the ability to schedule and create Snapshot copies and replicated volumes
@@ -97,8 +117,6 @@ Then you can manage your older clusters using the previous version of software.
 When you create backup files in object storage, by default, the backup and recovery service will create the buckets in object storage for you. You can create the buckets yourself if you want to use a certain name or assign special properties. If you want to create your own bucket, you must create it before starting the activation wizard. https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn how to create your object storage buckets].
 
 This functionality is not currently supported when creating backup files to StorageGRID systems.
-
-// end::whats-new[] 
 
 == 04 July 2023
 

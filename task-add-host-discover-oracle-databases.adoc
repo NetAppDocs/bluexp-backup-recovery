@@ -226,9 +226,9 @@ The plug-in binary is available at: _cd /var/lib/docker/volumes/service-manager[
 `chmod +x snapcenter_linux_host_plugin_scs.bin`
 . Install the Oracle plug-in as a sudo SnapCenter user.
 `./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root>`
-. Copy _certificate.p12_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
-. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.
-`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
+. Copy _certificate.pem_ from _<base_mount_path>/client/certificate/_ path of the Connector VM to _/var/opt/snapcenter/spl/etc/_ on the plug-in host.
+. Navigate to _/var/opt/snapcenter/spl/etc_ and execute the keytool command to import the certificate.pem.
+`keytool -import -alias agentcert -file certificate.pem -keystore keystore.jks -deststorepass snapcenter -noprompt`
 . Restart SPL: `systemctl restart spl`
 . Validate that the plug-in is reachable from the Connector by running the below command from the Connector.
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
