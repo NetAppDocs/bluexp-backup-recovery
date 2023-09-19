@@ -30,6 +30,8 @@ You can customize the refresh scripts.
 ** <SOURCEVOLUME>_DESTINATION
 ** HANA_DATABASE_TYPE 
 ** TENANT_DATABASE_NAMES 
+* You must upgrade the plug-in to the latest version. 
+* The mount paths should be the same on both the source and the target HANA systems.
 
 *About this task*
 
@@ -45,6 +47,7 @@ NOTE: The new volume will be placed in the same capacity pool as that of the tar
 * The junction path will be the same as the volume name.
 * The “max throughput number” for the new volume is picked from the volume of the target system with manual Quality of Service (QoS) capacity pools.
 For auto QoS capacity pools the throughput is defined by the capacity of the source volume.
+* During system refresh, the auto mount and unmount of the volumes are performed using workflows instead of scripts.
 
 *Steps*
 
