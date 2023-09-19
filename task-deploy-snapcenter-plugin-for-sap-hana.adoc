@@ -174,7 +174,7 @@ You should manually add SAP HANA database hosts to assign policies and create ba
 .	Select *Cloud Native* > *SAP HANA* and select *Next*.
 .	In the *Applications* page, select *Add System*.  
 .	In the *System Details* page, perform the following actions:
-..	Select the System Type as Multi-tenant database container or Single Container.
+..	Select the System Type as Multi-tenant database container or Global Non-Data Volumes.
 ..	Enter the SAP HANA system name.
 ..	Specify the SID of the SAP HANA system.
 ..	(Optional) Modify OSDB user.
@@ -239,7 +239,7 @@ You can remove the SAP HANA database host using only REST APIs.
 `/opt/NetApp/snapcenter/spl/installation/plugins/uninstall`
 
 === Add Non-Data Volumes
-After adding the multi-tenant database container or single container type SAP HANA system, you can add the Non-Data Volumes of the HANA system.
+After adding the multi-tenant database container type SAP HANA system, you can add the Non-Data Volumes of the HANA system.
 
 You can add these resources to resource groups to perform data protection operations after you discover the SAP HANA databases that are available.
 
@@ -251,7 +251,7 @@ You can add these resources to resource groups to perform data protection operat
 .	In the *Applications* page, click image:icon-action.png[icon to select the action] corresponding to the system for which you want to add the Non-Data Volumes and select *Manage System* > *Non-Data Volume*.
 
 === Add  Global Non-Data Volumes
-After adding the multi-tenant database container or single container type SAP HANA system, you can add the Global Non-Data Volumes of the HANA system.
+After adding the multi-tenant database container type SAP HANA system, you can add the Global Non-Data Volumes of the HANA system.
 
 *Steps*
 
@@ -262,6 +262,7 @@ After adding the multi-tenant database container or single container type SAP HA
 .	In the *System Details* page, perform the following actions:
 ..	From System Type drop-down, select *Global Non-Data Volume*.
 ..	Enter the SAP HANA system name.
+. . In the *Host Details* page, perform the following actions:
 ..	Specify the associated SIDs of the SAP HANA system.
 ..	Select the plug-in host
 ..	Click *Next*.
