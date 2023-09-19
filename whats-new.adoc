@@ -34,6 +34,10 @@ Learn what's new in BlueXP backup and recovery.
 * Supports data lock and ransomware protection
 * Supports moving backups from StorageGrid to archival tier
 
+=== Enhancements to BlueXP backup and recovery for Virtual Machines
+
+* Support for connector proxy deployment model
+
 == 11 September 2023
 
 === New policies management for ONTAP data
