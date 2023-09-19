@@ -31,7 +31,7 @@ You can customize the refresh scripts.
 ** HANA_DATABASE_TYPE 
 ** TENANT_DATABASE_NAMES 
 * You must upgrade the plug-in to the latest version. 
-* The mount paths should be same on the source and target HANA systems.
+* The mount paths should be the same on both the source and the target HANA systems.
 
 *About this task*
 
