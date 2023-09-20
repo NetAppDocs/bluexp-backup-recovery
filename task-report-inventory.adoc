@@ -33,7 +33,7 @@ The BlueXP backup and recovery reports provide information about the following a
 
 
 == Create a Backup Inventory report
-From the BlueXP backup and recovery Reports tab, you can create the Backup Inventory report and filter its contents. With the Backup Inventory report, you can see all your backups for a specific account, working environment or SVM inventory. 
+From the BlueXP backup and recovery Reports tab, you can create the Backup Inventory report and filter its contents. With the Backup Inventory report, you can see all your backups for a specific account, working environment, or SVM inventory. 
 
 
 The Backup Inventory report shows the following information and more: 
@@ -46,7 +46,8 @@ The Backup Inventory report shows the following information and more:
 * DataLock and Ransomware protection status (governance, compliance, or none)
 * Archive enabled status
 * Count of backup copies
-* Backup type (scheduled or user initiated ad-hoc backup)
+* Data protection type of local Snapshots, replications to secondary storage, or backups to object storage
+* Backup type (scheduled or user-initiated ad-hoc backup)
 * Storage class
 * Snapshot label
 
@@ -76,6 +77,7 @@ TIP: You can select multiple working environments and SVMs.
 //. To have an email sent about the report, select *Create a subscription for this report*, select the delivery frequency, and email addresses for one or more email recipients
 //+
 //NOTE: Email recipients can be BlueXP users or users who haven't signed into BlueXP. 
+. Review the report sections (Snapshot Policies, Replication Policies, or Backup Policies), depending on your report selections. 
 . (Optional) Filter the results by job status.
 . (Optional) Export the report contents in .CSV format by selecting *Download CSV*.
 

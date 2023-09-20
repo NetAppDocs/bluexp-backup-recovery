@@ -374,17 +374,29 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 + 
 For details about these architectures, refer to link:concept-protection-journey.html[Plan your protection journey]. 
 
-. *Local Snapshot*: Choose an existing Snapshot policy. 
+. *Local Snapshot*: Choose an existing Snapshot policy or create a new one. 
 +
-TIP: To create a custom policy, refer to link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before activating the Snapshot, refer to link:task-create-policies-ontap.html[Create a policy].
+
++
+To create a policy, select *Create new policy* and do the following: 
+
+* Enter the name of the policy. 
+* Select up to 5 schedules, typically of different frequencies. 
+* Select *Create*. 
 
 . *Replication*: Set the following options: 
 +
 * *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate or aggregates and prefix or suffix that will be added to the replicated volume name. 
-* *Replication policy*: Choose an existing replication policy. 
-
+* *Replication policy*: Choose an existing replication policy or create a new one. 
 +
-TIP: To create a custom policy, refer to link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before you activate the replication, refer to link:task-create-policies-ontap.html[Create a policy].
++
+To create a policy, select *Create new policy* and do the following: 
++
+** Enter the name of the policy. 
+** Select up to 5 schedules, typically of different frequencies. 
+** Select *Create*. 
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
 +
@@ -411,10 +423,15 @@ The IPspace in the ONTAP cluster where the volumes you want to back up reside. T
 +
 //.. Optionally, choose whether you'll use a Google Cloud private endpoint that you have previously configured. https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview[Learn about using an Azure private endpoint].
 
-* *Backup policy*: Select an existing Backup to object storage policy. 
-
+* *Backup policy*: Select an existing Backup to object storage policy or create a new one. 
 +
-TIP: To create a custom policy, refer to link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before activating the backup, refer to link:task-create-policies-ontap.html[Create a policy].
++
+To create a policy, select *Create new policy* and do the following: 
+
+** Enter the name of the policy. 
+** Select up to 5 schedules, typically of different frequencies. 
+** Select *Create*. 
 
 * *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
 
