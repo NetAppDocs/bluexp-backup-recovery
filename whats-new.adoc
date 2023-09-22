@@ -20,13 +20,14 @@ Learn what's new in BlueXP backup and recovery.
 This release of BlueXP backup and recovery includes several updates. 
 
 === Support for on-demand quick restore
-BlueXP backup and recovery now offers the ability to perform an on-demand, quick restore, also known as a _lazy restore_, for Cloud Volumes ONTAP data. This process restores the metadata from a cloud Snapshot to an ONTAP volume. The on-demand restore is typically faster than a full volume restore. 
+BlueXP backup and recovery now provides the ability to perform a "quick restore" of a volume from cloud storage to a Cloud Volumes ONTAP system. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore restores the metadata from the backup file to a volume instead of restoring the entire backup file.
 
-The bucket source Snapshot can be from ONTAP 9.8 or later while the destination should be Cloud Volumes ONTAP 9.13.0 or later. 
+The Cloud Volumes ONTAP destination system must be running ONTAP version 9.13.0 or greater.
 
-The restore volume becomes available to serve data immediately. 
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Learn more about restoring data].
+
+The BlueXP backup and recovery Job Monitor shows information about quick restore jobs. 
 
 === 3-2-1 Policy creation during backup activation
 Previously, custom policies had to be created before you initiated a Snapshot, replication, or backup. Beginning with ONTAP 9.8 P5, you can now create a policy during the backup activation process using the BlueXP backup and recovery UI.  
@@ -35,7 +36,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.
 
 
 === Support for scheduled jobs in the Job Monitor   
-The BlueXP backup and recovery Job Monitor previously monitored scheduled volume-to-object-store backup and restore jobs but not scheduled local Snapshots and replication backup and restore jobs via UI or API. 
+The BlueXP backup and recovery Job Monitor previously monitored scheduled volume-to-object-store backup and restore jobs but not local Snapshot, replication, backup, and restore jobs that were scheduled via UI or API. 
 
 The BlueXP backup and recovery Job Monitor now includes scheduled jobs for local Snapshots, replications, and backups to object storage. 
 
