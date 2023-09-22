@@ -55,7 +55,7 @@ Enter the details in the format FQDN:PORT.
 a|
 AWS 
 a|
-. Either select the StorageGrid cluster from the drop-down or add the cluster.
+. Either select the StorageGrid from the drop-down or add the StorageGrid cluster.
 . Specify the AWS account.
 . In the AWS Access Key field, specify the key.
 . In the AWS Secret Key field, specify the password.
