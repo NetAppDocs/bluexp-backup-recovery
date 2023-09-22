@@ -27,7 +27,7 @@ The Cloud Volumes ONTAP destination system must be running ONTAP version 9.13.0 
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Learn more about restoring data].
 
-The BlueXP backup and recovery Job Monitor shows information about quick restore jobs. 
+The BlueXP backup and recovery Job Monitor now shows information about quick restore jobs. 
 
 === 3-2-1 Policy creation during backup activation
 Previously, custom policies had to be created before you initiated a Snapshot, replication, or backup. Beginning with ONTAP 9.8 P5, you can now create a policy during the backup activation process using the BlueXP backup and recovery UI.  
@@ -36,7 +36,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.
 
 
 === Support for scheduled jobs in the Job Monitor   
-The BlueXP backup and recovery Job Monitor previously monitored scheduled volume-to-object-store backup and restore jobs but not local Snapshot, replication, backup, and restore jobs that were scheduled via UI or API. 
+The BlueXP backup and recovery Job Monitor previously monitored scheduled volume-to-object-store backup and restore jobs but not local Snapshot, replication, backup, and restore jobs that were scheduled via the UI or API. 
 
 The BlueXP backup and recovery Job Monitor now includes scheduled jobs for local Snapshots, replications, and backups to object storage. 
 
@@ -51,7 +51,7 @@ Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-report-invent
 
 === BlueXP Timeline includes all user actions
 
-The BlueXP Timeline now reports all modification actions made by users.  
+The BlueXP Timeline now reports on all modification actions made by users.  
 
 https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-sept-release/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review operation activity in the BlueXP Timeline].
 
