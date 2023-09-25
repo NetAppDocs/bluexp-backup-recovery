@@ -69,6 +69,7 @@ See <<Replication limitations,Replication limitations>> for a list of replicatio
 * Restore data from a specific point in time from local Snapshot copies, replicated volumes, or backed up volumes in object storage.
 * Restore a volume, a folder, or individual files, to the source system or to a different system.
 * Restore data to a working environment using a different subscription/account or that is in a different region.
+* Ability to perform a "quick restore" of a volume from cloud storage to a Cloud Volumes ONTAP system; perfect for disaster recovery situations where you need to provide access to a volume as soon as possible.
 * Data is restored on a block level, placing the data directly in the location you specify, all while preserving the original ACLs.
 * Browsable and searchable file catalogs for easy selection of individual folders and files for single file restore.
 
@@ -462,3 +463,9 @@ When using a version of ONTAP before 9.11.1, folder restore is not supported.
 * The file being restored must be using the same language as the language on the destination volume. You will receive an error message if the languages are not the same.
 
 * The _High_ restore priority is not supported when restoring data from Azure archival storage to StorageGRID systems.
+
+* Quick restore limitations:
+** The destination location must be a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater.
+** It is not supported with backups located in archived storage.
+** FlexGroup volumes are supported only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. 
+** SnapLock volumes are supported only if the source system from which the cloud backup was created was running ONTAP 9.11.0 or greater. 

@@ -396,9 +396,11 @@ You can restore a volume, folder, or files from an ONTAP backup file using Searc
 The search operation looks across all local Snapshot copies that exist for your ONTAP volumes, all replicated volumes on secondary storage systems, and all backup files that exist in object storage. Since restoring data from a local Snapshot copy or replicated volume can be faster and less costly than restoring from a backup file in object storage, you may want to restore data from these other locations. 
 //You can restore the Snapshot as a new volume https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[from the Volume Details page on the Canvas^] (not from BlueXP backup and recovery).
 
-When you restore a volume from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. You can restore the data as a volume in the original working environment, or to a different working environment that's located in the same cloud account as the source working environment. You can also restore volumes to an on-premises ONTAP system.
+When you restore a _full volume_ from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. You can restore the data as a volume in the original working environment, to a different working environment that's located in the same cloud account as the source working environment, or to an on-premises ONTAP system.
 
-You can restore folders or files to the original volume location, to a different volume in the same working environment, or to a different working environment that's using the same cloud account. You can also restore folders and files to a volume on an on-premises ONTAP system.
+When restoring a cloud backup to a destination Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a "quick restore" operation. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore restores the metadata from the backup file to a volume instead of restoring the entire backup file. Quick restore is not recommended for performance or latency-sensitive applications, and it is not supported with backups in archived storage.
+
+You can restore _folders or files_ to the original volume location, to a different volume in the same working environment, to a different working environment that's using the same cloud account, or to a volume on an on-premises ONTAP system.
 
 When using ONTAP 9.13.0 or greater, you can restore a folder along with all files and sub-folders within it. When using a version of ONTAP before 9.13.0, only files from that folder are restored - no sub-folders, or files in sub-folders, are restored.
 
@@ -418,6 +420,7 @@ endif::gcp[]
 ====
 * If the backup file in object storage has been configured with DataLock & Ransomware protection, then folder-level restore is supported only if the ONTAP version is 9.13.1 or greater. If you are using an earlier version of ONTAP, you can restore the entire volume from the backup file and then access the folder and files you need.
 * If the backup file in object storage resides in archival storage, then folder-level restore is supported only if the ONTAP version is 9.13.1 or greater. If you are using an earlier version of ONTAP, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
+* Quick restore is supported for FlexGroup volumes only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. Quick restore for SnapLock volumes is supported only if the source system from which the cloud backup was created was running ONTAP 9.11.0 or greater. There is no minimum requirement for FlexVol volumes.
 * The "High" restore priority is not supported when restoring data from Azure archival storage to StorageGRID systems.
 * Restoring folders is not currently supported from volumes in ONTAP S3 object storage.
 ====
@@ -618,7 +621,9 @@ Note that the results also identify local volume Snapshot copies that contain th
 
 . Select the destination location where you want the volume, folder, or file(s) to be restored and click *Restore*.
 +
-* For volumes, you can select the original destination working environment or you can select an alternate working environment. When restoring a FlexGroup volume you can choose multiple aggregates. 
+* For volumes, you can select the original destination working environment or you can select an alternate working environment. When restoring a FlexGroup volume you'll need to choose multiple aggregates. 
++
+When restoring a backup from object storage to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a "quick restore" operation.
 * For folders, you can restore to the original location or you can select an alternate location; including the working environment, volume, and folder.
 * For files, you can restore to the original location or you can select an alternate location; including the working environment, volume, and folder. When selecting the original location, you can choose to overwrite the source file(s) or to create new file(s).
 +
