@@ -30,8 +30,9 @@ You can customize the refresh scripts.
 ** <SOURCEVOLUME>_DESTINATION
 ** HANA_DATABASE_TYPE 
 ** TENANT_DATABASE_NAMES 
-* You must upgrade the plug-in to the latest version. 
-* The mount paths should be the same on both the source and the target HANA systems.
+* You must upgrade the plug-in to 3.0 version. 
+* The mount paths should be the same for the data volume on both the source and the target SAP HANA systems.
+* Before the first refresh operation, ensure that the '/etc/fstab' file does not have entries for the data volumes of the target SAP HANA system.
 
 *About this task*
 
@@ -55,7 +56,7 @@ For auto QoS capacity pools the throughput is defined by the capacity of the sou
 . In the *Applications* page, click image:icon-action.png[icon to select the action] icon to select the action corresponding to the system that you want to refresh and select *System Refresh*.
 . In the *System Refresh* page, perform the following actions:
 .. Select source system and Snapshot copy.
-.. Enter Export addresses from which the new volumes can be accessed.
+.. (Optional) Enter Export addresses from which the new volumes can be accessed.
 .. (Optional) Enter Maximum storage throughput (MIBs).
 .. Enter prescript, postscript, and on failure script paths.
 On failure script is executed only when the system refresh operation fails.

@@ -49,7 +49,7 @@ Create a non-root (sudo) user to install the plug-in.
 . Log into the Connector VM.
 . Download the SnapCenter Linux host plug-in binary.
 `sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
-. Copy the contents of *sudoer.txt* located at: _/var/lib/docker/volumes/service-manager[1]-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin_
+. Copy the contents of *sudoer.txt* located at: _/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/$(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin_
 . Log into the SAP HANA system host using root user account.
 . Configure sudo access for the non-root user by copying the text copied in the step 3 to _/etc/sudoers.d/snapcenter_ file.
 +
