@@ -103,6 +103,8 @@ sidebar:
               url: /task-restore-sql-data.html
             - title: Restore SAP HANA database
               url: /task-restore-hana-backup.html
+            - title: Restore MongoDB, MySQL, and PostgreSQL databases
+              url: /task-restore-customplugin-backup.html
     - title: Back up and restore cloud-native applications data
       entries:
         - title: Protect your cloud-native applications data

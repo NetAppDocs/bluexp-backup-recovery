@@ -174,7 +174,7 @@ You should manually add SAP HANA database hosts to assign policies and create ba
 .	Select *Cloud Native* > *SAP HANA* and select *Next*.
 .	In the *Applications* page, select *Add System*.  
 .	In the *System Details* page, perform the following actions:
-..	Select the System Type as Multi-tenant database container or Single Container.
+..	Select the System Type as Multi-tenant database container or Global Non-Data Volumes.
 ..	Enter the SAP HANA system name.
 ..	Specify the SID of the SAP HANA system.
 ..	(Optional) Modify OSDB user.
@@ -212,34 +212,8 @@ You can modify or remove the SAP HANA systems from the UI.
 
 Before removing the SAP HANA system, you should delete all the associated backups and remove the protection.
 
-=== Delete SAP HANA database host
-You can remove the SAP HANA database host using only REST APIs.
-
-*Steps*
-
-. Delete all the systems associated with the SAP HANA database host using the UI or by using the below REST API.
-`DELETE /saphana/anf/systems/(id)`
-. Perform the following steps to remove the SAP HANA database host.
-.. Use GET REST API to get the ID of the SAP HANA database host that must be deleted.
-`GET /saphana/hosts`
-   `{`
-    `"num_records": 1,`
-    `"records": [`
-        `{`
-            `"id": "c9a6849f-29ea-45c5-a17f-a1e78ad2a30e",`   
-            `"host_name": "galaxy-vm134.netapp.com",`
-            `"port": 443,`
-            `"agent_id": "n3TrgkGvnTOFTJJNBxeh3oPxG8AcrcHeclients"`
-        `}`
-    `]`
-`}`
-.. Delete the SAP HANA database host by passing the ID from the below REST API.
-`DELETE /saphana/hosts/(id)`
-.. Uninstall the SAP HANA Linux plug-in on the database host using the below command.
-`/opt/NetApp/snapcenter/spl/installation/plugins/uninstall`
-
 === Add Non-Data Volumes
-After adding the multi-tenant database container or single container type SAP HANA system, you can add the Non-Data Volumes of the HANA system.
+After adding the multi-tenant database container type SAP HANA system, you can add the Non-Data Volumes of the HANA system.
 
 You can add these resources to resource groups to perform data protection operations after you discover the SAP HANA databases that are available.
 
@@ -251,7 +225,7 @@ You can add these resources to resource groups to perform data protection operat
 .	In the *Applications* page, click image:icon-action.png[icon to select the action] corresponding to the system for which you want to add the Non-Data Volumes and select *Manage System* > *Non-Data Volume*.
 
 === Add  Global Non-Data Volumes
-After adding the multi-tenant database container or single container type SAP HANA system, you can add the Global Non-Data Volumes of the HANA system.
+After adding the multi-tenant database container type SAP HANA system, you can add the Global Non-Data Volumes of the HANA system.
 
 *Steps*
 
@@ -262,32 +236,9 @@ After adding the multi-tenant database container or single container type SAP HA
 .	In the *System Details* page, perform the following actions:
 ..	From System Type drop-down, select *Global Non-Data Volume*.
 ..	Enter the SAP HANA system name.
+. . In the *Host Details* page, perform the following actions:
 ..	Specify the associated SIDs of the SAP HANA system.
 ..	Select the plug-in host
 ..	Click *Next*.
 ..	Review all the details and click *Add System*.  
 
-=== Modify SAP HANA database host
-After adding the SAP HANA database host, you can modify the hostname or the plug-in port using REST API.
-
-*Steps*
-
-. Use GET REST API to get the ID of the SAP HANA database host that must be deleted.
-   `GET /saphana/hosts`
-   `{`
-    `"num_records": 1,`
-    `"records": [`
-        `{`
-            `"id": "c9a6849f-29ea-45c5-a17f-a1e78ad2a30e",`   
-            `"host_name": "galaxy-vm134.netapp.com",`
-            `"port": 443,`
-            `"agent_id": "n3TrgkGvnTOFTJJNBxeh3oPxG8AcrcHeclients"`
-        `}`
-    `]`
-`}`
-. Modify the hostname or plug-in port using the below PATCH API.
-`PATCH /saphana/hosts/(id)`
-`{`
-`"host_name": "vm136.dummy.com",`
-`"port": 8145,`
-`}`

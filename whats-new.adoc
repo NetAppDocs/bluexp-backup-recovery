@@ -33,6 +33,11 @@ Learn what's new in BlueXP backup and recovery.
 
 * Supports data lock and ransomware protection
 * Supports moving backups from StorageGrid to archival tier
+* Supports backing up of MongoDB, MySQL, and PostgreSQL applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID. You can restore the data when required.
+
+=== Enhancements to BlueXP backup and recovery for Virtual Machines
+
+* Support for connector proxy deployment model
 
 == 11 September 2023
 

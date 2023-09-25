@@ -16,7 +16,7 @@ summary:  Integrate BlueXP backup and recovery for applications with BlueXP and 
 
 BlueXP backup and recovery for applications provides data protection capabilities for application consistent Snapshots from on-premises ONTAP primary to cloud provider.
 
-You can back up Oracle, Microsoft SQL, and SAP HANA applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID.
+You can back up Oracle, Microsoft SQL, SAP HANA, MongoDB, MySQL, and PostgreSQL applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID.
 
 For more information about BlueXP backup and recovery for applications, refer to:
 
