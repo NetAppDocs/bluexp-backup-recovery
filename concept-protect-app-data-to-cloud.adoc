@@ -37,11 +37,12 @@ Read the following requirements to make sure that you have a supported configura
 *** Storage export of a backup
 *** Deactivate backups
 *** Unregister SnapCenter Server
-** You should be using SnapCenter Server 4.9 if you want to use the following features:
+** You should be using SnapCenter Server 4.9 or later if you want to use the following features:
 *** Mount Oracle database backups
 *** Restore to the alternate storage
+** You should be using SnapCenter Server 4.9P1 if you want to protect MongoDB, MySQL, and PostgreSQL applications
 * At least one backup per application should be available in SnapCenter Server
-* At least one daily, weekly, or monthly policy in SnapCenter with no label or same label as that of the policy in BlueXP.
+* At least one daily, weekly, or monthly policy in SnapCenter with no label or same label as that of the policy in BlueXP
 
 The following image shows each component when backing up to cloud and the connections that you need to prepare between them:
 
