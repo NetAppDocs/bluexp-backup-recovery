@@ -18,6 +18,8 @@ summary: You can View the backup details, monitor the status of all the jobs, de
 
 You can monitor the status of the jobs that have been initiated in your working environments. This allows you to see the jobs that have completed successfully, those currently in progress, and those that have failed so you can diagnose and fix any problems.
 
+NOTE: The scheduled jobs will be listed in the BlueXP Job monitor page after a delay of 5 minutes (maximum) from the job completion time.
+
 For more information, refer to link:https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Monitor job status].
 
 == Maintenance of Oracle database hosts
