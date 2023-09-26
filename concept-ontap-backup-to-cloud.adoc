@@ -275,7 +275,7 @@ This diagram shows volumes being replicated to a Cloud Volumes ONTAP system, but
 
 === Where backups reside
 
-Backups reside in deffent locations based on the type of backup:
+Backups reside in different locations based on the type of backup:
 
 * _Snapshot copies_ reside on the source volume in the source working environment.
 
