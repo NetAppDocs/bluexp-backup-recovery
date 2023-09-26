@@ -21,28 +21,29 @@ You should download plug-in *snapcenter_service_windows_host_plugin.exe* and the
 
 .Before you begin
 
-You should ensure that the following prerequisites are met.
+* You should ensure that the following prerequisites are met.
 
-* .Net 4.7.2 is installed
-* PowerShell 4.0 is installed
-* Minimum disk space of 5 GB is available
-* Minimum RAM size of 4 GB is available
+** .Net 4.7.2 is installed
+** PowerShell 4.0 is installed
+** Minimum disk space of 5 GB is available
+** Minimum RAM size of 4 GB is available
+
+* You should run the API to complete the customer on-boarding. For more infromation, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Tenant%20Registration/createTenant
 
 .Steps
 
-. Download the plug-in by running the API.
-`GET https://cloudmanager.netapp.com/account/<account_ID>/providers/cloudmanager_snapcenter/api/deploy/downloadWindowsPlugin`
+. Download the plug-in by running the API from the Connector host.
+`docker exec -it cloudmanager_scs_cloud curl 'http://127.0.0.1/api/v2/pluginpackage/windows'`
 +
-You can also access the .exe from the connector by running the command:
-`docker exec -it cloudmanager_snapcenter curl http://cloudmanager_snapcenter/deploy/downloadWindowsPlugin`
-+
-The location of the file is _/var/lib/docker/volumes/cloudmanager_snapcenter_volume/_data/<agent version>/snapcenter_service_windows_host_plugin.exe_.
+The location of the file is _/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/<agent_version>/sc-windows-host-plugin/snapcenter_service_windows_host_plugin.exe_.
 . Copy _snapcenter_service_windows_host_plugin.exe_ from the connector to each of the MSSQL Server database hosts either using scp or other alternate methods.
 . Install the plug-in.
 '"C://<install_folder>/snapcenter_service_windows_host_plugin.exe"/silent/debuglog "C://<install_folder>/HA_Suite_Silent_Install_SCSQL_FRESH.log" /log"C://install_folder/" BI_SNAPCENTER_PORT=8145 ISFeatureInstall=SCSQL'
 . Copy the self signed certificate from _/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/client/certificate/certificate.pem_ to the MSSQL Server database hosts.
 +
-You can also generate a self signed certificate if you do not use the default one.
+You can also generate a self signed certificate or a CA signed certificate if you do not use the default one.
+. Convert the certificate from .pem to .crt format in the Connector host.
+'openssl x509 -outform der -in certificate.pem -out certificate.crt'
 . Double-click the certificate to add it to the *Personal* and *Trusted Root Certification Authorities* store.
 
 == Add the SQL Server database host
@@ -50,6 +51,10 @@ You can also generate a self signed certificate if you do not use the default on
 You should add the MSSQL database host using the host FQDN.
 
 'POST snapcenter.cloudmanager.cloud.netapp.com/api/v1/hosts'
+
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Host%20Management/AddHosts
+
+This API creates a job that can be tracked from the *Job Monitor* tab in the BlueXP UI.
 
 === Parameters
 
@@ -125,6 +130,8 @@ You can run this API to view all the added SQL Server database hosts.
 
 'GET snapcenter.cloudmanager.cloud.netapp.com/api/v1/hosts'
 
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Host%20Management/GetHosts
+
 === Response
 
 If the API is executed successfully, response code 200 is displayed.
@@ -165,6 +172,10 @@ You can run this API and enter the host ID to discover all the MSSQL instances.
 
 'POST snapcenter.cloudmanager.cloud.netapp.com/api/mssql/instances/discovery'
 
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Instances/MSSQLInstancesDiscoveryRequest
+
+This API creates a job that can be tracked from the *Job Monitor* tab in the BlueXP UI.
+
 === Parameter
 
 |===
@@ -203,6 +214,8 @@ Example:
 You can run this API to view all the discovered database instances.
 
 'GET snapcenter.cloudmanager.cloud.netapp.com/api/mssql/instances'
+
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Instances/GetMSSQLInstancesRequest
 
 === Response
 
@@ -249,6 +262,10 @@ Example:
 You can run this API to validate and set credentials for the database instances.
 
 'POST snapcenter.cloudmanager.cloud.netapp.com/api/mssql//api/mssql/credentials-configuration'
+
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Instances/ConfigureCredentialRequest
+
+This API creates a job that can be tracked from the *Job Monitor* tab in the BlueXP UI.
 
 === Parameter
 

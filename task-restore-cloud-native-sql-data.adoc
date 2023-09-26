@@ -22,6 +22,8 @@ You can run this API to view the list of databases.
 
 'GET snapcenter.cloudmanager.cloud.netapp.com/api/mssql/databases'
 
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Databases/GetMSSQLDatabasesRequest
+
 === Response
 
 If the API is executed successfully, response code 200 is displayed.
@@ -84,6 +86,10 @@ You can run this API to restore the MSSQL database.
 
 Where, _id_ is MSSQL database ID obtained by running the view database API. For more information, refer to <<View the list of databases>>.
 
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Database%20Restore/RestoreMSSQLDatabaseRequest
+
+This API creates a job that can be tracked from the *Job Monitor* tab in the BlueXP UI.
+
 === Parameters
 
 |===
@@ -99,14 +105,14 @@ True
 a| 
 overwrite_database
 a|
-
+bool
 a|
 True
 
 a| 
 retain_replication_settings
 a|
-
+bool
 a|
 False
 
@@ -114,6 +120,8 @@ a|
 recovery_mode
 a|
 string
+
+The 3 supported strings are _Operational_, _NonOperational_, and _ReadOnly_.
 a|
 True
 

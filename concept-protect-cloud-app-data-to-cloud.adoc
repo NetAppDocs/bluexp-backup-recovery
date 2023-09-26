@@ -110,17 +110,17 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 
 === Features
 
-* Add host and deploy plug-in
+* Manually add host and deploy the plug-in
 * Discover the databases manually
-* Back up SQL Server databases residing on Amazon FSx for NetApp ONTAP
+* Back up SQL Server instances residing on Amazon FSx for NetApp ONTAP
 ** On-demand backup
 ** Scheduled backup based on the policy
 ** Log backup of Microsoft SQL Server instance
-* Restore to original location
+* Restore the database to original location
 
 === Limitations
 
-* Back up of availability group is not supported
+* Backup is supported only for SQL Server instances
 * Failover Cluster Instance (FCI) configuration is not supported
 * BlueXP UI does not support SQL database specific operations
 +

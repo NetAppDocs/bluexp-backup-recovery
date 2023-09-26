@@ -22,6 +22,10 @@ You can run this API to create the backup policy.
 
 'POST snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backup/policies'
 
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Backup%20Policies/MSSQLBackupPolicyService_CreateMSSQLBackupPolicy
+
+This API creates a job that can be tracked from the *Job Monitor* tab in the BlueXP UI.
+
 === Parameters
 
 |===
@@ -137,19 +141,17 @@ You can run this API to assign policy to SQL database instance.
 
 Where, _id_ is MSSQL instance ID obtained by running the discover database instance API. For more information, refer to link:task-add-sqlhost-install-plugin-sql.html#discover-the-database-instances[Discover the database instances].
 
-=== Parameters
+Array of IDs is the input here. For example:
 
-|===
-| Name | Type | Required
+----
+[
+  "c9f3e68d-1f9c-44dc-b9af-72a9dfc54320"
+]
+----
 
-a| 
-policy_id
-a|
-string
-a|
-True
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Policy%20Assignment/PostMSSQLInstanceAssignPolicyRequest
 
-|===
+This API creates a job that can be tracked from the *Job Monitor* tab in the BlueXP UI.
 
 === Response
 
@@ -175,6 +177,10 @@ Example:
 You can run this API to create an on-demand backup.
 
 'POST snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups'
+
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Backups/CreateMSSQLBackupRequest
+
+This API creates a job that can be tracked from the *Job Monitor* tab in the BlueXP UI.
 
 === Parameters
 
@@ -239,6 +245,8 @@ You can run these APIs to list view all the backups and also to view details of 
 'GET snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups'
 
 'GET snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups/{id}'
+
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Backups/MSSQLGetBackupsRequest
 
 === Response
 
