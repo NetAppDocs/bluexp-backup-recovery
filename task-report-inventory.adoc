@@ -86,7 +86,7 @@ TIP: You can select multiple working environments and SVMs.
 
 Proactive monitoring can reduce effort required to monitor all resources in your ecosystem. Beginning with ONTAP 9.13.0, the Data Protection Job Activity report provides information about snapshot, backup, clone, and restore operations that you can use with your SLA monitoring and track backup and recovery rates. 
 
-The report applies to BlueXP backup and recovery operations for Cloud Volumes ONTAP, on-premises, application, and Kubernetes. 
+The report applies to BlueXP backup and recovery operations for Cloud Volumes ONTAP, on-premises, applications, and Kubernetes data. 
 
 The Data Protection Job Activity report shows the following information and more: 
 
