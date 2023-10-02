@@ -35,25 +35,25 @@ Previously, custom policies had to be created before you initiated a Snapshot, r
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html[Learn more about policies].
 
 
-=== Support for scheduled jobs in the Job Monitor   
-The BlueXP backup and recovery Job Monitor previously monitored scheduled volume-to-object-store backup and restore jobs but not local Snapshot, replication, backup, and restore jobs that were scheduled via the UI or API. 
+// Support for scheduled jobs in the Job Monitor   
+//The BlueXP backup and recovery Job Monitor previously monitored scheduled volume-to-object-store backup and restore jobs but not local Snapshot, replication, backup, and restore jobs that were scheduled via the UI or API. 
 
-The BlueXP backup and recovery Job Monitor now includes scheduled jobs for local Snapshots, replications, and backups to object storage. 
+//The BlueXP backup and recovery Job Monitor now includes scheduled jobs for local Snapshots, replications, and backups to object storage. 
 
-This requires Cloud Volumes ONTAP 9.13.1 and later. 
+//This requires Cloud Volumes ONTAP 9.13.1 and later. 
 
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
+//https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
 
-=== Backup Inventory report updates
-The Backup Inventory report now includes information about local Snapshot and replications.
+//Backup Inventory report updates
+//The Backup Inventory report now includes information about local Snapshot and replications.
 
-Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-report-inventory.html[Report on data protection coverage]. 
+//Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-report-inventory.html[Report on data protection coverage]. 
 
-=== BlueXP Timeline includes all user actions
+// BlueXP Timeline includes all user actions
 
-The BlueXP Timeline now reports on all modification actions made by users.  
+//The BlueXP Timeline now reports on all modification actions made by users.  
 
-https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-sept-release/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review operation activity in the BlueXP Timeline].
+//https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-sept-release/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review operation activity in the BlueXP Timeline].
 
 == 11 September 2023
 
