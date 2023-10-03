@@ -19,7 +19,7 @@ We'll go over the following options:
 
 * Which protection features will you use: Snapshot copies, replicated volumes, and/or backup to cloud
 * Which backup architecture will you use: a cascade or fan-out backup of your volumes
-* Will you use the default backup policies, or do you need to create custom policies before you begin
+* Will you use the default backup policies, or do you need to create custom policies 
 * Do you want the service to create the cloud buckets for you, or do you want to make your object storage containers before you begin
 * Which BlueXP Connector deployment mode are you using (standard, restricted, or private mode)
 
@@ -55,7 +55,7 @@ To summarize, these are the valid protection flows you can create for volumes in
 * Source volume -> Snapshot copy -> Replicated volume
 //* Source volume -> Snapshot copy -> Replicated volume -> Replicated volume
 
-NOTE: The initial creation of a replicated volume or backup file includes a full copy of the source data - this is called a baseline transfer. Subsequent transfers contain only differential copies of the source data (the Snapshot).
+NOTE: The initial creation of a replicated volume or backup file includes a full copy of the source data -- this is called a _baseline transfer_. Subsequent transfers contain only differential copies of the source data (the Snapshot).
 
 === Comparison of the different backup methods
 
@@ -116,18 +116,20 @@ This table provides a comparison of the fan-out and cascade architectures.
 
 |===
 
-== Will you use the default backup policies for snapshots, replications, and backups
+== Will you use the default backup policies for Snapshot copies, replications, and backups
 
-You can use the default policies provided by NetApp to create your backups, or you can create custom policies. When you use the activation wizard to enable the backup and recovery service for your volumes, you can select from the default policies and any other policies that already exist in the working environment (Cloud Volumes ONTAP or on-premises ONTAP system). If you want to use a policy different than those existing policies, you must create the policy before starting the activation wizard.
+You can use the default policies provided by NetApp to create your backups, or you can create custom policies. When you use the activation wizard to enable the backup and recovery service for your volumes, you can select from the default policies and any other policies that already exist in the working environment (Cloud Volumes ONTAP or on-premises ONTAP system). If you want to use a policy different than those existing policies, you can create the policy before starting or while using the activation wizard.
 
-* The default snapshot policy creates hourly, daily, and weekly Snapshot copies, retaining 6 hourly, 2 daily, and 2 weekly Snapshot copies.
+* The default Snapshot policy creates hourly, daily, and weekly Snapshot copies, retaining 6 hourly, 2 daily, and 2 weekly Snapshot copies.
 * The default replication policy replicates daily and weekly Snapshot copies, retaining 7 daily and 52 weekly Snapshot copies.
 * The default backup policy replicates daily and weekly Snapshot copies, retaining 7 daily and 52 weekly Snapshot copies.
 
-If you create custom policies for replication or backup, the policy labels (for example, "daily" or "weekly") must match the labels that exist in your Snapshot policies or replicated volumes and backup files won't be created. You can create custom policies using System Manager or the ONTAP Command Line Interface (CLI).
+If you create custom policies for replication or backup, the policy labels (for example, "daily" or "weekly") must match the labels that exist in your Snapshot policies or replicated volumes and backup files won't be created. 
 
-https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html[Create a snapshot policy using System Manager^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html[Create a snapshot policy using the ONTAP CLI^]
+You can create custom policies using BlueXP backup recovery, System Manager, or the ONTAP Command Line Interface (CLI).
+
+https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html[Create a Snapshot policy using System Manager^]
+https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html[Create a Snapshot policy using the ONTAP CLI^]
 https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html[Create a replication policy using System Manager^]
 https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html[Create a replication policy using the ONTAP CLI^]
 https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy[Create a backup policy using System Manager^]
@@ -135,7 +137,7 @@ https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#descr
 
 *Note:* When using System Manager, select *Asynchronous* as the policy type for replication policies, and select *Asynchronous* and *Back up to cloud* for backup to object policies.
 
-You can create backup to object storage policies in the BlueXP backup and recovery UI. See the section for link:task-manage-backups-ontap.html#add-a-new-backup-policy[adding a new backup policy] for details. You'll need to create Snapshot and Replication policies using System Manager or the ONTAP CLI.
+You can create Snapshot, replication, and backup to object storage policies in the BlueXP backup and recovery UI. See the section for link:task-manage-backups-ontap.html#add-a-new-backup-policy[adding a new backup policy] for details. 
 
 Here are a few sample ONTAP CLI commands that may be helpful if you are creating custom policies. Note that you must use the _admin_ vserver (storage VM) as the `<vserver_name>` in these commands.
 

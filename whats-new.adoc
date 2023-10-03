@@ -16,6 +16,45 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
+== 5 October 2023 
+This release of BlueXP backup and recovery includes several updates. 
+
+=== Support for on-demand quick restore
+BlueXP backup and recovery now provides the ability to perform a "quick restore" of a volume from cloud storage to a Cloud Volumes ONTAP system. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore restores the metadata from the backup file to a volume instead of restoring the entire backup file.
+
+The Cloud Volumes ONTAP destination system must be running ONTAP version 9.13.0 or greater.
+
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Learn more about restoring data].
+
+The BlueXP backup and recovery Job Monitor now shows information about quick restore jobs. 
+
+=== 3-2-1 Policy creation during backup activation
+Previously, custom policies had to be created before you initiated a Snapshot, replication, or backup. Beginning with ONTAP 9.8 P5, you can now create a policy during the backup activation process using the BlueXP backup and recovery UI.  
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html[Learn more about policies].
+
+
+// Support for scheduled jobs in the Job Monitor   
+//The BlueXP backup and recovery Job Monitor previously monitored scheduled volume-to-object-store backup and restore jobs but not local Snapshot, replication, backup, and restore jobs that were scheduled via the UI or API. 
+
+//The BlueXP backup and recovery Job Monitor now includes scheduled jobs for local Snapshots, replications, and backups to object storage. 
+
+//This requires Cloud Volumes ONTAP 9.13.1 and later. 
+
+//https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
+
+//Backup Inventory report updates
+//The Backup Inventory report now includes information about local Snapshot and replications.
+
+//Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-report-inventory.html[Report on data protection coverage]. 
+
+// BlueXP Timeline includes all user actions
+
+//The BlueXP Timeline now reports on all modification actions made by users.  
+
+//https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-sept-release/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review operation activity in the BlueXP Timeline].
+
 == 11 September 2023
 
 === New policies management for ONTAP data
@@ -70,6 +109,8 @@ The "Backup lifecycle" Type filter has been renamed to "Retention". Use this fil
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
 
+// end::whats-new[] 
+
 == 6 July 2023
 
 === BlueXP backup and recovery now includes the ability to schedule and create Snapshot copies and replicated volumes
@@ -98,7 +139,7 @@ When you create backup files in object storage, by default, the backup and recov
 
 This functionality is not currently supported when creating backup files to StorageGRID systems.
 
-// end::whats-new[] 
+
 
 == 04 July 2023
 
