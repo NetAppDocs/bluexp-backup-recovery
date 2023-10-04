@@ -17,7 +17,7 @@ The BlueXP backup and recovery service provides efficient, secure, and cost-effe
 
 The service performs block-level, incremental-forever replication and preserves all storage efficiencies, which significantly reduces the amount of data that's replicated and stored. Additionally, you pay only for what's protected and use the lowest-cost storage tiers available, which makes BlueXP backup and recovery very cost effective.
 
-When necessary, you can restore an entire _volume_ from a backup to the same or different working environment. When backing up ONTAP data, you can also choose to restore or one or more _files_ from a backup to the same or different working environment.
+When necessary, you can restore an entire _volume_ from a backup to the same or different working environment. When backing up ONTAP data, you can also choose to restore a folder or one or more _files_ from a backup to the same or different working environment.
 
 https://bluexp.netapp.com/cloud-backup[Learn more about BlueXP backup and recovery^].
 
@@ -44,7 +44,7 @@ image:diagram_cloud_backup_general.png[A diagram showing how BlueXP backup and r
 
 === Where backups reside
 
-Backup copies are stored in an object store that BlueXP creates in your cloud account. There’s one object store per cluster/working environment, and BlueXP names the object store as follows: `netapp-backup-clusteruuid`. Be sure not to delete this object store.
+Backup copies are stored in an object store that BlueXP creates in your cloud account. There's one object store per cluster/working environment, and BlueXP names the object store as follows: `netapp-backup-clusteruuid`. Be sure not to delete this object store.
 
 ifdef::aws[]
 * In AWS, BlueXP enables the https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html[Amazon S3 Block Public Access feature^] on the S3 bucket.
@@ -60,7 +60,9 @@ endif::gcp[]
 
 * In StorageGRID, BlueXP uses an existing storage account for the object store bucket.
 
-=== Backups are taken at midnight
+* In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
+
+=== When are backups taken
 
 * Hourly backups start 5 minutes past the hour, every hour.
 
