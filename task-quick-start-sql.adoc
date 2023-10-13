@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
-permalink: task-quick-start-oracle.html
-keywords: Cloud Manager, BlueXP, configuration, support, Oracle
-summary:  Complete a few steps to get started with backing up Oracle database.
+permalink: task-quick-start-sql.html
+keywords: Cloud Manager, BlueXP, configuration, support, SQL server
+summary:  Complete a few steps to get started with backing up Microsoft SQL Server database.
 ---
 
 = Quick start
@@ -20,20 +20,19 @@ Get started quickly by following these steps.
 
 [role="quick-margin-list"]
 * Operating System:
-** RHEL 7.5 or later and 8.x
-** OL 7.5 or later and 8.x
-** SLES 15 SP4 
-* NetApp Cloud Storage: 
-** Amazon FSx for NetApp ONTAP
-** Cloud Volumes ONTAP
-** Azure NetApp Files
-* Storage layouts:
-** NFS v3 and v4.1 (including dNFS) 
-** iSCSI with ASM (ASMFD, ASMLib and ASMUdev)
+** Windows 2016
+** Windows 2019
+** Windows 2022
+* NetApp Cloud Storage: Amazon FSx for NetApp ONTAP
+* Storage layouts: SAN (ISCSI)
 +
-NOTE: Azure NetApp Files does not support SAN environment.
-* Database layouts: Oracle Standard and Oracle Enterprise Standalone (legacy and multitenant CDB and PDB)
-* Database versions: 19c and 21c
+NAS configuration is not supported.
+* Database versions: 
+** Microsoft SQL Server 2016
+** Microsoft SQL Server 2019
+** Microsoft SQL Server 2022
+* Database configuration:
+** Standalone
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Sign up to BlueXP
 

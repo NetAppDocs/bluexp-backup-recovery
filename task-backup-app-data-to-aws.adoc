@@ -16,6 +16,8 @@ summary: Complete a few steps to back up applications data from ONTAP to AWS.
 
 Complete a few steps to back up the applications data from ONTAP to Amazon Web Services.
 
+BlueXP supports data lock and ransomware protection. If ONTAP cluster is running on ONTAP 9.11.1 or later and if you have not configured archival storage, you can protect the backups from overwriting, deletion, and ransomware threats. 
+
 .Steps
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
@@ -38,7 +40,8 @@ BlueXP backup and recovery for applications only support cluster admin.
 .. In the AWS Secret Key field, specify the password.
 .. Select the region where you want to create the backups.
 .. Specify the IP space.
-.. Select the archival tier.
+.. Select the archival tier if you have configured archival storage in the policy.
 +
 It is recommended to set the archival tier because this is an one time activity and you will not be allowed to set it up later.
+. Configure data lock and ransomware protection.
 . Review the details and click *Activate Backup*.

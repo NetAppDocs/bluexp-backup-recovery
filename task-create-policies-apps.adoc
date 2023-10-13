@@ -22,6 +22,7 @@ You should create a policy to back up the application data to cloud.
 ** If you are using Amazon Web Services, you should be using ONTAP 9.10.1 or later 
 ** If you are using Microsoft Azure, you should be using ONTAP 9.10.1 or later 
 ** If you are using Google Cloud, you should be using ONTAP 9.12.1 or later 
+** If you are using StorageGrid, you should be using ONTAP 9.12.1 or later
 * You should configure the archive access tier for each cloud provider.
 
 .Steps

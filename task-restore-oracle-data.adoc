@@ -34,8 +34,6 @@ Want to restore to the original location
 a|
 . Select *Restore to original location*.
 . If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
-+
-NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
 . Click *Next*.
 . Select *Database State* if you want to change the state of the database to the state required to perform restore and recovery operations.
 +
@@ -62,9 +60,9 @@ Want to temporarily restore to another storage and then copy the restored files 
 a|
 . Select *Restore to original location*.
 . If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
-+
-NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
 . Select *Change storage location*.
++
+If you select *Change storage location*, you can append a suffix to the destination volume. If you have not selected the checkbox, then by default *_restore* is appended to the destination volume.
 . Click *Next*.
 . In the Storage mapping page, specify the alternate storage location details where the data restored from the object store will be stored temporarily.
 +
@@ -94,10 +92,10 @@ Want to restore to an alternate location
 a|
 . Select *Restore to alternate location*.
 . If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
-+
-NOTE: Only if you are using Amazon Web Services or Microsoft Azure as the cloud provider, you need to specify the priority.
 . If you want to restore to alternate storage, perform the following:
 .. Select *Change storage location*.
++
+If you select *Change storage location*, you can append a suffix to the destination volume. If you have not selected the checkbox, then by default *_restore* is appended to the destination volume.
 .. Click *Next*.
 .. In the Storage mapping page, specify the alternate storage location details where the data from the object store needs to be restored.
 . Click *Next*.

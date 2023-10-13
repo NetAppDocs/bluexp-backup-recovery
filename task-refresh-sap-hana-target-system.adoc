@@ -13,12 +13,12 @@ summary:  Perform a refresh from a source SAP HANA system, which is the producti
 :imagesdir: ./media/
 
 [.lead]
-You can perform a refresh of a SAP HANA target system with the data of a SAP HANA source system. This can be used to provide the current production data into a test system. Cloud backup allows you to select a Snapshot copy from a source system and creates a new Azure NetApp Files volume based on the Snapshot copy. Example scripts are available, which executes the required operations on the database host to recover the SAP HANA database.  
+You can perform a refresh of a SAP HANA target system with the data of a SAP HANA source system. This can be used to provide the current production data into a test system. BlueXP backup and recovery allows you to select a Snapshot copy from a source system and creates a new Azure NetApp Files volume based on the Snapshot copy. Example scripts are available, which executes the required operations on the database host to recover the SAP HANA database.  
 
 *Before you begin*
 
 * You should install the SAP HANA target system before you execute the first refresh operation.
-* You should add the source and target HANA systems manually into cloud backup.
+* You should add the source and target HANA systems manually into BlueXP backup and recovery.
 * Ensure that the SAP HANA database version is same on source and the target system.
 * You should have decided on which refresh scripts to be used. The refresh scripts are available in the solution technical report.
 +
@@ -30,6 +30,9 @@ You can customize the refresh scripts.
 ** <SOURCEVOLUME>_DESTINATION
 ** HANA_DATABASE_TYPE 
 ** TENANT_DATABASE_NAMES 
+* You must upgrade the plug-in to 3.0 version. 
+* The mount paths should be the same for the data volume on both the source and the target SAP HANA systems.
+* Before the first refresh operation, ensure that the '/etc/fstab' file does not have entries for the data volumes of the target SAP HANA system.
 
 *About this task*
 
@@ -45,6 +48,7 @@ NOTE: The new volume will be placed in the same capacity pool as that of the tar
 * The junction path will be the same as the volume name.
 * The “max throughput number” for the new volume is picked from the volume of the target system with manual Quality of Service (QoS) capacity pools.
 For auto QoS capacity pools the throughput is defined by the capacity of the source volume.
+* During system refresh, the auto mount and unmount of the volumes are performed using workflows instead of scripts.
 
 *Steps*
 
@@ -52,7 +56,8 @@ For auto QoS capacity pools the throughput is defined by the capacity of the sou
 . In the *Applications* page, click image:icon-action.png[icon to select the action] icon to select the action corresponding to the system that you want to refresh and select *System Refresh*.
 . In the *System Refresh* page, perform the following actions:
 .. Select source system and Snapshot copy.
-.. Enter Export addresses from which the new volumes can be accessed.
+.. (Optional) Enter Export addresses from which the new volumes can be accessed.
+.. (Optional) Enter Maximum storage throughput (MIBs).
 .. Enter prescript, postscript, and on failure script paths.
 On failure script is executed only when the system refresh operation fails.
 .. Click *Refresh*.

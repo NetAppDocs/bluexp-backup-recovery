@@ -48,6 +48,7 @@ IMPORTANT: The time taken for the backups to be listed depends on ONTAP's defaul
 * For Microsoft SQL Server databases, only the full backups and the end date for each backup are listed. You can select the backup and restore the database to original or alternate location.
 * For Microsoft SQL Server instance, backups of the databases under that instance is listed.
 * For SAP HANA databases, only the data backups and the end date for each backup are listed. You can select the backup and perform storage export on a given host.
+* For MongoDB, MySQL, and PostgreSQL, only the data backups and the end date for each backup are listed. You can select the backup and perform storage export on a given host.
 
 NOTE: The backups created before enabling cloud protection are not listed for restore.
 //Documented this for JIRA: AMS-8562

@@ -64,7 +64,7 @@ All datastores and virtual machines associated with the SnapCenter Plug-in for V
 . Click image:icon-action.png[action] corresponding to the SnapCenter Plug-in for VMware vSphere host and click *Unregister*.
 
 == Monitor Jobs
-Jobs are created for all the Cloud Backup operations. You can monitor all the jobs and all the sub tasks that are performed as part of each task.
+Jobs are created for all the BlueXP backup and recovery operations. You can monitor all the jobs and all the sub tasks that are performed as part of each task.
 
 . Click *Backup and recovery* > *Job Monitoring*.
 +
