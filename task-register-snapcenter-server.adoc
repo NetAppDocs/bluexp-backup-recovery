@@ -54,6 +54,9 @@ The supported applications and their configurations are:
 You should have at least one backup on both primary and secondary sites. You can decide to do a pro-active failure or a deferred failover to the secondary.
 
 ** Non-data Volumes (NDV) resources such as HANA binaries, HANA archive log volume, HANA shared volume, and so on
+* MongoDB
+* MySQL
+* PostgreSQL
 
 The following databases are not displayed:
 

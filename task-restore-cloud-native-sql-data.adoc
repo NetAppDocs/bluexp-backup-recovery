@@ -1,0 +1,162 @@
+---
+sidebar: sidebar
+permalink: task-restore-cloud-native-sql-data.html
+keywords: restore, SQL database, BlueXP
+summary: You can restore SQL database from the cloud to the same host.
+---
+
+= Restore Microsoft SQL Server database
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+You can restore Microsoft SQL Server database to the same host. You should first get list of databases and then restore the database.
+
+== View the list of databases
+
+You can run this API to view the list of databases.
+
+'GET snapcenter.cloudmanager.cloud.netapp.com/api/mssql/databases'
+
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Databases/GetMSSQLDatabasesRequest
+
+=== Response
+
+If the API is executed successfully, response code 200 is displayed.
+
+Example:
+
+----
+{
+    "num_records": 3,
+    "total_records": 3,
+    "records": [
+        {
+            "id": "348901e5-aeaa-419f-88b1-80240de3b1fe",
+            "name": "DB4",
+            "hostname": "scspa2722211001.rtp.openenglab.netapp.com",
+            "size": 0.078125,
+            "instance_id": "454c8413-5351-41fc-88bf-f20fb050ec87",
+            "instance": "scspa2722211001\\NAMEDINSTANCE1",
+            "db_status": "Normal",
+            "db_access": "eUndefined",
+            "db_type": "User",
+            "recovery_mode": "Full"
+        },
+        {
+            "id": "c79d33ab-7322-4ed6-92f5-51ad7a6944e0",
+            "name": "DB5",
+            "hostname": "scspa2722211001.rtp.openenglab.netapp.com",
+            "size": 0.078125,
+            "instance_id": "454c8413-5351-41fc-88bf-f20fb050ec87",
+            "instance": "scspa2722211001\\NAMEDINSTANCE1",
+            "db_status": "Normal",
+            "db_access": "eUndefined",
+            "db_type": "User",
+            "recovery_mode": "Full"
+        },
+        {
+            "id": "40d6f35a-f4fb-48bc-8e0a-0ac93ddf0888",
+            "name": "model",
+            "hostname": "scspa2722211001.rtp.openenglab.netapp.com",
+            "size": 0.015625,
+            "instance_id": "454c8413-5351-41fc-88bf-f20fb050ec87",
+            "instance": "scspa2722211001\\NAMEDINSTANCE1",
+            "db_status": "Normal",
+            "db_access": "eUndefined",
+            "db_type": "System",
+            "recovery_mode": "Full"
+        }
+    ],
+    "_links": {
+        "next": {}
+    }
+}
+----
+
+== Restore and recover the MSSQL database
+
+You can run this API to restore the MSSQL database.
+
+'POST snapcenter.cloudmanager.cloud.netapp.com/api/mssql/databases/{id}/restore'
+
+Where, _id_ is MSSQL database ID obtained by running the view database API. For more information, refer to <<View the list of databases>>.
+
+For more information, refer to: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Database%20Restore/RestoreMSSQLDatabaseRequest
+
+This API creates a job that can be tracked from the *Job Monitor* tab in the BlueXP UI.
+
+=== Parameters
+
+|===
+| Name | Type | Required
+
+a| 
+backup_id
+a|
+string
+a|
+True
+
+a| 
+overwrite_database
+a|
+bool
+a|
+True
+
+a| 
+retain_replication_settings
+a|
+bool
+a|
+False
+
+a| 
+recovery_mode
+a|
+string
+
+The 3 supported strings are _Operational_, _NonOperational_, and _ReadOnly_.
+a|
+True
+
+a| 
+undo_file_directory
+a|
+string
+a|
+True
+
+a| 
+restore_type
+a|
+string
+a|
+True
+
+|===
+
+=== Response
+
+If the API is executed successfully, response code 202 is displayed.
+
+Example:
+
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----
+
