@@ -315,6 +315,8 @@ homepage:
         - title: Back up cloud-native SAP HANA database
           flavor: azure
           url: task-backup-cloud-native-sap-hana-data.html
+        - title: Back up cloud-native SQL Server database
+          url: task-backup-cloud-native-sql-data.html
     - title: Back up datastores to the cloud
       links:
         - title: Back up datastores to Amazon Web Services
@@ -341,6 +343,8 @@ homepage:
         - title: Restore cloud-native SAP HANA applications data
           flavor: azure
           url: task-restore-cloud-native-sap-hana-data.html
+        - title: Restore cloud-native SQL Server data
+          url: task-restore-cloud-native-sql-data.html
         - title: Restore virtual machines data
           url: task-restore-vm-data.html
         - title: Restore Kubernetes volume data
