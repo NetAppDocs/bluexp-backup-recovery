@@ -256,27 +256,27 @@ homepage:
           url: task-report-inventory.html
     - title: Back up ONTAP data to the cloud
       links:
-        - title: Cloud Volumes ONTAP to Amazon S3
+        - title: Back up Cloud Volumes ONTAP to Amazon S3
           url: task-backup-to-s3.html
           flavor: aws
-        - title: Cloud Volumes ONTAP to Azure Blob
+        - title: Back up Cloud Volumes ONTAP to Azure Blob
           url: task-backup-to-azure.html
           flavor: azure
-        - title: Cloud Volumes ONTAP to Google Cloud
+        - title: Back up Cloud Volumes ONTAP to Google Cloud
           url: task-backup-to-gcp.html
           flavor: gcp
-        - title: On-premises ONTAP to Amazon S3
+        - title: Back up on-premises ONTAP to Amazon S3
           url: task-backup-onprem-to-aws.html
           flavor: aws
-        - title: On-premises ONTAP to Azure Blob
+        - title: Back up on-premises ONTAP to Azure Blob
           url: task-backup-onprem-to-azure.html
           flavor: azure
-        - title: On-premises ONTAP to Google Cloud
+        - title: Back up on-premises ONTAP to Google Cloud
           url: task-backup-onprem-to-gcp.html
           flavor: gcp
-        - title: On-premises ONTAP to ONTAP S3
+        - title: back up on-premises ONTAP to ONTAP S3
           url: task-backup-onprem-to-ontap-s3.html
-        - title: On-premises ONTAP to StorageGRID
+        - title: Back up on-premises ONTAP to StorageGRID
           url: task-backup-onprem-private-cloud.html
     - title: Manage ONTAP backup files
       links:
@@ -350,13 +350,13 @@ homepage:
           url: task-restore-backups-kubernetes.html
     - title: Back up Kubernetes data to the cloud
       links:
-        - title: Kubernetes cluster to Amazon S3
+        - title: Back up Kubernetes cluster to Amazon S3
           url: task-backup-kubernetes-to-s3.html
           flavor: aws
-        - title: Kubernetes cluster to Azure Blob
+        - title: Back up Kubernetes cluster to Azure Blob
           url: task-backup-kubernetes-to-azure.html
           flavor: azure
-        - title: Kubernetes cluster to Google Cloud
+        - title: Back up Kubernetes cluster to Google Cloud
           url: task-backup-kubernetes-to-gcp.html
           flavor: gcp
     - title: Blogs & community
