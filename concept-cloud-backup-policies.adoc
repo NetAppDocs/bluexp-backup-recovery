@@ -273,9 +273,15 @@ endif::azure[]
 
 == Archival storage settings
 
-When using certain cloud storage you can move older backup files to a less expensive storage class/access tier after a certain number of days. Note that archival storage can't be used if you have enabled DataLock.
+When using AWS, Azure, or Google cloud storage you can move older backup files to a less expensive archival storage class/access tier after a certain number of days. You can also choose to send your backup files to archival storage immediately without being written to standard cloud storage. Just enter *0* as the "Archive After Days" to send your backup file directly to archival storage. This can be especially helpful for users who rarely need to access data from cloud backups or users who are replacing a backup to tape solution.
 
-Data in archival tiers can't be accessed immediately when needed, and will require a higher retrieval cost, so you need to consider how often you may need to restore data from archived backup files. 
+Data in archival tiers can't be accessed immediately when needed, and will require a higher retrieval cost, so you'll need to consider how often you may need to restore data from backup files before deciding to archive your backup files. 
+
+[NOTE]
+====
+* Archival storage can't be used if you have enabled DataLock.
+* You can't change the archival policy after selecting *0* days (archive immediately).
+====
 
 Each backup policy provides a section for _Archival Policy_ that you can apply to your backup files.
 
