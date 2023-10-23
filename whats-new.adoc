@@ -16,26 +16,26 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
-== 5 October 2023 
-This release of BlueXP backup and recovery includes several updates. 
+
+== 23 October 2023 
+
+=== 3-2-1 Policy creation during backup activation
+
+Previously, custom policies had to be created before you initiated a Snapshot, replication, or backup. Beginning with ONTAP 9.8 P5, you can now create a policy during the backup activation process using the BlueXP backup and recovery UI.  
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html[Learn more about policies].
 
 === Support for on-demand quick restore
+
 BlueXP backup and recovery now provides the ability to perform a "quick restore" of a volume from cloud storage to a Cloud Volumes ONTAP system. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore restores the metadata from the backup file to a volume instead of restoring the entire backup file.
 
 The Cloud Volumes ONTAP destination system must be running ONTAP version 9.13.0 or greater.
-
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Learn more about restoring data].
 
 The BlueXP backup and recovery Job Monitor now shows information about quick restore jobs. 
 
-=== 3-2-1 Policy creation during backup activation
-Previously, custom policies had to be created before you initiated a Snapshot, replication, or backup. Beginning with ONTAP 9.8 P5, you can now create a policy during the backup activation process using the BlueXP backup and recovery UI.  
-
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html[Learn more about policies].
-
-
-// Support for scheduled jobs in the Job Monitor   
+//=== Support for scheduled jobs in the Job Monitor   
 //The BlueXP backup and recovery Job Monitor previously monitored scheduled volume-to-object-store backup and restore jobs but not local Snapshot, replication, backup, and restore jobs that were scheduled via the UI or API. 
 
 //The BlueXP backup and recovery Job Monitor now includes scheduled jobs for local Snapshots, replications, and backups to object storage. 
@@ -44,16 +44,37 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.
 
 //https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
 
-//Backup Inventory report updates
+//=== Backup Inventory report updates
 //The Backup Inventory report now includes information about local Snapshot and replications.
 
 //Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-report-inventory.html[Report on data protection coverage]. 
 
-// BlueXP Timeline includes all user actions
-
+//=== BlueXP Timeline includes all user actions
 //The BlueXP Timeline now reports on all modification actions made by users.  
 
 //https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-sept-release/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review operation activity in the BlueXP Timeline].
+
+== 13 October 2023
+
+=== Enhancements to BlueXP backup and recovery for applications (cloud-native)
+
+* Microsoft SQL Server database
+** Supports backup, restore, and recovery of Microsoft SQL Server databases residing on Amazon FSx for NetApp ONTAP
+** All the operations are supported only through REST APIs.
+
+* SAP HANA systems
+** During system refresh, the auto mount and unmount of the volumes are performed using workflows instead of scripts
+** Supports addition, removal, edit, delete, maintain, and upgrade of the plug-in host using UI
+
+=== Enhancements to BlueXP backup and recovery for applications (hybrid)
+
+* Supports data lock and ransomware protection
+* Supports moving backups from StorageGrid to archival tier
+* Supports backing up of MongoDB, MySQL, and PostgreSQL applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID. You can restore the data when required.
+
+=== Enhancements to BlueXP backup and recovery for Virtual Machines
+
+* Support for connector proxy deployment model
 
 == 11 September 2023
 
@@ -138,8 +159,6 @@ Then you can manage your older clusters using the previous version of software.
 When you create backup files in object storage, by default, the backup and recovery service will create the buckets in object storage for you. You can create the buckets yourself if you want to use a certain name or assign special properties. If you want to create your own bucket, you must create it before starting the activation wizard. https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn how to create your object storage buckets].
 
 This functionality is not currently supported when creating backup files to StorageGRID systems.
-
-
 
 == 04 July 2023
 

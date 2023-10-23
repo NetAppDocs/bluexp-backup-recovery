@@ -16,6 +16,8 @@ summary: Complete a few steps to back up applications data from ONTAP to GCP.
 
 Complete a few steps to back up the applications data from ONTAP to StorageGRID.
 
+BlueXP supports data lock and ransomware protection. If ONTAP cluster is running on ONTAP 9.11.1 or later, StorageGRID systems are 11.6.0.3 or later, and if you have not configured archival storage, you can protect the backups from overwriting, deletion, and ransomware threats. 
+
 .Before you begin
 
 When backing up data to StorageGRID, a Connector must be available on your premises. You will either need to install a new Connector or make sure that the currently selected Connector resides on-prem. The Connector can be installed in a site with or without internet access.
@@ -45,4 +47,30 @@ Enter the details in the format FQDN:PORT.
 .. In the Access Key field, specify the key.
 .. In the Secret Key field, specify the password.
 .. Specify the IP space.
+.. Specify the archival tier if you have configured archival storage in the policy.
++
+|===
+|If you select... | Perform the following...
+
+a|
+AWS 
+a|
+. Either select the StorageGrid from the drop-down or add the StorageGrid cluster.
+. Specify the AWS account.
+. In the AWS Access Key field, specify the key.
+. In the AWS Secret Key field, specify the password.
+. Select the region where you want to create the backups.
+. Click *Save*.
+a|
+Azure
+a|
+. Either select the StorageGrid cluster from the drop-down or add the cluster.
+. Specify the Azure subscription ID.
+. Select the region where you want to create the backups.
+. Either create a new resource group or use an existing resource group.
+. Click *Save*.
+|===
++
+It is recommended to set the archival tier because this is an one time activity and you will not be allowed to set it up later.
+. Configure data lock and ransomware protection.
 . Review the details and click *Activate Backup*.

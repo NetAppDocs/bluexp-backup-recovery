@@ -18,6 +18,7 @@ BlueXP backup and recovery for applications provides application consistent data
 
 * Oracle databases residing on Amazon FSx for NetApp ONTAP, Cloud Volumes ONTAP, and Azure NetApp Files
 * SAP HANA systems residing on Azure NetApp Files
+* Microsoft SQL Server databases residing on Amazon FSx for NetApp ONTAP
 
 == Architecture
 
@@ -105,4 +106,23 @@ You can specify different scheduling frequencies such as hourly, daily, weekly, 
 * For HSR configuration, only 2-node HSR is supported (1 primary and 1 secondary)
 * Retention will not be triggered if the postscript fails during restore operation
 
+== Protect Microsoft SQL Server database
 
+=== Features
+
+* Manually add host and deploy the plug-in
+* Discover the databases manually
+* Back up SQL Server instances residing on Amazon FSx for NetApp ONTAP
+** On-demand backup
+** Scheduled backup based on the policy
+** Log backup of Microsoft SQL Server instance
+* Restore the database to original location
+
+=== Limitations
+
+* Backup is supported only for SQL Server instances
+* Failover Cluster Instance (FCI) configuration is not supported
+* BlueXP UI does not support SQL database specific operations
++
+All Microsoft SQL Server database specific operations are performed by running REST APIs.
+* Restore to alternate location is not supported

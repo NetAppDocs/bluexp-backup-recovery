@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: task-restore-hana-backup.html
-keywords: restore, mount application backups, SAP HANA database
+permalink: task-restore-customplugin-backup.html
+keywords: restore, mount application backups, MongoDB, MySQL, PostgreSQL
 summary: You can restore SAP HANA database from the cloud to the on-premises SnapCenter Server.
 ---
 
-= Restore SAP HANA database
+= Restore MongoDB, MySQL, and PostgreSQL databases
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -14,12 +14,12 @@ summary: You can restore SAP HANA database from the cloud to the on-premises Sna
 
 [.lead]
 
-You can restore SAP HANA database to any host.
+You can restore MongoDB, MySQL, and PostgreSQL databases to any host.
 
 *Steps*
 
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications*.
-. In the *Filter By* field, select the filter *Type* and from the drop-down select *HANA*.
+. In the *Filter By* field, select the filter *Type* and from the drop-down select *MongoDB*, *MySQL*, or *PostgreSQL*.
 . Click *View Details* corresponding to the database that you want to restore and click *Restore*.
 . In the Restore options page, specify one of the following:
 .. For NAS environment, specify the FQDN or IP address of the host to which the volumes restored from object store are to be exported.
@@ -34,5 +34,3 @@ If you select *Change storage location*, you can append a suffix to the destinat
 . Review the details and click *Restore*.
 
 This operation does only the storage export of the selected backup on the given host. You should manually mount the filesystem and bring up the database. After utilizing the volume, the storage Administrator can delete the volume from the ONTAP cluster.
-
-For information on how to bring up the SAP HANA database see, https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-copy-workflow-with-snapcenter.html[TR-4667: Overview of SAP system copy workflow with SnapCenter^] and https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html[TR-4667: Overview of SAP system clone workflow with SnapCenter^].

@@ -16,7 +16,7 @@ summary: Know more about protecting data on your virtual machines and understand
 
 BlueXP backup and recovery for virtual machines provides data protection capabilities by backing up datastores and restoring virtual machines.
 
-You can back up datastores to Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform, and StorageGRID and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere host.
+You can back up datastores to Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform, and StorageGRID and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere host. BlueXP backup and recovery for virtual machines also supports connector proxy deployment model.
 
 .Before you begin
 Read the following requirements to make sure that you have a supported configuration before you start backing up datastores and virtual machines to a cloud provider. 
@@ -34,6 +34,7 @@ Read the following requirements to make sure that you have a supported configura
 * Disable "*_recent*" on the required resource groups. If you have "*_recent*" enabled for the resource group, then the backups of those resource groups cannot be used for data protection to cloud and subsequently cannot be used for the restore operation.
 * Ensure that the destination datastore where the virtual machine will be restored has enough space to accommodate a copy of all virtual machine files such as VMDK, VMX, VMSD, and so on.
 * Ensure that the destination datastore does not have stale virtual machine files in the format of restore_xxx_xxxxxx_filename from the previous restore operation failures. You should delete the stale files before triggering a restore operation.
+* To deploy a connector with proxy configured, ensure that all outgoing connector calls are routed through the proxy server.
 
 The following image shows each component and the connections that you need to prepare between them:
 
