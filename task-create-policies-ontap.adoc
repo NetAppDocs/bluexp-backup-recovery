@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-create-policies-ontap.html
-keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, amazon s3, government
+keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud
 summary: You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the type of backup, the backup architecture, the storage systems, and backup frequency. 
 ---
 
@@ -46,13 +46,7 @@ Create backup policies using the following tools depending on your environment, 
 * System Manager UI
 * ONTAP CLI
 
-
-
-
-
 TIP: When using System Manager, select *Asynchronous* as the policy type for replication policies, and select *Asynchronous* and *Back up to cloud* for backup to object policies.
-
-
 
 == View policies for a working environment 
 
@@ -67,7 +61,6 @@ image:screenshot_policies_management.png["Policies management page"]
 Snapshot policies are displayed by default. 
 
 . To view other policies that exist in the working environment, select either *Replication Policies* or *Backup Policies*. If the existing policies can be used for your backup plans, you’re all set. If you need to have a policy with different characteristics, you can create new policies from this page.
-
 
 == Create a Snapshot policy before initiating the Snapshot
 
@@ -108,9 +101,6 @@ This example creates a Snapshot policy with two clusters:
 .. Ignore the Snapshot policy section. 
 .. Configure the Replication and Backup to object policies. 
 
-
-
-
 == Create a replication policy before initiating the replication
 
 Your 3-2-1 strategy might include replicating a volume on a different storage system. The replication policy resides on the *secondary* storage system. 
@@ -131,16 +121,15 @@ This storage policy resides in different storage system locations depending on t
 * Fan-out: Primary storage system
 * Cascading: Secondary storage system
 
-
 .Steps
 . In the Policy management page, select *Create policy* > *Create backup policy*.
 . In the Policy Details section, specify the policy name. 
 . Specify the SnapMirror labels (maximum of 5) denoting the retention for each label.
 . Specify the settings, including the transfer schedule and when to archive backups. 
 
-. (Optional) To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. 
+. (Optional) To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 + 
-https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html#archival-storage-settings[Learn more about archival storage settings].
+link:concept-cloud-backup-policies.html#archival-storage-settings[Learn more about archival storage settings].
 
 . (Optional) To protect your backups from being modified or deleted, select the *DataLock & Ransomware protection* option.
 +
@@ -148,7 +137,6 @@ If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your
 
 +
 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
-
 
 . Select *Create*.
 
@@ -160,7 +148,6 @@ Changing the backup policy affects all volumes that are using that policy.
 
 .Steps
 
-
 . In the Policies management page, select the policy, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit policy*.
 +
 NOTE: The process is the same for replication and backup policies. 
@@ -168,13 +155,14 @@ NOTE: The process is the same for replication and backup policies.
 . In the Edit Policy page, make the changes. 
 . Select *Save*. 
 
-
 == Delete a policy 
+
 You can delete policies that are not associated with any volumes. 
 
 If a policy is associated with a volume and you want to delete the policy, you must remove the policy from the volume first. 
 
 .Steps
+
 . In the Policies management page, select the policy, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete Snapshot policy*.
 . Select *Delete*. 
 
