@@ -15,7 +15,7 @@ summary: You can use the default backup policies provided by NetApp to create yo
 [.lead]
 You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the backup frequency, the time the backup is taken, and the number of backup files that are retained. 
 
-When you use the activation wizard to enable the backup and recovery service for your volumes, you can select from the default policies and any other policies that already exist in the working environment (Cloud Volumes ONTAP or on-premises ONTAP system). If you want to use a policy different than those existing policies, you must create the policy before starting the activation wizard.
+When you use the activation wizard to enable the backup and recovery service for your volumes, you can select from the default policies and any other policies that already exist in the working environment (Cloud Volumes ONTAP or on-premises ONTAP system). If you want to use a policy different than those existing policies, you can create the policy before or while you use the activation wizard.
 
 To learn about the default backup policies provided, refer to link:concept-protection-journey.html[Plan your protection journey].
 
@@ -69,7 +69,7 @@ Snapshot policies are displayed by default.
 . To view other policies that exist in the working environment, select either *Replication Policies* or *Backup Policies*. If the existing policies can be used for your backup plans, you’re all set. If you need to have a policy with different characteristics, you can create new policies from this page.
 
 
-== Create a Snapshot policy
+== Create a Snapshot policy before initiating the Snapshot
 
 Part of your 3-2-1 strategy involves creating a Snapshot copy of the volume on the *primary* storage system. 
 
@@ -78,7 +78,11 @@ Part of the policy creation process involves identifying Snapshot and SnapMirror
 //image:screenshot_policies_labels.png[Screenshot of Policies management page showing labels]
 
 .Steps
-. In the Policies page, select *Create new policy* > *Create Snapshot policy*.
+. In the BlueXP UI, select *Volumes* > *Backup settings*.
+. From the Backup Settings page, select the working environment, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Policies management*.
++
+The Policies management page appears. 
+. In the Policies page, select *Create policy* > *Create Snapshot policy*.
 . Specify the policy name. 
 . Select the Snapshot schedule or schedules. You can have a maximum of 5 labels. Or, create a schedule. 
 . If you choose to create a schedule: 
@@ -107,18 +111,18 @@ This example creates a Snapshot policy with two clusters:
 
 
 
-== Create a replication policy
+== Create a replication policy before initiating the replication
 
 Your 3-2-1 strategy might include replicating a volume on a different storage system. The replication policy resides on the *secondary* storage system. 
 
 .Steps
-. In the Policies page, select *Create new policy* > *Create new replication policy*.
+. In the Policies page, select *Create policy* > *Create replication policy*.
 . In the Policy Details section, specify the policy name. 
 . Specify the SnapMirror labels (maximum of 5) denoting the retention for each label.
 . Specify the transfer schedule. 
 . Select *Create*.
 
-== Create a backup-to-object-storage policy
+== Create a backup-to-object-storage policy before initiating the backup
 
 Your 3-2-1 strategy might include backing up a volume to object storage. 
 
@@ -129,7 +133,7 @@ This storage policy resides in different storage system locations depending on t
 
 
 .Steps
-. In the Policy management page, select *Create new policy* > *Create new backup policy*.
+. In the Policy management page, select *Create policy* > *Create backup policy*.
 . In the Policy Details section, specify the policy name. 
 . Specify the SnapMirror labels (maximum of 5) denoting the retention for each label.
 . Specify the settings, including the transfer schedule and when to archive backups. 

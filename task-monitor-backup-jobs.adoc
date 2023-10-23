@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-monitor-backup-jobs.html
 keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification
-summary: You can monitor the status of local snapshots, replications, and backup to object storage jobs that you initiated, and restore jobs that you initiated. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.
+summary: You can monitor the status of local Snapshots, replications, and backup to object storage jobs that you initiated or that were scheduled, and restore jobs that you initiated or scheduled. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.
 ---
 
 = Monitor the status of backup and restore jobs
@@ -27,7 +27,9 @@ The status can be:
 * Warning
 * Failed
 
-Snapshots, replications, backups to object storage and restore operations that you initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs such as ongoing scheduled backup operations, are available in the Job Monitoring tab. However, this is true only for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater and on-premises ONTAP systems running ONTAP 9.13.1 or greater. When running earlier versions of ONTAP, only user-initiated jobs are displayed.
+//Snapshots, replications, backups to object storage and restore operations that you initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs such as ongoing scheduled backup operations, are available in the Job Monitoring tab. The Job Monitor includes scheduled jobs for local Snapshots, replications, and backups to object storage. However, this is true only for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater and on-premises ONTAP systems running ONTAP 9.13.1 or greater. When running earlier versions of ONTAP, only user-initiated jobs are displayed.
+
+Snapshots, replications, backups to object storage and restore operations that you initiated from the BlueXP backup and recovery UI and API are available in the Job Monitoring tab. 
 
 NOTE: If you've upgraded your ONTAP systems to 9.13.x and you don't see ongoing scheduled backup operations in the Job Monitor, then you'll need to restart the BlueXP backup and recovery service. link:reference-restart-backup.html[Learn how to restart BlueXP backup and recovery].
 
@@ -113,7 +115,7 @@ From the Job Monitoring Details information, you can download a JSON file contai
 
 == Review retention (backup lifecycle) jobs
 
-Monitoring of retention (backup lifecycle) flows helps you with audit completeness, accountability, and backup safety. To help you track the backup lifecycle, you might want to identify the expiration of all backup copies. 
+Monitoring of retention (or _backup lifecycle_) flows helps you with audit completeness, accountability, and backup safety. To help you track the backup lifecycle, you might want to identify the expiration of all backup copies. 
 
 A backup lifecycle job tracks all Snapshot copies that are deleted or in the queue to be deleted. Beginning with ONTAP 9.13, you can look at all job types called "Retention" on the Job Monitoring page.
 
@@ -123,7 +125,7 @@ The "Retention" job type captures all Snapshot deletion jobs initiated on a volu
 
 . Select the *Job Monitoring* tab.
 . Select the *Advanced Search & Filtering* area to open the Search panel. 
-. Select the job Type of "Retention". 
+. Select "Retention" as the job type. 
 
 == Review backup and restore alerts in the BlueXP Notification Center
 

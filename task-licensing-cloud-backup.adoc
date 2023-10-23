@@ -103,9 +103,9 @@ You use the BlueXP digital wallet to manage BYOL licenses. You can add new licen
 
 === Obtain your BlueXP backup and recovery license file
 
-After you've purchased your BlueXP backup and recovery (Cloud Backup) license, you activate the license in BlueXP either by entering the BlueXP backup and recovery serial number and NSS account, or by uploading the NLF license file. The steps below show how to get the NLF license file if you plan to use that method.
+After you've purchased your BlueXP backup and recovery (Cloud Backup) license, you activate the license in BlueXP either by entering the BlueXP backup and recovery serial number and NetApp Support Site (NSS) account, or by uploading the NetApp License File (NLF). The steps below show how to get the NLF license file if you plan to use that method.
 
-If you're running BlueXP backup and recovery in an on-premises site that doesn't have internet access, meaning that you've deployed the BlueXP Connector in https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html#private-mode[private mode^], you'll need to obtain the license file from an internet-connected system. Activating the license using the serial number and NSS account is not available for private mode installations.
+If you're running BlueXP backup and recovery in an on-premises site that doesn't have internet access, meaning that you've deployed the BlueXP Connector in https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html#private-mode[private mode^], you'll need to obtain the license file from an internet-connected system. Activating the license using the serial number and NetApp Support Site account is not available for private mode installations.
 
 .Before you begin
 
