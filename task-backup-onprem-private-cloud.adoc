@@ -314,19 +314,29 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 + 
 For details about these architectures, refer to link:concept-protection-journey.html[Plan your protection journey].  
 
-. *Local Snapshot*: Choose an existing Snapshot policy. 
+. *Local Snapshot*: Choose an existing Snapshot policy or create a new one. 
 +
-TIP: To create a custom policy, refer to
-link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before activating the Snapshot, refer to link:task-create-policies-ontap.html[Create a policy].
+
++
+To create a policy, select *Create new policy* and do the following: 
++
+** Enter the name of the policy. 
+** Select up to 5 schedules, typically of different frequencies. 
+** Select *Create*. 
 
 . *Replication*: Set the following options: 
 +
 * *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate or aggregates and prefix or suffix that will be added to the replicated volume name. 
-* *Replication policy*: Choose an existing replication policy. 
-
+* *Replication policy*: Choose an existing replication policy or create one. 
 +
-TIP: To create a custom policy, refer to
-link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before activating the replication, refer to link:task-create-policies-ontap.html[Create a policy].
++
+To create a policy, select *Create new policy* and do the following: 
++
+** Enter the name of the policy. 
+** Select up to 5 schedules, typically of different frequencies. 
+** Select *Create*. 
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
 +
@@ -339,10 +349,15 @@ The access key and secret key are for the IAM user you created to give the ONTAP
 +
 TIP: Selecting the correct IPspace ensures that BlueXP backup and recovery can set up a connection from ONTAP to your StorageGRID object storage.
 
-* *Backup policy*: Select an existing Backup to object storage policy. 
+* *Backup policy*: Select an existing Backup to object storage policy or create one. 
 +
-TIP: To create a custom policy, refer to
-link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before activating the backup, refer to link:task-create-policies-ontap.html[Create a policy].
++
+To create a policy, select *Create new policy* and do the following: 
++
+** Enter the name of the policy. 
+** Select up to 5 schedules, typically of different frequencies. 
+** Select *Create*. 
 +
 If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion and ransomware attacks by configuring _DataLock and Ransomware Protection_. _DataLock_ protects your backup files from being modified or deleted, and _Ransomware protection_ scans your backup files to look for evidence of a ransomware attack in your backup files. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
 +

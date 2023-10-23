@@ -69,6 +69,7 @@ See <<Replication limitations,Replication limitations>> for a list of replicatio
 * Restore data from a specific point in time from local Snapshot copies, replicated volumes, or backed up volumes in object storage.
 * Restore a volume, a folder, or individual files, to the source system or to a different system.
 * Restore data to a working environment using a different subscription/account or that is in a different region.
+* Ability to perform a "quick restore" of a volume from cloud storage to a Cloud Volumes ONTAP system; perfect for disaster recovery situations where you need to provide access to a volume as soon as possible.
 * Data is restored on a block level, placing the data directly in the location you specify, all while preserving the original ACLs.
 * Browsable and searchable file catalogs for easy selection of individual folders and files for single file restore.
 
@@ -274,7 +275,7 @@ This diagram shows volumes being replicated to a Cloud Volumes ONTAP system, but
 
 === Where backups reside
 
-Backups reside in deffent locations based on the type of backup:
+Backups reside in different locations based on the type of backup:
 
 * _Snapshot copies_ reside on the source volume in the source working environment.
 
@@ -391,7 +392,7 @@ This operation could cause a one-time increase in cost to read the data from you
 
 === Replication limitations
 
-* You can select only one FlexGroup volume at a time for replication. You'll need to activate backup separately for each FlexGroup volume.
+* You can select only one FlexGroup volume at a time for replication. You'll need to activate backups separately for each FlexGroup volume.
 +
 There is no limitation for FlexVol volumes - you can select all FlexVol volumes in your working environment and assign the same backup policies.
 
@@ -406,7 +407,7 @@ There is no limitation for FlexVol volumes - you can select all FlexVol volumes 
 
 === Backup to object limitations
 
-* When creating or editing a backup policy when no volumes are assigned to the policy, the number of retained backups can be a maximum of 1018. After you assign volumes to the policy, you can edit the policy to create up to 4000 backups.
+* When you create or edit a backup policy when no volumes are assigned to the policy, the number of retained backups can be a maximum of 1018. After you assign volumes to the policy, you can edit the policy to create up to 4000 backups.
 
 * When backing up data protection (DP) volumes:
 ** Relationships with the SnapMirror labels `app_consistent` and `all_source_snapshot` won't be backed up to cloud.
@@ -423,8 +424,8 @@ There is no limitation for FlexVol volumes - you can select all FlexVol volumes 
 
 //* MetroCluster (MCC) backup is supported from ONTAP secondary only: MCC > SnapMirror > ONTAP > Cloud Backup > object storage.
 * MetroCluster support:
-** When using ONTAP 9.12.1 GA or greater, backup is supported when connected to the primary system. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover. You don't need to set up backup on the secondary system (in fact, you are restricted from doing so).
-** When using ONTAP 9.12.0 and earlier, backup is supported only from the ONTAP secondary system.
+** When you use ONTAP 9.12.1 GA or greater, backup is supported when connected to the primary system. The entire backup configuration is transferred to the secondary system so that backups to the cloud continue automatically after switchover. You don't need to set up backup on the secondary system (in fact, you are restricted from doing so).
+** When you use ONTAP 9.12.0 and earlier, backup is supported only from the ONTAP secondary system.
 ** Backups of FlexGroup volumes are not supported at this time.
 
 * Ad-hoc volume backup using the *Backup Now* button isn't supported on data protection volumes.
@@ -462,3 +463,9 @@ When using a version of ONTAP before 9.11.1, folder restore is not supported.
 * The file being restored must be using the same language as the language on the destination volume. You will receive an error message if the languages are not the same.
 
 * The _High_ restore priority is not supported when restoring data from Azure archival storage to StorageGRID systems.
+
+* Quick restore limitations:
+** The destination location must be a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater.
+** It is not supported with backups located in archived storage.
+** FlexGroup volumes are supported only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. 
+** SnapLock volumes are supported only if the source system from which the cloud backup was created was running ONTAP 9.11.0 or greater. 
