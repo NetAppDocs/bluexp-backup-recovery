@@ -224,7 +224,7 @@ image:screenshot_restore_select_volume_snapshot.png["A screenshot of selecting t
 
 . Click *Next*.
 +
-Note that if you select a backup file in object storage, and ransomware protection is active for that backup (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware.
+Note that if you select a backup file in object storage, and ransomware protection is active for that backup (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware. (You'll incur extra egress costs from your cloud provider to access the contents of the backup file.)
 
 . In the _Select Destination_ page, select the *Working Environment* where you want to restore the volume.
 +
@@ -348,7 +348,7 @@ ifdef::gcp[]
 link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage]. Backup files in the Google Archive storage tier are restored almost immediately, and require no Restore Priority.
 endif::gcp[]
 +
-And if ransomware protection is active for the backup file (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware.
+And if ransomware protection is active for the backup file (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware. (You'll incur extra egress costs from your cloud provider to access the contents of the backup file.)
 +
 image:screenshot_restore_select_files.png[A screenshot of the Select Items page so you can navigate to the items you want to restore.]
 
