@@ -32,14 +32,15 @@ The Cloud Volumes ONTAP destination system must be running ONTAP version 9.13.0 
 
 The BlueXP backup and recovery Job Monitor also shows information about the progress of quick restore jobs. 
 
-//=== Support for scheduled jobs in the Job Monitor   
-//The BlueXP backup and recovery Job Monitor previously monitored scheduled volume-to-object-store backup and restore jobs but not local Snapshot, replication, backup, and restore jobs that were scheduled via the UI or API. 
+=== Support for scheduled jobs in the Job Monitor   
 
-//The BlueXP backup and recovery Job Monitor now includes scheduled jobs for local Snapshots, replications, and backups to object storage. 
+The BlueXP backup and recovery Job Monitor previously monitored scheduled volume-to-object-store backup and restore jobs but not local Snapshot, replication, backup, and restore jobs that were scheduled via the UI or API. 
 
+The BlueXP backup and recovery Job Monitor now includes scheduled jobs for local Snapshots, replications, and backups to object storage. 
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
+//
 //This requires Cloud Volumes ONTAP 9.13.1 and later. 
-
-//https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
 
 //=== Backup Inventory report updates
 //The Backup Inventory report now includes information about local Snapshot and replications.
