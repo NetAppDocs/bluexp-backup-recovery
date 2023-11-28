@@ -31,9 +31,9 @@ With these reports, you can do the following:
 
 Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-report-inventory.html[Report on data protection coverage]. 
 
-=== Object tagging available on volumes for sorting
+=== Custom tagging available on volumes for sorting and filtering
 
-You can now add custom tags to volumes so that you can group volumes together within and across working environments. Doing this enables you to sort volumes in the UI pages and filter in reports. 
+With ONTAP 9.1.13.1, you can now add custom tags to volumes so that you can group volumes together within and across working environments. Doing this enables you to sort volumes in the UI pages and filter in reports. 
 
 
 == 23 October 2023 
