@@ -16,6 +16,14 @@ summary: Learn what's new in BlueXP backup and recovery.
 Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
+
+== 10 January 2023 
+
+=== Enhancements to BlueXP backup and recovery for Virtual Machines
+
+* Support restoring virtual machines to an alternate location
+* Support for unprotecting datastores
+
 == 23 October 2023 
 
 === 3-2-1 backup policy creation during backup activation
@@ -96,6 +104,7 @@ Now you can send your backup files immediately to archive storage instead of wri
 Backup and recovery now can back up both FlexVol and FlexGroup volumes that are configured using either SnapLock Compliance or SnapLock Enterprise protection modes. Your clusters must be running ONTAP 9.14 or greater for this support. Backing up FlexVol volumes using SnapLock Enterprise mode has been supported since ONTAP version 9.11.1. Earlier ONTAP releases provide no support for backing up SnapLock protection volumes.
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html[Learn more about protecting ONTAP data].
+// end::whats-new[] 
 
 == 1 August 2023 
 
@@ -132,7 +141,7 @@ The Job Monitoring page now provides more information related to the 3-2-1 backu
 The "Backup lifecycle" Type filter has been renamed to "Retention". Use this filter to track the backup lifecycle and to identify the expiration of all backup copies. The "Retention" job type captures all Snapshot deletion jobs initiated on a volume that is protected by BlueXP backup and recovery.  
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
-// end::whats-new[] 
+
 
 == 6 July 2023
 
