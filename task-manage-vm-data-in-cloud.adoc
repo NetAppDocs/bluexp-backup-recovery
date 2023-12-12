@@ -33,7 +33,7 @@ The datastores and virtual machines that are protected using the registered Snap
 . Click the SnapCenter Plug-in for VMware vSphere host for which you want to see the datastores and virtual machines.
 
 == Unprotect datastores
-You can unprotect a datastore when you do not want to back it up to the cloud anymore.
+You can unprotect a datastore which was already protected earlier. You can unprotect a datastore when you want to delete the cloud backups or do not want to back it up to the cloud anymore. The datastore can be protected again after the unprotection is successful.
 
 .Steps
 
