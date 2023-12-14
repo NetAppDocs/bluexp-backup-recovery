@@ -383,15 +383,14 @@ If you want to have a more secure connection over the internet from your on-prem
 .Steps
 
 . Create an Interface endpoint configuration using the Amazon VPC console or the command line. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html[Refer to details about using AWS PrivateLink for Amazon S3^].
-
-. Modify the security group configuration that's associated with the BlueXP Connector. You must change the policy to "Custom" (from "Full Access"), and you must <<Set up S3 permissions,add the S3 permissions from the backup policy>> as shown earlier.
-+
-image:screenshot_backup_aws_sec_group.png[A screenshot of the AWS security group associated with the Connector.]
 +
 If you're using port 80 (HTTP) for communication to the private endpoint, you're all set. You can enable BlueXP backup and recovery on the cluster now.
 +
 If you're using port 443 (HTTPS) for communication to the private endpoint, you must copy the certificate from the VPC S3 endpoint and add it to your ONTAP cluster, as shown in the next 4 steps.
-+
+// Removed this based on github issues #68 and #165
+//. Modify the security group configuration that's associated with the BlueXP Connector. You must change the policy to "Custom" (from "Full Access"), and you must <<Set up S3 permissions,add the S3 permissions from the backup policy>> as shown earlier.
+//+
+//image:screenshot_backup_aws_sec_group.png[A screenshot of the AWS security group associated with the Connector.]
 . Obtain the DNS name of the endpoint from the AWS Console.
 +
 image:screenshot_endpoint_dns_aws_console.png[A screenshot of the DNS name of the VPC endpoint from the AWS Console.]
@@ -401,7 +400,7 @@ image:screenshot_endpoint_dns_aws_console.png[A screenshot of the DNS name of th
 [source,text]
 [ec2-user@ip-10-160-4-68 ~]$ openssl s_client -connect bucket.vpce-0ff5c15df7e00fbab-yxs7lt8v.s3.us-west-2.vpce.amazonaws.com:443 -showcerts
 
-.	From the output of this command, copy the data for the S3 certificate (all data between, and including, the BEGIN / END CERTIFICATE tags):
+. From the output of this command, copy the data for the S3 certificate (all data between, and including, the BEGIN / END CERTIFICATE tags):
 +
 [source,text]
 Certificate chain
@@ -414,7 +413,7 @@ MIIM6zCCC9OgAwIBAgIQA7MGJ4FaDBR8uL0KR3oltTANBgkqhkiG9w0BAQsFADBG
 GqvbOz/oO2NWLLFCqI+xmkLcMiPrZy+/6Af+HH2mLCM4EsI2b+IpBmPkriWnnxo=
 -----END CERTIFICATE-----
 
-.	Log into the ONTAP cluster CLI and apply the certificate you copied using the following command (substitute your own storage VM name):
+. Log into the ONTAP cluster CLI and apply the certificate you copied using the following command (substitute your own storage VM name):
 +
 [source,text]
 cluster1::> security certificate install -vserver cluster1 -type server-ca
