@@ -20,6 +20,7 @@ NOTE: You cannot restore virtual machines that span across datastores.
 .Before you begin
 * Ensure that you have met all the link:concept-protect-vm-data.html[requirements] before restoring virtual machines from the cloud.
 * If you are restoring to an alternate location:
+** Ensure that the source and destination vCenters are in linked mode.
 ** Ensure that the source and destination cluster details are added in BlueXP Canvas and in linked mode vCenters in both SnapCenter Plug-in for VMware vSphere host.
 ** Ensure that the Working Environment (WE) is added corresponding to the alternate location in BlueXP Canvas.
 
