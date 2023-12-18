@@ -185,7 +185,13 @@ Here are the specific permissions from the policy:
         },
 ====
 
-NOTE: When creating backups in AWS China regions, you need to change the AWS Resource Name "arn" under all _Resource_ sections in the IAM policies from "aws" to "aws-cn"; for example `arn:aws-cn:s3:::netapp-backup-*`.
+[NOTE] 
+====
+If you are creating backups in AWS GovCloud or AWS China regions, you'll need to change the AWS Resource Name "arn" under all _Resource_ sections in the sets of permissions above and below:
+
+* For AWS GovCloud regions, you need to change "aws" to "aws-us-gov"; for example `arn:aws-us-gov:s3:::netapp-backup-*`.
+* For AWS China regions, you need to change "aws" to "aws-cn"; for example `arn:aws-cn:s3:::netapp-backup-*`.
+====
 
 Required AWS Cloud Volumes ONTAP permissions::
 When your Cloud Volumes ONTAP system is running ONTAP 9.12.1 or greater software, the IAM role that provides that working environment with permissions must include a new set of S3 permissions specifically for BlueXP backup and recovery from the latest https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-set-up-iam-roles.html[Cloud Volumes ONTAP policy^].

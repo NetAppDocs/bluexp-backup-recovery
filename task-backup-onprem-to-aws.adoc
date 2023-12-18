@@ -191,6 +191,14 @@ You'll need to configure two sets of permissions:
 * Permissions for the Connector to create and manage the S3 bucket.
 * Permissions for the on-premises ONTAP cluster so it can read and write data to the S3 bucket.
 
+[NOTE] 
+====
+If you are creating backups in AWS GovCloud or AWS China regions, you'll need to change the AWS Resource Name "arn" under all _Resource_ sections in the two sets of permissions that follow:
+
+* For AWS GovCloud regions, you need to change "aws" to "aws-us-gov"; for example `arn:aws-us-gov:s3:::netapp-backup-*`.
+* For AWS China regions, you need to change "aws" to "aws-cn"; for example `arn:aws-cn:s3:::netapp-backup-*`.
+====
+
 .Steps
 
 . Confirm that the following S3 permissions (from the latest https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[BlueXP policy^]) are part of the IAM role that provides the Connector with permissions. If they are not, see the https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html[AWS Documentation: Editing IAM policies].
@@ -255,8 +263,6 @@ You'll need to configure two sets of permissions:
       }
 
 ====
-+
-NOTE: When creating backups in AWS China regions, you need to change the AWS Resource Name "arn" under all _Resource_ sections in the IAM policies from "aws" to "aws-cn"; for example `arn:aws-cn:s3:::netapp-backup-*`.
 
 . When you activate the service, the Backup wizard will prompt you to enter an access key and secret key. These credentials are passed to the ONTAP cluster so that ONTAP can back up and restore data to the S3 bucket. For that, you'll need to create an IAM user with the following permissions. 
 + 
@@ -266,7 +272,6 @@ Refer to the https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_fo
 
 [%collapsible]
 ====
-
 [source,json]
 {
     "Version": "2012-10-17",
@@ -319,21 +324,23 @@ Refer to the https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_fo
 
 === Create your own buckets
 
-By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
+By default, the service creates buckets for you. If you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
 
 link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn more about creating your own buckets^].
 
-If you create your own buckets, you should use a bucket name of “netapp-backup”. If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. You need to include `“Resource”: “arn:aws:s3:::*”` and assign all the necessary permissions that need to be associated with the bucket.
+If you create your own buckets, you should use a bucket name of “netapp-backup”. If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. 
 
 [%collapsible]
 
 ====
-"Action": [
-    "S3:ListBucket" 
-    "S3:GetBucketLocation" 
-]
-“Resource”: “arn:aws:s3:::*”,
-"Effect": "Allow" 
+[source,json]
+{
+    "Action": [
+        "S3:ListBucket" 
+        "S3:GetBucketLocation" 
+    ]
+    "Resource": "arn:aws:s3:::*",
+    "Effect": "Allow" 
 }, 
 { 
     "Action": [
@@ -348,8 +355,17 @@ If you create your own buckets, you should use a bucket name of “netapp-backup
         "S3:GetObjectRetention",
         "S3:PutBucketObjectLockConfiguration",
         "S3:PutObjectRetention"    
-        ]
-    “Resource”: “arn:aws:s3:::*”, 
+    ]
+    "Resource": "arn:aws:s3:::*", 
+}
+====
+
+[NOTE] 
+====
+If your custom buckets are located in AWS GovCloud or AWS China regions, you'll need to change the AWS Resource Name "arn" under all _Resource_ sections in the permissions:
+
+* For AWS GovCloud regions, you need to change "aws" to "aws-us-gov"; for example `arn:aws-us-gov:s3:::*`.
+* For AWS China regions, you need to change "aws" to "aws-cn"; for example `arn:aws-cn:s3:::-*`.
 ====
 
 === Set up customer-managed AWS keys for data encryption
@@ -360,22 +376,21 @@ If instead you want to use your own customer-managed keys for data encryption ra
 
 === Configure your system for a private connection using a VPC endpoint interface
 
-If you want to use a standard public internet connection, then all the permissions are set by the Connector and there is nothing else you need to do. This type of connection is shown in the link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options[first diagram].
+If you want to use a standard public internet connection, then all the permissions are set by the Connector and there is nothing else you need to do. This type of connection is shown in the link:task-backup-onprem-to-aws.html#identify-the-connection-method[first diagram].
 
-If you want to have a more secure connection over the internet from your on-prem data center to the VPC, there's an option to select an AWS PrivateLink connection in the Backup activation wizard. It's required if you plan to use a VPN or AWS Direct Connect to connect your on-premises system through a VPC Endpoint interface that uses a private IP address. This type of connection is shown in the link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options[second diagram].
+If you want to have a more secure connection over the internet from your on-prem data center to the VPC, there's an option to select an AWS PrivateLink connection in the Backup activation wizard. It's required if you plan to use a VPN or AWS Direct Connect to connect your on-premises system through a VPC Endpoint interface that uses a private IP address. This type of connection is shown in the link:task-backup-onprem-to-aws.html#identify-the-connection-method[second diagram].
 
 .Steps
 
 . Create an Interface endpoint configuration using the Amazon VPC console or the command line. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html[Refer to details about using AWS PrivateLink for Amazon S3^].
-
-. Modify the security group configuration that's associated with the BlueXP Connector. You must change the policy to "Custom" (from "Full Access"), and you must <<Set up S3 permissions,add the S3 permissions from the backup policy>> as shown earlier.
-+
-image:screenshot_backup_aws_sec_group.png[A screenshot of the AWS security group associated with the Connector.]
 +
 If you're using port 80 (HTTP) for communication to the private endpoint, you're all set. You can enable BlueXP backup and recovery on the cluster now.
 +
 If you're using port 443 (HTTPS) for communication to the private endpoint, you must copy the certificate from the VPC S3 endpoint and add it to your ONTAP cluster, as shown in the next 4 steps.
-+
+// Removed this based on github issues #68 and #165
+//. Modify the security group configuration that's associated with the BlueXP Connector. You must change the policy to "Custom" (from "Full Access"), and you must <<Set up S3 permissions,add the S3 permissions from the backup policy>> as shown earlier.
+//+
+//image:screenshot_backup_aws_sec_group.png[A screenshot of the AWS security group associated with the Connector.]
 . Obtain the DNS name of the endpoint from the AWS Console.
 +
 image:screenshot_endpoint_dns_aws_console.png[A screenshot of the DNS name of the VPC endpoint from the AWS Console.]
@@ -385,7 +400,7 @@ image:screenshot_endpoint_dns_aws_console.png[A screenshot of the DNS name of th
 [source,text]
 [ec2-user@ip-10-160-4-68 ~]$ openssl s_client -connect bucket.vpce-0ff5c15df7e00fbab-yxs7lt8v.s3.us-west-2.vpce.amazonaws.com:443 -showcerts
 
-.	From the output of this command, copy the data for the S3 certificate (all data between, and including, the BEGIN / END CERTIFICATE tags):
+. From the output of this command, copy the data for the S3 certificate (all data between, and including, the BEGIN / END CERTIFICATE tags):
 +
 [source,text]
 Certificate chain
@@ -398,7 +413,7 @@ MIIM6zCCC9OgAwIBAgIQA7MGJ4FaDBR8uL0KR3oltTANBgkqhkiG9w0BAQsFADBG
 GqvbOz/oO2NWLLFCqI+xmkLcMiPrZy+/6Af+HH2mLCM4EsI2b+IpBmPkriWnnxo=
 -----END CERTIFICATE-----
 
-.	Log into the ONTAP cluster CLI and apply the certificate you copied using the following command (substitute your own storage VM name):
+. Log into the ONTAP cluster CLI and apply the certificate you copied using the following command (substitute your own storage VM name):
 +
 [source,text]
 cluster1::> security certificate install -vserver cluster1 -type server-ca
