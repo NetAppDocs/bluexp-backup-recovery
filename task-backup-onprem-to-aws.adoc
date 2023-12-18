@@ -328,7 +328,9 @@ By default, the service creates buckets for you. If you want to use your own buc
 
 link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn more about creating your own buckets^].
 
-If you create your own buckets, you should use a bucket name of “netapp-backup”. If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. 
+If you create your own buckets, you should use a bucket name starting with “netapp-backup”. If you need to use a custom name, edit the policies used in the Setup S3 permissions section to use a Resource ARN that matches your own custom bucket prefix. 
+
+//If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. 
 
 [%collapsible]
 
