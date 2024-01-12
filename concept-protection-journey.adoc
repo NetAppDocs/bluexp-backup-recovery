@@ -43,6 +43,8 @@ Creates backups of your data to the cloud for protection and for long-term archi
 
 Snapshots are the basis of all the backup methods, and they are required to use the backup and recovery service. A Snapshot copy is a read-only, point-in-time image of a volume. The image consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last Snapshot copy was made. The Snapshot copy that is created on your volume is used to keep the replicated volume and backup file synchronized with changes made to the source volume - as shown in the figure.
 
+NOTE: Snapshots must have unique names or restore operations will not function properly.
+
 image:diagram-321-overview.png["A diagram showing how backup files exist on the source system as Snapshot copies, as replicated volumes on the secondary storage system, and as a backup files in object storage."]
 
 You can choose to create both replicated volumes on another ONTAP storage system and backup files in the cloud. Or you can choose just to create replicated volumes or backup files - it's your choice. 
@@ -235,18 +237,18 @@ If you plan to move older backup files to archival storage, or if you plan to en
 
 == Which BlueXP Connector deployment mode are you using
 
-If you're already using BlueXP to manage your storage, then a BlueXP Connector has already been installed. If you plan to use the same Connector with BlueXP backup and recovery, then you're all set. If you need to use a different Connector, you'll need to install it before starting your backup and recovery implementation.
+If you're already using BlueXP to manage your storage, then a BlueXP Connector has already been installed. If you plan to use the same Connector with BlueXP backup and recovery, then you're all set. If you need to use a different Connector, you'll need to deploy it before starting your backup and recovery implementation.
 
 BlueXP offers multiple deployment modes that enable you to use BlueXP in a way that meets your business and security requirements. _Standard mode_ leverages the BlueXP SaaS layer to provide full functionality, while _restricted mode_ and _private mode_ are available for organizations that have connectivity restrictions. 
 
 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html[Learn more about BlueXP deployment modes^].
 https://www.netapp.tv/details/30567[Watch this video about BlueXP deployment modes].
 
-=== Support for sites with full internet connectivity
+=== Support when using standard mode
 
-When BlueXP backup and recovery is used in a site with full internet connectivity (also known as "standard mode" or "SaaS mode"), you can create replicated volumes on any on-premises ONTAP or Cloud Volumes ONTAP systems managed by BlueXP, and you can create backup files on object storage in any of the supported cloud providers. link:concept-ontap-backup-to-cloud.html#supported-backup-destinations[See the full list of supported backup destinations].
+BlueXP backup and recovery is fully supported in standard mode - sites with full internet connectivity. In this case you can create replicated volumes on any on-premises ONTAP or Cloud Volumes ONTAP systems managed by BlueXP, and you can create backup files on object storage in any of the supported cloud providers. link:concept-ontap-backup-to-cloud.html#supported-backup-destinations[See the full list of supported backup destinations].
 
-See the backup topic for the cloud provider where you plan to create backup files for the list of valid Connector locations. There are some restrictions where the Connector must be installed manually on a Linux machine or deployed in a specific cloud provider.
+See the backup topic for the cloud provider where you plan to create backup files for the list of valid Connector locations. There may be some restrictions when the Connector is deployed in a specific cloud provider or when it is installed manually on a Linux machine.
 
 ifdef::aws[]
 * link:task-backup-to-s3.html[Back up Cloud Volumes ONTAP data to Amazon S3]
@@ -263,21 +265,21 @@ endif::gcp[]
 * link:task-backup-onprem-private-cloud.html[Back up on-premises ONTAP data to StorageGRID]
 * link:task-backup-onprem-to-ontap-s3.html[Back up on-premises ONTAP to ONTAP S3]
 
-=== Support for sites with limited internet connectivity
+=== Support when using restricted mode
 
-BlueXP backup and recovery can be used in a site with limited internet connectivity (also known as "restricted mode") to back up volume data. In this case, you'll need to deploy the BlueXP Connector in the restricted region. 
+BlueXP backup and recovery is supported in restricted mode - sites with limited internet connectivity. In this case you can create backup files only to a limited set of cloud providers. You'll need to deploy the BlueXP Connector in the restricted region. 
 
-//* You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See how to link:task-backup-onprem-private-cloud.html[Back up on-premises ONTAP data to StorageGRID] for details.
 ifdef::aws[]
 * You can back up data from Cloud Volumes ONTAP systems installed in AWS commercial regions to Amazon S3. See how to link:task-backup-to-s3.html[Back up Cloud Volumes ONTAP data to Amazon S3].
 endif::aws[]
 ifdef::azure[]
 * You can back up data from Cloud Volumes ONTAP systems installed in Azure commercial regions to Azure Blob. See how to link:task-backup-to-azure.html[Back up Cloud Volumes ONTAP data to Azure Blob].
 endif::azure[]
+//* You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See how to link:task-backup-onprem-private-cloud.html[Back up on-premises ONTAP data to StorageGRID] for details.
 
-=== Support for sites with no internet connectivity
+=== Support when using private mode
 
-BlueXP backup and recovery can be used in a site with no internet connectivity (also known as "private mode" or "dark" sites) to back up volume data. In this case, you'll need to deploy the BlueXP Connector on a Linux host in the same site. 
+BlueXP backup and recovery is supported in private mode - sites with no internet connectivity. In this case you can create backup files only to a limited set of object storage providers. You'll need to deploy the BlueXP Connector on a Linux host in the same on-premises site. 
 
 * You can back up data from local on-premises ONTAP systems to local NetApp StorageGRID systems. See how to link:task-backup-onprem-private-cloud.html[Back up on-premises ONTAP data to StorageGRID] for details.
 * You can back up data from local on-premises ONTAP systems to local on-premises ONTAP systems or Cloud Volumes ONTAP systems configured for S3 object storage. See how to link:task-backup-onprem-to-ontap-s3.html[Back up on-premises ONTAP data to ONTAP S3] for details.
@@ -287,3 +289,5 @@ BlueXP backup and recovery can be used in a site with no internet connectivity (
 //ifdef::azure[]
 //* You can back up data from Cloud Volumes ONTAP systems installed in Azure commercial regions and Azure IL6 secure regions to Azure Blob. See how to link:task-backup-to-azure.html[Back up Cloud Volumes ONTAP data to Azure Blob].
 //endif::azure[]
+
+// We'll need to change the lead-in sentences when these 2 secure site installations are supported... ask Tom

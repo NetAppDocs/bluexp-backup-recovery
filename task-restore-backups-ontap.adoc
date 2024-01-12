@@ -23,6 +23,8 @@ Backups of your ONTAP volume data are available from the locations where you cre
 
 A valid BlueXP backup and recovery license is required to restore data from backup files to a production system.
 
+NOTE: Snapshots must have unique names or restore operations will not function properly.
+
 To summarize, these are the valid flows you can use to restore volume data to an ONTAP working environment:
 
 * Backup file -> restored volume
