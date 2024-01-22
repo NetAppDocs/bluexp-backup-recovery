@@ -195,7 +195,7 @@ NOTE: If the ONTAP version on your system is less than 9.13.1, then you can't re
 
 When you restore a volume from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. When using a backup from object storage, you can restore the data to a volume in the original working environment, to a different working environment that's located in the same cloud account as the source working environment, or to an on-premises ONTAP system.
 
-When restoring a cloud backup to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a "quick restore" operation. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore restores the metadata from the backup file to a volume instead of restoring the entire backup file. Quick restore is not recommended for performance or latency-sensitive applications, and it is not supported with backups in archived storage.
+When restoring a cloud backup to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a _quick restore_ operation. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore restores the metadata from the backup file to a volume instead of restoring the entire backup file. Quick restore is not recommended for performance or latency-sensitive applications, and it is not supported with backups in archived storage.
 
 NOTE: Quick restore is supported for FlexGroup volumes only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. And it is supported for SnapLock volumes only if the source system was running ONTAP 9.11.0 or greater.
 
@@ -257,7 +257,7 @@ endif::gcp[]
 +
 image:screenshot_restore_new_vol_name.png[A screenshot of entering the name of the new volume that you want to restore.]
 +
-When restoring a backup from object storage to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a "quick restore" operation.
+When restoring a backup from object storage to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a _quick restore_ operation.
 +
 And if you are restoring the volume from a backup file that resides in an archival storage tier (available starting with ONTAP 9.10.1), then you can select the Restore Priority.
 +
@@ -270,6 +270,14 @@ endif::azure[]
 ifdef::gcp[]
 link:reference-google-backup-tiers.html#restoring-data-from-archival-storage[Learn more about restoring from Google archival storage]. Backup files in the Google Archive storage tier are restored almost immediately, and require no Restore Priority.
 endif::gcp[]
+
+. Click *Next* to choose whether you want to do a normal restore or a Quick Restore process: 
++
+image:screenshot_restore_browse_quick_restore.png[A screenshot showing the normal and Quick restore processes.]
++
+* *Normal restore*: Use normal restore on volumes that require high performance. Volumes will not be available until the restore process is complete. 
+* *Quick restore*: Restored volumes and data will be available immediately. Do not use this on volumes that require high performance because during the quick restore process, access to the data might be slower than usual. 
+
 
 . Click *Restore* and you are returned to the Restore Dashboard so you can review the progress of the restore operation.
 
