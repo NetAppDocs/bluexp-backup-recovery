@@ -53,10 +53,11 @@ This table provides a feature comparison of the 2 methods.
 | Browse & Restore
 | Search & Restore
 
-| Browse through a folder-style structure to find the volume, folder, or file within a single backup file | Search for a volume, folder, or file across *all backup files* by partial or full volume name, partial or full folder/file name, size range, and additional search filters
+| Browse through a folder-style structure to find the volume, folder, or file within a single backup file. | Search for a volume, folder, or file across *all backup files* by partial or full volume name, partial or full folder/file name, size range, and additional search filters.
 | Does not handle file recovery if the file has been deleted or renamed, and the user doesn't know the original file name | Handles newly created/deleted/renamed directories and newly created/deleted/renamed files
-| No additional cloud provider resources required | When restoring from the cloud, additional bucket and public cloud provider resources required per account
-| No additional cloud provider costs required | When restoring from the cloud, additional costs are required when scanning your backups and volumes for search results
+| No additional cloud provider resources required | When you restore from the cloud, additional bucket and public cloud provider resources required per account.
+| No additional cloud provider costs required | When you restore from the cloud, additional costs are required when scanning your backups and volumes for search results.
+| Quick restore is not supported. | Quick restore is supported. 
 
 
 |===
@@ -420,7 +421,7 @@ The search operation looks across all local Snapshot copies that exist for your 
 
 When you restore a _full volume_ from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. You can restore the data as a volume in the original working environment, to a different working environment that's located in the same cloud account as the source working environment, or to an on-premises ONTAP system.
 
-When restoring a cloud backup to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a "quick restore" operation. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore restores the metadata from the backup file to a volume instead of restoring the entire backup file. Quick restore is not recommended for performance or latency-sensitive applications, and it is not supported with backups in archived storage.
+//When restoring a cloud backup to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a "quick restore" operation. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore restores the metadata from the backup file to a volume instead of restoring the entire backup file. Quick restore is not recommended for performance or latency-sensitive applications, and it is not supported with backups in archived storage.
 
 You can restore _folders or files_ to the original volume location, to a different volume in the same working environment, to a different working environment that's using the same cloud account, or to a volume on an on-premises ONTAP system.
 
@@ -442,7 +443,7 @@ endif::gcp[]
 ====
 * If the backup file in object storage has been configured with DataLock & Ransomware protection, then folder-level restore is supported only if the ONTAP version is 9.13.1 or greater. If you are using an earlier version of ONTAP, you can restore the entire volume from the backup file and then access the folder and files you need.
 * If the backup file in object storage resides in archival storage, then folder-level restore is supported only if the ONTAP version is 9.13.1 or greater. If you are using an earlier version of ONTAP, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
-* Quick restore is supported for FlexGroup volumes only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. Quick restore for SnapLock volumes is supported only if the source system from which the cloud backup was created was running ONTAP 9.11.0 or greater. There is no minimum requirement for FlexVol volumes.
+//* Quick restore is supported for FlexGroup volumes only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. Quick restore for SnapLock volumes is supported only if the source system from which the cloud backup was created was running ONTAP 9.11.0 or greater. There is no minimum requirement for FlexVol volumes.
 * The "High" restore priority is not supported when restoring data from Azure archival storage to StorageGRID systems.
 * Restoring folders is not currently supported from volumes in ONTAP S3 object storage.
 ====
@@ -644,8 +645,8 @@ Note that the results also identify local volume Snapshot copies that contain th
 . Select the destination location where you want the volume, folder, or file(s) to be restored and click *Restore*.
 +
 * For volumes, you can select the original destination working environment or you can select an alternate working environment. When restoring a FlexGroup volume you'll need to choose multiple aggregates. 
-+
-When restoring a backup from object storage to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a "quick restore" operation.
+//+
+//When restoring a backup from object storage to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a _quick restore_ operation.
 * For folders, you can restore to the original location or you can select an alternate location; including the working environment, volume, and folder.
 * For files, you can restore to the original location or you can select an alternate location; including the working environment, volume, and folder. When selecting the original location, you can choose to overwrite the source file(s) or to create new file(s).
 +
