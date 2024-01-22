@@ -58,6 +58,7 @@ This table provides a feature comparison of the 2 methods.
 | No additional cloud provider resources required | When restoring from the cloud, additional bucket and public cloud provider resources required per account
 | No additional cloud provider costs required | When restoring from the cloud, additional costs are required when scanning your backups and volumes for search results
 
+
 |===
 
 This table provides a list of valid restore operations based on the location where your backup files reside. 
@@ -69,8 +70,8 @@ This table provides a list of valid restore operations based on the location whe
 3+^| Search & Restore
 
 |  | *Restore volume* | *Restore files* | *Restore folder* | *Restore volume* | *Restore files* | *Restore folder* 
-| Snapshot copy | Yes | No | No | Yes | Yes | No 
-| Replicated volume | Yes | No | No | Yes | Yes | No 
+| Snapshot copy | Yes | No | No | Yes | Yes | Yes 
+| Replicated volume | Yes | No | No | Yes | Yes | Yes 
 | Backup file | Yes | Yes | Yes | Yes | Yes | Yes 
 
 |===
