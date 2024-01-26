@@ -19,9 +19,9 @@ Learn what's new in BlueXP backup and recovery.
 
 == 7 February 2024
 
-=== Ability to do "Quick Restores" from cloud sources to on-premise ONTAP volume
+=== Ability to do "Quick Restores" from cloud backups to on-premises ONTAP volumes
 
-Now you can perform a _quick restore_ of a volume from cloud storage to an on-premise ONTAP destination volume. Previously you could perform a quick restore only to a Cloud Volumes ONTAP system. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore is much faster than full volume restore; it restores the metadata from a cloud snapshot to an ONTAP destination volume. The source could be from AWS S3, Azure Blob, Google Cloud Services, or NetApp StorageGRID.
+Now you can perform a _quick restore_ of a volume from cloud storage to an on-premises ONTAP destination volume. Previously you could perform a quick restore only to a Cloud Volumes ONTAP system. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore is much faster than full volume restore; it restores the metadata from a cloud snapshot to an ONTAP destination volume. The source could be from AWS S3, Azure Blob, Google Cloud Services, or NetApp StorageGRID.
  
 The on-premises ONTAP destination system must be running ONTAP version 9.14.1 or greater. 
 
@@ -29,15 +29,15 @@ You can do this using the Browse and restore process, not the Search and restore
 
 For details, see https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Restore ONTAP data from backup files].
 
-//=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
+=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
 
-//Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 === Ability to restore files and folders from Snapshot and Replication copies
 
-Currently, you can restore files and folders only from backup copies in AWS, Azure, and Google Cloud Services. Now, you can restore files and folders from local Snapshot copies and from replication copies. 
+Previously, you could restore files and folders only from backup copies in AWS, Azure, and Google Cloud Services. Now, you can restore files and folders from local Snapshot copies and from replication copies. 
 
-You can perform this using the Search and restore process, not the Browse and restore process. 
+You can perform this feature by using the Search and restore process, not by using the Browse and restore process. 
 
 == 15 December 2023 
 
