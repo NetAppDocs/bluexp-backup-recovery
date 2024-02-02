@@ -22,7 +22,7 @@ There are 2 types of data that are backed up:
 * BlueXP backup and recovery database - contains a listing of all the volumes, backup files, backup policies, and configuration information.
 * Indexed Catalog files - contains detailed indexes that are used for Search & Restore functionality that make your searches very quick and efficient when looking for volume data that you want to restore.
 
-This data is backed up once per day at midnight, and a maximum of 30 copies of each file are retained. If the Connector is managing multiple on-premises ONTAP working environments, the BlueXP backup and recovery files will be located in the bucket of the working environment that was activated first. 
+This data is backed up once per day at midnight, and a maximum of 7 copies of each file are retained. If the Connector is managing multiple on-premises ONTAP working environments, the BlueXP backup and recovery files will be located in the bucket of the working environment that was activated first. 
 
 TIP: No volume data is ever included in the BlueXP backup and recovery database or Indexed Catalog files.
 
