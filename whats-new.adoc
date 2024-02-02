@@ -17,13 +17,6 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
-== 01 February 2024 
-
-=== Enhancements to BlueXP backup and recovery for Virtual Machines
-
-* Support restoring virtual machines to an alternate location
-* Support for unprotecting datastores
-
 == 23 October 2023 
 
 === 3-2-1 backup policy creation during backup activation
