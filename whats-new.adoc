@@ -17,6 +17,37 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
+== 01 February 2024 
+
+=== Enhancements to BlueXP backup and recovery for Virtual Machines
+
+* Support restoring virtual machines to an alternate location
+* Support for unprotecting datastores
+
+== 15 December 2023 
+
+=== Reports available for local Snapshot and replication Snapshot copies
+
+Previously, you could generate reports on backup copies only. Now, you can create reports on local Snapshot copies and replication Snapshot copies as well. 
+
+With these reports, you can do the following: 
+
+* Ensure that critical data is protected according to your organizational policy.
+* Ensure that backups ran smoothly for a group of volumes.
+* Provide proof of protection on your production data. 
+
+Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-report-inventory.html[Report on data protection coverage]. 
+
+=== Custom tagging available on volumes for sorting and filtering
+
+You can now add custom tags to volumes starting in ONTAP 9.13.1 so that you can group volumes together within and across working environments. Doing this enables you to sort volumes in the BlueXP backup and recovery UI pages and filter in reports. 
+
+=== Catalog backups retained for 30 days
+
+Previously, Catalog.zip backups were retained for 7 days. Now, they are retained for 30 days. 
+
+Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html[Restore BlueXP backup and recovery data in dark sites]. 
+
 == 23 October 2023 
 
 === 3-2-1 backup policy creation during backup activation
@@ -40,6 +71,8 @@ The BlueXP backup and recovery Job Monitor previously monitored scheduled volume
 The BlueXP backup and recovery Job Monitor now includes scheduled jobs for local Snapshots, replications, and backups to object storage. 
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
+// end::whats-new[] 
+
 //
 //This requires Cloud Volumes ONTAP 9.13.1 and later. 
 
@@ -97,7 +130,7 @@ Now you can send your backup files immediately to archive storage instead of wri
 Backup and recovery now can back up both FlexVol and FlexGroup volumes that are configured using either SnapLock Compliance or SnapLock Enterprise protection modes. Your clusters must be running ONTAP 9.14 or greater for this support. Backing up FlexVol volumes using SnapLock Enterprise mode has been supported since ONTAP version 9.11.1. Earlier ONTAP releases provide no support for backing up SnapLock protection volumes.
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html[Learn more about protecting ONTAP data].
-// end::whats-new[] 
+
 
 == 1 August 2023 
 
