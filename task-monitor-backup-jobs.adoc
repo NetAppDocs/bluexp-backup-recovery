@@ -39,7 +39,7 @@ NOTE: If you've upgraded your ONTAP systems to 9.13.x and you don't see ongoing 
 
 . Select the *Job Monitoring* tab.
 +
-image:screenshot_backup_job_monitor2.png[A screenshot showing backup and restore jobs in the Job Monitoring dashboard.]
+image:screenshot_backup_job_monitor.png[A screenshot showing backup and restore jobs in the Job Monitoring dashboard.]
 +
 This screenshot shows the default column headings. 
 
@@ -47,7 +47,7 @@ This screenshot shows the default column headings.
 
 === Search and filter the list of jobs
 
-You can filter the operations on the Job Monitoring page using several filters, such as policy, Snapshot label, type of operation (protection, restore, retention, or other), custom tags on volumes, and protection type (local Snapshot, replication, or backup to the cloud). 
+You can filter the operations on the Job Monitoring page using several filters, such as policy, Snapshot label, type of operation (protection, restore, retention, or other) and protection type (local Snapshot, replication, or backup to the cloud). 
 
 By default, the Job Monitoring page shows protection and recovery jobs from the last 24 hours. You can change the timeframe using the Timeframe filter.
 
