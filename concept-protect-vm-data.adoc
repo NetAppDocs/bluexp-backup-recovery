@@ -26,7 +26,6 @@ Read the following requirements to make sure that you have a supported configura
 * ONTAP 9.8 or later
 * BlueXP 
 * NFS and VMFS datastores are supported. vVols are not supported.
-* Resource groups with custom Snapshots copies are not supported.
 * For VMFS support, SnapCenter Plug-in for VMware vSphere host should be running on 4.9 or later. Ensure to take a backup of the VMFS datastore if the SnapCenter Plug-in for VMware vSphere host was upgraded from an earlier version to the 4.9 release.
 * At least one backup should have been taken in SnapCenter Plug-in for VMware vSphere 4.6P1.
 * At least one daily, weekly, or monthly policy in SnapCenter Plug-in for VMware vSphere with no label or same label as that of the Virtual Machines policy in BlueXP.
