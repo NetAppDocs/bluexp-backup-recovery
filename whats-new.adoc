@@ -17,7 +17,7 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
-== 14 February 2024
+== 12 March 2024
 
 === Ability to do "Quick Restores" from cloud backups to on-premises ONTAP volumes
 
