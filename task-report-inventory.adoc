@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-report-inventory.html
 keywords: cloud backup, backup and recovery service, backup and recovery, backup, restore, report, inventory
-summary: With BlueXP backup and recovery reports, you can ensure that critical data is protected according to your organization’s defined policies and efficiently support audit for compliance processes. With the Backup inventory report, you can see all your local Snapshot copies, replications, and backups. 
+summary: With BlueXP backup and recovery reports, you can ensure that critical data is protected according to your organization’s defined policies and efficiently support audit for compliance processes. With the Backup inventory report, you can see all your backups for a specific account, working environment or SVM inventory. 
 ---
 
 = Report on data protection coverage
@@ -33,18 +33,20 @@ The BlueXP backup and recovery reports provide information about the following a
 
 
 == Create a Backup Inventory report
-From the BlueXP backup and recovery Reports tab, you can create a Backup Inventory report and filter its contents. With the Backup Inventory report, you can see all your local Snapshot copies, replications to secondary storage, and backups for a specific account, working environment, or SVM inventory. 
+From the BlueXP backup and recovery Reports tab, you can create the Backup Inventory report and filter its contents. With the Backup Inventory report, you can see all your backups for a specific account, working environment, or SVM inventory. 
+
 
 The Backup Inventory report shows the following information and more: 
 
 * Account, working environment, and SVM 
 * Protected and non-protected volumes 
-* Target
-* Applied policy
+* Backup target
+* Applied backup policy
 * Encryption style (provider-managed key or user-managed key)
 * DataLock and Ransomware protection status (governance, compliance, or none)
 * Archive enabled status
-* Count of local Snapshot copies, replications, or backup copies
+* Count of backup copies
+//* Data protection type of local Snapshots, replications to secondary storage, or backups to object storage
 * Backup type (scheduled or user-initiated ad-hoc backup)
 * Storage class
 * Snapshot label
@@ -54,32 +56,31 @@ NOTE: The Backup Inventory report doesn't include expired or failed backup infor
 
 The top of the report includes a graph that shows the following information: 
 
-* Count of volumes with at least one Local Snapshot, replication, or backup (depending on the tab shown)
+* Count of volumes in scope with at least one backup
 * Total of inactive volumes plus active volumes
 
+The Backup Inventory report shows the following charts:
 
-image:screenshot-report-backup-accountlevel.png["A sample Backup Inventory report"]
+* *Volume backup status*: Shows protected compared to non-protected volumes for the selected scope.
+* *Volumes by backup count*: Groups volumes by the number of available backup copies for this volume.
+
 
 .Steps
 
 . From the top menu, select *Reports*. 
 . Select *Backup inventory*. 
 . Select *Create report*.
-. Select the report scope of account level or Custom. 
-. Select the filters for the report: 
+. Select the account, working environment, and SVM. 
 +
-* Volumes
-* Protection: Select the type of protection (Local Snapshot copies, replication, or backups) that you want in the report. You can select all three. Additionally, select whether you want to include non-protected volumes.  
-
-. Select *Create report*. 
-
-. Review the report tabs (Local Snapshot, Replication, or Backup), depending on your report selections. 
-
-. (Optional) Export the report contents in .CSV format by selecting *Download CSV*.
-
+TIP: You can select multiple working environments and SVMs. 
+. Select the timeframe: last 24 hours, week, or month. 
 //. To have an email sent about the report, select *Create a subscription for this report*, select the delivery frequency, and email addresses for one or more email recipients
 //+
 //NOTE: Email recipients can be BlueXP users or users who haven't signed into BlueXP. 
+. Review the report sections (Snapshot Policies, Replication Policies, or Backup Policies), depending on your report selections. 
+. (Optional) Filter the results by job status.
+. (Optional) Export the report contents in .CSV format by selecting *Download CSV*.
+
 
 == Create a Data Protection Job Activity report 
 

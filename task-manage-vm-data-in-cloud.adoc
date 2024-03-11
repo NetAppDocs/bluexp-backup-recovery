@@ -32,6 +32,14 @@ The datastores and virtual machines that are protected using the registered Snap
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Virtual Machines* > *Settings* > *SnapCenter Plug-in for VMware vSphere*.
 . Click the SnapCenter Plug-in for VMware vSphere host for which you want to see the datastores and virtual machines.
 
+== Unprotect datastores
+You can unprotect a datastore which was already protected earlier. You can unprotect a datastore when you want to delete the cloud backups or do not want to back it up to the cloud anymore. The datastore can be protected again after the unprotection is successful.
+
+.Steps
+
+. In BlueXP UI, click *Protection* > *Backup and recovery* > *Virtual Machines*.
+. Click image:icon-action.png[action] corresponding to the datastore that you want to unprotect and click *Unprotect*.
+
 == Edit the SnapCenter Plug-in for VMware vSphere Instance
 You can edit the details of the SnapCenter Plug-in for VMware vSphere host in BlueXP.
 

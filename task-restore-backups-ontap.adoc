@@ -23,8 +23,6 @@ Backups of your ONTAP volume data are available from the locations where you cre
 
 A valid BlueXP backup and recovery license is required to restore data from backup files to a production system.
 
-NOTE: Snapshots must have unique names or restore operations will not function properly.
-
 To summarize, these are the valid flows you can use to restore volume data to an ONTAP working environment:
 
 * Backup file -> restored volume
@@ -233,16 +231,10 @@ video::9Og5agUWyRk[youtube, width=848, height=480, end=164]
 image:screenshot_restore_volume_selection.png[A screenshot of selecting the Restore Volumes button from the Restore Dashboard.]
 
 . In the _Select Source_ page, navigate to the backup file for the volume you want to restore. Select the *Working Environment*, the *Volume*, and the *Backup* file that has the date/time stamp from which you want to restore.
-
-
-+ 
-Optionally, search for custom tags to list only those volumes with a specific tag. 
-
-+
-image:screenshot_restore_select_volume_snapshot2.png["A screenshot of selecting the working environment, volume, and volume backup file that you want to restore."]
-
 +
 The *Location* column shows whether the backup file (Snapshot) is *Local* (a Snapshot copy on the source system), *Secondary* (a replicated volume on a secondary ONTAP system), or *Object Storage* (a backup file in object storage). Choose the file that you want to restore.
++
+image:screenshot_restore_select_volume_snapshot.png["A screenshot of selecting the working environment, volume, and volume backup file that you want to restore."]
 
 . Click *Next*.
 +

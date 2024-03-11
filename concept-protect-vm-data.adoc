@@ -36,6 +36,7 @@ Read the following requirements to make sure that you have a supported configura
 * Ensure that the destination datastore does not have stale virtual machine files in the format of restore_xxx_xxxxxx_filename from the previous restore operation failures. You should delete the stale files before triggering a restore operation.
 * To deploy a connector with proxy configured, ensure that all outgoing connector calls are routed through the proxy server.
 
+
 The following image shows each component and the connections that you need to prepare between them:
 
 image:cloud_backup_vm.png[architecture diagram]
