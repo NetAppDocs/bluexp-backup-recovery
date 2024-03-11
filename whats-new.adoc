@@ -17,6 +17,28 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
+== 12 March 2024
+
+=== Ability to do "Quick Restores" from cloud backups to on-premises ONTAP volumes
+
+Now you can perform a _quick restore_ of a volume from cloud storage to an on-premises ONTAP destination volume. Previously you could perform a quick restore only to a Cloud Volumes ONTAP system. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore is much faster than full volume restore; it restores the metadata from a cloud snapshot to an ONTAP destination volume. The source could be from AWS S3, Azure Blob, Google Cloud Services, or NetApp StorageGRID.
+ 
+The on-premises ONTAP destination system must be running ONTAP version 9.14.1 or greater. 
+
+You can do this using the Browse and restore process, not the Search and restore process. 
+
+For details, see https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Restore ONTAP data from backup files].
+
+//=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
+
+//Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+
+=== Ability to restore files and folders from Snapshot and Replication copies
+
+Previously, you could restore files and folders only from backup copies in AWS, Azure, and Google Cloud Services. Now, you can restore files and folders from local Snapshot copies and from replication copies. 
+
+You can perform this feature by using the Search and restore process, not by using the Browse and restore process. 
+
 == 01 February 2024 
 
 === Enhancements to BlueXP backup and recovery for Virtual Machines
@@ -86,6 +108,9 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 
 //https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-sept-release/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review operation activity in the BlueXP Timeline].
 
+// end::whats-new[] 
+
+
 == 13 October 2023
 
 === Enhancements to BlueXP backup and recovery for applications (cloud-native)
@@ -107,6 +132,8 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 === Enhancements to BlueXP backup and recovery for Virtual Machines
 
 * Support for connector proxy deployment model
+
+// end::whats-new[] 
 
 == 11 September 2023
 
@@ -245,9 +272,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 
 When you're using BlueXP backup and recovery in a site with no internet access, known as a "private mode" deployment, the BlueXP backup and recovery information is stored only on the local Connector system. This new functionality automatically backs up critical BlueXP backup and recovery data to a bucket on your connected StorageGRID system so that you can restore this data onto a new Connector if necessary. https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html[Learn more]
 
-//=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
-//
-//Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+
 
 == 8 May 2023
 

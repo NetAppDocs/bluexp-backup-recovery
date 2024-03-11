@@ -278,7 +278,7 @@ homepage:
         - title: Back up on-premises ONTAP to Google Cloud
           url: task-backup-onprem-to-gcp.html
           flavor: gcp
-        - title: back up on-premises ONTAP to ONTAP S3
+        - title: Back up on-premises ONTAP to ONTAP S3
           url: task-backup-onprem-to-ontap-s3.html
         - title: Back up on-premises ONTAP to StorageGRID
           url: task-backup-onprem-private-cloud.html
