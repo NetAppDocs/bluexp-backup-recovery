@@ -47,7 +47,7 @@ Note that Yearly backups will be deleted automatically from the source system af
 
 BlueXP backup and recovery provides support for DataLock and Ransomware protection for your volume backups. These features enable you to lock your backup files and scan them to detect possible ransomware on the backup files. This is an optional setting that you can define in your backup policies when you want extra protection for your volume backups for a cluster.
 
-Both of these features protect your backup files so that you'll always have a valid backup file to recover data from in case of a ransomware attack attempt on your backups. It's also helpful to meet certain regulatory requirements where backups need to be locked and retained for a certain period of time. When DataLock and Ransomware Protection is enabled, the cloud bucket that is provisioned as a part of BlueXP backup and recovery activation will have object locking and object versioning enabled.
+Both of these features protect your backup files so that you'll always have a valid backup file to recover data from in case of a ransomware attack attempt on your backups. It's also helpful to meet certain regulatory requirements where backups need to be locked and retained for a certain period of time. When the DataLock and Ransomware Protection option is enabled, the cloud bucket that is provisioned as a part of BlueXP backup and recovery activation will have object locking and object versioning enabled.
 
 https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware[See the DataLock and Ransomware protection blog for more details^].
 
@@ -62,7 +62,7 @@ This feature does not provide protection for your source volumes; only for the b
 
 === What is DataLock
 
-DataLock protects your backup files from being modified or deleted for a certain period of time - also called immutable storage. This functionality uses technology from the object storage provider for "object locking". The period of time that the backup file is locked (and retained) is called the DataLock Retention Period. It is based on the backup policy schedule and retention setting that you defined; plus a 14 day buffer. Any DataLock retention policy that is less than 30 days is rounded up to 30 days minimum.
+DataLock protects your backup files from being modified or deleted for a certain period of time - also called _immutable storage_. This functionality uses technology from the object storage provider for "object locking." The period of time that the backup file is locked (and retained) is called the DataLock Retention Period. It is based on the backup policy schedule and retention setting that you defined; plus a 14-day buffer. Any DataLock retention policy that is less than 30 days is rounded up to 30 days minimum.
 
 Be aware that old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period expires.
 
@@ -265,7 +265,7 @@ endif::azure[]
 
 === Restrictions
 
-* DataLock and Ransomware protection is not available if you have configured archival storage in the backup policy.
+* The DataLock and Ransomware protection feature is not available if you have configured archival storage in the backup policy.
 * The DataLock option you select when activating BlueXP backup and recovery must be used for all backup policies for that cluster. 
 * You cannot use multiple DataLock modes on a single cluster.
 * If you enable DataLock, all volume backups will be locked. You can't mix locked and non-locked volume backups for a single cluster.
@@ -274,12 +274,13 @@ endif::azure[]
 
 == Archival storage settings
 
-When using AWS, Azure, or Google cloud storage you can move older backup files to a less expensive archival storage class/access tier after a certain number of days. You can also choose to send your backup files to archival storage immediately without being written to standard cloud storage. Just enter *0* as the "Archive After Days" to send your backup file directly to archival storage. This can be especially helpful for users who rarely need to access data from cloud backups or users who are replacing a backup to tape solution.
+When using AWS, Azure, or Google cloud storage, you can move older backup files to a less expensive archival storage class or access tier after a certain number of days. You can also choose to send your backup files to archival storage immediately without being written to standard cloud storage. Just enter *0* as the "Archive After Days" to send your backup file directly to archival storage. This can be especially helpful for users who rarely need to access data from cloud backups or users who are replacing a backup to tape solution.
 
 Data in archival tiers can't be accessed immediately when needed, and will require a higher retrieval cost, so you'll need to consider how often you may need to restore data from backup files before deciding to archive your backup files. 
 
 [NOTE]
 ====
+* Even if you select “0” to send all data blocks to archival cloud storage, metadata blocks are always written to standard cloud storage. 
 * Archival storage can't be used if you have enabled DataLock.
 * You can't change the archival policy after selecting *0* days (archive immediately).
 ====
