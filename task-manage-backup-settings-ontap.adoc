@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: task-manage-backup-settings-ontap.html
-keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots
-summary: You can change many cluster-level backup settings that you set when activating BlueXP backup and recovery for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more.
+keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots, ransomware scans, scans
+summary: You can change many cluster-level backup settings that you set when activating BlueXP backup and recovery for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more. You can also enable or disable ransomware scans for a working environment. 
 ---
 
 = Manage cluster-level backup settings
@@ -13,7 +13,7 @@ summary: You can change many cluster-level backup settings that you set when act
 :imagesdir: ./media/
 
 [.lead]
-You can change many cluster-level backup settings that you set when activating BlueXP backup and recovery for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more.
+You can change many cluster-level backup settings that you set when activating BlueXP backup and recovery for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more. You can also enable or disable ransomware scans for a working environment. 
 
 //storage keys, 
 
@@ -178,7 +178,7 @@ image:screenshot_backup_edit_yearly_snap_delete.png[A screenshot of the Yearly S
 
 You can enable or disable ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed weekly by default. You can change that schedule to days or weeks or disable it, saving costs.  
 
-Refer to link:task-create-policies-ontap[Manage policies] for details about managing policies. 
+Refer to link:task-create-policies-ontap[Manage policies] for details about managing policies that implement ransomware detection. 
 
 .Steps 
 
