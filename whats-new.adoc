@@ -17,6 +17,44 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
+== 09 April 2024
+
+=== Ability to enable or disable ransomware scans 
+
+Previously, when you enabled ransomware detection in a backup policy, scans occurred automatically when the first backup was created and when you restored a backup. Previously, the service scanned all Snapshot copies and you could not disable the scans. 
+
+With this release, you can now enable or disable ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed weekly by default. You can change that schedule to days or weeks or disable it, saving costs.  
+
+Refer to the following information for details: 
+
+* link:task-manage-backup-settings-ontap.html[Manage backup settings]
+
+* link:task-create-policies-ontap.html[Manage policies for ONTAP volumes]
+
+//* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings-ontap.html[Manage backup settings]
+
+//* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html[Manage policies for ONTAP volumes]
+
+
+
+=== Support for Red Hat Enterprise Linux version 8.8 and 9.3
+
+Previously, BlueXP supported Red Hat Enterprise Linux versions 9.0, 9.1, and 9.2. 
+
+BlueXP now supports versions 8.8 and 9.3, which require Podman, rather than Docker Engine. This impacts how to restart the service and restore data in a dark site. 
+
+Refer to changes in the following procedures: 
+
+* link:reference-restart-backup.html[Restart the BlueXP backup and recovery service]
+* link:reference-backup-cbs-db-in-dark-site.html[Restore BlueXP backup and recovery data in a dark site]
+
+//* https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-restart-backup.html[Restart the BlueXP backup and recovery service]
+//* https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html[Restore BlueXP backup and recovery data in a dark site]
+
+//=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
+
+//Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
+
 == 12 March 2024
 
 === Ability to do "Quick Restores" from cloud backups to on-premises ONTAP volumes
@@ -29,9 +67,7 @@ You can do this using the Browse and restore process, not the Search and restore
 
 For details, see https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Restore ONTAP data from backup files].
 
-//=== Ability to back up data from Cloud Volumes ONTAP systems in secure regions
 
-//Now you can back up data from Cloud Volumes ONTAP systems installed in AWS C2S/SC2S and Azure IL6 secure regions to Amazon S3 or Azure Blob. This requires that you install the Connector in "private mode" on a Linux host in the secure region, and that you deploy the Cloud Volumes ONTAP system there as well. See https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html[Backing up Cloud Volumes ONTAP data to Amazon S3] and https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html[Backing up Cloud Volumes ONTAP data to Azure Blob].
 
 === Ability to restore files and folders from Snapshot and Replication copies
 
@@ -45,6 +81,8 @@ You can perform this feature by using the Search and restore process, not by usi
 
 * Support restoring virtual machines to an alternate location
 * Support for unprotecting datastores
+
+// end::whats-new[] 
 
 == 15 December 2023 
 
@@ -93,7 +131,7 @@ The BlueXP backup and recovery Job Monitor previously monitored scheduled volume
 The BlueXP backup and recovery Job Monitor now includes scheduled jobs for local Snapshots, replications, and backups to object storage. 
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Learn more about the updated Job Monitor].
-// end::whats-new[] 
+
 
 //
 //This requires Cloud Volumes ONTAP 9.13.1 and later. 
@@ -108,7 +146,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 
 //https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-sept-release/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center[Review operation activity in the BlueXP Timeline].
 
-// end::whats-new[] 
+
 
 
 == 13 October 2023
