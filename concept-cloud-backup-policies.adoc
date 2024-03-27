@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, back up volumes, cloud backup, backup pol
 summary: BlueXP backup and recovery enables you to create backup policies with a variety of configuration settings for your on-prem ONTAP and Cloud Volumes ONTAP systems.
 ---
 
-= BlueXP backup and recovery policy configuration settings
+= Backup-to-object policy settings
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,9 +13,9 @@ summary: BlueXP backup and recovery enables you to create backup policies with a
 :imagesdir: ./media/
 
 [.lead]
-BlueXP backup and recovery enables you to create backup policies with a variety of configuration settings for your on-prem ONTAP and Cloud Volumes ONTAP systems.
+BlueXP backup and recovery enables you to create backup policies with a variety of settings for your on-prem ONTAP and Cloud Volumes ONTAP systems.
 
-NOTE: These policy settings are relevant for backup to object storage only. None of these settings affect your Snapshot or replication policies. Similar policy settings for Snapshots and replications will be added in the future.
+NOTE: These policy settings are relevant for backup-to-object storage only. None of these settings affect your Snapshot or replication policies. Similar policy settings for Snapshots and replications will be added in the future.
 
 == Backup schedules
 
@@ -80,7 +80,9 @@ Ransomware protection scans your backup files to look for evidence of a ransomwa
 
 Ransomware scans happen at 3 points in the backup and restore process:
 
-* When a backup file is created
+* When a backup file is created.
++ 
+You can optionally enable or disable scheduled ransomware scans. Refer to link:concept-cloud-backup-policies.html[Backup policy settings] for details about ransomware protection. 
 +
 The scan is not performed on the backup file when it is first written to cloud storage, but when the *next* backup file is written. For example, if you have a weekly backup schedule set for Tuesday, on Tuesday the 14th a backup is created. Then on Tuesday the 21st another backup is created. The ransomware scan is run on the backup file from the 14th at this time.
 * When you attempt to restore data from a backup file

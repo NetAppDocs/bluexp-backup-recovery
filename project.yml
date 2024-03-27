@@ -49,7 +49,9 @@ sidebar:
         - title: Plan your protection journey
           url: /concept-protection-journey.html
         - title: Manage policies for ONTAP volumes
-          url: /task-create-policies-ontap.html
+          url: /task-create-policies-ontap.html   
+        - title: Backup-to-object policy settings
+          url: /concept-cloud-backup-policies.html
         - title: Back up Cloud Volumes ONTAP to Amazon S3
           flavor: aws
           url: /task-backup-to-s3.html
@@ -218,8 +220,6 @@ sidebar:
       url: /api-backup-restore.html
     - title: Reference
       entries:
-        - title: Backup policy settings
-          url: /concept-cloud-backup-policies.html
         - title: Supported AWS archive storage tiers
           url: /reference-aws-backup-tiers.html
         - title: Supported Azure archive access tiers
