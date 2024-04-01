@@ -177,9 +177,8 @@ image:screenshot_backup_edit_yearly_snap_delete.png[A screenshot of the Yearly S
 
 == Enable or disable scheduled ransomware scans 
 
-You can enable or disable scheduled ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed weekly by default. You can change that schedule to days or weeks or disable it, saving costs.  
+Scheduled ransomware protection scans are enabled by default after deployment for 7 days. After that, the scheduled scans are disabled to reduce your costs. You can enable or disable scheduled ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed weekly by default. You can change that schedule to days or weeks or disable it, saving costs.  
 
-Scheduled scans are enabled by default after deployment for 7 days. After that, the scheduled scans are disabled to reduce your costs. 
 
 Refer to link:task-create-policies-ontap.html[Manage policies] for details about managing policies that implement ransomware detection. 
 

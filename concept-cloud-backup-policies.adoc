@@ -98,6 +98,10 @@ Each backup policy provides a section for _DataLock and Ransomware Protection_ t
 
 image:screenshot_datalock_ransomware_settings.png["A screenshot of the DataLock and Ransomware Protection settings for AWS, Azure, and StorageGRID when creating a backup policy."]
 
+Scheduled ransomware protection scans are enabled by default after deployment for 7 days. After that, the scheduled scans are disabled to reduce your costs. You can enable or disable scheduled ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed weekly by default. You can change that schedule to days or weeks or disable it, saving costs.  
+
+Refer to link:manage-backup-settings-ontap.html[How to update Ransomware protection options in the Advanced Settings page].
+
 You can choose from the following settings for each backup policy:
 
 // start tabbed area
