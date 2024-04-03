@@ -284,8 +284,6 @@ homepage:
           url: task-backup-onprem-private-cloud.html
     - title: Manage ONTAP backup files
       links:
-        - title: Enable volume backups on additional volumes
-          url: task-manage-backups-ontap.html#activate-backup-on-additional-volumes-in-a-working-environment
         - title: Manage backups of your ONTAP systems
           url: task-manage-backups-ontap.html
         - title: Manage policies for ONTAP volumes
@@ -293,9 +291,7 @@ homepage:
         - title: Backup-to-object policy options (DataLock & Ransomware protection)
           url: concept-cloud-backup-policies.html
         - title: Manage backup-to-object options in Advanced Settings
-          url: task-manage-backups-settings-ontap.html
-        - title: Create a manual volume backup
-          url: task-manage-backups-ontap.html#create-a-manual-volume-backup-at-any-time
+          url: task-manage-backup-settings-ontap.html
         - title: Manage replication relationships
           url: task-manage-backups-ontap.html#manage-the-replication-relationship-with-the-source-volume
     - title: Back up applications data to the cloud
