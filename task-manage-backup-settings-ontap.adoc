@@ -13,13 +13,11 @@ summary: You can change many cluster-level backup-to-object settings that you se
 :imagesdir: ./media/
 
 [.lead]
-You can change many cluster-level backup-to-object settings that you set when activating BlueXP backup and recovery for each ONTAP system using the Advanced Settings page. You can also modify some settings that are applied as "default" backup settings. This includes changing the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more. You can also enable or disable scheduled ransomware scans for a working environment. 
+You can change cluster-level, backup-to-object storage settings that you set when activating BlueXP backup and recovery for each ONTAP system by using the Advanced Settings page. You can also modify some settings that are applied as "default" backup settings. This includes changing the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more. You can also enable or disable scheduled ransomware scans for a working environment. 
 
 //storage keys, 
 
 NOTE: These settings are available for backup-to-object storage only. None of these settings affect your Snapshot or replication settings. Similar cluster-level replications settings for Snapshots and replications will be added in the future.
-
-Cluster-level backup settings are available in the _Advanced Settings_ page.
 
 You can change the following options in the Advanced Settings page:
 
@@ -87,9 +85,9 @@ Note that some options are unavailable based on the version of ONTAP on the sour
 //
 //Just select the new IPspace and click *Apply*. After that you'll be able to select the volumes that you want to back up from aggregates in that IPspace.
 
-== Change the network bandwidth (max transfer rate) available to upload backups to object storage
+== Change the network bandwidth available to upload backups to object storage
 
-When you activate BlueXP backup and recovery for a working environment, by default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice that backup traffic is affecting normal user workloads, you can throttle the amount of network bandwidth that is used during the transfer. 
+When you activate BlueXP backup and recovery for a working environment, by default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice that backup traffic is affecting normal user workloads, you can throttle the amount of network bandwidth that is used during the transfer using the Max Transfer Rate option in the Advanced Settings page. 
 
 .Steps 
 
