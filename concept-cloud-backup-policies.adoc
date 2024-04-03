@@ -203,8 +203,9 @@ ifdef::aws[]
 ** The Connector can be deployed in the cloud or on your premises
 ** The following S3 permissions must be part of the IAM role that provides the Connector with permissions. They reside in the "backupS3Policy" section for the resource "arn:aws:s3:::netapp-backup-*":
 // Start snippet: collapsible block (open on page load)
++
 .AWS S3 permissions
-[%collapsible%open]
+[%collapsible]
 ====
 *** s3:GetObjectVersionTagging
 *** s3:GetBucketObjectLockConfiguration
@@ -250,10 +251,10 @@ endif::azure[]
 ** The Connector must be deployed on your premises (it can be installed in a site with or without internet access)
 ** The following S3 permissions must be part of the IAM role that provides the Connector with permissions:
 // Start snippet: collapsible block (open on page load)
++
 .StorageGRID S3 permissions
-[%collapsible%open]
+[%collapsible]
 ====
-
 *** s3:GetObjectVersionTagging
 *** s3:GetBucketObjectLockConfiguration
 *** s3:GetObjectVersionAcl

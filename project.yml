@@ -52,6 +52,8 @@ sidebar:
           url: /task-create-policies-ontap.html   
         - title: Backup-to-object policy settings
           url: /concept-cloud-backup-policies.html
+        - title: Manage backup-to-object options in Advanced Settings
+          url: /task-manage-backup-settings-ontap.html
         - title: Back up Cloud Volumes ONTAP to Amazon S3
           flavor: aws
           url: /task-backup-to-s3.html
@@ -78,8 +80,6 @@ sidebar:
           url: /task-manage-backups-ontap.html
         - title: Restore from ONTAP backups
           url: /task-restore-backups-ontap.html
-        - title: Manage backup-to-object settings
-          url: /task-manage-backup-settings-ontap.html
     - title: Back up and restore on-premises applications data
       entries:
         - title: Protect your on-premises applications data
