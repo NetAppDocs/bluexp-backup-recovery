@@ -62,7 +62,15 @@ Snapshot policies are displayed by default.
 
 . To view other policies that exist in the working environment, select either *Replication Policies* or *Backup Policies*. If the existing policies can be used for your backup plans, you’re all set. If you need to have a policy with different characteristics, you can create new policies from this page.
 
-== Create a Snapshot policy before initiating the Snapshot
+== Create policies 
+
+You can create policies that govern your Snapshot copies, replications and backups to object storage: 
+
+* <<Create a Snapshot policy before initiating the Snapshot>>
+* <<Create a replication policy before initiating the replication>>
+* <<Create a backup-to-object storage policy before initiating the backup>>
+
+=== Create a Snapshot policy before initiating the Snapshot
 
 Part of your 3-2-1 strategy involves creating a Snapshot copy of the volume on the *primary* storage system. 
 
@@ -88,7 +96,7 @@ The Policies management page appears.
 //image:screenshot_policies_create_labels.png["A screenshot of setting up Snapshot schedule labels"]
 . Select *Create*.
 
-=== Snapshot policy example using cascading architecture
+*Snapshot policy example using cascading architecture*
 
 This example creates a Snapshot policy with two clusters: 
 
@@ -101,7 +109,7 @@ This example creates a Snapshot policy with two clusters:
 .. Ignore the Snapshot policy section. 
 .. Configure the Replication and Backup to object policies. 
 
-== Create a replication policy before initiating the replication
+=== Create a replication policy before initiating the replication
 
 Your 3-2-1 strategy might include replicating a volume on a different storage system. The replication policy resides on the *secondary* storage system. 
 
@@ -112,7 +120,7 @@ Your 3-2-1 strategy might include replicating a volume on a different storage sy
 . Specify the transfer schedule. 
 . Select *Create*.
 
-== Create a backup-to-object-storage policy before initiating the backup
+=== Create a backup-to-object-storage policy before initiating the backup
 
 Your 3-2-1 strategy might include backing up a volume to object storage. 
 

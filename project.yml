@@ -286,12 +286,12 @@ homepage:
       links:
         - title: Enable volume backups on additional volumes
           url: task-manage-backups-ontap.html#activate-backup-on-additional-volumes-in-a-working-environment
-        - title: Edit an existing backup to cloud policy
-          url: task-manage-backups-ontap.html#edit-an-existing-backup-to-cloud-policy
-        - title: Add a new backup to cloud policy
-          url: task-manage-backups-ontap.html#add-a-new-backup-to-cloud-policy
-        - title: Change the policy assigned to existing volumes
-          url: task-manage-backups-ontap.html#change-the-backup-settings-assigned-to-existing-volumes
+        - title: Manage backups of your ONTAP systems
+          url: task-manage-backups-ontap.html
+        - title: Manage policies for ONTAP volumes
+          url: task-create-policies-ontap.html
+        - title: Backup-to-object policy settings (DataLock & Ransomware protection)
+          url: concept-cloud-backup-policies.html
         - title: Create a manual volume backup
           url: task-manage-backups-ontap.html#create-a-manual-volume-backup-at-any-time
         - title: View the list of backups for each volume
