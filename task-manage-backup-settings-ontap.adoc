@@ -5,7 +5,7 @@ keywords: cloud backup, cloud backup service, storage keys, network bandwidth, a
 summary: You can change many cluster-level backup-to-object settings that you set when activating BlueXP backup and recovery for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more. You can also enable or disable ransomware scans for a working environment. 
 ---
 
-= Manage backup-to-object storage settings
+= Manage backup-to-object storage options in the Advanced Settings page
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: You can change many cluster-level backup-to-object settings that you se
 :imagesdir: ./media/
 
 [.lead]
-You can change many cluster-level backup-to-object settings that you set when activating BlueXP backup and recovery for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more. You can also enable or disable scheduled ransomware scans for a working environment. 
+You can change many cluster-level backup-to-object settings that you set when activating BlueXP backup and recovery for each ONTAP system using the Advanced Settings page. You can also modify some settings that are applied as "default" backup settings. This includes changing the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more. You can also enable or disable scheduled ransomware scans for a working environment. 
 
 //storage keys, 
 
@@ -21,16 +21,16 @@ NOTE: These settings are available for backup-to-object storage only. None of th
 
 Cluster-level backup settings are available in the _Advanced Settings_ page.
 
-The full set of backup settings that you can change includes:
+You can change the following options in the Advanced Settings page:
 
 //* Changing the storage keys that give your ONTAP system permission to access object storage
 //* Changing the ONTAP IPspace that is connected to object storage
-* Changing the network bandwidth allocated to upload backups to object storage
+* Changing the network bandwidth allocated to upload backups to object storage using the Max Transfer Rate option
 //ifdef::aws[]
 //* Changing the archival storage class (AWS only)
 //endif::aws[]
 //* Changing the automatic backup setting (and policy) for future volumes
-* Changing whether historical Snapshot copies are included in your initial baseline backup files for future volumes
+* Changing whether historical Snapshot copies are exported as backup files and included in your initial baseline backup files for future volumes
 * Changing whether "yearly" snapshots are removed from the source system
 * Enabling or disabling scheduled ransomware scans for a working environment
 
@@ -87,7 +87,7 @@ Note that some options are unavailable based on the version of ONTAP on the sour
 //
 //Just select the new IPspace and click *Apply*. After that you'll be able to select the volumes that you want to back up from aggregates in that IPspace.
 
-== Change the network bandwidth available to upload backups to object storage
+== Change the network bandwidth (max transfer rate) available to upload backups to object storage
 
 When you activate BlueXP backup and recovery for a working environment, by default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice that backup traffic is affecting normal user workloads, you can throttle the amount of network bandwidth that is used during the transfer. 
 
