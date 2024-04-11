@@ -17,7 +17,7 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
-== 09 April 2024
+== 04 April 2024
 
 === Ability to enable or disable ransomware scans 
 
@@ -41,14 +41,14 @@ Refer to the following information for details:
 
 
 
-=== Red Hat Enterprise Linux versions 8.8 and 9.3
+//=== Red Hat Enterprise Linux versions 8.8 and 9.3
 
-The BlueXP Connector now supports Red Hat Enterprise Linux versions 8.8 and 9.3 for on-premises installations in addition to the operating systems mentioned in https://docs.netapp.com/us-en/bluexp-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements[Prepare for deployment^].
+//The BlueXP Connector now supports Red Hat Enterprise Linux versions 8.8 and 9.3 for on-premises installations in addition to the operating systems mentioned in https://docs.netapp.com/us-en/bluexp-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements[Prepare for deployment^].
 
-Red Hat Enterprise Linux versions 8 and 9 require that you use the Podman engine instead of the Docker engine. At this time, BlueXP backup and recovery is not compatible with the Podman engine, so if you plan to use BlueXP backup and recovery with your other BlueXP services, continue to use the other supported operating systems when installing your Connector.
+//Red Hat Enterprise Linux versions 8 and 9 require that you use the Podman engine instead of the Docker engine. At this time, BlueXP backup and recovery is not compatible with the Podman engine, so if you plan to use BlueXP backup and recovery with your other BlueXP services, continue to use the other supported operating systems when installing your Connector.
 
 
-//Previously, BlueXP supported Red Hat Enterprise Linux versions 9.0, 9.1, and 9.2. 
+//This next is for when BR can do Podman. Previously, BlueXP supported Red Hat Enterprise Linux versions 9.0, 9.1, and 9.2. 
 
 //BlueXP now supports versions 8.8 and 9.3, which require Podman, rather than Docker Engine. This impacts how to restart the service and restore data in a dark site. 
 
