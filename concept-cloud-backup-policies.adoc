@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, back up volumes, cloud backup, backup pol
 summary: BlueXP backup and recovery enables you to create backup policies with a variety of configuration settings for your on-prem ONTAP and Cloud Volumes ONTAP systems.
 ---
 
-= BlueXP backup and recovery policy configuration settings
+= Backup-to-object policy options
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,11 +13,11 @@ summary: BlueXP backup and recovery enables you to create backup policies with a
 :imagesdir: ./media/
 
 [.lead]
-BlueXP backup and recovery enables you to create backup policies with a variety of configuration settings for your on-prem ONTAP and Cloud Volumes ONTAP systems.
+BlueXP backup and recovery enables you to create backup policies with a variety of settings for your on-prem ONTAP and Cloud Volumes ONTAP systems.
 
-NOTE: These policy settings are relevant for backup to object storage only. None of these settings affect your Snapshot or replication policies. Similar policy settings for Snapshots and replications will be added in the future.
+NOTE: These policy settings are relevant for backup-to-object storage only. None of these settings affect your Snapshot or replication policies. Similar policy settings for Snapshots and replications will be added in the future.
 
-== Backup schedules
+== Backup schedule options
 
 BlueXP backup and recovery enables you to create multiple backup policies with unique schedules for each working environment (cluster). You can assign different backup policies to volumes that have different recovery point objectives (RPO).
 
@@ -43,7 +43,7 @@ For example, say you create a backup policy that creates 7 *weekly* and 12 *mont
 
 Note that Yearly backups will be deleted automatically from the source system after being transferred to object storage. This default behavior can be changed link:task-manage-backup-settings-ontap#change-whether-yearly-snapshots-are-removed-from-the-source-system[in the Advanced Settings page] for the Working Environment.
 
-== DataLock and Ransomware protection
+== DataLock and Ransomware protection options
 
 BlueXP backup and recovery provides support for DataLock and Ransomware protection for your volume backups. These features enable you to lock your backup files and scan them to detect possible ransomware on the backup files. This is an optional setting that you can define in your backup policies when you want extra protection for your volume backups for a cluster.
 
@@ -55,8 +55,8 @@ This feature does not provide protection for your source volumes; only for the b
 
 [CAUTION]
 ====
-* If you plan to use DataLock and Ransomware protection, you must enable it when creating your first backup policy and activating BlueXP backup and recovery for that cluster.
-* DataLock and Ransomware protection can't be disabled for a cluster once it has been configured. Do not enable this feature on a cluster to try it out.
+* If you plan to use DataLock and Ransomware protection, you can enable it when creating your first backup policy and activating BlueXP backup and recovery for that cluster. You can later enable it using BlueXP backup and recovery Advanced Settings. 
+* DataLock and Ransomware protection can be disabled for a cluster after it has been configured to save costs. 
 * When BlueXP scans a backup file for ransomware when restoring volume data, you'll incur extra egress costs from your cloud provider to access the contents of the backup file.
 ====
 
@@ -80,7 +80,9 @@ Ransomware protection scans your backup files to look for evidence of a ransomwa
 
 Ransomware scans happen at 3 points in the backup and restore process:
 
-* When a backup file is created
+* When a backup file is created.
++ 
+You can optionally enable or disable scheduled ransomware scans. 
 +
 The scan is not performed on the backup file when it is first written to cloud storage, but when the *next* backup file is written. For example, if you have a weekly backup schedule set for Tuesday, on Tuesday the 14th a backup is created. Then on Tuesday the 21st another backup is created. The ransomware scan is run on the backup file from the 14th at this time.
 * When you attempt to restore data from a backup file
@@ -90,11 +92,15 @@ You can choose to run a scan before restoring data from a backup file, or skip t
 +
 You can run an on-demand ransomware protection scan at any time to verify the health of a specific backup file. This can be useful if you've had a ransomware issue on a particular volume and you want to verify that the backups for that volume are not affected.
 
-=== DataLock and Ransomware Protection settings
+=== DataLock and Ransomware Protection options
 
 Each backup policy provides a section for _DataLock and Ransomware Protection_ that you can apply to your backup files.
 
 image:screenshot_datalock_ransomware_settings.png["A screenshot of the DataLock and Ransomware Protection settings for AWS, Azure, and StorageGRID when creating a backup policy."]
+
+Scheduled ransomware protection scans are enabled by default. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest Snapshot copy. You can enable or disable scheduled ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed every 7 days by default. You can change that schedule to days or weeks or disable it, saving costs.  
+
+Refer to link:manage-backup-settings-ontap.html[How to update Ransomware protection options in the Advanced Settings page].
 
 You can choose from the following settings for each backup policy:
 
@@ -196,6 +202,11 @@ ifdef::aws[]
 ** Your clusters must running ONTAP 9.11.1 or greater 
 ** The Connector can be deployed in the cloud or on your premises
 ** The following S3 permissions must be part of the IAM role that provides the Connector with permissions. They reside in the "backupS3Policy" section for the resource "arn:aws:s3:::netapp-backup-*":
+// Start snippet: collapsible block (open on page load)
++
+.AWS S3 permissions
+[%collapsible]
+====
 *** s3:GetObjectVersionTagging
 *** s3:GetBucketObjectLockConfiguration
 *** s3:GetObjectVersionAcl
@@ -222,6 +233,8 @@ ifdef::aws[]
 *** s3:PutObjectRetention
 *** s3:GetBucketLocation
 *** s3:GetObjectVersion
+====
+// End snippet
 //+
 //"s3:BypassGovernanceRetention" must be added only if you want your Admin users to be able to overwrite/delete backup files locked using Governance mode.
 +
@@ -237,6 +250,11 @@ endif::azure[]
 ** Your StorageGRID systems must be running 11.6.0.3 or greater
 ** The Connector must be deployed on your premises (it can be installed in a site with or without internet access)
 ** The following S3 permissions must be part of the IAM role that provides the Connector with permissions:
+// Start snippet: collapsible block (open on page load)
++
+.StorageGRID S3 permissions
+[%collapsible]
+====
 *** s3:GetObjectVersionTagging
 *** s3:GetBucketObjectLockConfiguration
 *** s3:GetObjectVersionAcl
@@ -262,6 +280,8 @@ endif::azure[]
 *** s3:PutObjectRetention
 *** s3:GetBucketLocation
 *** s3:GetObjectVersion
+====
+// End snippet
 
 === Restrictions
 
@@ -269,10 +289,10 @@ endif::azure[]
 * The DataLock option you select when activating BlueXP backup and recovery must be used for all backup policies for that cluster. 
 * You cannot use multiple DataLock modes on a single cluster.
 * If you enable DataLock, all volume backups will be locked. You can't mix locked and non-locked volume backups for a single cluster.
-* DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can't enable this feature after BlueXP backup and recovery has been activated.
+* DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can later enable or disable this feature using the Advanced Settings option. 
 * FlexGroup volumes can use DataLock and Ransomware protection only when using ONTAP 9.13.1 or greater.
 
-== Archival storage settings
+== Archival storage options
 
 When using AWS, Azure, or Google cloud storage, you can move older backup files to a less expensive archival storage class or access tier after a certain number of days. You can also choose to send your backup files to archival storage immediately without being written to standard cloud storage. Just enter *0* as the "Archive After Days" to send your backup file directly to archival storage. This can be especially helpful for users who rarely need to access data from cloud backups or users who are replacing a backup to tape solution.
 
