@@ -49,7 +49,11 @@ sidebar:
         - title: Plan your protection journey
           url: /concept-protection-journey.html
         - title: Manage policies for ONTAP volumes
-          url: /task-create-policies-ontap.html
+          url: /task-create-policies-ontap.html   
+        - title: Backup-to-object policy options
+          url: /concept-cloud-backup-policies.html
+        - title: Manage backup-to-object options in Advanced Settings
+          url: /task-manage-backup-settings-ontap.html
         - title: Back up Cloud Volumes ONTAP to Amazon S3
           flavor: aws
           url: /task-backup-to-s3.html
@@ -76,8 +80,6 @@ sidebar:
           url: /task-manage-backups-ontap.html
         - title: Restore from ONTAP backups
           url: /task-restore-backups-ontap.html
-        - title: Manage cluster-level backup to object settings
-          url: /task-manage-backup-settings-ontap.html
     - title: Back up and restore on-premises applications data
       entries:
         - title: Protect your on-premises applications data
@@ -218,8 +220,6 @@ sidebar:
       url: /api-backup-restore.html
     - title: Reference
       entries:
-        - title: Backup policy settings
-          url: /concept-cloud-backup-policies.html
         - title: Supported AWS archive storage tiers
           url: /reference-aws-backup-tiers.html
         - title: Supported Azure archive access tiers
@@ -244,134 +244,4 @@ sidebar:
 product-family:
   name: BlueXP
   repo: bluexp-family
-homepage:
-  tiles:
-    - title: Get started
-      links:
-        - title: Learn about BlueXP backup and recovery
-          url: concept-backup-to-cloud.html
-        - title: What's new
-          url: whats-new.html
-        - title: Set up licensing
-          url: task-licensing-cloud-backup.html
-        - title: Monitor the status of backup and restore jobs
-          url: task-monitor-backup-jobs.html
-        - title: Create reports on data protection coverage
-          url: task-report-inventory.html
-    - title: Back up ONTAP data to the cloud
-      links:
-        - title: Back up Cloud Volumes ONTAP to Amazon S3
-          url: task-backup-to-s3.html
-          flavor: aws
-        - title: Back up Cloud Volumes ONTAP to Azure Blob
-          url: task-backup-to-azure.html
-          flavor: azure
-        - title: Back up Cloud Volumes ONTAP to Google Cloud
-          url: task-backup-to-gcp.html
-          flavor: gcp
-        - title: Back up on-premises ONTAP to Amazon S3
-          url: task-backup-onprem-to-aws.html
-          flavor: aws
-        - title: Back up on-premises ONTAP to Azure Blob
-          url: task-backup-onprem-to-azure.html
-          flavor: azure
-        - title: Back up on-premises ONTAP to Google Cloud
-          url: task-backup-onprem-to-gcp.html
-          flavor: gcp
-        - title: Back up on-premises ONTAP to ONTAP S3
-          url: task-backup-onprem-to-ontap-s3.html
-        - title: Back up on-premises ONTAP to StorageGRID
-          url: task-backup-onprem-private-cloud.html
-    - title: Manage ONTAP backup files
-      links:
-        - title: Enable volume backups on additional volumes
-          url: task-manage-backups-ontap.html#activate-backup-on-additional-volumes-in-a-working-environment
-        - title: Edit an existing backup to cloud policy
-          url: task-manage-backups-ontap.html#edit-an-existing-backup-to-cloud-policy
-        - title: Add a new backup to cloud policy
-          url: task-manage-backups-ontap.html#add-a-new-backup-to-cloud-policy
-        - title: Change the policy assigned to existing volumes
-          url: task-manage-backups-ontap.html#change-the-backup-settings-assigned-to-existing-volumes
-        - title: Create a manual volume backup
-          url: task-manage-backups-ontap.html#create-a-manual-volume-backup-at-any-time
-        - title: View the list of backups for each volume
-          url: task-manage-backups-ontap.html#view-the-list-of-backups-for-each-volume
-        - title: Manage replication relationships
-          url: task-manage-backups-ontap.html#manage-the-replication-relationship-with-the-source-volume
-        - title: Delete backups
-          url: task-manage-backups-ontap.html#delete-backups
-    - title: Back up applications data to the cloud
-      links:
-        - title: Back up on-premises applications data to Amazon Web Services
-          flavor: aws
-          url: task-backup-app-data-to-aws.html
-        - title: Back up on-premises applications data to Microsoft Azure
-          flavor: azure
-          url: task-backup-app-data-to-azure.html
-        - title: Back up on-premises applications data to Google Cloud
-          flavor: gcp
-          url: task-backup-app-data-to-gcp.html
-        - title: Back up on-premises applications data to StorageGRID
-          url: task-backup-app-data-to-storagegrid.html
-        - title: Back up cloud-native Oracle database
-          url: task-backup-cloud-native-oracle-data.html
-        - title: Back up cloud-native SAP HANA database
-          flavor: azure
-          url: task-backup-cloud-native-sap-hana-data.html
-        - title: Back up cloud-native SQL Server database
-          url: task-backup-cloud-native-sql-data.html
-    - title: Back up datastores to the cloud
-      links:
-        - title: Back up datastores to Amazon Web Services
-          flavor: aws
-          url: task-backup-vm-data-to-aws.html
-        - title: Back up datastores to Microsoft Azure
-          flavor: azure
-          url: task-backup-vm-data-to-azure.html
-        - title: Back up datastores to Google Cloud Platform
-          flavor: gcp
-          url: task-backup-vm-data-to-gcp.html  
-        - title: Back up datastores to StorageGRID
-          url: task-backup-vm-data-to-storagegrid.html
-    - title: Restore data from the cloud
-      links:
-        - title: Restore ONTAP volume data
-          url: task-restore-backups-ontap.html
-        - title: Restore on-premises Oracle applications data
-          url: task-restore-oracle-data.html
-        - title: Restore on-premises SQL Server applications data
-          url: task-restore-sql-data.html
-        - title: Restore cloud-native Oracle applications data
-          url: task-restore-cloud-native-oracle-data.html
-        - title: Restore cloud-native SAP HANA applications data
-          flavor: azure
-          url: task-restore-cloud-native-sap-hana-data.html
-        - title: Restore cloud-native SQL Server data
-          url: task-restore-cloud-native-sql-data.html
-        - title: Restore virtual machines data
-          url: task-restore-vm-data.html
-        - title: Restore Kubernetes volume data
-          url: task-restore-backups-kubernetes.html
-    - title: Back up Kubernetes data to the cloud
-      links:
-        - title: Back up Kubernetes cluster to Amazon S3
-          url: task-backup-kubernetes-to-s3.html
-          flavor: aws
-        - title: Back up Kubernetes cluster to Azure Blob
-          url: task-backup-kubernetes-to-azure.html
-          flavor: azure
-        - title: Back up Kubernetes cluster to Google Cloud
-          url: task-backup-kubernetes-to-gcp.html
-          flavor: gcp
-    - title: Blogs & community
-      links:
-        - title: NetApp Community
-          url: https://community.netapp.com/t5/Public-Cloud-Services/ct-p/CDS
-        - title: BlueXP backup and recovery blogs
-          url: https://bluexp.netapp.com/blog/topic/cloud-backup
-        - title: BlueXP backup and recovery use cases
-          url: https://bluexp.netapp.com/cloud-backup
-        - title: BlueXP backup and recovery videos
-          url: https://youtube.com/playlist?list=PLdXI3bZJEw7modoLQEVUHoQ8DJyVk_1wU
-        - title: BlueXP webinars
-          url: https://bluexp.netapp.com/events
+
