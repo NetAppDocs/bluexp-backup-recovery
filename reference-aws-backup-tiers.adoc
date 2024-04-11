@@ -19,7 +19,9 @@ BlueXP backup and recovery supports two S3 archival storage classes and most reg
 
 When backup files are initially created they're stored in S3 _Standard_ storage. This tier is optimized for storing data that's infrequently accessed; but that also allows you to access it immediately. After 30 days the backups transition to the S3 _Standard-Infrequent Access_ storage class to save on costs.
 
-If your source clusters are running ONTAP 9.10.1 or greater, you can choose to tier backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days (typically more than 30 days) for further cost optimization. Data in these tiers can't be accessed immediately when needed, and will require a higher retrieval cost, so you need to consider how often you may need to restore data from these archived backup files. See the section about <<Restoring data from archival storage,restoring data from archival storage>>.
+If your source clusters are running ONTAP 9.10.1 or greater, you can choose to tier backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage after a certain number of days (typically more than 30 days) for further cost optimization. You can set this to "0" or to 1-999 days. If you set it to "0" days, you cannot change it later to 1-999 days. 
+
+Data in these tiers can't be accessed immediately when needed, and will require a higher retrieval cost, so you need to consider how often you may need to restore data from these archived backup files. See the section about <<Restoring data from archival storage,restoring data from archival storage>>.
 
 * If you select no archive tier in your first backup policy when activating BlueXP backup and recovery, then _S3 Glacier_ will be your only archive option for future policies.
 * If you select _S3 Glacier_ in your first backup policy, then you can change to the _S3 Glacier Deep Archive_ tier for future backup policies for that cluster.
