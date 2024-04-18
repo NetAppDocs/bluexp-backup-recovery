@@ -82,7 +82,7 @@ Ransomware scans happen at 3 points in the backup and restore process:
 
 * When a backup file is created.
 + 
-You can optionally enable or disable scheduled ransomware scans. 
+You can optionally enable or disable ransomware scans. 
 +
 The scan is not performed on the backup file when it is first written to cloud storage, but when the *next* backup file is written. For example, if you have a weekly backup schedule set for Tuesday, on Tuesday the 14th a backup is created. Then on Tuesday the 21st another backup is created. The ransomware scan is run on the backup file from the 14th at this time.
 * When you attempt to restore data from a backup file
@@ -98,7 +98,9 @@ Each backup policy provides a section for _DataLock and Ransomware Protection_ t
 
 image:screenshot_datalock_ransomware_settings.png["A screenshot of the DataLock and Ransomware Protection settings for AWS, Azure, and StorageGRID when creating a backup policy."]
 
-Scheduled ransomware protection scans are enabled by default. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest Snapshot copy. You can enable or disable scheduled ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed every 7 days by default. You can change that schedule to days or weeks or disable it, saving costs.  
+Ransomware protection scans are enabled by default. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest Snapshot copy. You can enable or disable ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed every 7 days by default. 
+
+//You can change that schedule to days or weeks or disable it, saving costs.  
 
 Refer to link:manage-backup-settings-ontap.html[How to update Ransomware protection options in the Advanced Settings page].
 

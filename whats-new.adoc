@@ -23,21 +23,17 @@ Learn what's new in BlueXP backup and recovery.
 
 Previously, when you enabled ransomware detection in a backup policy, scans occurred automatically when the first backup was created and when you restored a backup. Previously, the service scanned all Snapshot copies and you could not disable the scans. 
 
-With this release, you can now enable or disable ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed weekly by default. You can change that schedule to days or weeks or disable it, saving costs.  
+With this release, you can now enable or disable ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed weekly by default. 
+
+//You can change that schedule to days or weeks or disable it, saving costs.  
 
 Refer to the following information for details: 
 
-* link:task-manage-backup-settings-ontap.html[Manage backup settings]
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings-ontap.html[Manage backup settings]
 
-* link:task-create-policies-ontap.html[Manage policies for ONTAP volumes]
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html[Manage policies for ONTAP volumes]
 
-* link:concept-cloud-backup-policies.html[Backup-to-object policy settings]
-
-//* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings-ontap.html[Manage backup settings]
-
-//* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html[Manage policies for ONTAP volumes]
-
-//* https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html[Backup-to-object policy settings]
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html[Backup-to-object policy settings]
 
 
 
