@@ -23,7 +23,9 @@ Learn what's new in BlueXP backup and recovery.
 
 Previously, when you enabled ransomware detection in a backup policy, scans occurred automatically when the first backup was created and when you restored a backup. Previously, the service scanned all Snapshot copies and you could not disable the scans. 
 
-With this release, you can now enable or disable ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed weekly by default. You can change that schedule to days or weeks or disable it, saving costs.  
+With this release, you can now enable or disable ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed weekly by default. 
+
+//You can change that schedule to days or weeks or disable it, saving costs.  
 
 Refer to the following information for details: 
 
