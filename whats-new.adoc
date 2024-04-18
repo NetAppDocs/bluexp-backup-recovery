@@ -27,17 +27,11 @@ With this release, you can now enable or disable ransomware scans on the latest 
 
 Refer to the following information for details: 
 
-* link:task-manage-backup-settings-ontap.html[Manage backup settings]
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings-ontap.html[Manage backup settings]
 
-* link:task-create-policies-ontap.html[Manage policies for ONTAP volumes]
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html[Manage policies for ONTAP volumes]
 
-* link:concept-cloud-backup-policies.html[Backup-to-object policy settings]
-
-//* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings-ontap.html[Manage backup settings]
-
-//* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html[Manage policies for ONTAP volumes]
-
-//* https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html[Backup-to-object policy settings]
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html[Backup-to-object policy settings]
 
 
 
