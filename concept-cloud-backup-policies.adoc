@@ -78,7 +78,7 @@ You can see in this last case that if each backup file is locked for 44 days, yo
 
 Ransomware protection scans your backup files to look for evidence of a ransomware attack. The detection of ransomware attacks is performed using a checksum comparison. If potential ransomware is identified in a new backup file versus the previous backup file, that newer backup file is replaced by the most recent backup file that does not show any signs of a ransomware attack. (The file that was identified as having a ransomware attack is deleted 1 day after it has been replaced.)
 
-Ransomware scans happen at 3 points in the backup and restore process:
+Ransomware scans happen at the following points in the backup and restore process:
 
 * When a backup file is created.
 + 
@@ -100,9 +100,9 @@ image:screenshot_datalock_ransomware_settings.png["A screenshot of the DataLock 
 
 Ransomware protection scans are enabled by default. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest Snapshot copy. You can enable or disable ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed every 7 days by default. 
 
-//You can change that schedule to days or weeks or disable it, saving costs.  
+You can change that schedule to days or weeks or disable it, saving costs.  
 
-Refer to link:manage-backup-settings-ontap.html[How to update Ransomware protection options in the Advanced Settings page].
+Refer to link:task-manage-backup-settings-ontap.html[How to update Ransomware protection options in the Advanced Settings page].
 
 You can choose from the following settings for each backup policy:
 
