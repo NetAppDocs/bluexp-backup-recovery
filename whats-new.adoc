@@ -17,6 +17,19 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
+== 30 April 2024 
+
+=== Ability to enable or disable scheduled ransomware scans 
+
+Previously, you could enable or disable ransomware scans, but could not do this for scheduled scans. 
+
+With this release, you can now enable or disable scheduled ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed weekly by default. You can change that schedule to days or weeks or disable it, saving costs.  
+
+Refer to the following information for details: 
+
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings-ontap.html[Manage backup settings]
+
+
 == 04 April 2024
 
 === Ability to enable or disable ransomware scans 
@@ -80,6 +93,8 @@ Previously, you could restore files and folders only from backup copies in AWS, 
 
 You can perform this feature by using the Search and restore process, not by using the Browse and restore process. 
 
+// end::whats-new[] 
+
 == 01 February 2024 
 
 === Enhancements to BlueXP backup and recovery for Virtual Machines
@@ -87,7 +102,7 @@ You can perform this feature by using the Search and restore process, not by usi
 * Support restoring virtual machines to an alternate location
 * Support for unprotecting datastores
 
-// end::whats-new[] 
+
 
 == 15 December 2023 
 
