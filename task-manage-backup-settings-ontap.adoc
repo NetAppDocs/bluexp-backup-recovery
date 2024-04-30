@@ -30,7 +30,7 @@ You can change the following options in the Advanced Settings page:
 //* Changing the automatic backup setting (and policy) for future volumes
 * Changing whether historical Snapshot copies are exported as backup files and included in your initial baseline backup files for future volumes
 * Changing whether "yearly" snapshots are removed from the source system
-* Enabling or disabling ransomware scans for a working environment
+* Enabling or disabling ransomware scans for a working environment, including scheduled scans
 
 == View cluster-level backup settings
 
@@ -177,13 +177,13 @@ image:screenshot_backup_edit_yearly_snap_delete.png[A screenshot of the Yearly S
 
 Ransomware protection scans are enabled by default. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest Snapshot copy. You can enable or disable ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed every 7 days by default. 
 
-//You can change that schedule to days or weeks or disable it, saving costs.  
+You can change that schedule to days or weeks or disable it, saving costs.  
 
 TIP: Enabling ransomware scans will incur extra charges depending on the cloud provider. 
 
-//Scheduled ransomware scans run only on the latest Snapshot copy. 
+Scheduled ransomware scans run only on the latest Snapshot copy. 
 
-//If the scheduled ransomware scans are disabled, you can still perform on-demand scans and the scan during a restore operation will still occur. 
+If the scheduled ransomware scans are disabled, you can still perform on-demand scans and the scan during a restore operation will still occur. 
 
 Refer to link:task-create-policies-ontap.html[Manage policies] for details about managing policies that implement ransomware detection. 
 
@@ -196,10 +196,10 @@ Refer to link:task-create-policies-ontap.html[Manage policies] for details about
 . In the Advanced Settings page, expand the *Ransomware scan* section. 
 . Enable or disable *Ransomware Scan*. 
 
-//. Select *Scheduled ransomware scan*. 
-//. Optionally, change the every week default scan to days or weeks. 
-//. Set the how often in days or weeks that the scan should run. 
-//. Select *Apply*. 
+. Select *Scheduled ransomware scan*. 
+. Optionally, change the every week default scan to days or weeks. 
+. Set the how often in days or weeks that the scan should run. 
+. Select *Apply*. 
 
 
 
