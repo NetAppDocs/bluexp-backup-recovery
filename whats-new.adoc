@@ -29,6 +29,10 @@ Refer to the following information for details:
 
 * https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings-ontap.html[Manage backup settings]
 
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html[Manage policies for ONTAP volumes]
+
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html[Backup-to-object policy settings]
+
 
 == 04 April 2024
 
