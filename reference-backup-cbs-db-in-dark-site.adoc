@@ -62,15 +62,23 @@ When installing a new BlueXP Connector, make sure you download the same release 
 
 . Copy the MySQL backup from the backup location to the new Connector host. We'll use the example file name "CBS_DB_Backup_23_05_2023.sql" below.
 
-. Copy the backup into the MySQL docker container using the following command:
+. Copy the backup into the MySQL docker container using one of the following commands, depending on whether you are using a Docker or Podman container:
 +
 [source,cli]
 docker cp CBS_DB_Backup_23_05_2023.sql ds_mysql_1:/.
 
-. Enter the MySQL container shell using the following command:
++
+[source,cli]
+podman cp CBS_DB_Backup_23_05_2023.sql ds_mysql_1:/.
+
+. Enter the MySQL container shell using one of the following commands, depending on whether you are using a Docker or Podman container:
 +
 [source,cli]
 docker exec -it ds_mysql_1 sh
+
++
+[source,cli]
+podman exec -it ds_mysql_1 sh
 
 . In the container shell, deploy the "env".
 
