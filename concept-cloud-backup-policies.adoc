@@ -346,4 +346,4 @@ ifdef::azure[]
 ** For Azure, you can tier older backups to _Azure Archive_ storage. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
 endif::azure[]
 +
-link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].
+link:task-backup-onprem-private-cloud.html#prepare-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].
