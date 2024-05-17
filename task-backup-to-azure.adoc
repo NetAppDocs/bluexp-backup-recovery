@@ -224,7 +224,7 @@ BlueXP backup and recovery is enabled by default in the working environment wiza
 
 See https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-azure.html[Launching Cloud Volumes ONTAP in Azure^] for requirements and details for creating your Cloud Volumes ONTAP system.
 
-NOTE: If you want to pick the name of the resource group, *disable* BlueXP backup and recovery when deploying Cloud Volumes ONTAP. Follow the steps for <<enabling-bluexp-backup-and-recovery-on-an-existing-system,enabling BlueXP backup and recovery on an existing system>> to enable BlueXP backup and recovery and choose the resource group.
+NOTE: If you want to pick the name of the resource group, *disable* BlueXP backup and recovery when deploying Cloud Volumes ONTAP. Follow the steps for <<enable-bluexp-backup-and-recovery-on-cloud-volumes-ontap,enabling BlueXP backup and recovery on an existing system>> to enable BlueXP backup and recovery and choose the resource group.
 
 .Steps
 

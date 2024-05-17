@@ -422,7 +422,10 @@ This feature is available only if your system is running ONTAP 9.12.1 or greater
 
 You can't delete the source volume from the BlueXP backup and recovery user interface. However, you can open the Volume Details page on the Canvas, and https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[delete the volume from there].
 
-NOTE: You can't delete individual volume backup files once the relationship has been deleted. You can, however, link:task-manage-backups-ontap.html#delete-all-backup-files-for-a-volume[delete all backups for the volume] if you want to remove all backup files.
+NOTE: You can't delete individual volume backup files once the relationship has been deleted. You can, however, you can delete all backups for the volume. 
+
+
+
 
 .Steps
 

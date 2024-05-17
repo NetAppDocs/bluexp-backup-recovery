@@ -81,7 +81,7 @@ See the requirements and restore steps for the type of restore operation you wan
 
 * <<Restore volumes using Browse & Restore,Restore volumes using Browse & Restore>>
 * <<Restore folders and files using Browse & Restore,Restore folders and files using Browse & Restore>>
-* <<Restore ONTAP data using Search & Restore,Restore volumes, folders, and files using Search & Restore>>
+* <<restore-ontap-data-using-search-restore,Restore volumes, folders, and files using Search & Restore>>
 
 // provides buttons for you to restore volumes and files. Clicking the _Restore Volumes_ or _Restore Files_ buttons starts a wizard that walks you through the steps to restore that data.
 //
@@ -416,7 +416,7 @@ You have a few options for the location when restoring folders and file(s).
 
 . Click *Restore* and you are returned to the Restore Dashboard so you can review the progress of the restore operation. You can also click the *Job Monitoring* tab to see the restore progress.
 
-== Restoring ONTAP data using Search & Restore
+== Restore ONTAP data using Search & Restore
 
 You can restore a volume, folder, or files from an ONTAP backup file using Search & Restore. Search & Restore enables you to search for a specific volume, folder, or file from all backups, and then perform a restore. You don't need to know the exact working environment name, volume name, or file name - the search looks through all volume backup files.
 
@@ -616,7 +616,7 @@ Depending on the size of the volumes in the working environment, and the number 
 
 === Restore volumes, folders, and files using Search & Restore
 
-After you have <<Enabling the Indexed Catalog for each working environment,enabled Indexing for your working environment>>, you can restore volumes, folders, and files using Search & Restore. This allows you to use a broad range of filters to find the exact file or volume that you want to restore from all backup files.
+After you have <<enable-the-indexed-catalog-for-each-working-environment,enabled Indexing for your working environment>>, you can restore volumes, folders, and files using Search & Restore. This allows you to use a broad range of filters to find the exact file or volume that you want to restore from all backup files.
 
 .Steps
 
