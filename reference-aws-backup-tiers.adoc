@@ -31,7 +31,7 @@ Note that when you configure BlueXP backup and recovery with this type of lifecy
 
 https://aws.amazon.com/s3/storage-classes/[Learn about S3 storage classes^].
 
-== Restoring data from archival storage
+== Restore data from archival storage
 
 While storing older backup files in archival storage is much less expensive than Standard or Standard-IA storage, accessing data from a backup file in archive storage for restore operations will take a longer amount of time and will cost more money.
 

@@ -388,7 +388,7 @@ endif::gcp[]
 +
 If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.4 or greater, you can archive older backup files to public cloud archival storage after a certain number of days. Current support is for AWS S3 Glacier/S3 Glacier Deep Archive or Azure Archive storage tiers. link:task-backup-onprem-private-cloud.html#prepare-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].
 
-See link:concept-cloud-backup-policies.html#archival-storage-for-older-backup-files[Archival storage settings] for more details about archiving older backup files.
+See link:concept-cloud-backup-policies.html#archival-storage-options[Archival storage settings] for more details about archiving older backup files.
 
 == FabricPool tiering policy considerations
 

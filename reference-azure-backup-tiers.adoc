@@ -25,7 +25,7 @@ Note that when you configure BlueXP backup and recovery with this type of lifecy
 
 https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview[Learn about Azure Blob access tiers^].
 
-== Restoring data from archival storage
+== Restore data from archival storage
 
 While storing older backup files in archival storage is much less expensive than Cool storage, accessing data from a backup file in Azure Archive for restore operations will take a longer amount of time and will cost more money.
 

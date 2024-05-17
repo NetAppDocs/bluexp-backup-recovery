@@ -61,7 +61,7 @@ If you want to activate backup on multiple volumes at the same time with identic
 == Change the backup settings assigned to existing volumes
 
 You can change the backup policies assigned to your existing volumes that have assigned policies. You can change the policies for your Local Snapshot copies, Replicated volumes, and Backup files. Any new Snapshot, replication, or backup policy that you want to apply to the volumes must already exist. 
-//<<Adding a new backup policy,See how to add a new backup policy for a working environment>>.
+//<<Add a new backup policy,See how to add a new backup policy for a working environment>>.
 
 === Edit backup settings on a single volume
 
@@ -181,7 +181,7 @@ The Ransomware Protection column will show that the scan is In Progress.
 
 //== Disable backups of volumes
 //
-//You can deactivate backups for volumes so that no additional backups are generated. This also disables the ability to restore volume data from a backup file. This basically allows you to pause all backup and restore activity for a period of time. Any existing backups will not be deleted, so you'll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you <<Delete all backup files for a volume,delete the backups>>.
+//You can deactivate backups for volumes so that no additional backups are generated. This also disables the ability to restore volume data from a backup file. This basically allows you to pause all backup and restore activity for a period of time. Any existing backups will not be deleted, so you'll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you <<Delete backups,delete the backups>>.
 //
 //.Steps
 //
@@ -298,7 +298,7 @@ Note that any backup files that have been tiered to archival storage are left in
 
 When you enable BlueXP backup and recovery for a working environment, all the volumes you initially select are backed up using the default backup policy that you defined. If you want to assign different backup policies to certain volumes that have different recovery point objectives (RPO), you can create additional policies for that cluster and assign those policies to other volumes.
 
-If you want to apply a new backup policy to certain volumes in a working environment, you first need to add the backup policy to the working environment. Then you can <<Changing the policy assigned to existing volumes,apply the policy to volumes in that working environment>>.
+If you want to apply a new backup policy to certain volumes in a working environment, you first need to add the backup policy to the working environment. Then you can <<Change the backup settings assigned to existing volumes,apply the policy to volumes in that working environment>>.
 
 [NOTE]
 ====
@@ -348,7 +348,7 @@ CAUTION: If you plan to delete a working environment or cluster that has backups
 
 === Delete all backup files for a working environment
 
-Deleting all backups on object storage for a working environment does not disable future backups of volumes in this working environment. If you want to stop creating backups of all volumes in a working environment, you can deactivate backups <<Deactivating BlueXP backup and recovery for a working environment,as described here>>.
+Deleting all backups on object storage for a working environment does not disable future backups of volumes in this working environment. If you want to stop creating backups of all volumes in a working environment, you can deactivate backups <<Deactivate BlueXP backup and recovery for a working environment,as described here>>.
 
 Note that this action does not affect Snapshot copies or replicated volumes - these types of backup files are not deleted.
 
@@ -368,7 +368,7 @@ image:screenshot_delete_all_backups.png[A screenshot of selecting the Delete All
 //
 //Deleting all backups for a volume also disables future backups for that volume.
 //
-//You can <<Enabling and disabling backups of volumes,restart making backups for the volume>> at any time from the Manage Backups page.
+//You can <<Enable and disable backups of volumes,restart making backups for the volume>> at any time from the Manage Backups page.
 //
 //.Steps
 //
@@ -438,7 +438,7 @@ image:screenshot_delete_relationship_single.png[A screenshot showing how to dele
 
 Deactivating BlueXP backup and recovery for a working environment disables backups of each volume on the system, and it also disables the ability to restore a volume. Any existing backups will not be deleted. This does not unregister the backup service from this working environment - it basically allows you to pause all backup and restore activity for a period of time.
 
-Note that you'll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you <<Deleting all backup files for a working environment,delete the backups>>.
+Note that you'll continue to be charged by your cloud provider for object storage costs for the capacity that your backups use unless you <<Delete backups,delete the backups>>.
 //
 //TIP: The backup retention period is ignored when BlueXP backup and recovery is deactivated. Therefore, older backup files are not aged-out and removed from object storage while the working environment is deactivated.
 
