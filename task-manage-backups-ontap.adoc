@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-manage-backups-ontap.html
-keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup
+keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup, bluexp
 summary: You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, creating new backup policies, enabling/disabling volume backups, pausing backups, deleting backups, and more. This includes all types of backups, including Snapshot copies, replicated volumes, and backup files in object storage.
 ---
 
