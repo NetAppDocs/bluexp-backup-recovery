@@ -19,13 +19,13 @@ BlueXP backup and recovery supports one Google archival storage class and most r
 
 When backup files are initially created they're stored in _Standard_ storage. This tier is optimized for storing data that's infrequently accessed; but that also allows you to access it immediately.
 
-If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the BlueXP backup and recovery UI after a certain number of days (typically more than 30 days) for further cost optimization. Data in this tier will require a higher retrieval cost, so you need to consider how often you may need to restore data from these archived backup files. See the section about <<Restoring data from archival storage,restoring data from archival storage>>.
+If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the BlueXP backup and recovery UI after a certain number of days (typically more than 30 days) for further cost optimization. Data in this tier will require a higher retrieval cost, so you need to consider how often you may need to restore data from these archived backup files. See the section about <<restore data from archival storage,restoring data from archival storage>>.
 
 Note that when you configure BlueXP backup and recovery with this type of lifecycle rule, you must not configure any lifecycle rules when setting up the bucket in your Google account.
 
 https://cloud.google.com/storage/docs/storage-classes[Learn about Google storage classes^].
 
-== Restoring data from archival storage
+== Restore data from archival storage
 
 While storing older backup files in Archive storage is much less expensive than Standard storage, accessing data from a backup file in Archive storage for restore operations will take a slightly longer amount of time and will cost more money.
 

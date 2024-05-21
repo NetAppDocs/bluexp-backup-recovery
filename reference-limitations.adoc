@@ -32,7 +32,7 @@ There is no limitation for FlexVol volumes - you can select all FlexVol volumes 
 
 * When creating replications from on-premises ONTAP systems, if the ONTAP version on the target Cloud Volumes ONTAP system is 9.8, 9.9, or 9.11, only mirror-vault policies are allowed.
 
-=== Backup to object limitations
+=== Backup-to-object limitations
 
 * When you create or edit a backup policy when no volumes are assigned to the policy, the number of retained backups can be a maximum of 1018. After you assign volumes to the policy, you can edit the policy to create up to 4000 backups.
 
@@ -96,3 +96,18 @@ When using a version of ONTAP before 9.11.1, folder restore is not supported.
 ** It is not supported with backups located in archived storage.
 ** FlexGroup volumes are supported only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. 
 ** SnapLock volumes are supported only if the source system from which the cloud backup was created was running ONTAP 9.11.0 or greater. 
+
+=== Limitations when using RHEL 8+ with Podman
+
+==== Single-file restore is not supported
+
+The Browse & Restore functionality for single-file restore and directory restore is not supported when using Podman. All other types of restore operations are supported when using Podman, so you can restore your data using these other methods until this issue is resolved:
+
+* Restore the files or folders from a replicated volume, if a replicated volume exists.
+* Restore the files or folders from a cloud backup using the Search & Restore feature.
+* Restore the volume from a cloud backup using Browse & Restore and then access the files or folders that you need.
+ 
+==== Ransomware scanning of your cloud backups is not supported
+ 
+Scanning cloud backups for ransomware is not supported when using the Podman engine. If you are using the DataLock & Ransomware feature for your cloud backups, you'll need to disable ransomware scans. link:task-manage-backup-settings-ontap.html#enable-or-disable-ransomware-scans[See how to disable ransomware scanning].
+

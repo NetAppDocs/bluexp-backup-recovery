@@ -365,7 +365,7 @@ If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your
 
 
 +
-If your cluster is using ONTAP 9.12.1 or greater and your StorageGRID system is using version 11.4 or greater, you can choose to tier older backups to public cloud archive tiers after a certain number of days. Current support is for AWS S3 Glacier/S3 Glacier Deep Archive or Azure Archive storage tiers. <<Preparing to archive older backup files to public cloud storage,See how to configure your systems for this functionality>>.
+If your cluster is using ONTAP 9.12.1 or greater and your StorageGRID system is using version 11.4 or greater, you can choose to tier older backups to public cloud archive tiers after a certain number of days. Current support is for AWS S3 Glacier/S3 Glacier Deep Archive or Azure Archive storage tiers. <<Prepare to archive older backup files to public cloud storage,See how to configure your systems for this functionality>>.
 
 * *Tier backup to public cloud*: Select the cloud provider that you want to tier backups to and enter the provider details. 
 +
