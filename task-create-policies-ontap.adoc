@@ -137,14 +137,14 @@ This storage policy resides in different storage system locations depending on t
 
 . (Optional) To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 + 
-link:concept-cloud-backup-policies.html#archival-storage-settings[Learn more about archival storage settings].
+link:concept-cloud-backup-policies.html#archival-storage-options[Learn more about archival storage settings].
 
 . (Optional) To protect your backups from being modified or deleted, select the *DataLock & Ransomware protection* option.
 +
 If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion by configuring _DataLock_ and _Ransomware protection_. 
 
 +
-link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection[Learn more about the available DataLock settings^].
+link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options[Learn more about the available DataLock settings^].
 
 . Select *Create*.
 
