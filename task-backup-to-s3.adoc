@@ -114,7 +114,7 @@ The Connector must be installed in an AWS region with full or limited internet a
 //
 //[NOTE]
 //====
-//BlueXP backup and recovery functionality is built into the BlueXP Connector. When installed in private mode, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's new] to see the new features in each BlueXP backup and recovery release, and then you can follow the steps to https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode[upgrade the Connector software^] when you want to use new features.
+//BlueXP backup and recovery functionality is built into the BlueXP Connector. When installed in private mode, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's new] to see the new features in each BlueXP backup and recovery release, and then you can follow the steps to https://docs.netapp.com/us-en/bluexp-setup-admin/task-upgrade-connector.html[upgrade the Connector software^] when you want to use new features.
 //
 //We highly recommend that you create local backups of the internal BlueXP backup and recovery configuration data periodically when the Connector is installed in a site without internet connectivity. link:reference-backup-cbs-db-in-dark-site.html[See how to back up BlueXP backup and recovery data in a dark site^].
 //====
