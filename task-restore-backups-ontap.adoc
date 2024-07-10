@@ -293,9 +293,11 @@ BlueXP backup and recovery creates a new volume based on the backup you selected
 
 Note that restoring a volume from a backup file that resides in archival storage can take many minutes or hours depending on the archive tier and the restore priority. You can click the *Job Monitoring* tab to see the restore progress.
 
+
+
 === Restore folders and files using Browse & Restore
 
-If you only need to restore a few files from an ONTAP volume backup, you can choose to restore a folder or individual files instead of restoring the entire volume. You can restore folders and files to an existing volume in the original working environment, or to a different working environment that's using the same cloud account. You can also restore folders and files to a volume on an on-premises ONTAP system.
+If you need to restore only a few files from an ONTAP volume backup, you can choose to restore a folder or individual files instead of restoring the entire volume. You can restore folders and files to an existing volume in the original working environment, or to a different working environment that's using the same cloud account. You can also restore folders and files to a volume on an on-premises ONTAP system.
 
 NOTE: You can restore a folder or individual files only from a backup file in object storage at this time. Restoring files and folders is not currently supported from a local Snapshot copy or from a backup file that resides in a secondary working environment (a replicated volume).
 
@@ -307,12 +309,14 @@ When using ONTAP 9.13.0 or greater, you can restore a folder along with all file
 ====
 * If the backup file has been configured with DataLock & Ransomware protection, then folder-level restore is supported only if the ONTAP version is 9.13.1 or greater. If you are using an earlier version of ONTAP, you can restore the entire volume from the backup file and then access the folder and files you need.
 * If the backup file resides in archival storage, then folder-level restore is supported only if the ONTAP version is 9.13.1 or greater. If you are using an earlier version of ONTAP, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
+* With ONTAP 9.15.1 p2, you can restore FlexGroup folders using the Browse and restore option.
 ====
 
 ==== Prerequisites
 
 * The ONTAP version must be 9.6 or greater to perform _file_ restore operations.
 * The ONTAP version must be 9.11.1 or greater to perform _folder_ restore operations. ONTAP version 9.13.1 is required if the data is in archival storage, or if the backup file is using DataLock and Ransomware protection.
+* The ONTAP version must be 9.15.1 p2 or greater to restore FlexGroup directories using the Browse and restore option.
 
 ==== Folder and file restore process
 

@@ -294,6 +294,28 @@ endif::azure[]
 * DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can later enable or disable this feature using the Advanced Settings option. 
 * FlexGroup volumes can use DataLock and Ransomware protection only when using ONTAP 9.13.1 or greater.
 
+=== Tips on how to mitigate DataLock costs
+
+The level of protection needed is based on your risk tolerance. If your risk tolerance is low, then you should obtain the highest level of protection. If your risk tolerance is high, then you might not need DataLock enabled. 
+
+You can choose higher levels of protection with increased costs: 
+
+* *DataLock without ransomware scans*: Provides protection for backup data in the destination storage which can be either in Governance or Compliance mode. 
+
+** *Governance mode*: Offers flexibility to administrators to overwrite or delete protected data. 
+** *Compliance mode*: Provides complete indelibility until the retention period expires. This helps meet the most stringent data security requirements of highly regulated environments. The data cannot be overwritten or modified during its lifecycle, providing the strongest level of protection for your backup copies. 
++
+NOTE: Microsoft Azure uses a Lock and Unlock mode instead.
+
+* *DataLock with ransomware scans*: Provides an additional layer of security for your data. This feature helps detect any attempts to change backup copies. If any attempt is made, a new version of the data is created discreetly. While the default scan is 7 days, it can be reduced to 1, 2, 3, 4, 5, or 6 days. If reduced to 1 day, the costs increase significantly. 
+
+For details on tips to mitigate DataLock costs, refer to
+https://community.netapp.com/t5/Tech-ONTAP-Blogs/Understanding-BlueXP-Backup-and-Recovery-DataLock-and-Ransomware-Feature-TCO/ba-p/453475 
+
+ 
+Additionally, you can get estimates for the cost associated with DataLock by visiting the https://bluexp.netapp.com/cloud-backup-service-tco-calculator[BlueXP backup and recovery Total Cost of Ownership (TCO) calculator]. 
+
+
 == Archival storage options
 
 When using AWS, Azure, or Google cloud storage, you can move older backup files to a less expensive archival storage class or access tier after a certain number of days. You can also choose to send your backup files to archival storage immediately without being written to standard cloud storage. Just enter *0* as the "Archive After Days" to send your backup file directly to archival storage. This can be especially helpful for users who rarely need to access data from cloud backups or users who are replacing a backup to tape solution.
