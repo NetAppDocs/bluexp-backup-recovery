@@ -268,7 +268,7 @@ If the Amazon S3 destination for your backups exists as a working environment on
 +
 image:screenshot_backup_cvo_enable.png[A screenshot that shows the Backup and recovery Enable button which is available after you select a working environment.]
 
-TIP: To modify backup settings or add replication, refer to link:../task-manage-backups-ontap.html[Manage ONTAP backups].
+TIP: To modify backup settings or add replication, refer to link:task-manage-backups-ontap.html[Manage ONTAP backups].
 
 == Activate backups on your ONTAP volumes 
 
