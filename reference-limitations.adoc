@@ -91,17 +91,23 @@ When using a version of ONTAP before 9.11.1, folder restore is not supported.
 
 * The _High_ restore priority is not supported when restoring data from Azure archival storage to StorageGRID systems.
 
+* If you back up a DP volume and then decide to break the SnapMirror relationship to that volume, you cannot restore files to that volume unless you also delete the SnapMirror relationship or reverse the SnapMirror direction. 
+//GH issue 155
+
 * Quick restore limitations:
 ** The destination location must be a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater.
 ** It is not supported with backups located in archived storage.
 ** FlexGroup volumes are supported only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. 
 ** SnapLock volumes are supported only if the source system from which the cloud backup was created was running ONTAP 9.11.0 or greater. 
 
+
+
 === Limitations when using RHEL 8+ with Podman
 
 ==== Single-file restore is not supported
 
-The Browse & Restore functionality for single-file restore and directory restore is not supported when using Podman. All other types of restore operations are supported when using Podman, so you can restore your data using these other methods until this issue is resolved:
+The Browse & Restore functionality for single-file restore and directory restore is not supported when using BlueXP Connectors running in Podman (manually created BlueXP Connectors when running on RHEL 8 or 9). All other types of restore operations are supported when using Podman, so you can restore your data using these other methods until this issue is resolved:
+
 
 * Restore the files or folders from a replicated volume, if a replicated volume exists.
 * Restore the files or folders from a cloud backup using the Search & Restore feature.
