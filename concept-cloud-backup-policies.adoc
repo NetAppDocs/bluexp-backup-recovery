@@ -296,20 +296,22 @@ endif::azure[]
 
 === Tips on how to mitigate DataLock costs
 
-The level of protection needed is based on your risk tolerance. If your risk tolerance is low, then you should obtain the highest level of protection. If your risk tolerance is high, then you might not need DataLock enabled. 
+DataLock and Ransomware Scan are separate features. To avoid extra charges, you can disable scheduled ransomware scans while keeping the DataLock feature active. This lets you customize your security settings and avoid incurring costs from the cloud provider. 
 
-You can choose higher levels of protection with increased costs: 
+Even if scheduled ransomware scans are disabled, you can still perform on-demand scans when needed.
 
-* *DataLock without ransomware scans*: Provides protection for backup data in the destination storage which can be either in Governance or Compliance mode. 
+You can choose different levels of protection: 
+
+* *DataLock _without_ ransomware scans*: Provides protection for backup data in the destination storage that can be either in Governance or Compliance mode. 
 
 ** *Governance mode*: Offers flexibility to administrators to overwrite or delete protected data. 
 ** *Compliance mode*: Provides complete indelibility until the retention period expires. This helps meet the most stringent data security requirements of highly regulated environments. The data cannot be overwritten or modified during its lifecycle, providing the strongest level of protection for your backup copies. 
 +
 NOTE: Microsoft Azure uses a Lock and Unlock mode instead.
 
-* *DataLock with ransomware scans*: Provides an additional layer of security for your data. This feature helps detect any attempts to change backup copies. If any attempt is made, a new version of the data is created discreetly. While the default scan is 7 days, it can be reduced to 1, 2, 3, 4, 5, or 6 days. If reduced to 1 day, the costs increase significantly. 
+* *DataLock _with_ ransomware scans*: Provides an additional layer of security for your data. This feature helps detect any attempts to change backup copies. If any attempt is made, a new version of the data is created discreetly. While the default scan is 1 day, it can be changed to 1, 2, 3, 4, 5, 6, or 7 days. If scans are changed to every 7 days, the costs decrease significantly. 
 
-For details on tips to mitigate DataLock costs, refer to
+For more tips to mitigate DataLock costs, refer to
 https://community.netapp.com/t5/Tech-ONTAP-Blogs/Understanding-BlueXP-Backup-and-Recovery-DataLock-and-Ransomware-Feature-TCO/ba-p/453475 
 
  
