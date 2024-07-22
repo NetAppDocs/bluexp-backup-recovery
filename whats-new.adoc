@@ -37,7 +37,7 @@ The Amazon Web Services (AWS) Identity and Access Management (IAM) Roles Anywher
 
 With this release, support for AWS IAM Roles Anywhere service is a technology preview.
 
-This applies to backing up link:task-backup-to-S3.html[backing up Cloud Volumes ONTAP to AWS] and link:task-backup-onprem-to-aws.html[backing up on-premises ONTAP data to AWS]. 
+This applies to backing up link:task-backup-to-s3.html[backing up Cloud Volumes ONTAP to AWS] and link:task-backup-onprem-to-aws.html[backing up on-premises ONTAP data to AWS]. 
 
 
 Refer to https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993[BlueXP backup and recovery July 2024 release blog].
