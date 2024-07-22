@@ -17,7 +17,7 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
-== 16 July 2024 
+== 22 July 2024 
 
 === Restore volumes less than 1 GB
 
@@ -33,13 +33,14 @@ For details about DataLock and tips on how to mitigate the associated costs, ref
 
 === AWS IAM Roles Anywhere integration 
 
-The Amazon Web Services (AWS) Identity and Access Management (IAM) Roles Anywhere service enables you to use IAM roles and short-term credentials for your workloads _outside_ of AWS to access AWS APIs securely, the same way that you use IAM roles for workloads _on_ AWS. When you use IAM Roles Anywhere private key infrastructure and AWS tokens, you don't need long-term AWS access keys and secrets. This enables you to change credentials more frequently, improving security.
-
-This applies to backing up link:task-backup-to-S3.html[backing up Cloud Volumes ONTAP to AWS] and link:task-backup-onprem-to-aws.html[backing up on-premises ONTAP data to AWS]. 
+The Amazon Web Services (AWS) Identity and Access Management (IAM) Roles Anywhere service enables you to use IAM roles and short-term credentials for your workloads _outside_ of AWS to access AWS APIs securely, the same way that you use IAM roles for workloads _on_ AWS. When you use IAM Roles Anywhere private key infrastructure and AWS tokens, you don't need long-term AWS access keys and secret keys. This enables you to rotate credentials more frequently, improving security.
 
 With this release, support for AWS IAM Roles Anywhere service is a technology preview.
 
-//Refer to <J's blog>. 
+This applies to backing up link:task-backup-to-S3.html[backing up Cloud Volumes ONTAP to AWS] and link:task-backup-onprem-to-aws.html[backing up on-premises ONTAP data to AWS]. 
+
+
+Refer to https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993[BlueXP backup and recovery July 2024 release blog].
 
 === FlexGroup folder or directory restore now available
 
@@ -48,6 +49,8 @@ Previously, FlexVol volumes could be restored, but you couldn't restore FlexGrou
 With this release, support for FlexGroup folder restore is a technology preview.
 
 For details, refer to link:task-restore-backups-ontap.html#restore-folders-and-files-using-browse-restore[Restore folders and files using Browse & Restore].
+
+For details to enable it manually, refer to https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993[BlueXP backup and recovery July 2024 release blog].
 
 == 17 May 2024
 
