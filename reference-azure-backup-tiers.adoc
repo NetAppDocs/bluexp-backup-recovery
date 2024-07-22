@@ -19,7 +19,9 @@ BlueXP backup and recovery supports one Azure archival access tier and most regi
 
 When backup files are initially created they're stored in the _Cool_ access tier. This tier is optimized for storing data that's infrequently accessed; but when needed, can be accessed immediately.
 
-If your source clusters are running ONTAP 9.10.1 or greater, you can choose to tier backups from _Cool_ to _Azure Archive_ storage after a certain number of days (typically more than 30 days) for further cost optimization. Data in this tier can't be accessed immediately when needed, and will require a higher retrieval cost, so you need to consider how often you may need to restore data from these archived backup files. See the next section about <<Restore data from archival storage,restoring data from archival storage>>.
+
+If your source clusters are running ONTAP 9.10.1 or greater, you can choose to tier backups from _Cool_ to _Azure Archive_ storage after a certain number of days (typically more than 30 days) for further cost optimization. Data in this tier can't be accessed immediately when needed, and will require a higher retrieval cost, so you need to consider how often you may need to restore data from these archived backup files. See the section on this page about restoring data from archival storage.
+
 
 Note that when you configure BlueXP backup and recovery with this type of lifecycle rule, you must not configure any lifecycle rules when setting up the container in your Azure account.
 

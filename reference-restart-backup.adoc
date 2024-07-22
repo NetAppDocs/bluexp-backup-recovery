@@ -27,7 +27,7 @@ BlueXP backup and recovery functionality is built into the BlueXP Connector. You
 | Connector location
 | Procedure
 
-| Cloud deployment | Follow the instructions for https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm[connecting to the Connector Linux virtual machine^] depending on the cloud provider you're using.
+| Cloud deployment | Follow the instructions for https://docs.netapp.com/us-en/bluexp-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm[connecting to the Connector Linux virtual machine^] depending on the cloud provider you're using.
 | Manual installation | Log in to the Linux system.
 
 |===
