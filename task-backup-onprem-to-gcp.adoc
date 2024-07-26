@@ -55,7 +55,7 @@ Discover your ONTAP clusters in BlueXP, verify that the clusters meet minimum re
 [role="quick-margin-para"]
 Set up permissions for the Connector to create and manage the Google Cloud bucket. You'll also need to set up permissions for the on-premises ONTAP cluster so it can read and write data to the Google Cloud bucket.
 
-[role="quick-margin-para"]
+
 
 Optionally, you can set up your own custom-managed keys for data encryption instead of using the default Google Cloud encryption keys. 
 
