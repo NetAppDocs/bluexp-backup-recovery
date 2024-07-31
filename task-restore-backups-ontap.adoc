@@ -315,7 +315,7 @@ When using ONTAP 9.13.0 or greater, you can restore a folder along with all file
 
 * With ONTAP 9.15.1, you can restore FlexGroup folders using the "Browse and restore" option. This feature is in a Technology Preview mode.
 +
-You can test it using a special flag described in the https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993#toc-hId-1830672444[BlueXP backup and recovery July 2024 Release blog].
+You can test it using a special flag described in the https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993#toc-hId-1830672444[BlueXP backup and recovery July 2024 Release blog^].
 ====
 
 ==== Prerequisites
