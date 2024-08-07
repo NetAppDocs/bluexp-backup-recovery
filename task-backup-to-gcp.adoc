@@ -24,7 +24,9 @@ Get started quickly by following these steps or scroll down to the remaining sec
 [role="quick-margin-list"]
 * You're running Cloud Volumes ONTAP 9.8 or later in GCP (ONTAP 9.8P13 and later is recommended).
 * You have a valid GCP subscription for the storage space where your backups will be located.
-* You have a service account in your Google Cloud Project that has the predefined Storage Admin role.
+* You have a service account in your Google Cloud Project that has a custom role with a reduced set of permissions. 
++
+NOTE: The Storage Admin role is no longer required for the service account that enables BlueXP backup and recovery to access Google Cloud Storage buckets. 
 * You have subscribed to the https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved[BlueXP Marketplace Backup offering^], or you have purchased link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[and activated^] a BlueXP backup and recovery BYOL license from NetApp.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Prepare your BlueXP Connector
@@ -33,40 +35,39 @@ Get started quickly by following these steps or scroll down to the remaining sec
 If you already have a Connector deployed in a GCP region, then you're all set. If not, then you'll need to install a BlueXP Connector in GCP to back up Cloud Volumes ONTAP data to Google Cloud Storage. The Connector can be installed in a site with full internet access ("standard mode") or with limited internet connectivity ("restricted mode").
 // or without internet access ("private mode").
 
-[role="quick-margin-para"]
-<<Prepare your BlueXP Connector>>
-
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Verify license requirements
 
 [role="quick-margin-para"]
 You'll need to check license requirements for both Google Cloud and BlueXP.
 
-[role="quick-margin-para"]
-<<Verify license requirements>>.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Verify ONTAP networking requirements for replicating volumes
 
 [role="quick-margin-para"]
 Ensure that the source and destination systems meet ONTAP version and networking requirements. 
 
-[role="quick-margin-para"]
-<<Verify ONTAP networking requirements for replicating volumes>>.
+
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Enable BlueXP backup and recovery 
 
 [role="quick-margin-para"]
 Select the working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. 
 
-[role="quick-margin-para"]
-<<Enable BlueXP backup and recovery on Cloud Volumes ONTAP>>.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Activate backups on your ONTAP volumes
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Prepare Google Cloud as your backup target
+
+[role="quick-margin-para"]
+Set up permissions for the Connector to create and manage the Google Cloud bucket. 
+
+[role="quick-margin-para"]
+Optionally, you can set up your own custom-managed keys for data encryption instead of using the default Google Cloud encryption keys. <<Prepare Google Cloud Storage as your backup target,Learn how to get your Google Cloud environment ready to receive ONTAP backups.>>
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png[Seven] Activate backups on your ONTAP volumes
 
 [role="quick-margin-para"]
 Follow the setup wizard to select the replication and backup policies that you'll use and the volumes you want to back up.
 
-[role="quick-margin-para"]
-<<Activate backups on your ONTAP volumes>>.
 
 == Verify support for your configuration
 
@@ -85,7 +86,9 @@ Supported GCP regions::
 BlueXP backup and recovery is supported in all GCP regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^].
 
 GCP Service Account::
-You need to have a service account in your Google Cloud Project that has the predefined Storage Admin role. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-creating-gcp-service-account.html[Learn how to create a service account^].
+You need to have a service account in your Google Cloud Project that has the custom role. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-creating-gcp-service-account.html[Learn how to create a service account^].
+
+NOTE: The Storage Admin role is no longer required for the service account that enables BlueXP backup and recovery to access Google Cloud Storage buckets. 
 
 == Verify license requirements
 
@@ -211,7 +214,7 @@ image:screenshot_backup_to_gcp.png[Shows the BlueXP backup and recovery option i
 
 . Complete the pages in the wizard to deploy the system as described in https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-gcp.html[Launching Cloud Volumes ONTAP in GCP^].
 
-TIP: To modify backup settings or add replication, refer to link:../task-manage-backups-ontap.html[Manage ONTAP backups].
+TIP: To modify backup settings or add replication, refer to link:task-manage-backups-ontap.html[Manage ONTAP backups].
 
 .Result
 
@@ -230,7 +233,102 @@ If the Google Cloud Storage destination for your backups exists as a working env
 +
 image:screenshot_backup_cvo_enable.png[A screenshot that shows the BlueXP backup and recovery Settings button which is available after you select a working environment.]
 
-TIP: To modify backup settings or add replication, refer to link:../task-manage-backups-ontap.html[Manage ONTAP backups].
+TIP: To modify backup settings or add replication, refer to link:task-manage-backups-ontap.html[Manage ONTAP backups].
+
+
+== Prepare Google Cloud Storage as your backup target
+
+Preparing Google Cloud Storage as your backup target involves the following steps: 
+
+* Set up permissions.
+* (Optional) Create your own buckets. (The service will create buckets for you if you want.)
+* (Optional) Set up customer-managed keys for data encryption
+//* Configure your system for a private connection using a VPC endpoint interface 
+
+//This section is the same as backup onprem to GSP but without onprem info. 
+
+=== Set up permissions
+
+You need to provide storage access keys for a service account that has specific permissions using a custom role. A service account enables BlueXP backup and recovery to authenticate and access Cloud Storage buckets used to store backups. The keys are required so that Google Cloud Storage knows who is making the request.
+
+.Steps
+
+. In the https://console.cloud.google.com[Google Cloud Console^], go to the *Roles* page.
+
+. https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role[Create a new role^] with the following permissions:
++
+[source,json]
+storage.buckets.create
+storage.buckets.delete
+storage.buckets.get
+storage.buckets.list
+storage.buckets.update
+storage.buckets.getIamPolicy
+storage.multipartUploads.create
+storage.objects.create
+storage.objects.delete
+storage.objects.get
+storage.objects.list
+storage.objects.update
+
+. In the Google Cloud console, https://console.cloud.google.com/iam-admin/serviceaccounts[go to the Service accounts page^].
+
+. Select your Cloud project.
+
+. Select *Create service account* and provide the required information:
+
+.. *Service account details*: Enter a name and description.
+.. *Grant this service account access to project*: Select the custom role that you just created.
+.. Select *Done*.
+
+. Go to https://console.cloud.google.com/storage/settings[GCP Storage Settings^] and create access keys for the service account:
+
+.. Select a project, and select *Interoperability*. If you haven't already done so, select *Enable interoperability access*.
+
+.. Under *Access keys for service accounts*, select *Create a key for a service account*, select the service account that you just created, and click *Create Key*.
++
+You'll need to enter the keys in BlueXP backup and recovery later when you configure the backup service.
+
+=== Create your own buckets
+
+By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard.
+
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn more about creating your own buckets^].
+
+=== Set up customer-managed encryption keys (CMEK) for data encryption
+
+You can use your own customer-managed keys for data encryption instead of using the default Google-managed encryption keys. Both cross-region and cross-project keys are supported, so you can choose a project for a bucket that is different than the project of the CMEK key. 
+
+If you're planning to use your own customer-managed keys: 
+
+* You'll need to have the Key Ring and the Key Name so you can add this information in the activation wizard. https://cloud.google.com/kms/docs/cmek[Learn more about customer-managed encryption keys^].
+
+* You'll need to verify that these required permissions are included in the role for the Connector:
++
+[source,json]
+cloudkms.cryptoKeys.get
+cloudkms.cryptoKeys.getIamPolicy
+cloudkms.cryptoKeys.list
+cloudkms.cryptoKeys.setIamPolicy
+cloudkms.keyRings.get
+cloudkms.keyRings.getIamPolicy
+cloudkms.keyRings.list
+cloudkms.keyRings.setIamPolicy
+
+* You'll need to verify that the Google "Cloud Key Management Service (KMS)" API is enabled in your project. See the https://cloud.google.com/apis/docs/getting-started#enabling_apis[Google Cloud documentation: Enabling APIs] for details.
+
+*CMEK considerations:*
+
+* Both HSM (Hardware-backed) and Software-generated keys are supported.
+* Both newly created or imported Cloud KMS keys are supported.
+* Only regional keys are supported, global keys are not supported.
+* Currently, only the "Symmetric encrypt/decrypt" purpose is supported.
+* The service agent associated with the Storage Account is assigned the "CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter)" IAM role by BlueXP backup and recovery. 
+
+
+
+
+
 
 == Activate backups on your ONTAP volumes 
 
@@ -274,7 +372,8 @@ You can choose to protect FlexVol or FlexGroup volumes; however, you cannot sele
 [NOTE] 
 ====
 * You can activate a backup only on a single FlexGroup volume at a time. 
-* The volumes you select must have the same SnapLock setting. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. (Volumes with SnapLock Compliance mode require ONTAP 9.14 or later.)
+* The volumes you select must have the same SnapLock setting. All volumes must have SnapLock Enterprise enabled or have SnapLock disabled. 
+//(Volumes with SnapLock Compliance mode require ONTAP 9.14 or later.)
 ====
 
 .Steps 

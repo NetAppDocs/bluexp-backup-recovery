@@ -291,8 +291,32 @@ endif::azure[]
 * The DataLock option you select when activating BlueXP backup and recovery must be used for all backup policies for that cluster. 
 * You cannot use multiple DataLock modes on a single cluster.
 * If you enable DataLock, all volume backups will be locked. You can't mix locked and non-locked volume backups for a single cluster.
-* DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can later enable or disable this feature using the Advanced Settings option. 
+* DataLock and Ransomware protection is applicable for new volume backups using a backup policy with DataLock and Ransomware protection enabled. You can later enable or disable these features using the Advanced Settings option. 
 * FlexGroup volumes can use DataLock and Ransomware protection only when using ONTAP 9.13.1 or greater.
+
+=== Tips on how to mitigate DataLock costs
+
+You can enable or disable the Ransomware Scan feature while keeping the DataLock feature active. To avoid extra charges, you can disable scheduled ransomware scans. This lets you customize your security settings and avoid incurring costs from the cloud provider. 
+
+Even if scheduled ransomware scans are disabled, you can still perform on-demand scans when needed.
+
+You can choose different levels of protection: 
+
+* *DataLock _without_ ransomware scans*: Provides protection for backup data in the destination storage that can be either in Governance or Compliance mode. 
+
+** *Governance mode*: Offers flexibility to administrators to overwrite or delete protected data. 
+** *Compliance mode*: Provides complete indelibility until the retention period expires. This helps meet the most stringent data security requirements of highly regulated environments. The data cannot be overwritten or modified during its lifecycle, providing the strongest level of protection for your backup copies. 
++
+NOTE: Microsoft Azure uses a Lock and Unlock mode instead.
+
+* *DataLock _with_ ransomware scans*: Provides an additional layer of security for your data. This feature helps detect any attempts to change backup copies. If any attempt is made, a new version of the data is created discreetly. The scan frequency can be changed to 1, 2, 3, 4, 5, 6, or 7 days. If scans are set to every 7 days, the costs decrease significantly. 
+
+For more tips to mitigate DataLock costs, refer to
+https://community.netapp.com/t5/Tech-ONTAP-Blogs/Understanding-BlueXP-Backup-and-Recovery-DataLock-and-Ransomware-Feature-TCO/ba-p/453475 
+
+ 
+Additionally, you can get estimates for the cost associated with DataLock by visiting the https://bluexp.netapp.com/cloud-backup-service-tco-calculator[BlueXP backup and recovery Total Cost of Ownership (TCO) calculator]. 
+
 
 == Archival storage options
 
