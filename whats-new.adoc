@@ -461,7 +461,7 @@ Now you can back up data from Cloud Volumes ONTAP systems installed in AWS and A
 
 === Multiple enhancements to the Job Monitor
 
-* The Job Monitoring page has added advanced filtering so you can search for backup and restore jobs by time, workload (volumes, applications, virtual machines, or Kubernetes), job type, status, working environment, and storage VM. You can also enter free text to search for any resource, for example, "application_3".  https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs[See how to use the advanced filters].
+* The Job Monitoring page has added advanced filtering so you can search for backup and restore jobs by time, workload (volumes, applications, or virtual machines), job type, status, working environment, and storage VM. You can also enter free text to search for any resource, for example, "application_3".  https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs[See how to use the advanced filters].
 
 * Both user-initiated backup and restore operations initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs, such ongoing backup operations, are now available in the *Job Monitoring* tab for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater. Earlier versions of Cloud Volumes ONTAP systems, and on-premises ONTAP systems, will display only user-initiated jobs at this time.
 
@@ -624,7 +624,7 @@ At this time, the Connector must be deployed in the Google Cloud Platform when u
 
 The following updates have been made to the https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html[Job Monitoring page]: 
 
-* A column for "Workload" is available so you can filter the page to view jobs for the following Backup services: Volumes, Applications, Virtual Machines, and Kubernetes.
+* A column for "Workload" is available so you can filter the page to view jobs for the following Backup services: Volumes, Applications, and Virtual Machines.
 * You can add new columns for "User Name" and "Job Type" if you want to view these details for a specific backup job.
 * The Job Details page displays all the sub-jobs that are running to complete the main job.
 * The page automatically refreshes every 15 minutes so that you'll always see the most recent job status results. And you can click the *Refresh* button to update the page immediately.

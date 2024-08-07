@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-report-inventory.html
-keywords: cloud backup, backup and recovery service, backup and recovery, backup, restore, report, inventory
+keywords: cloud backup, backup and recovery service, backup and recovery, backup, restore, report, inventory, bluexp
 summary: With BlueXP backup and recovery reports, you can ensure that critical data is protected according to your organization’s defined policies and efficiently support audit for compliance processes. With the Backup inventory report, you can see all your backups for a specific account, working environment or SVM inventory. 
 ---
 
@@ -27,7 +27,7 @@ NOTE: Report activities are monitored in the Job Monitoring log so that you can 
 The BlueXP backup and recovery reports provide information about the following aspects:
 
 * *Connector location*: On-premises or the cloud
-* *Source*: Cloud Volumes ONTAP volumes, on-premises ONTAP volumes, applications, or Kubernetes persistent volumes
+* *Source*: Cloud Volumes ONTAP volumes, on-premises ONTAP volumes, or applications
 * *Destination*: Any of the cloud providers, NetApp StorageGRID, or ONTAP S3
 * *ONTAP versions*: 9.13.0
 
@@ -86,7 +86,7 @@ TIP: You can select multiple working environments and SVMs.
 
 Proactive monitoring can reduce effort required to monitor all resources in your ecosystem. Beginning with ONTAP 9.13.0, the Data Protection Job Activity report provides information about snapshot, backup, clone, and restore operations that you can use with your SLA monitoring and track backup and recovery rates. 
 
-The report applies to BlueXP backup and recovery operations for Cloud Volumes ONTAP, on-premises, applications, and Kubernetes data. 
+The report applies to BlueXP backup and recovery operations for Cloud Volumes ONTAP, on-premises, and applications data. 
 
 The Data Protection Job Activity report shows the following information and more: 
 
@@ -104,7 +104,6 @@ The charts at the top of the page show the following information:
 ** Count of ONTAP volumes backup and restore jobs
 ** Count of application backup and restore jobs
 ** Count of virtual machine backup and restore jobs 
-** Count of Kubernetes backup and restore jobs
 * Daily job activity
 
 .Steps
