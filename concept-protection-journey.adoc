@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: concept-protection-journey.html
-keywords: backing up, restoring, recovery, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, on-premises ontap, onprem, replication, backup and recovery
+keywords: backing up, restoring, recovery, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, storage grid, back up volumes, cloud backup, restore volumes, on-premises ontap, onprem, replication, backup and recovery
 summary: The BlueXP backup and recovery service enables you to create up to three copies of your source volumes to protect your data. There are many options that you can select when enabling this service on your volumes, so you should review your choices so you're prepared.
 ---
 
@@ -242,7 +242,7 @@ If you're already using BlueXP to manage your storage, then a BlueXP Connector h
 BlueXP offers multiple deployment modes that enable you to use BlueXP in a way that meets your business and security requirements. _Standard mode_ leverages the BlueXP SaaS layer to provide full functionality, while _restricted mode_ and _private mode_ are available for organizations that have connectivity restrictions. 
 
 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html[Learn more about BlueXP deployment modes^].
-https://www.netapp.tv/details/30567[Watch this video about BlueXP deployment modes].
+
 
 === Support for sites with full internet connectivity
 

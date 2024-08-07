@@ -22,7 +22,7 @@ BlueXP supports data lock and ransomware protection. If ONTAP cluster is running
 
 When backing up data to StorageGRID, a Connector must be available on your premises. You will either need to install a new Connector or make sure that the currently selected Connector resides on-prem. The Connector can be installed in a site with or without internet access.
 
-For information, see link:task-backup-onprem-private-cloud.html#creating-or-switching-connectors[Create Connectors for StorageGRID].
+For information, see link:task-backup-onprem-private-cloud.html#create-or-switch-connectors[Create Connectors for StorageGRID].
 
 .Steps
 
