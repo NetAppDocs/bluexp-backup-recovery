@@ -17,7 +17,7 @@ You can monitor the status of local Snapshots, replications, and backup to objec
 
 == View job status on the Job Monitor
 
-You can view a list of all the Snapshot, replication, backup to object storage, and restore operations and their current status in the *Job Monitoring* tab. This includes operations from your Cloud Volumes ONTAP, on-premises ONTAP, applications, virtual machines, and Kubernetes systems. Each operation, or job, has a unique ID and a status. 
+You can view a list of all the Snapshot, replication, backup to object storage, and restore operations and their current status in the *Job Monitoring* tab. This includes operations from your Cloud Volumes ONTAP, on-premises ONTAP, applications, and virtual machines. Each operation, or job, has a unique ID and a status. 
 
 The status can be:
 
@@ -70,7 +70,7 @@ Most of the filters are self-explanatory. The filter for "Workload" enables you 
 * Volumes (Cloud Volumes ONTAP and on-premises ONTAP volumes)
 * Applications
 * Virtual Machines
-* Kubernetes
+
 
 +
 [TIP]
