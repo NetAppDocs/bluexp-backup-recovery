@@ -62,17 +62,17 @@ This feature does not provide protection for your source volumes; only for the b
 
 === What is DataLock
 
-DataLock protects your backup files from being modified or deleted for a certain period of time - also called _immutable storage_. This functionality uses technology from the object storage provider for "object locking." The period of time that the backup file is locked (and retained) is called the DataLock Retention Period. It is based on the backup policy schedule and retention setting that you defined, plus a maximum 31-days buffer. Any DataLock retention policy that is less than 31 days is rounded up to 31 days minimum.
+DataLock protects your backup files from being modified or deleted for a certain period of time - also called _immutable storage_. This functionality uses technology from the object storage provider for "object locking." The period of time that the backup file is locked (and retained) is called the DataLock Retention Period. It is based on the backup policy schedule and retention setting that you defined, plus a maximum 31-day buffer. Any DataLock retention policy that is less than 31 days is rounded up to 31 days minimum.
 
 Be aware that old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period expires.
 
 Let's look at some examples of how this works:
 
 * If you create a Monthly backup schedule with 12 retentions, each backup is locked for 12 months (plus a maximum 31-day buffer) before it is deleted.
-* If you create a backup policy that creates 30 daily, 7 weekly, 12 monthly backups there will be three locked retention periods. The "30 daily" backups would be retained for 44 days (30 days plus a maximum 30-day buffer), the "7 weekly" backups would be retained for 9 weeks (7 weeks plus a maximum 30 day buffer), and the "12 monthly" backups would be retained for 12 months (plus a maximum 30-day buffer).
+* If you create a backup policy that creates 30 daily, 7 weekly, 12 monthly backups there will be three locked retention periods. The "30 daily" backups would be retained for 44 days (30 days plus a maximum 31-day buffer), the "7 weekly" backups would be retained for 9 weeks (7 weeks plus a maximum 31-day buffer), and the "12 monthly" backups would be retained for 12 months (plus a maximum 31-day buffer).
 * If you create an Hourly backup schedule with 24 retentions, you might think that backups are locked for 24 hours. However, since that is less than the minimum of 30 days, each backup will be locked and retained for 44 days (30 days plus a maximum 3-day buffer).
 +
-You can see in this last case that if each backup file is locked for 30 days (plus a maximum 30-day buffer), you'll end up with many more backup files than would typically be retained with an hourly/24 retentions policy. Usually, when BlueXP backup and recovery creates the 25th backup file it would delete the oldest backup to keep the maximum retentions at 24 (based on the policy). The DataLock retention setting overrides the policy retention setting from your backup policy in this case. This could affect your storage costs as your backup files will be saved in the object store for a longer period of time.
+You can see in this last case that if each backup file is locked for 30 days (plus a maximum 31-day buffer), you'll end up with many more backup files than would typically be retained with an hourly/24 retentions policy. Usually, when BlueXP backup and recovery creates the 25th backup file it would delete the oldest backup to keep the maximum retentions at 24 (based on the policy). The DataLock retention setting overrides the policy retention setting from your backup policy in this case. This could affect your storage costs as your backup files will be saved in the object store for a longer period of time.
 
 === What is Ransomware protection
 
