@@ -268,7 +268,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 
 * Support for connector proxy deployment model
 
-// end::whats-new[] 
+
 
 == 11 September 2023
 
