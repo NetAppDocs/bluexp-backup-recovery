@@ -104,7 +104,9 @@ When using a version of ONTAP before 9.11.1, folder restore is not supported.
 
 === Limitations when using RHEL 8+ with Podman
 
-==== Single-file restore is not supported
+==== Single-file restore support
+
+IMPORTANT: As of the September 30, 2024 release, this limitation has been removed. 
 
 The Browse & Restore functionality for single-file restore and directory restore is not supported when using BlueXP Connectors running in Podman (manually created BlueXP Connectors when running on RHEL 8 or 9). All other types of restore operations are supported when using Podman, so you can restore your data using these other methods until this issue is resolved:
 
