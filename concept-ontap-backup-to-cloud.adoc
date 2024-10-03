@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: concept-ontap-backup-to-cloud.html
-keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem, bluexp, bluexp backup and recovery
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem, bluexp, bluexp backup and recovery, protection
 summary: The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 ---
 
@@ -251,7 +251,7 @@ Note that a 30-day free trial is available when you initially sign up with a PAY
 === Annual contract
 
 ifdef::aws[]
-When using AWS, two annual contracts are available for 1, 2, or 3 year terms:
+When you use AWS, two annual contracts are available for 1, 2, or 3 year terms:
 
 * A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
 
@@ -259,7 +259,7 @@ When using AWS, two annual contracts are available for 1, 2, or 3 year terms:
 endif::aws[]
 
 ifdef::azure[]
-When using Azure, two annual contracts are available for 1, 2, or 3 year terms:
+When you use Azure, two annual contracts are available for 1, 2, or 3 year terms:
 
 * A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
 
@@ -267,7 +267,7 @@ When using Azure, two annual contracts are available for 1, 2, or 3 year terms:
 endif::azure[]
 
 ifdef::gcp[]
-When using GCP, you can request a private offer from NetApp, and then select the plan when you subscribe from the Google Cloud Marketplace during BlueXP backup and recovery activation.
+When you use GCP, you can request a private offer from NetApp, and then select the plan when you subscribe from the Google Cloud Marketplace during BlueXP backup and recovery activation.
 endif::gcp[]
 
 link:task-licensing-cloud-backup.html#use-an-annual-contract[Learn how to set up annual contracts].
@@ -356,7 +356,7 @@ If your cluster is using ONTAP 9.11.1 or greater, you can protect your backups i
 
 Scheduled ransomware protection scans are enabled by default. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest Snapshot copy. The scheduled scans can be disabled to reduce your costs. You can enable or disable scheduled ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed weekly by default. You can change that schedule to days or weeks or disable it, saving costs.  
 
-The backup retention period is the same as the backup schedule retention period; plus 14 days. For example, _weekly_ backups with _5_ copies retained will lock each backup file for 5 weeks. _Monthly_ backups with _6_ copies retained will lock each backup file for 6 months.
+The backup retention period is the same as the backup schedule retention period, plus a maximum 31-day buffer. For example, _weekly_ backups with _5_ copies retained will lock each backup file for 5 weeks. _Monthly_ backups with _6_ copies retained will lock each backup file for 6 months.
 
 Support is currently available when your backup destination is Amazon S3, Azure Blob, or NetApp StorageGRID. Other storage provider destinations will be added in future releases.
 

@@ -149,7 +149,7 @@ The Notification Center displays numerous Snapshot, replication, backup to cloud
 //| Replication | *later* BlueXP backup and recovery scheduled replication job failure | Error | Yes
 | Replication | BlueXP backup and recovery ad-hoc replication job failure | Error | Yes
 | Replication | BlueXP backup and recovery replication pause job failure | Error | No
-| Replication | BlueXP backup and recovery replication brake job failure | Error | No
+| Replication | BlueXP backup and recovery replication break job failure | Error | No
 | Replication | BlueXP backup and recovery replication resync job failure | Error | No
 | Replication | BlueXP backup and recovery replication stop job failure | Error | No
 | Replication | BlueXP backup and recovery replication reverse resync job failure | Error | Yes

@@ -17,6 +17,24 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
+== 27 September 2024
+// v3.0.7
+
+=== Podman support on RHEL 8 or 9 with Browse and Restore
+
+BlueXP backup and recovery now supports file and folder restores on Red Hat Enterprise Linux (RHEL) versions 8 and 9 using the Podman engine. This applies to the BlueXP backup and recovery Browse and Restore method. 
+
+BlueXP Connector version 3.9.40 supports certain versions of Red Hat Enterprise Linux versions 8 and 9 for any manual installation of the Connector software on a RHEL 8 or 9 host, regardless of the location in addition to the operating systems mentioned in the https://docs.netapp.com/us-en/bluexp-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements[host requirements^]. These newer RHEL versions require the Podman engine instead of the Docker engine. Previously, BlueXP backup and recovery had two limitations when using the Podman engine. These limitations have been removed. 
+
+https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-se-ja/task-restore-backups-ontap.html[Learn more about restoring ONTAP data from backup files].
+
+
+=== Faster catalog indexing improves Search and Restore
+
+This release includes an improved catalog index that completes the baseline indexing much faster. Faster indexing enables you to use the Search and Restore feature more quickly. 
+
+https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-se-ja/task-restore-backups-ontap.html[Learn more about restoring ONTAP data from backup files].
+
 == 22 July 2024 
 
 === Restore volumes less than 1 GB
@@ -69,6 +87,9 @@ The following procedures include new Podman instructions:
 
 //* https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-restart-backup.html[Restart BlueXP backup and recovery]
 //* https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html[Restore BlueXP backup and recovery data in a dark site]
+
+
+// end::whats-new[] 
 
 == 30 April 2024 
 
@@ -150,7 +171,6 @@ Previously, you could restore files and folders only from backup copies in AWS, 
 
 You can perform this feature by using the Search and restore process, not by using the Browse and restore process. 
 
-// end::whats-new[] 
 
 == 01 February 2024 
 
@@ -248,7 +268,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 
 * Support for connector proxy deployment model
 
-// end::whats-new[] 
+
 
 == 11 September 2023
 
@@ -268,8 +288,9 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.
 Now you can send your backup files immediately to archive storage instead of writing the data to standard cloud storage. This can be especially helpful for users who rarely need to access data from cloud backups or users who are replacing a backup to tape environment.
 
 === Additional support for backing up and restoring SnapLock volumes
+Backup and recovery now can back up both FlexVol and FlexGroup volumes that are configured using SnapLock Enterprise protection mode. Your clusters must be running ONTAP 9.14 or greater for this support. Backing up FlexVol volumes using SnapLock Enterprise mode has been supported since ONTAP version 9.11.1. Earlier ONTAP releases provide no support for backing up SnapLock protection volumes.
 
-Backup and recovery now can back up both FlexVol and FlexGroup volumes that are configured using either SnapLock Compliance or SnapLock Enterprise protection modes. Your clusters must be running ONTAP 9.14 or greater for this support. Backing up FlexVol volumes using SnapLock Enterprise mode has been supported since ONTAP version 9.11.1. Earlier ONTAP releases provide no support for backing up SnapLock protection volumes.
+//Backup and recovery now can back up both FlexVol and FlexGroup volumes that are configured using either SnapLock Compliance or SnapLock Enterprise protection modes. Your clusters must be running ONTAP 9.14 or greater for this support. Backing up FlexVol volumes using SnapLock Enterprise mode has been supported since ONTAP version 9.11.1. Earlier ONTAP releases provide no support for backing up SnapLock protection volumes.
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html[Learn more about protecting ONTAP data].
 
