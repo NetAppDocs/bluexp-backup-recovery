@@ -129,8 +129,6 @@ You'll need to your BlueXP backup and recovery serial number. Locate this number
 .Steps
 
 . Find your BlueXP account ID:
-+
-NOTE: For a private mode site without internet access, use *account-DARKSITE1*.
 
 .. In the upper right of the BlueXP console, select image:icon-settings-option.png[The settings icon which displays in the top right of the BlueXP web console.] > *Identity & Access Management*.
 .. On the Organization page, look for your account ID and copy it. 
@@ -144,6 +142,8 @@ ea10e1c6-80cc-4219-8e99-3c3e6b161ba5
 Your account ID would be as follows: 
 +
 account-ea10e1c6
++
+NOTE: For a private mode site without internet access, use *account-DARKSITE1*.
 
 . Sign in to the https://mysupport.netapp.com[NetApp Support Site^] and click *Systems > Software Licenses*.
 
