@@ -55,8 +55,7 @@ This feature does not provide protection for your source volumes; only for the b
 
 [CAUTION]
 ====
-* If you plan to use DataLock and Ransomware protection, you can enable it when creating your first backup policy and activating BlueXP backup and recovery for that cluster. You can later enable it using BlueXP backup and recovery Advanced Settings. 
-* DataLock and Ransomware protection can be disabled for a cluster after it has been configured to save costs. 
+* If you plan to use DataLock and Ransomware protection, you can enable it when creating your first backup policy and activating BlueXP backup and recovery for that cluster. You can later enable or disable ransomware scanning using BlueXP backup and recovery Advanced Settings. 
 * When BlueXP scans a backup file for ransomware when restoring volume data, you'll incur extra egress costs from your cloud provider to access the contents of the backup file.
 ====
 
