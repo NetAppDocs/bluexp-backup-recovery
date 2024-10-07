@@ -124,7 +124,7 @@ If you're running BlueXP backup and recovery in an on-premises site that doesn't
 
 .Before you begin
 
-You'll need to your BlueXP backup and recovery serial number. Locate this number from your Sales Order, or contact the account team for this information.
+You'll need your BlueXP backup and recovery serial number. Locate this number from your Sales Order, or contact the account team for this information.
 
 .Steps
 
