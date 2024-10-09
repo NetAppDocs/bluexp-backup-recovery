@@ -26,14 +26,14 @@ BlueXP backup and recovery now supports file and folder restores on Red Hat Ente
 
 BlueXP Connector version 3.9.40 supports certain versions of Red Hat Enterprise Linux versions 8 and 9 for any manual installation of the Connector software on a RHEL 8 or 9 host, regardless of the location in addition to the operating systems mentioned in the https://docs.netapp.com/us-en/bluexp-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements[host requirements^]. These newer RHEL versions require the Podman engine instead of the Docker engine. Previously, BlueXP backup and recovery had two limitations when using the Podman engine. These limitations have been removed. 
 
-https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-se-ja/task-restore-backups-ontap.html[Learn more about restoring ONTAP data from backup files].
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Learn more about restoring ONTAP data from backup files].
 
 
 === Faster catalog indexing improves Search and Restore
 
 This release includes an improved catalog index that completes the baseline indexing much faster. Faster indexing enables you to use the Search and Restore feature more quickly. 
 
-https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-se-ja/task-restore-backups-ontap.html[Learn more about restoring ONTAP data from backup files].
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Learn more about restoring ONTAP data from backup files].
 
 == 22 July 2024 
 
@@ -45,9 +45,9 @@ With this release, you can now restore volumes that you created in ONTAP that ar
 
 The DataLock feature protects your backup files from being modified or deleted for a specified period of time. This is helpful to protect your files against ransomware attacks. 
 
-For details about DataLock and tips on how to mitigate the associated costs, refer to link:concept-cloud-backup-policies.html[Backup-to-object policy settings].
+//For details about DataLock and tips on how to mitigate the associated costs, refer to link:concept-cloud-backup-policies.html[Backup-to-object policy settings].
 
-//For details about DataLock and tips on how to mitigate the associated costs, refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html[Backup-to-object policy settings].
+For details about DataLock and tips on how to mitigate the associated costs, refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html[Backup-to-object policy settings].
 
 === AWS IAM Roles Anywhere integration 
 
@@ -68,7 +68,9 @@ Previously, FlexVol volumes could be restored, but you couldn't restore FlexGrou
 
 With this release, support for FlexGroup folder restore is a technology preview.
 
-For details, refer to link:task-restore-backups-ontap.html#restore-folders-and-files-using-browse-restore[Restore folders and files using Browse & Restore].
+For details, refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-browse-restore[Restore folders and files using Browse & Restore].
+
+
 
 For details to enable it manually, refer to https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993[BlueXP backup and recovery July 2024 release blog].
 
@@ -80,7 +82,6 @@ BlueXP Connector version 3.9.40 supports certain versions of Red Hat Enterprise 
 
 See https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-limitations.html[Backup and Restore limitations] for details. 
 
-//See https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-limitations.html[Backup and Restore limitations] for details.
 
 The following procedures include new Podman instructions:
 
