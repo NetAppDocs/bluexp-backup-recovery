@@ -87,6 +87,8 @@ When working with multiple volumes, all volumes must have these common character
 * same style (FlexVol or FlexGroup volume)
 * same type (Read-write or Data Protection volume)
 
+When more than five volumes are enabled for backup, BlueXP backup and recovery initializes only five volumes at a time. When those are finished, it creates the next batch of five subjobs to start the next set and continues until all volumes are initialized.
+
 .Steps
 
 . From the *Volumes* tab, filter by the working environment on which the volumes reside.
