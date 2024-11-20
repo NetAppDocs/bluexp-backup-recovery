@@ -115,7 +115,5 @@ The Browse & Restore functionality for single-file restore and directory restore
 * Restore the files or folders from a cloud backup using the Search & Restore feature.
 * Restore the volume from a cloud backup using Browse & Restore and then access the files or folders that you need.
  
-==== Ransomware scanning of your cloud backups is not supported
- 
-Scanning cloud backups for ransomware is not supported when using the Podman engine. If you are using the DataLock & Ransomware feature for your cloud backups, you'll need to disable ransomware scans. link:task-manage-backup-settings-ontap.html#enable-or-disable-ransomware-scans[See how to disable ransomware scanning].
+
 
