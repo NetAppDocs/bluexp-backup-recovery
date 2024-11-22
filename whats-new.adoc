@@ -17,27 +17,31 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
-//== 13 November 2024
+== 22 November 2024
+This BlueXP backup and recovery release includes the following updates.
+//v3.0.8
 
-//=== SnapLock Compliance and SnapLock Enterprise protection modes 
+=== SnapLock Compliance and SnapLock Enterprise protection modes 
 
-//BlueXP backup and recovery now can back up both FlexVol and FlexGroup on-premises volumes that are configured using either SnapLock Compliance or SnapLock Enterprise protection modes. Your clusters must be running ONTAP 9.14 or greater for this support. Backing up FlexVol volumes using SnapLock Enterprise mode has been supported since ONTAP version 9.11.1. Earlier ONTAP releases provide no support for backing up SnapLock protection volumes.
+BlueXP backup and recovery now can back up both FlexVol and FlexGroup on-premises volumes that are configured using either SnapLock Compliance or SnapLock Enterprise protection modes. Your clusters must be running ONTAP 9.14 or greater for this support. Backing up FlexVol volumes using SnapLock Enterprise mode has been supported since ONTAP version 9.11.1. Earlier ONTAP releases provide no support for backing up SnapLock protection volumes.
 
-//See the complete list of supported volumes in the https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html[Learn about BlueXP backup and recovery].
+See the complete list of supported volumes in the https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html[Learn about BlueXP backup and recovery].
 
 
-//=== Indexing for Search & Restore process on Volumes page
-//Before you can use Search & Restore, you need to enable "Indexing" on each source working environment from which you'll want to restore volume data. This enables the Indexed Catalog to track the backup files for every volume. The Volumes page now shows the indexing status: 
+=== Indexing for Search & Restore process on Volumes page
+Before you can use Search & Restore, you need to enable "Indexing" on each source working environment from which you'll want to restore volume data. This enables the Indexed Catalog to track the backup files for every volume. The Volumes page now shows the indexing status: 
 
-//* Indexed: Volumes have been indexed.
-//* In-progress 
-//* Not Indexed 
-//* Indexing paused
-//* Error
-//* Not Enabled
+* Indexed: Volumes have been indexed.
+* In-progress 
+* Not Indexed 
+* Indexing paused
+* Error
+* Not Enabled
 
 == 27 September 2024
-// v3.0.7
+
+This BlueXP backup and recovery release includes the following updates.
+//v3.0.7 
 
 === Podman support on RHEL 8 or 9 with Browse and Restore
 
@@ -93,6 +97,8 @@ For details, refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-
 
 For details to enable it manually, refer to https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993[BlueXP backup and recovery July 2024 release blog].
 
+// end::whats-new[] 
+
 == 17 May 2024
 
 === Limitations when using RHEL 8 and RHEL 9 for your on-premises Connector
@@ -111,7 +117,7 @@ The following procedures include new Podman instructions:
 //* https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html[Restore BlueXP backup and recovery data in a dark site]
 
 
-// end::whats-new[] 
+
 
 == 30 April 2024 
 
