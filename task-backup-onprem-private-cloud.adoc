@@ -165,6 +165,8 @@ StorageGRID must meet the following requirements. See the https://docs.netapp.co
 
 // Per MN, BYOB not supported in July 2023 release. 
 
+For details about DataLock and Ransomware Protection requirements for StorageGRID, refer to link:concept-cloud-backup-policies.html[Backup-to-object policy options].
+
 Supported StorageGRID versions::
 StorageGRID 10.3 and later is supported.
 +
