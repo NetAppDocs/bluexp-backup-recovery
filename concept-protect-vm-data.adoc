@@ -35,7 +35,7 @@ Read the following requirements to make sure that you have a supported configura
 * Ensure that the destination datastore where the virtual machine will be restored has enough space to accommodate a copy of all virtual machine files such as VMDK, VMX, VMSD, and so on.
 * Ensure that the destination datastore does not have stale virtual machine files in the format of restore_xxx_xxxxxx_filename from the previous restore operation failures. You should delete the stale files before triggering a restore operation.
 * To deploy a connector with proxy configured, ensure that all outgoing connector calls are routed through the proxy server.
-
+* If a volume backing up a datastore is already protected from the Volumes tab (BlueXP Backup and recovery -> Volumes), then the same datastore cannot be protected again from the Virtual Machines tab (BlueXP Backup and recovery -> Virtual Machines).
 
 The following image shows each component and the connections that you need to prepare between them:
 
