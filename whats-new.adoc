@@ -4,7 +4,6 @@ permalink: whats-new.html
 keywords: what's new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery
 summary: Learn what's new in BlueXP backup and recovery.
 ---
-
 = What's new with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
@@ -21,81 +20,17 @@ Learn what's new in BlueXP backup and recovery.
 This BlueXP backup and recovery release includes the following updates.
 //v3.0.8
 
-=== SnapLock Compliance and SnapLock Enterprise protection modes 
-
-BlueXP backup and recovery now can back up both FlexVol and FlexGroup on-premises volumes that are configured using either SnapLock Compliance or SnapLock Enterprise protection modes. Your clusters must be running ONTAP 9.14 or greater for this support. Backing up FlexVol volumes using SnapLock Enterprise mode has been supported since ONTAP version 9.11.1. Earlier ONTAP releases provide no support for backing up SnapLock protection volumes.
-
-See the complete list of supported volumes in the https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html[Learn about BlueXP backup and recovery].
-
-
-=== Indexing for Search & Restore process on Volumes page
-Before you can use Search & Restore, you need to enable "Indexing" on each source working environment from which you'll want to restore volume data. This enables the Indexed Catalog to track the backup files for every volume. The Volumes page now shows the indexing status: 
-
-* Indexed: Volumes have been indexed.
-* In-progress 
-* Not Indexed 
-* Indexing paused
-* Error
-* Not Enabled
+include::_whatsnew/2024-11-22.adoc[]
 
 == 27 September 2024
-
 This BlueXP backup and recovery release includes the following updates.
 //v3.0.7 
 
-=== Podman support on RHEL 8 or 9 with Browse and Restore
-
-BlueXP backup and recovery now supports file and folder restores on Red Hat Enterprise Linux (RHEL) versions 8 and 9 using the Podman engine. This applies to the BlueXP backup and recovery Browse and Restore method. 
-
-BlueXP Connector version 3.9.40 supports certain versions of Red Hat Enterprise Linux versions 8 and 9 for any manual installation of the Connector software on a RHEL 8 or 9 host, regardless of the location in addition to the operating systems mentioned in the https://docs.netapp.com/us-en/bluexp-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements[host requirements^]. These newer RHEL versions require the Podman engine instead of the Docker engine. Previously, BlueXP backup and recovery had two limitations when using the Podman engine. These limitations have been removed. 
-
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Learn more about restoring ONTAP data from backup files].
-
-
-=== Faster catalog indexing improves Search and Restore
-
-This release includes an improved catalog index that completes the baseline indexing much faster. Faster indexing enables you to use the Search and Restore feature more quickly. 
-
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html[Learn more about restoring ONTAP data from backup files].
+include::_whatsnew/2024-09-27.adoc[]
 
 == 22 July 2024 
 
-=== Restore volumes less than 1 GB
-
-With this release, you can now restore volumes that you created in ONTAP that are less than 1 GB. The minimum volume size that you can create using ONTAP is 20 MB.  
-
-=== Tips on how to mitigate DataLock costs
-
-The DataLock feature protects your backup files from being modified or deleted for a specified period of time. This is helpful to protect your files against ransomware attacks. 
-
-//For details about DataLock and tips on how to mitigate the associated costs, refer to link:concept-cloud-backup-policies.html[Backup-to-object policy settings].
-
-For details about DataLock and tips on how to mitigate the associated costs, refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html[Backup-to-object policy settings].
-
-=== AWS IAM Roles Anywhere integration 
-
-The Amazon Web Services (AWS) Identity and Access Management (IAM) Roles Anywhere service enables you to use IAM roles and short-term credentials for your workloads _outside_ of AWS to access AWS APIs securely, the same way that you use IAM roles for workloads _on_ AWS. When you use IAM Roles Anywhere private key infrastructure and AWS tokens, you don't need long-term AWS access keys and secret keys. This enables you to rotate credentials more frequently, improving security.
-
-With this release, support for AWS IAM Roles Anywhere service is a technology preview.
-
-ifdef::aws[]
-This applies to link:task-backup-to-s3.html[backing up Cloud Volumes ONTAP to AWS].
-This applies to link:task-backup-onprem-to-aws.html[backing up on-premises ONTAP data to AWS]. 
-endif::aws[]
-
-Refer to https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993[BlueXP backup and recovery July 2024 release blog].
-
-=== FlexGroup folder or directory restore now available
-
-Previously, FlexVol volumes could be restored, but you couldn't restore FlexGroup folders or directories. With ONTAP 9.15.1 p2, you can restore FlexGroup folders using the Browse and restore option.
-
-With this release, support for FlexGroup folder restore is a technology preview.
-
-For details, refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-browse-restore[Restore folders and files using Browse & Restore].
-
-
-
-For details to enable it manually, refer to https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993[BlueXP backup and recovery July 2024 release blog].
+include::_whatsnew/2024-07-22.adoc[]
 
 // end::whats-new[] 
 
