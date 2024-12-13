@@ -22,64 +22,58 @@ settings:
         id: azure
 sidebar:
   entries:
-    - title: BlueXP backup and recovery docs
+    - title: BlueXP backup and recovery Preview 2025 docs
       url: /index.html
     - title: Release notes
       entries:
-        - title: What's new
+        - title: What's new in BlueXP backup and recovery Preview 2025
           url: /whats-new.html
-        - title: Known limitations
-          url: /reference-limitations.html
     - title: Get started
       entries:
-        - title: Learn about BlueXP backup and recovery
+        - title: Learn about BlueXP backup and recovery Preview version
           url: /concept-backup-to-cloud.html
-        - title: Set up licensing
-          url: /task-licensing-cloud-backup.html
+        - title: Prerequisites for BlueXP backup and recovery Preview version
+          url: /br-start-prerequisites.html  
+        - title: Set up BlueXP backup and recovery Preview version
+          url: /br-start-task-setup.html
+        - title: Log in to BlueXP backup and recovery Preview version
+          url: /br-start-task-login.html
+        - title: Discover workloads 
+          url: /br-start-task-discover.html
+        - title: Configure BlueXP backup and recovery settings 
+          url: /br-start-task-configure.html
+        - title: FAQ
+          url: /br-start-faq.html
     - title: Monitor data protection 
       entries:
         - title: Report on data protection coverage
           url: /task-report-inventory.html
         - title: Monitor the status of backup and restore jobs
           url: /task-monitor-backup-jobs.html        
-    - title: Back up and restore ONTAP data
+    - title: Use BlueXP backup and recovery Preview version
       entries:
-        - title: Protect your ONTAP volume data
-          url: /concept-ontap-backup-to-cloud.html
-        - title: Plan your protection journey
-          url: /concept-protection-journey.html
-        - title: Manage policies for ONTAP volumes
-          url: /task-create-policies-ontap.html   
-        - title: Backup-to-object policy options
-          url: /concept-cloud-backup-policies.html
-        - title: Manage backup-to-object options in Advanced Settings
-          url: /task-manage-backup-settings-ontap.html
-        - title: Back up Cloud Volumes ONTAP to Amazon S3
-          flavor: aws
-          url: /task-backup-to-s3.html
-        - title: Back up Cloud Volumes ONTAP to Azure Blob
-          flavor: azure
-          url: /task-backup-to-azure.html
-        - title: Back up Cloud Volumes ONTAP to Google Cloud
-          flavor: gcp
-          url: /task-backup-to-gcp.html
-        - title: Back up on-premises ONTAP to Amazon S3
-          flavor: aws
-          url: /task-backup-onprem-to-aws.html
-        - title: Back up on-premises ONTAP to Azure Blob
-          flavor: azure
-          url: /task-backup-onprem-to-azure.html
-        - title: Back up on-premises ONTAP to Google Cloud
-          flavor: gcp
-          url: /task-backup-onprem-to-gcp.html
-        - title: Back up on-premises ONTAP to ONTAP S3
-          url: /task-backup-onprem-to-ontap-s3.html
-        - title: Back up on-premises ONTAP to StorageGRID
-          url: /task-backup-onprem-private-cloud.html
-        - title: Manage ONTAP backups
-          url: /task-manage-backups-ontap.html
-        - title: Restore from ONTAP backups
-          url: /task-restore-backups-ontap.html
+        - title: View your protection summary in the Dashboard 
+          url: /task-dashboard.html
+        - title: Create policies to govern backups and restores
+          url: /task-create-policies.html
+        - title: Back up workloads 
+          entries:
+            - title: Back up workloads overview
+              url: /task-backup-overview.html
+            - title: Back up Microsoft SQL Server workloads
+              url: /task-backup-mssql.html
+        - title: Restore workloads
+          entries:  
+            - title: Restore workloads overview     
+              url: /task-restore-overview.html
+            - title: Restore Microsoft SQL Server workloads
+              url: /task-restore-mssql.html
+        - title: Manage inventory, snapshots, and policies       
+          url: /task-manage-overview.html
+        - title: Restart BlueXP backup and recovery
+          url: /reference-restart-backup.html
+        - title: Manage options in Advanced Settings
+          url: /task-manage-settings-advanced.html
     - title: Back up and restore on-premises applications data
       entries:
         - title: Protect your on-premises applications data
@@ -111,46 +105,8 @@ sidebar:
               url: /task-restore-hana-backup.html
             - title: Restore MongoDB, MySQL, and PostgreSQL databases
               url: /task-restore-customplugin-backup.html
-    - title: Back up and restore virtual machines data
-      entries:
-        - title: Protect your virtual machines data
-          url: /concept-protect-vm-data.html
-        - title: Register SnapCenter Plug-in for VMware vSphere host
-          url: /task-register-snapCenter-plug-in-for-vmware-vsphere.html
-        - title: Create a policy to back up datastores
-          url: /task-create-policies-vms.html
-        - title: Back up datastores to Amazon Web Services
-          flavor: aws
-          url: /task-backup-vm-data-to-aws.html
-        - title: Back up datastores to Microsoft Azure
-          flavor: azure
-          url: /task-backup-vm-data-to-azure.html
-        - title: Back up datastores to Google Cloud Platform
-          flavor: gcp
-          url: /task-backup-vm-data-to-gcp.html  
-        - title: Back up datastores to StorageGRID
-          url: /task-backup-vm-data-to-storagegrid.html
-        - title: Manage protection of datastores and virtual machines data
-          url: /task-manage-vm-data-in-cloud.html
-        - title: Restore virtual machines data
-          url: /task-restore-vm-data.html
     - title: Automate with the REST API
       url: /api-backup-restore.html
-    - title: Reference
-      entries:
-        - title: Supported AWS archive storage tiers
-          url: /reference-aws-backup-tiers.html
-        - title: Supported Azure archive access tiers
-          url: /reference-azure-backup-tiers.html
-        - title: Supported Google archive storage tiers
-          url: /reference-google-backup-tiers.html
-        - title: Configure backup for multi-account access in Azure
-          flavor: azure
-          url: /reference-backup-multi-account-azure.html
-        - title: Restore BlueXP backup and recovery database in a dark site
-          url: /reference-backup-cbs-db-in-dark-site.html
-        - title: Restart BlueXP backup and recovery
-          url: /reference-restart-backup.html
     - title: Knowledge and support
       entries:
         - title: Register for support
