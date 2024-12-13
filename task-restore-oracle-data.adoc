@@ -106,8 +106,12 @@ If you select *Change storage location*, you can append a suffix to the destinat
 |===
 . Review the details and click *Restore*.
 
+.Results
+
 The *Restore to alternate location* option mounts the selected backup on the given host. You should manually bring up the database.
 
 After mounting the backup, you cannot mount it again until it is unmounted. You can use the *Unmount* option from the UI to unmount the backup.
 
 For information on how to bring up the Oracle database see, https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_bring_up_Oracle_Database_in_another_NFS_host_after_mounting_storage_from_backup_in_Cloud_Backup_for_Applications[Knowledge base article].
+
+NOTE: If the restore operation does not complete, do not try the restore process again until the Job Monitor shows that the restore operation has failed. If you try the restore process again before the Job Monitor shows that the restore operation has failed, the restore operation will fail again. When you see the Job Monitor status as "Failed," you can try the restore process again. 
