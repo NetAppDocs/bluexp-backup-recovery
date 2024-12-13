@@ -34,3 +34,5 @@ If you select *Change storage location*, you can append a suffix to the destinat
 . Review the details and click *Restore*.
 
 This operation does only the storage export of the selected backup on the given host. You should manually mount the filesystem and bring up the database. After utilizing the volume, the storage Administrator can delete the volume from the ONTAP cluster.
+
+NOTE: If the restore operation does not complete, do not try the restore process again until the Job Monitor shows that the restore operation has failed. If you try the restore process again before the Job Monitor shows that the restore operation has failed, the restore operation will fail again. When you see the Job Monitor status as "Failed," you can try the restore process again. 
