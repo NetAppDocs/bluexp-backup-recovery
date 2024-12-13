@@ -34,3 +34,5 @@ If you select *Change storage location*, you can append a suffix to the destinat
 . Review the details and click *Restore*.
 
 This operation does only the storage export of the selected backup on the given host. You should manually mount the filesystem and bring up the database. After utilizing the volume, the storage Administrator can delete the volume from the ONTAP cluster.
+
+include::../_include/restore-failure-note.adoc[]

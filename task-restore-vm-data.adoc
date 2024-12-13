@@ -84,3 +84,5 @@ The supported archival restore priority for Amazon Web Services are high, standa
 . Review the details and click *Restore*.
 |===
 
+
+include::../_include/restore-failure-note.adoc[] 

@@ -95,3 +95,5 @@ If the Undo directory option is enabled, more transaction logs are restored. If 
 
 . Click *Next*.
 . Review the details and click *Restore*.
+
+include::../_include/restore-failure-note.adoc[]
