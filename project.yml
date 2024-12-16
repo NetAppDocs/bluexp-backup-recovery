@@ -26,7 +26,7 @@ sidebar:
       url: /index.html
     - title: Release notes
       entries:
-        - title: What's new in BlueXP backup and recovery Preview 2025
+        - title: What's new
           url: /whats-new.html
     - title: Get started
       entries:
@@ -44,12 +44,6 @@ sidebar:
           url: /br-start-task-configure.html
         - title: FAQ
           url: /br-start-faq.html
-    - title: Monitor data protection 
-      entries:
-        - title: Report on data protection coverage
-          url: /task-report-inventory.html
-        - title: Monitor the status of backup and restore jobs
-          url: /task-monitor-backup-jobs.html        
     - title: Use BlueXP backup and recovery Preview version
       entries:
         - title: View your protection summary in the Dashboard 
@@ -74,7 +68,7 @@ sidebar:
           url: /reference-restart-backup.html
         - title: Manage options in Advanced Settings
           url: /task-manage-settings-advanced.html
-    - title: Back up and restore on-premises applications data
+    - title: OLD STUFF Back up and restore on-premises applications data
       entries:
         - title: Protect your on-premises applications data
           url: /concept-protect-app-data-to-cloud.html

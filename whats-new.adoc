@@ -4,7 +4,7 @@ permalink: whats-new.html
 keywords: what's new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery
 summary: Learn what's new in BlueXP backup and recovery.
 ---
-= What's new with BlueXP backup and recovery
+= What's new with BlueXP backup and recovery Preview 2025
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -12,9 +12,19 @@ summary: Learn what's new in BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-Learn what's new in BlueXP backup and recovery.
+Learn what's new in BlueXP backup and recovery Preview 2025 version.
 
 // tag::whats-new[]
+
+== 31 January 2025 
+//Add here for now then move to include file. 
+
+This version of BlueXP backup and recovery Preview 2025 includes the following updates.
+
+* A redesigned user interface that provides a more intuitive experience for managing your backup and recovery tasks.
+* The Preview version enables you to back up and restore Microsoft SQL Server databases. 
+
+
 
 == 22 November 2024
 This BlueXP backup and recovery release includes the following updates.
