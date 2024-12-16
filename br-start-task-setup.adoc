@@ -1,0 +1,94 @@
+---
+sidebar: sidebar
+permalink: br-start-task-setup.html
+keywords: bluexp, backup, back up, restore, recovery, aws, azure
+summary: To use BlueXP ransomware protection, perform a few steps to set it up.    
+---
+
+= Set up BlueXP backup and recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ./media/
+
+[.lead]
+To use BlueXP backup and recovery, perform a few steps to set it up.  
+
+
+
+Before you begin, review link:concept-start-prerequisites.html[prerequisites] to ensure that your environment is ready.
+
+== Prepare the backup destination 
+
+Prepare one or more of the following backup destinations: 
+
+* NetApp StorageGRID. Refer to https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html[Discover StorageGRID^].
+* Amazon Web Services. Refer to https://docs.netapp.com/us-en/bluexp-s3-storage/index.html[Amazon S3 documentation^].
+* Google Cloud Storage. Refer to https://docs.netapp.com/us-en/bluexp-google-cloud-storage/index.html[Google Cloud Storage documentation^].
+* Microsoft Azure. Refer to https://docs.netapp.com/us-en/bluexp-azure-netapp-files/index.html[Azure NetApp Files documentation^].
+
+//After you configure options in the backup destination itself, you will later configure it as a backup destination in the BlueXP ransomware protection service. For details about how to configure the backup destination in BlueXP ransomware protection, refer to link:rp-use-settings.html[Configure backup destinations].
+
+=== Prepare StorageGRID to become a backup destination
+
+If you want to use StorageGRID as your backup destination, refer to https://docs.netapp.com/us-en/storagegrid-117/index.html[StorageGRID documentation^] for details about StorageGRID. 
+
+
+=== Prepare AWS to become a backup destination
+ 
+* Set up an account in AWS.
+* Configure https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions.html[AWS permissions^] in AWS. 
+ 
+
+For details about managing your AWS storage in BlueXP, refer to https://docs.netapp.com/us-en/bluexp-setup-admin/task-viewing-amazon-s3.html[Manage your Amazon S3 buckets^].
+
+
+=== Prepare Azure to become a backup destination
+ 
+* Set up an account in Azure.
+* Configure https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions.html[Azure permissions^] in Azure. 
+ 
+
+For details about managing your Azure storage in BlueXP, refer to https://docs.netapp.com/us-en/bluexp-blob-storage/task-view-azure-blob-storage.html[Manage your Azure storage accounts^].
+
+
+== Set up BlueXP
+The next step is to set up BlueXP and the BlueXP backup and recovery service. 
+
+Review https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[standard BlueXP requirements^].
+
+
+=== Create a Connector in BlueXP
+
+You should reach out to your NetApp Sales Rep to try out or use this service. Then, when you use the BlueXP Connector, it will include the appropriate capabilities for the ransomware protection service. 
+
+To create a Connector in BlueXP before using the service, refer to the BlueXP documentation that describes https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[how to create a BlueXP Connector^]. 
+
+== Configure BlueXP backup and recovery settings 
+
+After you set up BlueXP, you can configure the backup and recovery settings: 
+
+* Import and manage SnapCenter resources
+* Enable the Certificate Authority (CA) certificate
+* Configure buckets on working environments
+
+=== Import and manage SnapCenter resources
+
+If you previously used SnapCenter to back up your resources, you can import and manage those resources in BlueXP backup and recovery.
+
+.Steps 
+
+. In the BlueXP backup and recovery UI, select *Settings*. 
+. Select *SnapCenter Resources*.
+. Click *Import* to import the SnapCenter resources.
+
+
+
+
+=== Enable the Certificate Authority (CA) certificate
+
+
+=== Configure buckets on working environments
+
+Enable DataLock on a bucket
+Enable ransomware protection scanning on a bucket
+Set the scan interval between 1 and 7 days
