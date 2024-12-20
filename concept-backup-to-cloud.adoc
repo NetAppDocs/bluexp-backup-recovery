@@ -91,11 +91,13 @@ When you enable BlueXP backup and recovery on a Cloud Volumes ONTAP or on-premis
 
 //In most cases you'll use the BlueXP UI for all backup operations. However, starting with ONTAP 9.9.1 you can initiate volume backup operations of your on-premises ONTAP clusters using ONTAP System Manager. https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html[See how to use System Manager to back up your volumes to the cloud using BlueXP backup and recovery.^]
 
-The following image shows the relationship among components:
+The following image shows the relationship among components for an on-premises deployment:
 
-image:diagram_cloud_backup_general.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination object storage where the backup files are located.]
+image:diagram-workloads-onprem.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination object storage where the backup files are located.]
 
-https://www.youtube.com/watch?v=DF0knrH2a80[Watch a quick demo^]
+The following image shows the relationship among components for a cloud deployment:
+
+image:diagram-workloads-cloud.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination object storage where the backup files are located.]
 
 === Where backups reside
 
