@@ -1,6 +1,6 @@
- ---
+---
 sidebar: sidebar
-permalink: concept-start-prerequisites.html
+permalink: concept-start-prereq.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, backup and recovery
 summary: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for NetApp ONTAP data and databases, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
 ---

@@ -1,0 +1,84 @@
+---
+sidebar: sidebar
+permalink: br-start-task-discover.html
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
+summary: Complete a few steps to back up applications data from ONTAP to AWS.
+---
+
+= Discover workloads in BlueXP backup and recovery
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+To use BlueXP backup and recovery, the service needs to first discover data. During discovery, BlueXP backup and recovery analyzes all volumes and files in working environments across all BlueXP Connectors and projects within an organization. 
+
+For the Preview 2025 version, BlueXP backup and recovery assesses Microsoft SQL Server applications. 
+
+NOTE: Workloads with volumes that use FlexGroup or iSCSI will not be discovered. 
+
+The service assesses the existing protection level including the current backup protection, Snapshot copies, and NetApp Autonomous backup and recovery options. 
+
+
+== Select workloads to discover and protect
+Within each Connector, select the working environments where you want to discover workloads. 
+
+.Steps
+
+. From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
++
+If this is your first time logging in to this service, the landing page appears. 
++
+image:screen-landing.png[Landing page screenshot for BlueXP backup and recovery]
+
+. From the initial landing page, select *Start by discovering workloads*. 
++
+The service finds your working environments in your BlueXP Connectors. 
++
+TIP: This process might take a few minutes.
++
+image:screen-discover-workloads.png[Discover workloads screenshot]
+. From the list of BlueXP Connectors, select *Find new working environments* next to the Connector where you want to discover workloads.
+
+. Select *Discover*. 
++
+The service discovers workload data only for those Connectors with selected working environments.
++
+TIP: This process might take a few minutes.
++
+image:screen-discover-workloads-found.png[Workloads discovered screenshot]
+. To download the list of discovered workloads, select *Download results (CSV)*.
+
+. To display the BlueXP backup and recovery Dashboard, select *Go to Dashboard*.   
++
+The Dashboard shows the health of data protection. The number of at risk or protected workloads increases based on the newly discovered workloads.  
++
+image:screen-dashboard.png[BlueXP backup and recovery Dashboard]
++
+link:rp-use-dashboard.html[Learn what the Dashboard shows you.]
+
+== Discover newly created workloads for previously selected working environments
+
+If you have already selected working environments for discovery, you can discover newly created workloads for those environments.
+
+.Steps
+
+. From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
+
+. To identify the date of the last discovery, from the Dashboard, select the info icon next to *Discover workloads* link at the top right.
+. From the Dashboard, select *Discover workloads*. 
++
+You can view the previously selected working environments for each Connector and find new working environments. 
+. For each Connector, select *Find new working environments*. 
++
+image:screen-discover-workloads-newly-discovered.png[Newly discovered working environments screenshot]
++
+TIP: This process might take a few minutes.
++
+image:screen-discover-workloads-select.png[Discover workloads screenshot]
+. Select the working environments where you want to discover workloads or select the box at the top of the table to discover workloads in all discovered workload environments. 
+
+. Select *Go to Dashboard*. 
+

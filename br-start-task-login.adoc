@@ -1,0 +1,52 @@
+---
+sidebar: sidebar
+permalink: br-start-task-login.html
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
+summary: Complete a few steps to back up applications data from ONTAP to AWS.
+---
+
+= Log in to BlueXP backup and recovery
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You use NetApp BlueXP to log in to the BlueXP backup and recovery service. 
+
+BlueXP backup and recovery uses role-based access control (RBAC) to govern the access that each user has to specific actions. 
+
+//For details about the actions that each role can perform, see link:rp-reference-roles.html[BlueXP ransomware protection role-based access control privileges].
+
+To log in to BlueXP, you can use your NetApp Support Site credentials or you can sign up for a NetApp cloud login using your email and a password. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[Learn more about logging in^].
+
+.Steps
+
+. Open a web browser and go to the https://console.bluexp.netapp.com/[BlueXP console^].
++ 
+The NetApp BlueXP login page appears.
+
+. Log in to BlueXP. 
+. From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
++
+If this is your first time logging in to this service, the landing page appears. 
++
+image:screen-landing.png[Landing page screenshot for BlueXP ransomware protection]
++ 
+Otherwise, the BlueXP backup and recovery Dashboard appears.
++
+image:screen-dashboard.png[BlueXP ransomware protection Dashboard]
+
++
+NOTE: If you don't have a BlueXP Connector or it's not the one for this service, you might need to contact NetApp Support. 
+
+. If you haven't done so already, select the *Discover workloads* option. 
++
+Refer to link:rp-start-discover.html[Discover workloads].
+ 
+//* If you are a BlueXP user with an an existing Connector, when you select "*Backup and recovery*", a message appears about signing up. 
+
+//* If you are new to BlueXP and haven't used any Connector, when you select "*Backup and recovery*", a message appears about signing up. Go ahead and submit the form. NetApp will contact you about your evaluation request.
+
+
