@@ -119,7 +119,7 @@ endif::gcp[]
 
 * In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
 
-=== When are backups taken
+=== When backups are taken
 
 * Hourly backups start 5 minutes past the hour, every hour.
 
@@ -139,7 +139,7 @@ Backup copies are associated with the https://docs.netapp.com/us-en/bluexp-setup
 
 If you have multiple Connectors in the same NetApp account, each Connector displays the same list of backups. That includes the backups associated with Cloud Volumes ONTAP and on-premises ONTAP instances from other Connectors.
 
-== Terms that might help you with ransomware protection
+== Terms that might help you with BlueXP backup and recovery 
 
 You might benefit by understanding some terminology related to protection.
 
