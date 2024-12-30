@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: br-start-task-login.html
+permalink: br-start-login.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
 summary: Complete a few steps to back up applications data from ONTAP to AWS.
 ---
@@ -31,19 +31,19 @@ The NetApp BlueXP login page appears.
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
 +
 If this is your first time logging in to this service, the landing page appears. 
-+
-image:screen-landing.png[Landing page screenshot for BlueXP ransomware protection]
+//+
+//image:screen-landing.png[Landing page screenshot for BlueXP blueXP backup and recovery]
 + 
 Otherwise, the BlueXP backup and recovery Dashboard appears.
-+
-image:screen-dashboard.png[BlueXP ransomware protection Dashboard]
+//+
+//image:screen-dashboard.png[BlueXP backup and recovery Dashboard]
 
 +
 NOTE: If you don't have a BlueXP Connector or it's not the one for this service, you might need to contact NetApp Support. 
 
 . If you haven't done so already, select the *Discover workloads* option. 
 +
-Refer to link:rp-start-discover.html[Discover workloads].
+Refer to link:br-start-discover.html[Discover workloads].
  
 //* If you are a BlueXP user with an an existing Connector, when you select "*Backup and recovery*", a message appears about signing up. 
 

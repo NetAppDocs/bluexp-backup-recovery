@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: br-start-task-setup.html
+permalink: br-start-setup.html
 keywords: bluexp, backup, back up, restore, recovery, aws, azure
 summary: To use BlueXP ransomware protection, perform a few steps to set it up.    
 ---
@@ -15,7 +15,7 @@ To use BlueXP backup and recovery, perform a few steps to set it up.
 
 
 
-Before you begin, review link:concept-start-prerequisites.html[prerequisites] to ensure that your environment is ready.
+Before you begin, review link:concept-start-prereq.html[prerequisites] to ensure that your environment is ready.
 
 == Prepare the backup destination 
 
@@ -63,32 +63,3 @@ You should reach out to your NetApp Sales Rep to try out or use this service. Th
 
 To create a Connector in BlueXP before using the service, refer to the BlueXP documentation that describes https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[how to create a BlueXP Connector^]. 
 
-== Configure BlueXP backup and recovery settings 
-
-After you set up BlueXP, you can configure the backup and recovery settings: 
-
-* Import and manage SnapCenter resources
-* Enable the Certificate Authority (CA) certificate
-* Configure buckets on working environments
-
-=== Import and manage SnapCenter resources
-
-If you previously used SnapCenter to back up your resources, you can import and manage those resources in BlueXP backup and recovery.
-
-.Steps 
-
-. In the BlueXP backup and recovery UI, select *Settings*. 
-. Select *SnapCenter Resources*.
-. Click *Import* to import the SnapCenter resources.
-
-
-
-
-=== Enable the Certificate Authority (CA) certificate
-
-
-=== Configure buckets on working environments
-
-Enable DataLock on a bucket
-Enable ransomware protection scanning on a bucket
-Set the scan interval between 1 and 7 days

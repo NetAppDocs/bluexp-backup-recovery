@@ -35,13 +35,13 @@ sidebar:
         - title: Prerequisites for BlueXP backup and recovery Preview version
           url: /concept-start-prereq.html  
         - title: Set up BlueXP backup and recovery Preview version
-          url: /br-start-task-setup.html
+          url: /br-start-setup.html
         - title: Log in to BlueXP backup and recovery Preview version
-          url: /br-start-task-login.html
+          url: /br-start-login.html
         - title: Discover workloads 
-          url: /br-start-task-discover.html
+          url: /br-start-discover.html
         - title: Configure BlueXP backup and recovery settings 
-          url: /br-start-task-configure.html
+          url: /br-start-configure.html
         - title: FAQ
           url: /br-start-faq.html
     - title: Use BlueXP backup and recovery Preview version

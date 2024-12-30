@@ -1,0 +1,43 @@
+---
+sidebar: sidebar
+permalink: br-start-configure.html
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
+summary: Complete a few steps to configure BlueXP backup and recovery.
+---
+
+= Configure BlueXP backup and recovery settings 
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+After you set up BlueXP, you can configure the backup and recovery settings: 
+
+* Import and manage SnapCenter resources
+* Enable the Certificate Authority (CA) certificate
+* Configure buckets on working environments
+
+== Import and manage SnapCenter resources
+
+If you previously used SnapCenter to back up your resources, you can import and manage those resources in BlueXP backup and recovery.
+
+.Steps 
+
+. In the BlueXP backup and recovery UI, select *Settings*. 
+. Select *SnapCenter Resources*.
+. Click *Import* to import the SnapCenter resources.
+
+
+
+
+== Enable the Certificate Authority (CA) certificate
+tbd
+
+
+== Configure buckets on working environments
+
+Enable DataLock on a bucket
+Enable ransomware protection scanning on a bucket
+Set the scan interval between 1 and 7 days
