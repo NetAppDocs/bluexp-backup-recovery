@@ -46,10 +46,10 @@ sidebar:
           url: /br-start-faq.html
     - title: Use BlueXP backup and recovery Preview version
       entries:
-        - title: View your protection summary in the Dashboard 
+        - title: View your protection health in the Dashboard 
           url: /br-use-dashboard.html
         - title: Create policies to govern backups and restores
-          url: /br-use-policies.html
+          url: /br-use-policies-create.html
         - title: Back up workloads 
           entries:
             - title: Back up workloads overview
