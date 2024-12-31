@@ -47,27 +47,27 @@ sidebar:
     - title: Use BlueXP backup and recovery Preview version
       entries:
         - title: View your protection summary in the Dashboard 
-          url: /task-dashboard.html
+          url: /br-use-dashboard.html
         - title: Create policies to govern backups and restores
-          url: /task-create-policies.html
+          url: /br-use-policies.html
         - title: Back up workloads 
           entries:
             - title: Back up workloads overview
-              url: /task-backup-overview.html
+              url: /br-use-backup-overview.html
             - title: Back up Microsoft SQL Server workloads
-              url: /task-backup-mssql.html
+              url: /br-use-backup-mssql.html
         - title: Restore workloads
           entries:  
             - title: Restore workloads overview     
-              url: /task-restore-overview.html
+              url: /br-use-restore-overview.html
             - title: Restore Microsoft SQL Server workloads
-              url: /task-restore-mssql.html
+              url: /br-use-restore-mssql.html
         - title: Manage inventory, snapshots, and policies       
-          url: /task-manage-overview.html
+          url: /br-use-manage-overview.html
         - title: Restart BlueXP backup and recovery
           url: /reference-restart-backup.html
         - title: Manage options in Advanced Settings
-          url: /task-manage-settings-advanced.html
+          url: /br-use-settings-advanced.html
     - title: OLD STUFF Back up and restore on-premises applications data
       entries:
         - title: Protect your on-premises applications data

@@ -24,8 +24,10 @@ NOTE: THIS DOCUMENTATION IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview
 
 Use BlueXP backup and recovery Preview 2025 version to accomplish the following goals:
 
-* Back up and restore ONTAP volume data from Cloud Volumes ONTAP and on-premises ONTAP systems. link:concept-ontap-backup-to-cloud.html[See detailed features here].
-* Back up the application-consistent Snapshots from on-premises ONTAP systems using BlueXP backup and recovery for applications. link:concept-protect-app-data-to-cloud.html[See detailed features here].
+* Back up and restore ONTAP volume data from Cloud Volumes ONTAP and on-premises ONTAP systems. 
+//link:concept-ontap-backup-to-cloud.html[See detailed features here].
+* Back up the application-consistent Snapshots from on-premises ONTAP systems using BlueXP backup and recovery for applications.
+// link:concept-protect-app-data-to-cloud.html[See detailed features here].
 //* Back up datastores to the cloud and restore virtual machines back to the on-premises vCenter using BlueXP backup and recovery for VMware. link:concept-protect-vm-data.html[See detailed features here].
 
 
@@ -68,13 +70,13 @@ BlueXP backup and recovery Preview 2025 version is available as a free trial. Yo
 
 .Working environments supported
 
-* On-premises ONTAP NAS (using NFS and CIFS protocols) with ONTAP version 9.11.1 and greater
+* On-premises ONTAP NAS (using NFS and CIFS protocols) with ONTAP version 9.8 and greater
 
-* Cloud Volumes ONTAP 9.11.1 or greater for AWS (using NFS and CIFS protocols)
+* Cloud Volumes ONTAP 9.8 or greater for AWS (using NFS and CIFS protocols)
 
-* Cloud Volumes ONTAP 9.11.1 or greater for Google Cloud Platform (using NFS and CIFS protocols)
+* Cloud Volumes ONTAP 9.8 or greater for Google Cloud Platform (using NFS and CIFS protocols)
 
-* Cloud Volumes ONTAP 9.12.1 or greater for Microsoft Azure (using NFS and CIFS protocols)
+* Cloud Volumes ONTAP 9.8 or greater for Microsoft Azure (using NFS and CIFS protocols)
 
 .Workload data sources supported
 

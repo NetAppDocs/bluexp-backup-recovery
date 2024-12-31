@@ -15,10 +15,10 @@ summary: Complete a few steps to configure BlueXP backup and recovery.
 [.lead]
 After you set up BlueXP, you can configure the backup and recovery settings: 
 
-* Import and manage SnapCenter host resources
-* Add host credentials for the Windows and SQL Server hosts that you imported from SnapCenter
-* Enable the Certificate Authority (CA) certificate
-* Configure buckets on working environments
+* Import and manage SnapCenter host resources.
+* Add host credentials for the Windows and SQL Server hosts that you imported from SnapCenter.
+* Enable the Certificate Authority (CA) certificate.
+* Configure buckets in working environments by enabling DataLock and ransomware protection scanning. 
 
 == Import and manage SnapCenter host resources
 
