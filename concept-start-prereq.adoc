@@ -29,7 +29,7 @@ To use BlueXP backup and recovery, you'll need these prerequisites.
 
 * At least one BlueXP working environment with a NetApp on-premises ONTAP cluster or Cloud Volume ONTAP in AWS or Azure (using NAS or CIFS protocols).
 
-** ONTAP or Cloud Volume ONTAP clusters with ONTAP OS version 9.11.1 or greater are supported. 
+** ONTAP or Cloud Volume ONTAP clusters with ONTAP OS version 9.8 or greater are supported. 
 
 ** If your on-premises ONTAP clusters or Cloud Volume ONTAP in AWS or in Azure cloud are not already onboarded in BlueXP, then you'll need a BlueXP Connector. 
 +
@@ -40,15 +40,15 @@ Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.htm
 
 
 
-== In ONTAP 9.11.1 and later
+== In ONTAP 9.8 and later
 
 * An ONTAP One license is enabled on the on-premises ONTAP instance.
 
 
-* A license for NetApp Autonomous Ransomware Protection, used by BlueXP ransomware protection, enabled on the on-premises ONTAP instance, depending on the version of ONTAP you are using. Refer to https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html[Autonomous Ransomware Protection overview^].
+//* A license for NetApp Autonomous Ransomware Protection, used by BlueXP ransomware protection, enabled on the on-premises ONTAP instance, depending on the version of ONTAP you are using. Refer to https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html[Autonomous Ransomware Protection overview^].
 
 
-* To apply protection configurations (such as enabling Autonomous Ransomware Protection and others), BlueXP ransomware protection needs admin permissions on the ONTAP cluster. The ONTAP cluster should have been onboarded using ONTAP cluster admin user credentials only. 
+* To apply protection configurations (such as enabling Autonomous Ransomware Protection and others), BlueXP backup and recovery needs admin permissions on the ONTAP cluster. The ONTAP cluster should have been onboarded using ONTAP cluster admin user credentials only. 
 
 * If the ONTAP cluster is already onboarded in BlueXP using non-admin user credentials, then the non-admin user permissions must be updated with necessary permissions by logging into the ONTAP cluster, described on this page. 
 

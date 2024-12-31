@@ -15,21 +15,77 @@ summary: Complete a few steps to configure BlueXP backup and recovery.
 [.lead]
 After you set up BlueXP, you can configure the backup and recovery settings: 
 
-* Import and manage SnapCenter resources
+* Import and manage SnapCenter host resources
 * Enable the Certificate Authority (CA) certificate
 * Configure buckets on working environments
 
-== Import and manage SnapCenter resources
+== Import and manage SnapCenter host resources
 
-If you previously used SnapCenter to back up your resources, you can import and manage those resources in BlueXP backup and recovery.
+If you previously used SnapCenter to back up your resources, you can import and manage those resources in BlueXP backup and recovery. With this option, you can import SnapCenter Server information to register multiple Snapcenter servers and discover the database workloads.
+
+This is a two-part process:
+
+* Import SnapCenter host resources
+* Manage selected SnapCenter host resources
+
+=== Import SnapCenter host resources
+
+This first step imports host resources from SnapCenter and displays those resources in the BlueXP backup and recovery Inventory page. At that point, the resources are not yet managed by BlueXP backup and recovery.
 
 .Steps 
 
 . In the BlueXP backup and recovery UI, select *Settings*. 
-. Select *SnapCenter Resources*.
-. Click *Import* to import the SnapCenter resources.
+. Select *Import from SnapCenter*.
++
+image:../media/screen-br-settings-import-snapcenter.png[Settings option to import SnapCenter Server resources]
+
+. Select *Import from SnapCenter* to import the SnapCenter resources.
+.. *SnapCenter IP*: Enter the IP address of the SnapCenter Server.
+.. *Username* and *Password*: Enter the username and password for the SnapCenter Server.
+.. *Port*: Enter the port number for the SnapCenter Server.
+. Select *Import* to validate your entries and register the SnapCenter Server.
++
+NOTE: If the SnapCenter Server is already registered, you can  update the existing registration details.
+
++
+image:../media/screen-br-inventory-manage-option.png[Inventory page showing the imported SnapCenter resources and the Manage option]
+
+=== Manage SnapCenter host resources
+
+After you import the SnapCenter resources, manage those host resources in BlueXP backup and recovery. After you select to manage those resources, BlueXP backup and recovery can back up and recover the resources that you imported from SnapCenter. You no longer manage those resources in SnapCenter Server. 
+
+.Steps 
+. After you import the SnapCenter resources, on the Inventory page that appears, select the SnapCenter resources that you imported that you want to have BlueXP backup and recovery manage from now on.  
+
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Manage* to manage the resources.   
++
+image:../media/screen-br-inventory-manage-host.png[Inventory page showing the imported SnapCenter resources and the Manage option]
+
+. Select *Manage in BlueXP*. 
++
+The Inventory page shows *Managed* under the host name to incidate that the selected host resources are now managed by BlueXP backup and recovery.
 
 
+=== Editing imported SnapCenter resources
+
+You can later re-import SnapCenter resources our edit the imported SnapCenter resources to update the registration details.
+
+You can change port and password details for the SnapCenter Server.
+
+
+.Steps
+. In the BlueXP backup and recovery UI, select *Settings*. 
+. Select *Import from SnapCenter*.
++ 
+The Import from SnapCenter page now shows all previously imports. 
+
++ 
+image:../media/screen-br-settings-import-snapcenter-edit.png[Settings option to import SnapCenter Server resources showing previously imported resources]
+
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Edit* to update the resources.   
+
+. Update the SnapCenter password and port details, as needed.
+. Select *Import*. 
 
 
 == Enable the Certificate Authority (CA) certificate
