@@ -16,6 +16,7 @@ summary: Complete a few steps to configure BlueXP backup and recovery.
 After you set up BlueXP, you can configure the backup and recovery settings: 
 
 * Import and manage SnapCenter host resources
+* Add host credentials for the Windows and SQL Server hosts that you imported from SnapCenter
 * Enable the Certificate Authority (CA) certificate
 * Configure buckets on working environments
 
@@ -34,7 +35,7 @@ This first step imports host resources from SnapCenter and displays those resour
 
 .Steps 
 
-. In the BlueXP backup and recovery UI, select *Settings*. 
+. From the BlueXP backup and recovery menu, select *Settings*. 
 . Select *Import from SnapCenter*.
 +
 image:../media/screen-br-settings-import-snapcenter.png[Settings option to import SnapCenter Server resources]
@@ -74,10 +75,10 @@ You can change port and password details for the SnapCenter Server.
 
 
 .Steps
-. In the BlueXP backup and recovery UI, select *Settings*. 
-. Select *Import from SnapCenter*.
+. From the BlueXP backup and recovery menu, select *Settings*. 
+. Select the down arrow for *Import from SnapCenter*.
 + 
-The Import from SnapCenter page now shows all previously imports. 
+The Import from SnapCenter page shows all previously imports. 
 
 + 
 image:../media/screen-br-settings-import-snapcenter-edit.png[Settings option to import SnapCenter Server resources showing previously imported resources]
@@ -88,12 +89,77 @@ image:../media/screen-br-settings-import-snapcenter-edit.png[Settings option to 
 . Select *Import*. 
 
 
-== Enable the Certificate Authority (CA) certificate
-tbd
+== Enable credentials for host resources
+
+Enable credentials for the host resources that you imported from SnapCenter. If you don't already have credentials, you can create them. These credentials must have required permissions to access and manage the host workloads.
 
 
-== Configure buckets on working environments
+After BlueXP backup and recovery discovers hosts, you can change the password, but you cannot delete the credentials for that host. 
 
-Enable DataLock on a bucket
-Enable ransomware protection scanning on a bucket
-Set the scan interval between 1 and 7 days
+.Steps
+. From the BlueXP backup and recovery menu, select *Settings*.
++
+image:../media/screen-br-settings.png[Settings option]
+. Select the down arrow for *Credentials*.
+. Select *Add new credentials*.
++
+image:../media/screen-br-settings-credentials.png[Settings option to add new credentials]
+. Enter information for the credentials. Different fields appear depending on the Authentication mode you select. Select the Information *i* for more information about the fields. 
+* *Name*: Enter a name for the credentials.
+* *Authentication mode*: For the Preview 2025 version, select *Windows* or *Microsoft SQL*. 
++
+TIP: You need to enter credentials for both Windows and Microsoft SQL Server, so you'll need to add two sets of credentials.
+
+.  If you selected *Windows*:
+* *Connector*: Enter the BlueXP Connector IP address. 
+* *Domain and user name*: Enter the NetBIOS or domain FQDN and user name for the credentials.
+* *Password*: Enter the password for the credentials.
+
+. If you selected *Microsoft SQL*:
+*  *Host*: Select a discovered SQL Server host address.
+*  *SQL Server instance*: Select a discovered SQL Server instance.
+
+. Select *Add*.
+
+
+=== Edit credentials for host resources
+
+You can later edit the password for the host resources that you imported from SnapCenter.
+
+
+.Steps
+. From the BlueXP backup and recovery menu, select *Settings*.
+. Select the down arrow for *Credentials*.
++
+image:../media/screen-br-settings-credentials-edit.png[Settings option]
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Edit credentials*.   
++
+* *Password*: Enter the password for the credentials.
+
+. Select *Save*.
+
+
+== Enable the Certificate Authority certificate
+
+Enable Certificate Authority (CA) certificates to secure communication among components of the BlueXP backup and recovery system, including the BlueXP Connector, ONTAP, and the SnapCenter plug-in. This ensures that the data transmitted is encrypted and authenticated, protecting against unauthorized access. 
+
+.Steps
+. From the BlueXP backup and recovery menu, select *Settings*.
++
+image:../media/screen-br-settings-certificates.png[Settings option]
+. Select the down arrow for *Enable CA certificates*.
+
+. Select *Upload* for the ONTAP or plug-in certificates.
+. Locate and select the certificate file.
+
+. Select *Save*.
+
+== Configure buckets in working environments
+
+Using the BlueXP backup and recovery Advanced Settings options, you can configure buckets in working environments. Buckets are the storage locations where you store your backup data. You should configure these settings when you first begin using BlueXP backup and recovery.   
+
+You can configure the following settings:   
+
+* Enable DataLock on a bucket
+* Enable ransomware protection scanning on a bucket
+* Set the scan interval between 1 and 7 days
