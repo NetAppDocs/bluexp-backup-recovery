@@ -67,7 +67,7 @@ image:../media/screen-br-inventory-manage-host.png[Inventory page showing the im
 The Inventory page shows *Managed* under the host name to incidate that the selected host resources are now managed by BlueXP backup and recovery.
 
 
-=== Editing imported SnapCenter resources
+=== Edit imported SnapCenter resources
 
 You can later re-import SnapCenter resources our edit the imported SnapCenter resources to update the registration details.
 
@@ -163,3 +163,6 @@ You can configure the following settings:
 * Enable DataLock on a bucket
 * Enable ransomware protection scanning on a bucket
 * Set the scan interval between 1 and 7 days
+
+NOTE: These features are not available in the Preview 2025 version.  
+
