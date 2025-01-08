@@ -33,6 +33,8 @@ This is a two-part process:
 
 This first step imports host resources from SnapCenter and displays those resources in the BlueXP backup and recovery Inventory page. At that point, the resources are not yet managed by BlueXP backup and recovery.
 
+TIP: After you import SnapCenter host resources, BlueXP backup and recovery does not take over protection management. To do so, you must explicitly select to manage these resources in BlueXP backup and recovery.  
+
 .Steps 
 
 . From the BlueXP backup and recovery menu, select *Settings*. 

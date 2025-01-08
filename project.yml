@@ -42,18 +42,26 @@ sidebar:
           url: /br-start-discover.html
         - title: Configure BlueXP backup and recovery settings 
           url: /br-start-configure.html
+        - title: Manage backup-to-object storage options in Advanced Settings
+          url: /task-manage-backup-settings-ontap.html
         - title: FAQ
           url: /br-start-faq.html
     - title: Use BlueXP backup and recovery Preview version
       entries:
-        - title: View your protection health in the Dashboard 
+        - title: View protection health in the Dashboard 
           url: /br-use-dashboard.html
-        - title: Create policies to govern backups and restores
-          url: /br-use-policies-create.html
+        - title: Create and manage policies to govern backups and restores
+          url: /task-create-policies-ontap.html
         - title: Back up workloads 
           entries:
             - title: Back up workloads overview
               url: /br-use-backup-overview.html
+            - title: Plan your protection journey
+              url: /concept-protection-journey.html
+            - title: Manage backup policies for ONTAP volumes
+              url: /task-create-policies-ontap.html 
+            - title: Backup-to-object policy options
+              url: /concept-cloud-backup-policies.html               
             - title: Back up Microsoft SQL Server workloads
               url: /br-use-backup-mssql.html
         - title: Restore workloads

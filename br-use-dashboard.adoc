@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: br-use-dashboard.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
-summary: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for NetApp ONTAP data, databases, and virtual machines, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
+summary: Monitoring the health of your workloads ensures that you are aware of issues with workload protection and can take steps to resolve them. View the status of your backups and restores and respond to any alerts that appear on the BlueXP backup and Recovery Dashboard. You can review the Protection summary, Job summary, total cost of ownership (TCO), Restore summary, System summary, alerts, and more.
 ---
 
-= View the protection health on the Dashboard
+= View protection health on the Dashboard
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 :imagesdir: ./media/
 
 [.lead]
-The Protection summary, Job summary, total cost of ownership (TCO), Restore summary, System summary, alerts, recommendations and more appear on the BlueXP backup and recovery Dashboard. Use these summaries to monitor the status of your backups and restores, and to take action on any alerts.
+Monitoring the health of your workloads ensures that you are aware of issues with workload protection and can take steps to resolve them. View the status of your backups and restores and respond to any alerts that appear on the BlueXP backup and Recovery Dashboard. You can review the Protection summary, Job summary, total cost of ownership (TCO), Restore summary, System summary, alerts, and more. 
 
 
 .Steps

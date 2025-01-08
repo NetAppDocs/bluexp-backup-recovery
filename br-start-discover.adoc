@@ -56,9 +56,9 @@ TIP: This process might take a few minutes.
 +
 The Dashboard shows the health of data protection. The number of at risk or protected workloads increases based on the newly discovered workloads.  
 +
-image:screen-dashboard.png[BlueXP backup and recovery Dashboard]
+image:screen-br-dashboard.png[BlueXP backup and recovery Dashboard]
 +
-link:rp-use-dashboard.html[Learn what the Dashboard shows you.]
+link:br-use-dashboard.html[Learn what the Dashboard shows you.]
 
 == Discover existing workloads for previously selected working environments
 
