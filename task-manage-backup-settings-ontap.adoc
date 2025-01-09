@@ -5,7 +5,7 @@ keywords: cloud backup, cloud backup service, storage keys, network bandwidth, a
 summary: You can change many cluster-level backup-to-object settings that you set when activating BlueXP backup and recovery for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more. You can also enable or disable ransomware scans for a working environment. 
 ---
 
-= Manage backup-to-object storage options in the Advanced Settings page
+= Manage backup-to-object storage options in Advanced Settings
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -15,7 +15,7 @@ summary: You can change many cluster-level backup-to-object settings that you se
 [.lead]
 You can change cluster-level, backup-to-object storage settings that you set when activating BlueXP backup and recovery for each ONTAP system by using the Advanced Settings page. You can also modify some settings that are applied as "default" backup settings. This includes changing the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and enabling or disabling ransomware scans for a working environment. 
 
-//storage keys, 
+*For BlueXP Preview 2025 - update this for Advanced Settings in Preview.* 
 
 NOTE: These settings are available for backup-to-object storage only. None of these settings affect your Snapshot or replication settings. Similar cluster-level replications settings for Snapshots and replications will be added in the future.
 

@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, b
 summary: You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the type of backup, the backup architecture, the storage systems, and backup frequency. 
 ---
 
-= Create and manage backup policies 
+= Create and manage backup policies to govern backups
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -21,7 +21,7 @@ When you use the activation wizard to enable the backup and recovery service for
 
 To learn about the default backup policies provided, refer to link:concept-protection-journey.html[Plan your protection journey].
 
-BlueXP backup and recovery provides three types of backups of ONTAP data: Snapshots, replications, and backups to object storage. Their policies reside in different locations based on the architecture that you use and the type of backup: 
+BlueXP backup and recovery provides three types of backups of ONTAP data: snapshots to local primary storage, replications to secondary storage, and backups to object storage. Their policies reside in different locations based on the architecture that you use and the type of backup: 
 
 
 [cols=4*,options="header",cols="25,25,25,25",width="100%"]
