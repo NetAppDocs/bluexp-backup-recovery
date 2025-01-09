@@ -39,7 +39,7 @@ Otherwise, the BlueXP backup and recovery Dashboard appears.
 //image:screen-dashboard.png[BlueXP backup and recovery Dashboard]
 
 +
-NOTE: If you don't have a BlueXP Connector or it's not the one for this service, you might need to contact NetApp Support. 
+NOTE: If you don't have a BlueXP Connector, refer to link:..br-start-setup.html[Set up BlueXP backup and recovery, including setting up the BlueXP Connector].
 
 . If you haven't done so already, select the *Discover workloads* option. 
 +
