@@ -13,7 +13,7 @@ summary: You can back up Microsoft SQL Server applications data from on-premises
 :imagesdir: ./media/
 
 [.lead]
-You can back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID, ensuring that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
+Back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 
 After activation of BlueXP backup and recovery, the service creates block-level, incremental forever backups that are stored on another ONTAP cluster and in object storage in the cloud. BlueXP backup and recovery leverages NetApp's SnapMirror data replication technology to ensure that all the backups are fully synchronized by creating Snapshot copies and transferring them to the backup locations.
 
@@ -40,30 +40,5 @@ You can accomplish the following protection goals:
 
 
 
-== Replication to secondary storage features
-//Move to replication page
 
-* Replicate data between ONTAP storage systems to support backup and disaster recovery.
-* Ensure the reliability of your DR environment with high availability.
-* Native ONTAP in-flight encryption set up via Pre-Shared Key (PSK) between the two systems.
-* Copied data is immutable until you make it writable and ready to use.
-* Replication is self-healing in the event of a transfer failure.
-* When compared to the https://docs.netapp.com/us-en/bluexp-replication/index.html[BlueXP replication service^], the replication in BlueXP backup and recovery includes the following features:
-** Replicate multiple FlexVol volumes at a time to a secondary system.
-** Restore a replicated volume to the source system or to a different system using the UI.
-** Manage replication policies
 
-== Backup to object storage features
-//Move to backup to object storage
-
-* Back up independent copies of your data volumes to low-cost object storage.
-* Apply a single backup policy to all volumes in a cluster, or assign different backup policies to volumes that have unique recovery point objectives.
-* Create a backup policy to be applied to all future volumes created in the cluster.
-* Make immutable backup files so they are locked and protected for the retention period.
-* Scan backup files for possible ransomware attack - and remove/replace infected backups automatically.
-* Tier older backup files to archival storage to save costs.
-* Delete the backup relationship so you can archive unneeded source volumes while retaining volume backups.
-* Back up from cloud to cloud, and from on-premises systems to public or private cloud.
-* Backup data is secured with AES-256 bit encryption at-rest and TLS 1.2 HTTPS connections in-flight.
-* Use your own customer-managed keys for data encryption instead of using the default encryption keys from your cloud provider.
-* Support for up to 4,000 backups of a single volume.
