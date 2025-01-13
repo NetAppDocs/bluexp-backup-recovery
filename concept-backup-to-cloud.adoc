@@ -87,12 +87,94 @@ The service protects the following application-based workloads on primary data v
 * Databases (Microsoft SQL Server)
 * More coming soon
 
-=== Supported backup destinations 
 
+=== Supported backup destinations
 
+BlueXP backup and recovery enables you to back up ONTAP volumes from the following source working environments to the following secondary working environments and object storage in public and private cloud providers. Snapshot copies reside on the source working environment.
 
-=== Supported restore destinations 
+[cols=3*,options="header",cols="33,33,33",width="90%"]
+|===
 
+| Source Working Environment
+| Secondary Working Environment (Replication)
+| Destination Object Store (Backup)
+
+ifdef::aws[]
+| Cloud Volumes ONTAP in AWS
+| Cloud Volumes ONTAP in AWS
+On-premises ONTAP system
+| Amazon S3
+endif::aws[]
+ifdef::azure[]
+| Cloud Volumes ONTAP in Azure
+| Cloud Volumes ONTAP in Azure
+On-premises ONTAP system
+| Azure Blob
+endif::azure[]
+ifdef::gcp[]
+| Cloud Volumes ONTAP in Google
+| Cloud Volumes ONTAP in Google
+On-premises ONTAP system
+| Google Cloud Storage
+endif::gcp[]
+| On-premises ONTAP system
+| Cloud Volumes ONTAP
+On-premises ONTAP system
+|
+ifdef::aws[]
+Amazon S3
+endif::aws[]
+ifdef::azure[]
+Azure Blob
+endif::azure[]
+ifdef::gcp[]
+Google Cloud Storage
+endif::gcp[]
+NetApp StorageGRID
+ONTAP S3
+
+|===
+
+=== Supported restore destinations
+
+You can restore ONTAP data from a backup file that resides in a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
+
+[cols=3*,options="header",cols="33,33,33",width="90%"]
+|===
+
+2+^| Backup File Location
+| Destination Working Environment
+
+| *Object Store (Backup)* | *Secondary System (Replication)* |
+ifdef::aws[]
+| Amazon S3 | Cloud Volumes ONTAP in AWS
+On-premises ONTAP system
+| Cloud Volumes ONTAP in AWS
+On-premises ONTAP system
+endif::aws[]
+ifdef::azure[]
+| Azure Blob | Cloud Volumes ONTAP in Azure
+On-premises ONTAP system
+| Cloud Volumes ONTAP in Azure
+On-premises ONTAP system
+endif::azure[]
+ifdef::gcp[]
+| Google Cloud Storage | Cloud Volumes ONTAP in Google
+On-premises ONTAP system
+| Cloud Volumes ONTAP in Google
+On-premises ONTAP system
+endif::gcp[]
+| NetApp StorageGRID | On-premises ONTAP system
+Cloud Volumes ONTAP
+| On-premises ONTAP system
+| ONTAP S3 | On-premises ONTAP system
+Cloud Volumes ONTAP
+| On-premises ONTAP system
+//Cloud Volumes ONTAP
+
+|===
+
+Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
 
 
 == How BlueXP backup and recovery works
