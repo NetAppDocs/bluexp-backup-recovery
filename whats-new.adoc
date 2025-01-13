@@ -16,14 +16,12 @@ Learn what's new in BlueXP backup and recovery Preview 2025 version.
 
 // tag::whats-new[]
 
-== 31 January 2025 
-//Add here for now then move to include file. 
+== 05 February 2025
 
-This version of BlueXP backup and recovery Preview 2025 includes the following updates.
+This BlueXP backup and recovery release includes the following updates.
+//v3.0.9
 
-* A redesigned user interface that provides a more intuitive experience for managing your backup and recovery tasks.
-* The Preview version enables you to back up and restore Microsoft SQL Server databases. 
-
+include::_whatsnew/2025-02-05.adoc[]    
 
 
 == 22 November 2024
