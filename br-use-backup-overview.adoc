@@ -29,15 +29,18 @@ In addition to your source volume, you'll have the following protection:
 * Replicated volume on a different (secondary) storage system
 * Backup of the volume in object storage
 
-When necessary, you can restore an entire volume, a folder, or one or more files, from any of the backup copies to the same or different working environment.
+TIP: When necessary, you can restore an entire volume, a folder, or one or more files, from any of the backup copies to the same or different working environment.
 
 You can accomplish the following protection goals: 
 
 * Back up workloads with local snapshots on local ONTAP primary storage
 * Replicate workloads to ONTAP secondary storage
-* Back up workloads to an object store location (Amazon Web Services, Google Cloud, Microsoft Azure, ONTAP S3, and StorageGRID)
+* Back up workloads to an object store location (Amazon Web Services, Google Cloud, Microsoft Azure, and StorageGRID)
 * Back up workloads now with ad hoc backups 
 
+== What's next
+
+To get started, see link:concept-protection-journey.html[Plan your protection journey], which provides overviews of the features. 
 
 
 

@@ -16,13 +16,15 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 Back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 
 
-* Back up workloads with local snapshots on local ONTAP primary storage
+Back up Microsoft SQL Server workloads in the following ways:
+
+* Back up workloads with local snapshots to local ONTAP primary storage
 * Replicate snapshots to ONTAP secondary storage
 * Back up workloads to an object store location (Amazon Web Services, Google Cloud, Microsoft Azure, and StorageGRID)
 * Back up workloads now with ad hoc backups 
 
 == View workload protection status
-Before you initiate a backup, you can view the protection status of your workloads.
+Before you initiate a backup, view the protection status of your workloads.
 
 .Steps 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
@@ -36,43 +38,9 @@ image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recover
 image:screen-br-inventory-details.png[Inventory details page screenshot for BlueXP backup and recovery]
 . Review details on the Hosts, Instances, and Databases tabs. 
 
-=== Configure logs for discovered hosts
 
-Before you back up your workloads, you can configure activity logs for discovered hosts. This helps you to track the status of operations.
 
-.Steps 
-
-. From the menu, select *Inventory*. 
-+
-image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
-. Select a workload to view the protection details. 
-. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
-+
-image:screen-br-inventory-details-configurelog-option.png[Inventory details page screenshot showing the Actions menu for BlueXP backup and recovery]
-. Provide the host path or browse through a list of hosts or nodes hosts on the host.
-. Select those on which you want logs. 
-+
-NOTE: The fields that appear differ depending on the selected deployment model, for example, failover cluster instance or standalone. 
-. Select *Save*.
-
-=== Suspend the backup schedule
-Suspending the schedule prevents the backup from running at the scheduled time temporarily. You might want to do this if you're performing maintenance on the system or if you're experiencing issues with the backup.
-
-NOTE: This feature is not available in Preview mode. 
-
-.Steps 
-
-. From the menu, select *Inventory*. 
-+
-image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
-. Select a workload to view the protection details. 
-. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
-+
-image:screen-br-inventory-details-configurelog-option.png[Inventory details page screenshot showing the Actions menu for BlueXP backup and recovery]
-. Select the Actions icon image:../media/icon-action.png[Actions option] > *Suspend schedule*.
-. Select *Save*.
-
-== Back up workloads with local snapshots on local ONTAP primary storage
+== Back up workloads with local snapshots to local ONTAP primary storage
 
 TBD
 
@@ -108,3 +76,40 @@ Backing up workloads to an object store location provides the following benefits
 * Support for up to 4,000 backups of a single volume.
 
 == Back up workloads now with ad hoc backups 
+
+
+== Configure logs for discovered hosts
+
+Before you back up your workloads, you can configure activity logs for discovered hosts. This helps you to track the status of operations.
+
+.Steps 
+
+. From the menu, select *Inventory*. 
++
+image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details. 
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
++
+image:screen-br-inventory-details-configurelog-option.png[Inventory details page screenshot showing the Actions menu for BlueXP backup and recovery]
+. Provide the host path or browse through a list of hosts or nodes hosts on the host.
+. Select those on which you want logs. 
++
+NOTE: The fields that appear differ depending on the selected deployment model, for example, failover cluster instance or standalone. 
+. Select *Save*.
+
+== Suspend the backup schedule
+Suspending the schedule prevents the backup from running at the scheduled time temporarily. You might want to do this if you're performing maintenance on the system or if you're experiencing issues with the backup.
+
+NOTE: This feature is not available in Preview mode. 
+
+.Steps 
+
+. From the menu, select *Inventory*. 
++
+image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details. 
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
++
+image:screen-br-inventory-details-configurelog-option.png[Inventory details page screenshot showing the Actions menu for BlueXP backup and recovery]
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Suspend schedule*.
+. Select *Save*.
