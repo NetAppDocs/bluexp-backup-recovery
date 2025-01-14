@@ -121,13 +121,28 @@ NOTE: Quick restore is supported for FlexGroup volumes only if the source system
 
 . From the BlueXP menu, select *Protection > Backup and recovery*.
 
-. Click the *Restore* tab and the Restore Dashboard is displayed.
-
-. From the _Browse & Restore_ section, click *Restore Volume*.
+. From the BlueXP backup and restore menu, select *Restore*. 
 +
-image:screenshot_restore_volume_selection.png[A screenshot of selecting the Restore Volumes button from the Restore Dashboard.]
+image:screen-br-restore-options.png[A screenshot showing the Restore options.]
+. Select the *Browse & Restore* tile > *Browse & Restore*. 
++
+image:screen-br-restore-browse-host.png[A screenshot showing the Browse & Restore host selection.]
 
-. In the _Select Source_ page, navigate to the backup file for the volume you want to restore. Select the *Working Environment*, the *Volume*, and the *Backup* file that has the date/time stamp from which you want to restore.
+. In the Source: Host & Instances page, optionally enter information to filter the results. 
+
+. Select the database host that has the workload instance you want to restore and select *Next*. 
++
+image:screen-br-restore-browse-instance.png[A screenshot showing the Browse & Restore host selection.]
+
+. In the Source: Host & Instances page showing the databases, select the databases that you want to restore.
+
+. Select *Restore*. 
+
+. In the 
+
+OLD STUFF:
+
+. Select the *Working Environment*, the *Volume*, and the *Backup* file that has the date/time stamp from which you want to restore.
 +
 The *Location* column shows whether the backup file (Snapshot) is *Local* (a Snapshot copy on the source system), *Secondary* (a replicated volume on a secondary ONTAP system), or *Object Storage* (a backup file in object storage). Choose the file that you want to restore.
 +
