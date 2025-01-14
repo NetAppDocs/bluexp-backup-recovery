@@ -14,11 +14,13 @@ indexpage:
           url: br-start-prerequisites.html
         - title: Discover workloads
           url: br-start-discover-workloads.html
-        - title: Set up licensing
-          url: task-licensing-cloud-backup.html
+        - title: Set up BlueXP backup and recovery Preview
+          url: br-start-setup.html
         - title: Configure BlueXP backup and recovery settings
-          url: br-task-settings.html
-    - title: Back up ONTAP data 
+          url: br-start-configure.html
+        - title: Manage backup to object storage Advanced   Settings
+          url: task-manage-backup-settings-ontap.html
+    - title: Back up workload data 
       links:
         - title: Plan your protection journey
           url: concept-protection-journey.html 
@@ -47,7 +49,7 @@ indexpage:
           url: task-backup-onprem-to-ontap-s3.html
         - title: Back up on-premises workloads to StorageGRID
           url: task-backup-onprem-private-cloud.html
-    - title: Restore data from the cloud
+    - title: Restore workload data from the cloud
       links:
         - title: Restore data using Browse and Restore
           url: br-use-restore-browse-and-restore.html
