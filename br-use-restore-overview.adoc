@@ -81,16 +81,15 @@ This table provides a list of valid restore operations based on the location whe
 
 |===
 
-Before you can use either restore method, make sure you have configured your environment for the unique resource requirements. Those requirements are described in the sections below.
+
+== Begin the restore process
+
+Before you can use either restore method, make sure you have configured your environment for the unique resource requirements. 
 
 See the requirements and restore steps for the type of restore operation you want to use:
 
-* <<Restore volumes using Browse & Restore,Restore volumes using Browse & Restore>>
-* <<Restore folders and files using Browse & Restore,Restore folders and files using Browse & Restore>>
-* <<restore-ontap-data-using-search-restore,Restore volumes, folders, and files using Search & Restore>>
-
-
-
+* link:br-restore-browse-and-restore.html[Restore workload data using Browse & Restore]
+* link:br-restore-search-and-restore.html[Restore workload data using Search & Restore]
 
 
 

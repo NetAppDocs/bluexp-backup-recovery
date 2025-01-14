@@ -59,8 +59,7 @@ sidebar:
             - title: Back up workloads overview
               url: /br-use-backup-overview.html
             - title: Plan your protection journey
-              url: /concept-protection-journey.html
-             
+              url: /concept-protection-journey.html       
             - title: Back up Microsoft SQL Server workloads
               url: /br-use-backup-mssql.html
         - title: Restore workloads
