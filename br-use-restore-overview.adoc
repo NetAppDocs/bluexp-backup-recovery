@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: br-use-restore-overview.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
-summary: Backups of your data are available for restore from the locations where you created backups: snapshot, replications, and backups in object storage. Review the restore-from locations, restore points, and resource types to restore.
+summary: Backups of your data are available for restore from the locations where you created backups, which includes snapshot, replications, and backups in object storage. Review the restore-from locations, restore points, and resource types to restore.
 ---
 
 = Restore workloads overview 
