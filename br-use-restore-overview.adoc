@@ -1,0 +1,98 @@
+---
+sidebar: sidebar
+permalink: br-use-restore-overview.html
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
+summary: Backups of your data are available for restore from the locations where you created backups: snapshot, replications, and backups in object storage. Review the restore-from locations, restore points, and resource types to restore.
+---
+
+= Restore workloads overview 
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Backups of your data are available for restore from the locations where you created backups: snapshot, replications, and backups in object storage. Review the restore-from locations, restore points, and resource types to restore.
+
+//different types of restore operations, volume restore or file/folder restore, Browse and restore vs Search and restore)
+
+.Restore-from locations
+You can restore workloads in different ways: 
+
+* Restore from a snapshot copy
+* Restore from a replicated volume
+* Restore from an object store backup
+
+.Restore points   
+
+You can restore to a specific time: 
+
+* Restore to a point in time
+* Restore to the latest state 
+
+.Resource types to restore    
+
+You can restore workload from a backup file, or if you only need to restore a few files, you can restore a folder or individual files.
+
+* You can restore a volume (as a new volume) to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system.
+
+* You can restore a folder to a volume in the original working environment, to a volume in a different working environment that's using the same cloud account, or to a volume on an on-premises ONTAP system.
+
+* You can restore files to a volume in the original working environment, to a volume in a different working environment that's using the same cloud account, or to a volume on an on-premises ONTAP system.
+
+== Restore methods
+
+You can restore workloads using one of the following methods. Typically, choose one of the following methods based on your restore needs:
+
+* _Browse & restore_ is typically better when you need to restore a specific volume, folder, or file from the last week or month -- and you know the name and location of the file, and the date when it was last in good shape. 
+
+* _Search & Restore_ is typically better when you need to restore a volume, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
+
+This table compares the two methods.
+
+[cols=2*,options="header",cols="50,50"]
+|===
+
+| Browse & Restore
+| Search & Restore
+
+| Browse through a folder-style structure to find the volume, folder, or file within a single backup file. | Search for a volume, folder, or file across *all backup files* by partial or full volume name, partial or full folder/file name, size range, and additional search filters.
+| Does not handle file recovery if the file has been deleted or renamed, and the user doesn't know the original file name | Handles newly created/deleted/renamed directories and newly created/deleted/renamed files
+| No additional cloud provider resources required | When you restore from the cloud, additional bucket and public cloud provider resources required per account.
+| No additional cloud provider costs required | When you restore from the cloud, additional costs are required when scanning your backups and volumes for search results.
+| Quick restore is supported. | Quick restore is not supported. 
+
+
+|===
+
+This table provides a list of valid restore operations based on the location where your backup files reside. 
+
+[cols=7*,options="header",cols="14h,14,14,14,14,14,14",width="100%"]
+|===
+| Backup Type
+3+^| Browse & Restore
+3+^| Search & Restore
+
+|  | *Restore volume* | *Restore files* | *Restore folder* | *Restore volume* | *Restore files* | *Restore folder* 
+| Snapshot copy | Yes | No | No | Yes | Yes | Yes 
+| Replicated volume | Yes | No | No | Yes | Yes | Yes 
+| Backup file on object storage | Yes | Yes | Yes | Yes | Yes | Yes 
+
+|===
+
+Before you can use either restore method, make sure you have configured your environment for the unique resource requirements. Those requirements are described in the sections below.
+
+See the requirements and restore steps for the type of restore operation you want to use:
+
+* <<Restore volumes using Browse & Restore,Restore volumes using Browse & Restore>>
+* <<Restore folders and files using Browse & Restore,Restore folders and files using Browse & Restore>>
+* <<restore-ontap-data-using-search-restore,Restore volumes, folders, and files using Search & Restore>>
+
+
+
+
+
+
+
+

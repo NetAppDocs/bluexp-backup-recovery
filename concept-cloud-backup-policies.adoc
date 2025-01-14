@@ -15,7 +15,7 @@ summary: BlueXP backup and recovery enables you to create backup policies with a
 [.lead]
 BlueXP backup and recovery enables you to create backup policies with a variety of settings for your on-prem ONTAP and Cloud Volumes ONTAP systems.
 
-NOTE: These policy settings are relevant for backup-to-object storage only. None of these settings affect your Snapshot or replication policies. Similar policy settings for Snapshots and replications will be added in the future.
+NOTE: These policy settings are relevant for backup-to-object storage only. None of these settings affect your snapshot or replication policies. 
 
 == Backup schedule options
 
@@ -23,7 +23,7 @@ BlueXP backup and recovery enables you to create multiple backup policies with u
 
 Each backup policy provides a section for _Labels & Retention_ that you can apply to your backup files. Note that the Snapshot policy applied to the volume must be one of the policies recognized by BlueXP backup and recovery or backup files will not be created. 
 
-image:screenshot_backup_schedule_settings.png[A screenshot of the Backup Schedule settings when creating a backup policy.]
+image:screen-br-policy-schedule.png[A screenshot of the schedule settings when creating a policy.]
 
 There are two parts of the schedule; the Label and the Retention value:
 

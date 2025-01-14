@@ -46,7 +46,6 @@ TBD
 
 == Replicate snapshots to ONTAP secondary storage
 
-
 Replicating snapshots to secondary storage provides the following benefits:  
 
 * Replicate data between ONTAP storage systems to support backup and disaster recovery.
@@ -59,7 +58,14 @@ Replicating snapshots to secondary storage provides the following benefits:
 ** Restore a replicated volume to the source system or to a different system using the UI.
 ** Manage replication policies
 
-== Back up workloads to an object store location (Amazon Web Services, Google Cloud, Microsoft Azure, and StorageGRID)
+== Back up workloads to object storage
+
+Back up workloads to one of the following object storage locations: 
+
+* Amazon Web Services
+* Google Cloud
+* Microsoft Azure
+* StorageGRID
 
 Backing up workloads to an object store location provides the following benefits:
 

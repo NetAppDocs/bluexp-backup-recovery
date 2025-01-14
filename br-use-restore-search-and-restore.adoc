@@ -1,0 +1,270 @@
+---
+sidebar: sidebar
+permalink: br-use-restore-search-and-restore.html
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
+summary: You can restore a volume, folder, or files from a backup file using Search & Restore. Search & Restore enables you to search for a specific volume, folder, or file from all backups, and then perform a restore. You don't need to know the exact working environment name, volume name, or file name -- the search looks through all volume backup files.
+---
+
+= Restore workloads using Search & Restore  
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+_Search & Restore_ is typically better when you need to restore a volume, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
+
+== What happens when you use Search & Restore 
+
+You can restore a volume, folder, or files from a backup file using Search & Restore. Search & Restore enables you to search for a specific volume, folder, or file from all backups, and then perform a restore. You don't need to know the exact working environment name, volume name, or file name -- the search looks through all volume backup files.
+
+The search operation looks across all local snapshots that exist for your volumes, all replicated volumes on secondary storage systems, and all backup files that exist in object storage. Because restoring data from a local snapshot or replicated volume can be faster and less costly than restoring from a backup file in object storage, you may want to restore data from these other locations. 
+//You can restore the Snapshot as a new volume https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[from the Volume Details page on the Canvas^] (not from BlueXP backup and recovery).
+
+* When you restore a _full volume_ from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. You can restore the data as a volume in the original working environment, to a different working environment that's located in the same cloud account as the source working environment, or to an on-premises ONTAP system.
+
+* You can restore _folders or files_ to the original volume location, to a different volume in the same working environment, to a different working environment that's using the same cloud account, or to a volume on an on-premises ONTAP system.
+
+* If the backup file for the volume that you want to restore resides in archival storage (available starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur additional cost. Note that the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, 9.12.1 for Google Archive and StorageGRID, and 9.13.1 for folder restore.
+
+//When restoring a cloud backup to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a "quick restore" operation. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore restores the metadata from the backup file to a volume instead of restoring the entire backup file. Quick restore is not recommended for performance or latency-sensitive applications, and it is not supported with backups in archived storage.
+
+ifdef::aws[]
+link:reference-aws-backup-tiers.html[Learn more about restoring from AWS archival storage].
+endif::aws[]
+ifdef::azure[]
+link:reference-azure-backup-tiers.html[Learn more about restoring from Azure archival storage].
+endif::azure[]
+ifdef::gcp[]
+link:reference-google-backup-tiers.html[Learn more about restoring from Google archival storage].
+endif::gcp[]
+
+[NOTE] 
+====
+* If the backup file in object storage has been configured with DataLock & Ransomware protection, then folder-level restore is supported only if the ONTAP version is 9.13.1 or greater. If you are using an earlier version of ONTAP, you can restore the entire volume from the backup file and then access the folder and files you need.
+* If the backup file in object storage resides in archival storage, then folder-level restore is supported only if the ONTAP version is 9.13.1 or greater. If you are using an earlier version of ONTAP, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
+//* Quick restore is supported for FlexGroup volumes only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. Quick restore for SnapLock volumes is supported only if the source system from which the cloud backup was created was running ONTAP 9.11.0 or greater. There is no minimum requirement for FlexVol volumes.
+* The "High" restore priority is not supported when restoring data from Azure archival storage to StorageGRID systems.
+* Restoring folders is not currently supported from volumes in ONTAP S3 object storage.
+====
+
+
+
+
+
+=== Search & Restore supported working environments and object storage providers
+
+You can restore workload data from a backup file that resides in a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshots reside on the source working environment and can be restored only to that same system.
+
+*Note:* You can restore volumes and files from any type of backup file, but you can restore a folder only from backup files in object storage at this time.
+
+[cols=3*,options="header",cols="33,33,33",width="90%"]
+|===
+
+2+^| Backup File Location
+| Destination Working Environment
+
+| *Object Store (Backup)* | *Secondary System (Replication)* |
+ifdef::aws[]
+| Amazon S3 | Cloud Volumes ONTAP in AWS
+On-premises ONTAP system
+| Cloud Volumes ONTAP in AWS
+On-premises ONTAP system
+endif::aws[]
+ifdef::azure[]
+| Azure Blob | Cloud Volumes ONTAP in Azure
+On-premises ONTAP system
+| Cloud Volumes ONTAP in Azure
+On-premises ONTAP system
+endif::azure[]
+ifdef::gcp[]
+| Google Cloud Storage | Cloud Volumes ONTAP in Google
+On-premises ONTAP system
+| Cloud Volumes ONTAP in Google
+On-premises ONTAP system
+endif::gcp[]
+| NetApp StorageGRID | On-premises ONTAP system
+Cloud Volumes ONTAP
+| On-premises ONTAP system
+| ONTAP S3 | On-premises ONTAP system
+Cloud Volumes ONTAP
+| On-premises ONTAP system
+//Cloud Volumes ONTAP
+
+|===
+
+For Search & Restore, the Connector can be installed in the following locations:
+
+ifdef::aws[]
+* For Amazon S3, the Connector can be deployed in AWS or in your premises 
+endif::aws[]
+ifdef::azure[]
+* For Azure Blob, the Connector can be deployed in Azure or in your premises 
+endif::azure[]
+ifdef::gcp[]
+* For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC
+endif::gcp[]
+* For StorageGRID, the Connector must be deployed in your premises; with or without internet access
+* For ONTAP S3, the Connector can be deployed in your premises (with or without internet access) or in a cloud provider environment
+
+Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
+
+=== Prerequisites
+
+* Cluster requirements:
+
+** The ONTAP version must be 9.8 or greater.
+** The storage VM (SVM) on which the volume resides must have a configured data LIF.
+** NFS must be enabled on the volume (both NFS and SMB/CIFS volumes are supported).
+** The SnapDiff RPC Server must be activated on the SVM. BlueXP does this automatically when you enable Indexing on the working environment. (SnapDiff is the technology that quickly identifies the file and directory differences between Snapshot copies.)
+
+ifdef::aws[]
+* AWS requirements:
+
+** Specific Amazon Athena, AWS Glue, and AWS S3 permissions must be added to the user role that provides BlueXP with permissions. link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Make sure all the permissions are configured correctly].
++
+Note that if you were already using BlueXP backup and recovery with a Connector you configured in the past, you'll need to add the Athena and Glue permissions to the BlueXP user role now. They are required for Search & Restore.
+endif::aws[]
+
+ifdef::azure[]
+* Azure requirements:
+
+** You must register the Azure Synapse Analytics Resource Provider (called "Microsoft.Synapse") with your Subscription. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider[See how to register this resource provider for your subscription^]. You must be the Subscription *Owner* or *Contributor* to register the resource provider.
+
+** Specific Azure Synapse Workspace and Data Lake Storage Account permissions must be added to the user role that provides BlueXP with permissions. link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector[Make sure all the permissions are configured correctly].
++
+Note that if you were already using BlueXP backup and recovery with a Connector you configured in the past, you'll need to add the Azure Synapse Workspace and Data Lake Storage Account permissions to the BlueXP user role now. They are required for Search & Restore.
+
+** The Connector must be configured *without* a proxy server for HTTP communication to the internet. If you have configured an HTTP proxy server for your Connector, you can't use Search & Replace functionality.
+endif::azure[]
+
+ifdef::gcp[]
+* Google Cloud requirements:
+
+** Specific Google BigQuery permissions must be added to the user role that provides BlueXP with permissions. link:task-backup-onprem-to-gcp.html#verify-or-add-permissions-to-the-connector[Make sure all the permissions are configured correctly].
++
+Note that if you were already using BlueXP backup and recovery with a Connector you configured in the past, you'll need to add the BigQuery permissions to the BlueXP user role now. They are required for Search & Restore.
+endif::gcp[]
+
+* StorageGRID requirements:
++
+Depending on your configuration, Search & Restore can be implemented in the following ways:
++
+** If there are no cloud provider credentials in your account, then the Indexed Catalog information is stored on the Connector.
+** If you are using a Connector in a private (dark) site, then the Indexed Catalog information is stored on the Connector (requires Connector version 3.9.25 or greater).
+** If you have https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-aws.html[AWS credentials^] or https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-azure.html[Azure credentials^] in the account, then the Indexed Catalog is stored at the cloud provider, just like with a Connector deployed in the cloud. (If you have both credentials, AWS is selected by default.)
++
+Even though you are using an on-premises Connector, the cloud provider requirements must be met for both Connector permissions and cloud provider resources. See the AWS and Azure requirements above when using this implementation. 
+ 
+=== Search & Restore process overview
+
+The process goes like this:
+
+. Before you can use Search & Restore, you need to enable "Indexing" on each source working environment from which you'll want to restore volume data. This allows the Indexed Catalog to track the backup files for every volume.
+
+. When you want to restore a volume or files from a volume backup, under _Search & Restore_, click *Search & Restore*.
+
+. Enter the search criteria for a volume, folder, or file by partial or full volume name, partial or full file name, backup location, size range, creation date range, other search filters, and click *Search*.
++
+The Search Results page displays all the locations that have a file or volume that matches your search criteria.
+
+. Click *View All Backups* for the location you want to use to restore the volume or file, and then click *Restore* on the actual backup file you want to use.
+
+. Select the location where you want the volume, folder, or file(s) to be restored and click *Restore*.
+
+. The volume, folder, or file(s) are restored.
+
+image:diagram_search_restore_vol_file.png["A diagram that shows the flow to perform a volume, folder, or file restore operation using Search & Restore."]
+
+As you can see, you really only need to know a partial name and BlueXP backup and recovery searches through all backup files that match your search.
+
+=== Enable the Indexed Catalog for each working environment
+
+Before you can use Search & Restore, you need to enable "Indexing" on each source working environment from which you're planning to restore volumes or files. This allows the Indexed Catalog to track every volume and every backup file - making your searches very quick and efficient.
+
+When you enable this functionality, BlueXP backup and recovery enables SnapDiff v3 on the SVM for your volumes, and it performs the following actions:
+
+ifdef::aws[]
+* For backups stored in AWS, it provisions a new S3 bucket and the https://aws.amazon.com/athena/faqs/[Amazon Athena interactive query service^] and https://aws.amazon.com/glue/faqs/[AWS Glue serverless data integration service^].
+endif::aws[]
+ifdef::azure[]
+* For backups stored in Azure, it provisions an Azure Synapse workspace and a Data Lake file system as the container that will store the workspace data.
+endif::azure[]
+ifdef::gcp[]
+* For backups stored in Google Cloud, it provisions a new bucket, and the https://cloud.google.com/bigquery[Google Cloud BigQuery services^] are provisioned on an account/project level.
+endif::gcp[]
+* For backups stored in StorageGRID or ONTAP S3, it provisions space on the Connector, or on the cloud provider environment.
+
+If Indexing has already been enabled for your working environment, go to the next section to restore your data.
+
+To enable Indexing for a working environment:
+
+* If no working environments have been indexed, on the Restore Dashboard under _Search & Restore_, click *Enable Indexing for Working Environments*, and click *Enable Indexing* for the working environment.
+* If at least one working environment has already been indexed, on the Restore Dashboard under _Search & Restore_, click *Indexing Settings*, and click *Enable Indexing* for the working environment.
+
+After all the services are provisioned and the Indexed Catalog has been activated, the working environment is shown as "Active".
+
+image:screenshot_restore_enable_indexing.png[A screenshot showing the working environments that have activated the Indexed Catalog.]
+
+Depending on the size of the volumes in the working environment, and the number of backup files in all 3 backup locations, the initial indexing process could take up to an hour. After that it is transparently updated hourly with incremental changes to stay current.
+
+=== Restore volumes, folders, and files using Search & Restore
+
+After you have <<enable-the-indexed-catalog-for-each-working-environment,enabled Indexing for your working environment>>, you can restore volumes, folders, and files using Search & Restore. This allows you to use a broad range of filters to find the exact file or volume that you want to restore from all backup files.
+
+.Steps
+
+. From the BlueXP menu, select *Protection > Backup and recovery*.
+
+. Click the *Restore* tab and the Restore Dashboard is displayed.
+
+. From the _Search & Restore_ section, click *Search & Restore*.
++
+image:screenshot_restore_start_search_restore.png["A screenshot of selecting the Search & Restore button from the Restore Dashboard."]
+
+. From the Search to Restore page:
+.. In the _Search bar_, enter a full or partial volume name, folder name, or file name.
+.. Select the type of resource: *Volumes*, *Files*, *Folders*, or *All*.
+.. In the _Filter by_ area, select the filter criteria. For example, you can select the working environment where the data resides and the file type, for example a .JPEG file. Or you can select the type of Backup Location if you want to search for results only within available Snapshot copies or backup files in object storage.
+
+. Click *Search* and the Search Results area displays all the resources that have a file, folder, or volume that matches your search.
++
+image:screenshot_restore_step1_search_restore.png["A screenshot showing the search criteria and search results on the Search & Restore page."]
+
+. Locate the resource that has the data you want to restore and click *View All Backups* to display all the backup files that contain the matching volume, folder, or file.
++
+image:screenshot_restore_step2_search_restore.png["A screenshot showing how to view all the backups that match your search criteria."]
+
+. Locate the backup file that you want to use to restore the data and click *Restore*.
++
+Note that the results identify local volume Snapshot copies and remote Replicated volumes that contain the file in your search. You can choose to restore from the cloud backup file, from the Snapshot copy, or from the Replicated volume.
+//The *Restore* button is not functional for Snapshots at this time, but if you want to restore the data from the Snapshot copy instead of from the Backup file, write down the name and location of the volume, open the Volume Details page on the Canvas, and use the *Restore from Snapshot copy* option.
+
+. Select the destination location where you want the volume, folder, or file(s) to be restored and click *Restore*.
++
+* For volumes, you can select the original destination working environment or you can select an alternate working environment. When restoring a FlexGroup volume you'll need to choose multiple aggregates. 
+//+
+//When restoring a backup from object storage to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater, you'll have the option to perform a _quick restore_ operation.
+* For folders, you can restore to the original location or you can select an alternate location; including the working environment, volume, and folder.
+* For files, you can restore to the original location or you can select an alternate location; including the working environment, volume, and folder. When selecting the original location, you can choose to overwrite the source file(s) or to create new file(s).
++
+If you select an on-premises ONTAP system and you haven't already configured the cluster connection to the object storage, you are prompted for additional information:
++
+ifdef::aws[]
+** When restoring from Amazon S3, select the IPspace in the ONTAP cluster where the destination volume will reside, enter the access key and secret key for the user you created to give the ONTAP cluster access to the S3 bucket, and optionally choose a private VPC endpoint for secure data transfer. link:task-backup-onprem-to-aws.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage[See details about these requirements].
+endif::aws[]
+ifdef::azure[]
+** When restoring from Azure Blob, select the IPspace in the ONTAP cluster where the destination volume will reside, and optionally choose a private endpoint for secure data transfer by selecting the VNet and Subnet. link:task-backup-onprem-to-azure.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage[See details about these requirements].
+endif::azure[]
+ifdef::gcp[]
+** When restoring from Google Cloud Storage, select the IPspace in the ONTAP cluster where the destination volume will reside, and the Access Key and Secret Key to access the object storage. link:task-backup-onprem-to-gcp.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage[See details about these requirements].
+endif::gcp[]
+** When restoring from StorageGRID, enter the FQDN of the StorageGRID server and the port that ONTAP should use for HTTPS communication with StorageGRID, enter the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume resides. link:task-backup-onprem-private-cloud.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage[See details about these requirements].
+** When restoring from ONTAP S3, enter the FQDN of the ONTAP S3 server and the port that ONTAP should use for HTTPS communication with ONTAP S3, select the Access Key and Secret Key needed to access the object storage, and the IPspace in the ONTAP cluster where the destination volume will reside. link:task-backup-onprem-to-ontap-s3.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage[See details about these requirements].
+
+.Results
+
+The volume, folder, or file(s) are restored and you are returned to the Restore Dashboard so you can review the progress of the restore operation. You can also click the *Job Monitoring* tab to see the restore progress.
+
+For restored volumes, you can link:task-manage-backups-ontap.html[manage the backup settings for this new volume] as required.

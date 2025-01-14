@@ -67,7 +67,7 @@ NOTE: For the Preview 2025 version, only the "SQL Server" backup type is availab
 * *Ransomware protection*: Shows if the policy includes Autonomous Ransomware Protection on the local snapshot, secondary storage, and object store. 
 
 
-== Create policies 
+== Create a policy
 
 You can create policies that govern your snapshots, replications and backups to object storage: 
 
@@ -116,19 +116,31 @@ TIP: For explanations of architecture and ransomware protection, refer to link:c
 ** Select whether you want to enable tamper-proof snapshots. 
 ** Optionally, change the snapshot label
 
-* *Secondary setting* section: Provide information for the replication to secondary storage. 
+* *Replication to secondary setting* section: Provide information for the replication to secondary storage. 
 ** Select the frequency of hourly, daily, weekly, monthly, or yearly. 
 ** Enter when and how often the replication will occur.
 ** Select whether you want to enable tamper-proof snapshots. 
 
-* *Object store setting* section: Provide information for the backup to object storage.
+* *Backup to object store setting* section: Provide information for the backup to object storage.
++
+NOTE: The fields that appear differ depending on the provider selected. 
+
+** Select a provider. 
 ** Select the frequency of hourly, daily, weekly, monthly, or yearly. 
 ** Enter when and how often the backup will occur.
 ** Select whether you want to enable tamper-proof snapshots. 
-** Select the destination object store endpoint. 
+** Select to use an existing bucket or create a new one. 
 ** Select whether to enable integrity scans.
-** Enter backup transfer schedules. 
+** Indicate how data will be encrypted.  
 ** If you choose to tier backups to archive storage (for example, AWS Glacier), select the tier and the number of days to archive. To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
+
+* *Snapshot verification settings*: Provide information on how you want the snapshot to be verified: 
+
+** Storage location: Select the location where the verification snapshot will be stored.
+** Verification resource: Select whether the resource that you want to verify is on the local snapshot and on ONTAP secondary storage. 
+** Verification schedule: Select the frequency of hourly, daily, weekly, monthly, or yearly.
+
+* *Pre and post-backup scripts*: Provide information on the scripts that you want to run before and after the backup.
 
 * *Advanced settings* section:
 ** *Copy only backup*: Choose whether you want a full backup (includes transactional logs), log or transaction-only backup, or a copy-only backup (a type of MS SQL Server). 
