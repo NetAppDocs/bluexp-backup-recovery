@@ -183,12 +183,11 @@ image:screen-br-discover-workloads-newly-discovered.png[Newly discovered working
 +
 TIP: This process might take a few minutes.
 . *vCenter settings*: Select an existing vCenter or add a new one. To add a new vCenter, enter the vCenter FQDN or IP address, user name, password, port, and protocol. 
++
+TIP: If you added or entered vCenter information here, you also need to add SnapCenter plugin information in Advanced Settings next. 
 . *Host registration*: Not available for the Preview 2025 version.
 image:screen-br-discover-hosts.png[Discover workload resources showing Hosts registration section]
 . To add credentials for the host, select *Add credentials* in the Host registration section. 
-. *Advanced settings*:  
-
-. Select *Discover*. 
 
 
 
@@ -197,13 +196,17 @@ image:screen-br-discover-hosts.png[Discover workload resources showing Hosts reg
 
 With Advanced Settings, you can manually install the SnapCenter plugin agent on all servers being registered. This enables you to  import all SnapCenter workloads into BlueXP backup and recovery so you can manage backups and restores there. BlueXP backup and recovery shows the steps needed to install the plugin. 
 
+If you entered vCenter information during discovery, you need to add SnapCenter plugin information in Advanced Settings.
+
 
 .Steps
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*.
 . From the menu, select *Inventory*.
-. Select *Discover resources*.
-. Select *Advanced settings*. Enter the following information. 
+. Select *Discover resources*. 
++
+image:screen-br-discover-workloads-newly-discovered.png[Newly discovered working environments screenshot]
+. From the Discover workload resources page, select *Advanced settings*. Enter the following information. 
 * *Input plugin port number*: 
 * *Installation path*:
 
@@ -212,7 +215,6 @@ With Advanced Settings, you can manually install the SnapCenter plugin agent on 
 * *Use Group Managed Service Account (gMSA)*:
 * *Add all hosts in the cluster*:
 * *Skip optional preinstall checks*:
-
 //. To enable the ability to add tags to your resources for easier management, check *Add tag option for resources*. (This feature is not available for the Preview 2025 version.)    
 . Select *Discover*.
 
