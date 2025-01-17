@@ -34,7 +34,7 @@ sidebar:
           url: /concept-backup-to-cloud.html
         - title: Prerequisites for BlueXP backup and recovery Preview version
           url: /concept-start-prereq.html  
-        - title: Set up BlueXP backup and recovery Preview version
+        - title: Set up backup destinations before you use BlueXP backup and recovery Preview version
           url: /br-start-setup.html
         - title: Log in to BlueXP backup and recovery Preview version
           url: /br-start-login.html

@@ -31,24 +31,7 @@ indexpage:
         - title: Back up overview 
           url: br-use-backup-overview.html       
         - title: Back up Microsoft SQL Server workloads 
-          url: br-use-backup-mssql.html  
-        - title: Back up workloads to local ONTAP primary storage
-          url: br-use-backup-ontap-to-ontap-primary.html
-        - title: Replicate workloads to ONTAP secondary storage 
-          url: br-use-backup-ontap-to-ontap-secondary.html
-        - title: Back up on-premises workloads to Amazon S3
-          url: task-backup-onprem-to-aws.html
-          flavor: aws
-        - title: Back up on-premises workloads to Azure Blob
-          url: task-backup-onprem-to-azure.html
-          flavor: azure
-        - title: Back up on-premises workloads to Google Cloud
-          url: task-backup-onprem-to-gcp.html
-          flavor: gcp
-        - title: Back up on-premises workloads to ONTAP S3
-          url: task-backup-onprem-to-ontap-s3.html
-        - title: Back up on-premises workloads to StorageGRID
-          url: task-backup-onprem-private-cloud.html
+          url: br-use-backup-mssql.html
     - title: Restore workload data from the cloud
       links:
         - title: Restore data using Browse and Restore
