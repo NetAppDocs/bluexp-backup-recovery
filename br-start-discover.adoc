@@ -34,16 +34,12 @@ You can do this in the following ways:
 * During discovery, select an option to import SnapCenter resources.
 * After discovery, from the Settings menu, select an option to import SnapCenter resources. For details, see link:br-start-configure.html[Configure BlueXP backup and recovery].
 
-=== Import and manage SnapCenter host resources during discovery
-
-If you previously used SnapCenter to back up your resources, you can import and manage those resources in BlueXP backup and recovery. With this option, you can import SnapCenter Server information to register multiple Snapcenter servers and discover the database workloads.
-
 This is a two-part process:
 
 * Import SnapCenter Server application and host resources
 * Manage selected SnapCenter host resources
 
-==== Import SnapCenter Server application and host resources
+=== Import SnapCenter Server application and host resources
 
 This first step imports host resources from SnapCenter and displays those resources in the BlueXP backup and recovery Inventory page. At that point, the resources are not yet managed by BlueXP backup and recovery.
 
@@ -91,7 +87,7 @@ The Inventory page shows the imported SnapCenter resources.
 
 image:../media/screen-br-inventory-manage-option.png[Inventory page showing the imported SnapCenter resources and the Manage option]
 
-==== Manage SnapCenter host resources
+=== Manage SnapCenter host resources
 
 After you import the SnapCenter resources, manage those host resources in BlueXP backup and recovery. After you select to manage those resources, BlueXP backup and recovery is able to back up and recover the resources that you imported from SnapCenter. You no longer manage those resources in SnapCenter Server. 
 
