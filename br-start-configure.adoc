@@ -181,7 +181,7 @@ image:../media/screen-br-inventory-manage-host.png[Inventory page showing the im
 
 . Select *Manage in BlueXP*. 
 +
-The Inventory page shows *Managed* under the host name to incidate that the selected host resources are now managed by BlueXP backup and recovery.
+The Inventory page shows *Managed* under the host name to indicate that the selected host resources are now managed by BlueXP backup and recovery.
 
 
 === Edit imported SnapCenter resources
