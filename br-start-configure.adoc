@@ -13,14 +13,14 @@ summary: Complete a few steps to configure BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-After you set up BlueXP, you can configure the backup and recovery settings: 
+After you set up BlueXP, configure the backup and recovery settings. You should do this before you actively start backing up and recovering your data. 
 
-* Add host credentials for the Windows and SQL Server hosts that you imported from SnapCenter and add credentials for the Microsoft SQL Server application.
-* Maintain VMware vCenter settings.
-* Provide StorageGRID credentials.
-* Import and manage SnapCenter host resources.
-* Enable the Certificate Authority (CA) certificate.
-* Configure log directories in snapshots for Windows hosts.
+* <<Add credentials for host resources>> for the Windows and SQL Server hosts that you imported from SnapCenter and add credentials for the Microsoft SQL Server application.
+* <<Maintain VMware vCenter settings>>.
+* <<Provide StorageGRID credentials>>.
+* <<Import and manage SnapCenter host resources>>.
+* <<Enable the Certificate Authority certificates>>.
+* <<Configure log directories in snapshots for Windows hosts>>.
 * Configure buckets in working environments by enabling DataLock and ransomware protection scanning. 
 
 == Add credentials for host resources

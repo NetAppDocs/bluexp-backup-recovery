@@ -38,12 +38,10 @@ sidebar:
           url: /br-start-setup.html
         - title: Log in to BlueXP backup and recovery
           url: /br-start-login.html
-        - title: Discover workloads and import SnapCenter resources
+        - title: Discover workloads and optionally import SnapCenter resources
           url: /br-start-discover.html
         - title: Configure BlueXP backup and recovery settings 
           url: /br-start-configure.html
-        - title: Manage backup-to-object storage options in Advanced Settings
-          url: /task-manage-backup-settings-ontap.html
         - title: FAQ
           url: /br-start-faq.html
     - title: Use BlueXP backup and recovery

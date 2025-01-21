@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: br-start-discover.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
-summary: Complete a few steps to back up applications data from ONTAP to AWS.
+summary: The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes all volumes and files in working environments within your organization. 
 ---
 
-= Discover workloads in BlueXP backup and recovery
+= Discover workloads and optionally import SnapCenter resources
 :hardbreaks:
 :nofooter:
 :icons: font
