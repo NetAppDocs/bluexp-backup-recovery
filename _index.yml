@@ -14,11 +14,13 @@ indexpage:
           url: br-start-prerequisites.html
         - title: Discover workloads
           url: br-start-discover-workloads.html
-        - title: Set up BlueXP backup and recovery Preview
+        - title: Import SnapCenter resources 
+          url: br-start-discover-workloads.html
+        - title: Set up backup destinations before you use BlueXP backup and recovery
           url: br-start-setup.html
         - title: Configure BlueXP backup and recovery settings
           url: br-start-configure.html
-        - title: Manage backup to object storage Advanced   Settings
+        - title: Manage backup to object storage Advanced Settings
           url: task-manage-backup-settings-ontap.html
     - title: Back up workload data 
       links:

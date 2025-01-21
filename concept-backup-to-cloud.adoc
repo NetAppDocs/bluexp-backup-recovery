@@ -218,6 +218,8 @@ endif::gcp[]
 
 === When backups are taken
 
+Unless you specify a different offset time, BlueXP backup and recovery takes backups at the following times:
+
 * Hourly backups start 5 minutes past the hour, every hour.
 
 * Daily backups start just after midnight each day.
@@ -228,7 +230,7 @@ endif::gcp[]
 
 * Yearly backups start just after midnight on the first day of the year.
 
-The start time is based on the time zone set on each source ONTAP system. You can't schedule backup operations at a user-specified time from the UI. For more information, contact your System Engineer.
+The start time is based on the time zone set on each source ONTAP system. 
 
 === Backup copies are associated with your NetApp account
 

@@ -20,6 +20,7 @@ After you set up BlueXP, you can configure the backup and recovery settings:
 * Provide StorageGRID credentials.
 * Import and manage SnapCenter host resources.
 * Enable the Certificate Authority (CA) certificate.
+* Configure log directories in snapshots for Windows hosts.
 * Configure buckets in working environments by enabling DataLock and ransomware protection scanning. 
 
 == Add credentials for host resources
@@ -230,6 +231,29 @@ image:../media/screen-br-settings-certificates.png[Settings option]
 . Locate and select the certificate file.
 
 . Select *Save*.
+
+== Configure log directories in snapshots for Windows hosts
+
+Before you create policies for Windows hosts, you can configure log directories in snapshots for Windows hosts. Log directories are used to store the logs that are generated during the backup process.
+
+.Steps
+. From the BlueXP backup and recovery menu, select *Inventory*.
++
+image:../media/screen-br-inventory-viewdetails-option.png[Inventory page showing the workloads and the View details option]
+
+. From the Inventory page, select a workload and then select the Actions icon image:../media/icon-action.png[Actions option] > *View details* to display the workload details.   
+
+. From the Inventory details page showing Microsoft SQL Server, select the Hosts tab. 
++
+image:../media/screen-br-inventory-hosts-actionmenu.png[Inventory details page showing Microsoft SQL Server Hosts tab and the Actions menu] 
+
+. From the Inventory details page, select a host and select the Actions icon image:../media/icon-action.png[Actions option] > *Configure log directory*.   
++
+image:../media/screen-br-inventory-configure-log.png[Configure log screen] 
+. Either browse or enter the path for the log directory.
+. Select *Save*.
+
+
 
 == Configure buckets in working environments
 
