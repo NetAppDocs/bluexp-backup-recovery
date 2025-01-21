@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: concept-start-prereq.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, backup and recovery
-summary: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for NetApp ONTAP data and databases, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
+summary: Get started with BlueXP backup and recovery by verifying the readiness of your operational environment, BlueXP Connector, and BlueXP account. To use BlueXP backup and recovery, you'll need these prerequisites.
 ---
 
 = BlueXP backup and recovery Preview 2025 prerequisites
@@ -13,9 +13,7 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 :imagesdir: ./media/
 
 [.lead]
-Get started with BlueXP backup and recovery by verifying the readiness of your operational environment, login, network access, and web browser.
-
-To use BlueXP backup and recovery, you'll need these prerequisites.
+Get started with BlueXP backup and recovery by verifying the readiness of your operational environment, BlueXP Connector, and BlueXP account. To use BlueXP backup and recovery, you'll need these prerequisites.
 
 
 == In BlueXP 
@@ -24,8 +22,6 @@ To use BlueXP backup and recovery, you'll need these prerequisites.
 * A BlueXP user account with Organization Admin privileges for discovering resources.
 
 * A BlueXP organization with at least one active BlueXP Connector connecting to on-premises ONTAP clusters or connecting to Cloud Volumes ONTAP in AWS or in Azure. 
-
-* The BlueXP Connector must have the `cloudmanager-ransomware-protection` container in an active state. 
 
 * At least one BlueXP working environment with a NetApp on-premises ONTAP cluster or Cloud Volume ONTAP in AWS or Azure (using NAS or CIFS protocols).
 
@@ -42,15 +38,12 @@ Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.htm
 
 == In ONTAP 9.8 and later
 
-* An ONTAP One license is enabled on the on-premises ONTAP instance.
+* An ONTAP One license must be enabled on the on-premises ONTAP instance.
 
 
-//* A license for NetApp Autonomous Ransomware Protection, used by BlueXP ransomware protection, enabled on the on-premises ONTAP instance, depending on the version of ONTAP you are using. Refer to https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html[Autonomous Ransomware Protection overview^].
+//* To apply advanced protection configurations (such as enabling DataLock and others), BlueXP backup and recovery needs admin permissions on the ONTAP cluster. The ONTAP cluster should have been onboarded using ONTAP cluster admin user credentials only. 
 
-
-* To apply protection configurations (such as enabling Autonomous Ransomware Protection and others), BlueXP backup and recovery needs admin permissions on the ONTAP cluster. The ONTAP cluster should have been onboarded using ONTAP cluster admin user credentials only. 
-
-* If the ONTAP cluster is already onboarded in BlueXP using non-admin user credentials, then the non-admin user permissions must be updated with necessary permissions by logging into the ONTAP cluster, described on this page. 
+//* If the ONTAP cluster is already onboarded in BlueXP using non-admin user credentials, then the non-admin user permissions must be updated with necessary permissions by logging into the ONTAP cluster, described on this page. 
 
 
 == For data backups
@@ -59,28 +52,32 @@ Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.htm
 +
 Refer to the https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions.html[AWS, Azure, or S3 permissions list^] for details. 
 
+== SnapCenter host version
+TBD
+
+//* SnapCenter host version 4.4.1 or later is required for SnapCenter integration.
+//* An on-premises SnapCenter server must be accessible from the BlueXP Connector.
+
+//== Update non-admin user permissions in an ONTAP working environment
+
+//If you need to update non-admin user permissions for a particular working environment, complete these steps. 
 
 
-== Update non-admin user permissions in an ONTAP working environment
+//.  Log in to BlueXP and look for the working environment that needs its ONTAP user permissions updated. 
 
-If you need to update non-admin user permissions for a particular working environment, complete these steps. 
+//. Double-click on the working environment to see details. 
+//. Click *View additional information* that shows the user name. 
+//. Log in to the ONTAP cluster CLI using the admin user. 
+//. Display the existing roles for that user. Enter: 
+//+
+//----
+//security login show -user-or-group-name <username>
+//----
 
+//. Change the role for the user. Enter: 
+//+
+//----
+//security login modify -user-or-group-name <username> -application console|http|ontapi|ssh|telnet -authentication-method password -role admin
+//----
 
-.  Log in to BlueXP and look for the working environment that needs its ONTAP user permissions updated. 
-
-. Double-click on the working environment to see details. 
-. Click *View additional information* that shows the user name. 
-. Log in to the ONTAP cluster CLI using the admin user. 
-. Display the existing roles for that user. Enter: 
-+
-----
-security login show -user-or-group-name <username>
-----
-
-. Change the role for the user. Enter: 
-+
-----
-security login modify -user-or-group-name <username> -application console|http|ontapi|ssh|telnet -authentication-method password -role admin
-----
-
-. Go to the BlueXP backup and recovery UI to use it. 
+//. Go to the BlueXP backup and recovery UI to use it. 

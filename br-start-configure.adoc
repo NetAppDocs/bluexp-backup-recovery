@@ -234,7 +234,7 @@ image:../media/screen-br-settings-certificates.png[Settings option]
 
 == Configure log directories in snapshots for Windows hosts
 
-Before you create policies for Windows hosts, you can configure log directories in snapshots for Windows hosts. Log directories are used to store the logs that are generated during the backup process.
+Before you create policies for Windows hosts, you should configure log directories in snapshots for Windows hosts. Log directories are used to store the logs that are generated during the backup process. 
 
 .Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.

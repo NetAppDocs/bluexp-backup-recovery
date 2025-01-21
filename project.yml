@@ -34,9 +34,9 @@ sidebar:
           url: /concept-backup-to-cloud.html
         - title: Prerequisites for BlueXP backup and recovery Preview version
           url: /concept-start-prereq.html  
-        - title: Set up backup destinations before you use BlueXP backup and recovery Preview version
+        - title: Set up backup destinations before you use BlueXP backup and recovery
           url: /br-start-setup.html
-        - title: Log in to BlueXP backup and recovery Preview version
+        - title: Log in to BlueXP backup and recovery
           url: /br-start-login.html
         - title: Discover workloads and import SnapCenter resources
           url: /br-start-discover.html
@@ -46,7 +46,7 @@ sidebar:
           url: /task-manage-backup-settings-ontap.html
         - title: FAQ
           url: /br-start-faq.html
-    - title: Use BlueXP backup and recovery Preview version
+    - title: Use BlueXP backup and recovery
       entries:
         - title: View protection health in the Dashboard 
           url: /br-use-dashboard.html
