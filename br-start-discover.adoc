@@ -180,14 +180,14 @@ If you entered vCenter information during discovery, you need to add SnapCenter 
 +
 image:screen-br-discover-workloads-newly-discovered.png[Newly discovered working environments screenshot]
 . From the Discover workload resources page, select *Advanced settings*. Enter the following information. 
-* *Input plugin port number*: 
-* *Installation path*:
+* *Input plugin port number*: Enter the port number that the SnapCenter plugin uses
+* *Installation path*: Enter the path where the SnapCenter plugin will be installed. 
 
 . If you want to install the SnapCenter agent manually, check the following options
-* *Use manual installation*:    
-* *Use Group Managed Service Account (gMSA)*:
-* *Add all hosts in the cluster*:
-* *Skip optional preinstall checks*:
+* *Use manual installation*: Check this to install the SnapCenter plugin manually.   
+* *Use Group Managed Service Account (gMSA)*: If you use a specific third-party gMSA account to manage host credentials, check this. 
+* *Add all hosts in the cluster*: Check this to add all hosts in the cluster.
+* *Skip optional preinstall checks*: Check this to skip optional preinstall checks. You might want to do this for example, if you know that memory or space considerations will be changed in the near future and you want to install the plugin now.
 //. To enable the ability to add tags to your resources for easier management, check *Add tag option for resources*. (This feature is not available for the Preview 2025 version.)    
 . Select *Discover*.
 
