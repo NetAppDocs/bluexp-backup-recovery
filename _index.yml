@@ -12,24 +12,20 @@ indexpage:
           url: whats-new.html
         - title: Prerequisites 
           url: br-start-prerequisites.html
-        - title: Discover workloads
-          url: br-start-discover-workloads.html
-        - title: Import SnapCenter resources 
-          url: br-start-discover-workloads.html
         - title: Set up backup destinations before you use BlueXP backup and recovery
           url: br-start-setup.html
+        - title: Discover workloads
+          url: br-start-discover.html
+        - title: Import SnapCenter resources 
+          url: br-start-discover.html
         - title: Configure BlueXP backup and recovery settings
           url: br-start-configure.html
-        - title: Manage backup to object storage Advanced Settings
-          url: task-manage-backup-settings-ontap.html
     - title: Back up workload data 
       links:
         - title: Plan your protection journey
           url: concept-protection-journey.html 
-        - title: DataLock, ransomware protection, and archival options
-          url: concept-cloud-backup-policies.html
         - title: Create policies to govern backups and recoveries
-          url: br-use-policies-create.html
+          url: /task-create-policies-ontap.html
         - title: Back up overview 
           url: br-use-backup-overview.html       
         - title: Back up Microsoft SQL Server workloads 
@@ -40,7 +36,6 @@ indexpage:
           url: br-use-restore-browse-and-restore.html
         - title: Restore data using Search and Restore
           url: br-use-restore-search-and-restore.html
-          url: task-restore-backups-ontap.html
         - title: Restore on-premises SQL Server applications data
           url: task-restore-sql-data.html
     - title: Manage inventory, policies, and snapshots

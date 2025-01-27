@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: br-use-backup-mssql.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
-summary: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for NetApp ONTAP data, databases, and virtual machines, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
+summary: Back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 ---
 
 = Back up Microsoft SQL Server workloads 
@@ -15,13 +15,19 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 [.lead]
 Back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 
-
 Back up Microsoft SQL Server workloads in the following ways:
 
 * Back up workloads with local snapshots to local ONTAP primary storage
 * Replicate snapshots to ONTAP secondary storage
 * Back up workloads to an object store location (Amazon Web Services, Google Cloud, Microsoft Azure, and StorageGRID)
 * Back up workloads now with ad hoc backups 
+
+Before you back up data, you might want to view the current workload protection status and configure how you want logs to be backed up. 
+
+To back up workloads, typically you create a schedule using policies that govern the backup and restore operations. See link:br-use-policies-create.html[Create policies] for more information.
+
+If you want an immediate backup, you can perform an ad hoc backup.
+
 
 == View workload protection status
 Before you initiate a backup, view the protection status of your workloads.
@@ -37,51 +43,6 @@ image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recover
 +
 image:screen-br-inventory-details.png[Inventory details page screenshot for BlueXP backup and recovery]
 . Review details on the Hosts, Instances, and Databases tabs. 
-
-
-
-== Back up workloads with local snapshots to local ONTAP primary storage
-
-TBD
-
-== Replicate snapshots to ONTAP secondary storage
-
-Replicating snapshots to secondary storage provides the following benefits:  
-
-* Replicate data between ONTAP storage systems to support backup and disaster recovery.
-* Ensure the reliability of your DR environment with high availability.
-* Native ONTAP in-flight encryption set up via Pre-Shared Key (PSK) between the two systems.
-* Copied data is immutable until you make it writable and ready to use.
-* Replication is self-healing in the event of a transfer failure.
-* When compared to the https://docs.netapp.com/us-en/bluexp-replication/index.html[BlueXP replication service^], the replication in BlueXP backup and recovery includes the following features:
-** Replicate multiple FlexVol volumes at a time to a secondary system.
-** Restore a replicated volume to the source system or to a different system using the UI.
-** Manage replication policies
-
-== Back up workloads to object storage
-
-Back up workloads to one of the following object storage locations: 
-
-* Amazon Web Services
-* Google Cloud
-* Microsoft Azure
-* StorageGRID
-
-Backing up workloads to an object store location provides the following benefits:
-
-* Back up independent copies of your data volumes to low-cost object storage.
-* Apply a single backup policy to all volumes in a cluster, or assign different backup policies to volumes that have unique recovery point objectives.
-* Create a backup policy to be applied to all future volumes created in the cluster.
-* Make immutable backup files so they are locked and protected for the retention period.
-* Scan backup files for possible ransomware attack - and remove/replace infected backups automatically.
-* Tier older backup files to archival storage to save costs.
-* Delete the backup relationship so you can archive unneeded source volumes while retaining volume backups.
-* Back up from cloud to cloud, and from on-premises systems to public or private cloud.
-* Backup data is secured with AES-256 bit encryption at-rest and TLS 1.2 HTTPS connections in-flight.
-* Use your own customer-managed keys for data encryption instead of using the default encryption keys from your cloud provider.
-* Support for up to 4,000 backups of a single volume.
-
-== Back up workloads now with ad hoc backups 
 
 
 == Configure logs for discovered hosts
@@ -102,6 +63,30 @@ image:screen-br-inventory-details-configurelog-option.png[Inventory details page
 +
 NOTE: The fields that appear differ depending on the selected deployment model, for example, failover cluster instance or standalone. 
 . Select *Save*.
+
+
+
+== Back up workloads now with ad hoc backups 
+
+Ad hoc backups are backups that you can run immediately. You might want to run an ad hoc backup if you're about to make changes to your system and want to ensure that you have a backup before you start.
+
+.Steps 
+
+. From the menu, select *Inventory*. 
++
+image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details. 
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
++
+image:screen-br-inventory-details-configurelog-option.png[Inventory details page screenshot showing the Actions menu for BlueXP backup and recovery]
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Back up now*.
+
+. Select the backup type:
+** Full backup*: 
+** Log backup*: To choose a log backup, you must have already configured a log backup location. See link:br-use-backup-mssql.html#configure-logs-for-discovered-hosts[Configure logs for discovered hosts] for more information.
+
+. Select the tier. 
+. Select *Back up now*.
 
 == Suspend the backup schedule
 Suspending the schedule prevents the backup from running at the scheduled time temporarily. You might want to do this if you're performing maintenance on the system or if you're experiencing issues with the backup.

@@ -104,6 +104,7 @@ TIP: For explanations of architecture and ransomware protection, refer to link:c
 
 ** *3-2-1-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary (disk) to cloud (object store)  (Multiple object storage) (Not available in the Preview 2025 version)
 
+=== *Local snapshot setting* section:
 * *Local snapshot setting* section: 
 .. Select the *Add schedule* option to select the snapshot schedule or schedules. You can have a maximum of 5 schedules.  
 ** *Snapshot frequency*: Select the frequency of hourly, daily, weekly, monthly, or yearly. 
@@ -111,7 +112,7 @@ TIP: For explanations of architecture and ransomware protection, refer to link:c
 ** *Enable log backup*: Check the option to back up logs. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
 ** Select whether you want to enable tamper-proof snapshots. 
 
-
+=== Replication to secondary setting section: 
 * *Replication to secondary setting* section: Provide information for the replication to secondary storage. 
 ** Select the frequency of hourly, daily, weekly, monthly, or yearly. 
 ** Enter when and how often the replication will occur.
@@ -121,6 +122,7 @@ TIP: For explanations of architecture and ransomware protection, refer to link:c
 *** *Schedule*: Data is transferred to the secondary storage system at a later time as defined by the schedule. (This option is not available for the Preview 2025 version.)
 *** *Inline*: Data is transferred to the secondary storage system immediately.
 
+=== Backup to object store setting section:
 * *Backup to object store setting* section: Provide information for the backup to object storage.
 +
 NOTE: The fields that appear differ depending on the provider and architecture selected. 
@@ -133,22 +135,25 @@ NOTE: The fields that appear differ depending on the provider and architecture s
 ** *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. This option is not available for the Preview version. 
 ** *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage (for example, AWS Glacier), select the tier option and the number of days to archive. To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 
+=== Snapshot verification section:
 * *Snapshot verification settings*: Provide information on how you want the snapshot to be verified: 
 
 ** Storage location: Select the location where the verification snapshot will be stored.
 ** Verification resource: Select whether the resource that you want to verify is on the local snapshot and on ONTAP secondary storage. 
 ** Verification schedule: Select the frequency of hourly, daily, weekly, monthly, or yearly.
 
+=== Pre and post-backup scripts section:
 * *Pre and post-backup scripts*: Provide information on the scripts that you want to run before and after the backup.
 
+=== Advanced settings section:
 * *Advanced settings* section:
-** *Copy only backup*: Choose whether you want a full backup (includes transactional logs), log or transaction-only backup, or a copy-only backup (a type of MS SQL Server). 
+** *Copy only backup*: Choose whether you want a full backup (includes transactional logs), log or transaction-only backup, or a copy-only backup (a type of MS SQL Server backup). 
 ** *Export existing snapshot copies*: Indicate whether you want to export historical snapshot copies to object storage as backup files and include them in your initial baseline backup files for future volumes. This helps you initialize your backups in the cloud by moving older snapshots into the baseline backup copy. 
 ** *Maximum transfer rate*: Select the network bandwidth between 1 and 1,000 Mbps allocated to upload backups to object storage. By default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice backup traffic is affecting normal user workloads, consider decreasing the amount of network bandwidth that is used during the transfer. 
 ** *Yearly snapshot deletion*: Select whether you want yearly snapshots removed from the source system. Yearly backups are very large. By default, yearly snapshots are deleted automatically from the source system after being transferred to object storage. 
-** *Ransomware scan*: To protect your backups from being modified or deleted, select the *Ransomware scan* option. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest snapshot. You can enable or disable ransomware scnas on the latest snapshot. 
+** *Integrity scan*: To protect your backups from being modified or deleted, select the *Integrity scan* option. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest snapshot. You can enable or disable integrity scans on the latest snapshot. 
 +
-TIP: Enabling ransomware scans will incur extra charges, depending on the cloud provider. 
+TIP: Enabling scans will incur extra charges, depending on the cloud provider. 
 +
 If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion by configuring _DataLock_ and _Ransomware protection_. 
 +
@@ -156,8 +161,6 @@ link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-optio
 ** *Availability group settings*: Select preferred backup replicas or specify a particular replica.
 ** *Backup retries*: Enter the maximum number of backup retries and the retry interval. 
 
-
-. Select *Create*.
 
 *Snapshot policy example using cascading architecture*
 

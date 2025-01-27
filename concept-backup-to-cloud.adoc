@@ -26,14 +26,15 @@ Use BlueXP backup and recovery Preview 2025 version to accomplish the following 
 
 * Back up and restore ONTAP volume data from Cloud Volumes ONTAP and on-premises ONTAP systems. 
 //link:concept-ontap-backup-to-cloud.html[See detailed features here].
-* Back up the application-consistent Snapshots from on-premises ONTAP systems using BlueXP backup and recovery for applications.
+* Back up the application-consistent snapshots from on-premises ONTAP systems.
 // link:concept-protect-app-data-to-cloud.html[See detailed features here].
 //* Back up datastores to the cloud and restore virtual machines back to the on-premises vCenter using BlueXP backup and recovery for VMware. link:concept-protect-vm-data.html[See detailed features here].
+* Restore data to the same or different working environment, which provides flexibility in data recovery.
 
 
 //TIP: When the BlueXP Connector is deployed in a government region in the cloud, or in a site without internet access (a dark site), BlueXP backup and recovery supports backup and restore operations only from ONTAP systems. When you use these deployment methods, BlueXP backup and recovery does not support backup and restore operations from applications.
 
-BlueXP backup and recovery Preview version works only in standard deployment mode, not restricted or private modes. 
+The BlueXP backup and recovery Preview version works only in standard deployment mode, not restricted or private modes. 
 
 == Benefits of using BlueXP backup and recovery
 
