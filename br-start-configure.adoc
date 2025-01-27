@@ -21,7 +21,7 @@ After you set up BlueXP, configure the backup and recovery settings. You should 
 * <<Import and manage SnapCenter host resources>>.
 * <<Enable the Certificate Authority certificates>>.
 * <<Configure log directories in snapshots for Windows hosts>>.
-* Configure buckets in working environments by enabling DataLock and ransomware protection scanning. 
+* Enable DataLock and integrity scanning. 
 
 == Add credentials for host resources
 
@@ -209,7 +209,7 @@ image:../media/screen-br-settings-import-snapcenter-edit.png[Settings option to 
 
 
 
-== Enable the Certificate Authority certificate
+== Enable the Certificate Authority certificates
 
 Enable Certificate Authority (CA) certificates to secure communication among components of the BlueXP backup and recovery system, including the BlueXP Connector, ONTAP, and the SnapCenter plug-in. This ensures that the data transmitted is encrypted and authenticated, protecting against unauthorized access. 
 
@@ -262,7 +262,7 @@ Using the BlueXP backup and recovery Advanced Settings options, you can configur
 You can configure the following settings:   
 
 * Enable DataLock on a bucket
-* Enable ransomware protection scanning on a bucket
+* Enable integrity scanning on a bucket
 * Set the scan interval between 1 and 7 days
 
 NOTE: These features are not available in the Preview 2025 version.  

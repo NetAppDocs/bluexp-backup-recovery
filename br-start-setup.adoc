@@ -5,13 +5,13 @@ keywords: bluexp, backup, back up, restore, recovery, aws, azure
 summary: To use BlueXP ransomware protection, perform a few steps to set it up.    
 ---
 
-= Set up backup destinations and a Connector before you use BlueXP backup and recovery
+= Set up backup destinations before you use BlueXP backup and recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ./media/
 
 [.lead]
-Before you use BlueXP backup and recovery, perform a few steps to set  up backup destinations and a BlueXP Connector.  
+Before you use BlueXP backup and recovery, perform a few steps to set  up backup destinations.  
 
 
 Before you begin, review link:concept-start-prereq.html[prerequisites] to ensure that your environment is ready.
@@ -49,17 +49,4 @@ Do the following to prepare AWS as a backup destination:
 
 
 
-
-
-== Set up BlueXP
-The next step is to set up BlueXP and the BlueXP backup and recovery service. 
-
-Review https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[standard BlueXP requirements^].
-
-
-=== Create a Connector in BlueXP
-
-You should reach out to your NetApp Sales Rep to try out or use this service. Then, when you use the BlueXP Connector, it will include the appropriate capabilities for the ransomware protection service. 
-
-To create a Connector in BlueXP before using the service, refer to the BlueXP documentation that describes https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[how to create a BlueXP Connector^]. 
 

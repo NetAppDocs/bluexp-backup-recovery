@@ -25,6 +25,8 @@ Get started with BlueXP backup and recovery by verifying the readiness of your o
 
 * At least one BlueXP working environment with a NetApp on-premises ONTAP cluster or Cloud Volume ONTAP in AWS or Azure (using NAS or CIFS protocols).
 
+* A BlueXP Connector
+
 ** ONTAP or Cloud Volume ONTAP clusters with ONTAP OS version 9.8 or greater are supported. 
 
 ** If your on-premises ONTAP clusters or Cloud Volume ONTAP in AWS or in Azure cloud are not already onboarded in BlueXP, then you'll need a BlueXP Connector. 
@@ -33,6 +35,19 @@ Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.htm
 
 
 //All source and working environments must be in the same BlueXP organization. 
+
+=== Set up BlueXP
+The next step is to set up BlueXP and the BlueXP backup and recovery service. 
+
+Review https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[standard BlueXP requirements^].
+
+
+=== Create a BlueXP Connector
+
+You should reach out to your NetApp Sales Rep to try out or use this service. Then, when you use the BlueXP Connector, it will include the appropriate capabilities for the service. 
+
+To create a Connector in BlueXP before using the service, refer to the BlueXP documentation that describes https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[how to create a BlueXP Connector^]. 
+
 
 
 

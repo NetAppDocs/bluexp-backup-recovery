@@ -182,7 +182,8 @@ image:screen-br-discover-workloads-newly-discovered.png[Newly discovered working
 . From the Discover workload resources page, select *Advanced settings*. Enter the following information. 
 * *Input plugin port number*: Enter the port number that the SnapCenter plugin uses
 * *Installation path*: Enter the path where the SnapCenter plugin will be installed. 
-
++
+image:screen-br-discover-workloads-advanced-settings.png[Discover resources Advanced settings screenshot]
 . If you want to install the SnapCenter agent manually, check the following options
 * *Use manual installation*: Check this to install the SnapCenter plugin manually.   
 * *Use Group Managed Service Account (gMSA)*: If you use a specific third-party gMSA account to manage host credentials, check this. 
