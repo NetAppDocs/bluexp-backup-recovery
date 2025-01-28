@@ -104,7 +104,7 @@ TIP: For explanations of architecture and ransomware protection, refer to link:c
 
 ** *3-2-1-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary (disk) to cloud (object store)  (Multiple object storage) (Not available in the Preview 2025 version)
 
-=== *Local snapshot setting* section
+=== Local snapshot setting section
 Provide information for the local snapshot.
 
 * Select the *Add schedule* option to select the snapshot schedule or schedules. You can have a maximum of 5 schedules.  
@@ -113,7 +113,7 @@ Provide information for the local snapshot.
 * *Enable log backup*: Check the option to back up logs. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
 * Select whether you want to enable tamper-proof snapshots. 
 
-=== Replication to secondary setting section 
+=== Secondary settings section 
 Provide information for the replication to secondary storage. 
 
 * Select the frequency of hourly, daily, weekly, monthly, or yearly. 
@@ -124,7 +124,7 @@ Provide information for the replication to secondary storage.
 ** *Schedule*: Data is transferred to the secondary storage system at a later time as defined by the schedule. (This option is not available for the Preview 2025 version.)
 ** *Inline*: Data is transferred to the secondary storage system immediately.
 
-=== Backup to object store setting section
+=== Object store settings section
 
 Provide information for the backup to object storage.
 
@@ -160,8 +160,9 @@ Provide information on the scripts that you want to run before and after the bac
 TIP: Enabling scans will incur extra charges, depending on the cloud provider. 
 +
 If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion by configuring _DataLock_ and _Ransomware protection_. 
-+
-link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options[Learn more about the available DataLock settings^].
+//+
+//link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options[Learn more about the available DataLock settings^].
+
 * *Availability group settings*: Select preferred backup replicas or specify a particular replica.
 * *Backup retries*: Enter the maximum number of backup retries and the retry interval. 
 

@@ -15,18 +15,16 @@ summary: Back up Microsoft SQL Server applications data from on-premises ONTAP s
 [.lead]
 Back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 
-Back up Microsoft SQL Server workloads in the following ways:
+You can accomplish the following goals:
 
-* Back up workloads with local snapshots to local ONTAP primary storage
-* Replicate snapshots to ONTAP secondary storage
-* Back up workloads to an object store location (Amazon Web Services, Google Cloud, Microsoft Azure, and StorageGRID)
-* Back up workloads now with ad hoc backups 
+* Before you back up data, view the current workload protection status and configure how you want logs to be backed up. 
+* Back up workloads with local snapshots to local ONTAP primary storage using policies.
+* Replicate snapshots to ONTAP secondary storage using policies.    
+* Back up workloads to an object store location using policies
+* Back up workloads now with ad hoc backups.  
 
-Before you back up data, you might want to view the current workload protection status and configure how you want logs to be backed up. 
+TIP: To back up workloads, typically you create a schedule using policies that govern the backup and restore operations. See link:task-create-policies-ontap.html[Create policies] for more information.
 
-To back up workloads, typically you create a schedule using policies that govern the backup and restore operations. See link:br-use-policies-create.html[Create policies] for more information.
-
-If you want an immediate backup, you can perform an ad hoc backup.
 
 
 == View workload protection status
@@ -47,7 +45,7 @@ image:screen-br-inventory-details.png[Inventory details page screenshot for Blue
 
 == Configure logs for discovered hosts
 
-Before you back up your workloads, you can configure activity logs for discovered hosts. This helps you to track the status of operations.
+Before you back up your workloads, configure activity logs for discovered hosts. This helps you to track the status of operations.
 
 .Steps 
 
@@ -82,8 +80,8 @@ image:screen-br-inventory-details-configurelog-option.png[Inventory details page
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *Back up now*.
 
 . Select the backup type:
-** Full backup*: 
-** Log backup*: To choose a log backup, you must have already configured a log backup location. See link:br-use-backup-mssql.html#configure-logs-for-discovered-hosts[Configure logs for discovered hosts] for more information.
+** *Full backup*: Backs up workloads and logs.
+** *Log backup*: Backs up only the logs. To choose a log backup, you must have already configured a log backup location. See link:br-use-backup-mssql.html#configure-logs-for-discovered-hosts[Configure logs for discovered hosts] for more information.
 
 . Select the tier. 
 . Select *Back up now*.
