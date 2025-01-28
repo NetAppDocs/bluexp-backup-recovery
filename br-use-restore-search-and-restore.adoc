@@ -13,11 +13,13 @@ summary: You can restore a volume, folder, or files from a backup file using Sea
 :imagesdir: ./media/
 
 [.lead]
-_Search & Restore_ is typically better when you need to restore a volume, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
+_Search & Restore_, one of two restore methods, is typically better when you need to restore a volume, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
 
 == What happens when you use Search & Restore 
 
 You can restore a volume, folder, or files from a backup file using Search & Restore. Search & Restore enables you to search for a specific volume, folder, or file from all backups, and then perform a restore. You don't need to know the exact working environment name, volume name, or file name -- the search looks through all volume backup files.
+
+image:diagram_search_restore_vol_file.png["A diagram that shows the flow to perform a volume, folder, or file restore operation using Search & Restore."]
 
 The search operation looks across all local snapshots that exist for your volumes, all replicated volumes on secondary storage systems, and all backup files that exist in object storage. Because restoring data from a local snapshot or replicated volume can be faster and less costly than restoring from a backup file in object storage, you may want to restore data from these other locations. 
 //You can restore the Snapshot as a new volume https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[from the Volume Details page on the Canvas^] (not from BlueXP backup and recovery).
@@ -42,11 +44,11 @@ endif::gcp[]
 
 [NOTE] 
 ====
-* If the backup file in object storage has been configured with DataLock & Ransomware protection, then folder-level restore is supported only if the ONTAP version is 9.13.1 or greater. If you are using an earlier version of ONTAP, you can restore the entire volume from the backup file and then access the folder and files you need.
+* If the backup file in object storage has been configured with DataLock & Integrity scanning protection, then folder-level restore is supported only if the ONTAP version is 9.13.1 or greater. If you are using an earlier version of ONTAP, you can restore the entire volume from the backup file and then access the folder and files you need.
 * If the backup file in object storage resides in archival storage, then folder-level restore is supported only if the ONTAP version is 9.13.1 or greater. If you are using an earlier version of ONTAP, you can restore the folder from a newer backup file that has not been archived, or you can restore the entire volume from the archived backup and then access the folder and files you need.
 //* Quick restore is supported for FlexGroup volumes only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. Quick restore for SnapLock volumes is supported only if the source system from which the cloud backup was created was running ONTAP 9.11.0 or greater. There is no minimum requirement for FlexVol volumes.
-* The "High" restore priority is not supported when restoring data from Azure archival storage to StorageGRID systems.
-* Restoring folders is not currently supported from volumes in ONTAP S3 object storage.
+//* The "High" restore priority is not supported when restoring data from Azure archival storage to StorageGRID systems.
+//* Restoring folders is not currently supported from volumes in ONTAP S3 object storage.
 ====
 
 
@@ -157,27 +159,7 @@ Depending on your configuration, Search & Restore can be implemented in the foll
 +
 Even though you are using an on-premises Connector, the cloud provider requirements must be met for both Connector permissions and cloud provider resources. See the AWS and Azure requirements above when using this implementation. 
  
-=== Search & Restore process overview
 
-The process goes like this:
-
-. Before you can use Search & Restore, you need to enable "Indexing" on each source working environment from which you'll want to restore volume data. This allows the Indexed Catalog to track the backup files for every volume.
-
-. When you want to restore a volume or files from a volume backup, under _Search & Restore_, click *Search & Restore*.
-
-. Enter the search criteria for a volume, folder, or file by partial or full volume name, partial or full file name, backup location, size range, creation date range, other search filters, and click *Search*.
-+
-The Search Results page displays all the locations that have a file or volume that matches your search criteria.
-
-. Click *View All Backups* for the location you want to use to restore the volume or file, and then click *Restore* on the actual backup file you want to use.
-
-. Select the location where you want the volume, folder, or file(s) to be restored and click *Restore*.
-
-. The volume, folder, or file(s) are restored.
-
-image:diagram_search_restore_vol_file.png["A diagram that shows the flow to perform a volume, folder, or file restore operation using Search & Restore."]
-
-As you can see, you really only need to know a partial name and BlueXP backup and recovery searches through all backup files that match your search.
 
 === Enable the Indexed Catalog for each working environment
 
