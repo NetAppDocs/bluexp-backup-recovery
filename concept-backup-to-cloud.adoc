@@ -132,7 +132,7 @@ ifdef::gcp[]
 Google Cloud Storage
 endif::gcp[]
 NetApp StorageGRID
-ONTAP S3
+
 
 |===
 
@@ -168,7 +168,7 @@ endif::gcp[]
 | NetApp StorageGRID | On-premises ONTAP system
 Cloud Volumes ONTAP
 | On-premises ONTAP system
-| ONTAP S3 | On-premises ONTAP system
+//| ONTAP S3 | On-premises ONTAP system
 Cloud Volumes ONTAP
 | On-premises ONTAP system
 //Cloud Volumes ONTAP
@@ -215,7 +215,7 @@ endif::gcp[]
 
 * In StorageGRID, BlueXP uses an existing storage account for the object store bucket.
 
-* In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
+//* In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
 
 === When backups are taken
 
