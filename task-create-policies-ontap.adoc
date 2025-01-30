@@ -89,6 +89,8 @@ image:screen-br-policies-new.png[Screenshot of new policy creation]
 
 * *Details* section: 
 ** Workload type of "Microsoft SQL Server" is selected by default for Preview 2025 version. 
++
+NOTE: For the Preview 2025 version, only the "SQL Server" backup type is available.
 ** Enter a policy name.
 
 * *Backup architecture* section: Select the down arrow and choose the architecture for the backup, such as fan-out, cascading, and disk to disk. 
@@ -102,9 +104,11 @@ TIP: For explanations of architecture and ransomware protection, refer to link:c
 ** *Disk to object store*: Primary storage (disk) to cloud (object store). Replicates data from an ONTAP system to an object storage system, such as AWS S3, Azure Blob Storage, or Google Cloud Storage. This is typically achieved using SnapMirror Cloud, which provides incremental forever backups by transferring only changed data blocks after the initial baseline transfer. This method is ideal for long-term data retention and archiving, offering a cost-effective and scalable solution for data protection.
 ** *Disk to disk fanout*: Primary storage (disk) to secondary storage (disk)  and primary storage (disk) to secondary storage (disk).
 
-** *3-2-1-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary (disk) to cloud (object store)  (Multiple object storage) (Not available in the Preview 2025 version)
+** *3-2-1-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary (disk) to cloud (object store)  (Multiple object storage) 
++
+NOTE: This feature is not available in the Preview 2025 version.
 
-=== Local snapshot setting section
+=== Create a local snapshot 
 Provide information for the local snapshot.
 
 * Select the *Add schedule* option to select the snapshot schedule or schedules. You can have a maximum of 5 schedules.  
@@ -113,7 +117,7 @@ Provide information for the local snapshot.
 * *Enable log backup*: Check the option to back up logs. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
 * Select whether you want to enable tamper-proof snapshots. 
 
-=== Secondary settings section 
+=== Create a policy for replication to secondary storage
 Provide information for the replication to secondary storage. 
 
 * Select the frequency of hourly, daily, weekly, monthly, or yearly. 
@@ -121,22 +125,61 @@ Provide information for the replication to secondary storage.
 * *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. 
 * *Snapshot locking period*: Enter the number of days, months, or years that you want to lock the snapshot.
 * *Transfer to secondary*: Select the type of transfer to secondary storage:
-** *Schedule*: Data is transferred to the secondary storage system at a later time as defined by the schedule. (This option is not available for the Preview 2025 version.)
+** *Schedule*: Data is transferred to the secondary storage system at a later time as defined by the schedule. 
++
+NOTE: This feature is not available in the Preview 2025 version.
 ** *Inline*: Data is transferred to the secondary storage system immediately.
 
-=== Object store settings section
+=== Create a policy for object storage
 
 Provide information for the backup to object storage.
 
 NOTE: The fields that appear differ depending on the provider and architecture selected. 
 
-* *Provider*: Select a provider. 
-* *Backup target*: Select the object storage target. 
+==== Create a policy for AWS object storage
+
+Enter information in these fields: 
+
+* *Provider*: Select *AWS*. 
+* *AWS account*: Select the AWS account. 
+* *Backup target*: Select a registered S3 object storage target. Ensure that the target is accessible within your backup environment. 
+* *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
+* *Retention*: Enter the number of snapshots to keep.
+* *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
++
+NOTE: This feature is not available in the Preview 2025 version.
+* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage (for example, AWS Glacier), select the tier option and the number of days to archive. To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
+
+==== Create a policy for Microsoft Azure object storage
+
+Enter information in these fields: 
+
+* *Provider*: Select *Azure*. 
+* *Azure subscription*: Select the Azure subscription from those discovered.
+* *Azure resource group*: Select the Azure resource group from those discovered.
+* *Backup target*: Select a registered S3 object storage target. Ensure that the target is accessible within your backup environment.  
 * *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
 * Select whether to enable integrity scans.
 * Indicate how data will be encrypted.  
-* *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. This option is not available for the Preview version. 
-* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage (for example, AWS Glacier), select the tier option and the number of days to archive. To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
+* *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
++
+NOTE: This feature is not available in the Preview 2025 version.
+* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
+
+
+==== Create a policy for StorageGRID object storage 
+Enter information in these fields: 
+
+* *Provider*: Select *StorageGRID*. 
+* *Backup target*: Select a registered S3 object storage target. Ensure that the target is accessible within your backup environment.   
+* *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
+* Select whether to enable integrity scans.
+* Indicate how data will be encrypted.  
+* *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
++
+NOTE: This feature is not available in the Preview 2025 version.
+* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
+
 
 //SnapMirror labeling: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship.
 Applying a label to a snapshot marks it as a target for SnapMirror replication.
@@ -164,10 +207,6 @@ Provide information on the scripts that you want to run before and after the bac
 * *Integrity scan*: To protect your backups from being modified or deleted, select the *Integrity scan* option. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest snapshot. You can enable or disable integrity scans on the latest snapshot. 
 +
 TIP: Enabling scans will incur extra charges, depending on the cloud provider. 
-+
-If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion by configuring _DataLock_ and _Ransomware protection_. 
-//+
-//link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options[Learn more about the available DataLock settings^].
 
 * *Availability group settings*: Select preferred backup replicas or specify a particular replica.
 * *Backup retries*: Enter the maximum number of backup retries and the retry interval. 
@@ -186,46 +225,7 @@ This example creates a snapshot policy with two clusters:
 .. Ignore the snapshot policy section. 
 .. Configure the secondary and object store policies. 
 
-//=== Create a replication policy before initiating replication
 
-//Your 3-2-1 strategy might include replicating a volume on a different storage system. The replication policy resides on the *secondary* storage system. 
-
-//.Steps
-//. In the BlueXP UI, select *Policies*.
-//. From the Policies page, select *Create new policy*.
-//. In the Policy Details section, specify the policy name. 
-//. Specify the SnapMirror labels (maximum of 5) denoting the retention for each label.
-//. Specify the transfer schedule. 
-//. Select *Create*.
-
-//=== Create a backup-to-object-storage policy before initiating a backup
-
-//Your 3-2-1 strategy might include backing up a volume to object storage. 
-
-//This storage policy resides in different storage system locations depending on the backup architecture: 
-
-//* Fan-out: Primary storage system
-//* Cascading: Secondary storage system
-
-//.Steps
-//. In the BlueXP UI, select *Policies*.
-//. From the Policies page, select *Create new policy*.
-//. In the Policy Details section, specify the policy name. 
-//. Specify the SnapMirror labels (maximum of 5) denoting the retention for each label.
-//. Specify the settings, including the transfer schedule and when to archive backups. 
-
-//. (Optional) To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
-//+ 
-//link:concept-cloud-backup-policies.html#archival-storage-options[Learn more about archival storage settings].
-
-//. (Optional) To protect your backups from being modified or deleted, select the *DataLock & Ransomware protection* option.
-//+
-//If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion by configuring _DataLock_ and _Ransomware protection_. 
-
-//+
-//link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options[Learn more about the available DataLock settings^].
-
-//. Select *Create*.
 
 == Edit a policy 
 

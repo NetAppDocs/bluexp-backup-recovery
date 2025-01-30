@@ -53,7 +53,7 @@ To create a Connector in BlueXP before using the service, refer to the BlueXP do
 
 == In ONTAP 9.8 and later
 
-* An ONTAP One license must be enabled on the on-premises ONTAP instance.
+An ONTAP One license must be enabled on the on-premises ONTAP instance.
 
 
 //* To apply advanced protection configurations (such as enabling DataLock and others), BlueXP backup and recovery needs admin permissions on the ONTAP cluster. The ONTAP cluster should have been onboarded using ONTAP cluster admin user credentials only. 
@@ -63,7 +63,7 @@ To create a Connector in BlueXP before using the service, refer to the BlueXP do
 
 == For data backups
 
-* An account in NetApp StorageGRID, AWS S3, or Azure Blob for backup targets and the access permissions set. 
+An account in NetApp StorageGRID, AWS S3, or Azure Blob for backup targets and the access permissions set. 
 +
 Refer to the https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions.html[AWS, Azure, or S3 permissions list^] for details. 
 

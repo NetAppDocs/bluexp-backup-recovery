@@ -65,7 +65,7 @@ BlueXP backup and recovery Preview 2025 version is available as a free trial. Yo
 .Backup targets supported
 
 * Amazon Web Services (AWS) S3
-* Google Cloud Storage
+//* Google Cloud Storage
 * Microsoft Azure Blob
 * NetApp StorageGRID
 
@@ -75,7 +75,7 @@ BlueXP backup and recovery Preview 2025 version is available as a free trial. Yo
 
 * Cloud Volumes ONTAP 9.8 or greater for AWS (using NFS and CIFS protocols)
 
-* Cloud Volumes ONTAP 9.8 or greater for Google Cloud Platform (using NFS and CIFS protocols)
+//* Cloud Volumes ONTAP 9.8 or greater for Google Cloud Platform (using NFS and CIFS protocols)
 
 * Cloud Volumes ONTAP 9.8 or greater for Microsoft Azure (using NFS and CIFS protocols)
 
@@ -112,12 +112,12 @@ ifdef::azure[]
 On-premises ONTAP system
 | Azure Blob
 endif::azure[]
-ifdef::gcp[]
-| Cloud Volumes ONTAP in Google
-| Cloud Volumes ONTAP in Google
-On-premises ONTAP system
-| Google Cloud Storage
-endif::gcp[]
+//ifdef::gcp[]
+//| Cloud Volumes ONTAP in Google
+//| Cloud Volumes ONTAP in Google
+//On-premises ONTAP system
+//| Google Cloud Storage
+//endif::gcp[]
 | On-premises ONTAP system
 | Cloud Volumes ONTAP
 On-premises ONTAP system
@@ -128,8 +128,8 @@ endif::aws[]
 ifdef::azure[]
 Azure Blob
 endif::azure[]
-ifdef::gcp[]
-Google Cloud Storage
+//ifdef::gcp[]
+//Google Cloud Storage
 endif::gcp[]
 NetApp StorageGRID
 
@@ -159,12 +159,12 @@ On-premises ONTAP system
 | Cloud Volumes ONTAP in Azure
 On-premises ONTAP system
 endif::azure[]
-ifdef::gcp[]
-| Google Cloud Storage | Cloud Volumes ONTAP in Google
-On-premises ONTAP system
-| Cloud Volumes ONTAP in Google
-On-premises ONTAP system
-endif::gcp[]
+//ifdef::gcp[]
+//| Google Cloud Storage | Cloud Volumes ONTAP in Google
+//On-premises ONTAP system
+//| Cloud Volumes ONTAP in Google
+//On-premises ONTAP system
+//endif::gcp[]
 | NetApp StorageGRID | On-premises ONTAP system
 Cloud Volumes ONTAP
 | On-premises ONTAP system
@@ -209,8 +209,8 @@ ifdef::azure[]
 * In Azure, BlueXP uses a new or existing resource group with a storage account for the Blob container. BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent[blocks public access to your blob data] by default.
 endif::azure[]
 
-ifdef::gcp[]
-* In GCP, BlueXP uses a new or existing project with a storage account for the Google Cloud Storage bucket.
+//ifdef::gcp[]
+//* In GCP, BlueXP uses a new or existing project with a storage account for the Google Cloud Storage bucket.
 endif::gcp[]
 
 * In StorageGRID, BlueXP uses an existing storage account for the object store bucket.
