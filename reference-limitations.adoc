@@ -81,8 +81,6 @@ When using a version of ONTAP before 9.11.1, folder restore is not supported.
 
 * Directory/folder restore is supported for data that is protected using DataLock only when the cluster is running ONTAP 9.13.1 and greater. 
 
-* Directory/folder restore is not currently supported on FlexGroup volume backups. 
-
 * Directory/folder restore is not currently supported from replications and/or local snapshots.
 
 * Restoring from FlexGroup volumes to FlexVol volumes, or FlexVol volumes to FlexGroup volumes is not supported.
@@ -102,18 +100,7 @@ When using a version of ONTAP before 9.11.1, folder restore is not supported.
 
 
 
-=== Limitations when using RHEL 8+ with Podman
 
-==== Single-file restore support
-
-IMPORTANT: As of the September 30, 2024 release, this limitation has been removed. 
-
-The Browse & Restore functionality for single-file restore and directory restore is not supported when using BlueXP Connectors running in Podman (manually created BlueXP Connectors when running on RHEL 8 or 9). All other types of restore operations are supported when using Podman, so you can restore your data using these other methods until this issue is resolved:
-
-
-* Restore the files or folders from a replicated volume, if a replicated volume exists.
-* Restore the files or folders from a cloud backup using the Search & Restore feature.
-* Restore the volume from a cloud backup using Browse & Restore and then access the files or folders that you need.
  
 
 
