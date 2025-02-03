@@ -64,10 +64,8 @@ sidebar:
           entries:  
             - title: Restore workloads overview     
               url: /br-use-restore-overview.html
-            - title: Restore workloads using Browse and Restore
-              url: /br-use-restore-browse-and-restore.html
-            - title: Restore workloads using Search and Restore
-              url: /br-use-restore-search-and-restore.html
+            - title: Restore database workloads
+              url: /br-use-restore-database.html
         - title: Manage inventory, snapshots, and policies       
           url: /br-use-manage-overview.html
         - title: Restart BlueXP backup and recovery

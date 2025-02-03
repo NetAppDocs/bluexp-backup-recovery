@@ -82,16 +82,6 @@ This table provides a list of valid restore operations based on the location whe
 |===
 
 
-== Begin the restore process
-
-Before you can use either restore method, make sure you have configured your environment for the unique resource requirements. 
-
-See the requirements and restore steps for the type of restore operation you want to use:
-
-* link:br-restore-browse-and-restore.html[Restore workload data using Browse & Restore]
-* link:br-restore-search-and-restore.html[Restore workload data using Search & Restore]
-
-
 
 
 

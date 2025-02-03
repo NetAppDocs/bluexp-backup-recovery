@@ -108,7 +108,7 @@ TIP: For explanations of architecture and ransomware protection, refer to link:c
 +
 NOTE: This feature is not available in the Preview 2025 version.
 
-=== Create a local snapshot 
+=== Create a local snapshot policy 
 Provide information for the local snapshot.
 
 * Select the *Add schedule* option to select the snapshot schedule or schedules. You can have a maximum of 5 schedules.  
@@ -184,21 +184,21 @@ NOTE: This feature is not available in the Preview 2025 version.
 //SnapMirror labeling: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship.
 Applying a label to a snapshot marks it as a target for SnapMirror replication.
 
-=== Snapshot verification section
+=== Snapshot verification policy
 Provide information on how you want the snapshot to be verified: 
 
 * Storage location: Select the location where the verification snapshot will be stored.
 * Verification resource: Select whether the resource that you want to verify is on the local snapshot and on ONTAP secondary storage. 
 * Verification schedule: Select the frequency of hourly, daily, weekly, monthly, or yearly.
 
-=== Pre and post-backup scripts section
+=== Include pre and post-backup scripts in the policy
 
 Provide information on the scripts that you want to run before and after the backup.
 
 * *Post-script*: Enter your script filename and location to run it  automatically after the protection action is complete. This is helpful for performing additional tasks or configurations that need to be executed after the protection workflow.
 * *Pre-script*: Enter your script filename and location to run it automatically before the protect action is triggered. This is helpful for performing additional tasks or configurations that need to be executed before the protection workflow.
 
-=== Advanced settings section
+=== Configure advanced settings in the policy 
 
 * *Copy only backup*: Choose whether you want a full backup (includes transactional logs), log or transaction-only backup, or a copy-only backup (a type of MS SQL Server backup). 
 * *Export existing snapshot copies*: Indicate whether you want to export historical snapshot copies to object storage as backup files and include them in your initial baseline backup files for future volumes. This helps you initialize your backups in the cloud by moving older snapshots into the baseline backup copy. 

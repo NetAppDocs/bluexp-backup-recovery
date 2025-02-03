@@ -32,12 +32,8 @@ indexpage:
           url: br-use-backup-mssql.html
     - title: Restore workload data from the cloud
       links:
-        - title: Restore data using Browse and Restore
-          url: br-use-restore-browse-and-restore.html
-        - title: Restore data using Search and Restore
-          url: br-use-restore-search-and-restore.html
-        - title: Restore on-premises SQL Server applications data
-          url: task-restore-sql-data.html
+        - title: Restore database workloads
+          url: br-use-restore-database.html
     - title: Manage inventory, policies, and snapshots
       links:
         - title: Manage backups 
