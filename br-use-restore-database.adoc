@@ -19,7 +19,7 @@ Restore database workloads from a snapshot copy, a workload backup replicated to
 Choose the type of restore you want to perform:
 
 * Restore from snapshots
-* Restore to a specific point in time: This is helpful if you know the name and location of the file, and the date when it was last in good shape. 
+* Restore to a specific point in time. This is helpful if you know the name and location of the file, and the date when it was last in good shape. 
 * Restore to the latest backup
 
 
@@ -27,7 +27,7 @@ NOTE: If the ONTAP version on your system is less than 9.13.1, then you can't re
 
 *Restore from object storage considerations*
 
-You can restore a volume from any type of backup file, but you can restore a folder or individual files only from a backup file in object storage.
+You can restore a resource from any type of backup file (snapshot, replication, or object storage), but you can restore a folder or individual files only from a backup file in object storage.
 
 If you select a backup file in object storage, and ransomware protection is active for that backup (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware. (You'll incur extra egress costs from your cloud provider to access the contents of the backup file.)
 

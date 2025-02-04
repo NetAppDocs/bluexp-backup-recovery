@@ -15,7 +15,7 @@ summary: Some advanced settings might be helpful in maintaining your backup and 
 [.lead]
 Some advanced settings might be helpful in maintaining your backup and recovery environment. You can configure advanced settings to manage your inventory, delete backups, unregister resources, delete relationships, unprotect resources to stop service charges, set the max transfer rate for the SnapMirror relationship, export snapshot copies to an object store, enable automatic yearly snapshot deletion, enable maintenance mode, and update the Application Plugin.
 
-Configure advanced settings in the following ways: 
+Configure BlueXP backup and recovery advanced settings in the following ways: 
 
 * Delete backups.
 * Unregister backups, databases, instances, or application hosts. 
@@ -31,84 +31,85 @@ Configure advanced settings in the following ways:
 
 You can delete backups to free up space in your storage.
 
-1. In the BlueXP backup and recovery console, click **Settings**.
-2. Click **Advanced settings**.
-3. Click **Delete backups**.
+1. In the BlueXP backup and recovery console, select **Settings**.
+2. Select **Advanced settings**.
+3. Select **Delete backups**.
 4. Select the backup that you want to delete.
-5. Click **Delete**.
+5. Select **Delete**.
 
 == Unregister backups, databases, instances, or application hosts
 
 You can unregister backups, databases, instances, or application hosts to remove them from the inventory.
 
-1. In the BlueXP backup and recovery console, click **Settings**.
-2. Click **Advanced settings**.
-3. Click **Unregister resources**.
+1. In the BlueXP backup and recovery console, select **Settings**.
+2. Select **Advanced settings**.
+3. Select **Unregister resources**.
 4. Select the resource that you want to unregister.
-5. Click **Unregister**.
+5. Select **Unregister**.
+
 
 == Delete relationships
 
 You can delete relationships to remove them from the inventory.
 
-1. In the BlueXP backup and recovery console, click **Settings**.
-2. Click **Advanced settings**.
-3. Click **Delete relationships**.
+1. In the BlueXP backup and recovery console, select **Settings**.
+2. Select **Advanced settings**.
+3. Select **Delete relationships**.
 4. Select the relationship that you want to delete.
-5. Click **Delete**.
+5. Select **Delete**.
 
 == Unprotect databases, instances, application hosts, and work environments
 
 You can unprotect databases, instances, application hosts, and work environments to stop service charges.
 
-1. In the BlueXP backup and recovery console, click **Settings**.
-2. Click **Advanced settings**.
-3. Click **Unprotect resources**.
+1. In the BlueXP backup and recovery console, select **Settings**.
+2. Select **Advanced settings**.
+3. Select **Unprotect resources**.
 
 == Set the max transfer rate for the SnapMirror relationship
 
 You can set the max transfer rate for the SnapMirror relationship to manage the bandwidth usage, ensuring that SnapMirror operations don't interfere with other network activities.
 
-1. In the BlueXP backup and recovery console, click **Settings**.
-2. Click **Advanced settings**.
-3. Click **Set the max transfer rate for the SnapMirror relationship**.
+1. In the BlueXP backup and recovery console, select **Settings**.
+2. Select **Advanced settings**.
+3. Select **Set the max transfer rate for the SnapMirror relationship**.
 4. Enter the max transfer rate.
-5. Click **Save**.
+5. Select **Save**.
 
 == Export snapshot copies to an object store
 
 You can export snapshot copies to an object store to initialize backups in the cloud by moving older snapshot copies into the baseline backup copy.
 
-1. In the BlueXP backup and recovery console, click **Settings**.
-2. Click **Advanced settings**.
-3. Click **Export snapshot copies to an object store**.
+1. In the BlueXP backup and recovery console, select **Settings**.
+2. Select **Advanced settings**.
+3. Select **Export snapshot copies to an object store**.
 4. Select the snapshot copy that you want to export.
-5. Click **Export**.
+5. Select **Export**.
 
 == Enable automatic yearly snapshot deletion
 
 You can enable automatic yearly snapshot deletion to delete snapshots that are older than a year.
 
-1. In the BlueXP backup and recovery console, click **Settings**.
-2. Click **Advanced settings**.
-3. Click **Enable automatic yearly snapshot deletion**.
-4. Click **Enable**.
+1. In the BlueXP backup and recovery console, select **Settings**.
+2. Select **Advanced settings**.
+3. Select **Enable automatic yearly snapshot deletion**.
+4. Select **Enable**.
 
 == Enable maintenance mode
 
 You can enable maintenance mode so that updates or maintenance tasks can be performed.
 
-1. In the BlueXP backup and recovery console, click **Settings**.
-2. Click **Advanced settings**.
-3. Click **Enable maintenance mode**.
-4. Click **Enable**.
+1. In the BlueXP backup and recovery console, select **Settings**.
+2. Select **Advanced settings**.
+3. Select **Enable maintenance mode**.
+4. Select **Enable**.
 
 == Update the Application Plugin
 
 You can update the Application Plugin to ensure that the latest features are available.
 
-1. In the BlueXP backup and recovery console, click **Settings**.
-2. Click **Advanced settings**.
-3. Click **Update the Application Plugin**.
-4. Click **Update**.
+1. In the BlueXP backup and recovery console, select **Settings**.
+2. Select **Advanced settings**.
+3. Select **Update the Application Plugin**.
+4. Select **Update**.
 

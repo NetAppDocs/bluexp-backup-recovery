@@ -13,20 +13,21 @@ summary: Backups of your data are available for restore from the locations where
 :imagesdir: ./media/
 
 [.lead]
-Backups of your data are available for restore from the locations where you created backups: snapshot, replications, and backups in object storage. Review the restore-from locations, restore points, and resource types to restore.
+Backups of your data are available for restore from the locations where you created backups: snapshots, replications, or backups in object storage. You can restore a workload to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system. Review the restore-from locations, restore points, and resource types to restore.
 
 //different types of restore operations, volume restore or file/folder restore, Browse and restore vs Search and restore)
 
-.Restore-from locations
-You can restore workloads in different ways: 
+.Restore from these locations
+
+You can restore workloads from different starting locations: 
 
 * Restore from a snapshot copy
 * Restore from a replicated volume
 * Restore from an object store backup
 
-.Restore points   
+.Restore to these points   
 
-You can restore data to these points: 
+You can restore data to the latest snapshot or to these points: 
 
 * Restore from latest snapshot 
 * Restore to a point in time
@@ -34,13 +35,9 @@ You can restore data to these points:
 
 .Resource types to restore    
 
-You can restore workload from a backup file, or if you only need to restore a few files, you can restore a folder or individual files.
+You can restore workloads from a backup file, or if you only need to restore a few files, you can restore a folder or individual files.
 
-* You can restore a volume (as a new volume) to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system.
 
-* You can restore a folder to a volume in the original working environment, to a volume in a different working environment that's using the same cloud account, or to a volume on an on-premises ONTAP system.
-
-* You can restore files to a volume in the original working environment, to a volume in a different working environment that's using the same cloud account, or to a volume on an on-premises ONTAP system.
 
 == Restore methods
 
@@ -61,8 +58,8 @@ This table compares the two methods from the Inventory page.
 | Browse & Restore
 | Search & Restore
 
-| Browse through a folder-style structure to find the volume, folder, or file within a single backup file. | Search for a volume, folder, or file across *all backup files* by partial or full volume name, partial or full folder/file name, size range, and additional search filters.
-| Does not handle file recovery if the file has been deleted or renamed, and the user doesn't know the original file name | Handles newly created/deleted/renamed directories and newly created/deleted/renamed files
+| Browse through a folder-style structure to find the resource, folder, or file within a single backup file. | Search for a resource, folder, or file across *all backup files* by partial or full name, partial or full folder/file name, size range, and additional search filters.
+| Does not handle file recovery if the file has been deleted or renamed, and you don't know the original file name | Handles newly created/deleted/renamed directories and newly created/deleted/renamed files
 | No additional cloud provider resources required | When you restore from the cloud, additional bucket and public cloud provider resources required per account.
 | No additional cloud provider costs required | When you restore from the cloud, additional costs are required when scanning your backups and volumes for search results.
 | Quick restore is supported. | Quick restore is not supported. 
@@ -78,9 +75,9 @@ This table provides a list of valid restore operations based on the location whe
 3+^| Browse & Restore
 3+^| Search & Restore
 
-|  | *Restore volume* | *Restore files* | *Restore folder* | *Restore volume* | *Restore files* | *Restore folder* 
+|  | *Restore resource* | *Restore files* | *Restore folder* | *Restore resource* | *Restore files* | *Restore folder* 
 | Snapshot copy | Yes | No | No | Yes | Yes | Yes 
-| Replicated volume | Yes | No | No | Yes | Yes | Yes 
+| Replicated on secondary storage | Yes | No | No | Yes | Yes | Yes 
 | Backup file on object storage | Yes | Yes | Yes | Yes | Yes | Yes 
 
 |===

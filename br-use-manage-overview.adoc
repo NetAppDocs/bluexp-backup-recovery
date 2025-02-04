@@ -13,5 +13,13 @@ summary: You can back up Microsoft SQL Server applications data from on-premises
 :imagesdir: ./media/
 
 [.lead]
-TBD
+Managing resources in BlueXP backup and recovery is essential to ensure that your data is protected. You can manage resources such as backups, databases, instances, application hosts, and work environments. You can view, edit, and delete protection settings for your resources.
+
+You can accomplish the following tasks related to managing your resources:
+
+* link://br-use-manage-inventory.html[Manage inventory].
+* link://br-use-manage-snapshots.html[Manage snapshots].
+* link://br-use-manage-snapshots.html[Manage policies]. 
+
+
 

@@ -18,16 +18,182 @@ BlueXP backup and recovery enables you to manage your workload inventory. You ca
 You can accomplish the following tasks related to managing your inventory: 
 
 * View inventory protection
-* Configure log directory (from Inventory > Hosts)  If you want to back up logs for SQL in the snapshot. Mention here, but put it in Get started. 
+* Configure log directory (from Inventory > Hosts). If you want to back up logs for your database hosts in the snapshot, first configure the logs in BlueXP backup and recovery. For details, refer to link://br-start-setup.adoc[Configure BlueXP backup and recovery settings].  
 * Edit protection settings
 * Delete protection from a workload
 
 
-== View inventory protection
-TBD
+You can accomplish the following tasks related to managing your resources:
 
-== Edit protection settings
-TBD
+* View resource protection
+* Edit protection settings
+* Delete protection from a resource
 
-== Delete protection from a workload
-TBD
+== Manage host information 
+
+You can manage host information to ensure that your data is protected in the following ways:  
+
+* Manage hosts (Not available) 
+* Configure log directory. For details, refer to link://br-start-setup.adoc[Configure BlueXP backup and recovery settings]. 
+* Suspend schedules 
+* Edit host
+* Delete host 
+* Reinstall plug-in
+
+=== Suspend schedules 
+
+You can suspend schedules to stop the backup and restore operations for a host. You might want to do this if you need to perform maintance actviities on the host.
+
+. In BlueXP backup and recovery, select **Inventory**.
+. Select the host that you want to suspend schedules for.
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Suspend schedules*.
+. In the confirmation dialog box, select **Suspend**.
+
+
+=== Edit host
+
+You can edit the host information to ensure that your data is protected. You can change the vCenter server information, host registration credentials, and advanced settings options. 
+
+. In BlueXP backup and recovery, select **Inventory**.
+
+. Select the host that you want to edit.
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit host*.
++
+image:screen-br-inventory-hosts-edit.png[Edit host]
+. Edit the host information.
+
+=== Delete host
+
+You can delete the host information to stop service charges.
+
+. In BlueXP backup and recovery, select **Inventory**.
+. Select the host that you want to delete.
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete host*.
+. Review the confirmation information and select **Delete**.
+
+=== Reinstall the SnapCenter plug-in
+
+You can reinstall the SnapCenter plug-in to ensure that your data is protected.
+
+NOTE: This option is not available in the Preview release.  
+
+. In BlueXP backup and recovery, select **Inventory**.
+. Select the host that you want to reinstall the plug-in for.
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Reinstall plug-in*.
+
+
+== Manage instances information 
+You can manage instances information to ensure that your data is protected in the following ways:  
+
+* Protect instances
+* Associate credentials
+* Disassociate credentials
+* Edit protection 
+* Back up now   
+
+=== Protect database instances  
+
+You can assign a policy to a database instance to ensure that your data is protected.
+
+. In BlueXP backup and recovery, select **Inventory**.
+. Select the workload that you want to view and select *View*.
+. Select the *Instances* tab. 
+. Select the instance. 
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Protect*.
+. Select a policy or create a new one. For details, refer to link://task-create-policies-ontap.adoc[Create a policy].
+
+=== Associate credentials with a resource 
+
+You can associate credentials with a resource to ensure that your data is protected.
+
+. In BlueXP backup and recovery, select **Inventory**.
+. Select the workload that you want to view and select *View*.
+. Select the *Instances* tab. 
+. Select the instance. 
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Associate credentials*.
+. Use existing credentials or create new ones. 
+
+
+
+=== Edit protection settings
+
+You can edit the protection settings for your resources to ensure that your data is protected. You can change the policy, create a new policy, set a schedule, and set retention settings.
+
+. In BlueXP backup and recovery, select **Inventory**.
+. Select the workload that you want to view and select *View*.
+. Select the *Instances* tab. 
+. Select the instance. 
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit protection*.
++
+For details about creating a policy, refer to link://task-create-policies-ontap.adoc[Create a policy].
+
+=== Back up now 
+
+You can back up your data now to ensure that your data is protected.
+
+. In BlueXP backup and recovery, select **Inventory**.
+. Select the workload that you want to view and select *View*.
+. Select the *Instances* tab. 
+. Select the instance. 
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Back up now*.
++
+For details about creating an ad hoc backup, refer to link://br-use-backup-mssql.adoc[Create a policy].
+
+== Manage database information 
+
+You can manage database information to ensure that your data is protected in the following ways:    
+
+
+* Protect databases
+* Restore databases
+* View protection details
+* Edit protection settings
+* Back up now
+
+=== Protect databases
+
+You can assign a policy to a database to ensure that your data is protected.
+
+. In BlueXP backup and recovery, select **Inventory**.
+. Select the workload that you want to view and select *View*.
+. Select the *Databases* tab. 
+. Select the database. 
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Protect*.
++
+For details about creating a policy, refer to link://task-create-policies-ontap.adoc[Create a policy].
+
+=== Restore databases
+
+You can restore a database to ensure that your data is protected.
+
+. In BlueXP backup and recovery, select **Inventory**.
+. Select the workload that you want to view and select *View*.
+. Select the *Databases* tab. 
+. Select the database. 
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Restore*.
++
+For information about restoring workloads, refer to link://br-use-restore-overview.adoc[Restore workloads overview].
+
+=== Edit protection settings
+
+You can edit the protection settings for your resources to ensure that your data is protected. You can change the policy, create a new policy, set a schedule, and set retention settings.
+
+. In BlueXP backup and recovery, select **Inventory**.
+. Select the workload that you want to view and select *View*.
+. Select the *Databases* tab. 
+. Select the database. 
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit protection*.
++
+For details about creating a policy, refer to link://task-create-policies-ontap.adoc[Create a policy].
+
+=== Back up now 
+
+You can back up your database now to ensure that your data is protected.
+
+. In BlueXP backup and recovery, select **Inventory**.
+. Select the workload that you want to view and select *View*.
+. Select the *Databases* tab. 
+. Select the database. 
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Back up now*.
++
+For details about creating an ad hoc backup, refer to link://br-use-backup-mssql.adoc[Create a policy].
