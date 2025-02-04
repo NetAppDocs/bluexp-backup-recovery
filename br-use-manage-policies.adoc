@@ -1,0 +1,35 @@
+---
+sidebar: sidebar
+permalink: br-use-manage-policies.html
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
+summary: You can back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID, ensuring that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
+---
+
+= Manage policies 
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+TBD
+
+You can accomplish the following tasks related to managing your policies: 
+
+* Edit policies (edit backup frequency, retention policy, )
+* Duplicate policies
+* Suspend policies
+* Delete policies
+
+== Edit policies 
+(edit backup frequency, retention policy, )
+
+== Duplicate policies
+TBD
+
+== Suspend policies
+TBD
+
+== Delete policies
+TBD

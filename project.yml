@@ -67,7 +67,15 @@ sidebar:
             - title: Restore database workloads
               url: /br-use-restore-database.html
         - title: Manage inventory, snapshots, and policies       
-          url: /br-use-manage-overview.html
+          entries:
+            - title: Manage resources overview
+              url: /br-use-manage-overview.html 
+            - title: Manage inventory
+              url: /br-use-manage-inventory.html 
+            - title: Manage snapshots
+              url: /br-use-manage-snapshots.html
+            - title: Manage policies
+              url: /br-use-manage-policies.html
         - title: Restart BlueXP backup and recovery
           url: /reference-restart-backup.html
         - title: Manage options in Advanced Settings

@@ -1,0 +1,33 @@
+---
+sidebar: sidebar
+permalink: br-use-manage-inventory.html
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
+summary: You can back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID, ensuring that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
+---
+
+= Manage inventory 
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+BlueXP backup and recovery enables you to manage your workload inventory. You can view, edit, and delete protection settings for your inventory.      
+
+You can accomplish the following tasks related to managing your inventory: 
+
+* View inventory protection
+* Configure log directory (from Inventory > Hosts)  If you want to back up logs for SQL in the snapshot. Mention here, but put it in Get started. 
+* Edit protection settings
+* Delete protection from a workload
+
+
+== View inventory protection
+TBD
+
+== Edit protection settings
+TBD
+
+== Delete protection from a workload
+TBD

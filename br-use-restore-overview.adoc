@@ -26,8 +26,9 @@ You can restore workloads in different ways:
 
 .Restore points   
 
-You can restore to a specific time: 
+You can restore data to these points: 
 
+* Restore from latest snapshot 
 * Restore to a point in time
 * Restore to the latest state 
 
@@ -45,11 +46,14 @@ You can restore workload from a backup file, or if you only need to restore a fe
 
 You can restore workloads using one of the following methods. Typically, choose one of the following methods based on your restore needs:
 
-* _Browse & restore_ is typically better when you need to restore a specific volume, folder, or file from the last week or month -- and you know the name and location of the file, and the date when it was last in good shape. 
+* From the Restore page 
+* From the Inventory page: 
 
-* _Search & Restore_ is typically better when you need to restore a volume, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
+** _Browse & restore_ is typically better when you need to restore a specific volume, folder, or file from the last week or month -- and you know the name and location of the file, and the date when it was last in good shape. 
 
-This table compares the two methods.
+** _Search & Restore_ is typically better when you need to restore a volume, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
+
+This table compares the two methods from the Inventory page.
 
 [cols=2*,options="header",cols="50,50"]
 |===

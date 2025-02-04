@@ -14,7 +14,7 @@ summary: You can restore workload data from a snapshot copy, a replicated volume
 :imagesdir: ./media/
 
 [.lead]
-Restore database workloads from a snapshot copy, a replicated volume, or from backups stored in object storage.
+Restore database workloads from a snapshot copy, a workload backup replicated to secondary storage, or from backups stored in object storage.
 
 Choose the type of restore you want to perform:
 
