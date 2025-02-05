@@ -23,11 +23,9 @@ Choose the type of restore you want to perform:
 * Restore to the latest backup
 
 
-NOTE: If the ONTAP version on your system is less than 9.13.1, then you can't restore folders or files if the backup file has been configured with DataLock & Ransomware. In this case, you can restore the entire volume from the backup file and then access the files you need.
 
 *Restore from object storage considerations*
 
-You can restore a resource from any type of backup file (snapshot, replication, or object storage), but you can restore a folder or individual files only from a backup file in object storage.
 
 If you select a backup file in object storage, and ransomware protection is active for that backup (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware. (You'll incur extra egress costs from your cloud provider to access the contents of the backup file.)
 
@@ -56,18 +54,18 @@ NOTE: References to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Sel
 
 When you restore workloads, the following occurs: 
 
-* When you restore a workload from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. 
+* When you restore a workload from a backup file, BlueXP backup and recovery creates a _new_ resource using the data from the backup. 
 
 * When you restore from a replicated workload, you can restore the workload to the original working environment or to a Cloud Volumes ONTAP or on-premises ONTAP system.
 +
 image:diagram_browse_restore_volume.png["A diagram that shows the flow to perform a volume restore operation using Browse & Restore."]
 
-* When you restore a backup from object storage, you can restore the data to a volume in the original working environment, to a different working environment that's located in the same cloud account as the source working environment, or to an on-premises ONTAP system.
+* When you restore a backup from object storage, you can restore the data to the original working environment, to a different working environment that's located in the same cloud account as the source working environment, or to an on-premises ONTAP system.
 
 
 == When to use Quick Restore 
 
-When you restore a cloud backup to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater or to an on-premises ONTAP system running ONTAP 9.14.1, you'll have the option to perform a _quick restore_ operation. The quick restore is ideal for disaster recovery situations where you need to provide access to a volume as soon as possible. A quick restore restores the metadata from the backup file to a volume instead of restoring the entire backup file. Quick restore is not recommended for performance or latency-sensitive applications, and it is not supported with backups in archived storage.
+When you restore a cloud backup to a Cloud Volumes ONTAP system using ONTAP 9.13.0 or greater or to an on-premises ONTAP system running ONTAP 9.14.1, you'll have the option to perform a _quick restore_ operation. The quick restore is ideal for disaster recovery situations where you need to provide access to a resource as soon as possible. A quick restore restores the metadata from the backup file instead of restoring the entire backup file. Quick restore is not recommended for performance or latency-sensitive applications, and it is not supported with backups in archived storage.
 
 //NOTE: Quick restore is supported for FlexGroup volumes only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. And it is supported for SnapLock volumes only if the source system was running ONTAP 9.11.0 or greater.
 

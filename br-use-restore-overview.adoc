@@ -33,55 +33,16 @@ You can restore data to the latest snapshot or to these points:
 * Restore to a point in time
 * Restore to the latest state 
 
-.Resource types to restore    
-
-You can restore workloads from a backup file, or if you only need to restore a few files, you can restore a folder or individual files.
-
-
-
 == Restore methods
 
 You can restore workloads using one of the following methods. Typically, choose one of the following methods based on your restore needs:
 
-* *From the Restore page*: Use this when you need to restore a resource, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
-* *From the Inventory page*: Use this when you need to restore a specific resource, folder, or file from the last week or month -- and you know the name and location of the file, and the date when it was last in good shape. 
+* *From the Restore page*: Use this when you need to restore a resource, but you don't remember the exact name or the location in which it resides, or the date when it was last in good shape. You search for the resource using filters. 
+* *From the Inventory page*: Use this when you need to restore a specific resource from the last week or month -- and you know the name and location of the resource, and the date when it was last in good shape. You browse through a list of resources to find the one you want to restore.
 
 //Inventory is browse and restore. Restore page is Search and restore. 
 
+== What's next
 
-This table compares the two methods.
-
-[cols=2*,options="header",cols="50,50"]
-|===
-
-| Inventory page method
-| Restore page method
-
-| Browse through a folder-style structure to find the resource, folder, or file within a single backup file. | Search for a resource, folder, or file across *all backup files* by partial or full name, partial or full folder/file name, size range, and additional search filters.
-| Does not handle file recovery if the file has been deleted or renamed, and you don't know the original file name | Handles newly created/deleted/renamed directories and newly created/deleted/renamed files
-| No additional cloud provider resources required | When you restore from the cloud, additional bucket and public cloud provider resources required per account.
-| No additional cloud provider costs required | When you restore from the cloud, additional costs are required when scanning your backups and volumes for search results.
-| Quick restore is supported. | Quick restore is not supported. 
-
-
-|===
-
-This table provides a list of valid restore operations based on the location where your backup files reside. 
-
-[cols=7*,options="header",cols="14h,14,14,14,14,14,14",width="100%"]
-|===
-| Backup Type
-3+^| From Inventory page
-3+^| From Restore page
-
-|  | *Restore resource* | *Restore files* | *Restore folder* | *Restore resource* | *Restore files* | *Restore folder* 
-| Snapshot copy | Yes | No | No | Yes | Yes | Yes 
-| Replicated on secondary storage | Yes | No | No | Yes | Yes | Yes 
-| Backup file on object storage | Yes | Yes | Yes | Yes | Yes | Yes 
-
-|===
-
-
-
-
+For details on how to restore workloads, see link:br-use-database.html[Restore workloads].     
 
