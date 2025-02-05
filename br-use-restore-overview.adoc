@@ -43,20 +43,19 @@ You can restore workloads from a backup file, or if you only need to restore a f
 
 You can restore workloads using one of the following methods. Typically, choose one of the following methods based on your restore needs:
 
-* From the Restore page 
-* From the Inventory page: 
+* *From the Restore page*: Use this when you need to restore a resource, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
+* *From the Inventory page*: Use this when you need to restore a specific resource, folder, or file from the last week or month -- and you know the name and location of the file, and the date when it was last in good shape. 
 
-** _Browse & restore_ is typically better when you need to restore a specific volume, folder, or file from the last week or month -- and you know the name and location of the file, and the date when it was last in good shape. 
+//Inventory is browse and restore. Restore page is Search and restore. 
 
-** _Search & Restore_ is typically better when you need to restore a volume, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
 
-This table compares the two methods from the Inventory page.
+This table compares the two methods.
 
 [cols=2*,options="header",cols="50,50"]
 |===
 
-| Browse & Restore
-| Search & Restore
+| Inventory page method
+| Restore page method
 
 | Browse through a folder-style structure to find the resource, folder, or file within a single backup file. | Search for a resource, folder, or file across *all backup files* by partial or full name, partial or full folder/file name, size range, and additional search filters.
 | Does not handle file recovery if the file has been deleted or renamed, and you don't know the original file name | Handles newly created/deleted/renamed directories and newly created/deleted/renamed files
@@ -72,8 +71,8 @@ This table provides a list of valid restore operations based on the location whe
 [cols=7*,options="header",cols="14h,14,14,14,14,14,14",width="100%"]
 |===
 | Backup Type
-3+^| Browse & Restore
-3+^| Search & Restore
+3+^| From Inventory page
+3+^| From Restore page
 
 |  | *Restore resource* | *Restore files* | *Restore folder* | *Restore resource* | *Restore files* | *Restore folder* 
 | Snapshot copy | Yes | No | No | Yes | Yes | Yes 
