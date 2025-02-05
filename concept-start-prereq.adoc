@@ -115,9 +115,9 @@ An ONTAP One license must be enabled on the on-premises ONTAP instance.
 
 For backup targets to object storage, you need an account in NetApp StorageGRID, AWS S3, Microsoft Azure Blob, or Google Cloud Storage  and the access permissions set. 
 
-Refer to the https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions.html[AWS, Azure, or S3 permissions list^] for details. 
+Refer to the https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions.html[AWS, Azure, or S3 permissions list^] for permission details. 
 
-
+Refer to link://concept-start-setup.html[How to set up backup destinations].
 
 
 //* An on-premises SnapCenter server must be accessible from the BlueXP Connector.

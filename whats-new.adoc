@@ -16,7 +16,7 @@ Learn what's new in BlueXP backup and recovery Preview 2025 version.
 
 // tag::whats-new[]
 
-== 05 February 2025
+== 13 February 2025
 
 This BlueXP backup and recovery release includes the following updates.
 //v3.0.9

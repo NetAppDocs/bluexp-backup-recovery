@@ -60,7 +60,7 @@ NetApp doesn't charge you for using the trial version. However, you are responsi
 
 BlueXP backup and recovery Preview 2025 version is available as a free trial. You can use the service without a license key for a limited time.
 
-== Supported backup targets, working environments, and workload data sources
+== Supported backup destinations, restore destinations, work environments, and workload data sources
 
 .Backup targets supported
 
@@ -89,7 +89,7 @@ The service protects the following application-based workloads on primary data v
 * More coming soon
 
 
-=== Supported backup destinations
+.Supported backup destinations
 
 BlueXP backup and recovery enables you to back up Microsoft SQL Server data from the following source working environments to the following secondary working environments and object storage in public and private cloud providers. Snapshot copies reside on the source working environment.
 
@@ -136,7 +136,7 @@ NetApp StorageGRID
 
 |===
 
-=== Supported restore destinations
+.Supported restore destinations
 
 You can restore Microsoft SQL Server data from a backup that resides in a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
 
