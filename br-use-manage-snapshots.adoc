@@ -13,9 +13,22 @@ summary: You can back up Microsoft SQL Server applications data from on-premises
 :imagesdir: ./media/
 
 [.lead]
-TBD
+You can manage snapshots by cloning a snapshot or deleting a local snapshot. 
 
-You can accomplish the following tasks to managing snapshots: 
+== Clone a snapshot
 
-* Clone a snapshot
-* Delete a snapshot
+This feature is not available in the Preview version. 
+
+== Delete a snapshot
+
+You can delete only local snapshots. 
+
+. In BlueXP backup and recovery, select *Inventory*.
+. Select the workload and select *View*.
+. Select the snapshot that you want to delete. 
++
+TIP: The local snapshot icon on that row must appear in blue.
+
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete local snapshot*.
+. In the confirmation dialog box, select *Remove*.
+

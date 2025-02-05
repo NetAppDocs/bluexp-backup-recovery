@@ -2,8 +2,7 @@
 sidebar: sidebar
 permalink: br-use-restore-database.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
-summary: You can restore workload data from a snapshot copy, a replicated volume, or from backups stored in object storage.
-
+summary: Restore database workloads from a snapshot copy, a workload backup replicated to secondary storage, or from backups stored in object storage.
 ---
 
 = Restore database workloads
