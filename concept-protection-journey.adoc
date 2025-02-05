@@ -13,7 +13,7 @@ summary: The BlueXP backup and recovery service enables you to create up to thre
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service enables you to create up to three copies of your source volumes to protect your data. There are many options that you can select when enabling this service on your volumes, so you should review your choices so you're prepared.
+The BlueXP backup and recovery service enables you to create up to three copies of your workloads to protect your data. There are many options that you can select when enabling this service, so you should review your choices so you're prepared.
 
 We'll go over the following options:
 
@@ -22,7 +22,7 @@ We'll go over the following options:
 * Will you use the default backup policies, or do you need to create custom policies?
 * Where do your policies reside?
 * Do you want the service to create the cloud buckets for you, or do you want to make your object storage containers before you begin?
-* Which BlueXP Connector deployment mode are you using (standard, restricted, or private mode)?
+* Which BlueXP Connector deployment mode are you using (standard, restricted, or private mode)? For the Preview version, only the standard mode is supported.
 
 == Which protection features will you use
 
@@ -34,29 +34,29 @@ Before you select the features you'll use, here's a quick explanation of what ea
 | Description
 
 | Snapshot | 
-Creates a read-only, point-in-time image of a volume within the source volume as a snapshot copy. You can use the snapshot copy to recover individual files, or to restore the entire contents of a volume. 
+Creates a read-only, point-in-time image of the resource within the source location as a snapshot copy. You can use the snapshot copy to recover resoures. 
 | Replication | 
 Creates a secondary copy of your data on another ONTAP storage system and continually updates the secondary data. Your data is kept current and remains available whenever you need it. 
 | Cloud backup | 
-Creates backups of your data to the cloud for protection and for long-term archival purposes. If necessary, you can restore a volume, folder, or individual files from the backup to the same, or different, working environment.
+Creates backups of your data to the cloud for protection and for long-term archival purposes. If necessary, you can restore resources from the backup to the same, or different, working environment.
 
 |===
 
-Snapshots are the basis of all the backup methods, and they are required to use the backup and recovery service. A snapshot copy is a read-only, point-in-time image of a volume. The image consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last snapshot copy was made. The snapshot copy that is created on your volume is used to keep the replicated volume and backup file synchronized with changes made to the source volume - as shown in the figure.
+Snapshots are the basis of all the backup methods, and they are required to use the backup and recovery service. A snapshot copy is a read-only, point-in-time image of a resource. The image consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last snapshot copy was made. The snapshot copy that is created is used to keep the replicated resource and backup file synchronized with changes made to the source resource - as shown in the figure.
 
-image:diagram-321-overview.png["A diagram showing how backup files exist on the source system as snapshot copies, as replicated volumes on the secondary storage system, and as a backup files in object storage."]
+image:diagram-321-overview.png["A diagram showing how backup files exist on the source system as snapshot copies, as replicated on the secondary storage system, and as a backup files in object storage."]
 
-You can choose to create both replicated volumes on another ONTAP storage system and backup files in the cloud. Or you can choose just to create replicated volumes or backup files - it's your choice. 
+You can choose to create both replicated resources on another ONTAP storage system and backup files in the cloud. Or you can choose just to create replicated resources or backup files - it's your choice. 
 //The service also enables you to select two replication destinations if you want to protect your data in an additional location (both with and without creating backup files).
 
 To summarize, these are the valid protection flows you can create for volumes in your ONTAP working environment:
 
-* Source volume -> snapshot copy -> Replicated volume -> Backup file
-* Source volume -> snapshot copy -> Backup file
-* Source volume -> snapshot copy -> Replicated volume
+* Source workload -> snapshot copy -> Replicated workload -> Backup file
+* Source workload -> snapshot copy -> Backup file
+* Source workload -> snapshot copy -> Replicated workload
 //* Source volume -> snapshot copy -> Replicated volume -> Replicated volume
 
-NOTE: The initial creation of a replicated volume or backup file includes a full copy of the source data -- this is called a _baseline transfer_. Subsequent transfers contain only differential copies of the source data (the snapshot).
+NOTE: The initial creation of a replicated workload or backup file includes a full copy of the source data -- this is called a _baseline transfer_. Subsequent transfers contain only differential copies of the source data (the snapshot).
 
 *Comparison of the different backup methods*
 
@@ -92,7 +92,7 @@ High (provider fees)
 
 == Which backup architecture will you use
 
-When creating both replicated volumes and backup files, you can choose a fan-out or cascade architecture to back up your volumes.
+When creating both replicated workloads and backup files, you can choose a fan-out or cascade architecture to back up your workloads.
 
 A *fan-out* architecture transfers the snapshot copy independently to both the destination storage system and the backup object in the cloud.
 
@@ -119,7 +119,7 @@ This table provides a comparison of the fan-out and cascade architectures.
 
 For the BlueXP backup and recovery Preview 2025 version, you can choose among the following architectures: 
 
-* Local snapshot: Local snapshot on the volume selected for protection
+* Local snapshot: Local snapshot selected for protection
 
 * 3-2-1 fanout: From primary storage (disk) to secondary storage (disk) to cloud storage (object store)
 * 3-2-1 cascaded: From primary storage (disk) to secondary storage (disk)  and primary storage (disk) to cloud (object store)  
@@ -136,7 +136,7 @@ NOTE: The 3-2-1-1 cascaded architecture is not available for the BlueXP backup a
 
 == Will you use the default policies for snapshot copies, replications, and backups
 
-You can use the default policies provided by NetApp to create your backups, or you can create custom policies. When you use the activation wizard to enable the backup and recovery service for your volumes, you can select from the default policies and any other policies that already exist in the working environment (Cloud Volumes ONTAP or on-premises ONTAP system). If you want to use a policy different than those existing policies, you can create the policy before starting or while using the activation wizard.
+You can use the default policies provided by NetApp to create your backups, or you can create custom policies. When you enable the backup and recovery service, you can select from the default policies and any other policies that already exist in the working environment (Cloud Volumes ONTAP or on-premises ONTAP system). If you want to use a policy different than those existing policies, you can create the policy.
 
 * The default snapshot policy creates hourly, daily, and weekly snapshot copies, retaining 6 hourly, 2 daily, and 2 weekly snapshot copies.
 * The default replication policy replicates daily and weekly snapshot copies, retaining 7 daily and 52 weekly snapshot copies.
@@ -144,45 +144,7 @@ You can use the default policies provided by NetApp to create your backups, or y
 
 If you create custom policies for replication or backup, the policy labels (for example, "daily" or "weekly") must match the labels that exist in your snapshot policies or replicated volumes and backup files won't be created. 
 
-In addition to using using BlueXP backup recovery to create custom policies, you can use System Manager or the ONTAP Command Line Interface (CLI).
 
-https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html[Create a snapshot policy using System Manager^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html[Create a snapshot policy using the ONTAP CLI^]
-https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html[Create a replication policy using System Manager^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html[Create a replication policy using the ONTAP CLI^]
-https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy[Create a backup policy using System Manager^]
-https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description[Create a backup policy using the ONTAP CLI^]
-
-*Note:* When using System Manager, select *Asynchronous* as the policy type for replication policies, and select *Asynchronous* and *Back up to cloud* for backup to object policies.
-
-
-
-Here are a few sample ONTAP CLI commands that may be helpful if you are creating custom policies. Note that you must use the _admin_ vserver (storage VM) as the `<vserver_name>` in these commands.
-
-[cols=2*,options="header",cols="30,70"]
-|===
-
-| Policy Description
-| Command
-
-| Simple snapshot policy
-| `snapshot policy create -policy WeeklySnapshotPolicy -enabled true -schedule1 weekly -count1 10 -vserver ClusterA -snapmirror-label1 weekly`
-| Simple backup to cloud
-| `snapmirror policy create -policy <policy_name> -transfer-priority normal -vserver <vserver_name> -create-snapshot-on-source false -type vault`
-`snapmirror policy add-rule -policy <policy_name> -vserver <vserver_name> -snapmirror-label <snapmirror_label> -keep`
-| Backup to cloud with DataLock and Ransomware protection
-| `snapmirror policy create -policy CloudBackupService-Enterprise -snapshot-lock-mode enterprise -vserver <vserver_name>`
-`snapmirror policy add-rule -policy CloudBackupService-Enterprise -retention-period 30days`
-| Backup to cloud with archival storage class
-| `snapmirror policy create -vserver <vserver_name> -policy <policy_name> -archive-after-days <days> -create-snapshot-on-source false -type vault`
-`snapmirror policy add-rule -policy <policy_name> -vserver <vserver_name> -snapmirror-label <snapmirror_label> -keep`
-| Simple replication to another storage system
-| `snapmirror policy create -policy <policy_name> -type async-mirror -vserver <vserver_name>`
-`snapmirror policy add-rule -policy <policy_name> -vserver <vserver_name> -snapmirror-label <snapmirror_label> -keep`
-
-|===
-
-NOTE: Only vault policies can be used for backup to cloud relationships.
 
 == Where do my policies reside?
 
@@ -192,7 +154,7 @@ Backup policies reside in different locations depending on the backup architectu
 
 * Replication policies always reside on the secondary storage system.
 
-* Backup-to-object policies are created on the system where the source volume resides - this is the primary cluster for fan-out configurations, and the secondary cluster for cascading configurations. 
+* Backup-to-object policies are created on the system where the source workload resides - this is the primary cluster for fan-out configurations, and the secondary cluster for cascading configurations. 
 
 These differences are shown in the table.
 
@@ -214,7 +176,7 @@ Secondary |
 
 |===
 
-So if you're planning to create custom policies when using the cascading architecture, you'll need to create the replication and backup to object policies on the secondary system where the replicated volumes will be created. If you're planning to create custom policies when using the fan-out architecture, you'll need to create the replication policies on the secondary system where the replicated volumes will be created and backup to object policies on the primary system. 
+So if you're planning to create custom policies when using the cascading architecture, you'll need to create the replication and backup to object policies on the secondary system where the replicated workloads will be created. If you're planning to create custom policies when using the fan-out architecture, you'll need to create the replication policies on the secondary system where the replicated workloads will be created and backup to object policies on the primary system. 
 
 If you're using the default policies that exist on all ONTAP systems, then you're all set.
 
@@ -222,7 +184,7 @@ If you're using the default policies that exist on all ONTAP systems, then you'r
 
 When you create backup files in object storage for a working environment, by default, the backup and recovery service creates the container (bucket or storage account) for the backup files in the object storage account that you have configured. The AWS or GCP bucket is named "netapp-backup-<uuid>" by default. The Azure Blob storage account is named "netappbackup<uuid>".
 
-You can create the container yourself in the object provider account if you want to use a certain prefix or assign special properties. If you want to create your own container, you must create it before starting the activation wizard. BlueXP backup and recovery can use any bucket and share buckets. The backup activation wizard will automatically discover your provisioned containers for the selected Account and credentials so that you can select the one you want to use. 
+You can create the container yourself in the object provider account if you want to use a certain prefix or assign special properties. If you want to create your own container, you must create it before starting a backup. BlueXP backup and recovery can use any bucket and share buckets. The backup process will automatically discover your provisioned containers for the selected account and credentials so that you can select the one you want to use. 
 
 //The container must be used exclusively for storing ONTAP volume backup files - it cannot be used for any other purpose.
 

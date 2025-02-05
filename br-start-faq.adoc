@@ -89,12 +89,6 @@ For the Preview 2025 version, BlueXP backup and recovery can identify the follow
 
 //In addition, if you are using SnapCenter or SnapCenter for VMware, all workloads supported by those products are also identified in BlueXP backup and recovery and BlueXP backup and recovery can protect and recover these in a workload-consistent manner.
 
-*How do you associate data with a workload?*
-
-BlueXP backup and recovery associates data with a workload in the following ways:
-
-* BlueXP backup and recovery discovers the volumes and the file extensions and associates them to the appropriate workload.
-* In addition, if you have SnapCenter and have configured workloads in BlueXP backup and recovery, then BlueXP backup and recovery discovers the workloads managed by SnapCenter and their associated volumes.
 
 *What is a "protected" workload?*
 In BlueXP backup and recovery, a workload shows a “protected” status when it has a primary detection policy enabled. 
@@ -105,18 +99,17 @@ In BlueXP backup and recovery, a workload shows a “protected” status when it
 If a workload does not have a primary detection policy enabled, it is “at risk” even if it has a backup and snapshot policy enabled. 
 
 
-*New volume added, but doesn't appear yet*
-If you added a new volume to your environment, initiate discovery again and apply protection policies to protect that new volume. 
+*New workload added, but doesn't appear yet*
+If you added a new workload to your environment, initiate discovery again and apply protection policies to protect that new resource. 
 
-*The Dashboard doesn't show all my workloads. What might be wrong?*
-Currently, only NFS and CIFS volumes are supported. iSCSI volumes  and other non-supported configurations are filtered out and do not appear on the Dashboard. 
+
 
 == Protection policies
 
 
 *Is BlueXP backup and recovery aware of protection settings made in NetApp ONTAP?*
 
-Yes, BlueXP backup and recovery discovers snapshot schedules set in ONTAP and whether ARP and FPolicy are enabled across all volumes in a discovered workload. The info you see initially in the Dashboard is aggregated from other NetApp solutions and products. 
+Yes, BlueXP backup and recovery discovers snapshot schedules set in ONTAP and whether ARP and FPolicy are enabled in a discovered workload. The info you see initially in the Dashboard is aggregated from other NetApp solutions and products. 
 
 
 *Is BlueXP backup and recovery aware of policies already made in SnapCenter?*
@@ -125,7 +118,7 @@ Yes, if you have workloads managed in SnapCenter, the policies managed by those 
 
 *Can you modify policies carried over from SnapCenter?*
 
-No, you cannot modify policies managed by SnapCenter within BlueXP backup and recovery. You manage any changes to those policies in SnapCenter.
+Yes, you can modify policies that were managed by SnapCenter within BlueXP backup and recovery. 
 
 *If policies exist from ONTAP (already enabled in System Manager such as ARP, FPolicy, and snapshots) are those changed in BlueXP backup and recovery?*
 

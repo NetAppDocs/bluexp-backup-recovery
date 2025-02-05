@@ -20,7 +20,7 @@ You can accomplish the following goals:
 * Before you back up data, view the current workload protection status and configure how you want logs to be backed up. 
 * Back up workloads with local snapshots to local ONTAP primary storage using policies.
 * Replicate snapshots to ONTAP secondary storage using policies.    
-* Back up workloads to an object store location using policies
+* Back up workloads to an object store location using policies.
 * Back up workloads now with ad hoc backups.  
 
 TIP: To back up workloads, typically you create a schedule using policies that govern the backup and restore operations. See link:task-create-policies-ontap.html[Create policies] for more information.

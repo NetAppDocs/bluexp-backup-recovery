@@ -44,5 +44,5 @@ You can restore workloads using one of the following methods. Typically, choose 
 
 == What's next
 
-For details on how to restore workloads, see link:br-use-database.html[Restore workloads].     
+For details on how to restore workloads, see link:br-use-restore-database.html[Restore workloads].     
 
