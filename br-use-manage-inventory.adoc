@@ -17,21 +17,18 @@ BlueXP backup and recovery enables you to manage your workload inventory. You ca
 
 You can accomplish the following tasks related to managing your inventory: 
 
-* View inventory protection
-* Configure log directory (from Inventory > Hosts). If you want to back up logs for your database hosts in the snapshot, first configure the logs in BlueXP backup and recovery. For details, refer to link://br-start-setup.adoc[Configure BlueXP backup and recovery settings].  
+* Suspend schedules
+* Edit or delete hosts
+* Associate credentials with a resource
+* Start an on-demand backup
 * Edit protection settings
+* Configure log directory (from Inventory > Hosts). If you want to back up logs for your database hosts in the snapshot, first configure the logs in BlueXP backup and recovery. For details, refer to link://br-start-setup.adoc[Configure BlueXP backup and recovery settings].  
 * Delete protection from a workload
 
 
-You can accomplish the following tasks related to managing your resources:
-
-* View resource protection
-* Edit protection settings
-* Delete protection from a resource
-
 == Manage host information 
 
-You can manage host information to ensure that your data is protected in the following ways:  
+You can manage host information to ensure that the right hosts are protected. You can view, edit, and delete host information.  
 
 * Manage hosts (Not available) 
 * Configure log directory. For details, refer to link://br-start-setup.adoc[Configure BlueXP backup and recovery settings]. 
@@ -52,7 +49,7 @@ You can suspend schedules to stop the backup and restore operations for a host. 
 
 === Edit host
 
-You can edit the host information to ensure that your data is protected. You can change the vCenter server information, host registration credentials, and advanced settings options. 
+You can change the vCenter server information, host registration credentials, and advanced settings options. 
 
 . In BlueXP backup and recovery, select **Inventory**.
 
@@ -73,7 +70,7 @@ You can delete the host information to stop service charges.
 
 === Reinstall the SnapCenter plug-in
 
-You can reinstall the SnapCenter plug-in to ensure that your data is protected.
+You can reinstall the SnapCenter plug-in to if the plug-in is not working correctly.
 
 NOTE: This option is not available in the Preview release.  
 
@@ -83,7 +80,8 @@ NOTE: This option is not available in the Preview release.
 
 
 == Manage instances information 
-You can manage instances information to ensure that your data is protected in the following ways:  
+
+You can manage instances information to ensure that resources have the appropriate credentials for protection and you can back up resources in the following ways:  
 
 * Protect instances
 * Associate credentials
@@ -93,7 +91,7 @@ You can manage instances information to ensure that your data is protected in th
 
 === Protect database instances  
 
-You can assign a policy to a database instance to ensure that your data is protected.
+You can assign a policy to a database instance using policies that govern the schedules and retention of resource protection.
 
 . In BlueXP backup and recovery, select **Inventory**.
 . Select the workload that you want to view and select *View*.
@@ -104,7 +102,7 @@ You can assign a policy to a database instance to ensure that your data is prote
 
 === Associate credentials with a resource 
 
-You can associate credentials with a resource to ensure that your data is protected.
+You can associate credentials with a resource so that protection can occur. 
 
 . In BlueXP backup and recovery, select **Inventory**.
 . Select the workload that you want to view and select *View*.
@@ -117,7 +115,7 @@ You can associate credentials with a resource to ensure that your data is protec
 
 === Edit protection settings
 
-You can edit the protection settings for your resources to ensure that your data is protected. You can change the policy, create a new policy, set a schedule, and set retention settings.
+You can change the policy, create a new policy, set a schedule, and set retention settings.
 
 . In BlueXP backup and recovery, select **Inventory**.
 . Select the workload that you want to view and select *View*.
@@ -129,7 +127,7 @@ For details about creating a policy, refer to link://task-create-policies-ontap.
 
 === Back up now 
 
-You can back up your data now to ensure that your data is protected.
+You can back up your data now to ensure that your data is protected immediately.
 
 . In BlueXP backup and recovery, select **Inventory**.
 . Select the workload that you want to view and select *View*.
@@ -141,7 +139,7 @@ For details about creating an ad hoc backup, refer to link://br-use-backup-mssql
 
 == Manage database information 
 
-You can manage database information to ensure that your data is protected in the following ways:    
+You can manage database information in the following ways:    
 
 
 * Protect databases
@@ -152,7 +150,7 @@ You can manage database information to ensure that your data is protected in the
 
 === Protect databases
 
-You can assign a policy to a database to ensure that your data is protected.
+You can change the policy, create a new policy, set a schedule, and set retention settings.
 
 . In BlueXP backup and recovery, select **Inventory**.
 . Select the workload that you want to view and select *View*.
@@ -176,7 +174,7 @@ For information about restoring workloads, refer to link://br-use-restore-overvi
 
 === Edit protection settings
 
-You can edit the protection settings for your resources to ensure that your data is protected. You can change the policy, create a new policy, set a schedule, and set retention settings.
+You can change the policy, create a new policy, set a schedule, and set retention settings.
 
 . In BlueXP backup and recovery, select **Inventory**.
 . Select the workload that you want to view and select *View*.
@@ -188,7 +186,7 @@ For details about creating a policy, refer to link://task-create-policies-ontap.
 
 === Back up now 
 
-You can back up your database now to ensure that your data is protected.
+You can back up your database now to ensure that your data is protected immediately.
 
 . In BlueXP backup and recovery, select **Inventory**.
 . Select the workload that you want to view and select *View*.
