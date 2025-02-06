@@ -15,7 +15,6 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 [.lead]
 The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for Microsoft SQL Server databases, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
 
-The service performs block-level, incremental-forever replication and preserves all storage efficiencies, which significantly reduces the amount of data that's replicated and stored. Additionally, you pay only for what's protected and use the lowest-cost storage tiers available, which makes BlueXP backup and recovery very cost effective.
 
 NOTE: THIS DOCUMENTATION IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
 
@@ -175,12 +174,12 @@ Cloud Volumes ONTAP
 
 |===
 
-Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
+NOTE: References to "on-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
 
 
 == How BlueXP backup and recovery works
 
-When you enable BlueXP backup and recovery on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum.
+When you enable BlueXP backup and recovery on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. After the initial backup, all additional backups are incremental. This keeps network traffic to a minimum.
 
 //In most cases you'll use the BlueXP UI for all backup operations. However, starting with ONTAP 9.9.1 you can initiate volume backup operations of your on-premises ONTAP clusters using ONTAP System Manager. https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html[See how to use System Manager to back up your volumes to the cloud using BlueXP backup and recovery.^]
 
@@ -231,7 +230,7 @@ Unless you specify a different offset time, BlueXP backup and recovery takes bac
 
 * Yearly backups start just after midnight on the first day of the year.
 
-The start time is based on the time zone set on each source ONTAP system. 
+The start time is based on the time zone set on each source system. 
 
 === Backup copies are associated with your NetApp account
 

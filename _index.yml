@@ -1,7 +1,7 @@
 indexpage:
   title: BlueXP backup and recovery Preview 2025 version documentation 
-  lead: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for NetApp ONTAP data and databases, both on premises and in the cloud.
-  summary: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for NetApp ONTAP data and databases, both on premises and in the cloud. 
+  lead: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for databases, both on premises and in the cloud.
+  summary: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for databases, both on premises and in the cloud. 
   keywords: bluexp, bluexp backup recovery, ontap, on-premises, data protection 
   tiles:
     - title: Get started

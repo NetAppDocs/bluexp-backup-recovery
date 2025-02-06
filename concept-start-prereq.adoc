@@ -15,9 +15,6 @@ summary: Get started with BlueXP backup and recovery by verifying the readiness 
 [.lead]
 Get started with BlueXP backup and recovery by verifying the readiness of your operational environment, BlueXP Connector, and BlueXP account. To use BlueXP backup and recovery, you'll need these prerequisites.
 
-== SnapCenter host version
-
-SnapCenter host version 5.0 or greater is required if you are going to import your existing data from SnapCenter into BlueXP backup and recovery.
 
 == Host requirements 
 
@@ -32,6 +29,8 @@ To use BlueXP backup and recovery, you need the following host system, space, an
 | Operating systems
 | Microsoft Windows
 For the latest information about supported versions, see the https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome[NetApp Interoperability Matrix Tool^].
+
+| SnapCenter host version | SnapCenter host version 5.0 or greater is required if you are going to import your existing data from SnapCenter into BlueXP backup and recovery.
 
 | Minimum RAM for the SnapCenter plug-in on the host
 | 1 GB
