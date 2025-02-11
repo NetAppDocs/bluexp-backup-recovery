@@ -56,14 +56,16 @@ NetApp doesn't charge you for using the trial version. However, you are responsi
 
 BlueXP backup and recovery Preview 2025 version is available as a free trial. You can use the service without a license key for a limited time.
 
-== Supported backup destinations, restore destinations, work environments, and workload data sources
+== Supported data sources, working environments, backup targets and destinations, and restore destinations
+.Workload data sources supported
 
-.Backup targets supported
+The service protects the following application-based workloads:
 
-* Amazon Web Services (AWS) S3
-//* Google Cloud Storage
-* Microsoft Azure Blob
-* NetApp StorageGRID
+//* NetApp file shares
+//* VMware datastores
+* Microsoft SQL Server instances and databases
+* More coming soon
+
 
 .Working environments supported
 
@@ -75,14 +77,12 @@ BlueXP backup and recovery Preview 2025 version is available as a free trial. Yo
 
 * Cloud Volumes ONTAP 9.8 or greater for Microsoft Azure (using NFS and CIFS protocols)
 
-.Workload data sources supported
+.Backup targets supported
 
-The service protects the following application-based workloads:
-
-//* NetApp file shares
-//* VMware datastores
-* Microsoft SQL Server instances and databases
-* More coming soon
+* Amazon Web Services (AWS) S3
+//* Google Cloud Storage
+* Microsoft Azure Blob
+* NetApp StorageGRID
 
 
 .Supported backup destinations
@@ -109,12 +109,6 @@ endif::azure[]
 
 | On-premises ONTAP system | On-premises ONTAP system  |NetApp StorageGRID
 
-ifdef::aws[]
-Amazon S3
-endif::aws[]
-ifdef::azure[]
-Azure Blob
-endif::azure[]
 
 //ifdef::gcp[]
 //Google Cloud Storage
@@ -161,11 +155,9 @@ endif::azure[]
 
 NOTE: References to "on-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
 
-== SnapCenter Plugin 
+== BlueXP backup and recovery uses the SnapCenter Plugin for Microsoft SQL Server
 
-BlueXP backup and recovery installs the NetApp SnapCenter Plug-in for Microsoft SQL Server on the server that hosts MS SQL Server.
-
-The SnapCenter Plug-in for Microsoft SQL Server is a host-side component of the NetApp SnapCenter Software that enables application-aware data protection management of Microsoft SQL Server databases. 
+BlueXP backup and recovery installs the SnapCenter Plug-in for Microsoft SQL Server on the server that hosts MS SQL Server. The  Plug-in is a host-side component of the SnapCenter Software that enables application-aware data protection management of Microsoft SQL Server databases and instances. 
 
 
 == How BlueXP backup and recovery works
@@ -187,7 +179,7 @@ image:diagram-br-321.jpg[A diagram showing how BlueXP backup and recovery uses a
 
 
 
-=== Where backups reside
+=== Where backups reside in object store locations
 
 Backup copies are stored in an object store that BlueXP creates in your cloud account. There's one object store per cluster/working environment, and BlueXP names the object store as follows: `netapp-backup-clusteruuid`. Be sure not to delete this object store.
 
