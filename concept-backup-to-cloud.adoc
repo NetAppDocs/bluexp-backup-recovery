@@ -77,7 +77,7 @@ BlueXP backup and recovery Preview 2025 version is available as a free trial. Yo
 
 .Workload data sources supported
 
-The service protects the following application-based workloads on primary data volumes:
+The service protects the following application-based workloads:
 
 //* NetApp file shares
 //* VMware datastores
@@ -107,25 +107,24 @@ ifdef::azure[]
 | Azure Blob
 endif::azure[]
 
-//ifdef::gcp[]
-//| Cloud Volumes ONTAP in Google
-//On-premises ONTAP system
-//| Google Cloud Storage
-//endif::gcp[]
+| On-premises ONTAP system | On-premises ONTAP system  |NetApp StorageGRID
 
-| On-premises ONTAP system | On-premises ONTAP system  |On-premises ONTAP system
-|
 ifdef::aws[]
 Amazon S3
 endif::aws[]
 ifdef::azure[]
 Azure Blob
 endif::azure[]
+
 //ifdef::gcp[]
 //Google Cloud Storage
 endif::gcp[]
-NetApp StorageGRID
 
+//ifdef::gcp[]
+//| Cloud Volumes ONTAP in Google
+//On-premises ONTAP system
+//| Google Cloud Storage
+//endif::gcp[]
 
 |===
 
@@ -141,7 +140,7 @@ You can restore Microsoft SQL Server instances and data from a backup that resid
 
 | *Object Store (Backup)* | *Secondary System (Replication)* |
 ifdef::aws[]
-| Amazon S3 | On-premises ONTAP system | | Local or remote MS SQL Server 
+| Amazon S3 | On-premises ONTAP system |  Local or remote MS SQL Server 
 endif::aws[]
 
 ifdef::azure[]
