@@ -42,8 +42,6 @@ sidebar:
           url: /br-start-discover.html
         - title: Configure BlueXP backup and recovery settings 
           url: /br-start-configure.html
-        - title: FAQ
-          url: /br-start-faq.html
     - title: Use BlueXP backup and recovery
       entries:
         - title: View protection health in the Dashboard 
@@ -80,14 +78,6 @@ sidebar:
           url: /reference-restart-backup.html
         - title: Manage options in Advanced Settings
           url: /br-use-settings-advanced.html
-    - title: Automate with the REST API
-      url: /api-backup-restore.html
-    - title: Knowledge and support
-      entries:
-        - title: Register for support
-          url: /task-support-registration.html
-        - title: Get help
-          url: /task-get-help.html
     - title: Legal notices
       url: /legal-notices.html
 product-family:

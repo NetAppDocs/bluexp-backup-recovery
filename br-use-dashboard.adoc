@@ -22,6 +22,17 @@ Monitoring the health of your workloads ensures that you are aware of issues wit
 +
 image:../media/screen-br-dashboard.png[Dashboard page showing the protection summary, job summary, TCO, restore summary, system summary, and alerts]
 
+
+== View the overall system summary
+
+The System summary provides the following information: 
+
+* Nmber of hosts or VMs discovered
+* Number of backup targets (ONTAP or object storage instances)
+* Number of vCenters 
+* Number of storage clusters (ONTAP)
+
+
 == View the Protection summary
 
 The Protection summary provides the following information: 
@@ -34,24 +45,24 @@ TIP: A protected database is one that has a backup. An unprotected database is o
 
 
 
-== View and respond to alerts
+//== View and respond to alerts
 
-The Alerts section provides the following information:
+//The Alerts section provides the following information:
 
-* The total number of alerts that are active, resolved, or acknowledged.
-* The total number of alerts that are critical, warning, or informational.
-* The total number of alerts that are new or have been updated.
-* The total number of alerts that are open or closed.
-* The total number of alerts that are related to backup, restore, database, plugin, or system issues.
+//* The total number of alerts that are active, resolved, or acknowledged.
+//* The total number of alerts that are critical, warning, or informational.
+//* The total number of alerts that are new or have been updated.
+//* The total number of alerts that are open or closed.
+//* The total number of alerts that are related to backup, restore, database, plugin, or system issues.
 
-.Steps
+//.Steps
 
-You should view the alerts often, remediate the alert, or delete them.   
+//You should view the alerts often, remediate the alert, or delete them.   
 
-. From the BlueXP backup and recovery menu, select *Dashboard*.
-. In the Alerts section, slect the alert to view the details.
-. To remediate the alert, select the down arrow next to the alert and select *Resolve* or *Acknowledge*.
-. To delete the alert, select the *Delete* trash can.
+//. From the BlueXP backup and recovery menu, select *Dashboard*.
+//. In the Alerts section, slect the alert to view the details.
+//. To remediate the alert, select the down arrow next to the alert and select *Resolve* or *Acknowledge*.
+//. To delete the alert, select the *Delete* trash can.
 
 
 
@@ -59,33 +70,22 @@ You should view the alerts often, remediate the alert, or delete them.
 
 The Job summary provides the following information: 
 
-* The total jobs completed, running and failed.  
+* The total jobs completed, running or failed.  
 * For each job distribution, you can:
 
 ** Use a filter to show the summary of failed, running and complete based on the number of days, for example, the last 30 days, Last 7 days, last 24 hours, or last 1 year.
 
 ** View details of the failed, running and complete jobs by accessing the Job Monitoring page.
 
-== View the Total Cost of Ownership
+//== View the Total Cost of Ownership
 
-The Total Cost of Ownership (TCO) summary provides the following information:
+//The Total Cost of Ownership (TCO) summary provides the following information:
 
-* The details of infrastructure cost (object storage, API cost, retrieval, egress, ingress, networking) and catalog cost (amount incurred by cataloging the files)
-* Datalocking cost (amount incurred by locking the backups)
-* Licensing (only for PAYGO customers, not available in the Preview version)
+//* The details of infrastructure cost (object storage, API cost, retrieval, egress, ingress, networking) and catalog cost (amount incurred by cataloging the files)
+//* Datalocking cost (amount incurred by locking the backups)
+//* Licensing (only for PAYGO customers, not available in the Preview version)
 
  
-
-== View the System summary
-
-The System summary provides the following information: 
-
-* Number of regions or datacenters
-* Nmber of hosts or VMs discovered
-* Number of backup targets (ONTAP or object storage instances)
-* Number of workloads
-* Number of vCenters 
-* Number of storage clusters (ONTAP)
 
 == View the Restore summary
 
@@ -97,23 +97,23 @@ The Restore summary provides the following information:
 
 
 
-== View the Recommendations
+//== View the Recommendations
 
-The Recommendations section provides intelligent suggestions to help you optimize your backup and recovery environment. For example, the recommendations might suggest that you protect more databases, or that you move backups to a different storage location to improve performance.
+//The Recommendations section provides intelligent suggestions to help you optimize your backup and recovery environment. For example, the recommendations might suggest that you protect more databases, or that you move backups to a different storage location to improve performance.
 
-Here are examples of recommendations that might appear:
+//Here are examples of recommendations that might appear:
 
-* The number of environments that are not protected         
-* Service Leval Agreement (SLA) or SLO is not being met with suggestions on how to fix this
-* Restore jobs are running slowly and how to remediate it by keeping application storage on dedicated volumes or LUNs. 
-* Backups are running slowly due to noisy neighbour issues
-* More coming soon  
+//* The number of environments that are not protected         
+//* Service Leval Agreement (SLA) or SLO is not being met with suggestions on how to fix this
+//* Restore jobs are running slowly and how to remediate it by keeping application storage on dedicated volumes or LUNs. 
+//* Backups are running slowly due to noisy neighbour issues
+//* More coming soon  
 
-== View the Licensing capacity consumption 
+//== View the Licensing capacity consumption 
 
-The Licensing capacity consumption section provides the following information:
+//The Licensing capacity consumption section provides the following information:
 
-* The total capacity consumed by the backup service compared to the total capacity that is licensed.
+//* The total capacity consumed by the backup service compared to the total capacity that is licensed.
 
 
 

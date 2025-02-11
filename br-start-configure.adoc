@@ -19,9 +19,9 @@ After you set up BlueXP, configure the backup and recovery settings. You should 
 * <<Maintain VMware vCenter settings>>.
 * <<Provide StorageGRID credentials>>.
 * <<Import and manage SnapCenter host resources>>.
-* <<Enable the Certificate Authority certificates>>.
+//* <<Enable the Certificate Authority certificates>>.
 * <<Configure log directories in snapshots for Windows hosts>>.
-* Enable DataLock and integrity scanning. 
+//* Enable DataLock and integrity scanning. 
 
 == Add credentials for host resources
 
@@ -82,7 +82,7 @@ image:../media/screen-br-settings-credentials-edit.png[Settings option]
 
 == Maintain VMware vCenter settings 
 
-Provide the VMware vCenter credentials to discover the VMware vCenter Server workloads that you want to back up and apply backup policies. If you don't have existing credentials, you can create them with the required permissions to access and manage the VMware vCenter Server workloads.
+Provide the VMware vCenter credentials to discover the VMware vCenter Server workloads that you want to back up. If you don't have existing credentials, you can create them with the required permissions to access and manage the VMware vCenter Server workloads.
 
 .Steps
 . From the BlueXP backup and recovery menu, select *Settings*.
@@ -103,7 +103,7 @@ image:../media/screen-br-settings-vmware-open.png[Settings option showing the VM
 
 == Provide StorageGRID credentials
 
-Provide the credentials needed to access the StorageGRID system. These credentials are used to discover the StorageGRID workloads that you want to back up and apply backup policies.
+Provide the credentials needed to access the StorageGRID system. These credentials are used to discover the StorageGRID workloads that you want to back up.
 
 
 
@@ -196,7 +196,7 @@ You can change only the port and password details for the SnapCenter Server.
 . From the BlueXP backup and recovery menu, select *Settings*. 
 . Select the down arrow for *Import from SnapCenter*.
 + 
-The Import from SnapCenter page shows all previously imports. 
+The Import from SnapCenter page shows all previous imports. 
 
 + 
 image:../media/screen-br-settings-import-snapcenter-edit.png[Settings option to import SnapCenter Server resources showing previously imported resources]
@@ -209,28 +209,28 @@ image:../media/screen-br-settings-import-snapcenter-edit.png[Settings option to 
 
 
 
-== Enable the Certificate Authority certificates
+//== Enable the Certificate Authority certificates
 
-Enable Certificate Authority (CA) certificates to secure communication among components of the BlueXP backup and recovery system, including the BlueXP Connector, ONTAP, and the SnapCenter plug-in. This ensures that the data transmitted is encrypted and authenticated, protecting against unauthorized access. 
+//Enable Certificate Authority (CA) certificates to secure communication among components of the BlueXP backup and recovery system, including the BlueXP Connector, ONTAP, and the SnapCenter plug-in. This ensures that the data transmitted is encrypted and authenticated, protecting against unauthorized access. 
 
-You can upload the CA certificates for:
+//You can upload the CA certificates for:
 
-* ONTAP: The ONTAP certificate is used to secure communication between the BlueXP Connector and ONTAP.
-* SnapCenter plug-in: The SnapCenter plug-in certificate is used to secure communication between the BlueXP Connector and the SnapCenter plug-in.
+//* ONTAP: The ONTAP certificate is used to secure communication between the BlueXP Connector and ONTAP.
+//* SnapCenter plug-in: The SnapCenter plug-in certificate is used to secure communication between the BlueXP Connector and the SnapCenter plug-in.
 
-.Steps
-. From the BlueXP backup and recovery menu, select *Settings*.
-+
-image:../media/screen-br-settings-certificates.png[Settings option]
-. Select the down arrow for *Enable CA certificates*.
+//.Steps
+//. From the BlueXP backup and recovery menu, select *Settings*.
+//+
+//image:../media/screen-br-settings-certificates.png[Settings option]
+//. Select the down arrow for *Enable CA certificates*.
 
-. Enter information for the ONTAP or plug-in certificates: 
-* *ONTAP*: Select *Upload* for the ONTAP certificate. Locate and select the certificate file.
-* *SnapCenter plug-in*: Select *Upload* for the SnapCenter plug-in certificate. Locate and select the certificate file.
+//. Enter information for the ONTAP or plug-in certificates: 
+//* *ONTAP*: Select *Upload* for the ONTAP certificate. Locate and select the certificate file.
+//* *SnapCenter plug-in*: Select *Upload* for the SnapCenter plug-in certificate. Locate and select the certificate file.
 
-. Locate and select the certificate file.
+//. Locate and select the certificate file.
 
-. Select *Save*.
+//. Select *Save*.
 
 == Configure log directories in snapshots for Windows hosts
 
@@ -255,15 +255,15 @@ image:../media/screen-br-inventory-configure-log.png[Configure log screen]
 
 
 
-== Configure buckets in working environments
+//== Configure buckets in working environments
 
-Using the BlueXP backup and recovery Advanced Settings options, you can configure buckets in working environments. Buckets are the storage locations where you store your backup data. You should configure these settings when you first begin using BlueXP backup and recovery.   
+//Using the BlueXP backup and recovery Advanced Settings options, you can configure buckets in working environments. Buckets are the storage locations where you store your backup data. You should configure these settings when you first begin using BlueXP backup and recovery.   
 
-You can configure the following settings:   
+//You can configure the following settings:   
 
-* Enable DataLock on a bucket
-* Enable integrity scanning on a bucket
-* Set the scan interval between 1 and 7 days
+//* Enable DataLock on a bucket
+//* Enable integrity scanning on a bucket
+//* Set the scan interval between 1 and 7 days
 
-NOTE: These features are not available in the Preview 2025 version.  
+//NOTE: These features are not available in the Preview 2025 version.  
 

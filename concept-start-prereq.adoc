@@ -30,12 +30,12 @@ To use BlueXP backup and recovery, you need the following host system, space, an
 | Microsoft Windows
 For the latest information about supported versions, see the https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome[NetApp Interoperability Matrix Tool^].
 
-| SnapCenter host version | SnapCenter host version 5.0 or greater is required if you are going to import your existing data from SnapCenter into BlueXP backup and recovery.
+| SnapCenter Server version | SnapCenter Server version 5.0 or greater is required if you are going to import your existing data from SnapCenter into BlueXP backup and recovery.
 
-| Minimum RAM for the SnapCenter plug-in on the host
+| Minimum RAM for the plug-in on the host
 | 1 GB
 
-| Minimum install and log space for the SnapCenter plug-in on the host
+| Minimum install and log space for the plug-in on the host
 | 5 GB
 
 Allocate sufficient disk space and monitor the storage consumption by the logs folder. The log space required varies depending on the number of backups performed and the frequency of data protection operations. If there is not sufficient space, the logs will not be created for the operations. 
@@ -119,28 +119,3 @@ Refer to the https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissi
 Refer to link://concept-start-setup.html[How to set up backup destinations].
 
 
-//* An on-premises SnapCenter server must be accessible from the BlueXP Connector.
-
-//== Update non-admin user permissions in an ONTAP working environment
-
-//If you need to update non-admin user permissions for a particular working environment, complete these steps. 
-
-
-//.  Log in to BlueXP and look for the working environment that needs its ONTAP user permissions updated. 
-
-//. Double-click on the working environment to see details. 
-//. Click *View additional information* that shows the user name. 
-//. Log in to the ONTAP cluster CLI using the admin user. 
-//. Display the existing roles for that user. Enter: 
-//+
-//----
-//security login show -user-or-group-name <username>
-//----
-
-//. Change the role for the user. Enter: 
-//+
-//----
-//security login modify -user-or-group-name <username> -application console|http|ontapi|ssh|telnet -authentication-method password -role admin
-//----
-
-//. Go to the BlueXP backup and recovery UI to use it. 

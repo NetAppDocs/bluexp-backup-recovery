@@ -17,38 +17,7 @@ You can use the default backup policies provided by BlueXP backup and recovery t
 
 //This used to be the topic for Manage backup policies for ONTAP volumes. Recasting this for MS SQL Server apps. 
 
-When you use the activation wizard to enable the backup and recovery service for your volumes, you can select from the default policies and any other policies that already exist in the working environment (Cloud Volumes ONTAP or on-premises ONTAP system). If you want to use a policy different than those existing policies, you can create the policy before or while you use the activation wizard.
 
-To learn about the default backup policies provided, refer to link:concept-protection-journey.html[Plan your protection journey].
-
-BlueXP backup and recovery provides three types of backups of ONTAP data: snapshots to local primary storage, replications to secondary storage, and backups to object storage. Their policies reside in different locations based on the architecture that you use and the type of backup: 
-
-
-[cols=4*,options="header",cols="25,25,25,25",width="100%"]
-|===
-| Architecture
-| Snapshot policy storage location
-| Replication policy storage location
-| Backup to object policy storage location
-
-| *Fan-out* | 
-Primary |
-Secondary |
-Primary 
-| *Cascade* | 
-Primary |
-Secondary |
-Secondary |
-
-|===
-
-//Create backup policies using the following tools depending on your environment, your preferences, and the protection type: 
-
-//* BlueXP UI
-//* System Manager UI
-//* ONTAP CLI
-
-//TIP: When using System Manager, select *Asynchronous* as the policy type for replication policies, and select *Asynchronous* and *Back up to cloud* for backup-to-object policies.
 
 == View policies 
 
@@ -56,7 +25,7 @@ Secondary |
 +
 image:screen-br-policies.png["Policies page"]
 
-. Review these policy details. For explanations of architecture and ransomware protection, refer to link:concept-cloud-backup-policies.html[Backup-to-object policy options]. 
+. Review these policy details. 
 
 * *Workload*: Examples include Oracle, SQL Server, and Volumes. 
 +
@@ -69,15 +38,7 @@ NOTE: For the Preview 2025 version, only the "SQL Server" backup type is availab
 
 == Create a policy
 
-You can create policies that govern your snapshots, replications and backups to object storage: 
-
-//* <<Create a snapshot policy before initiating a snapshot>>
-//* <<Create a replication policy before initiating replication>>
-//* <<Create a backup-to-object-storage policy before initiating a backup>>
-
-//=== Create a snapshot policy before initiating a snapshot
-
-Part of your 3-2-1 strategy involves creating a snapshot copy of the volume on the *primary* storage system. Part of the policy creation process involves identifying snapshot and SnapMirror labels that denote the schedule and retention. You can use predefined labels or create your own. 
+You can create policies that govern your snapshots, replications and backups to object storage. Part of your 3-2-1 strategy involves creating a snapshot copy of the MS SQL Server instances or databases on the *primary* storage system. 
 
 .Steps
 . In the BlueXP UI, select *Policies*.
@@ -94,8 +55,7 @@ NOTE: For the Preview 2025 version, only the "SQL Server" backup type is availab
 ** Enter a policy name.
 
 * *Backup architecture* section: Select the down arrow and choose the architecture for the backup, such as fan-out, cascading, and disk to disk. 
-+
-TIP: For explanations of architecture and ransomware protection, refer to link:concept-cloud-backup-policies.html[Backup-to-object policy options]. 
+
 
 ** *Local snapshot*: Local snapshot on the selected volume. Local snapshots are a key component of data protection strategies, capturing the state of your data at specific points in time. Local snapshots are created using the Snapshot technology, which provides point-in-time copies of your data without impacting performance. This creates read-only, point-in-time copies of production volumes where your workloads are running. The snapshot consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last snapshot. You can use local snapshots to recover from data loss or corruption, as well as to create backups for disaster recovery purposes.
 ** *3-2-1 fanout*: Primary storage (disk) to secondary storage (disk) to coud (object store). Creates multiple copies of data across different storage systems, such as ONTAP to ONTAP and ONTAP to object-store configurations. These configurations help in achieving optimal data protection and disaster recovery.
@@ -104,9 +64,8 @@ TIP: For explanations of architecture and ransomware protection, refer to link:c
 ** *Disk to object store*: Primary storage (disk) to cloud (object store). Replicates data from an ONTAP system to an object storage system, such as AWS S3, Azure Blob Storage, or Google Cloud Storage. This is typically achieved using SnapMirror Cloud, which provides incremental forever backups by transferring only changed data blocks after the initial baseline transfer. This method is ideal for long-term data retention and archiving, offering a cost-effective and scalable solution for data protection.
 ** *Disk to disk fanout*: Primary storage (disk) to secondary storage (disk)  and primary storage (disk) to secondary storage (disk).
 
-** *3-2-1-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary (disk) to cloud (object store)  (Multiple object storage) 
-+
-NOTE: This feature is not available in the Preview 2025 version.
+//** *3-2-1-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary (disk) to cloud (object store)  (Multiple object storage) 
+
 
 === Create a local snapshot policy 
 Provide information for the local snapshot.
@@ -114,23 +73,30 @@ Provide information for the local snapshot.
 * Select the *Add schedule* option to select the snapshot schedule or schedules. You can have a maximum of 5 schedules.  
 * *Snapshot frequency*: Select the frequency of hourly, daily, weekly, monthly, or yearly. 
 * *Retention*: Enter the number of snapshots to keep.
-* *Enable log backup*: Check the option to back up logs. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
-* Select whether you want to enable tamper-proof snapshots. 
+* *Enable log backup*: Check the option to back up logs and set the frequency and retention of the log backups. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
 
-=== Create a policy for replication to secondary storage
+* Optionally, select *Advanced* to set the SnapMirror label and enable snapshot locking: 
+
+** *SnapMirror label*: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship. Applying a label to a snapshot marks it as a target for SnapMirror replication.
+** *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. Enabling this option ensures that the snapshots cannot be deleted or altered until the specified retention period has expired. This feature is crucial for protecting your data against ransomware attacks and ensuring data integrity.         
+
+=== Create a policy for secondary settings (replication to secondary storage)
 Provide information for the replication to secondary storage. 
 
-* Select the frequency of hourly, daily, weekly, monthly, or yearly. 
-* Enter when and how often the replication will occur.
+* *Backup*: Select the frequency of hourly, daily, weekly, monthly, or yearly. 
+* *Backup target*: Select the target system on secondary storage for the backup.
+* *Retention*: Enter the number of snapshots to keep.
+
 * *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. 
 * *Snapshot locking period*: Enter the number of days, months, or years that you want to lock the snapshot.
 * *Transfer to secondary*: Select the type of transfer to secondary storage:
+** *Inline*: Data is transferred to the secondary storage system immediately.
 ** *Schedule*: Data is transferred to the secondary storage system at a later time as defined by the schedule. 
 +
 NOTE: This feature is not available in the Preview 2025 version.
-** *Inline*: Data is transferred to the secondary storage system immediately.
 
-=== Create a policy for object storage
+
+=== Create a policy for object storage settings
 
 Provide information for the backup to object storage.
 
@@ -181,49 +147,23 @@ NOTE: This feature is not available in the Preview 2025 version.
 * *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 
 
-//SnapMirror labeling: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship.
-Applying a label to a snapshot marks it as a target for SnapMirror replication.
 
-=== Snapshot verification policy
-Provide information on how you want the snapshot to be verified: 
 
-* Storage location: Select the location where the verification snapshot will be stored.
-* Verification resource: Select whether the resource that you want to verify is on the local snapshot and on ONTAP secondary storage. 
-* Verification schedule: Select the frequency of hourly, daily, weekly, monthly, or yearly.
 
-=== Include pre and post-backup scripts in the policy
-
-Provide information on the scripts that you want to run before and after the backup.
-
-* *Post-script*: Enter your script filename and location to run it  automatically after the protection action is complete. This is helpful for performing additional tasks or configurations that need to be executed after the protection workflow.
-* *Pre-script*: Enter your script filename and location to run it automatically before the protect action is triggered. This is helpful for performing additional tasks or configurations that need to be executed before the protection workflow.
 
 === Configure advanced settings in the policy 
 
 * *Copy only backup*: Choose whether you want a full backup (includes transactional logs), log or transaction-only backup, or a copy-only backup (a type of MS SQL Server backup). 
-* *Export existing snapshot copies*: Indicate whether you want to export historical snapshot copies to object storage as backup files and include them in your initial baseline backup files for future volumes. This helps you initialize your backups in the cloud by moving older snapshots into the baseline backup copy. 
-* *Maximum transfer rate*: Select the network bandwidth between 1 and 1,000 Mbps allocated to upload backups to object storage. By default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice backup traffic is affecting normal user workloads, consider decreasing the amount of network bandwidth that is used during the transfer. 
-* *Yearly snapshot deletion*: Select whether you want yearly snapshots removed from the source system. Yearly backups are very large. By default, yearly snapshots are deleted automatically from the source system after being transferred to object storage. 
-* *Integrity scan*: To protect your backups from being modified or deleted, select the *Integrity scan* option. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest snapshot. You can enable or disable integrity scans on the latest snapshot. 
-+
-TIP: Enabling scans will incur extra charges, depending on the cloud provider. 
+//* *Export existing snapshot copies*: Indicate whether you want to export historical snapshot copies to object storage as backup files and include them in your initial baseline backup files for future volumes. This helps you initialize your backups in the cloud by moving older snapshots into the baseline backup copy. 
+//* *Maximum transfer rate*: Select the network bandwidth between 1 and 1,000 Mbps allocated to upload backups to object storage. By default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice backup traffic is affecting normal user workloads, consider decreasing the amount of network bandwidth that is used during the transfer. 
+//* *Yearly snapshot deletion*: Select whether you want yearly snapshots removed from the source system. Yearly backups are very large. By default, yearly snapshots are deleted automatically from the source system after being transferred to object storage. 
+//* *Integrity scan*: To protect your backups from being modified or deleted, select the *Integrity scan* option. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest snapshot. You can enable or disable integrity scans on the latest snapshot. 
+//+
+//TIP: Enabling scans will incur extra charges, depending on the cloud provider. 
 
-* *Availability group settings*: Select preferred backup replicas or specify a particular replica.
-* *Backup retries*: Enter the maximum number of backup retries and the retry interval. 
+//* *Availability group settings*: Select preferred backup replicas or specify a particular replica.
+//* *Backup retries*: Enter the maximum number of backup retries and the retry interval. 
 
-
-*Snapshot policy example using cascading architecture*
-
-This example creates a snapshot policy with two clusters: 
-
-. Cluster 1: 
-.. Select Cluster 1 on the Policy page.
-..  Ignore the Secondary and Backup to Object store sections. 
-.. Create the snapshot policy. 
-. Cluster 2: 
-.. Select Cluster 2 on the Policy page.
-.. Ignore the snapshot policy section. 
-.. Configure the secondary and object store policies. 
 
 
 
@@ -231,7 +171,6 @@ This example creates a snapshot policy with two clusters:
 
 You can edit a custom snapshot, replication, or backup policy. 
 
-Changing the backup policy affects all volumes that are using that policy. 
 
 .Steps
 
@@ -244,22 +183,12 @@ NOTE: The process is the same for replication and backup policies.
 
 == Delete a policy 
 
-You can delete policies that are not associated with any volumes. 
+You can delete policies that are not associated with schedules. 
 
-If a policy is associated with a volume and you want to delete the policy, you must remove the policy from the volume first. 
 
 .Steps
 
 . In the Policies page, select the policy, select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete policy*.
 . Select *Delete*. 
 
-== Find more information
 
-For instructions on creating policies using System Manager or ONTAP CLI, see the following: 
-
-https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html[Create a snapshot policy using System Manager^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html[Create a snapshot policy using the ONTAP CLI^]
-https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html[Create a replication policy using System Manager^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html[Create a replication policy using the ONTAP CLI^]
-https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy[Create a backup to object storage policy using System Manager^]
-https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description[Create a backup to object storage policy using the ONTAP CLI^]

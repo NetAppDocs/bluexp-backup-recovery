@@ -47,7 +47,7 @@ You can suspend schedules to stop the backup and restore operations for a host. 
 . In the confirmation dialog box, select *Suspend*.
 
 
-=== Edit host
+=== Edit a host
 
 You can change the vCenter server information, host registration credentials, and advanced settings options. 
 
@@ -59,7 +59,7 @@ You can change the vCenter server information, host registration credentials, an
 image:screen-br-inventory-hosts-edit.png[Edit host]
 . Edit the host information.
 
-=== Delete host
+=== Delete a host
 
 You can delete the host information to stop service charges.
 
@@ -68,15 +68,15 @@ You can delete the host information to stop service charges.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete host*.
 . Review the confirmation information and select *Delete*.
 
-=== Reinstall the SnapCenter plug-in
+//=== Reinstall the plug-in
 
-You can reinstall the SnapCenter plug-in to if the plug-in is not working correctly.
+//You can reinstall the plug-in if the plug-in is not working correctly.
 
-NOTE: This option is not available in the Preview release.  
+//NOTE: This option is not available in the Preview release.  
 
-. In BlueXP backup and recovery, select *Inventory*.
-. Select the host that you want to reinstall the plug-in for.
-. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Reinstall plug-in*.
+//. In BlueXP backup and recovery, select *Inventory*.
+//. Select the host that you want to reinstall the plug-in for.
+//. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Reinstall plug-in*.
 
 
 == Manage instances information 
@@ -99,6 +99,18 @@ You can assign a policy to a database instance using policies that govern the sc
 . Select the instance. 
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Protect*.
 . Select a policy or create a new one. For details, refer to link://task-create-policies-ontap.adoc[Create a policy].
+
+. Provide information on the scripts that you want to run before and after the backup.
+
+* *Post-script*: Enter your script filename and location to run it  automatically after the protection action is complete. This is helpful for performing additional tasks or configurations that need to be executed after the protection workflow.
+* *Pre-script*: Enter your script filename and location to run it automatically before the protect action is triggered. This is helpful for performing additional tasks or configurations that need to be executed before the protection workflow.
+
+
+. Provide information on how you want the snapshot to be verified: 
+
+* Storage location: Select the location where the verification snapshot will be stored.
+* Verification resource: Select whether the resource that you want to verify is on the local snapshot and on ONTAP secondary storage. 
+* Verification schedule: Select the frequency of hourly, daily, weekly, monthly, or yearly.
 
 === Associate credentials with a resource 
 
@@ -186,12 +198,12 @@ For details about creating a policy, refer to link://task-create-policies-ontap.
 
 === Back up now 
 
-You can back up your database now to ensure that your data is protected immediately.
+You can back up your MS SQL Server instances and databases now to ensure that your data is protected immediately.
 
 . In BlueXP backup and recovery, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Databases* tab. 
 . Select the database. 
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Back up now*.
-+
-For details about creating an ad hoc backup, refer to link://br-use-backup-mssql.adoc[Create a policy].
+
+

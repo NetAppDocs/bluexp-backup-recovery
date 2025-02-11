@@ -13,9 +13,9 @@ summary: The BlueXP backup and recovery service needs to first discover data in 
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes all volumes and files in working environments within your organization. 
+The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes MS SQL Server instances and databases in working environments within your organization. 
 
-For the Preview 2025 version, BlueXP backup and recovery assesses Microsoft SQL Server applications. The service assesses the existing protection level including the current backup protection, Snapshot copies, and backup and recovery options. 
+For the Preview 2025 version, BlueXP backup and recovery assesses Microsoft SQL Server applications. The service assesses the existing protection level including the current backup protection, snapshot copies, and backup and recovery options. 
 
 For the Preview version, discovery occurs in the following ways: 
 
@@ -23,7 +23,7 @@ For the Preview version, discovery occurs in the following ways:
 * If you don't have SnapCenter aleady, you can discover workloads in your working environments.
 
 
-//NOTE: Workloads with volumes that use FlexGroup or iSCSI will not be discovered. 
+
 
 == If SnapCenter is already installed, import SnapCenter resources into BlueXP backup and recovery
 
@@ -144,10 +144,10 @@ image:screen-br-discover-workloads.png[Discover workload resources screenshot]
 . *Workload type*: For Preview, only Microsoft SQL Server is available.   
 . *vCenter settings*: Select an existing vCenter or add a new one. To add a new vCenter, enter the vCenter FQDN or IP address, user name, password, port, and protocol.
 +
-TIP: If you added or entered vCenter information here, you also need to add SnapCenter plugin information in Advanced Settings. 
+TIP: If you are entering vCenter information, enter information for both vCenter settings and Host registration. If you added or entered vCenter information here, you also need to add plugin information in Advanced Settings. 
 . *Host registration*:  Select *Add hosts* and enter information about the hosts containing the workloads you want to discover.
 +
-NOTE: The bulk host add option is not available for the Preview 2025 version.
+TIP: If you are adding a standalone server and not a vCenter server, enter only the host information.  
 
 
 . Select *Discover*. 
@@ -165,11 +165,11 @@ link:br-use-dashboard.html[Learn what the Dashboard shows you.]
 
 
 
-=== Set Advanced settings options during discovery and install the SnapCenter plugin
+=== Set Advanced settings options during discovery and install the plugin
 
-With Advanced Settings, you can manually install the SnapCenter plugin agent on all servers being registered. This enables you to  import all SnapCenter workloads into BlueXP backup and recovery so you can manage backups and restores there. BlueXP backup and recovery shows the steps needed to install the plugin. 
+With Advanced Settings, you can manually install the plugin agent on all servers being registered. This enables you to  import all SnapCenter workloads into BlueXP backup and recovery so you can manage backups and restores there. BlueXP backup and recovery shows the steps needed to install the plugin. 
 
-If you entered vCenter information during discovery, you need to add SnapCenter plugin information in Advanced Settings.
+If you entered vCenter information during discovery, you need to add plugin information in Advanced Settings.
 
 
 .Steps
@@ -180,12 +180,12 @@ If you entered vCenter information during discovery, you need to add SnapCenter 
 +
 image:screen-br-discover-workloads-newly-discovered.png[Newly discovered working environments screenshot]
 . From the Discover workload resources page, select *Advanced settings*. Enter the following information. 
-* *Input plugin port number*: Enter the port number that the SnapCenter plugin uses.
-* *Installation path*: Enter the path where the SnapCenter plugin will be installed. 
+* *Input plugin port number*: Enter the port number that the plugin uses.
+* *Installation path*: Enter the path where the plugin will be installed. 
 +
 image:screen-br-discover-workloads-advanced-settings.png[Discover resources Advanced settings screenshot]
 . If you want to install the SnapCenter agent manually, check the following options:
-* *Use manual installation*: Check this to install the SnapCenter plugin manually.   
+* *Use manual installation*: Check this to install the  plugin manually.   
 * *Use Group Managed Service Account (gMSA)*: If you use a specific third-party gMSA account to manage host credentials, check this. 
 * *Add all hosts in the cluster*: Check this to add all hosts in the cluster.
 * *Skip optional preinstall checks*: Check this to skip optional preinstall checks. You might want to do this for example, if you know that memory or space considerations will be changed in the near future and you want to install the plugin now.
@@ -210,9 +210,15 @@ image:screen-br-discover-workloads-newly-discovered.png[Newly discovered working
 TIP: This process might take a few minutes.
 . *vCenter settings*: Select an existing vCenter or add a new one. To add a new vCenter, enter the vCenter FQDN or IP address, user name, password, port, and protocol. 
 +
-TIP: If you added or entered vCenter information here, you also need to add SnapCenter plugin information in Advanced Settings. 
-. *Host registration*: Not available for the Preview 2025 version.
+TIP: If you are entering vCenter information, enter information for both vCenter settings and Host registration. If you added or entered vCenter information here, you also need to add plugin information in Advanced Settings. 
+. *Host registration*: Select *Add hosts* and enter information about the hosts containing the workloads you want to discover.  
++
+TIP: If you are adding a standalone server and not a vCenter server, enter only the host information. 
 image:screen-br-discover-hosts.png[Discover workload resources showing Hosts registration section]
+
 . To add credentials for the host, select *Add credentials* in the Host registration section. 
 
+ 
+
+ 
 
