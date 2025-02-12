@@ -38,7 +38,16 @@ NOTE: For the Preview 2025 version, only the "SQL Server" backup type is availab
 
 == Create a policy
 
-You can create policies that govern your snapshots, replications and backups to object storage. Part of your 3-2-1 strategy involves creating a snapshot copy of the MS SQL Server instances or databases on the *primary* storage system. 
+You can create policies that govern your snapshots, replications to secondary storage, and backups to object storage. Part of your 3-2-1 strategy involves creating a snapshot copy of the MS SQL Server instances or databases on the *primary* storage system. 
+
+.Before you begin
+
+If you plan on replicating to secondary storage and want to use snapshot locking on local snapshots or on remote ONTAP secondary storage, you first need to initialize the ONTAP compliance clock on the cluster level. This is a requirement for enabling snapshot locking in the policy.
+
+For instructions on how to do this, refer to https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html[Initialize the compliance clock in ONTAP^].
+
+For information about snapshot locking in general, refer to https://docs.netapp.com/us-en/ontap/snaplock/snapshot-lock-concept.html[Snapshot locking in ONTAP^].
+
 
 .Steps
 . In the BlueXP UI, select *Policies*.
