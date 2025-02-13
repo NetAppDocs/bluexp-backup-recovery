@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: br-use-manage-inventory.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
-summary: You can back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID, ensuring that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
+summary: BlueXP backup and recovery enables you to manage your workload host information, database information, and instances information. You can view, edit, and delete protection settings for your inventory.  
 ---
 
 = Manage inventory 
@@ -13,29 +13,39 @@ summary: You can back up Microsoft SQL Server applications data from on-premises
 :imagesdir: ./media/
 
 [.lead]
-BlueXP backup and recovery enables you to manage your workload inventory. You can view, edit, and delete protection settings for your inventory.      
+BlueXP backup and recovery enables you to manage your workload host information, database information, and instances information. You can view, edit, and delete protection settings for your inventory.      
 
 You can accomplish the following tasks related to managing your inventory: 
 
-* Suspend schedules
-* Edit or delete hosts
-* Associate credentials with a resource
-* Start an on-demand backup
-* Edit protection settings
-* Configure log directory (from Inventory > Hosts). If you want to back up logs for your database hosts in the snapshot, first configure the logs in BlueXP backup and recovery. For details, refer to link://br-start-setup.adoc[Configure BlueXP backup and recovery settings].  
-* Delete protection from a workload
+* Manage host information
+** Suspend schedules
+** Edit or delete hosts
+
+* Manage instances information 
+** Associate credentials with a resource
+** Back up now by starting an on-demand backup
+** Edit protection settings
+
+* Manage database information
+** Protect databases
+** Restore databases
+** Edit protection settings
+** Back up now by starting an on-demand backup  
+
+* Configure the log directory (from Inventory > Hosts). If you want to back up logs for your database hosts in the snapshot, first configure the logs in BlueXP backup and recovery. For details, refer to link://br-start-setup.adoc[Configure BlueXP backup and recovery settings].  
+
 
 
 == Manage host information 
 
 You can manage host information to ensure that the right hosts are protected. You can view, edit, and delete host information.  
 
-* Manage hosts (Not available) 
+
 * Configure log directory. For details, refer to link://br-start-setup.adoc[Configure BlueXP backup and recovery settings]. 
 * Suspend schedules 
-* Edit host
-* Delete host 
-* Reinstall plug-in
+* Edit a host
+* Delete a host 
+
 
 === Suspend schedules 
 

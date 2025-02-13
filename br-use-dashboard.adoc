@@ -28,14 +28,14 @@ image:../media/screen-br-dashboard.png[Dashboard page showing the protection sum
 The System summary provides the following information: 
 
 * Nmber of hosts or VMs discovered
-* Number of backup targets (ONTAP or object storage instances)
+* Number of backup targets on object storage 
 * Number of vCenters 
-* Number of storage clusters (ONTAP)
+* Number of storage clusters in ONTAP
 
 
 == View the Protection summary
 
-The Protection summary provides the following information: 
+Review the following information in the Protection summary: 
 
 * The total number of protected and unprotected databases. 
 +
@@ -68,14 +68,13 @@ TIP: A protected database is one that has a backup. An unprotected database is o
 
 == View the Job summary
 
-The Job summary provides the following information: 
+Reivew the total jobs completed, running or failed in the Job summary.  
 
-* The total jobs completed, running or failed.  
-* For each job distribution, you can:
+.Steps 
 
-** Use a filter to show the summary of failed, running and complete based on the number of days, for example, the last 30 days, Last 7 days, last 24 hours, or last 1 year.
+. For each job distribution, change a filter to show the summary of failed, running and complete based on the number of days, for example, the last 30 days, Last 7 days, last 24 hours, or last 1 year.
 
-** View details of the failed, running and complete jobs by accessing the Job Monitoring page.
+. View details of the failed, running and complete jobs by selecting *View job monitoring*.
 
 //== View the Total Cost of Ownership
 
@@ -89,10 +88,10 @@ The Job summary provides the following information:
 
 == View the Restore summary
 
-The Restore summary provides the following information: 
+Review the following information on the Restore summary: 
 
 * The total number of restore jobs performed
-* The total amount of caapcity that has been restored
+* The total amount of capacity that has been restored
 * The number of restore jobs performed on local, secondary, and object storage. Hover over the chart to see the details.
 
 
