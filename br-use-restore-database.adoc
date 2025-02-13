@@ -57,7 +57,7 @@ When you restore workloads, the following occurs:
 
 * When you restore from a replicated workload, you can restore the workload to the original working environment or to a Cloud Volumes ONTAP or on-premises ONTAP system.
 +
-image:diagram_browse_restore_volume.png["A diagram that shows the flow to perform a volume restore operation using Browse & Restore."]
+image:diagram_browse_restore_volume-unified.png["A diagram that shows the flow to restore a resource"]
 
 * When you restore a backup from object storage, you can restore the data to the original working environment, to a different working environment that's located in the same cloud account as the source working environment, or to an on-premises ONTAP system.
 
@@ -70,9 +70,7 @@ When you restore a cloud backup to a Cloud Volumes ONTAP system using ONTAP 9.13
 
 == Restore workload data
 
-Restoring database workloads is available in the Preview 2025 version of BlueXP backup and recovery. 
-
-You can restore workloads using the following strategies: 
+Restore database workloads. You can restore workloads using the following strategies: 
 
 * Restore workloads from snapshots
 * Restore to specific point in time

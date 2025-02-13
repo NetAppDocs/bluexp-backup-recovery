@@ -22,7 +22,7 @@ Backups of your data are available for restore from the locations where you crea
 You can restore workloads from different starting locations: 
 
 * Restore from a snapshot copy
-* Restore from a replicated volume
+* Restore from a replicated resource
 * Restore from an object store backup
 
 .Restore to these points   
