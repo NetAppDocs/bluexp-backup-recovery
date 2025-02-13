@@ -13,17 +13,15 @@ summary: Back up Microsoft SQL Server applications data from on-premises ONTAP s
 :imagesdir: ./media/
 
 [.lead]
-Back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
+Back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, and StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 
-You can accomplish the following goals:
+TIP: To back up workloads on a schedule, you create policies that govern the backup and restore operations. See link:task-create-policies-ontap.html[Create policies] for more information.
 
-* Before you back up data, view the current workload protection status and configure how you want logs to be backed up. 
-* Back up workloads with local snapshots to local ONTAP primary storage using policies.
-* Replicate snapshots to ONTAP secondary storage using policies.    
-* Back up workloads to an object store location using policies.
-* Back up workloads now with ad hoc backups.  
+In addition to backing up workloads using policies, you can accomplish the following protection goals:
 
-TIP: To back up workloads, typically you create a schedule using policies that govern the backup and restore operations. See link:task-create-policies-ontap.html[Create policies] for more information.
+* Configure logs for discovered hosts before you initiate a backup. 
+
+* Back up workloads now (create an on-demand backup now).  
 
 
 
@@ -55,7 +53,7 @@ image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recover
 . Select a workload to view the protection details. 
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
 +
-image:screen-br-inventory-details-configurelog-option.png[Inventory details page screenshot showing the Actions menu for BlueXP backup and recovery]
+image:screen-br-inventory-details-configurelog-option.png[Configure log screen]
 . Provide the host path or browse through a list of hosts or nodes hosts on the host.
 . Select those on which you want logs. 
 +
@@ -64,9 +62,9 @@ NOTE: The fields that appear differ depending on the selected deployment model, 
 
 
 
-== Back up workloads now with ad hoc backups 
+== Back up workloads now with an on-demand backup
 
-Ad hoc backups are backups that you can run immediately. You might want to run an ad hoc backup if you're about to make changes to your system and want to ensure that you have a backup before you start.
+Create an on-demand backup immediately. You might want to run an on-demand backup if you're about to make changes to your system and want to ensure that you have a backup before you start.
 
 .Steps 
 
@@ -75,30 +73,18 @@ Ad hoc backups are backups that you can run immediately. You might want to run a
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
 . Select a workload to view the protection details. 
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
-+
-image:screen-br-inventory-details-configurelog-option.png[Inventory details page screenshot showing the Actions menu for BlueXP backup and recovery]
+. Select the *Instances* or *Databases* tab. 
+. Select the instance or database you want to back up.
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *Back up now*.
 
 . Select the backup type:
 ** *Full backup*: Backs up workloads and logs.
 ** *Log backup*: Backs up only the logs. To choose a log backup, you must have already configured a log backup location. See link:br-use-backup-mssql.html#configure-logs-for-discovered-hosts[Configure logs for discovered hosts] for more information.
 
-. Select the tier. 
+
 . Select *Back up now*.
 
-== Suspend the backup schedule
-Suspending the schedule prevents the backup from running at the scheduled time temporarily. You might want to do this if you're performing maintenance on the system or if you're experiencing issues with the backup.
+//== Suspend the backup schedule
 
-NOTE: This feature is not available in Preview mode. 
+//Suspending the schedule prevents the backup from running at the scheduled time temporarily. You might want to do this if you're performing maintenance on the system or if you're experiencing issues with the backup.
 
-.Steps 
-
-. From the menu, select *Inventory*. 
-+
-image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
-. Select a workload to view the protection details. 
-. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
-+
-image:screen-br-inventory-details-configurelog-option.png[Inventory details page screenshot showing the Actions menu for BlueXP backup and recovery]
-. Select the Actions icon image:../media/icon-action.png[Actions option] > *Suspend schedule*.
-. Select *Save*.

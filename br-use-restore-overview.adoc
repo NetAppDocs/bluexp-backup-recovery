@@ -29,9 +29,9 @@ You can restore workloads from different starting locations:
 
 You can restore data to the latest snapshot or to these points: 
 
-* Restore from latest snapshot 
-* Restore to a point in time
-* Restore to the latest state 
+* Restore from snapshots
+* Restore to a specific point in time. This is helpful if you know the name and location of the file, and the date when it was last in good shape. 
+* Restore to the latest backup 
 
 == Restore methods
 
