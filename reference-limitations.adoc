@@ -17,6 +17,19 @@ Known limitations identify functions that are not supported by this release of t
 
 == Backup and restore limitations for ONTAP volumes
 
+
+* BlueXP backup and recovery backing up Cloud Volume ONTAP to an object store in the AWS China regions (including Beijing and Ningxia); however, you might need to manually modify Identity and Access Management (IAM) policies first. 
++
+For details about creating a Connector in AWS, refer to https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html[Installing a Connector in AWS^]. 
++
+For additional details in a blog post, refer to 
+https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feature-Blog-May-23-Updates/ba-p/444052[BlueXP backup and recovery Feature Blog May 2023^].
+
+
+* BlueXP backup and recovery does not support Microsoft Azure China regions.
++
+For details about creating a Connector in Azure, refer to https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-azure-bluexp.html[Installing a Connector in Azure^].
+
 === Replication limitations
 
 * You can select only one FlexGroup volume at a time for replication. You'll need to activate backups separately for each FlexGroup volume.
@@ -48,6 +61,7 @@ There is no limitation for FlexVol volumes - you can select all FlexVol volumes 
 * SVM-DR volume backup is supported with the following restrictions:
 ** Backups are supported from the ONTAP secondary only.
 ** The Snapshot policy applied to the volume must be one of the policies recognized by BlueXP backup and recovery, including daily, weekly, monthly, etc. The default "sm_created" policy (used for *Mirror All Snapshots*) is not recognized and the DP volume will not be shown in the list of volumes that can be backed up.
+** SVM-DR and volume backup and recovery work fully independently when the backup is taken from either the source or destination. The only restriction is that SVM-DR does not replicate the SnapMirror cloud relationship. In the DR scenario when the SVM goes online in the secondary location, you must manually update the SnapMirror cloud relationship.
 
 //* MetroCluster (MCC) backup is supported from ONTAP secondary only: MCC > SnapMirror > ONTAP > Cloud Backup > object storage.
 * MetroCluster support:
