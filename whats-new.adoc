@@ -23,7 +23,7 @@ This BlueXP backup and recovery release includes the following updates.
 include::_whatsnew/2025-02-18.adoc[]
 
 == 18 November 2024
-W
+
 This BlueXP backup and recovery release includes the following updates.
 //v3.0.8
 

@@ -16,9 +16,7 @@ Here’s a breakdown of the improvements:
 * *Improved concurrency*: The new version makes it possible to delete or move directories at the same time, speeding up the indexing process.
 
 .Who benefits from this feature?
-The new indexing feature is available for all new customers.
-
-If you are an existing customer and want to use the new indexing feature, you need to perform a full re-indexing of all your snapshots.
+The new indexing feature is available to all new customers.
 
 
 .How do you enable indexing?  
@@ -48,17 +46,9 @@ This release also includes enhancements to global search performance. You will n
 
 Note these considerations related to global search: 
 
-* Global search improvements are fully supported only after the re-indexing process is complete.
 
 * The new index is not performed on snapshots labeled as hourly. 
+
 * The new indexing feature works only on snapshots on FlexVols, and not for snapshots on FlexGroups. 
 
 
-=== Indexing status in the UI
-
-This release enhances the visibility of indexing statuses in the UI. You can now view comprehensive indexing details at both the cluster and volume levels. 
-
-* At the cluster level, you can see the total number of volumes indexed, partially indexed, and those remaining. 
-* At the volume level, you can track the number of snapshots indexed and those still pending. 
-
-Additionally, this update consolidates alerts to notify you about any indexing failures, helping you stay informed about the status of your data.
