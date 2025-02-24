@@ -570,7 +570,9 @@ endif::gcp[]
 +
 Depending on your configuration, there are 2 ways that Search & Restore is implemented:
 +
-** If there are no cloud provider credentials in your account, then the Indexed Catalog information is stored on the Connector.
+** If there are no cloud provider credentials in your account, then the Indexed Catalog information is stored on the Connector. 
++
+For information about the Indexed Catalog v2, see the section below about how to enable the Indexed Catalog. 
 ** If you are using a Connector in a private (dark) site, then the Indexed Catalog information is stored on the Connector (requires Connector version 3.9.25 or greater).
 ** If you have https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-aws.html[AWS credentials^] or https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-azure.html[Azure credentials^] in the account, then the Indexed Catalog is stored at the cloud provider, just like with a Connector deployed in the cloud. (If you have both credentials, AWS is selected by default.)
 +
@@ -602,6 +604,33 @@ As you can see, you really only need to know a partial name and BlueXP backup an
 
 Before you can use Search & Restore, you need to enable "Indexing" on each source working environment from which you're planning to restore volumes or files. This allows the Indexed Catalog to track every volume and every backup file - making your searches very quick and efficient.
 
+The Indexed Catalog is a database that stores metadata about all the volumes and backup files in your working environment. It is used by the Search & Restore functionality to quickly find the backup files that contain the data you want to restore.
+
+.Indexed Catalog v2 features
+
+The Indexed Catalog v2, released in February 2025, has new features that make it more efficient and easier to use. This version has a significant performance enhancement and is enabled by default for all new customers.  
+
+Review the following considerations regarding v2: 
+
+* The Indexed Catalog v2 is available in preview mode.
+* If you are an existing customer and want to use the Catalog v2, you need to completely re-index your environment. 
+
+* The Catalog v2 indexes only those snapshots that have a snapshot label. 
+
+* BlueXP backup and recovery does not index snapshots with "hourly" SnapMirror labels. If you want to index snapshots with the "hourly" SnapMirror label, you need to enable it manually while the v2 is in preview mode.
+* BlueXP backup and recovery will index volumes and snapshots associated with working environments protected by BlueXP backup and recovery only with the Catalog v2. Other working environments discovered on the BlueXP platform will not be indexed.
+
+
+The Indexed Catalog v2 supports the following: 
+
+* Global search efficiency in less than 3 minutes
+* Up to 5 billion files 
+* Up to 5000 volumes per cluster
+* Up to 100K snapshots per volume
+* Maximum time for baseline indexing is less than 7 days. The actual time will vary depending on your environment.
+
+.Enabling the Indexed Catalog for a working environment
+
 When you enable this functionality, BlueXP backup and recovery enables SnapDiff v3 on the SVM for your volumes, and it performs the following actions:
 
 ifdef::aws[]
@@ -617,10 +646,16 @@ endif::gcp[]
 
 If Indexing has already been enabled for your working environment, go to the next section to restore your data.
 
-To enable Indexing for a working environment:
+.Steps to enable Indexing for a working environment:
 
-* If no working environments have been indexed, on the Restore Dashboard under _Search & Restore_, click *Enable Indexing for Working Environments*, and click *Enable Indexing* for the working environment.
-* If at least one working environment has already been indexed, on the Restore Dashboard under _Search & Restore_, click *Indexing Settings*, and click *Enable Indexing* for the working environment.
+. Do one of the following: 
++
+* If no working environments have been indexed, on the Restore Dashboard under _Search & Restore_, select *Enable Indexing for Working Environments*.
+* If at least one working environment has already been indexed, on the Restore Dashboard under _Search & Restore_, click *Indexing Settings*.
+
+. Select *Enable Indexing* for the working environment.
+
+.Result
 
 After all the services are provisioned and the Indexed Catalog has been activated, the working environment is shown as "Active".
 
