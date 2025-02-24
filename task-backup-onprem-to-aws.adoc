@@ -295,7 +295,12 @@ If you create your own buckets, you should use a bucket name of “netapp-backup
 
 If you want to use the default Amazon S3 encryption keys to encrypt the data passed between your on-prem cluster and the S3 bucket, then you are all set because the default installation uses that type of encryption.
 
-If instead you want to use your own customer-managed keys for data encryption rather than using the default keys, then you'll need to have the encryption managed keys already set up before you start the BlueXP backup and recovery wizard. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html[Refer to how to use your own keys^].
+If instead you want to use your own customer-managed keys for data encryption rather than using the default keys, then you'll need to have the encryption managed keys already set up before you start the BlueXP backup and recovery wizard.
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html[Refer to how to use your own Amazon encryption keys with Cloud Volumes ONTAP^].
+
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html#configure-encryption-settings[Refer to how to use your own Amazon encryption keys with BlueXP backup and recovery^].
+
 
 === Configure your system for a private connection using a VPC endpoint interface
 
