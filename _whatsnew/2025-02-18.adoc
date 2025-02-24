@@ -28,7 +28,7 @@ Enable indexing on the source working environment by selecting the "Enable Index
 For more information, see the documentation https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-search-restore[how to restore ONTAP data using Search & Restore]. 
 
 
-For more information, see the documentation link:task-restore-backups-ontap.html[Restore ONTAP data using Search & Restore].
+//For more information, see the documentation link:task-restore-backups-ontap.html[Restore ONTAP data using Search & Restore].
 
 .Supported scale
 
