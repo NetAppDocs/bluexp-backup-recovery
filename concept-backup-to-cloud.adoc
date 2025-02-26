@@ -100,14 +100,18 @@ ifdef::aws[]
 | Cloud Volumes ONTAP in AWS
 | On-premises ONTAP system
 | Amazon S3
+Azure Blob
 endif::aws[]
 ifdef::azure[]
 | Cloud Volumes ONTAP in Azure
 | On-premises ONTAP system
-| Azure Blob
+| Amazon S3
+Azure Blob
 endif::azure[]
 
 | On-premises ONTAP system | On-premises ONTAP system  |NetApp StorageGRID
+Amazon S3
+Azure Blob
 
 
 //ifdef::gcp[]
