@@ -34,15 +34,15 @@ You need to configure the following types of credentials:
 * Microsoft SQL Server credentials
 * SnapCenter Windows host credentials 
 
-After BlueXP backup and recovery discovers hosts, you can change the password, but you cannot delete the credentials for that host. 
+//After BlueXP backup and recovery discovers hosts, you can change the password, but you cannot delete the credentials for that host. 
 
 .Steps
 . From the BlueXP backup and recovery menu, select *Settings*.
-+
-image:../media/screen-br-settings.png[Settings option]
 . Select the down arrow for *Credentials*.
 +
-image:../media/screen-br-settings-credentials-open.png[Settings option]
+image:../media/screen-br-settings.png[Settings option]
+
+
 . Select *Add new credentials*.
 +
 image:../media/screen-br-settings-credentials.png[Settings option to add new credentials]
@@ -71,7 +71,7 @@ You can later edit the password for the host resources that you imported from Sn
 
 .Steps
 . From the BlueXP backup and recovery menu, select *Settings*.
-. Select the down arrow for *Credentials*.
+. Select the down arrow to expand the *Credentials* section. 
 +
 image:../media/screen-br-settings-credentials-edit.png[Settings option]
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *Edit credentials*.   
@@ -88,7 +88,7 @@ Provide the VMware vCenter credentials to discover the VMware vCenter Server wor
 . From the BlueXP backup and recovery menu, select *Settings*.
 +
 image:../media/screen-br-settings-vmware-open.png[Settings option showing the VMware vCenter settings]
-. Select the down arrow for *VMware vCenter*.
+. Select the down arrow to expand the *VMware vCenter* section.
 . Select *Add vCenter*.
 
 . Enter the VMware vCenter Server information.
@@ -111,15 +111,15 @@ Provide the credentials needed to access the StorageGRID system. These credentia
 . From the BlueXP backup and recovery menu, select *Settings*.
 +
 image:../media/screen-br-settings-storagegrid-open.png[Settings option showing the StorageGRID settings]
-. Select the down arrow for *StorageGRID*.
+. Select the down arrow to expand the *StorageGRID* section. 
 . Select *Add StorageGRID*.
 
 . Enter the StorageGRID information.
 * *StorageGRID Gateway Node FQDN*: Enter a FQDN name for StorageGRID.
 * *Port*: Enter the port number for StorageGRID.
-* *S3 access key*: Enter the StorageGRID S3 access key. 
+* *S3 access and secret key*: Enter the StorageGRID S3 access key. 
 
-* *Connector*: Select the BlueXP Connector for StorageGRID.  
+* *Connectors*: Select the BlueXP Connector for StorageGRID.  
 
 . Select *Add*.
 
@@ -141,7 +141,7 @@ TIP: After you import SnapCenter host resources, BlueXP backup and recovery does
 .Steps 
 
 . From the BlueXP backup and recovery menu, select *Settings*. 
-. Select *Import from SnapCenter*.
+. Select the down arrow to expand the *Import from SnapCenter* section.
 +
 image:../media/screen-br-settings-import-snapcenter.png[Settings option to import SnapCenter Server resources]
 
@@ -171,7 +171,7 @@ image:../media/screen-br-inventory-manage-option.png[Inventory page showing the 
 
 === Manage SnapCenter host resources
 
-After you import the SnapCenter resources, manage those host resources in BlueXP backup and recovery. After you select to manage those resources, BlueXP backup and recovery can back up and recover the resources that you imported from SnapCenter. You no longer manage those resources in SnapCenter Server. 
+After you import the SnapCenter resources, manage those host resources in BlueXP backup and recovery. After you select to manage those imported resources, BlueXP backup and recovery can back up and recover the resources that you are importing from SnapCenter. You no longer need to manage those resources in SnapCenter Server. 
 
 .Steps 
 . After you import the SnapCenter resources, on the Inventory page that appears, select the SnapCenter resources that you imported that you want to have BlueXP backup and recovery manage from now on.  

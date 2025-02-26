@@ -15,7 +15,7 @@ summary: The BlueXP backup and recovery service needs to first discover data in 
 [.lead]
 The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes MS SQL Server instances and databases in working environments within your organization. 
 
-For the Preview 2025 version, BlueXP backup and recovery assesses Microsoft SQL Server applications. The service assesses the existing protection level including the current backup protection, snapshot copies, and backup and recovery options. 
+For the Preview 2025 version, BlueXP backup and recovery assesses Microsoft SQL Server applications. The service assesses the existing protection level including the current backup protection policies, snapshot copies, and backup and recovery options. 
 
 For the Preview version, discovery occurs in the following ways: 
 
@@ -23,7 +23,7 @@ For the Preview version, discovery occurs in the following ways:
 +
 NOTE: If you already have SnapCenter, first check to be sure you've met the prerequisites before importing from SnapCenter. See link:concept-start-prereq-snapcenter-import.html[Prerequisites for importing resources from SnapCenter].
 +
-* If you don't have SnapCenter aleady, you can discover workloads in your working environments.
+* If you don't already have SnapCenter, you can still discover workloads within your working environments.
 
 
 
@@ -34,7 +34,7 @@ If you already have SnapCenter installed, import SnapCenter resources into BlueX
 
 You can do this in the following ways: 
 
-* During discovery, select an option to import SnapCenter resources.
+* During discovery, select an option to import resources from SnapCenter.
 * After discovery, from the Settings menu, select an option to import SnapCenter resources. For details, see link:br-start-configure.html[Configure BlueXP backup and recovery].
 
 This is a two-part process:
@@ -46,11 +46,12 @@ This is a two-part process:
 
 This first step imports host resources from SnapCenter and displays those resources in the BlueXP backup and recovery Inventory page. At that point, the resources are not yet managed by BlueXP backup and recovery.
 
-TIP: After you import SnapCenter host resources, BlueXP backup and recovery does not take over protection management automatically. To do so, you must explicitly select to manage these resources in BlueXP backup and recovery. This ensures that you are ready to have those resources backed up by BlueXP backup and recovery. 
+TIP: After you import SnapCenter host resources, BlueXP backup and recovery does not take over protection management automatically. To do so, you must explicitly select to manage the imported resources in BlueXP backup and recovery. This ensures that you are ready to have those resources backed up by BlueXP backup and recovery. 
 
 .Steps 
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
+. For the Preview version, select *Applications*. 
 +
 If this is your first time logging in to this service, the landing page appears: 
 +
@@ -62,7 +63,7 @@ image:screen-br-landing.png[Landing page screenshot for BlueXP backup and recove
 //+
 //image:screen-br-inventory-empty.png[Discover workloads screenshot]
 
-. From the BlueXP backup and recovery Discover workload resources page when you first start the service, select *Import from SnapCenter*.
+. From the BlueXP backup and recovery landing page > Discover resources page when you first start the service, select *Import from SnapCenter*.
 +
 image:screen-br-discover-workloads-newly-discovered.png[Newly discovered working environments screenshot]
 
@@ -78,7 +79,7 @@ image:../media/screen-br-settings-import-snapcenter-details.png[Settings option 
 
 
 . Enter *SnapCenter server host credentials*:
-.. *Existing credentials*: If you select this option, you can use the existing credentials that you have already added. Enter the credentials name. 
+.. *Existing credentials*: If you select this option, you can use the existing credentials that you have already added. Choose the credentials name. 
 .. *Add new credentials*: If you don't have existing SnapCenter host credentials, you can add new credentials. Enter the credentials name, authentication mode, user name, and password.
 
 . Select *Import* to validate your entries and register the SnapCenter Server.
@@ -86,7 +87,7 @@ image:../media/screen-br-settings-import-snapcenter-details.png[Settings option 
 NOTE: If the SnapCenter Server is already registered, you can  update the existing registration details.
 
 .Result
-The Inventory page shows the imported SnapCenter resources.
+The Inventory page shows the imported SnapCenter resources that include MS SQL hosts, instances, and databases.
 
 image:../media/screen-br-inventory-manage-option.png[Inventory page showing the imported SnapCenter resources and the Manage option]
 
@@ -96,7 +97,7 @@ After you import the SnapCenter resources, manage those host resources in BlueXP
 
 .Steps 
 . After you import the SnapCenter resources, select *Inventory*. 
-. From the Inventory page, select the imported SnapCenter resources that you want to have BlueXP backup and recovery manage from now on.  
+. From the Inventory page, select the imported SnapCenter host that you want to have BlueXP backup and recovery to manage from now on.  
 +
 image:../media/screen-br-inventory-viewdetails-option.png[Inventory page showing the imported SnapCenter resources and the View details option]
 
@@ -104,13 +105,12 @@ image:../media/screen-br-inventory-viewdetails-option.png[Inventory page showing
 +
 image:../media/screen-br-inventory-manage-option.png[Inventory page showing the imported SnapCenter resources and the Manage option]
 
-. From the Inventory details page, select the Actions icon image:../media/icon-action.png[Actions option] > *Manage* to display the workload details.   
+. From the Inventory page, select the Actions icon image:../media/icon-action.png[Actions option] > *Manage* to display the Manage host page.   
 +
 image:../media/screen-br-inventory-manage-host.png[Inventory page showing the imported SnapCenter resources and the Manage option]
 
 . Select *Manage*. 
-+
-The Inventory page shows *Managed* under the host name to indicate that the selected host resources are now managed by BlueXP backup and recovery.
+
 
 . To display the BlueXP backup and recovery Dashboard, select *Go to Dashboard*.   
 +
@@ -127,6 +127,7 @@ If you don't already have SnapCenter installed, add vCenter information and have
 .Steps
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
+. For the Preview version, select *Applications*. 
 +
 If this is your first time logging in to this service, the landing page appears. 
 +
@@ -148,7 +149,7 @@ image:screen-br-discover-workloads.png[Discover workload resources screenshot]
 . *vCenter settings*: Select an existing vCenter or add a new one. To add a new vCenter, enter the vCenter FQDN or IP address, user name, password, port, and protocol.
 +
 TIP: If you are entering vCenter information, enter information for both vCenter settings and Host registration. If you added or entered vCenter information here, you also need to add plugin information in Advanced Settings. 
-. *Host registration*:  Select *Add hosts* and enter information about the hosts containing the workloads you want to discover.
+. *Host registration*:  Select *Add credentials* and enter information about the hosts containing the workloads you want to discover.
 +
 TIP: If you are adding a standalone server and not a vCenter server, enter only the host information.  
 
@@ -158,11 +159,11 @@ TIP: If you are adding a standalone server and not a vCenter server, enter only 
 TIP: This process might take a few minutes.
 
 
-. To display the BlueXP backup and recovery Dashboard, select *Go to Dashboard*.   
+. To display the BlueXP backup and recovery Dashboard, return to the *Dashboard*.   
 +
-The Dashboard shows the health of data protection. The number of at risk or protected workloads increases based on the newly discovered workloads.  
+The Dashboard shows the health of data protection. The number of at risk or protected workloads increases based on the newly discovered, protected, and backed up workloads.  
 +
-image:screen-br-dashboard.png[BlueXP backup and recovery Dashboard]
+image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
 +
 link:br-use-dashboard.html[Learn what the Dashboard shows you.]
 
@@ -178,6 +179,7 @@ If you entered vCenter information during discovery, you need to add plugin info
 .Steps
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*.
+. For the Preview version, select *Applications*. 
 . From the menu, select *Inventory*.
 . Select *Discover resources*. 
 +
@@ -187,11 +189,11 @@ image:screen-br-discover-workloads-newly-discovered.png[Newly discovered working
 * *Installation path*: Enter the path where the plugin will be installed. 
 +
 image:screen-br-discover-workloads-advanced-settings.png[Discover resources Advanced settings screenshot]
-. If you want to install the SnapCenter agent manually, check the following options:
-* *Use manual installation*: Check this to install the  plugin manually.   
-* *Use Group Managed Service Account (gMSA)*: If you use a specific third-party gMSA account to manage host credentials, check this. 
-* *Add all hosts in the cluster*: Check this to add all hosts in the cluster.
-* *Skip optional preinstall checks*: Check this to skip optional preinstall checks. You might want to do this for example, if you know that memory or space considerations will be changed in the near future and you want to install the plugin now.
+. If you want to install the SnapCenter agent manually, check the boxes for the following options:
+* *Use manual installation*: Check this box to install the  plugin manually.   
+* *Use Group Managed Service Account (gMSA)*: If you use a specific third-party gMSA account to manage host credentials, check this box. 
+* *Add all hosts in the cluster*: Check this box to add all hosts in the cluster.
+* *Skip optional preinstall checks*: Check this box to skip optional preinstall checks. You might want to do this for example, if you know that memory or space considerations will be changed in the near future and you want to install the plugin now.
 //. To enable the ability to add tags to your resources for easier management, check *Add tag option for resources*. (This feature is not available for the Preview 2025 version.)    
 . Select *Discover*.
 
@@ -203,6 +205,7 @@ If you have already selected working environments for discovery, you can discove
 .Steps
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
+. For the Preview version, select *Applications*. 
 
 . From the menu, select *Inventory*. 
 . Select *Discover resources*.

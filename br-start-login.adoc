@@ -29,14 +29,15 @@ The NetApp BlueXP login page appears.
 
 . Log in to BlueXP. 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
+. For the Preview version, select "Applications" from the left navigation.
 +
 If this is your first time logging in to this service, the landing page appears. 
 //+
 //image:screen-landing.png[Landing page screenshot for BlueXP blueXP backup and recovery]
 + 
 Otherwise, the BlueXP backup and recovery Dashboard appears.
-//+
-//image:screen-dashboard.png[BlueXP backup and recovery Dashboard]
++
+image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
 
 +
 NOTE: If you don't have a BlueXP Connector, refer to link:..br-start-setup.html[Set up BlueXP backup and recovery, including setting up the BlueXP Connector].

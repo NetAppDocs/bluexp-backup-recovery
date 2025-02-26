@@ -13,7 +13,7 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for Microsoft SQL Server instances and databases, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
+The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for Microsoft SQL Server instances and databases, both on-premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
 
 
 NOTE: THIS DOCUMENTATION IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
@@ -42,7 +42,7 @@ BlueXP backup and recovery provides the following benefits:
 
 * **Cost-effective**: BlueXP backup and recovery uses the lowest-cost storage tiers available in your cloud account, which helps to reduce costs.   
 
-* **Automated**: BlueXP backup and recovery automatically generates backups based on a predefined schedule, which helps to ensure that your data is protected.
+* **Automated**: BlueXP backup and recovery automatically generates backups based on a predefined "set and forget" schedule, which helps to ensure that your data is protected. 
 
 * **Flexible**: BlueXP backup and recovery enables you to restore data to the same or different working environment, which provides flexibility in data recovery.
 
@@ -50,7 +50,7 @@ BlueXP backup and recovery provides the following benefits:
 
 == Cost 
 
-NetApp doesn't charge you for using the trial version. However, you are responsible for the costs associated with the cloud resources that you use, such as storage and data transfer costs.    
+NetApp doesn't charge you for using the Preview version. However, you are responsible for the costs associated with the cloud resources that you use, such as storage and data transfer costs.    
 
 == Licensing 
 
@@ -69,7 +69,7 @@ The service protects the following application-based workloads:
 
 .Working environments supported
 
-* On-premises ONTAP NAS (using NFS and CIFS protocols) with ONTAP version 9.8 and greater
+* On-premises ONTAP NAS (using NFS and CIFS protocols) with ONTAP version 9.8 or greater
 
 * Cloud Volumes ONTAP 9.8 or greater for AWS (using NFS and CIFS protocols)
 
@@ -87,7 +87,7 @@ The service protects the following application-based workloads:
 
 .Supported backup destinations
 
-BlueXP backup and recovery enables you to back up Microsoft SQL Server instances and databases from the following source working environments to the following secondary working environments and object storage in public and private cloud providers. Snapshot copies reside on the source working environment.
+BlueXP backup and recovery enables you to back up Microsoft SQL Server instances and databases from the following source working environments to the following secondary working environments and object storage in public and private cloud providers. Snapshot copies reside in the source working environment.
 
 [cols=3*,options="header",cols="33,33,33",width="90%"]
 |===
@@ -128,7 +128,7 @@ endif::gcp[]
 
 .Supported restore destinations
 
-You can restore Microsoft SQL Server instances and data from a backup that resides in a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
+You can restore Microsoft SQL Server instances and databases from a backup that resides in a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
 
 [cols=3*,options="header",cols="33,33,33",width="90%"]
 |===

@@ -72,7 +72,8 @@ For the latest information about supported versions, see the https://imt.netapp.
 
 * A BlueXP user account with Organization Admin privileges for discovering resources.
 
-* A BlueXP organization with at least one active BlueXP Connector connecting to on-premises ONTAP clusters or connecting to Cloud Volumes ONTAP in AWS or in Azure. 
+* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters or to Cloud Volumes ONTAP in AWS or Azure. 
+
 
 * At least one BlueXP working environment with a NetApp on-premises ONTAP cluster or Cloud Volume ONTAP in AWS or Azure (using NAS or CIFS protocols).
 
@@ -95,7 +96,7 @@ Review https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checkli
 
 === Create a BlueXP Connector
 
-You should reach out to your NetApp Sales Rep to try out or use this service. Then, when you use the BlueXP Connector, it will include the appropriate capabilities for the service. 
+You should reach out to your NetApp Product Team to try out or use this Preview. Then, when you use the BlueXP Connector, it will include the appropriate capabilities for the service. 
 
 To create a Connector in BlueXP before using the service, refer to the BlueXP documentation that describes https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[how to create a BlueXP Connector^]. 
 
@@ -114,9 +115,9 @@ An ONTAP One license must be enabled on the on-premises ONTAP instance.
 
 == For backups to object storage
 
-For backup targets to object storage, you need an account in NetApp StorageGRID, AWS S3, Microsoft Azure Blob, or Google Cloud Storage  and the access permissions set. 
+To use object storage as backup targets, you need an account with NetApp StorageGRID, AWS S3, Microsoft Azure Blob, or Google Cloud Storage and the appropriate access permissions configured. 
 
-Refer to the https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions.html[AWS, Azure, or S3 permissions list^] for permission details. 
+Refer to the https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-azure.html[Backups to AWS, Azure, or S3^]. 
 
 Refer to link://concept-start-setup.html[How to set up backup destinations].
 
