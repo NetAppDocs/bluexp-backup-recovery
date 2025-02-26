@@ -63,7 +63,7 @@ This is one of the methods that you can use to disable User Account Control.
 
 .. Press `Windows+R` to open the Run dialog box. 
 
-.. Type `regedit` and press `Enter`.          .
+.. Type `regedit` and press `Enter`.        
  
 . Navigate to the Policy Key: 
 +
@@ -74,10 +74,10 @@ This is one of the methods that you can use to disable User Account Control.
 .. Locate: `LocalAccountTokenFilterPolicy`
 .. If it doesn't exist, create a new `DWORD` (32-bit) Value named `LocalAccountTokenFilterPolicy`.
 
-. Set the value to "1". The following values are supported; for this scenario, set the value to `1`: 
+. The following values are supported. For this scenario, set the value to `1`: 
 
 * `0` (Default): UAC remote restrictions are enabled. Local accounts have filtered tokens when accessing remotely. 
-* `1` - UAC remote restrictions are disabled. Local accounts bypass token filtering and have full adminsistrative privileges when accessing remotely. 
+* `1`: UAC remote restrictions are disabled. Local accounts bypass token filtering and have full adminsistrative privileges when accessing remotely. 
 
 
 . Click *OK*. 
@@ -87,7 +87,7 @@ This is one of the methods that you can use to disable User Account Control.
 
 .Example registry modification 
 
-This example sets LocalAccountTokenFilterPolicy to 1, disabling UAC remote restrictions.
+This example sets LocalAccountTokenFilterPolicy to "1", disabling UAC remote restrictions.
 
 ----
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
@@ -120,16 +120,14 @@ TIP: PowerShell is included by default in Windows 7 and later versions.
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy" -Value 1 -Type DWord
 ----
 
-. Verify the current value of `LocalAccountTokenFilterPolicy`` by running:
+. Verify that the current value is set to "1" in `LocalAccountTokenFilterPolicy`` by running:
 +
 ----
 Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy"
 ----
 +
-Expected output:
-+
-* If the Value is 1, UAC remote restrictions are disabled.
-* If the Value is 0, UAC remote restrictions are enabled.
+* If the value is 1, UAC remote restrictions are disabled.
+* If the value is 0, UAC remote restrictions are enabled.
 
 . To apply the changes, restart your computer.
 
@@ -147,7 +145,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy"
 
-Output: LocalAccountTokenFilterPolicy : 1
+# Output
+
+LocalAccountTokenFilterPolicy : 1
 ----
 
 
