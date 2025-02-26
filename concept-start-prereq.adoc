@@ -32,6 +32,8 @@ For the latest information about supported versions, see the https://imt.netapp.
 
 | SnapCenter Server version | SnapCenter Server version 5.0 or greater is required if you are going to import your existing data from SnapCenter into BlueXP backup and recovery.
 
+NOTE: If you already have SnapCenter, first check to be sure you've met the prerequisites before importing from SnapCenter. See link:concept-start-prereq-snapcenter-import.html[Prerequisites for importing resources from SnapCenter].
+
 | Minimum RAM for the plug-in on the host
 | 1 GB
 
