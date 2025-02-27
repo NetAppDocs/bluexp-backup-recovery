@@ -85,6 +85,11 @@ For the latest information about supported versions, see the https://imt.netapp.
 +
 Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn how to configure a BlueXP Connector] and https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[standard BlueXP requirements^].
 
+** The Preview version requires the Ubuntu 22.04 LTS operating system for the Connector. 
+
+//RHEL connector will be supported during GA.
+ 
+
 
 //All source and working environments must be in the same BlueXP organization. 
 
