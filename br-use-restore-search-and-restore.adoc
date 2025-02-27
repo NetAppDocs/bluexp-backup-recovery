@@ -22,7 +22,7 @@ You can restore a volume, folder, or files from a backup file using Search & Res
 image:diagram_search_restore_vol_file.png["A diagram that shows the flow to perform a volume, folder, or file restore operation using Search & Restore."]
 
 The search operation looks across all local snapshots that exist for your volumes, all replicated volumes on secondary storage systems, and all backup files that exist in object storage. Because restoring data from a local snapshot or replicated volume can be faster and less costly than restoring from a backup file in object storage, you may want to restore data from these other locations. 
-//You can restore the Snapshot as a new volume https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[from the Volume Details page on the Canvas^] (not from BlueXP backup and recovery).
+//You can restore the snapshot as a new volume https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes[from the Volume Details page on the Canvas^] (not from BlueXP backup and recovery).
 
 * When you restore a _full volume_ from a backup file, BlueXP backup and recovery creates a _new_ volume using the data from the backup. You can restore the data as a volume in the original working environment, to a different working environment that's located in the same cloud account as the source working environment, or to an on-premises ONTAP system.
 
@@ -119,7 +119,7 @@ Note that references to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP
 ** The ONTAP version must be 9.8 or greater.
 ** The storage VM (SVM) on which the volume resides must have a configured data LIF.
 ** NFS must be enabled on the volume (both NFS and SMB/CIFS volumes are supported).
-** The SnapDiff RPC Server must be activated on the SVM. BlueXP does this automatically when you enable Indexing on the working environment. (SnapDiff is the technology that quickly identifies the file and directory differences between Snapshot copies.)
+** The SnapDiff RPC Server must be activated on the SVM. BlueXP does this automatically when you enable Indexing on the working environment. (SnapDiff is the technology that quickly identifies the file and directory differences between snapshot copies.)
 
 ifdef::aws[]
 * AWS requirements:
@@ -208,7 +208,7 @@ image:screenshot_restore_start_search_restore.png["A screenshot of selecting the
 . From the Search to Restore page:
 .. In the _Search bar_, enter a full or partial volume name, folder name, or file name.
 .. Select the type of resource: *Volumes*, *Files*, *Folders*, or *All*.
-.. In the _Filter by_ area, select the filter criteria. For example, you can select the working environment where the data resides and the file type, for example a .JPEG file. Or you can select the type of Backup Location if you want to search for results only within available Snapshot copies or backup files in object storage.
+.. In the _Filter by_ area, select the filter criteria. For example, you can select the working environment where the data resides and the file type, for example a .JPEG file. Or you can select the type of Backup Location if you want to search for results only within available snapshot copies or backup files in object storage.
 
 . Click *Search* and the Search Results area displays all the resources that have a file, folder, or volume that matches your search.
 +
@@ -220,8 +220,8 @@ image:screenshot_restore_step2_search_restore.png["A screenshot showing how to v
 
 . Locate the backup file that you want to use to restore the data and click *Restore*.
 +
-Note that the results identify local volume Snapshot copies and remote Replicated volumes that contain the file in your search. You can choose to restore from the cloud backup file, from the Snapshot copy, or from the Replicated volume.
-//The *Restore* button is not functional for Snapshots at this time, but if you want to restore the data from the Snapshot copy instead of from the Backup file, write down the name and location of the volume, open the Volume Details page on the Canvas, and use the *Restore from Snapshot copy* option.
+Note that the results identify local volume snapshot copies and remote Replicated volumes that contain the file in your search. You can choose to restore from the cloud backup file, from the snapshot copy, or from the Replicated volume.
+//The *Restore* button is not functional for snapshots at this time, but if you want to restore the data from the snapshot copy instead of from the Backup file, write down the name and location of the volume, open the Volume Details page on the Canvas, and use the *Restore from snapshot copy* option.
 
 . Select the destination location where you want the volume, folder, or file(s) to be restored and click *Restore*.
 +

@@ -38,7 +38,7 @@ There is no limitation for FlexVol volumes - you can select all FlexVol volumes 
 
 * When backing up data protection (DP) volumes:
 ** Relationships with the SnapMirror labels `app_consistent` and `all_source_snapshot` won't be backed up to cloud.
-** If you create local copies of Snapshots on the SnapMirror destination volume (irrespective of the SnapMirror labels used) these Snapshots will not be moved to the cloud as backups. At this time you'll need to create a Snapshot policy with the desired labels to the source DP volume in order for BlueXP backup and recovery to back them up.
+** If you create local copies of snapshots on the SnapMirror destination volume (irrespective of the SnapMirror labels used) these snapshots will not be moved to the cloud as backups. At this time you'll need to create a snapshot policy with the desired labels to the source DP volume in order for BlueXP backup and recovery to back them up.
 
 * FlexGroup volume backups can't be moved to archival storage.
 
@@ -47,7 +47,7 @@ There is no limitation for FlexVol volumes - you can select all FlexVol volumes 
 
 * SVM-DR volume backup is supported with the following restrictions:
 ** Backups are supported from the ONTAP secondary only.
-** The Snapshot policy applied to the volume must be one of the policies recognized by BlueXP backup and recovery, including daily, weekly, monthly, etc. The default "sm_created" policy (used for *Mirror All Snapshots*) is not recognized and the DP volume will not be shown in the list of volumes that can be backed up.
+** The snapshot policy applied to the volume must be one of the policies recognized by BlueXP backup and recovery, including daily, weekly, monthly, etc. The default "sm_created" policy (used for *Mirror All Snapshots*) is not recognized and the DP volume will not be shown in the list of volumes that can be backed up.
 
 //* MetroCluster (MCC) backup is supported from ONTAP secondary only: MCC > SnapMirror > ONTAP > Cloud Backup > object storage.
 * MetroCluster support:

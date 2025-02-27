@@ -46,7 +46,7 @@ The Backup Inventory report shows the following information and more:
 * DataLock and Ransomware protection status (governance, compliance, or none)
 * Archive enabled status
 * Count of backup copies
-//* Data protection type of local Snapshots, replications to secondary storage, or backups to object storage
+//* Data protection type of local snapshots, replications to secondary storage, or backups to object storage
 * Backup type (scheduled or user-initiated ad-hoc backup)
 * Storage class
 * Snapshot label

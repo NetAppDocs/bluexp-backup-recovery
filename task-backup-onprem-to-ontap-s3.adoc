@@ -65,7 +65,7 @@ Set up permissions for the Connector so it can manage the ONTAP S3 bucket. You'l
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Activate backups on your ONTAP volumes
 
 [role="quick-margin-para"]
-Select the primary working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. Then follow the setup wizard to select the volumes you want to back up, and the Snapshot, replication, and backup to object policies that you'll use.
+Select the primary working environment and click *Enable > Backup Volumes* next to the Backup and recovery service in the right-panel. Then follow the setup wizard to select the volumes you want to back up, and the snapshot, replication, and backup to object policies that you'll use.
 
 [role="quick-margin-para"]
 <<Activate backups on your ONTAP volumes,Activate backups on your ONTAP volumes.>>
@@ -116,7 +116,7 @@ When you use BlueXP backup and recovery in a standard SaaS environment, the Blue
 
 == Verify license requirements 
 
-Before you can activate BlueXP backup and recovery for your cluster, you'll need to purchase and activate a BlueXP backup and recovery BYOL license from NetApp. The license is for backup and restore to object storage - no license is needed to create Snapshot copies or replicated volumes. This license is for the account and can be used across multiple systems.
+Before you can activate BlueXP backup and recovery for your cluster, you'll need to purchase and activate a BlueXP backup and recovery BYOL license from NetApp. The license is for backup and restore to object storage - no license is needed to create snapshot copies or replicated volumes. This license is for the account and can be used across multiple systems.
 
 You'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
 
@@ -238,7 +238,7 @@ You can also <<Show the API commands>> at the review step, so you can copy the c
 * Select *Volumes* in the Backup and recovery bar. From the Volumes tab, select the *Actions (...)* option and select *Activate Backup* for a single volume (that does not already have replication or backup to object storage enabled). 
 
 + 
-The Introduction page of the wizard shows the protection options including local Snapshots, replications, and backups. If you did the second option in this step, the Define Backup Strategy page appears with one volume selected. 
+The Introduction page of the wizard shows the protection options including local snapshots, replications, and backups. If you did the second option in this step, the Define Backup Strategy page appears with one volume selected. 
 
 . Continue with the following options: 
 
@@ -247,7 +247,7 @@ The Introduction page of the wizard shows the protection options including local
 
 === Select the volumes that you want to back up
 
-Choose the volumes you want to protect. A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
+Choose the volumes you want to protect. A protected volume is one that has one or more of the following: snapshot policy, replication policy, backup to object policy. 
 
 You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these volumes when activating backup for a working environment. See how to link:task-manage-backups-ontap.html#activate-backup-on-additional-volumes-in-a-working-environment[activate backup for additional volumes in the working environment] (FlexVol or FlexGroup) after you have configured backup for the initial volumes.
 
@@ -260,7 +260,7 @@ You can choose to protect FlexVol or FlexGroup volumes; however, you cannot sele
 
 .Steps 
 
-Note that if the volumes you choose already have Snapshot or replication policies applied, then the policies you select later will overwrite these existing policies. 
+Note that if the volumes you choose already have snapshot or replication policies applied, then the policies you select later will overwrite these existing policies. 
 
 . In the Select Volumes page, select the volume or volumes you want to protect. 
 +
@@ -274,19 +274,19 @@ Note that if the volumes you choose already have Snapshot or replication policie
 
 Defining the backup strategy involves configuring the following options: 
 
-* Protection options: Whether you want to implement one or all of the backup options: local Snapshots, replication, and backup to object storage
+* Protection options: Whether you want to implement one or all of the backup options: local snapshots, replication, and backup to object storage
 * Architecture: Whether you want to use a fan-out or cascading backup architecture
-* Local Snapshot policy
+* Local snapshot policy
 * Replication target and policy
 //+
-//NOTE: If the volumes you choose have different Snapshot and replication policies than the policies you select in this step, the existing policies will be overwritten. 
+//NOTE: If the volumes you choose have different snapshot and replication policies than the policies you select in this step, the existing policies will be overwritten. 
 * Backup to object storage information (provider, encryption, networking, backup policy, and export options). 
 
 .Steps 
 
 . In the Define Backup Strategy page, choose one or all of the following. All three are selected by default: 
 +
-* *Local Snapshots*: Creates local Snapshot copies. 
+* *Local snapshots*: Creates local snapshot copies. 
 * *Replication*: Creates replicated volumes on another ONTAP storage system.  
 * *Backup*: Backs up volumes to a bucket on an ONTAP system configured for S3.  
 
@@ -296,11 +296,11 @@ Defining the backup strategy involves configuring the following options:
 + 
 For details about these architectures, refer to link:concept-protection-journey.html#which-backup-architecture-will-you-use[Plan your protection journey].  
 
-. *Local Snapshot*: Choose an existing Snapshot policy or create a new one. 
+. *Local snapshot*: Choose an existing snapshot policy or create a new one. 
 +
-TIP: If you want to create a custom policy before activating the Snapshot, you can use System Manager or the ONTAP CLI `snapmirror policy create` command. Refer to https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[ONTAP CLI for `snapmirror policy`^].
+TIP: If you want to create a custom policy before activating the snapshot, you can use System Manager or the ONTAP CLI `snapmirror policy create` command. Refer to https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html[ONTAP CLI for `snapmirror policy`^].
 +
-TIP: To create a custom policy using this service before activating the Snapshot, refer to link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy using this service before activating the snapshot, refer to link:task-create-policies-ontap.html[Create a policy].
 +
 To create a policy, select *Create new policy* and do the following: 
 
@@ -355,7 +355,7 @@ To create a policy, select *Create new policy* and do the following:
 //+
 //Select or create a new ONTAP S3 cluster. For details about creating a ONTAP S3 cluster so BlueXP can discover it, refer to https://docs.netapp.com/us-en/storagegrid-117/[StorageGRID documentation^]. 
 
-* *Export existing Snapshot copies to object storage as backup files*: If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
+* *Export existing snapshot copies to object storage as backup files*: If there are any local snapshot copies for volumes in this working environment that match the backup schedule label you just selected (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Select *Next*. 
 
@@ -366,12 +366,12 @@ This is the chance to review your selections and make adjustments, if necessary.
 .Steps 
 
 . In the Review page, review your selections. 
-. Optionally check the box to *Automatically synchronize the Snapshot policy labels with the replication and backup policy labels*. This creates Snapshots with a label that matches the labels in the replication and backup policies. If the policies don't match, backups will not be created.
+. Optionally check the box to *Automatically synchronize the snapshot policy labels with the replication and backup policy labels*. This creates snapshots with a label that matches the labels in the replication and backup policies. If the policies don't match, backups will not be created.
 . Select *Activate Backup*. 
 
 .Result 
 
-BlueXP backup and recovery starts taking the initial backups of your volumes. The baseline transfer of the replicated volume and the backup file includes a full copy of the source data. Subsequent transfers contain differential copies of the primary storage data contained in Snapshot copies.
+BlueXP backup and recovery starts taking the initial backups of your volumes. The baseline transfer of the replicated volume and the backup file includes a full copy of the source data. Subsequent transfers contain differential copies of the primary storage data contained in snapshot copies.
 
 A replicated volume is created in the destination cluster that will be synchronized with the primary storage volume. 
 

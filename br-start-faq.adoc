@@ -58,7 +58,7 @@ Any modern browser will work.
 == Interaction with other services
 
 *Is BlueXP backup and recovery aware of protection settings made in NetApp ONTAP?*
-Yes, BlueXP backup and recovery discovers Snapshot schedules set in ONTAP. 
+Yes, BlueXP backup and recovery discovers snapshot schedules set in ONTAP. 
 
 *If you set a policy using BlueXP backup and recovery, do you have to make future changes only in this service?* 
 We recommend that you make policy changes from the BlueXP backup and recovery service.

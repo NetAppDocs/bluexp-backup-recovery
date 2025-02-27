@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-manage-backups-ontap.html
 keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup, bluexp
-summary: You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, creating new backup policies, enabling/disabling volume backups, pausing backups, deleting backups, and more. This includes all types of backups, including Snapshot copies, replicated volumes, and backup files in object storage.
+summary: You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, creating new backup policies, enabling/disabling volume backups, pausing backups, deleting backups, and more. This includes all types of backups, including snapshot copies, replicated volumes, and backup files in object storage.
 ---
 
 = Manage backups for your ONTAP systems
@@ -13,7 +13,7 @@ summary: You can manage backups for your Cloud Volumes ONTAP and on-premises ONT
 :imagesdir: ./media/
 
 [.lead]
-You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, enabling/disabling volume backups, pausing backups, deleting backups, and more. This includes all types of backups, including Snapshot copies, replicated volumes, and backup files in object storage.
+You can manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, enabling/disabling volume backups, pausing backups, deleting backups, and more. This includes all types of backups, including snapshot copies, replicated volumes, and backup files in object storage.
 
 //creating new backup policies, 
 
@@ -21,7 +21,7 @@ CAUTION: Do not manage or change backup files directly on your storage systems o
 
 == View the backup status of volumes in your working environments
 
-You can view a list of all the volumes that are currently being backed up in the Volumes Backup Dashboard. This includes all types of backups, including Snapshot copies, replicated volumes, and backup files in object storage. You can also view the volumes in those working environments that are not currently being backed up.
+You can view a list of all the volumes that are currently being backed up in the Volumes Backup Dashboard. This includes all types of backups, including snapshot copies, replicated volumes, and backup files in object storage. You can also view the volumes in those working environments that are not currently being backed up.
 
 .Steps
 
@@ -35,7 +35,7 @@ image:screenshot_backup_volumes_dashboard.png[A screenshot showing all the worki
 +
 To show additional columns (aggregates, security style (Windows or UNIX), snapshot policy, replication policy, and backup policy), select image:button_plus_sign_round.png[the plus sign button].
 
-. Review the status of the protection options in the "Existing protection" column. The 3 icons stand for "Local Snapshot copies", "Replicated volumes", and "Backups in object storage". 
+. Review the status of the protection options in the "Existing protection" column. The 3 icons stand for "Local snapshot copies", "Replicated volumes", and "Backups in object storage". 
 +
 image:screenshot_backup_protection_status.png["A screenshot showing the status of the three types of protection: snapshots, replications, and backups."]
 +
@@ -52,7 +52,7 @@ If you activated backup only on some of the volumes in a working environment whe
 +
 image:screenshot_backup_additional_volume.png[A screenshot showing how to activate backup on additional volumes in a working environment.]
 
-. In the _Define backup strategy_ page, select the backup architecture, and then define the policies and other details for Local Snapshot copies, Replicated volumes, and Backup files. See the details for backup options from the initial volumes you activated in this working environment. Then click *Next*.
+. In the _Define backup strategy_ page, select the backup architecture, and then define the policies and other details for local snapshot copies, replicated volumes, and backup files. See the details for backup options from the initial volumes you activated in this working environment. Then click *Next*.
 
 . Review the backup settings for this volume, and then click *Activate Backup*.
 
@@ -60,7 +60,7 @@ If you want to activate backup on multiple volumes at the same time with identic
 
 == Change the backup settings assigned to existing volumes
 
-You can change the backup policies assigned to your existing volumes that have assigned policies. You can change the policies for your Local Snapshot copies, Replicated volumes, and Backup files. Any new Snapshot, replication, or backup policy that you want to apply to the volumes must already exist. 
+You can change the backup policies assigned to your existing volumes that have assigned policies. You can change the policies for your local snapshot copies, replicated volumes, and backup files. Any new snapshot, replication, or backup policy that you want to apply to the volumes must already exist. 
 //<<Add a new backup policy,See how to add a new backup policy for a working environment>>.
 
 === Edit backup settings on a single volume
@@ -71,7 +71,7 @@ You can change the backup policies assigned to your existing volumes that have a
 +
 image:screenshot_edit_backup_strategy.png[A screenshot that shows the Edit backup strategy button which is available after you select a volume.]
 
-. In the _Edit backup strategy_ page, make changes to the existing backup policies for Local Snapshot copies, Replicated volumes, and Backup files and click *Next*.
+. In the _Edit backup strategy_ page, make changes to the existing backup policies for local snapshot copies, replicated volumes, and backup files and click *Next*.
 +
 If you enabled _DataLock and Ransomware Protection_ for cloud backups in the initial backup policy when activating BlueXP backup and recovery for this cluster, you'll only see other policies that have been configured with DataLock. And if you did not enable _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery, you'll only see other cloud backup policies that don't have DataLock configured.
 
@@ -79,7 +79,7 @@ If you enabled _DataLock and Ransomware Protection_ for cloud backups in the ini
 
 === Edit backup settings on multiple volumes
 
-If you want to use the same backup settings on multiple volumes, you can activate or edit backup settings on multiple volumes at the same time. You can select volumes that have no backup settings, only Snapshot settings, only backup to cloud settings, and so on, and make bulk changes across all these volumes with diverse backup settings.
+If you want to use the same backup settings on multiple volumes, you can activate or edit backup settings on multiple volumes at the same time. You can select volumes that have no backup settings, only snapshot settings, only backup to cloud settings, and so on, and make bulk changes across all these volumes with diverse backup settings.
 
 When working with multiple volumes, all volumes must have these common characteristics:
 
@@ -104,14 +104,14 @@ image:screenshot_manage_backup_settings.png[A screenshot that shows the Manage b
 | Backup action...
 | Click this button...
 
-| Manage Snapshot backup settings | *Manage Local Snapshots*
-| Manage Replication backup settings | *Manage Replication*
-| Manage Backup to cloud backup settings | *Manage Backup*
+| Manage snapshot backup settings | *Manage Local Snapshots*
+| Manage replication backup settings | *Manage Replication*
+| Manage backup to cloud backup settings | *Manage Backup*
 | Manage multiple types of backup settings. This option enables you to change the backup architecture as well. | *Manage Backup and Recovery*
 
 |===
 
-. In the backup page that appears, make changes to the existing backup policies for Local Snapshot copies, Replicated volumes, or Backup files and click *Save*.
+. In the backup page that appears, make changes to the existing backup policies for local snapshot copies, replicated volumes, or backup files and click *Save*.
 +
 If you enabled _DataLock and Ransomware Protection_ for cloud backups in the initial backup policy when activating BlueXP backup and recovery for this cluster, you'll only see other policies that have been configured with DataLock. And if you did not enable _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery, you'll only see other cloud backup policies that don't have DataLock configured.
 
@@ -119,13 +119,13 @@ If you enabled _DataLock and Ransomware Protection_ for cloud backups in the ini
 
 You can create an on-demand backup at any time to capture the current state of the volume. This can be useful if very important changes have been made to a volume and you don't want to wait for the next scheduled backup to protect that data. You can also use this functionality to create a backup for a volume that is not currently being backed up and you want to capture its current state.
 
-You can create an ad-hoc Snapshot copy or backup to object of a volume. You can't create an ad-hoc replicated volume. 
+You can create an ad-hoc snapshot copy or backup to object of a volume. You can't create an ad-hoc replicated volume. 
 
 The backup name includes the timestamp so you can identify your on-demand backup from other scheduled backups.
 
 If you enabled _DataLock and Ransomware Protection_ when activating BlueXP backup and recovery for this cluster, the on-demand backup also will be configured with DataLock, and the retention period will be 30 days. Ransomware scans are not supported for ad-hoc backups. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options[Learn more about DataLock and Ransomware protection^].
 
-Note that when creating an ad-hoc backup, a Snapshot is created on the source volume. Since this Snapshot is not part of a normal Snapshot schedule, it will not rotate off. You may want to manually delete this Snapshot from the source volume once the backup is complete. This will allow blocks related to this Snapshot to be freed up. The name of the Snapshot will begin with `cbs-snapshot-adhoc-`. https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html[See how to delete a Snapshot using the ONTAP CLI^].
+Note that when creating an ad-hoc backup, a snapshot is created on the source volume. Since this snapshot is not part of a normal snapshot schedule, it will not rotate off. You may want to manually delete this snapshot from the source volume once the backup is complete. This will allow blocks related to this snapshot to be freed up. The name of the snapshot will begin with `cbs-snapshot-adhoc-`. https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html[See how to delete a snapshot using the ONTAP CLI^].
 
 NOTE: On-demand volume backup isn't supported on data protection volumes.
 
@@ -147,13 +147,13 @@ You can view the list of all backup files that exist for each volume. This page 
 +
 image:screenshot_backup_view_backups_button.png[A screenshot that shows the View Volume Details button which is available for a single volume.]
 +
-The details for the volume and the list of Snapshot copies are displayed by default.
+The details for the volume and the list of snapshot copies are displayed by default.
 +
 image:screenshot_backup_snapshot_list.png[A screenshot that shows the List of all backup files for a single volume.]
 
 . Select *Snapshot*, *Replication*, or *Backup* to see the list of all backup files for each type of backup.
 +
-image:screenshot_backup_select_backups_type.png["A screenshot that shows the list of all backup files for a single volume; either Snapshot copies, replicated volumes, or backups in object storage."]
+image:screenshot_backup_select_backups_type.png["A screenshot that shows the list of all backup files for a single volume; either snapshot copies, replicated volumes, or backups in object storage."]
 
 == Run a ransomware scan on a volume backup in object storage
 
@@ -224,7 +224,7 @@ The following table describes the available actions:
 
 | Update Replication | Starts an incremental transfer to update the destination volume to be synchronized with the source volume.
 
-| Pause Replication | Pause the incremental transfer of Snapshot copies to update the destination volume. You can Resume later if you want to restart the incremental updates.
+| Pause Replication | Pause the incremental transfer of snapshot copies to update the destination volume. You can Resume later if you want to restart the incremental updates.
 
 | Break Replication | Breaks the relationship between the source and destination volumes, and activates the destination volume for data access - makes it read-write.
 
@@ -352,7 +352,7 @@ CAUTION: If you plan to delete a working environment or cluster that has backups
 
 Deleting all backups on object storage for a working environment does not disable future backups of volumes in this working environment. If you want to stop creating backups of all volumes in a working environment, you can deactivate backups <<Deactivate BlueXP backup and recovery for a working environment,as described here>>.
 
-Note that this action does not affect Snapshot copies or replicated volumes - these types of backup files are not deleted.
+Note that this action does not affect snapshot copies or replicated volumes - these types of backup files are not deleted.
 
 .Steps
 
@@ -390,7 +390,7 @@ image:screenshot_delete_all_backups.png[A screenshot of selecting the Delete All
 
 === Delete a single backup file for a volume
 
-You can delete a single backup file if you no longer need it. This includes deleting a single backup of a volume Snapshot copy or of a backup in object storage. 
+You can delete a single backup file if you no longer need it. This includes deleting a single backup of a volume snapshot copy or of a backup in object storage. 
 
 You can't delete replicated volumes (data protection volumes).
 
@@ -400,13 +400,13 @@ You can't delete replicated volumes (data protection volumes).
 +
 image:screenshot_backup_view_backups_button.png[A screenshot that shows the View Volume Details button which is available for a single volume.]
 +
-The details for the volume are displayed, and you can select *Snapshot*, *Replication*, or *Backup* to see the list of all backup files for the volume. By default, the available Snapshot copies are displayed.
+The details for the volume are displayed, and you can select *Snapshot*, *Replication*, or *Backup* to see the list of all backup files for the volume. By default, the available snapshot copies are displayed.
 +
 image:screenshot_backup_snapshot_list.png[A screenshot that shows the List of all backup files for a single volume.]
 
 . Select *Snapshot* or *Backup* to see the type of backup files that you want to delete.
 +
-image:screenshot_backup_select_object_backups.png["A screenshot that shows the list of all backup files for a single volume; either Snapshot copies, replicated volumes, or backups in object storage."]
+image:screenshot_backup_select_object_backups.png["A screenshot that shows the list of all backup files for a single volume; either snapshot copies, replicated volumes, or backups in object storage."]
 
 . Click image:screenshot_horizontal_more_button.gif[More icon] for the volume backup file you want to delete and click *Delete*. The screenshot below is from a backup file in object storage.
 +

@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-monitor-backup-jobs.html
 keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification
-summary: You can monitor the status of local Snapshots, replications, and backup to object storage jobs that you initiated or that were scheduled, and restore jobs that you initiated or scheduled. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.
+summary: You can monitor the status of local snapshots, replications, and backup to object storage jobs that you initiated or that were scheduled, and restore jobs that you initiated or scheduled. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.
 ---
 
 = Monitor the status of backup and restore jobs
@@ -13,11 +13,11 @@ summary: You can monitor the status of local Snapshots, replications, and backup
 :imagesdir: ./media/
 
 [.lead]
-You can monitor the status of local Snapshots, replications, and backup to object storage jobs that you initiated, and restore jobs that you initiated. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.
+You can monitor the status of local snapshots, replications, and backup to object storage jobs that you initiated, and restore jobs that you initiated. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.
 
 == View job status on the Job Monitor
 
-You can view a list of all the Snapshot, replication, backup to object storage, and restore operations and their current status in the *Job Monitoring* tab. This includes operations from your Cloud Volumes ONTAP, on-premises ONTAP, applications, and virtual machines. Each operation, or job, has a unique ID and a status. 
+You can view a list of all the snapshot, replication, backup to object storage, and restore operations and their current status in the *Job Monitoring* tab. This includes operations from your Cloud Volumes ONTAP, on-premises ONTAP, applications, and virtual machines. Each operation, or job, has a unique ID and a status. 
 
 The status can be:
 
@@ -27,7 +27,7 @@ The status can be:
 * Warning
 * Failed
 
-//Snapshots, replications, backups to object storage and restore operations that you initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs such as ongoing scheduled backup operations, are available in the Job Monitoring tab. The Job Monitor includes scheduled jobs for local Snapshots, replications, and backups to object storage. However, this is true only for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater and on-premises ONTAP systems running ONTAP 9.13.1 or greater. When running earlier versions of ONTAP, only user-initiated jobs are displayed.
+//Snapshots, replications, backups to object storage and restore operations that you initiated from the BlueXP backup and recovery UI and API, and system-initiated jobs such as ongoing scheduled backup operations, are available in the Job Monitoring tab. The Job Monitor includes scheduled jobs for local snapshots, replications, and backups to object storage. However, this is true only for Cloud Volumes ONTAP systems running ONTAP 9.13.0 or greater and on-premises ONTAP systems running ONTAP 9.13.1 or greater. When running earlier versions of ONTAP, only user-initiated jobs are displayed.
 
 Snapshots, replications, backups to object storage and restore operations that you initiated from the BlueXP backup and recovery UI and API are available in the Job Monitoring tab. 
 
@@ -47,7 +47,7 @@ This screenshot shows the default column headings.
 
 === Search and filter the list of jobs
 
-You can filter the operations on the Job Monitoring page using several filters, such as policy, Snapshot label, type of operation (protection, restore, retention, or other) and protection type (local Snapshot, replication, or backup to the cloud). 
+You can filter the operations on the Job Monitoring page using several filters, such as policy, snapshot label, type of operation (protection, restore, retention, or other) and protection type (local snapshot, replication, or backup to the cloud). 
 
 By default, the Job Monitoring page shows protection and recovery jobs from the last 24 hours. You can change the timeframe using the Timeframe filter.
 
@@ -87,9 +87,9 @@ You can view details corresponding to a specific completed job. You can export d
 
 You can view details such as job type (scheduled or on-demand), SnapMirror backup type (initial or periodic) start and end times, duration, amount of transferred data from working environment to object storage, average transfer rate, policy name, retention lock enabled, ransomware scan performed, protection source details, and protection target details. 
 
-Restore jobs show details such as backup target provider (Amazon Web Services, Microsoft Azure, Google Cloud, on-premises), S3 bucket name, SVM name, source volume name, destination volume, Snapshot label, recovered objects count, file names, file sizes, last modification date, and full file path. 
+Restore jobs show details such as backup target provider (Amazon Web Services, Microsoft Azure, Google Cloud, on-premises), S3 bucket name, SVM name, source volume name, destination volume, snapshot label, recovered objects count, file names, file sizes, last modification date, and full file path. 
 
-//NOTE: Job details appear for ONTAP Snapshots, replication, and backup to the cloud jobs (both ad-hoc and scheduled, with scheduled jobs appearing only for ONTAP 9.13.0 or later), and all restore jobs. Job details appear for in-progress and completed jobs.
+//NOTE: Job details appear for ONTAP snapshots, replication, and backup to the cloud jobs (both ad-hoc and scheduled, with scheduled jobs appearing only for ONTAP 9.13.0 or later), and all restore jobs. Job details appear for in-progress and completed jobs.
 
 .Steps 
 
@@ -117,9 +117,9 @@ From the Job Monitoring Details information, you can download a JSON file contai
 
 Monitoring of retention (or _backup lifecycle_) flows helps you with audit completeness, accountability, and backup safety. To help you track the backup lifecycle, you might want to identify the expiration of all backup copies. 
 
-A backup lifecycle job tracks all Snapshot copies that are deleted or in the queue to be deleted. Beginning with ONTAP 9.13, you can look at all job types called "Retention" on the Job Monitoring page.
+A backup lifecycle job tracks all snapshot copies that are deleted or in the queue to be deleted. Beginning with ONTAP 9.13, you can look at all job types called "Retention" on the Job Monitoring page.
 
-The "Retention" job type captures all Snapshot deletion jobs initiated on a volume that is protected by BlueXP backup and recovery.  
+The "Retention" job type captures all snapshot deletion jobs initiated on a volume that is protected by BlueXP backup and recovery.  
 
 .Steps
 
@@ -133,7 +133,7 @@ The BlueXP Notification Center tracks the progress of backup and restore jobs th
 
 In addition to viewing the alerts in the Notification Center, you can configure BlueXP to send certain types of notifications by email as alerts so you can be informed of important system activity even when you're not logged into the system. https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html[Learn more about the Notification Center and how to send alert emails for backup and restore jobs^].
 
-The Notification Center displays numerous Snapshot, replication, backup to cloud, and restore events, but only certain events trigger email alerts:
+The Notification Center displays numerous snapshot, replication, backup to cloud, and restore events, but only certain events trigger email alerts:
 
 [cols="1,2,1,1",options="header"]
 |===
@@ -144,8 +144,8 @@ The Notification Center displays numerous Snapshot, replication, backup to cloud
 
 | Activation |Backup and recovery activation failed for working environment | Error | Yes
 | Activation |Backup and recovery edit failed for working environment | Error | Yes
-| Local Snapshot | BlueXP backup and recovery ad-hoc Snapshot creation job failure | Error | Yes
-//| Local Snapshot | *later* BlueXP backup and recovery scheduled Snapshot creation job failure | Error | Yes
+| Local snapshot | BlueXP backup and recovery ad-hoc snapshot creation job failure | Error | Yes
+//| Local snapshot | *later* BlueXP backup and recovery scheduled snapshot creation job failure | Error | Yes
 //| Replication | *later* BlueXP backup and recovery scheduled replication job failure | Error | Yes
 | Replication | BlueXP backup and recovery ad-hoc replication job failure | Error | Yes
 | Replication | BlueXP backup and recovery replication pause job failure | Error | No

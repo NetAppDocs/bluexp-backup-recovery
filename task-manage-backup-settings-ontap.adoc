@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-manage-backup-settings-ontap.html
 keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots, ransomware scans, scans
-summary: You can change many cluster-level backup-to-object settings that you set when activating BlueXP backup and recovery for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and more. You can also enable or disable ransomware scans for a working environment. 
+summary: You can change many cluster-level backup-to-object settings that you set when activating BlueXP backup and recovery for each ONTAP system. You can also modify some settings that are applied as "default" backup settings. This includes changing storage keys, the transfer rate of backups to object storage, whether historical snapshot copies are exported as backup files, and more. You can also enable or disable ransomware scans for a working environment. 
 ---
 
 = Manage backup-to-object storage options in Advanced Settings
@@ -13,11 +13,11 @@ summary: You can change many cluster-level backup-to-object settings that you se
 :imagesdir: ./media/
 
 [.lead]
-You can change cluster-level, backup-to-object storage settings that you set when activating BlueXP backup and recovery for each ONTAP system by using the Advanced Settings page. You can also modify some settings that are applied as "default" backup settings. This includes changing the transfer rate of backups to object storage, whether historical Snapshot copies are exported as backup files, and enabling or disabling ransomware scans for a working environment. 
+You can change cluster-level, backup-to-object storage settings that you set when activating BlueXP backup and recovery for each ONTAP system by using the Advanced Settings page. You can also modify some settings that are applied as "default" backup settings. This includes changing the transfer rate of backups to object storage, whether historical snapshot copies are exported as backup files, and enabling or disabling ransomware scans for a working environment. 
 
 *For BlueXP Preview 2025 - update this for Advanced Settings in Preview.* 
 
-NOTE: These settings are available for backup-to-object storage only. None of these settings affect your Snapshot or replication settings. Similar cluster-level replications settings for Snapshots and replications will be added in the future.
+NOTE: These settings are available for backup-to-object storage only. None of these settings affect your snapshot or replication settings. Similar cluster-level replications settings for snapshots and replications will be added in the future.
 
 You can change the following options in the Advanced Settings page:
 
@@ -28,7 +28,7 @@ You can change the following options in the Advanced Settings page:
 //* Changing the archival storage class (AWS only)
 //endif::aws[]
 //* Changing the automatic backup setting (and policy) for future volumes
-* Changing whether historical Snapshot copies are exported as backup files and included in your initial baseline backup files for future volumes
+* Changing whether historical snapshot copies are exported as backup files and included in your initial baseline backup files for future volumes
 * Changing whether "yearly" snapshots are removed from the source system
 * Enabling or disabling ransomware scans for a working environment, including scheduled scans
 
@@ -135,9 +135,9 @@ This setting does not affect the bandwidth allocated to any other replication re
 //
 //Once enabled, this backup policy will be applied to any new volume created in this working environment using BlueXP, System Manager, the ONTAP CLI, or the APIs.
 
-== Change whether historical Snapshot copies are exported as backup files
+== Change whether historical snapshot copies are exported as backup files
 
-If there are any local Snapshot copies for volumes that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic snapshots to object storage as backup files. This enables you to initialize your backups in the cloud by moving older snapshot copies into the baseline backup copy.
+If there are any local snapshot copies for volumes that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic snapshots to object storage as backup files. This enables you to initialize your backups in the cloud by moving older snapshot copies into the baseline backup copy.
 
 Note that this option only applies to new backup files for new read/write volumes, and it is not supported with data protection (DP) volumes.
 
@@ -147,17 +147,17 @@ Note that this option only applies to new backup files for new read/write volume
 
 . From the _Backup Settings page_, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment and select *Advanced Settings*.
 
-. In the Advanced Settings page, expand the *Export existing Snapshot copies* section. 
+. In the Advanced Settings page, expand the *Export existing snapshot copies* section. 
 +
-image:screenshot_backup_edit_export_snapshots.png[A screenshot of the Export existing Snapshot copies entry in the Advanced Settings page.]
+image:screenshot_backup_edit_export_snapshots.png[A screenshot of the Export existing snapshot copies entry in the Advanced Settings page.]
 
-. Select whether you want existing Snapshot copies to be exported. 
+. Select whether you want existing snapshot copies to be exported. 
 
 . Select *Apply*.
 
 == Change whether "yearly" snapshots are removed from the source system
 
-When you select the "yearly" backup label for a backup policy for any of your volumes, the Snapshot copy that is created is very large. By default, these yearly snapshots are deleted automatically from the source system after being transferred to object storage. You can change this default behavior from the Yearly Snapshot Deletion section.
+When you select the "yearly" backup label for a backup policy for any of your volumes, the snapshot copy that is created is very large. By default, these yearly snapshots are deleted automatically from the source system after being transferred to object storage. You can change this default behavior from the Yearly Snapshot Deletion section.
 
 .Steps 
 
@@ -175,13 +175,13 @@ image:screenshot_backup_edit_yearly_snap_delete.png[A screenshot of the Yearly S
 
 == Enable or disable ransomware scans 
 
-Ransomware protection scans are enabled by default. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest Snapshot copy. You can enable or disable ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed every 7 days by default. 
+Ransomware protection scans are enabled by default. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest snapshot copy. You can enable or disable ransomware scans on the latest snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed every 7 days by default. 
 
 You can change that schedule to days or weeks or disable it, saving costs.  
 
 TIP: Enabling ransomware scans will incur extra charges depending on the cloud provider. 
 
-Scheduled ransomware scans run only on the latest Snapshot copy. 
+Scheduled ransomware scans run only on the latest snapshot copy. 
 
 If the scheduled ransomware scans are disabled, you can still perform on-demand scans and the scan during a restore operation will still occur. 
 
