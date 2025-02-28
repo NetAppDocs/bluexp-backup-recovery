@@ -16,7 +16,7 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for Microsoft SQL Server instances and databases, both on-premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
 
 
-NOTE: THIS DOCUMENTATION IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
+NOTE: THIS DOCUMENTATION IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability. Use a non-production workload for this preview version. 
 
 
 == What you can do with BlueXP backup and recovery
@@ -157,7 +157,7 @@ endif::azure[]
 
 |===
 
-NOTE: References to "on-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
+NOTE: References to "on-premises ONTAP systems" include FAS and AFF systems.
 
 == BlueXP backup and recovery uses the SnapCenter Plugin for Microsoft SQL Server
 

@@ -28,6 +28,9 @@ To log in to BlueXP, you can use your NetApp Support Site credentials or you can
 The NetApp BlueXP login page appears.
 
 . Log in to BlueXP. 
++ 
+NOTE: For the Preview process, the instructions are a little different. Follow the steps in the *Initial Preview setup process* in link:concept-start-prereq.html[BlueXP backup and recovery Preview 2025 prerequisites].
+
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
 . For the Preview version, select "Applications" from the left navigation.
 +

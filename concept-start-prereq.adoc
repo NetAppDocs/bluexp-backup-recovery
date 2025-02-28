@@ -72,10 +72,12 @@ For the latest information about supported versions, see the https://imt.netapp.
 
 * A BlueXP user account with Organization Admin privileges for discovering resources.
 
-* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters or to Cloud Volumes ONTAP in AWS or Azure. 
+* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters. Refer to the *Initial Preview setup process* below. 
+//* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters or to Cloud Volumes ONTAP in AWS or Azure.
 
 
-* At least one BlueXP working environment with a NetApp on-premises ONTAP cluster or Cloud Volume ONTAP in AWS or Azure (using NAS or CIFS protocols).
+* At least one BlueXP working environment with a NetApp on-premises ONTAP cluster.
+//* At least one BlueXP working environment with a NetApp on-premises ONTAP cluster or Cloud Volume ONTAP in AWS or Azure (using NAS or CIFS protocols).
 
 * A BlueXP Connector
 
@@ -92,6 +94,53 @@ Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.htm
 
 
 //All source and working environments must be in the same BlueXP organization. 
+
+=== Initial Preview setup process 
+
+By participating in the Preview, you play a crucial role in refining and enhancing the BlueXP backup and recovery service for Microsoft SQL Server. 
+
+For the Preview version of BlueXP backup and recovery, we will assist with the setup. Here is the process:
+
+. *Enrollment*: Enroll for the Preview by signing up on an enrollment form. 
+
+. *Preview access*: After you are enrolled, you will receive early access to the BlueXP backup and recovery service for Microsoft SQL Server. 
+
+. *Registration*: If you don't already have a BlueXP account, sign up for one. Here's how: 
+
+.. Visit the BlueXP Portal.
++
+image:screen-preview-bluexp-portal.png[BlueXP portal screen]
+.. Click *Get Started*.
++
+image:screen-preview-login.png[Log in to the portal screen]
+.. Click *Sign up*.
++
+image:screen-preview-signup-profile.png[Sign up for BlueXP screen]
+.. Enter your name, email address, organization name, and other details and click *Next*. 
++
+You will receive an email with a link to verify your email address.
+.. Click the link in the email to verify your email address.
+
+.. Log in to the BlueXP Portal. 
+.. Complete your profile by entering the following information: 
+** *Organization ID*: After you register, you will receive an organization name and ID. Enter that here. 
+** *Share ID*: Share the organization name and ID with the NetApp Product Team.
++
+*Access timeframe*: Within 48-72 hours, you will have access to the BlueXP backup and recovery service. 
+
+. *Explore* the service, test its features, and integrate it with your existing SQL Server workloads. 
+
+. *Maintain regular contacts*. Throughout the preview session, participate in regular check-ins with the NetApp Product Team. These sessions help you understand the service and provide feedback: 
+* *Hear about updates*: You will hear about the latest developments related to the Preview. 
+* *Ask questions* and get immediate answers from the BlueXP team. 
+* *Provide feedback* with the NetApp Product Team to improve the service.
+* *Share best practices* and tips for using the service effectively. 
+* *Foster collaboration*: Collaborate with other users to share experiences and learn from each other.
+
+
+. *Provide feedback* with the NetApp Product Team.
+
+
 
 === Set up BlueXP
 The next step is to set up BlueXP and the BlueXP backup and recovery service. 
@@ -120,7 +169,7 @@ An ONTAP One license must be enabled on the on-premises ONTAP instance.
 
 == For backups to object storage
 
-To use object storage as backup targets, you need an account with NetApp StorageGRID, AWS S3, Microsoft Azure Blob, or Google Cloud Storage and the appropriate access permissions configured. 
+To use object storage as backup targets, you need an account with NetApp StorageGRID, AWS S3, or Microsoft Azure Blob and the appropriate access permissions configured. 
 
 Refer to the https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-azure.html[Backups to AWS, Azure, or S3^]. 
 
