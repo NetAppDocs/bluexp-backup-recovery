@@ -29,9 +29,7 @@ In addition to backing up workloads using policies, you can accomplish the follo
 Before you initiate a backup, view the protection status of your workloads.
 
 .Steps 
-. From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
-
-. Select *Inventory*. 
+. From the BlueXP backup and recovery menu, select *Inventory*. 
 +
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
 . Select a workload to view the protection details. 
@@ -43,7 +41,7 @@ image:screen-br-inventory-details.png[Inventory details page screenshot for Blue
 
 == Configure logs for discovered hosts
 
-Before you back up your workloads, configure activity logs for discovered hosts. This helps you to track the status of operations.
+Before you back up your workloads, set the path for the activity logs for discovered hosts. This helps you to track the status of operations.
 
 .Steps 
 
@@ -52,10 +50,12 @@ Before you back up your workloads, configure activity logs for discovered hosts.
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
 . Select a workload to view the protection details. 
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
+. Select a host. 
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Configure log directory*. 
 +
 image:screen-br-inventory-details-configurelog-option.png[Configure log screen]
-. Provide the host path or browse through a list of hosts or nodes hosts on the host.
-. Select those on which you want logs. 
+. Provide the host path or browse through a list of hosts or nodes hosts on the host to locate where you want the host log to be stored.
+. Select those on which you want to store the logs. 
 +
 NOTE: The fields that appear differ depending on the selected deployment model, for example, failover cluster instance or standalone. 
 . Select *Save*.

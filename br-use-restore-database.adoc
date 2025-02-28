@@ -13,16 +13,14 @@ summary: Restore database workloads from a snapshot copy, a workload backup repl
 :imagesdir: ./media/
 
 [.lead]
-Restore database workloads from a snapshot copy, a workload backup replicated to secondary storage, or from backups stored in object storage.
+Restore database workloads from snapshot copies, a workload backup replicated to secondary storage, or from backups stored in object storage.
 
 
+.Restore from object storage considerations
 
+If you select a backup file in object storage, and ransomware protection is active for that backup (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional integrity check on the backup file before restoring the data. We recommend that you perform the scan. 
 
-
-*Restore from object storage considerations*
-
-
-If you select a backup file in object storage, and ransomware protection is active for that backup (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware. (You'll incur extra egress costs from your cloud provider to access the contents of the backup file.)
+TIP: You'll incur extra egress costs from your cloud provider to access the contents of the backup file.
 
 
 == Where to install the BlueXP Connector
@@ -30,18 +28,19 @@ If you select a backup file in object storage, and ransomware protection is acti
 To complete a restore operation, the Connector can be installed in the following locations:
 
 ifdef::aws[]
-* For Amazon S3, the Connector can be deployed in AWS or in your premises. 
+* For Amazon S3, the Connector can be deployed on your premises. 
 endif::aws[]
 ifdef::azure[]
-* For Azure Blob, the Connector can be deployed in Azure or in your premises. 
+* For Azure Blob, the Connector can be deployed on your premises. 
 endif::azure[]
-ifdef::gcp[]
-* For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC.
-endif::gcp[]
+//ifdef::gcp[]
+//* For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC.
+//endif::gcp[]
+
 * For StorageGRID, the Connector must be deployed in your premises; with or without internet access.
 //* For ONTAP S3, the Connector can be deployed in your premises (with or without internet access) or in a cloud provider environment
 
-NOTE: References to "on-premises ONTAP systems" includes FAS, AFF, and ONTAP Select systems.
+NOTE: References to "on-premises ONTAP systems" includes FAS and AFF systems.
 
 
 
@@ -51,11 +50,11 @@ When you restore workloads, the following occurs:
 
 * When you restore a workload from a backup file, BlueXP backup and recovery creates a _new_ resource using the data from the backup. 
 
-* When you restore from a replicated workload, you can restore the workload to the original working environment or to a Cloud Volumes ONTAP or on-premises ONTAP system.
+* When you restore from a replicated workload, you can restore the workload to the original working environment or to an on-premises ONTAP system.
 +
 image:diagram_browse_restore_volume-unified.png["A diagram that shows the flow to restore a resource"]
 
-* When you restore a backup from object storage, you can restore the data to the original working environment, to a different working environment that's located in the same cloud account as the source working environment, or to an on-premises ONTAP system.
+* When you restore a backup from object storage, you can restore the data to the original working environment or to an on-premises ONTAP system.
 
 
 //== When to use Quick Restore 
@@ -69,7 +68,7 @@ image:diagram_browse_restore_volume-unified.png["A diagram that shows the flow t
 
 You can restore workloads using one of the following methods. Typically, choose one of the following methods based on your restore needs:
 
-* *From the Restore page*: Use this when you need to restore a resource, but you don't remember the exact name or the location in which it resides, or the date when it was last in good shape. You search for the resource using filters. 
+* *From the Restore page*: Use this when you need to restore a resource, but you don't remember the exact name or the location in which it resides, or the date when it was last in good shape. You can search for the snapshot using filters. 
 * *From the Inventory page*: Use this when you need to restore a specific resource from the last week or month -- and you know the name and location of the resource, and the date when it was last in good shape. You browse through a list of resources to find the one you want to restore.
 
 //Inventory is browse and restore. Restore page is Search and restore. 
@@ -90,6 +89,7 @@ image:screen-br-restore.png[A screenshot showing the Restore page.]
 +
 * Restore from snapshots
 * Restore to a specific point in time. This is helpful if you know the name and location of the file, and the date when it was last in good shape. 
+
 * Restore to the latest backup
 +
 image:screen-br-restore-options2.png[A screenshot showing the Restore options.]

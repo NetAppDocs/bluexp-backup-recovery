@@ -30,7 +30,7 @@ image:screen-br-policies.png["Policies page"]
 * *Workload*: Examples include Oracle, SQL Server, and Volumes. 
 +
 NOTE: For the Preview 2025 version, only the "SQL Server" backup type is available.
-* *Backup type*: Examples include online, database, archive logs, and offline. 
+
 * *Architecture*: Examples include local snapshot, fan-out, cascading, disk to disk, and disk to object store. 
 * *Resources protected*: Shows how many resources out of the total resources on that workload are protected.
 * *Ransomware protection*: Shows if the policy includes snapshot locking on the local snapshot, snapshot locking on secondary storage, or DataLock locking on object storage. 
@@ -38,7 +38,7 @@ NOTE: For the Preview 2025 version, only the "SQL Server" backup type is availab
 
 == Create a policy
 
-You can create policies that govern your snapshots, replications to secondary storage, and backups to object storage. Part of your 3-2-1 strategy involves creating a snapshot copy of the MS SQL Server instances or databases on the *primary* storage system. 
+You can create policies that govern your local snapshots, replications to secondary storage, and backups to object storage. Part of your 3-2-1 strategy involves creating a snapshot copy of the MS SQL Server instances or databases on the *primary* storage system. 
 
 .Before you begin
 
@@ -53,7 +53,7 @@ For information about snapshot locking in general, refer to https://docs.netapp.
 . In the BlueXP UI, select *Policies*.
 . From the Policies page, select *Create new policy*.
 +
-image:screen-br-policies-new.png[Screenshot of new policy creation]
+image:screen-br-policies-new-nodata.png[Screenshot of new policy creation]
 
 . In the Policies page, provide the following information.   
 
@@ -67,10 +67,10 @@ NOTE: For the Preview 2025 version, only the "SQL Server" backup type is availab
 
 
 ** *Local snapshot*: Local snapshot on the selected volume. Local snapshots are a key component of data protection strategies, capturing the state of your data at specific points in time. Local snapshots are created using the Snapshot technology, which provides point-in-time copies of your data without impacting performance. This creates read-only, point-in-time copies of production volumes where your workloads are running. The snapshot consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last snapshot. You can use local snapshots to recover from data loss or corruption, as well as to create backups for disaster recovery purposes.
-** *3-2-1 fanout*: Primary storage (disk) to secondary storage (disk) to coud (object store). Creates multiple copies of data across different storage systems, such as ONTAP to ONTAP and ONTAP to object-store configurations. These configurations help in achieving optimal data protection and disaster recovery.
-** *3-2-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary storage (disk) to cloud storage (object store). Creates a chain of data replication across multiple systems to ensure redundancy and reliability. 
+** *3-2-1 fanout*: Primary storage (disk) to secondary storage (disk) to cloud (object store). Creates multiple copies of data across different storage systems, such as ONTAP to ONTAP and ONTAP to object-store configurations. This can be a cloud hyperscaler object store or a private object store -- StorageGRID. These configurations help in achieving optimal data protection and disaster recovery.
+** *3-2-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary storage (disk) to cloud storage (object store). This can be a cloud hyperscaler object store or a private object store -- StorageGRID. This creates a chain of data replication across multiple systems to ensure redundancy and reliability. 
 ** *Disk to disk*: Primary storage (disk) to secondary storage (disk). The ONTAP to ONTAP data protection strategy replicates data between two ONTAP systems to ensure high availability and disaster recovery. This is typically achieved using SnapMirror, which supports both synchronous and asynchronous replication. This method ensures that your data is continuously updated and available across multiple locations, providing robust protection against data loss. 
-** *Disk to object store*: Primary storage (disk) to cloud (object store). Replicates data from an ONTAP system to an object storage system, such as AWS S3, Azure Blob Storage, or Google Cloud Storage. This is typically achieved using SnapMirror Cloud, which provides incremental forever backups by transferring only changed data blocks after the initial baseline transfer. This method is ideal for long-term data retention and archiving, offering a cost-effective and scalable solution for data protection.
+** *Disk to object store*: Primary storage (disk) to cloud (object store). This replicates data from an ONTAP system to an object storage system, such as AWS S3, Azure Blob Storage or StorageGRID. This is typically achieved using SnapMirror Cloud, which provides incremental forever backups by transferring only changed data blocks after the initial baseline transfer. This can be a cloud hyperscaler object store or a private object store -- StorageGRID. This method is ideal for long-term data retention and archiving, offering a cost-effective and scalable solution for data protection.
 ** *Disk to disk fanout*: Primary storage (disk) to secondary storage (disk)  and primary storage (disk) to secondary storage (disk).
 
 //** *3-2-1-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary (disk) to cloud (object store)  (Multiple object storage) 
@@ -86,7 +86,7 @@ Provide information for the local snapshot.
 
 * Optionally, select *Advanced* to set the SnapMirror label and enable snapshot locking: 
 
-** *SnapMirror label*: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship. Applying a label to a snapshot marks it as a target for SnapMirror replication.
+** *SnapMirror label*: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship. Adding a label to a snapshot marks it as a target for SnapMirror replication.
 ** *Offset from an hour*: Enter the number of minutes to offset the snapshot from the start of the hour. For example, if you enter *15*, the snapshot will be taken at 15 minutes past the hour.
 
 ** *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. Enabling this option ensures that the snapshots cannot be deleted or altered until the specified retention period has expired. This feature is crucial for protecting your data against ransomware attacks and ensuring data integrity.         
@@ -102,7 +102,7 @@ Provide information for the replication to secondary storage. Schedule informati
 
 * *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. 
 * *Snapshot locking period*: Enter the number of days, months, or years that you want to lock the snapshot.
-* *Transfer to secondary*: The *Inline* option is selected by default and that indicates that data is transferred to the secondary storage system immediately.
+* *Transfer to secondary*: The *Inline* option is selected by default and that indicates that snapshots are transferred to the secondary storage system immediately.
 //** *Schedule*: Data is transferred to the secondary storage system at a later time as defined by the schedule. 
 
 
@@ -123,9 +123,10 @@ Enter information in these fields:
 * *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
 * *Retention*: Enter the number of snapshots to keep.
 * *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
-+
-NOTE: This feature is not available in the Preview 2025 version.
-* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage (for example, AWS Glacier), select the tier option and the number of days to archive. To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
+
+* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage (for example, AWS Glacier), select the tier option and the number of days to archive. 
+
+//To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 
 ==== Create a policy for Microsoft Azure object storage
 
@@ -140,7 +141,9 @@ Enter information in these fields:
 * *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
 +
 NOTE: This feature is not available in the Preview 2025 version.
-* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
+* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. 
+
+//To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 
 
 ==== Create a policy for StorageGRID object storage 
@@ -152,7 +155,9 @@ Enter information in these fields:
 * *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
 +
 NOTE: This feature is not available in the Preview 2025 version.
-* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
+* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. 
+
+//To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 
 
 

@@ -13,7 +13,7 @@ summary: Backups of your data are available for restore from the locations where
 :imagesdir: ./media/
 
 [.lead]
-Backups of your data are available for restore from the locations where you created backups: snapshots, replications, or backups in object storage. You can restore a workload to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system. Review the restore-from locations, restore points, and resource types to restore.
+Backups of your data are available for restore from the locations where you moved the backups: snapshots, replications, or backups in object storage. You can restore a workload to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system. Review the restore-from locations, restore points, and resource types to restore.
 
 //different types of restore operations, volume restore or file/folder restore, Browse and restore vs Search and restore)
 
@@ -21,7 +21,7 @@ Backups of your data are available for restore from the locations where you crea
 
 You can restore workloads from different starting locations: 
 
-* Restore from a snapshot copy
+* Restore from a primary location
 * Restore from a replicated resource
 * Restore from an object store backup
 
