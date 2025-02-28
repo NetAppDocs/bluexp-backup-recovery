@@ -1,0 +1,56 @@
+---
+sidebar: sidebar
+permalink: br-start-preview-setup.html
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
+summary: By participating in the BlueXP backup and recovery Preview, you play a crucial role in refining and enhancing the BlueXP backup and recovery service for Microsoft SQL Server. For the Preview version of BlueXP backup and recovery, we will assist with the setup. Here is the process.
+---
+
+= Set up the BlueXP backup and recovery Preview version
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+By participating in the BlueXP backup and recovery Preview, you play a crucial role in refining and enhancing the BlueXP backup and recovery service for Microsoft SQL Server. For the Preview version of BlueXP backup and recovery, we will assist with the setup. Here is the process.
+
+. *Enrollment*: Enroll for the Preview by signing up on an enrollment form. 
+
+. *Preview access*: After you are enrolled, you will receive early access to the BlueXP backup and recovery service for Microsoft SQL Server. 
+
+. *Registration*: If you don't already have a BlueXP account, sign up for one. Here's how: 
+
+.. Visit the https://bluexp.netapp.com/[BlueXP Portal].
++
+image:screen-preview-bluexp-portal.png[BlueXP portal screen]
+.. Click *Get Started*.
++
+image:screen-preview-login.png[Log in to the portal screen]
+.. Click *Sign up*.
++
+image:screen-preview-signup-profile.png[Sign up for BlueXP screen]
+.. Enter your name, email address, organization name, and other details and click *Next*. 
++
+You will receive an email with a link to verify your email address.
+.. Click the link in the email to verify your email address.
+
+.. Log in to the BlueXP Portal. 
+.. Complete your profile by entering the following information: 
+** *Organization ID*: After you register, you will receive an organization name and ID. Enter that here. 
+** *Share ID*: Share the organization name and ID with the NetApp Product Team.
++
+*Access timeframe*: Within 48-72 hours, you will have access to the BlueXP backup and recovery service. 
+
+. *Explore* the service, test its features, and integrate it with your existing SQL Server workloads. 
+
+. *Maintain regular contacts*. Throughout the preview session, participate in regular check-ins with the NetApp Product Team. These sessions help you understand the service and provide feedback: 
+* *Hear about updates*: You will hear about the latest developments related to the Preview. 
+* *Ask questions* and get immediate answers from the BlueXP team. 
+* *Provide feedback* with the NetApp Product Team to improve the service.
+* *Share best practices* and tips for using the service effectively. 
+* *Foster collaboration*: Collaborate with other users to share experiences and learn from each other.
+
+
+. *Provide feedback* with the NetApp Product Team.
+

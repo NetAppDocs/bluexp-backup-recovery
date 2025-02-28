@@ -32,6 +32,8 @@ sidebar:
       entries:
         - title: Learn about BlueXP backup and recovery Preview version
           url: /concept-backup-to-cloud.html
+        - title: Set up the BlueXP backup and recovery Preview version
+          url: /br-start-preview-setup.html
         - title: Prerequisites for BlueXP backup and recovery Preview version
           url: /concept-start-prereq.html  
         - title: Prerequisites if you plan on importing from SnapCenter
