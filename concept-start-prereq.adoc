@@ -81,7 +81,7 @@ For the latest information about supported versions, see the https://imt.netapp.
 
 * A BlueXP Connector
 
-** ONTAP or Cloud Volume ONTAP clusters with ONTAP OS version 9.8 or greater are supported. 
+** ONTAP clusters with ONTAP OS version 9.8 or greater are supported. 
 
 ** If your on-premises ONTAP clusters or Cloud Volume ONTAP in AWS or in Azure cloud are not already onboarded in BlueXP, then you'll need a BlueXP Connector. 
 +
@@ -107,7 +107,7 @@ For the Preview version of BlueXP backup and recovery, we will assist with the s
 
 . *Registration*: If you don't already have a BlueXP account, sign up for one. Here's how: 
 
-.. Visit the BlueXP Portal.
+.. Visit the https://bluexp.netapp.com/[BlueXP Portal].
 +
 image:screen-preview-bluexp-portal.png[BlueXP portal screen]
 .. Click *Get Started*.

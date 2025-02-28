@@ -35,8 +35,8 @@ NOTE: For the Preview process, the instructions are a little different. Follow t
 . For the Preview version, select "Applications" from the left navigation.
 +
 If this is your first time logging in to this service, the landing page appears. 
-//+
-//image:screen-landing.png[Landing page screenshot for BlueXP blueXP backup and recovery]
++
+image:screen-br-landing.png[Landing page screenshot for BlueXP blueXP backup and recovery]
 + 
 Otherwise, the BlueXP backup and recovery Dashboard appears.
 +

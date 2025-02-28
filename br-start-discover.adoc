@@ -57,7 +57,7 @@ If this is your first time logging in to this service, the landing page appears:
 +
 image:screen-br-landing.png[Landing page screenshot for BlueXP backup and recovery]
 
-. From the initial landing page, select *Get started*. 
+. From the initial landing page, select *Start*. 
 //+
 //The service finds working environments in your BlueXP Connectors. This process might take a few minutes.
 //+
@@ -106,10 +106,10 @@ image:../media/screen-br-inventory-viewdetails-option.png[Inventory page showing
 image:../media/screen-br-inventory-manage-option.png[Inventory page showing the imported SnapCenter resources and the Manage option]
 
 . From the Inventory page, select the Actions icon image:../media/icon-action.png[Actions option] > *Manage* to display the Manage host page.   
-+
-image:../media/screen-br-inventory-manage-host.png[Inventory page showing the imported SnapCenter resources and the Manage option]
+//+
+//image:../media/screen-br-inventory-manage-host.png[Inventory page showing the imported SnapCenter resources and the Manage option]
 
-. Select *Manage*. 
+. Select *Manage in BlueXP*. 
 
 
 . To display the BlueXP backup and recovery Dashboard, select *Go to Dashboard*.   
@@ -133,7 +133,7 @@ If this is your first time logging in to this service, the landing page appears.
 +
 image:screen-br-landing.png[Landing page screenshot for BlueXP backup and recovery]
 
-. From the initial landing page, select *Get started*. 
+. From the initial landing page, select *Start*. 
 +
 The service finds working environments in your BlueXP Connectors. 
 +
