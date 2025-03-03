@@ -19,7 +19,7 @@ BlueXP backup and recovery uses role-based access control (RBAC) to govern the a
 
 //For details about the actions that each role can perform, see link:rp-reference-roles.html[BlueXP ransomware protection role-based access control privileges].
 
-To log in to BlueXP, you can use your NetApp Support Site credentials or you can sign up for a NetApp cloud login using your email and a password. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[Learn more about logging in^].
+To log in to BlueXP, you can use your NetApp Support Site credentials or you can sign up for a NetApp cloud login using your email and a password. https://docs.netapp.com/us-en/bluexp-setup-admin/task-logging-in.html[Learn more about logging in^].
 
 .Steps
 
@@ -42,8 +42,6 @@ Otherwise, the BlueXP backup and recovery Dashboard appears.
 +
 image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
 
-+
-NOTE: If you don't have a BlueXP Connector, refer to link:..br-start-setup.html[Set up BlueXP backup and recovery, including setting up the BlueXP Connector].
 
 . If you haven't done so already, select the *Discover workloads* option. 
 +

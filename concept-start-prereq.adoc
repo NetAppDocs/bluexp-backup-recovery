@@ -128,6 +128,5 @@ To use object storage as backup targets, you need an account with NetApp Storage
 
 Refer to the https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-azure.html[Backups to AWS, Azure, or S3^]. 
 
-Refer to link://concept-start-setup.html[How to set up backup destinations].
 
 
