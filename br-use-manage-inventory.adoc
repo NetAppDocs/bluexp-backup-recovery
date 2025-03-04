@@ -108,7 +108,9 @@ You can assign a policy to a database instance using policies that govern the sc
 . Select the *Instances* tab. 
 . Select the instance. 
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Protect*.
-. Select a policy or create a new one. For details, refer to link:task-create-policies-ontap.html[Create a policy].
+. Select a policy or create a new one. 
++
+For details about creating a policy, refer to link:br-use-policies-create.html[Create a policy].
 
 . Provide information on the scripts that you want to run before and after the backup.
 
@@ -145,7 +147,7 @@ You can change the policy, create a new policy, set a schedule, and set retentio
 . Select the instance. 
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit protection*.
 +
-For details about creating a policy, refer to link:task-create-policies-ontap.html[Create a policy].
+For details about creating a policy, refer to link:br-use-policies-create.html[Create a policy].
 
 === Back up now 
 
@@ -180,7 +182,7 @@ You can change the policy, create a new policy, set a schedule, and set retentio
 . Select the database. 
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Protect*.
 +
-For details about creating a policy, refer to link:task-create-policies-ontap.html[Create a policy].
+For details about creating a policy, refer to link:br-use-policies-create.html[Create a policy].
 
 === Restore databases
 
@@ -204,7 +206,7 @@ You can change the policy, create a new policy, set a schedule, and set retentio
 . Select the database. 
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit protection*.
 +
-For details about creating a policy, refer to link:task-create-policies-ontap.html[Create a policy].
+For details about creating a policy, refer to link:br-use-policies-create.html[Create a policy].
 
 === Back up now 
 
