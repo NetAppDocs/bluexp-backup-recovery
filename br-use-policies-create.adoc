@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: task-create-policies-ontap.html
+permalink: br-use-policies-create.html
 keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud
 summary: You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the type of backup, the backup architecture, the storage systems, and backup frequency. 
 ---
