@@ -25,7 +25,7 @@ indexpage:
         - title: Plan your protection journey
           url: concept-protection-journey.html 
         - title: Create policies to govern backups and recoveries
-          url: /task-create-policies-ontap.html
+          url: br-use-policies-create.html
         - title: Back up overview 
           url: br-use-backup-overview.html       
         - title: Back up Microsoft SQL Server workloads 

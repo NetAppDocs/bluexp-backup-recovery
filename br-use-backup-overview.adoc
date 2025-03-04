@@ -30,7 +30,7 @@ You can accomplish the following protection goals:
 * Back up workloads to an object store location 
 * Back up workloads now with ad hoc backups 
 
-To back up workloads, typically you create policies that govern the backup and restore operations. See link:task-create-policies-ontap.html[Create policies] for more information.
+To back up workloads, typically you create policies that govern the backup and restore operations. See link:br-use-policies-create.html[Create policies] for more information.
 
 
 

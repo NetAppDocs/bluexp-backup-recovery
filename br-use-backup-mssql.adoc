@@ -15,7 +15,7 @@ summary: Back up Microsoft SQL Server applications data from on-premises ONTAP s
 [.lead]
 Back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, and StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 
-TIP: To back up workloads on a schedule, you create policies that govern the backup and restore operations. See link:task-create-policies-ontap.html[Create policies] for more information.
+TIP: To back up workloads on a schedule, you create policies that govern the backup and restore operations. See link:br-use-policies-create.html[Create policies] for more information.
 
 In addition to backing up workloads using policies, you can accomplish the following protection goals:
 

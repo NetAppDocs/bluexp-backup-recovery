@@ -94,6 +94,7 @@ Provide information for the local snapshot.
 ** *Snapshot locking period*: Enter the number of days, months, or years that you want to lock the snapshot.
 
 === Create a policy for secondary settings (replication to secondary storage)
+
 Provide information for the replication to secondary storage. Schedule information from the local snapshot settings appears for you in the secondary settings.  
 
 * *Backup*: Select the frequency of hourly, daily, weekly, monthly, or yearly. 
@@ -191,8 +192,7 @@ If you are editing a policy that backs up to object storage, you can enable arch
 . In BlueXP backup and recovery, select *Policies*.
 . Select the policy that you want to edit.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit*.
-+
-For details about creating a policy, refer to link:task-create-policies-ontap.adoc[Create a policy].
+
 
 == Delete policies
 
