@@ -17,9 +17,9 @@ Managing resources in BlueXP backup and recovery is essential to ensure that you
 
 You can accomplish the following tasks related to managing your resources:
 
-* link://br-use-manage-inventory.html[Manage inventory].
-* link://br-use-manage-snapshots.html[Manage snapshots].
-* link://br-use-manage-snapshots.html[Manage policies]. 
+* link:br-use-manage-inventory.html[Manage inventory].
+* link:br-use-manage-snapshots.html[Manage snapshots].
+* link:br-use-manage-snapshots.html[Manage policies]. 
 
 
 

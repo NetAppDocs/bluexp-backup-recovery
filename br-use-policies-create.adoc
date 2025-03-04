@@ -192,7 +192,7 @@ If you are editing a policy that backs up to object storage, you can enable arch
 . Select the policy that you want to edit.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit*.
 +
-For details about creating a policy, refer to link://task-create-policies-ontap.adoc[Create a policy].
+For details about creating a policy, refer to link:task-create-policies-ontap.adoc[Create a policy].
 
 == Delete policies
 
