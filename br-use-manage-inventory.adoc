@@ -130,7 +130,7 @@ For details about creating a policy, refer to link:br-use-policies-create.html[C
 
 You can associate credentials with a resource so that protection can occur. 
 
-For details, see link:br-start-credentials.html[Configure BlueXP backup and recovery settings, including credentials].
+For details, see link:br-start-configure.html[Configure BlueXP backup and recovery settings, including credentials].
 
 
 . In BlueXP backup and recovery, select *Inventory*.
