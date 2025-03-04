@@ -14,16 +14,12 @@ indexpage:
           url: concept-start-prereq.html
         - title: Set up backup destinations before you use BlueXP backup and recovery
           url: br-start-setup.html
-        - title: Discover workloads
-          url: br-start-discover.html
-        - title: Import SnapCenter resources 
+        - title: Discover workloads & optionally import SnapCenter resources
           url: br-start-discover.html
         - title: Configure BlueXP backup and recovery settings
           url: br-start-configure.html
     - title: Back up workload data 
       links:
-        - title: Plan your protection journey
-          url: concept-protection-journey.html 
         - title: Create policies to govern backups and recoveries
           url: br-use-policies-create.html
         - title: Back up overview 
