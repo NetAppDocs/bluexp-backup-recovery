@@ -1,0 +1,145 @@
+---
+sidebar: sidebar
+permalink: br-limitations.html
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
+summary: The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes all volumes and files in working environments within your organization. 
+---
+
+= Known limitations for BlueXP backup and recovery Preview version
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Known limitations identify platforms, devices, or functions that are not supported by this release of the product, or that do not interoperate correctly with it. Review these limitations carefully.
+
+== Importing resources from SnapCenter issues
+
+The migration of resources from SnapCenter into BlueXP backup and recovery has the following limitations:
+
+=== 1 Resource groups: 
+* If all of the resources in a resource group are protected (also called _explicit_ protection), the resource group is imported as a single resource. 
+* If one of the resources in a resource group is not protected, but the rest are (also called _implicit_ protection), migration from SnapCenter is blocked. 
+
+*Workaround*: Before importing resources from SnapCenter, ensure that all resources in a resource group are protected.
+
+=== 2 Host mapping 
+If SnapCenter does not have a storage (cluster or SVM) for the resources, no cluster or SVM will get mapped to a host in BlueXP backup and recovery Preview version. 
+
+
+*Workaround*: After importing resources from SnapCenter, create a working environment in BlueXP backup and recovery for all the storages that are registered in on-premises SnapCenter.
+
+=== 3 Policies on snapshots
+
+If you have three policies (for Data, Log, and Log of Snapshot) in SnapCenter, a single policy will be used instead of all three. 
+
+
+*Workaround*: TBD
+
+=== 4 Policy time offsets 
+
+If you have a policy with a time offset in SnapCenter, the time offset will not be imported into BlueXP backup and recovery.
+
+
+*Workaround*: The following workarounds are available:
+
+* For Hour of the day, BlueXP backup and recovery uses ??? 
+
+* For minutes that are not multiples of 15 in SnapCenter, BlueXP backup and recovery approximates to the closest time in 15-minute intervales. 
+
+* For days of the week, BlueXP backup and recovery uses ???
+
+=== 5 SnapMirror labels
+
+SnapCenter uses labels in all policies. BlueXP backup and recovery assigns a "secondary" label to all policies imported from SnapCenter.  
+
+
+*Workaround*: TBD
+
+=== 6 Multiple policies in a tier
+
+If you have multiple policies in a tier in SnapCenter, BlueXP backup and recovery will not import those policies. 
+
+
+*Workaround*: TBD
+
+
+=== 8 Schedules repeating every so many hours
+
+If you have a SnapCenter policy schedule that starts at a certain time and repeats every so many hours, BlueXP backup and recovery will not import the schedule.
+
+
+*Workaround*: TBD   
+
+=== 9 Schedules not in 15-minute intervals
+
+If you have a SnapCenter policy schedule that starts at a certain time and repeats every so many minutes but the minutes are not in 15-minute intervals, BlueXP backup and recovery will not import the schedule.
+
+
+*Workaround*: Use SnapCenter to adjust the policy so that it repeats in 15-minute intervals.
+
+=== 11 SnapCenter daily schedules 
+
+BlueXP backup and recovery adjusts the SnapCenter schedules as follows: 
+
+* If the SnapCenter schedule is set to <= 7 days, BlueXP backup and recovery sets the schedule to weekly. 
+
+* If the SnapCenter schedule is set to >7 days, BlueXP backup and recovery sets the schedule to monthly.
+
+=== 12 Consolidating multiple policies 
+
+If you have multiple policies in SnapCenter, BlueXP backup and recovery consolidates them into a single policy.
+
+
+*Workaround*: TBD
+
+=== 13 Mapping SnapCenter daily schedules 
+
+?? 
+
+=== 14 SnapCenter yearly schedules
+??
+
+
+*Workaround*: TBD
+
+=== 15  Resource group migration 
+
+???
+
+=== 16 Resource group migration 
+??
+Couldn't we merge this into #15? 
+
+*Workaround*: TBD
+
+=== 17 Log backups 
+
+If you have a SnapCenter policy that includes log only backups, BlueXP backup and recovery will not import the resource.
+
+
+*Workaround*: TBD
+
+=== 18 Log backup retention
+
+With SnapCenter, you can have multiple retention values across multiple policies attached to a resource. However, BlueXP backup and recovery Preview version supports only a single retention value for all policies attached to a resource.
+
+
+*Workaround*: TBD
+
+
+=== 19 Schedule scenarios not supported
+
+The following SnapCenter schedules are not supported in BlueXP backup and recovery Preview version:
+
+* Secondary ??
+* Secondary tiers changed ?? : 
+* Multiple policies with different log retention values. BlueXP backup and recovery assigns the maximum log retention value out of all the policies to the policy. 
+
+* Multiple schedules with the same tier attached to a resource. ?? 
+
+* On demand backups
+
+

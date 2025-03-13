@@ -28,6 +28,8 @@ sidebar:
       entries:
         - title: What's new
           url: /whats-new.html
+        - title: Known limitations
+          url: /br-limitations.html
     - title: Get started
       entries:
         - title: Learn about BlueXP backup and recovery Preview version
