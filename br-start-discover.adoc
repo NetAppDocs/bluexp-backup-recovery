@@ -21,7 +21,7 @@ For the Preview version, discovery occurs in the following ways:
 
 * If you already have SnapCenter, import SnapCenter resources into BlueXP backup and recovery by using the BlueXP backup and recovery UI.
 +
-NOTE: If you already have SnapCenter, first check to be sure you've met the prerequisites before importing from SnapCenter. See link:concept-start-prereq-snapcenter-import.html[Prerequisites for importing resources from SnapCenter].
+NOTE: If you already have SnapCenter, first check to be sure you've met the prerequisites before importing from SnapCenter. For example, you should create working environments in BlueXP Canvas for all on-premises SnapCenter cluster storage first before importing from SnapCenter. See link:concept-start-prereq-snapcenter-import.html[Prerequisites for importing resources from SnapCenter].
 +
 * If you don't already have SnapCenter, you can still discover workloads within your working environments.
 

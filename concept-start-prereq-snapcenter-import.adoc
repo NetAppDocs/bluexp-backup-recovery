@@ -19,6 +19,8 @@ If you are going to import resources from SnapCenter into BlueXP backup and reco
 
 To import resources from SnapCenter, ensure host requirements to install the SnapCenter Plug-in for Microsoft SQL Server are met. 
 
+
+
 Check specifically for the SnapCenter requirements in link:concept-start-prereq.html[BlueXP backup and recovery prerequisites].
 
 == Disable User Account Control remote restrictions 
@@ -150,7 +152,9 @@ Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 LocalAccountTokenFilterPolicy : 1
 ----
 
+== Create working environments in BlueXP Canvas first 
 
+If you are going to import resources from SnapCenter, you should create working environments in BlueXP Canvas for all on-premises SnapCenter cluster storage first before importing from SnapCenter. This ensures that host resources can be discovered and imported correctly.
 
 
 
