@@ -1,6 +1,6 @@
 === SMB snapshot browsing 
 
-This update of BlueXP backup and recovery resolved an issue that prevented customers from browsing local snapshots in an SMB environment. 
+This BlueXP backup and recovery update resolved an issue that prevented customers from browsing local snapshots in an SMB environment. 
 
 
 === AWS GovCloud environment update 
