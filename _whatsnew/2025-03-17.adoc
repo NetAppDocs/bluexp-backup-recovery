@@ -1,0 +1,24 @@
+=== BlueXP backup and recovery demo system 
+
+The BlueXP backup and recovery demo system has been completely updated to ensure that you can explore all workflows of the product without connecting to your own environment. This release updates the underlying infrastructure, optimizes performance, and integrates the latest features of BlueXP backup and recovery. 
+
+=== SMB Snapshot browsing 
+
+This update of BlueXP backup and recovery resolved an issue that prevented customers from browsing local snapshots in an SMB environment. 
+
+
+=== AWS GovCloud environment update 
+
+This update of BlueXP backup and recovery implemented fixes for aan issue that caused the UI to not bring in an AWS GovCloud environment due to TLS certificate errors. The issue was resolved by making the connection with the BlueXP Connector host name instead of the IP address. 
+
+=== Backup policy retention limits 
+
+Previously, BlueXP backup and recovery UI limited the maximum number of backup copies to 999, while the CLI allowed higher limits. 
+Now, you can attach up to 4,000 volumes to a backup policy and include 1,018 volumes not attached to a backup policy. This update includes additional validations to prevent exceeding these limits.
+
+=== SnapMirror Cloud resync
+
+This update ensures that SnapMirror Cloud resync cannot be started from BlueXP backup and recovery for unsupported ONTAP versions after a SnapMirror relationship has been deleted. 
+
+
+
