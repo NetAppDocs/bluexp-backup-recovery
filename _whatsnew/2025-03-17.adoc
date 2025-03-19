@@ -9,8 +9,7 @@ This BlueXP backup and recovery update fixed an issue that prevented the UI from
 
 === Backup policy retention limits 
 
-Previously, the BlueXP backup and recovery UI limited backups to 999 copies, while the CLI allowed more. 
-Now, you can attach up to 4,000 volumes to a backup policy and include 1,018 volumes not attached to a backup policy. This update includes additional validations that prevent exceeding these limits.
+Previously, the BlueXP backup and recovery UI limited backups to 999 copies, while the CLI allowed more. Now, you can attach up to 4,000 volumes to a backup policy and include 1,018 volumes not attached to a backup policy. This update includes additional validations that prevent exceeding these limits.
 
 === SnapMirror Cloud resync
 
