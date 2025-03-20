@@ -45,7 +45,7 @@ When necessary, you can restore an entire _volume_, a _folder_, or one or more _
 * When compared to the https://docs.netapp.com/us-en/bluexp-replication/index.html[BlueXP replication service^], the replication in BlueXP backup and recovery includes the following features:
 ** Replicate multiple FlexVol volumes at a time to a secondary system.
 ** Restore a replicated volume to the source system or to a different system using the UI.
-** Manage replication policies
+
 //** Restore files and folders
 
 See link:reference-limitations.html#replication-limitations[Replication limitations] for a list of replication features that are unavailable with BlueXP backup and recovery.
