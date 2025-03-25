@@ -34,10 +34,10 @@ For the latest information about supported versions, see the https://imt.netapp.
 
 NOTE: If you already have SnapCenter, first check to be sure you've met the prerequisites before importing from SnapCenter. See link:concept-start-prereq-snapcenter-import.html[Prerequisites for importing resources from SnapCenter].
 
-| Minimum RAM for the plug-in on the host
+| Minimum RAM for the plug-in on the SQL Server host
 | 1 GB
 
-| Minimum install and log space for the plug-in on the host
+| Minimum install and log space for the plug-in on the SQL Server host
 | 5 GB
 
 Allocate sufficient disk space and monitor the storage consumption by the logs folder. The log space required varies depending on the number of backups performed and the frequency of data protection operations. If there is not sufficient space, the logs will not be created for the operations. 
@@ -129,42 +129,42 @@ To use object storage as backup targets, you need an account with NetApp Storage
 Refer to the https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-azure.html[Backups to AWS, Azure, or S3^]. 
 
 
-== Script to run before moving snapshots to object storage
+//== Script to run before moving snapshots to object storage
 
-If you plan to move snapshots to object storage, run a temporary script one time soon after creating a BlueXP Connector. The script retrieves information from BlueXP backup and recovery and enables notifications when transfers of snapshots are moved to object storage. 
+//If you plan to move snapshots to object storage, run a temporary script one time soon after creating a BlueXP Connector. The script retrieves information from BlueXP backup and recovery and enables notifications when transfers of snapshots are moved to object storage. 
 
 
-----
-[source,asciidoc]
+//----
+//[source,asciidoc]
 
-#!/bin/bash
+//#!/bin/bash
 
-# Define container name and configuration file path inside the container
-CONTAINER_NAME="cloudmanager_cbs"
-CONFIG_FILE="config/default.json"
+//# Define container name and configuration file path inside the container
+//CONTAINER_NAME="cloudmanager_cbs"
+//CONFIG_FILE="config/default.json"
 
-echo "Enabling pubsub in the container: ${CONTAINER_NAME}..."
+//echo "Enabling pubsub in the container: ${CONTAINER_NAME}..."
 
-# Use sed to replace the "enable": value only within the pubsub-feature block.
-# The sed command sets the block range from the line matching "pubsub-feature" and an opening brace '{'
-# until the first encountered '}' (assumed to be the closing of the block).
-docker exec -it "${CONTAINER_NAME}" bash -c "sed -i '/\"pubsub-feature\"[[:space:]]*:[[:space:]]*{/,/}/ s/\"enable\":[[:space:]]*\\(true\\|false\\)/\"enable\": true/' ${CONFIG_FILE}"
+//# Use sed to replace the "enable": value only within the pubsub-feature block.
+//# The sed command sets the block range from the line matching "pubsub-feature" and an opening brace '{'
+//# until the first encountered '}' (assumed to be the closing of the block).
+//docker exec -it "${CONTAINER_NAME}" bash -c "sed -i '////\"pubsub-feature\"[[:space:]]*:[[:space:]]*{/,/}/ s/\"enable\":[[:space:]]*\\(true\\|false\\)/\"enable\": true/' ${CONFIG_FILE}"
 
-if [ $? -eq 0 ]; then
-    echo "Configuration updated successfully."
-else
-    echo "Failed to update configuration."
-    exit 1
-fi
+//if [ $? -eq 0 ]; then
+//    echo "Configuration updated successfully."
+//else
+//    echo "Failed to update configuration."
+//    exit 1
+//fi
 
-echo "Restarting container: ${CONTAINER_NAME}..."
-docker restart "${CONTAINER_NAME}"
+//echo "Restarting container: ${CONTAINER_NAME}..."
+//docker restart "${CONTAINER_NAME}"
 
-if [ $? -eq 0 ]; then
-    echo "Container restarted successfully."
-else
-    echo "Failed to restart container."
-    exit 1
-fi
+//if [ $? -eq 0 ]; then
+//    echo "Container restarted successfully."
+//else
+//    echo "Failed to restart container."
+//   exit 1
+//fi
 
-----
+//----
