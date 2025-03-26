@@ -7,9 +7,7 @@ summary: You can use the default backup policies provided by NetApp to create yo
 
 = Create and manage backup policies to govern backups in BlueXP backup and recovery
 :hardbreaks:
-:nofooter:
 :icons: font
-:linkattrs:
 :imagesdir: ./media/
 
 [.lead]

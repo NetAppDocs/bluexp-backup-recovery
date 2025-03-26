@@ -76,6 +76,10 @@ sidebar:
               url: /br-use-manage-snapshots.html
         - title: Restart BlueXP backup and recovery
           url: /reference-restart-backup.html
+    - title: Reference 
+      entries:
+        - title: Policies in SnapCenter compared to BlueXP backup and recovery
+          url: /reference-policy-differences-snapcenter.html
     - title: Legal notices
       url: /legal-notices.html
 product-family:

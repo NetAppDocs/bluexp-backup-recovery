@@ -5,15 +5,14 @@ keywords: backup policy, backup policies, snapcenter, migration
 summary: There are some differences between policies used in BlueXP backup and recovery and those used in SnapCenter.
 ---
 
-= Policy differences between SnapCenter and BlueXP backup and recovery
+= Policies in SnapCenter compared to those in BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ./media/
-
 [.lead]
-There are some differences between policies used in BlueXP backup and recovery and those used in SnapCenter.
+There are some differences between policies used in SnapCenter and those used in BlueXP backup and recovery after importing resources and policies from SnapCenter.
 
 
 SnapCenter and BlueXP backup and recovery use slightly different policy schedules. 
@@ -38,10 +37,50 @@ You can assign multiple policies with the same schedule tier to a resource in Sn
 For example, if you use three policies (for Data, Log, and Log of Snapshot) in SnapCenter, after migration from SnapCenter, BlueXP backup and recovery will use a single policy instead of all three. 
 
 
-=== SnapCenter daily schedules (was #11 in document)
+== SnapCenter daily schedules (was #11 in document)
 
 BlueXP backup and recovery adjusts the SnapCenter schedules as follows: 
 
 * If the SnapCenter schedule is set to <= 7 days, BlueXP backup and recovery sets the schedule to weekly. 
-
 * If the SnapCenter schedule is set to >7 days, BlueXP backup and recovery sets the schedule to monthly.
+
+== SnapCenter hourly schedules 
+
+Every SnapCenter hourly policy with repeating intervals greater than one hour will be converted to a daily policy in BlueXP backup and recovery. 
+
+Any hourly policy with repeating intervals that are not a factor of 24 (for example 5,7,etc) will skip some snapshots in a day.
+
+Example: 
+
+* SnapCenter policy: Hourly policy for every 5 hours starting at 1:00 am
+* In BlueXP backup and recovery policy (after migration): Daily with the hour of the days in those 5-hour intervals [1, 6, 11, 16, and 21]. 
+
+NOTE: Some hours are skipped, after 21 i.e. 9:00 pm it should be 2:00 am to repeat after every 5 hours, but it will be always 1:00 am.
+
+== SnapCenter daily schedules
+
+c.	Daily policies:
+Every daily policy with repeating days interval less than equal to 7 will be converted to weekly policy in BlueXP B&R.
+Similar to point (b), some snapshots will be skipped in a week.
+
+Example, In SnapCenter:  Daily policy with every 3 days repeating interval starting at monday
+BlueXP B&R post migration:  
+Weekly: [mon, thrus, sun]. (Here note that some days will be skipped, it is not every 3 days exactly, after sun next backup should be on wed but it will always be on fixed days i.e.  Monday. thrus and sun)
+
+Every daily policy with repeating days interval greater than 7 will be converted to monthly policy in BlueXP B&R.
+Similar to above, Some snapshots will be missed in a month.
+
+Example, In SnapCenter: Daily policy with every 10 days repeating interval starting 2nd of the month 
+
+BlueXP B&R (post migration) 
+Monthly: Days of the month [2,12,22] (here some days will be skipped the next month, after 22 it should be 1st of the month if the month has 31 days but here the days will be fixed to specefic dates)
+d.	 Resource with multiple policies, log backup retention will be according to below priority order
+FullandLog policy + log only: Pick log only policy retention values.
+Full backup + log only + FullandLog: Pick log only 
+FullandLog + FullBackup: Pick FullAndLog
+If only full backup: Skip enable log backup
+
+e.	Snapmirror label for every policy will remain intact post migration even though the tier is changed, Example an hourly policy from snapcenter might change to daily in BlueXP B&R.
+f.	Resource with secondary protection enabled with multiple source volumes => multiple dest vols =>  multiple snapmirror relationships will be created. 
+Only first policy will be chosen to get the retention count
+
