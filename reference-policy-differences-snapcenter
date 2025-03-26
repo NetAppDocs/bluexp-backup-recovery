@@ -1,0 +1,47 @@
+---
+sidebar: sidebar
+permalink: reference-policy-differences-snapcenter.html
+keywords: backup policy, backup policies, snapcenter, migration
+summary: There are some differences between policies used in BlueXP backup and recovery and those used in SnapCenter.
+---
+
+= Policy differences between SnapCenter and BlueXP backup and recovery
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+There are some differences between policies used in BlueXP backup and recovery and those used in SnapCenter.
+
+
+SnapCenter and BlueXP backup and recovery use slightly different policy schedules. 
+
+SnapCenter uses the following schedule tiers:
+
+* *Hourly*: Multiple hours and minutes (any hour 0-23) and any minutes (0-60)
+* *Daily*: Includes an option to repeate every so many days, for example, every 3 days. 
+* *Weekly*: Sunday to Monday, with an option to perform a snapshot on Day 1 of the week or multiple days of the week. 
+* *Monthly*: Months January to December, with an option to perform on specific days of the month, for example, the 7th of every month and even multiple days of the month. 
+
+BlueXP backup and recovery uses the following schedule tiers, which are slightly different: 
+
+* *Hourly*: Performs snapshots only for minutes, for example, 1 hour or 15-minute intervals less than 60.
+* *Daily*: Hours of the day (0-23) with start time at 10:00 AM with an option to perform every so many hours. 
+* *Weekly*: Day of the week (Sunday to Monday) with an option to perform on 1 day or multiple days. This is the same as SnapCenter. 
+* *Monthly*: Dates of the month (0-30) starting time with multiple dates of the month.  
+* *Yearly*: Monthly. Matches SnapCenter's monthly. 
+
+You can assign multiple policies with the same schedule tier to a resource in SnapCenter. However, BlueXP backup and recovery does not support multiple policies on a resource that uses the same schedule tier.
+
+For example, if you use three policies (for Data, Log, and Log of Snapshot) in SnapCenter, after migration from SnapCenter, BlueXP backup and recovery will use a single policy instead of all three. 
+
+
+=== SnapCenter daily schedules (was #11 in document)
+
+BlueXP backup and recovery adjusts the SnapCenter schedules as follows: 
+
+* If the SnapCenter schedule is set to <= 7 days, BlueXP backup and recovery sets the schedule to weekly. 
+
+* If the SnapCenter schedule is set to >7 days, BlueXP backup and recovery sets the schedule to monthly.
