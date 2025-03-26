@@ -38,7 +38,7 @@ sidebar:
           url: /br-start-preview-setup.html
         - title: Prerequisites for BlueXP backup and recovery Preview version
           url: /concept-start-prereq.html  
-        - title: Prerequisites if you plan on importing from SnapCenter
+        - title: Configure additional items if importing from SnapCenter
           url: /concept-start-prereq-snapcenter-import.html
         - title: Set up backup destinations before you use BlueXP backup and recovery
           url: /br-start-setup.html

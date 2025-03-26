@@ -16,7 +16,7 @@ summary: Get started with BlueXP backup and recovery by verifying the readiness 
 Get started with BlueXP backup and recovery by verifying the readiness of your operational environment, BlueXP Connector, and BlueXP account. To use BlueXP backup and recovery, you'll need these prerequisites.
 
 
-== Host requirements 
+== SQL host requirements 
 
 To use BlueXP backup and recovery, you need the following host system, space, and sizing prerequisites.
 
@@ -29,6 +29,7 @@ To use BlueXP backup and recovery, you need the following host system, space, an
 | Operating systems
 | Microsoft Windows
 For the latest information about supported versions, see the https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome[NetApp Interoperability Matrix Tool^].
+| Microsoft SQL Server versions | 
 
 | SnapCenter Server version | SnapCenter Server version 5.0 or greater is required if you are going to import your existing data from SnapCenter into BlueXP backup and recovery.
 
@@ -42,10 +43,10 @@ NOTE: If you already have SnapCenter, first check to be sure you've met the prer
 
 Allocate sufficient disk space and monitor the storage consumption by the logs folder. The log space required varies depending on the number of backups performed and the frequency of data protection operations. If there is not sufficient space, the logs will not be created for the operations. 
 
-|Required software packages if using SnapCenter 6.0 or greater
+|Required software packages
 | * ASP.NET Core Runtime 8.0.12 Hosting Bundle (and all subsequent 8.0.x patches)
 
-* Java 11 Oracle Java and OpenJDK
+//* Java 11 Oracle Java and OpenJDK
 
 //* Java 11 Oracle Java and OpenJDK are required only for SAP HANA, IBM Db2, PostgreSQL, MySQL, NetApp supported plug-ins, and other custom applications that can be installed on Windows hosts.
 
@@ -53,15 +54,14 @@ Allocate sufficient disk space and monitor the storage consumption by the logs f
 
 For the latest information about supported versions, see the https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome[NetApp Interoperability Matrix Tool^].
 
-|Required software packages if using SnapCenter 5.0
-| * Microsoft .NET Framework 4.7.2 or later
+//|Required software packages if using SnapCenter 5.0
+//| * Microsoft .NET Framework 4.7.2 or later
 
-* Windows Management Framework (WMF) 4.0 or later
+//* Windows Management Framework (WMF) 4.0 or later
 
-* PowerShell 4.0 or later
+//* PowerShell 4.0 or later
 
 
-For the latest information about supported versions, see the https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome[NetApp Interoperability Matrix Tool^].
 
 
 
@@ -72,18 +72,14 @@ For the latest information about supported versions, see the https://imt.netapp.
 
 * A BlueXP user account with Organization Admin privileges for discovering resources.
 
-* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters. Refer to the *Initial Preview setup process* below. 
+* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters or Cloud Volumes ONTAP. Refer to the *Initial Preview setup process* below. 
 //* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters or to Cloud Volumes ONTAP in AWS or Azure.
 
 
-* At least one BlueXP working environment with a NetApp on-premises ONTAP cluster.
+* At least one BlueXP working environment with a NetApp on-premises ONTAP or Cloud Volumes ONTAP cluster.
 //* At least one BlueXP working environment with a NetApp on-premises ONTAP cluster or Cloud Volume ONTAP in AWS or Azure (using NAS or CIFS protocols).
 
 * A BlueXP Connector
-
-** ONTAP clusters with ONTAP OS version 9.8 or greater are supported. 
-
-** If your on-premises ONTAP clusters or Cloud Volume ONTAP in AWS or in Azure cloud are not already onboarded in BlueXP, then you'll need a BlueXP Connector. 
 +
 Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn how to configure a BlueXP Connector] and https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[standard BlueXP requirements^].
 

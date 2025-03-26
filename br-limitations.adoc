@@ -19,7 +19,16 @@ Known limitations identify platforms, devices, or functions that are not support
 
 The migration of resources from SnapCenter into BlueXP backup and recovery has the following limitations:
 
-=== 1 Resource groups: 
+=== Standard deployment mode only
+The BlueXP backup and recovery Preview version works only in standard deployment mode, not restricted or private modes. 
+
+
+=== Windows cluster name
+
+The Windows cluster name cannot contain an underscore (_) character.
+
+
+=== 1 Resource groups 
 * If all of the resources in a resource group are protected (called _explicit_ protection), the resource group is imported as a single resource. 
 * If one of the resources in a resource group is not protected, but the rest are protected (called _implicit_ protection), migration from SnapCenter is blocked. 
 

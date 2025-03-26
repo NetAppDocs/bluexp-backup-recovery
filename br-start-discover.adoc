@@ -173,7 +173,7 @@ link:br-use-dashboard.html[Learn what the Dashboard shows you.]
 
 With Advanced Settings, you can manually install the plugin agent on all servers being registered. This enables you to  import all SnapCenter workloads into BlueXP backup and recovery so you can manage backups and restores there. BlueXP backup and recovery shows the steps needed to install the plugin. 
 
-If you entered vCenter information during discovery, you need to add plugin information in Advanced Settings.
+//If you entered vCenter information during discovery, you need to add plugin information in Advanced Settings.
 
 
 .Steps

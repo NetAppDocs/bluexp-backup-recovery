@@ -5,7 +5,7 @@ keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, 
 summary: Get started with BlueXP backup and recovery by verifying the readiness of your operational environment, BlueXP Connector, and BlueXP account. To use BlueXP backup and recovery, you'll need these prerequisites.
 ---
 
-= BlueXP backup and recovery Preview 2025 prerequisites if you are importing resources from SnapCenter
+= Configure additional items if importing from SnapCenter
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Get started with BlueXP backup and recovery by verifying the readiness 
 :imagesdir: ./media/
 
 [.lead]
-If you are going to import resources from SnapCenter into BlueXP backup and recovery, you'll need these additional prerequisites.
+If you are going to import resources from SnapCenter into BlueXP backup and recovery, you'll need to configure a few more items.
 
 == Ensure host requirements to install the SnapCenter Plug-in
 
