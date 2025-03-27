@@ -26,7 +26,9 @@ The Windows cluster name cannot contain an underscore (_) character.
 
 == SnapCenter migration issues
 
-The migration of resources from SnapCenter into BlueXP backup and recovery has the following limitations:
+The migration of resources from SnapCenter into BlueXP backup and recovery has the following limitations.
+
+For details about how SnapCenter policies migrate to BlueXP backup and recovery policies, see link:reference-policy-differences-snapcenter.html[Policies in SnapCenter compared to those in BlueXP backup and recovery].
 
 === Resource group limitations 
 
@@ -66,15 +68,11 @@ BlueXP backup and recovery does not import log-only backup policies from SnapCen
 *Workaround*: Use a policy in SnapCenter that uses more than just log-only backups. 
 
 
-=== OLD stuff
-
-
 === Host mapping (was #2 in the document)
 SnapCenter does not have map storage clusters or SVMs for the resources to hosts, but BlueXP backup and recovery does. The on-premises ONTAP cluster or SVM will not be mapped to a host in BlueXP backup and recovery Preview version. Additionally, BlueXP does not support SVMs. 
 
 
 *Workaround*: Before importing resources from SnapCenter, create a working environment in BlueXP backup and recovery for all the on-premises ONTAP storage systems that are registered in on-premises SnapCenter. Then, import the resources for that cluster from SnapCenter into BlueXP backup and recovery.
-
 
 
 === Schedules not in 15-minute intervals (was #9 in document)
