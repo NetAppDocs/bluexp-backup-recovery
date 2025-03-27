@@ -15,7 +15,7 @@ In BlueXP backup and recovery, create your own policies. Policies govern the bac
 
 //This used to be the topic for Manage backup policies for ONTAP volumes. Recasting this for MS SQL Server apps. 
 
-If you import resources from SnapCenter, you might encounter some differences between SnapCenter policies and those used in BlueXP backup and recovery. See link:reference-policy-differences-snapcenter.html[Policy differences between SnapCenter and BlueXP backup and recovery^].
+If you import resources from SnapCenter, you might encounter some differences policies used in SnapCenter and those used in BlueXP backup and recovery. See link:reference-policy-differences-snapcenter.html[Policy differences between SnapCenter and BlueXP backup and recovery].
 
 
 

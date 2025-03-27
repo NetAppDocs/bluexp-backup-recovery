@@ -7,12 +7,11 @@ summary: There are some differences between policies used in BlueXP backup and r
 
 = Policies in SnapCenter compared to those in BlueXP backup and recovery
 :hardbreaks:
-:nofooter:
 :icons: font
-:linkattrs:
 :imagesdir: ./media/
+
 [.lead]
-There are some differences between policies used in SnapCenter and those used in BlueXP backup and recovery after importing resources and policies from SnapCenter.
+There are some differences between policies used in SnapCenter and those used in BlueXP backup and recovery that might impact what you see after importing resources and policies from SnapCenter.
 
 
 SnapCenter and BlueXP backup and recovery use slightly different policy schedules. 
