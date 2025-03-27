@@ -68,14 +68,14 @@ BlueXP backup and recovery does not import log-only backup policies from SnapCen
 *Workaround*: Use a policy in SnapCenter that uses more than just log-only backups. 
 
 
-=== Host mapping (was #2 in the document)
+=== Host mapping 
 SnapCenter does not have map storage clusters or SVMs for the resources to hosts, but BlueXP backup and recovery does. The on-premises ONTAP cluster or SVM will not be mapped to a host in BlueXP backup and recovery Preview version. Additionally, BlueXP does not support SVMs. 
 
 
 *Workaround*: Before importing resources from SnapCenter, create a working environment in BlueXP backup and recovery for all the on-premises ONTAP storage systems that are registered in on-premises SnapCenter. Then, import the resources for that cluster from SnapCenter into BlueXP backup and recovery.
 
 
-=== Schedules not in 15-minute intervals (was #9 in document)
+=== Schedules not in 15-minute intervals 
 
 If you have a SnapCenter policy schedule that starts at a certain time and repeats every so many minutes but the minutes are not in 15-minute intervals, BlueXP backup and recovery will not import the schedule.
 
@@ -83,7 +83,7 @@ If you have a SnapCenter policy schedule that starts at a certain time and repea
 *Workaround*: Use SnapCenter to adjust the policy so that it repeats in 15-minute intervals.
 
 
-=== Log backup retention (was #18 in the document)
+=== Log backup retention 
 
 With SnapCenter, you can have multiple retention values across multiple policies attached to a resource. However, BlueXP backup and recovery Preview version supports only a single retention value for all policies attached to a resource.
 
