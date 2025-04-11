@@ -1,9 +1,9 @@
-=== Enhanced Volume Dashboard Experience (PREVIEW)
+=== Enhanced Volume Dashboard (Preview)
 
 The Volume Dashboard now loads in under 10 seconds, providing a much faster and more efficient interface. This preview version is available to select customers, offering them an early look at these improvements. 
 
 === UI improvements
-This release enhances the user experience by simplifying the interface:   
+This release enhances your experience by simplifying the interface:   
 
 * The removal of the Aggregate column from the Volumes tables, along with the Snapshot Policy, Backup Policy, and Replication Policy columns from the Volume table in the V2 Dashboard, results in a more streamlined layout.  
 
@@ -15,9 +15,9 @@ This release enhances the user experience by simplifying the interface:
 
 * During the working environment activation process, a dialog box displays a loading icon to provide feedback until the discovery process is complete, enhancing transparency and confidence in the system's operations. 
 
-=== Support for third-party Wasabi object store (PREVIEW) 
+=== Support for third-party Wasabi object store (Preview) 
 
-BlueXP backup and recovery now extends its support to third-party object stores, with a primary focus on Wasabi. This new preview feature enables you leverage any S3-compatible object store for your backup and recovery needs. 
+BlueXP backup and recovery now extends its support to third-party object stores with a primary focus on Wasabi. This new preview feature enables you leverage any S3-compatible object store for your backup and recovery needs. 
 
 ==== Getting started with Wasabi
 
