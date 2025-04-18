@@ -181,6 +181,9 @@ BlueXP backup and recovery supports the following types of volumes:
 * SnapLock Compliance for on-premises volumes  (requires ONTAP 9.14 or later)
 * SnapMirror data protection (DP) destination volumes
 
+
+NOTE: BlueXP backup and recovery does not support backups of FlexCache volumes. 
+
 See the sections on link:reference-limitations.html#backup-to-object-limitations[Backup and Restore limitations] for additional requirements and limitations.
 
 == Cost
