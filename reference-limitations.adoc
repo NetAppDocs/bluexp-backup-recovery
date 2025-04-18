@@ -30,6 +30,8 @@ https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feat
 +
 For details about creating a Connector in Azure, refer to https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-azure-bluexp.html[Installing a Connector in Azure^].
 
+* BlueXP backup and recovery does not support backups of FlexCache volumes. 
+
 === Replication limitations
 
 * You can select only one FlexGroup volume at a time for replication. You'll need to activate backups separately for each FlexGroup volume.
