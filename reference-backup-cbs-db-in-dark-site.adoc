@@ -13,11 +13,11 @@ summary: When using BlueXP backup and recovery in a site with no internet access
 :imagesdir: ./media/
 
 [.lead]
-When using BlueXP backup and recovery in a site with no internet access, known as _private mode_, the BlueXP backup and recovery configuration data is backed up to the StorageGRID or ONTAP S3 bucket where your backups are being stored. If you have an issue with the BlueXP Connector host system in the future, you can deploy a new Connector and restore the critical BlueXP backup and recovery data.
+When using BlueXP backup and recovery in a site with no internet access, known as _private mode_, the BlueXP backup and recovery configuration data is backed up to the StorageGRID or ONTAP S3 bucket where your backups are being stored. If you have an issue with the BlueXP Connector host system, you can deploy a new Connector and restore the critical BlueXP backup and recovery data.
 
-Note that when you use BlueXP backup and recovery in a SaaS environment where the BlueXP Connector is deployed at your cloud provider, or on your own host system that has internet access, all the important BlueXP backup and recovery configuration data is backed up and protected in the cloud. If you have an issue with the Connector, just create a new Connector and add your working environments and the backup details are automatically restored.
+When you use BlueXP backup and recovery in a SaaS environment where the BlueXP Connector is deployed at your cloud provider, or on your own host system that has internet access, all the important BlueXP backup and recovery configuration data is backed up and protected in the cloud. If you have an issue with the Connector, just create a new Connector and add your working environments and the backup details are automatically restored.
 
-There are 2 types of data that are backed up:
+There are two types of data that are backed up:
 
 * BlueXP backup and recovery database - contains a listing of all the volumes, backup files, backup policies, and configuration information.
 * Indexed Catalog files - contains detailed indexes that are used for Search & Restore functionality that make your searches very quick and efficient when looking for volume data that you want to restore.
@@ -26,11 +26,11 @@ This data is backed up once per day at midnight, and a maximum of 7 copies of ea
 
 TIP: No volume data is ever included in the BlueXP backup and recovery database or Indexed Catalog files.
 
-== Restore BlueXP backup and recovery data to a new Connector
+== Restore BlueXP backup and recovery data to a new BlueXP Connector
 
-If your on-premises Connector has a catastrophic failure, you'll need to install a new Connector, and then restore the BlueXP backup and recovery data to the new Connector.
+If your on-premises BlueXP Connector has a catastrophic failure, you'll need to install a new Connector, and then restore the BlueXP backup and recovery data to the new Connector.
 
-There are 4 tasks you'll need to perform to return your BlueXP backup and recovery system to a working state:
+You'll need to perform the following tasks to return your BlueXP backup and recovery system to a working state:
 
 * Install a new BlueXP Connector
 * Restore the BlueXP backup and recovery database
@@ -123,13 +123,17 @@ unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 
 Add the details of the StorageGRID system associated with your ONTAP working environments as they were set up on the original Connector setup using the https://docs.netapp.com/us-en/bluexp-automation/index.html[BlueXP APIs^].
 
+The following information applies to private mode installations starting from BlueXP 3.9.xx. For older versions, use the following procedure: https://community.netapp.com/t5/Tech-ONTAP-Blogs/DarkSite-Cloud-Backup-MySQL-and-Indexed-Catalog-Backup-and-Restore/ba-p/440800[DarkSite Cloud Backup: MySQL and Indexed Catalog Backup and Restore^].
+
 You'll need to perform these steps for each ONTAP system that is backing up data to StorageGRID.
 
 . Extract the authorization token using the following oauth/token API.
 +
 [source,http]
-curl 'http://10.193.192.202/oauth/token' -X POST -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100101 Firefox/108.0' -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/json' -d '{"username":admin@netapp.com,"password":"Netapp@123","grant_type":"password"}
+curl 'http://10.193.192.202/oauth/token' -X POST -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100101 Firefox/108.0' -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/json' -d '{"username":"admin@netapp.com","password":"Netapp@123","grant_type":"password"}
 > '
++
+While the IP address, username, and passwords are custom values, the account name is not. The account name is always "account-DARKSITE1".
 +
 This API will return a response like the following. You can retrieve the authorization token as shown below.
 +
@@ -146,7 +150,7 @@ This API will return a response like the following. The value under the "resourc
 [source,text]
 [{"resourceIdentifier":"OnPremWorkingEnvironment-pMtZND0M","resourceType":"ON_PREM","agentId":"vB_1xShPpBtUosjD7wfBlLIhqDgIPA0wclients","resourceClass":"ON_PREM","name":"CBSFAS8300-01-02","metadata":"{\"clusterUuid\": \"2cb6cb4b-dc07-11ec-9114-d039ea931e09\"}","workspaceIds":["workspace2wKYjTy9"],"agentIds":["vB_1xShPpBtUosjD7wfBlLIhqDgIPA0wclients"]}]
 
-. Update the BlueXP backup and recovery database with the details of the StorageGRID system associated with the Working Environments. Make sure to enter the Fully Qualified Domain Name of the StorageGRID, as well as the Access-Key and Storage-Key as shown below:
+. Update the BlueXP backup and recovery database with the details of the StorageGRID system associated with the working environments. Make sure to enter the Fully Qualified Domain Name of the StorageGRID, as well as the Access-Key and Storage-Key as shown below:
 +
 [source,http]
 curl -X POST 'http://10.193.192.202/account/account-DARKSITE1/providers/cloudmanager_cbs/api/v1/sg/credentials/working-environment/OnPremWorkingEnvironment-pMtZND0M' \
