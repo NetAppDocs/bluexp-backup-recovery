@@ -21,7 +21,32 @@ BlueXP backup and recovery now extends its support to third-party object stores 
 
 ==== Getting started with Wasabi
 
-To begin using this feature, you must enable a flag within the BlueXP UI. Then, you can enter the connection details for your third-party object store and integrate it into your backup and recovery workflows. 
+To begin using this feature, you must enable a flag within the BlueXP Connector. Then, you can enter the connection details for your third-party object store and integrate it into your backup and recovery workflows. 
+
+To use third-party storage as an object store, you must enable a flag in your connector.
+
+.Steps
+
+. SSH into your connector. 
+. Go into the BlueXP backup and recovery cbs server container:
++
+----
+docker exec -it cloudmanager_cbs sh
+---- 
+
+. Open the `default.json` file inside the `config` folder via VIM or any other editor (vi default.json).
+
+. Modify `allow-s3-compatible`: false to `allow-s3-compatible`: true. 
+
+. Save the changes. 
+
+. Exit from the container.
+. Restart the BlueXP backup and recovery cbs server container.
+
+.Result
+
+After the container is ON again, open the BlueXP backup and recovery UI. When you initiate a backup or edit a backup strategy, you will see the new provider "S3 Compatible" listed along with other options of AWS, Microsoft Azure, Google Cloud, StorageGRID, and ONTAP S3.
+
 
 ==== Preview mode limitations 
 

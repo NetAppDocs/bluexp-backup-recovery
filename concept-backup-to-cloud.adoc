@@ -61,6 +61,8 @@ endif::gcp[]
 
 * In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
 
+NOTE: BlueXP backup and recovery extends its support to third-party object stores as a preview option. This preview feature enables you leverage any S3-compatible object store for your backup and recovery needs. For details about enabling this preview feature, see the link:whats-new.html[Support for third-party object store] section.
+
 === When are backups taken
 
 * Hourly backups start 5 minutes past the hour, every hour.
