@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: reference-backup-cbs-db-in-dark-site.html
-keywords: backup database, recover database
+keywords: backup database, recover database, dark site, private mode, restore database, backup and recovery, BlueXP Connector
 summary: When using BlueXP backup and recovery in a site with no internet access, known as "private mode", the BlueXP backup and recovery configuration data is backed up to the StorageGRID or ONTAP S3 bucket where your backups are being stored. If you have an issue with the BlueXP Connector host system in the future, you can deploy a new Connector and restore the critical BlueXP backup and recovery data.
 ---
 
