@@ -76,6 +76,8 @@ sidebar:
           url: /task-backup-onprem-to-ontap-s3.html
         - title: Back up on-premises ONTAP to StorageGRID
           url: /task-backup-onprem-private-cloud.html
+        - title: Migrate volumes with SnapMirror to Cloud Resync
+          url: /task-migrate-volumes-snapmirror-cloud-resync.html
         - title: Manage ONTAP backups
           url: /task-manage-backups-ontap.html
         - title: Restore from ONTAP backups
