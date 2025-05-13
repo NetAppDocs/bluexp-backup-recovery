@@ -16,7 +16,7 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
-== 12 May 2025
+== 13 May 2025
 //v4.0.3
 This BlueXP backup and recovery release includes the following updates.
 

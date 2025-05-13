@@ -11,3 +11,25 @@ For details on how to perform the resync operation, see link:task-migrate-volume
 //For details on how to perform the resync operation, see https://docs.netapp.com/us-en/bluexp-backup-recovery/task-migrate-volumes-snapmirror-cloud-resync.html[Migrate volumes using SnapMirror to Cloud Resync].
 
 
+=== Support for third-party MinIO object store (Preview)
+
+BlueXP backup and recovery now extends its support to third-party object stores with a primary focus on MinIO. This new preview feature enables you to leverage any S3-compatible object store for your backup and recovery needs. 
+
+With this preview version, we hope to ensure robust integration with third-party object stores before the full functionality is rolled out. You are encouraged to explore this new capability and provide feedback to help enhance the service. 
+
+IMPORTANT: This feature should not be used in production.
+
+*Getting started* 
+
+To begin using this preview feature, you must enable a  flag on the BlueXP Connector. You can then enter the connection details of you MinIO third-party object store in the protection workflow by choosing *Third party Compatible* object store in the backup section. 
+
+*Preview mode limitations*
+
+While this feature is in preview, there are certain limitations: 
+
+* Bring Your Own Bucket (BYOB) is not supported. 
+* Enabling DataLock in the policy is not supported. 
+* Enabling Archival mode in the policy is not supported. 
+* Only on-premises ONTAP environments are supported. 
+* MetroCluster is not supported.
+* Options to enable bucket-level encryption are not supported. 
