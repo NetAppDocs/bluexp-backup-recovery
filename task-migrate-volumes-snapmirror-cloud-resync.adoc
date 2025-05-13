@@ -51,6 +51,9 @@ This means only the new data added after S2 is sent to object store, not the ent
 
 This process avoids re-sending data that's already backed up, saves bandwidth, and ensures that your backup chain continues smoothly after migration. 
 
+image:diagram-snapmirror-cloud-resync-migration.png[BlueXP backup and recovery SnapMirror to Cloud Resync]  
+
+
 == Procedure notes
 
 * The destination ONTAP cluster must be running ONTAP version 9.16.1 or later. 
@@ -76,6 +79,7 @@ Migrating volumes using SnapMirror to Cloud Resync involves the following major 
 
 * *Perform a SnapMirror to Cloud Resync*: After the migration, a NetApp Tech Refresh team performs a SnapMirror to Cloud Resync operation to resume cloud backups from the newly migrated volumes.
 
+image:diagram-snapmirror-cloud-resync-migration-steps.png[Steps to migrate volumes using SnapMirror to Cloud Resync]
 
 === Follow a pre-migration checklist
 
