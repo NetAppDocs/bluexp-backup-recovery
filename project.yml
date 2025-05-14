@@ -38,12 +38,12 @@ sidebar:
           url: /task-licensing-cloud-backup.html
         - title: Enable preview features  
           url: /task-preview-enable.html 
-        - title: Monitor data protection 
+        - title: Monitor data protection
           entries:
-        - title: Report on data protection coverage
-          url: /task-report-inventory.html
-        - title: Monitor the status of backup and restore jobs
-          url: /task-monitor-backup-jobs.html        
+          - title: Report on data protection coverage
+            url: /task-report-inventory.html
+          - title: Monitor the status of backup and restore jobs
+            url: /task-monitor-backup-jobs.html        
     - title: Back up and restore ONTAP data
       entries:
         - title: Protect your ONTAP volume data
