@@ -6,9 +6,9 @@ This feature eliminates the need for a time-consuming and resource-intensive re-
 
 By maintaining backup continuity across environments, SnapMirror to Cloud Resync enhances operational efficiency and reduces the complexity of hybrid and multi-cloud data management. 
 
-For details on how to perform the resync operation, see link:task-migrate-volumes-snapmirror-cloud-resync.html[Migrate volumes using SnapMirror to Cloud Resync].
+//For details on how to perform the resync operation, see link:task-migrate-volumes-snapmirror-cloud-resync.html[Migrate volumes using SnapMirror to Cloud Resync].
 
-//For details on how to perform the resync operation, see https://docs.netapp.com/us-en/bluexp-backup-recovery/task-migrate-volumes-snapmirror-cloud-resync.html[Migrate volumes using SnapMirror to Cloud Resync].
+For details on how to perform the resync operation, see https://docs.netapp.com/us-en/bluexp-backup-recovery/task-migrate-volumes-snapmirror-cloud-resync.html[Migrate volumes using SnapMirror to Cloud Resync].
 
 
 === Support for third-party MinIO object store (Preview)
@@ -22,6 +22,10 @@ IMPORTANT: This feature should not be used in production.
 *Getting started* 
 
 To begin using this preview feature, you must enable a  flag on the BlueXP Connector. You can then enter the connection details of you MinIO third-party object store in the protection workflow by choosing *Third party Compatible* object store in the backup section. 
+
+For directions on how to enable preview features, see link:task-preview-enable.html[Enable preview features in BlueXP backup and recovery].
+
+For directions on how to enable preview features, see https://docs.netapp.com/us-en/bluexp-backup-recovery/task-preview-enable.html[Enable preview features in BlueXP backup and recovery].
 
 *Preview mode limitations*
 

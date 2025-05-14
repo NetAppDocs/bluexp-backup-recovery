@@ -36,8 +36,10 @@ sidebar:
           url: /concept-backup-to-cloud.html
         - title: Set up licensing
           url: /task-licensing-cloud-backup.html
-    - title: Monitor data protection 
-      entries:
+        - title: Enable preview features  
+          url: /task-preview-enable.html 
+        - title: Monitor data protection 
+          entries:
         - title: Report on data protection coverage
           url: /task-report-inventory.html
         - title: Monitor the status of backup and restore jobs
