@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-licensing-cloud-backup.html
-keywords: license, licensing, updating license, paygo license, byol license, nlf, license generator, backup license, add backup license, update backup license, annual
+keywords: license, licensing, updating license, paygo license, byol license, nlf, license generator, backup license, add backup license, update backup license, annual, netapp intelligent services
 summary: You can license BlueXP backup and recovery by purchasing a pay-as-you-go or annual marketplace subscription from your cloud provider, or by purchasing a bring-your-own-license from NetApp. A valid license is required to activate BlueXP backup and recovery on a working environment, to create backups of your production data, and to restore backup data to a production system.
 ---
 
@@ -13,7 +13,7 @@ summary: You can license BlueXP backup and recovery by purchasing a pay-as-you-g
 :imagesdir: ./media/
 
 [.lead]
-You can license BlueXP backup and recovery by purchasing a pay-as-you-go (PAYGO) or annual marketplace subscription from your cloud provider, or by purchasing a bring-your-own-license (BYOL) from NetApp. A valid license is required to activate BlueXP backup and recovery on a working environment, to create backups of your production data, and to restore backup data to a production system.
+You can license BlueXP backup and recovery by purchasing a pay-as-you-go (PAYGO) or annual marketplace subscription to *NetApp Intelligent Services* from your cloud provider, or by purchasing a bring-your-own-license (BYOL) from NetApp. A valid license is required to activate BlueXP backup and recovery on a working environment, to create backups of your production data, and to restore backup data to a production system.
 
 A few notes before you read any further:
 
@@ -26,13 +26,13 @@ link:concept-ontap-backup-to-cloud.html#cost[Learn more about the costs related 
 
 == 30-day free trial
 
-A BlueXP backup and recovery 30-day free trial is available if you sign up for a pay-as-you-go subscription in your cloud provider's marketplace. The free trial starts at the time that you subscribe to the marketplace listing. Note that if you pay for the marketplace subscription when deploying a Cloud Volumes ONTAP system, and then start your BlueXP backup and recovery free trial 10 days later, you'll have 20 days remaining to use the free trial.
+A BlueXP backup and recovery 30-day free trial is available if you sign up for a pay-as-you-go subscription in your cloud provider's marketplace to *NetApp Intelligent Services*. The free trial starts at the time that you subscribe to the marketplace listing. Note that if you pay for the marketplace subscription when deploying a Cloud Volumes ONTAP system, and then start your BlueXP backup and recovery free trial 10 days later, you'll have 20 days remaining to use the free trial.
 
 When the free trial ends, you'll be switched over automatically to the PAYGO subscription without interruption. If you decide not to continue using BlueXP backup and recovery, just link:task-manage-backups-ontap.html#unregister-bluexp-backup-and-recovery-for-a-working-environment[unregister BlueXP backup and recovery from the working environment] before the trial ends and you won't be charged.
 
 == Use a BlueXP backup and recovery PAYGO subscription
 
-For pay-as-you-go, you'll pay your cloud provider for object storage costs and for NetApp backup licensing costs on an hourly basis in a single subscription. You should subscribe even if you have a free trial or if you bring your own license (BYOL):
+For pay-as-you-go, you'll pay your cloud provider for object storage costs and for NetApp backup licensing costs on an hourly basis in a single subscription. You should subscribe to *NetApp Intelligent Services* in the Marketplace even if you have a free trial or if you bring your own license (BYOL):
 
 * Subscribing ensures that there's no disruption of service after your free trial ends. When the trial ends, you'll be charged hourly according to the amount of data that you back up.
 * If you back up more data than allowed by your BYOL license, then data backup and restore operations continue through your pay-as-you-go subscription. For example, if you have a 10 TiB BYOL license, all capacity beyond the 10 TiB is charged through the PAYGO subscription.
@@ -51,13 +51,13 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#
 Use these links to subscribe to BlueXP backup and recovery from your cloud provider marketplace:
 
 ifdef::aws[]
-* AWS: https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4[Go to the BlueXP Marketplace offering for pricing details^].
+* AWS: https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4[Go to the Marketplace offering for NetApp Intelligent Services for pricing details^].
 endif::aws[]
 ifdef::azure[]
-* Azure: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[Go to the BlueXP Marketplace offering for pricing details^].
+* Azure: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[Go to the  Marketplace offering for NetApp Intelligent Services for pricing details^].
 endif::azure[]
 ifdef::gcp[]
-* Google Cloud: https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project[Go to the BlueXP Marketplace offering for pricing details^].
+* Google Cloud: https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project[Go to the Marketplace offering for NetApp Intelligent Services for pricing details^].
 endif::gcp[]
 
 == Use an annual contract
