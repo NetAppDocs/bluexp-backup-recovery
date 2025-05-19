@@ -54,19 +54,25 @@ sidebar:
           url: /br-use-dashboard.html
         - title: Create and manage policies to govern backups and restores
           url: /br-use-policies-create.html
+        - title: Create and manage execution hooks
+          url: /br-use-execution-hooks-create.html          
         - title: Back up workloads 
           entries:
             - title: Back up workloads overview
               url: /br-use-backup-overview.html
             - title: Back up Microsoft SQL Server workloads
               url: /br-use-backup-mssql.html
+            - title: Back up Kubernetes workloads
+              url: /br-use-backup-kubernetes.html
         - title: Restore workloads
           entries:  
             - title: Restore workloads overview     
               url: /br-use-restore-overview.html
             - title: Restore database workloads
               url: /br-use-restore-database.html
-        - title: Manage inventory, snapshots, and policies       
+            - title: Restore Kubernetes workloads
+              url: /br-use-restore-kubernetes.html
+        - title: Manage inventory, snapshots, and resources       
           entries:
             - title: Manage resources overview
               url: /br-use-manage-overview.html 
@@ -74,6 +80,12 @@ sidebar:
               url: /br-use-manage-inventory.html 
             - title: Manage snapshots
               url: /br-use-manage-snapshots.html
+            - title: Manage Kubernetes clusters
+              url: /br-use-manage-kubernetes-clusters.html
+            - title: Manage Kubernetes applications
+              url: /br-use-manage-kubernetes-applications.html
+        - title: Monitor protection tasks
+          url: /br-use-monitor-tasks.html
         - title: Restart BlueXP backup and recovery
           url: /reference-restart-backup.html
     - title: Reference 
