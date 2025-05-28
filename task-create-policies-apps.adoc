@@ -5,7 +5,7 @@ keywords: policy, create, pre-canned polices, custom policies, protection polici
 summary:  Create your own policies to protect the application.
 ---
 
-= Create a policy to back up applications
+= Create a policy to back up applications with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,8 +13,7 @@ summary:  Create your own policies to protect the application.
 :imagesdir: ./media/
 
 [.lead]
-
-You should create a policy to back up the application data to cloud.
+You should create a policy to back up the application data to cloud with BlueXP backup and recovery.
 
 .Before you begin
 

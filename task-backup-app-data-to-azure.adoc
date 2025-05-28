@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup application data, Microsoft Azure,
 summary: Complete a few steps to back up applications data from ONTAP to Azure.
 ---
 
-= Back up on-premises applications data to Microsoft Azure
+= Back up on-premises applications data to Microsoft Azure with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,10 +13,9 @@ summary: Complete a few steps to back up applications data from ONTAP to Azure.
 :imagesdir: ./media/
 
 [.lead]
+Complete a few steps in BlueXP backup and recovery to back up the applications data from ONTAP to Microsoft Azure.
 
-Complete a few steps to back up the applications data from ONTAP to Microsoft Azure.
-
-BlueXP supports data lock and ransomware protection. If ONTAP cluster is running on ONTAP 9.12.1 or later and if you have not configured archival storage, you can protect the backups from overwriting, deletion, and ransomware threats.
+BlueXP backup and recovery supports data lock and ransomware protection. If ONTAP cluster is running on ONTAP 9.12.1 or later and if you have not configured archival storage, you can protect the backups from overwriting, deletion, and ransomware threats.
 
 .Steps
 

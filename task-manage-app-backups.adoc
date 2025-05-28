@@ -5,7 +5,7 @@ keywords: manage, Azure, Amazon Web services, Oracle database, Microsoft SQL Ser
 summary: You can view the policies and backups. Depending upon the change in database, policies, or resource groups, you can refresh the updates from the BlueXP UI.
 ---
 
-= Manage protection of applications
+= Manage protection of applications with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,8 +13,7 @@ summary: You can view the policies and backups. Depending upon the change in dat
 :imagesdir: ./media/
 
 [.lead]
-
-You can manage protection of applications by viewing policies, viewing backups, viewing the changes to database layout, policies, and resource group, and monitoring all the operations from the BlueXP UI.
+You can manage protection of applications in BlueXP backup and recovery by viewing policies, viewing backups, viewing the changes to database layout, policies, and resource group, and monitoring all the operations from the BlueXP UI.
 
 == View policies
 

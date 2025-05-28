@@ -5,7 +5,7 @@ keywords: restore, mount application backups, MongoDB, MySQL, PostgreSQL
 summary: You can restore SAP HANA database from the cloud to the on-premises SnapCenter Server.
 ---
 
-= Restore MongoDB, MySQL, and PostgreSQL databases
+= Restore MongoDB, MySQL, and PostgreSQL databases with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,8 +13,7 @@ summary: You can restore SAP HANA database from the cloud to the on-premises Sna
 :imagesdir: ./media/
 
 [.lead]
-
-You can restore MongoDB, MySQL, and PostgreSQL databases to any host.
+You can restore MongoDB, MySQL, and PostgreSQL databases to any host with BlueXP backup and recovery.
 
 *Steps*
 

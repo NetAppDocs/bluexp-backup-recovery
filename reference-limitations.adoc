@@ -5,7 +5,7 @@ keywords: limitations, backup, restore, backup and recovery
 summary: Known limitations identify functions that are not supported by this release of the product, or that do not interoperate correctly with it. Review these limitations carefully.
 ---
 
-= Known limitations
+= Known limitations with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
