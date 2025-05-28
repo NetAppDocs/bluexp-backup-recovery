@@ -5,7 +5,7 @@ keywords: cloud backup, backup and recovery service, backup and recovery, backup
 summary: With BlueXP backup and recovery reports, you can ensure that critical data is protected according to your organization’s defined policies and efficiently support audit for compliance processes. With the Backup inventory report, you can see all your backups for a specific account, working environment or SVM inventory. 
 ---
 
-= Report on data protection coverage
+= Report on data protection coverage with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: With BlueXP backup and recovery reports, you can ensure that critical d
 :imagesdir: ./media/
 
 [.lead]
-With BlueXP backup and recovery reports, you can ensure that critical data is protected according to your organization’s defined policies and provide audits for compliance needs. 
+With BlueXP backup and recovery reports, ensure that critical data is protected according to your organization’s defined policies and provide audits for compliance needs. 
 
 BlueXP backup and recovery reports help you accomplish the following: 
 

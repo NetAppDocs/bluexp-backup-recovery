@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup on-prem ontap, on-prem, on-premise
 summary: Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to object storage in your NetApp StorageGRID systems.
 ---
 
-= Back up on-premises ONTAP data to StorageGRID
+= Back up on-premises ONTAP data to StorageGRID with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Complete a few steps to get started backing up volume data from your on
 :imagesdir: ./media/
 
 [.lead]
-Complete a few steps to get started backing up volume data from your on-premises primary ONTAP systems to a secondary storage system and to object storage in your NetApp StorageGRID systems.
+Complete a few steps in BlueXP backup and recovery to get started backing up volume data from your on-premises primary ONTAP systems to a secondary storage system and to object storage in your NetApp StorageGRID systems.
 
 NOTE: "On-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
 

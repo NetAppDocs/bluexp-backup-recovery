@@ -5,7 +5,7 @@ keywords: restoring, restore, restore volumes, restore files, restore folders, c
 summary: Backups of your ONTAP volume data are available from the locations where you created backups, in Snapshot copies, replicated volumes, and/or backups stored in object storage. You can restore data from a specific point in time from any of these backup locations. You can restore an entire ONTAP volume from a backup file, or if you only need to restore a few files, you can restore a folder or individual files.
 ---
 
-= Restore ONTAP data from backup files
+= Restore ONTAP data from backup files with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Backups of your ONTAP volume data are available from the locations wher
 :imagesdir: ./media/
 
 [.lead]
-Backups of your ONTAP volume data are available from the locations where you created backups: Snapshot copies, replicated volumes, and backups stored in object storage. You can restore data from a specific point in time from any of these backup locations. You can restore an entire ONTAP volume from a backup file, or if you only need to restore a few files, you can restore a folder or individual files.
+Backups of your ONTAP volume data are available from the locations where you created backups: Snapshot copies, replicated volumes, and backups stored in object storage. You can restore data from a specific point in time from any of these backup locations. With BlueXP backup and recovery, restore an entire ONTAP volume from a backup file, or if you only need to restore a few files, restore a folder or individual files.
 
 * You can restore a *volume* (as a new volume) to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system.
 
@@ -49,7 +49,7 @@ As you can see, the Restore Dashboard provides 2 different ways to restore data 
 
 In broad terms, _Browse & Restore_ is typically better when you need to restore a specific volume, folder, or file from the last week or month -- and you know the name and location of the file, and the date when it was last in good shape. _Search & Restore_ is typically better when you need to restore a volume, folder, or file, but you don't remember the exact name, or the volume in which it resides, or the date when it was last in good shape.
 
-This table provides a feature comparison of the 2 methods.
+This table provides a feature comparison of the two methods.
 
 [cols=2*,options="header",cols="50,50"]
 |===
@@ -305,7 +305,7 @@ Note that restoring a volume from a backup file that resides in archival storage
 
 If you need to restore only a few files from an ONTAP volume backup, you can choose to restore a folder or individual files instead of restoring the entire volume. You can restore folders and files to an existing volume in the original working environment, or to a different working environment that's using the same cloud account. You can also restore folders and files to a volume on an on-premises ONTAP system.
 
-NOTE: You can restore a folder or individual files only from a backup file in object storage at this time. Restoring files and folders is not currently supported from a local Snapshot copy or from a backup file that resides in a secondary working environment (a replicated volume).
+NOTE: You can restore a folder or individual files only from a backup file in object storage at this time. Restoring files and folders is not currently supported from a local snapshot copy or from a backup file that resides in a secondary working environment (a replicated volume).
 
 If you select multiple files, all the files are restored to the same destination volume that you choose. So if you want to restore files to different volumes, you'll need to run the restore process multiple times.
 
@@ -555,7 +555,7 @@ ifdef::azure[]
 +
 Note that if you were already using BlueXP backup and recovery with a Connector you configured in the past, you'll need to add the Azure Synapse Workspace and Data Lake Storage Account permissions to the BlueXP user role now. They are required for Search & Restore.
 
-** The Connector must be configured *without* a proxy server for HTTP communication to the internet. If you have configured an HTTP proxy server for your Connector, you can't use Search & Replace functionality.
+** The Connector must be configured *without* a proxy server for HTTP communication to the internet. If you have configured an HTTP proxy server for your Connector, you can't use Search & Restore functionality.
 endif::azure[]
 
 ifdef::gcp[]

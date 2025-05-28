@@ -5,7 +5,7 @@ keywords: manage backups, virtual machines, view datastores, view virtual machin
 summary: You can view the datastores and virtual machines and edit the SnapCenter Plug-in for VMware vSphere instances.
 ---
 
-= Manage protection of datastores and virtual machines data
+= Manage protection of datastores and virtual machines data with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: You can view the datastores and virtual machines and edit the SnapCente
 :imagesdir: ./media/
 
 [.lead]
-You can view policies, datastores, and virtual machines before you back up and restore data. Depending upon the change in database, policies, or resource groups, you can view the updates from the BlueXP UI.
+You can view policies, datastores, and virtual machines before you back up and restore data with BlueXP backup and recovery. Depending upon the change in database, policies, or resource groups, you can view the updates from the BlueXP UI.
 
 == View policies
 You can view all the default pre-canned policies. For each of these policies, when you view the details, all the associated policies and virtual machines are listed.

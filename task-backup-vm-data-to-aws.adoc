@@ -5,7 +5,7 @@ keywords: back up, backup, backup datastore, aws, Amazon Web Services, backup da
 summary: Back up your datastores from on-premises ONTAP to AWS.
 ---
 
-= Back up datastores to Amazon Web Services
+= Back up datastores to Amazon Web Services with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Back up your datastores from on-premises ONTAP to AWS.
 :imagesdir: ./media/
 
 [.lead]
-You can back up and archive one or more datastores to Amazon Web Services to improve storage efficiency and cloud transition.
+You can back up and archive one or more datastores with BlueXP backup and recovery to Amazon Web Services to improve storage efficiency and cloud transition.
 
 If the datastore is associated with an archival policy, you have an option to select the archival tier. The supported archival tiers are Glacier and Glacier Deep.
 

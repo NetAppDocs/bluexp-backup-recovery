@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, b
 summary: You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the type of backup, the backup architecture, the storage systems, and backup frequency. 
 ---
 
-= Manage backup policies for ONTAP volumes 
+= Manage backup policies for ONTAP volumes with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: You can use the default backup policies provided by NetApp to create yo
 :imagesdir: ./media/
 
 [.lead]
-You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the backup frequency, the time the backup is taken, and the number of backup files that are retained. 
+With BlueXP backup and recovery, use the default backup policies provided by NetApp to create your backups, or  create custom policies. Policies govern the backup frequency, the time the backup is taken, and the number of backup files that are retained. 
 
 When you use the activation wizard to enable the backup and recovery service for your volumes, you can select from the default policies and any other policies that already exist in the working environment (Cloud Volumes ONTAP or on-premises ONTAP system). If you want to use a policy different than those existing policies, you can create the policy before or while you use the activation wizard.
 

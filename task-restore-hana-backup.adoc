@@ -5,7 +5,7 @@ keywords: restore, mount application backups, SAP HANA database
 summary: You can restore SAP HANA database from the cloud to the on-premises SnapCenter Server.
 ---
 
-= Restore SAP HANA database
+= Restore SAP HANA database with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,8 +13,7 @@ summary: You can restore SAP HANA database from the cloud to the on-premises Sna
 :imagesdir: ./media/
 
 [.lead]
-
-You can restore SAP HANA database to any host.
+You can restore SAP HANA database to any host with BlueXP backup and recovery
 
 *Steps*
 

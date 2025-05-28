@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup application data, Google Cloud Pla
 summary: Complete a few steps to back up applications data from ONTAP to GCP.
 ---
 
-= Back up on-premises applications data to Google Cloud Platform
+= Back up on-premises applications data to Google Cloud Platform with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,8 +13,7 @@ summary: Complete a few steps to back up applications data from ONTAP to GCP.
 :imagesdir: ./media/
 
 [.lead]
-
-Complete a few steps to back up the applications data from ONTAP to Google Cloud Platform.
+Complete a few steps in BlueXP backup and recovery to back up the applications data from ONTAP to Google Cloud Platform.
 
 .Steps
 

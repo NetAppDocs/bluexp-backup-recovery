@@ -5,7 +5,7 @@ keywords: microsoft azure, azure, regions, blob, multiple accounts, multiple reg
 summary: BlueXP backup and recovery enables you to create backup files in an Azure account that is different than where your source Cloud Volumes ONTAP volumes reside, and that is different than the account where the BlueXP Connector resides.
 ---
 
-= Configure backup for multi-account access in Azure
+= Configure backup for multi-account access in Azure with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font

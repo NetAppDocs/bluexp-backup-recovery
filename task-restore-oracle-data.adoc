@@ -5,7 +5,7 @@ keywords: restore, Azure, Amazon Web services, Oracle database
 summary: You can restore Oracle database from the cloud to the on-premises SnapCenter Server.
 ---
 
-= Restore Oracle database
+= Restore Oracle databases with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: You can restore Oracle database from the cloud to the on-premises SnapC
 :imagesdir: ./media/
 
 [.lead]
-You can restore Oracle database either to the original location or to the alternate location. For a RAC database, the data is restored to the on-premises node where the backup was created.
+You can restore Oracle databases with BlueXP backup and recovery either to the original location or to the alternate location. For a RAC database, the data is restored to the on-premises node where the backup was created.
 
 Only full database with control file restore is supported. If the archive logs are not present in the AFS, you should specify the location that contains the archive logs required for recovery.
 
