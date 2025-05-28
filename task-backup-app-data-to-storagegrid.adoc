@@ -13,7 +13,6 @@ summary: Complete a few steps to back up applications data from ONTAP to GCP.
 :imagesdir: ./media/
 
 [.lead]
-
 Complete a few steps in BlueXP backup and recovery to back up the applications data from ONTAP to StorageGRID.
 
 BlueXP supports data lock and ransomware protection. If ONTAP cluster is running on ONTAP 9.11.1 or later, StorageGRID systems are 11.6.0.3 or later, and if you have not configured archival storage, you can protect the backups from overwriting, deletion, and ransomware threats. 

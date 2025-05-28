@@ -5,7 +5,7 @@ keywords: restore, Azure, Amazon Web services, Microsoft SQL Server database
 summary: You can restore SQL Server database from the cloud to the on-premises SnapCenter Server.
 ---
 
-= Restore SQL Server database
+= Restore SQL Server databases with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: You can restore SQL Server database from the cloud to the on-premises S
 :imagesdir: ./media/
 
 [.lead]
-You can restore SQL Server database either to the original location or to the alternate location.
+You can restore SQL Server databases with BlueXP backup and recovery either to the original location or to the alternate location.
 
 NOTE: Single File Restore (SFR), Recovery of log backups, and reseed of availability groups are not supported.
 
