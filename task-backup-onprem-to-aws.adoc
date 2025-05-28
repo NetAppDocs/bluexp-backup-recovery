@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back u
 summary: Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to Amazon S3 cloud storage.
 ---
 
-= Back up on-premises ONTAP data to Amazon S3
+= Back up on-premises ONTAP data to Amazon S3 with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Complete a few steps to get started backing up volume data from your on
 :imagesdir: ./media/
 
 [.lead]
-Complete a few steps to get started backing up volume data from your on-premises ONTAP systems to a secondary storage system and to Amazon S3 cloud storage.
+Complete a few steps in BlueXP backup and recovery to get started backing up volume data from your on-premises ONTAP systems to a secondary storage system and to Amazon S3 cloud storage.
 
 NOTE: "On-premises ONTAP systems" include FAS, AFF, and ONTAP Select systems.
 

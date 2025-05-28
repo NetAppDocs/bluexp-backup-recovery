@@ -5,7 +5,7 @@ keywords: cloud backup, bluexp backup and recovery, backup, restore, status, mon
 summary: You can monitor the status of local Snapshots, replications, and backup to object storage jobs that you initiated or that were scheduled, and restore jobs that you initiated or scheduled. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.
 ---
 
-= Monitor the status of backup and restore jobs
+= Monitor the status of BlueXP backup and recovery backup and restore jobs
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: You can monitor the status of local Snapshots, replications, and backup
 :imagesdir: ./media/
 
 [.lead]
-You can monitor the status of local Snapshots, replications, and backup to object storage jobs that you initiated, and restore jobs that you initiated. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.
+With BlueXP backup and recovery, monitor the status of local Snapshots, replications, and backup to object storage jobs that you initiated, and restore jobs that you initiated. You can see the jobs that have completed, are in progress, or failed so you can diagnose and fix problems. Using the BlueXP Notification Center, you can enable notifications to be sent by email so you can be informed of important system activity even when you're not logged into the system. Using the BlueXP Timeline, you can see details of all actions initiated via the UI or API.
 
 == View job status on the Job Monitor
 

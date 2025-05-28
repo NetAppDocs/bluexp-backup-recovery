@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, back up volumes, cloud backup, backup pol
 summary: BlueXP backup and recovery enables you to create backup policies with a variety of configuration settings for your on-prem ONTAP and Cloud Volumes ONTAP systems.
 ---
 
-= Backup-to-object policy options
+= Backup-to-object policy options in BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font

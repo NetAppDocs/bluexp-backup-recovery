@@ -5,7 +5,7 @@ keywords: backing up, restoring, recovery, back up, backup, restore, cloud volum
 summary: The BlueXP backup and recovery service enables you to create up to three copies of your source volumes to protect your data. There are many options that you can select when enabling this service on your volumes, so you should review your choices so you're prepared.
 ---
 
-= Plan your protection journey
+= Plan your protection journey with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
