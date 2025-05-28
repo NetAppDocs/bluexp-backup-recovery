@@ -51,7 +51,7 @@ Both of these features protect your backup files so that you'll always have a va
 
 https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware[See the DataLock and Ransomware protection blog for more details^].
 
-This feature does not provide protection for your source volumes; only for the backups of those source volumes. Use NetApp https://cloud.netapp.com/ci-sde-plp-cloud-secure-info-trial?hsCtaTracking=fefadff4-c195-4b6a-95e3-265d8ce7c0cd%7Cb696fdde-c026-4007-a39e-5e986c4d27c6[Data Infrastructure Insights and Cloud Secure^], or some of the https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html[anti-ransomware protections provided from ONTAP^] to protect your source volumes.
+This feature does not provide protection for your source volumes; only for the backups of those source volumes. Use some of the https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html[anti-ransomware protections provided from ONTAP^] to protect your source volumes.
 
 [CAUTION]
 ====

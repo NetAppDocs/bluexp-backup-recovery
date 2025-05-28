@@ -19,7 +19,7 @@ You can back up Oracle, Microsoft SQL, SAP HANA, MongoDB, MySQL, and PostgreSQL 
 
 For more information about BlueXP backup and recovery for applications, refer to:
 
-* https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration[Application aware backup with BlueXP backup and recovery and SnapCenter^]
+
 * https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications[BlueXP backup and recovery for applications podcast^]
 
 == Requirements

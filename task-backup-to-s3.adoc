@@ -188,7 +188,7 @@ When your Cloud Volumes ONTAP system is running ONTAP 9.12.1 or greater software
 If you created the Cloud Volumes ONTAP working environment using BlueXP version 3.9.23 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions. 
 
 Supported AWS regions::
-BlueXP backup and recovery is supported in all AWS regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^], including AWS GovCloud regions. 
+BlueXP backup and recovery is supported in all AWS regions, including AWS GovCloud regions. 
 //It is also supported in https://aws.amazon.com/federal/us-intelligence-community/[AWS C2S and SC2S secure regions^].
 
 Required setup for creating backups in a different AWS account::
