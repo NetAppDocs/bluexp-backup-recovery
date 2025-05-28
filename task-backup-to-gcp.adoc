@@ -83,7 +83,7 @@ Supported ONTAP versions::
 Minimum of ONTAP 9.8; ONTAP 9.8P13 and later is recommended.
 
 Supported GCP regions::
-BlueXP backup and recovery is supported in all GCP regions https://cloud.netapp.com/cloud-volumes-global-regions[where Cloud Volumes ONTAP is supported^].
+BlueXP backup and recovery is supported in all GCP regions.
 
 GCP Service Account::
 You need to have a service account in your Google Cloud Project that has the custom role. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-creating-gcp-service-account.html[Learn how to create a service account^].
