@@ -11,9 +11,9 @@ summary: You can use the default backup policies provided by NetApp to create yo
 :imagesdir: ./media/
 
 [.lead]
-In BlueXP backup and recovery, create your own policies. Policies govern the backup frequency, the time the backup is taken, and the number of backup files that are retained. 
+In BlueXP backup and recovery, you can create your own protection policies. Policies govern the backup frequency, the time the backup is taken, and the number of backup files that are retained. 
 
-//This used to be the topic for Manage backup policies for ONTAP volumes. Recasting this for MS SQL Server apps. 
+//This used to be the topic for Manage backup policies for ONTAP volumes. Recasting this for MS SQL Server apps and other new available workloads. (2025 summer changes)
 
 If you import resources from SnapCenter, you might encounter some differences policies used in SnapCenter and those used in BlueXP backup and recovery. See link:reference-policy-differences-snapcenter.html[Policy differences between SnapCenter and BlueXP backup and recovery].
 
@@ -27,10 +27,8 @@ image:screen-br-policies.png["Policies page"]
 
 . Review these policy details. 
 
-* *Workload*: Examples include Oracle, SQL Server, and Volumes. 
-+
-NOTE: For the Preview 2025 version, only the "SQL Server" backup type is available.
-
+* *Workload*: Examples include Oracle, SQL Server, Kubernetes, VMware, and Volumes. 
+* *Backup type*: Examples include Full backup and Incremental backup.
 * *Architecture*: Examples include local snapshot, fan-out, cascading, disk to disk, and disk to object store. 
 * *Resources protected*: Shows how many resources out of the total resources on that workload are protected.
 * *Ransomware protection*: Shows if the policy includes snapshot locking on the local snapshot, snapshot locking on secondary storage, or DataLock locking on object storage. 
@@ -38,7 +36,7 @@ NOTE: For the Preview 2025 version, only the "SQL Server" backup type is availab
 
 == Create a policy
 
-You can create policies that govern your local snapshots, replications to secondary storage, and backups to object storage. Part of your 3-2-1 strategy involves creating a snapshot copy of the MS SQL Server instances or databases on the *primary* storage system. 
+You can create policies that govern your local snapshots, replications to secondary storage, and backups to object storage. Part of your 3-2-1 strategy involves creating a snapshot copy of your application data, instances, or databases on the *primary* storage system.
 
 .Before you begin
 
@@ -58,52 +56,49 @@ image:screen-br-policies-new-nodata.png[Screenshot of new policy creation]
 . In the Policies page, provide the following information.   
 
 * *Details* section: 
-** Workload type of "Microsoft SQL Server" is selected by default for Preview 2025 version. 
-+
-NOTE: For the Preview 2025 version, only the "SQL Server" backup type is available.
+** Select a workload type from the list.
 ** Enter a policy name.
 
-* *Backup architecture* section: Select the down arrow and choose the architecture for the backup, such as fan-out, cascading, and disk to disk. 
-
-
-** *Local snapshot*: Local snapshot on the selected volume. Local snapshots are a key component of data protection strategies, capturing the state of your data at specific points in time. Local snapshots are created using the Snapshot technology, which provides point-in-time copies of your data without impacting performance. This creates read-only, point-in-time copies of production volumes where your workloads are running. The snapshot consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last snapshot. You can use local snapshots to recover from data loss or corruption, as well as to create backups for disaster recovery purposes.
-** *3-2-1 fanout*: Primary storage (disk) to secondary storage (disk) to cloud (object store). Creates multiple copies of data across different storage systems, such as ONTAP to ONTAP and ONTAP to object-store configurations. This can be a cloud hyperscaler object store or a private object store -- StorageGRID. These configurations help in achieving optimal data protection and disaster recovery.
-** *3-2-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary storage (disk) to cloud storage (object store). This can be a cloud hyperscaler object store or a private object store -- StorageGRID. This creates a chain of data replication across multiple systems to ensure redundancy and reliability. 
-** *Disk to disk*: Primary storage (disk) to secondary storage (disk). The ONTAP to ONTAP data protection strategy replicates data between two ONTAP systems to ensure high availability and disaster recovery. This is typically achieved using SnapMirror, which supports both synchronous and asynchronous replication. This method ensures that your data is continuously updated and available across multiple locations, providing robust protection against data loss. 
-** *Disk to object store*: Primary storage (disk) to cloud (object store). This replicates data from an ONTAP system to an object storage system, such as AWS S3, Azure Blob Storage or StorageGRID. This is typically achieved using SnapMirror Cloud, which provides incremental forever backups by transferring only changed data blocks after the initial baseline transfer. This can be a cloud hyperscaler object store or a private object store -- StorageGRID. This method is ideal for long-term data retention and archiving, offering a cost-effective and scalable solution for data protection.
-** *Disk to disk fanout*: Primary storage (disk) to secondary storage (disk)  and primary storage (disk) to secondary storage (disk).
-
+* *Backup architecture* section: Select the down arrow and choose the architecture for the backup, such as fan-out, cascading, or disk to disk. 
+** *3-2-1 fan-out*: Primary storage (disk) to secondary storage (disk) to cloud (object store). Creates multiple copies of data across different storage systems, such as ONTAP to ONTAP and ONTAP to object-store configurations. This can be a cloud hyperscaler object store or a private object store -- StorageGRID. These configurations help in achieving optimal data protection and disaster recovery.
+** *Disk to object storage*: Primary storage (disk) to cloud (object store). This replicates data from an ONTAP system to an object storage system, such as AWS S3, Azure Blob Storage or StorageGRID. This is typically achieved using SnapMirror Cloud, which provides incremental forever backups by transferring only changed data blocks after the initial baseline transfer. This can be a cloud hyperscaler object store or a private object store -- StorageGRID. This method is ideal for long-term data retention and archiving, offering a cost-effective and scalable solution for data protection.
+** *Local snapshots*: Local snapshot on the selected volume. Local snapshots are a key component of data protection strategies, capturing the state of your data at specific points in time. Local snapshots are created using the Snapshot technology, which provides point-in-time copies of your data without impacting performance. This creates read-only, point-in-time copies of production volumes where your workloads are running. The snapshot consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last snapshot. You can use local snapshots to recover from data loss or corruption, as well as to create backups for disaster recovery purposes.
+//** *3-2-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary storage (disk) to cloud storage (object store). This can be a cloud hyperscaler object store or a private object store -- StorageGRID. This creates a chain of data replication across multiple systems to ensure redundancy and reliability. 
+//** *Disk to disk*: Primary storage (disk) to secondary storage (disk). The ONTAP to ONTAP data protection strategy replicates data between two ONTAP systems to ensure high availability and disaster recovery. This is typically achieved using SnapMirror, which supports both synchronous and asynchronous replication. This method ensures that your data is continuously updated and available across multiple locations, providing robust protection against data loss. 
+//** *Disk to disk fanout*: Primary storage (disk) to secondary storage (disk)  and primary storage (disk) to secondary storage (disk).
 //** *3-2-1-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary (disk) to cloud (object store)  (Multiple object storage) 
 
 
 === Create a local snapshot policy 
 Provide information for the local snapshot.
 
-* Select the *Add schedule* option to select the snapshot schedule or schedules. You can have a maximum of 5 schedules.  
-* *Snapshot frequency*: Select the frequency of hourly, daily, weekly, monthly, or yearly. 
-* *Retention*: Enter the number of snapshots to keep.
-* *Enable log backup*: Check the option to back up logs and set the frequency and retention of the log backups. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
+* In the *Local snapshot setting* area, select the *Add schedule* option to configure the snapshot schedule or schedules. You can have a maximum of 5 schedules.  
+* *Snapshot frequency*: Select the frequency of the snapshot. You can configure the hour, day, week, and month that the snapshot is taken.
+* *Snapshot Retention*: Enter the number of snapshots to keep.
+//* *Enable log backup*: Check the option to back up logs and set the frequency and retention of the log backups. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
+* *Provider*: For Kubernetes workloads, select the storage provider for the Kubernetes cluster. Depending on the provider, you might see different options for selecting the correct subscription or storage target for the bucket.
 
-* Optionally, select *Advanced* to set the SnapMirror label and enable snapshot locking: 
+//* Optionally, select *Advanced* to set the SnapMirror label and enable snapshot locking: 
 
-** *SnapMirror label*: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship. Adding a label to a snapshot marks it as a target for SnapMirror replication.
-** *Offset from an hour*: Enter the number of minutes to offset the snapshot from the start of the hour. For example, if you enter *15*, the snapshot will be taken at 15 minutes past the hour.
+//** *SnapMirror label*: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship. Adding a label to a snapshot marks it as a target for SnapMirror replication.
+//** *Offset from an hour*: Enter the number of minutes to offset the snapshot from the start of the hour. For example, if you enter *15*, the snapshot will be taken at 15 minutes past the hour.
 
-** *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. Enabling this option ensures that the snapshots cannot be deleted or altered until the specified retention period has expired. This feature is crucial for protecting your data against ransomware attacks and ensuring data integrity.         
+//** *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. Enabling this option ensures that the snapshots cannot be deleted or altered until the specified retention period has expired. This feature is crucial for protecting your data against ransomware attacks and ensuring data integrity.         
 
-** *Snapshot locking period*: Enter the number of days, months, or years that you want to lock the snapshot.
+//** *Snapshot locking period*: Enter the number of days, months, or years that you want to lock the snapshot.
 
 === Create a policy for secondary settings (replication to secondary storage)
 
 Provide information for the replication to secondary storage. Schedule information from the local snapshot settings appears for you in the secondary settings.  
 
-* *Backup*: Select the frequency of hourly, daily, weekly, monthly, or yearly. 
+* *Backup*: Select the frequency of hourly, daily, weekly, or monthly. 
 * *Backup target*: Select the target system on secondary storage for the backup.
-* *Retention*: Enter the number of snapshots to keep.
+* *Retention copies*: Enter the number of snapshots to keep for each frequency.
+* *Provider*: For Kubernetes workloads, select the storage provider for the Kubernetes cluster. Depending on the provider, you might see different options for selecting the correct subscription or storage target for the bucket.
 
-* *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. 
-* *Snapshot locking period*: Enter the number of days, months, or years that you want to lock the snapshot.
-* *Transfer to secondary*: The *Inline* option is selected by default and that indicates that snapshots are transferred to the secondary storage system immediately.
+//* *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. 
+//* *Snapshot locking period*: Enter the number of days, months, or years that you want to lock the snapshot.
+//* *Transfer to secondary*: The *Inline* option is selected by default and that indicates that snapshots are transferred to the secondary storage system immediately.
 //** *Schedule*: Data is transferred to the secondary storage system at a later time as defined by the schedule. 
 
 
@@ -118,14 +113,14 @@ NOTE: The fields that appear differ depending on the provider and architecture s
 
 Enter information in these fields: 
 
-* *Provider*: Select *AWS*. 
+* *Provider*: Select *AWS*.
 * *AWS account*: Select the AWS account. 
 * *Backup target*: Select a registered S3 object storage target. Ensure that the target is accessible within your backup environment. 
 * *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
-* *Retention*: Enter the number of snapshots to keep.
-* *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
+* *Retention copies*: Enter the number of snapshots to keep for each frequency.
+//* *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
 
-* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage (for example, AWS Glacier), select the tier option and the number of days to archive. 
+//* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage (for example, AWS Glacier), select the tier option and the number of days to archive. 
 
 //To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 
@@ -180,7 +175,7 @@ NOTE: This feature is not available in the Preview 2025 version.
 
 
 
-== Edit policies 
+== Edit a policy
 
 You can edit backup architecture, backup frequency, retention policy, and other settings for a policy.
 
@@ -194,7 +189,7 @@ If you are editing a policy that backs up to object storage, you can enable arch
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit*.
 
 
-== Delete policies
+== Delete a policy
 
 You can delete a policy if you no longer need it.
 
