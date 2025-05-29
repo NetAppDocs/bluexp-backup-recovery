@@ -74,7 +74,7 @@ Provide information for the local snapshot.
 
 * In the *Local snapshot setting* area, select the *Add schedule* option to configure the snapshot schedule or schedules. You can have a maximum of 5 schedules.  
 * *Snapshot frequency*: Select the frequency of the snapshot. You can configure the hour, day, week, and month that the snapshot is taken.
-* *Snapshot Retention*: Enter the number of snapshots to keep.
+* *Snapshot Retention*: Enter the number of snapshots and snapshot copies to keep.
 //* *Enable log backup*: Check the option to back up logs and set the frequency and retention of the log backups. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
 * *Provider*: For Kubernetes workloads, select the storage provider for the Kubernetes cluster. Depending on the provider, you might see different options for selecting the correct subscription or storage target for the bucket.
 
