@@ -78,12 +78,11 @@ Provide information for the local snapshot.
 //* *Enable log backup*: Check the option to back up logs and set the frequency and retention of the log backups. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
 * *Provider*: For Kubernetes workloads, select the storage provider for the Kubernetes cluster. Depending on the provider, you might see different options for selecting the correct subscription or storage target for the bucket.
 
-//* Optionally, select *Advanced* to set the SnapMirror label and enable snapshot locking: 
+* Optionally, for Microsoft SQL Server workloads only, select *Advanced* to set the SnapMirror label and enable snapshot locking: 
 
-//** *SnapMirror label*: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship. Adding a label to a snapshot marks it as a target for SnapMirror replication.
-//** *Offset from an hour*: Enter the number of minutes to offset the snapshot from the start of the hour. For example, if you enter *15*, the snapshot will be taken at 15 minutes past the hour.
-
-//** *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. Enabling this option ensures that the snapshots cannot be deleted or altered until the specified retention period has expired. This feature is crucial for protecting your data against ransomware attacks and ensuring data integrity.         
+** *SnapMirror label*: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship. Adding a label to a snapshot marks it as a target for SnapMirror replication.
+** *Offset from an hour*: Enter the number of minutes to offset the snapshot from the start of the hour. For example, if you enter *15*, the snapshot will be taken at 15 minutes past the hour.
+** *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. Enabling this option ensures that the snapshots cannot be deleted or altered until the specified retention period has expired. This feature is crucial for protecting your data against ransomware attacks and ensuring data integrity.         
 
 //** *Snapshot locking period*: Enter the number of days, months, or years that you want to lock the snapshot.
 
@@ -170,6 +169,7 @@ NOTE: This feature is not available in the Preview 2025 version.
 
 
 === Configure advanced settings in the policy
+For Microsoft SQL Server workloads, you can configure advanced policy settings. These settings are not available for other workload types.
 
 * *Copy only backup*: Choose copy-only backup (a type of MS SQL Server backup) that lets you back up your resources by using another backup application.  
 //* *Export existing snapshot copies*: Indicate whether you want to export historical snapshot copies to object storage as backup files and include them in your initial baseline backup files for future volumes. This helps you initialize your backups in the cloud by moving older snapshots into the baseline backup copy. 
@@ -181,10 +181,6 @@ NOTE: This feature is not available in the Preview 2025 version.
 
 //* *Availability group settings*: Select preferred backup replicas or specify a particular replica.
 //* *Backup retries*: Enter the maximum number of backup retries and the retry interval. 
-
-
-
-
 
 == Edit a policy
 
@@ -198,7 +194,6 @@ If you are editing a policy that backs up to object storage, you can enable arch
 . In BlueXP backup and recovery, select *Policies*.
 . Select the policy that you want to edit.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit*.
-
 
 == Delete a policy
 
