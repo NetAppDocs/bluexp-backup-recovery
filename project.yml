@@ -52,8 +52,8 @@ sidebar:
       entries:
         - title: View protection health in the Dashboard 
           url: /br-use-dashboard.html
-        - title: Create and manage policies to govern backups and restores
-          url: /br-use-policies-create.html
+        - title: Create and manage backup policies
+          url: /br-use-manage-policies.html
         - title: Create and manage execution hooks
           url: /br-use-execution-hooks-create.html          
         - title: Back up workloads 
