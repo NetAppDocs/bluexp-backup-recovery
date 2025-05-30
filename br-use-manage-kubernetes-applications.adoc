@@ -1,0 +1,36 @@
+---
+sidebar: sidebar
+permalink: br-use-manage-kubernetes-applications.html
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter
+summary: BlueXP backup and recovery enables you to manage your workload host information, database information, and instances information. You can view, edit, and delete protection settings for your inventory.  
+---
+
+= Manage Kubernetes applications 
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+BlueXP backup and recovery enables you to manage your Kubernetes applications and associated resources. You can view, edit, and delete protection settings of your Kubernetes applications.
+
+== Protect an application
+The first step in protecting Kubernetes applications is to create an application within BlueXP backup and recovery. When you create an application, you make BlueXP aware of the running application on the Kubernetes cluster.
+
+.Steps
+
+. In BlueXP backup and recovery, select *Inventory* > *Applications*.
+. Enter a name for the application.
+. Choose any of the containing cluster, associated namespaces, resource types, or labels to search for the application you want to protect.
+. Optionally, select *Cluster Scoped Resources* to choose any resources that are not included in the application. If you include them, they are added to the application when you creat it.
+. Select *Search* to find the application based on your search criteria.
+. BlueXP displays a list of applications that match your search criteria.
+. If the list contains the application or applications you want to protect, select *Next*.
+. In the *Policy* area, choose an existing protection policy to protect the application or create a new policy.
+. In the *Prescripts and postscripts* area, enable and select any prescript or postcsript execution hooks that you want to run before or after backup operations.
+. Select *Create*.
++
+The application is created and appears in the list of applications in the *Applications* tab of the Kubernetes inventory.
+. In the Inventory list of applications, select the actions menu for the application you want to protect.
+. Select *Protect*.
