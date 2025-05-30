@@ -50,8 +50,8 @@ For information about snapshot locking in general, refer to https://docs.netapp.
 .Steps
 . In the BlueXP UI, select *Policies*.
 . From the Policies page, select *Create new policy*.
-+
-image:screen-br-policies-new-nodata.png[Screenshot of new policy creation]
+//+
+//image:screen-br-policies-new-nodata.png[Screenshot of new policy creation]
 
 . In the Policies page, provide the following information.   
 
@@ -116,8 +116,8 @@ Enter information in these fields:
 * *Provider*: Select *AWS*.
 * *AWS account*: Select the AWS account. 
 * *Backup target*: Select a registered S3 object storage target. Ensure that the target is accessible within your backup environment. 
-* *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
-* *Retention copies*: Enter the number of snapshots to keep for each frequency.
+//* *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
+//* *Retention copies*: Enter the number of snapshots to keep for each frequency.
 //* *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
 
 //* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage (for example, AWS Glacier), select the tier option and the number of days to archive. 
@@ -130,17 +130,28 @@ Enter information in these fields:
 
 * *Provider*: Select *Azure*. 
 * *Azure subscription*: Select the Azure subscription from those discovered.
-* *Azure resource group*: Select the Azure resource group from those discovered.
+* *Resource group*: Select the Azure resource group from those discovered.
 * *Backup target*: Select a registered object storage target. Ensure that the target is accessible within your backup environment.  
-* *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
-* *Retention*: Enter the number of snapshots to keep.
-* *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
-+
-NOTE: This feature is not available in the Preview 2025 version.
-* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. 
+//* *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
+//* *Retention*: Enter the number of snapshots to keep.
+//* *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
+//+
+//NOTE: This feature is not available in the Preview 2025 version.
+//* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. 
 
 //To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 
+==== Create a policy for GCP object storage 
+Enter information in these fields: 
+
+* *Provider*: Select *GCP*. 
+* *GCP project*: Select the GCP project from those discovered.
+* *Backup target*: Select a registered S3 object storage target. Ensure that the target is accessible within your backup environment.   
+//* *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
+//* *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
+//+
+//NOTE: This feature is not available in the Preview 2025 version.
+//* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. 
 
 ==== Create a policy for StorageGRID object storage 
 Enter information in these fields: 
@@ -158,7 +169,7 @@ NOTE: This feature is not available in the Preview 2025 version.
 
 
 
-=== Configure advanced settings in the policy 
+=== Configure advanced settings in the policy
 
 * *Copy only backup*: Choose copy-only backup (a type of MS SQL Server backup) that lets you back up your resources by using another backup application.  
 //* *Export existing snapshot copies*: Indicate whether you want to export historical snapshot copies to object storage as backup files and include them in your initial baseline backup files for future volumes. This helps you initialize your backups in the cloud by moving older snapshots into the baseline backup copy. 
