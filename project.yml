@@ -54,8 +54,8 @@ sidebar:
           url: /br-use-dashboard.html
         - title: Create and manage backup policies
           url: /br-use-manage-policies.html
-        - title: Create and manage execution hooks
-          url: /br-use-execution-hooks-create.html          
+        - title: Manage execution hooks
+          url: /br-use-manage-execution-hooks.html          
         - title: Back up workloads 
           entries:
             - title: Back up workloads overview
