@@ -173,6 +173,10 @@ StorageGRID 10.3 and later is supported.
 To use DataLock & Ransomware Protection for your backups, your StorageGRID systems must be running version 11.6.0.3 or greater. 
 +
 To tier older backups to cloud archival storage, your StorageGRID systems must be running version 11.3 or greater. Additionally, your StorageGRID systems must be discovered to the BlueXP Canvas.
++
+To user archival storage, admin node IP access is needed. 
++
+Gateway IP access is always needed. 
 
 S3 credentials::
 You must have created an S3 tenant account to control access to your StorageGRID storage. https://docs.netapp.com/us-en/storagegrid-117/admin/creating-tenant-account.html[See the StorageGRID docs for details^].
