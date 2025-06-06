@@ -66,6 +66,12 @@ sidebar:
               url: /br-use-restore-overview.html
             - title: Restore database workloads
               url: /br-use-restore-database.html
+        - title: Clone workloads
+          entries:
+            - title: Clone workloads overview
+              url: /br-use-clone-overview.html
+            - title: Clone Microsoft SQL Server workloads
+              url: /br-use-clone-mssql.html
         - title: Manage inventory, snapshots, and policies       
           entries:
             - title: Manage resources overview
