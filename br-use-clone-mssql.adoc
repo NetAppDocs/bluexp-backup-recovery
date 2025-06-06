@@ -30,25 +30,67 @@ You can accomplish the following protection goals:
 
 == Create a clone
 
-You can create a clone of your Microsoft SQL Server workloads. A clone is a copy of the source data that is created from a backup. The clone is stored in an object store in your public or private cloud account.
-You can use the clone to restore your workloads in case of data loss or corruption.
+You can create a clone of your Microsoft SQL Server workloads. A clone is a copy of the source data that is created from a backup. The clone is stored in an object store in your public or private cloud account. You can use the clone to restore your workloads in case of data loss or corruption.
 
 .Steps
-. From the BlueXP backup and recovery menu, select *Inventory*.
-+
-image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. From the BlueXP backup and recovery menu, select *Clone*.
+
 . Select a workload to view the protection details.
-. Select the Actions icon image:../media/icon-action.png[Actions option] > *Create clone*.
+. Select *Create new clone*.
 
-. Select the backup from which you want to create the clone.
 . Select the clone type:
+** *Clone and database refresh*: Choose the snapshot for the clone and configure options for the clone. This is helpful if you want to choose the snapshot for the clone and configure options. 
 
-    * *Full clone* - A full clone is a complete copy of the source data. It is stored in the object store and can be used to restore the workloads.
-    * *Snapshot clone* - A snapshot clone is a copy of the source data that is created from a snapshot. It is stored in the object store and can be used to restore the workloads.
+** *Instant sandbox*: Take a snapshot now of the source data and create a clone from that snapshot. This option is useful if you want to create a clone from the latest data in the source workload.
+//* *Full clone* - A full clone is a complete copy of the source data. It is stored in the object store and can be used to restore the workloads.
+//* *Snapshot clone* - A snapshot clone is a copy of the source data that is created from a snapshot. It is stored in the object store and can be used to restore the workloads.
 
-. Select the database target for the clone. The database target is the location where the clone will be created. You can select a specific database or all databases in the workload.
+. Complete the *Database source* section:
+
+* *Source database host, instance, and name*: Select the source database host, instance, and name for the clone. The source database is the database from which the clone will be created. 
+
+
+. Complete the *Database target* section:
+
+* *Target database host, instance, and name*: Select the target database host, instance, and name for the clone. The target database is the location where the clone will be created. 
 +
-Enter a database name or suffix (_suffix) to append to the cloned database name. If you do not specify a suffix, the cloned database name will be the same as the source database name.
+Optionally, select *Suffix* from the target name drop-down list and append a suffix to the cloned database name. If you do not specify a suffix, the cloned database name will be the same as the source database name.
+
+* *QoS (max throughput)*: Select the quality of service (QoS) maximum throughput in MBps for the clone. The QoS defines the performance characteristics of the clone, such as the maximum throughput and IOPS.  
+
+. Complete the *Mount* section:
+
+* *Auto-assign mount point*: Select this option to automatically assign a mount point for the clone. The mount point is the location where the clone will be mounted in the object store.
+* *Define mount point path*: Enter a mount point for the clone. The mount point is the location where the clone will be mounted in the object store. Select the drive letter, enter the data file path, and enter the log file path.       
+
+. Select the restore point: 
+
+* *Existing snapshot*: Select an existing snapshot from the list of snapshots that are available for the workload. This option is useful if you want to create a clone from a specific point in time.
+* *Instant snapshot and clone*: Select the latest snapshot from the list of snapshots that are available for the workload. This option is useful if you want to create a clone from the latest data in the source workload.
+
+. Choose the clone storage location: 
+* *Local storage*: Select this option to create the clone in the local storage of the ONTAP system. The local storage is the storage that is directly attached to the ONTAP system.
+* *Secondary storage*: Select this option to create the clone in the secondary storage of the ONTAP system. The secondary storage is the storage that is used for backup and recovery workloads.
+
+. Select the destination location for the data and logs. 
+
+. Complete the *Advanced settings* section:
+
+* *Recovery scope*: Choose whether to recover all log backups or log backups until a specific point in time. This option is useful if you want to recover the clone to a specific point in time.
+* *Clone refresh schedule and expiration*: If you chose *Instant clone*, enter the date when to begin refreshing the clone. The clone schedule defines when the clone will be created.
+** *Delete clone if schedule expires*: If you want to delete the clone upon the clone expiration date.
+** *Refresh clone every*: Select how often the clone should be refreshed. You can choose to refresh the clone hourly, daily, weekly, monthly, or quarterly. This option is useful if you want to keep the clone up to date with the source workload.
+
+* *iGroup settings*: Select the igroup for the clone. The igroup is a logical grouping of initiators that are used to access the clone. You can select an existing igroup or create a new one. Select the igroup from the primary or secondary ONTAP storage system. 
+
+* *Prescripts and postscripts*: Optionally, specify pre- and post-clone scripts to run before and after the clone is created. These scripts can be used to perform additional tasks, such as configuring the clone or sending notifications.
+
+* *Notification*: Optionally, specify email addresses to receive notifications about the clone creation status along with the Job report. You can also specify a webhook URL to receive notifications about the clone creation status. You can specify whether you want success and failure notifications or only one or the other. 
+
+* *Tags*:
+
+
+
 
 . Choose the type of clone: 
 ** *Thick clone (Long-term clone)*: A complete copy of the source data. It is stored in the object store and can be used to restore the workloads.
@@ -59,27 +101,9 @@ Enter a database name or suffix (_suffix) to append to the cloned database name.
 ** Performance
 ** Value
 
-. Select the igroup for the clone. The igroup is a logical grouping of initiators that are used to access the clone. You can select an existing igroup or create a new one. Select the igroup from the primary or secondary ONTAP storage system. 
 
-. Select the storage class for the clone.
-. Select the cloud account where you want to create the clone.
-. Select the region where you want to create the clone.
-. Select the VPC where you want to create the clone.
-. Select the subnet where you want to create the clone.
-. Select the security group where you want to create the clone.
-. Select the IAM role that you want to use for the clone.
-. Review the clone details and select *Create clone*.
-. Review the clone creation status on the *Activity* page.
-. In the Advanced settings section, do the following: 
 
-** *Clone schedule*: Choose a start date when the clone should be created. 
-** *Expiration date*: Enter a date when the clone should expire.
-** *Delete clone if schedule expires*: Select this option to delete the clone if the schedule expires.
-** *Refresh clone*: Select this option and specify how often the clone should be refreshed. You can choose to refresh the clone daily, weekly, or monthly.
 
-** *Notifications*: Optionally, specify email addresses to receive notifications about the clone creation status along with the Job report. You can also specify a webhook URL to receive notifications about the clone creation status.
-
-** *Pre- and post-clone scripts*: Optionally, you can specify pre- and post-clone scripts to run before and after the clone is created. These scripts can be used to perform additional tasks, such as configuring the clone or sending notifications.
 
 
 +
@@ -94,7 +118,7 @@ You can refresh a clone of your Microsoft SQL Server workloads. Refreshing a clo
 You have the option to change the database name, use the latest instant snapshot, or refresh from an existing production snapshot. 
 
 .Steps
-. From the BlueXP backup and recovery menu, select *Inventory*. 
+. From the BlueXP backup and recovery menu, select *Clone*. 
 
 +
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
@@ -119,7 +143,7 @@ You can choose to split a clone as independent or long-term clones. A wizard sho
 The clone job will not be removed and it can be reused again for other clones
 
 .Steps
-. From the BlueXP backup and recovery menu, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Clone*.
 +
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
 . Select a workload to view the protection details.
@@ -145,7 +169,7 @@ You can delete a clone of your Microsoft SQL Server workloads. Deleting a clone 
 
 .Steps
 
-. From the BlueXP backup and recovery menu, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Clone*.
 +
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
 . Select a workload to view the protection details.
