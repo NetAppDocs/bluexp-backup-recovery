@@ -234,7 +234,7 @@ video::9Og5agUWyRk[youtube, width=848, height=480, end=164]
 
 . From the _Browse & Restore_ section, click *Restore Volume*.
 +
-image:screenshot_restore_volume_selection.png[A screenshot of selecting the Restore Volumes button from the Restore Dashboard.]
+image:screenshot_restore_dashboard.png["The Restore Dashboard showing the options to use the Browse & Restore or Search & Restore functionality."]
 
 . In the _Select Source_ page, navigate to the backup file for the volume you want to restore. Select the *Working Environment*, the *Volume*, and the *Backup* file that has the date/time stamp from which you want to restore.
 +
@@ -364,7 +364,7 @@ video::9Og5agUWyRk[youtube, width=848, height=480, start=165]
 
 . From the _Browse & Restore_ section, click *Restore Files or Folder*.
 +
-image:screenshot_restore_files_selection.png[A screenshot of selecting the Restore Files or Folder button from the Restore Dashboard.]
+image:screenshot_restore_dashboard.png["The Restore Dashboard showing the options to use the Browse & Restore or Search & Restore functionality."]
 
 . In the _Select Source_ page, navigate to the backup file for the volume that contains the folder or files you want to restore. Select the *Working Environment*, the *Volume*, and the *Backup* that has the date/time stamp from which you want to restore files.
 +
@@ -673,31 +673,33 @@ After you have <<enable-the-indexed-catalog-for-each-working-environment,enabled
 
 . From the BlueXP menu, select *Protection > Backup and recovery*.
 
-. Click the *Restore* tab and the Restore Dashboard is displayed.
-
-. From the _Search & Restore_ section, click *Search & Restore*.
+. Click the *Restore* tab. 
 +
-image:screenshot_restore_start_search_restore.png["A screenshot of selecting the Search & Restore button from the Restore Dashboard."]
+The Restore Dashboard is displayed.
 
-. From the Search to Restore page:
+. From the _Search & Restore_ section, select *Search & Restore*.
++
+image:screenshot_restore_dashboard.png["The Restore Dashboard showing the options to use the Browse & Restore or Search & Restore functionality."]
+
+. From the Search & Restore page:
 .. In the _Search bar_, enter a full or partial volume name, folder name, or file name.
 .. Select the type of resource: *Volumes*, *Files*, *Folders*, or *All*.
 .. In the _Filter by_ area, select the filter criteria. For example, you can select the working environment where the data resides and the file type, for example a .JPEG file. Or you can select the type of Backup Location if you want to search for results only within available Snapshot copies or backup files in object storage.
 
-. Click *Search* and the Search Results area displays all the resources that have a file, folder, or volume that matches your search.
+. Select *Search* and the Search Results area displays all the resources that have a file, folder, or volume that matches your search.
 +
 image:screenshot_restore_step1_search_restore.png["A screenshot showing the search criteria and search results on the Search & Restore page."]
 
-. Locate the resource that has the data you want to restore and click *View All Backups* to display all the backup files that contain the matching volume, folder, or file.
+. Locate the resource that has the data you want to restore and select *View All Backups* to display all the backup files that contain the matching volume, folder, or file.
 +
 image:screenshot_restore_step2_search_restore.png["A screenshot showing how to view all the backups that match your search criteria."]
 
-. Locate the backup file that you want to use to restore the data and click *Restore*.
+. Locate the backup file that you want to use to restore the data and select *Restore*.
 +
 Note that the results identify local volume Snapshot copies and remote Replicated volumes that contain the file in your search. You can choose to restore from the cloud backup file, from the Snapshot copy, or from the Replicated volume.
 //The *Restore* button is not functional for Snapshots at this time, but if you want to restore the data from the Snapshot copy instead of from the Backup file, write down the name and location of the volume, open the Volume Details page on the Canvas, and use the *Restore from Snapshot copy* option.
 
-. Select the destination location where you want the volume, folder, or file(s) to be restored and click *Restore*.
+. Select the destination location where you want the volume, folder, or file(s) to be restored and select *Restore*.
 +
 * For volumes, you can select the original destination working environment or you can select an alternate working environment. When restoring a FlexGroup volume you'll need to choose multiple aggregates. 
 //+
@@ -721,6 +723,6 @@ endif::gcp[]
 
 .Results
 
-The volume, folder, or file(s) are restored and you are returned to the Restore Dashboard so you can review the progress of the restore operation. You can also click the *Job Monitoring* tab to see the restore progress.
+The volume, folder, or file(s) are restored and you are returned to the Restore Dashboard so you can review the progress of the restore operation. You can also select the *Job Monitoring* tab to see the restore progress.
 
 For restored volumes, you can link:task-manage-backups-ontap.html[manage the backup settings for this new volume] as required.
