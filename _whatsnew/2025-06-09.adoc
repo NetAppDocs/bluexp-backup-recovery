@@ -30,7 +30,7 @@ The previous release introduced support for SnapMirror to Cloud Resync (SM-C Res
 
 === Bring your own bucket for StorageGRID 
 
-When you create backup files in object storage for a working environment, by default, BlueXP backup and recovery creates the container (bucket or storage account) for the backup files in the object storage account that you configured. With this release, you can now override this and specify your own container for Amazon S3, Azure Blob Storage, and Google Cloud Storage. With this release, you can bring your own object storage container. 
+When you create backup files in object storage for a working environment, by default, BlueXP backup and recovery creates the container (bucket or storage account) for the backup files in the object storage account that you configured. Previously, you could override this and specify your own container for Amazon S3, Azure Blob Storage, and Google Cloud Storage. With this release, you can now bring your own StorageGRID object storage container. 
 
 See link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Create your own object storage container].
 
