@@ -16,6 +16,12 @@ Learn what's new in BlueXP backup and recovery.
 
 // tag::whats-new[]
 
+== 09 June 2025 
+//v4.0.4
+This BlueXP backup and recovery release includes the following updates.
+
+include::_whatsnew/2025-06-09.adoc[]
+
 == 13 May 2025
 //v4.0.3
 This BlueXP backup and recovery release includes the following updates.
@@ -27,6 +33,8 @@ include::_whatsnew/2025-05-12.adoc[]
 This BlueXP backup and recovery release includes the following updates. 
 
 include::_whatsnew/2025-04-16.adoc[]
+
+// end::whats-new[] 
 
 == 17 March 2025 
 //v4.0.1
@@ -43,7 +51,7 @@ This BlueXP backup and recovery release includes the following updates.
 
 include::_whatsnew/2025-02-18.adoc[]
 
-// end::whats-new[] 
+
 
 == 22 November 2024
 //v3.0.8
