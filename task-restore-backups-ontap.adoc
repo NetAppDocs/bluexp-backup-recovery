@@ -633,17 +633,19 @@ The Indexed Catalog v2 supports the following:
 
 .Enabling the Indexed Catalog for a working environment
 
-When you enable this functionality, BlueXP backup and recovery enables SnapDiff v3 on the SVM for your volumes, and it performs the following actions:
+The service does not provision a separate bucket when you use the Indexed Catalog v2. Instead, for backups stored in AWS, Azure, Google Cloud Platform, StorageGRID, or ONTAP S3, the service provisions space on the Connector or on the cloud provider environment. 
 
-ifdef::aws[]
+If you enabled the Indexed Catalog prior to the v2 release, the following occurs with working environments: 
+
+
 * For backups stored in AWS, it provisions a new S3 bucket and the https://aws.amazon.com/athena/faqs/[Amazon Athena interactive query service^] and https://aws.amazon.com/glue/faqs/[AWS Glue serverless data integration service^].
-endif::aws[]
-ifdef::azure[]
+
+
 * For backups stored in Azure, it provisions an Azure Synapse workspace and a Data Lake file system as the container that will store the workspace data.
-endif::azure[]
-ifdef::gcp[]
+
+
 * For backups stored in Google Cloud, it provisions a new bucket, and the https://cloud.google.com/bigquery[Google Cloud BigQuery services^] are provisioned on an account/project level.
-endif::gcp[]
+
 * For backups stored in StorageGRID or ONTAP S3, it provisions space on the Connector, or on the cloud provider environment.
 
 If Indexing has already been enabled for your working environment, go to the next section to restore your data.

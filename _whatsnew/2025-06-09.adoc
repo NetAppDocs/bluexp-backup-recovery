@@ -18,8 +18,7 @@ For more information, see https://docs.netapp.com/us-en/bluexp-backup-recovery/t
 
 Typically, BlueXP backup and recovery establishes a private endpoint with the cloud provider to handle various protection tasks. This release introduces an optional setting that lets you enable or disable BlueXP backup and recovery from automatically creating a private endpoint. This might be useful to you if you want more control over the private endpoint creation process.
 
-
-//You can enable or disable this setting in the BlueXP backup and recovery Settings page. If you disable this setting, you must manually create the private endpoint for BlueXP backup and recovery to function properly.
+You can enable or disable this option when you enable protection or starting the restore process. 
 
 If you disable this setting, you must manually create the private endpoint for BlueXP backup and recovery to function properly. Without proper connectivity, you might not be able to perform backup and recovery tasks successfully.
 
