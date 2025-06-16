@@ -23,25 +23,31 @@ Choose between the following types of clones:
 
 You can accomplish the following protection goals:
 
-* Create a clone
+* Create a clone 
+** From an existing snapshot
+** And create an instant snapshot
 * Refresh a clone
 * Split a clone 
 * Delete a clone
 
-== Create a clone
+== Create a clone  
 
 You can create a clone of your Microsoft SQL Server workloads. A clone is a copy of the source data that is created from a backup. The clone is stored in an object store in your public or private cloud account. You can use the clone to restore your workloads in case of data loss or corruption.
 
+You can create a clone from an existing snapshot or from an instant snapshot. An instant snapshot is a point-in-time copy of the source data that is created from a backup. You can use the clone to restore your workloads in case of data loss or corruption.
+
 .Steps
 . From the BlueXP backup and recovery menu, select *Clone*.
++
+image:screen-br-sql-clone.png[Clone page screenshot for BlueXP backup and recovery]
 
-. Select a workload to view the protection details.
 . Select *Create new clone*.
 
 . Select the clone type:
 ** *Clone and database refresh*: Choose the snapshot for the clone and configure options for the clone. This is helpful if you want to choose the snapshot for the clone and configure options. 
 
 ** *Instant sandbox*: Take a snapshot now of the source data and create a clone from that snapshot. This option is useful if you want to create a clone from the latest data in the source workload.
+
 //* *Full clone* - A full clone is a complete copy of the source data. It is stored in the object store and can be used to restore the workloads.
 //* *Snapshot clone* - A snapshot clone is a copy of the source data that is created from a snapshot. It is stored in the object store and can be used to restore the workloads.
 
@@ -68,11 +74,65 @@ Optionally, select *Suffix* from the target name drop-down list and append a suf
 * *Existing snapshot*: Select an existing snapshot from the list of snapshots that are available for the workload. This option is useful if you want to create a clone from a specific point in time.
 * *Instant snapshot and clone*: Select the latest snapshot from the list of snapshots that are available for the workload. This option is useful if you want to create a clone from the latest data in the source workload.
 
-. Choose the clone storage location: 
+. If you chose to create *Instant snapshot and clone*, choose the clone storage location: 
 * *Local storage*: Select this option to create the clone in the local storage of the ONTAP system. The local storage is the storage that is directly attached to the ONTAP system.
 * *Secondary storage*: Select this option to create the clone in the secondary storage of the ONTAP system. The secondary storage is the storage that is used for backup and recovery workloads.
 
 . Select the destination location for the data and logs. 
+
+. Complete the *Advanced settings* section:
++
+image:screen-br-sql-clone-create-advanced.png[Advanced settings for creating a clone in BlueXP backup and recovery]
+
+* *Recovery scope*: Choose whether to recover all log backups or log backups until a specific point in time. This option is useful if you want to recover the clone to a specific point in time.
+
+. If you chose *Instant snapshot and clone*, complete the following options:
++
+image:screen-br-sql-clone-create-instantsnapshot-advanced.png[Advanced settings for creating an instant snapshot and clone in BlueXP backup and recovery]
++
+* *Clone refresh schedule and expiration*: If you chose *Instant clone*, enter the date when to begin refreshing the clone. The clone schedule defines when the clone will be created.
+** *Delete clone if schedule expires*: If you want to delete the clone upon the clone expiration date.
+** *Refresh clone every*: Select how often the clone should be refreshed. You can choose to refresh the clone hourly, daily, weekly, monthly, or quarterly. This option is useful if you want to keep the clone up to date with the source workload.
+
+* *iGroup settings*: Select the igroup for the clone. The igroup is a logical grouping of initiators that are used to access the clone. You can select an existing igroup or create a new one. Select the igroup from the primary or secondary ONTAP storage system. 
+
+* *Prescripts and postscripts*: Optionally, specify pre- and post-clone scripts to run before and after the clone is created. These scripts can be used to perform additional tasks, such as configuring the clone or sending notifications.
+
+* *Notification*: Optionally, specify email addresses to receive notifications about the clone creation status along with the Job report. You can also specify a webhook URL to receive notifications about the clone creation status. You can specify whether you want success and failure notifications or only one or the other. 
+
+* *Tags*: Select one or more labels that will help you later search for the resource group and select *Apply*. For example, if you add "HR" as a tag to multiple resource groups, you can later find all resource groups associated with the HR tag.
+
+. Select *Create*. 
+
+
+
+//. Choose the type of clone: 
+//** *Thick clone (Long-term clone)*: A complete copy of the source data. It is stored in the object store and can be used to restore the workloads.
+//** *Thin clone (Short-term clone)*: A copy of the source data that is created from a snapshot. It is stored in the object store and can be used to restore the workloads.
+
+//. Select the quality of service (QoS) policy for the clone. The QoS policy defines the performance characteristics of the clone, such as the maximum throughput and IOPS.
+//** Extreme
+//** Performance
+//** Value
+
+
+. When the clone is created, you can view it in the *Inventory* page.
+image:screen-br-inventory.png[Inventory page screenshot for BlueXP backup and recovery]
+
+== Refresh a clone
+You can refresh a clone of your Microsoft SQL Server workloads. Refreshing a clone updates the clone with the latest data from the source workload. This is useful if you want to keep the clone up to date with the source workload.
+
+You have the option to change the database name, use the latest instant snapshot, or refresh from an existing production snapshot. 
+
+.Steps
+. From the BlueXP backup and recovery menu, select *Clone*. 
+
++
+image:screen-br-sql-clone-nomenu.png[Clone page for BlueXP backup and recovery]
+. Select the clone you want to refresh. 
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Refresh clone*.
++
+image:screen-br-sql-clone-refresh-options.png[Refresh clone options for BlueXP backup and recovery]
 
 . Complete the *Advanced settings* section:
 
@@ -87,121 +147,80 @@ Optionally, select *Suffix* from the target name drop-down list and append a suf
 
 * *Notification*: Optionally, specify email addresses to receive notifications about the clone creation status along with the Job report. You can also specify a webhook URL to receive notifications about the clone creation status. You can specify whether you want success and failure notifications or only one or the other. 
 
-* *Tags*:
+
+* *Tags*: Enter one or more labels that will help you later search for the resource group. For example, if you add "HR" as a tag to multiple resource groups, you can later find all resource groups associated with the HR tag.
 
 
 
 
-. Choose the type of clone: 
-** *Thick clone (Long-term clone)*: A complete copy of the source data. It is stored in the object store and can be used to restore the workloads.
-** *Thin clone (Short-term clone)*: A copy of the source data that is created from a snapshot. It is stored in the object store and can be used to restore the workloads.
-
-. Select the quality of service (QoS) policy for the clone. The QoS policy defines the performance characteristics of the clone, such as the maximum throughput and IOPS.
-** Extreme
-** Performance
-** Value
+. In the Refresh confirmation dialog box, to continue, select *Refresh*.
 
 
 
-
-
-
-+
-image:screen-br-activity-clone.png[Activity page screenshot for BlueXP backup and recovery]
-
-. When the clone is created, you can view it in the *Inventory* page.
-image:screen-br-inventory-clone.png[Inventory page screenshot for BlueXP backup and recovery]
-
-== Refresh a clone
-You can refresh a clone of your Microsoft SQL Server workloads. Refreshing a clone updates the clone with the latest data from the source workload. This is useful if you want to keep the clone up to date with the source workload.
-
-You have the option to change the database name, use the latest instant snapshot, or refresh from an existing production snapshot. 
+== Skip a clone refresh 
+You might want to skip a clone refresh if you do not want to update the clone with the latest data from the source workload. Skipping a clone refresh allows you to keep the clone as it is without updating it.
 
 .Steps
 . From the BlueXP backup and recovery menu, select *Clone*. 
 
-+
-image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
-. Select a workload to view the protection details.
-. Select the Actions icon image:../media/icon-action.png[Actions option] > *Refresh clone*.
-. Select the clone that you want to refresh.
-. Select the database target for the clone. The database target is the location where the clone will be refreshed. You can select a specific database or all databases in the workload.
-. Enter a database name or suffix (_suffix) to append to the refreshed database name. If you do not specify a suffix, the refreshed database name will be the same as the source database name.
-. Choose the type of clone:
-** *Thick clone (Long-term clone)*: A complete copy of the source data. It is stored in the object store and can be used to restore the workloads.
-** *Thin clone (Short-term clone)*: A copy of the source data that is created from a snapshot. It is stored in the object store and can be used to restore the workloads.
-. Select the quality of service (QoS) policy for the clone. The QoS policy defines the performance characteristics of the clone, such as the maximum throughput and IOPS.
-. Select the igroup for the clone. The igroup is a logical grouping of initiators that are used to access the clone. You can select an existing igroup or create a new one. Select the igroup from the primary or secondary ONTAP storage system.
-. Select the storage class for the clone.
-
+. Select the clone you want to skip the refresh for.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Skip refresh*.
+. In the Skip refresh confirmation dialog box, do the following: 
+.. To skip only the next refresh schedule, select *Only skip the next refresh schedule*.
+.. To continue, select *Skip*.    
 
 == Split a clone
+
 You can split a clone of your Microsoft SQL Server workloads. Splitting a clone creates a new backup from the clone. The new backup can be used to restore the workloads.
 
 You can choose to split a clone as independent or long-term clones. A wizard shows the list of aggregates that are part of the SVM, their sizes, and where the cloned volume resides. BlueXP backup and recovery also indicates whether there is enough space to split the clone. After the clone is split, the clone becomes an independent database for protection. 
 
-The clone job will not be removed and it can be reused again for other clones
+The clone job is not be removed and it can be reused again for other clones.
 
 .Steps
 . From the BlueXP backup and recovery menu, select *Clone*.
 +
-image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
-. Select a workload to view the protection details.
+image:screen-br-sql-clone-nomenu.png[Clone page for BlueXP backup and recovery]
+. Select a clone.
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *Split clone*.
-. Select the clone that you want to split.
-. Select the storage class for the new
-backup.
-. Select the cloud account where you want to create the new backup.
-. Select the region where you want to create the new backup.
-. Select the VPC where you want to create the new backup.
-. Select the subnet where you want to create the new backup.
-. Select the security group where you want to create the new backup.
-. Select the IAM role that you want to use for the new backup.
-. Review the split clone details and select *Split clone*.
-. Review the split clone status on the *Activity* page.
-image:screen-br-activity-split-clone.png[Activity page screenshot for BlueXP backup and recovery]
+
++
+image:screen-br-sql-clone-split.png[Split clone page for BlueXP backup and recovery]
+. Review the split clone details and select *Split*.
+
 . When the split clone is created, you can view it in the *Inventory* page.
-image:screen-br-inventory-split-clone.png[Inventory page screenshot for BlueXP backup and recovery]
+image:screen-br-inventory.png[Inventory page screenshot for BlueXP backup and recovery]
 
 
 == Delete a clone
 You can delete a clone of your Microsoft SQL Server workloads. Deleting a clone removes the clone from the object store and frees up storage space.
 
+If the clone is protected by a policy, the clone is deleted including the job. 
+
 .Steps
 
 . From the BlueXP backup and recovery menu, select *Clone*.
 +
-image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
-. Select a workload to view the protection details.
+image:screen-br-sql-clone-nomenu.png[Clone page for BlueXP backup and recovery]
+. Select a clone.
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *Delete clone*.
-. Select the clone that you want to delete.
-. Review the clone details and select *Delete clone*.
-. Review the clone deletion status on the *Activity* page.
-image:screen-br-activity-delete-clone.png[Activity page screenshot for BlueXP backup and recovery]
+
+. In the clone Delete confirmation dialog box, review the deletion details.
+.. To delete the cloned resources from SnapCenter even if the clones or their storage is not accessible, select *Force delete*. 
+
+.. Select *Delete*.
+
 . When the clone is deleted, it is removed from the *Inventory* page.
-image:screen-br-inventory-delete-clone.png[Inventory page screenshot for BlueXP backup and recovery]
+
+
 
 
 == Additional information
 For more information about cloning Microsoft SQL Server workloads, see the following resources:
+
 * link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql.html[Clone Microsoft SQL Server workloads] in the BlueXP documentation.
 * link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-activity.html[Monitor clone activity] in the BlueXP documentation.
 * link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-inventory.html[View cloned Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore.html[Restore cloned Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-delete.html[Delete cloned Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-activity.html[Monitor restore activity] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-inventory.html[View restored Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-delete.html[Delete restored Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-activity.html[Monitor restore activity] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-inventory.html[View restored Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-delete.html[Delete restored Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-activity.html[Monitor restore activity] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-inventory.html[View restored Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-delete.html[Delete restored Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-activity.html[Monitor restore activity] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-inventory.html[View restored Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-delete.html[Delete restored Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-activity.html[Monitor restore activity] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-restore-inventory.html[View restored Microsoft SQL Server workloads] in the BlueXP documentation.
+
 
 
