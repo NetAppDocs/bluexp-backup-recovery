@@ -18,18 +18,38 @@ indexpage:
           url: br-start-discover.html
         - title: Configure BlueXP backup and recovery settings
           url: br-start-configure.html
-    - title: Back up workload data 
+    - title: Manage policies for backups and restores
       links:
-        - title: Create policies to govern backups and recoveries
+        - title: Create policies to govern backups and restores
           url: br-use-policies-create.html
-        - title: Back up overview 
-          url: br-use-backup-overview.html       
-        - title: Back up Microsoft SQL Server workloads 
-          url: br-use-backup-mssql.html
-    - title: Restore workload data from the cloud
+        - title: View protection health in the Dashboard
+          url: br-use-dashboard.html
+    - title: Protect Microsoft SQL workloads 
       links:
+        - title: Protect Microsoft SQL workloads overview 
+          url: br-use-mssql-protect-overview.html       
+        - title: Back up Microsoft SQL Server workloads 
+          url: br-use-mssql-backup.html
         - title: Restore database workloads
-          url: br-use-restore-database.html
+          url: br-use-mssql-restore.html
+        - title: Clone Microsoft SQL workloads
+          url: br-use-mssql-clone.html
+    - title: Protect VMware workloads
+      links:
+        - title: Protect VMware workloads overview
+          url: br-use-vmware-protect-overview.html
+        - title: Back up VMware workloads
+          url: br-use-vmware-backup.html  
+        - title: Restore VMware workloads
+          url: br-use-vmware-restore.html
+        - title: Clone VMware workloads
+          url: br-use-vmware-clone.html
+    - title: Protect Kubernetes workloads
+      links:
+        - title: Back up Kubernetes workloads
+          url: br-use-kubernetes-backup.html
+        - title: Restore Kubernetes workloads
+          url: br-use-kubernetes-restore.html         
     - title: Manage inventory, policies, and snapshots
       links:
         - title: Manage inventory 
