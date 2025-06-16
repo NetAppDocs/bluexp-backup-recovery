@@ -58,11 +58,11 @@ sidebar:
           entries:
             - title: Protect Microsoft SQL workloads overview
               url: /br-use-mssql-protect-overview.html
-            - title: Back up Microsoft SQL Server workloads
+            - title: Back up Microsoft SQL workloads
               url: /br-use-mssql-backup.html
             - title: Restore Microsoft SQL workloads overview     
               url: /br-use-mssql-restore-overview.html
-            - title: Restore database workloads
+            - title: Restore Microsoft SQL workloads
               url: /br-use-mssql-restore.html              
             - title: Clone Microsoft SQL workloads
               url: /br-use-mssql-clone.html
@@ -78,6 +78,10 @@ sidebar:
           entries:
             - title: Protect Kubernetes workloads overview
               url: /br-use-kubernetes-protect-overview.html
+            - title: Discover a Kubernetes cluster
+              url: /br-use-kubernetes-discover.html
+            - title: Create Kubernetes applications
+              url: /br-use-kubernetes-applications.html
             - title: Back up Kubernetes workloads
               url: /br-use-kubernetes-backup.html
             - title: Restore Kubernetes workloads

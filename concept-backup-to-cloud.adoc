@@ -5,7 +5,7 @@ keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, 
 summary: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for NetApp databases and instances, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
 ---
 
-= Learn about BlueXP backup and recovery Preview 2025 version
+= Learn about BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -16,12 +16,12 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for Microsoft SQL Server instances and databases, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
 
 
-NOTE: THIS DOCUMENTATION IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
+//NOTE: THIS DOCUMENTATION IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
 
 
 == What you can do with BlueXP backup and recovery
 
-Use BlueXP backup and recovery Preview 2025 version to accomplish the following goals:
+Use BlueXP backup and recovery to accomplish the following goals:
 
 * Back up Microsoft SQL Server instances and databases from on-premises ONTAP or Cloud Volumes ONTAP systems. 
 
@@ -53,7 +53,7 @@ NetApp doesn't charge you for using the trial version. However, you are responsi
 
 == Licensing 
 
-BlueXP backup and recovery Preview 2025 version is available as a free trial. You can use the service without a license key for a limited time.
+BlueXP backup and recovery version is available as a free trial. You can use the service without a license key for a limited time.
 
 == Supported data sources, working environments, backup targets and destinations, and restore destinations
 .Workload data sources supported
@@ -129,7 +129,7 @@ endif::gcp[]
 
 .Supported restore destinations
 
-You can restore Microsoft SQL Server instances and data from a backup that resides in primary storage or a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
+You can restore Microsoft SQL Server instances and databases from a backup that resides in primary storage or a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
 
 [cols=3*,options="header",cols="33,33,33",width="90%"]
 |===
@@ -191,15 +191,15 @@ NOTE: Primary to object storage is also supported, not just from secondary stora
 
 === Where backups reside in object store locations
 
-Backup copies are stored in an object store that BlueXP creates in your cloud account. There's one object store per cluster/working environment, and BlueXP names the object store as follows: `netapp-backup-clusteruuid`. Be sure not to delete this object store.
+Backup copies are stored in an object store that BlueXP creates in your cloud account. There's one object store per cluster or working environment, and BlueXP names the object store as follows: `netapp-backup-clusteruuid`. Be sure not to delete this object store.
 
-ifdef::aws[]
+//ifdef::aws[]
 * In AWS, BlueXP enables the https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html[Amazon S3 Block Public Access feature^] on the S3 bucket.
-endif::aws[]
+//endif::aws[]
 
-ifdef::azure[]
+//ifdef::azure[]
 * In Azure, BlueXP uses a new or existing resource group with a storage account for the Blob container. BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent[blocks public access to your blob data] by default.
-endif::azure[]
+//endif::azure[]
 
 //ifdef::gcp[]
 //* In GCP, BlueXP uses a new or existing project with a storage account for the Google Cloud Storage bucket.
@@ -223,5 +223,5 @@ You might benefit by understanding some terminology related to protection.
 * *Protection*: Protection in BlueXP backup and recovery means ensuring that snapshots and immutable backups occur on a regular basis to a different security domain using protection policies.
 
 //* *Workload*: A workload in BlueXP backup and recovery Preview version can include MySQL or Oracle databases, VMware datastores, or file shares.
-* *Workload*: A workload in BlueXP backup and recovery Preview version can include Microsoft SQL Server instances and databases.
+* *Workload*: A workload in BlueXP backup and recovery can include Microsoft SQL Server instances and databases.
 

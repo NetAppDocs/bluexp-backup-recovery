@@ -15,9 +15,9 @@ summary: The BlueXP backup and recovery service needs to first discover data in 
 [.lead]
 The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes MS SQL Server instances and databases in working environments within your organization. 
 
-For the Preview 2025 version, BlueXP backup and recovery assesses Microsoft SQL Server applications. The service assesses the existing protection level including the current backup protection policies, snapshot copies, and backup and recovery options. 
+BlueXP backup and recovery assesses Microsoft SQL Server applications. The service assesses the existing protection level including the current backup protection policies, snapshot copies, and backup and recovery options. 
 
-For the Preview version, discovery occurs in the following ways: 
+Discovery occurs in the following ways: 
 
 * If you already have SnapCenter, import SnapCenter resources into BlueXP backup and recovery by using the BlueXP backup and recovery UI.
 +
