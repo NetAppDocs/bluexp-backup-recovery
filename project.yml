@@ -82,22 +82,22 @@ sidebar:
           entries:
             - title: Protect Kubernetes workloads overview
               url: /br-use-kubernetes-protect-overview.html
-            - title: Back up Kubernetes workloads
-              url: /br-use-kubernetes-backup.html
-            - title: Restore Kubernetes workloads
-              url: /br-use-kubernetes-restore.html
+            - title: Manage Kubernetes applications #includes app CRUD, Protect, unprotect
+              url: /br-use-manage-kubernetes-applications.html
+           # - title: Protect Kubernetes applications
+           #   url: /br-use-protect-kubernetes-applications.html
+            - title: Restore Kubernetes applications
+              url: /br-use-restore-kubernetes-applications.html
         - title: Manage inventory, snapshots, and policies       
           entries:
             - title: Manage resources overview
               url: /br-use-manage-overview.html 
-            - title: Manage inventory
+            - title: Manage inventory #What tasks does this include?
               url: /br-use-manage-inventory.html 
             - title: Manage snapshots
               url: /br-use-manage-snapshots.html
-            - title: Manage Kubernetes clusters
+            - title: Manage Kubernetes clusters #Includes discover, edit, remove
               url: /br-use-manage-kubernetes-clusters.html
-            - title: Manage Kubernetes applications
-              url: /br-use-manage-kubernetes-applications.html
         - title: Monitor protection tasks
           url: /br-use-monitor-tasks.html
         - title: Restart BlueXP backup and recovery
