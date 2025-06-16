@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: br-use-restore-database.html
+permalink: br-use-mssql-restore.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
 summary: Restore database workloads from a snapshot copy, a workload backup replicated to secondary storage, or from backups stored in object storage.
 ---
 
-= Restore database workloads
+= Restore MS SQL database workloads
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Restore database workloads from a snapshot copy, a workload backup repl
 :imagesdir: ./media/
 
 [.lead]
-Restore database workloads from snapshot copies, a workload backup replicated to secondary storage, or from backups stored in object storage.
+Restore MS SQL database workloads from snapshot copies, a workload backup replicated to secondary storage, or from backups stored in object storage.
 
 
 .Restore from object storage considerations

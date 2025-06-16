@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: br-use-clone-overview.html
+permalink: br-use-mssql-clone-overview.html
 keywords: backing up, restoring, back up, backup, clone, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
 summary: Clone Microsoft SQL Server applications for development, testing, or protection purposes. You can create clones from instant snapshots or existing snapshots of your Microsoft SQL Server workloads.
 ---
 
-= Clone workloads overview
+= Clone MS SQL workloads overview
 :hardbreaks:
 :nofooter:
 :icons: font
