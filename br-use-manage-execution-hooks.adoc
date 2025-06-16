@@ -73,7 +73,18 @@ Visit the https://github.com/NetApp/Verda[NetApp Verda GitHub project] to downlo
 == Create an execution hook
 You can create a custom execution hook for an app. You need to have Owner, Admin, or Member permissions to create execution hooks.
 
+.Steps
 
+. In BlueXP, got to *Protection* > *Backup and recovery*.
+. Select the *Settings* tab.
+. Expand the *Execution hook template* section.
+. Select *Create execution hook template*.
+. Enter a name for the execution hook.
+. Choose a type of hook. For example, a post-restore hook will run after the restore operation is complete.
+. In the *Script* text box, enter the executable shell script that you want to run as part of the execution hook template. Optionally, you can select *Upload script* to upload a script file instead.
+. Select *Create*.
++
+The template is created and appears in the list of templates in the *Execution hook template* section.
 
 
 == Manually run an execution hook
