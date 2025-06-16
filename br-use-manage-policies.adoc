@@ -19,11 +19,9 @@ If you import resources from SnapCenter, you might encounter some differences po
 
 == View policies 
 
-. In the BlueXP UI, select *Policies*.
-+
-image:screen-br-policies.png["Policies page"]
-
-. Review these policy details. 
+. In BlueXP, got to *Protection* > *Backup and recovery*.
+. Select the *Policies* tab.
+. Review these policy details:
 
 * *Workload*: Examples include Oracle, SQL Server, Kubernetes, VMware, and Volumes. 
 * *Backup type*: Examples include Full backup and Incremental backup.
@@ -44,7 +42,8 @@ For instructions on how to do this, refer to https://docs.netapp.com/us-en/ontap
 For information about snapshot locking in general, refer to https://docs.netapp.com/us-en/ontap/snaplock/snapshot-lock-concept.html[Snapshot locking in ONTAP^].
 
 .Steps
-. In the BlueXP UI, select *Policies*.
+. In BlueXP, got to *Protection* > *Backup and recovery*.
+. Select the *Policies* tab.
 . From the Policies page, select *Create new policy*.
 //+
 //image:screen-br-policies-new-nodata.png[Screenshot of new policy creation]
@@ -181,7 +180,8 @@ You can add another protection level when you edit a policy, but you cannot remo
 If you are editing a policy that backs up to object storage, you can enable archival.   
 
 .Steps
-. In BlueXP backup and recovery, select *Policies*.
+. In BlueXP, got to *Protection* > *Backup and recovery*.
+. Select the *Policies* tab.
 . Select the policy that you want to edit.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit*.
 
@@ -192,7 +192,8 @@ You can delete a policy if you no longer need it.
 TIP: You cannot delete a policy that is associated with a workload.
 
 .Steps
-. In BlueXP backup and recovery, select *Policies*.
+. In BlueXP, got to *Protection* > *Backup and recovery*.
+. Select the *Policies* tab.
 . Select the policy that you want to delete.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete*.
 . Review the information in the confirmation dialog box, and select *Delete*.
