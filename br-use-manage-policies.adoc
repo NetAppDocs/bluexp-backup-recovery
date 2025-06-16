@@ -197,5 +197,3 @@ TIP: You cannot delete a policy that is associated with a workload.
 . Select the policy that you want to delete.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete*.
 . Review the information in the confirmation dialog box, and select *Delete*.
-
-
