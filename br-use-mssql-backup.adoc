@@ -13,7 +13,7 @@ summary: Back up Microsoft SQL Server applications data from on-premises ONTAP s
 :imagesdir: ./media/
 
 [.lead]
-Back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, and StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. You can implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
+Back up Microsoft SQL Server applications data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, and StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. 
 
 * To back up workloads on a schedule, create policies that govern the backup and restore operations. See link:br-use-policies-create.html[Create policies] for instructions.
 
@@ -33,8 +33,38 @@ image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recover
 . Select a workload to view the protection details. 
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
 +
-image:screen-br-inventory-details.png[Inventory details page screenshot for BlueXP backup and recovery]
-. Review details on the Hosts, Instances, and Databases tabs. 
+image:screen-br-inventory-sql.png[Inventory details page screenshot for BlueXP backup and recovery]
+
+. Review details on the Hosts, Protection groups, Availability groups, Instances, and Databases tabs. 
+
+== Manage hosts 
+
+You can manage the hosts that are discovered in your working environment. You can manage them separately or as a group. 
+
+After you manage the hosts in BlueXP backup and recovery, SnapCenter no longer manages the resources on those hosts. 
+
+.Steps
+. From the menu, select *Inventory*.
++   
+image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.
++
+image:screen-br-inventory-sql.png[Inventory details page screenshot for BlueXP backup and recovery]
+. Select the *Hosts* tab.
+. Select one or more hosts. If you select multiple hosts, a Bulk actions option appears where you can select *Manage (up to 5 hosts)*. 
+
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Manage*.
++   
+image:screen-br-inventory-details-manage-hosts.png[Manage hosts page]
+
+. Review the host dependencies:
+** If the vCenter does not display, select the pencil icon to add or edit the vCenter details.  
+** If you add a vCenter, you must also register the vCenter by selecting *Register vCenter*.
+
+. Select *Validate settings* to test your settings.
+
+. Select *Manage* to manage the host.
 
 
 == Configure logs for discovered hosts
@@ -59,6 +89,30 @@ NOTE: The fields that appear differ depending on the selected deployment model, 
 . Select *Save*.
 
 
+== Create a protection group 
+You can create a protection group to manage the backup and restore operations for a set of workloads. A protection group is a logical grouping of workloads that you want to protect together.
+
+
+.Steps
+. From the menu, select *Inventory*.
++
+image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.
+. Select the *Protection groups* tab.
+. Select *Create protection group*.
+
+. Provide a name for the protection group.
+. Select the instances or databases that you want to include in the protection group.
+. Select *Next*. 
+
+. Select the *Backup policy* that you want to apply to the protection group.
++
+If you want to create a policy, select *Create new policy* and follow the prompts to create a policy. See link:br-use-policies-create.html[Create policies] for more information.
+
+. Select *Next*. 
+. Review the configuration.
+. Select *Create* to create the protection group.
 
 == Back up workloads now with an on-demand backup
 
@@ -71,18 +125,76 @@ Create an on-demand backup immediately. You might want to run an on-demand backu
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
 . Select a workload to view the protection details. 
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
-. Select the *Instances* or *Databases* tab. 
+. Select the *Protection Group*, *Instances* or *Databases* tab. 
 . Select the instance or database you want to back up.
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *Back up now*.
+. Select the protection group name. 
+. Select the policy that you want to apply to the backup.
+. Select the schedule tier.
+. Select *Back up*. 
 
-. Select the backup type:
-** *Full backup*: Backs up workloads and logs.
-** *Log backup*: Backs up only the logs. To choose a log backup, you must have already configured a log backup location. See link:br-use-backup-mssql.html#configure-logs-for-discovered-hosts[Configure logs for discovered hosts] for more information.
 
 
-. Select *Back up now*.
+//. Select the backup type:
+//** *Full backup*: Backs up workloads and logs.
+//** *Log backup*: Backs up only the logs. To choose a log backup, you must have already configured a log backup location. See link:br-use-backup-mssql.html#configure-logs-for-discovered-hosts[Configure logs for discovered hosts] for more information.
 
-//== Suspend the backup schedule
 
-//Suspending the schedule prevents the backup from running at the scheduled time temporarily. You might want to do this if you're performing maintenance on the system or if you're experiencing issues with the backup.
 
+== Suspend the backup schedule
+
+Suspending the schedule prevents the backup from running at the scheduled time temporarily. You might want to do this if you're performing maintenance on the system or if you're experiencing issues with the backup.
+
+.Steps 
+
+. From the menu, select *Inventory*. 
++
+image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details. 
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
+. Select the *Protection Group*, *Instances* or *Databases* tab. 
+. Select the protection group, instance, or database you want to suspend.
++
+image:../media/screen-br-inventory-sql-details-actions-menu.png[Actions menu screenshot for BlueXP backup and recovery]
+
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Suspend*.
+
+
+
+== Delete a protection group 
+You can create a protection group to manage the backup and restore operations for a set of workloads. A protection group is a logical grouping of workloads that you want to protect together.
+
+
+.Steps
+. From the menu, select *Inventory*.
++
+image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.
+. Select the *Protection groups* tab.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Delete protection group*.
++
+image:../media/screen-br-inventory-sql-details-actions-menu.png[Actions menu screenshot for BlueXP backup and recovery]
+
+
+== Remove protection from a workload 
+You can remove protection from a workload if you no longer want to back it up or if you want to stop managing it in BlueXP backup and recovery.
+
+
+.Steps 
+
+. From the menu, select *Inventory*. 
++
+image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details. 
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
+. Select the *Protection Group*, *Instances* or *Databases* tab. 
+. Select the protection group, instance, or database.
++
+image:../media/screen-br-inventory-sql-details-actions-menu.png[Actions menu screenshot for BlueXP backup and recovery]
+
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Remove protection*.
+
+. In the Remove protection dialog box, select whether you want to keep backups and metadata or delete them.
+
+. Select *Remove* to confirm the action.

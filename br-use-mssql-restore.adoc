@@ -13,8 +13,25 @@ summary: Restore database workloads from a snapshot copy, a workload backup repl
 :imagesdir: ./media/
 
 [.lead]
-Restore MS SQL database workloads from snapshot copies, a workload backup replicated to secondary storage, or from backups stored in object storage.
+Restore MS SQL database workloads from snapshot copies, from a workload backup replicated to secondary storage, or from backups stored in object storage. You can restore a workload to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system. 
 
+//different types of restore operations, volume restore or file/folder restore, Browse and restore vs Search and restore)
+
+.Restore from these locations
+
+You can restore workloads from different starting locations: 
+
+* Restore from a primary location
+* Restore from a replicated resource
+* Restore from an object store backup
+
+.Restore to these points   
+
+You can restore data to the latest snapshot or to these points: 
+
+* Restore from snapshots
+* Restore to a specific point in time. This is helpful if you know the name and location of the file, and the date when it was last in good shape. 
+* Restore to the latest backup 
 
 .Restore from object storage considerations
 
@@ -22,25 +39,6 @@ If you select a backup file in object storage, and ransomware protection is acti
 
 TIP: You'll incur extra egress costs from your cloud provider to access the contents of the backup file.
 
-
-== Where to install the BlueXP Connector
-
-To complete a restore operation, the Connector can be installed in the following locations:
-
-ifdef::aws[]
-* For Amazon S3, the Connector can be deployed on your premises. 
-endif::aws[]
-ifdef::azure[]
-* For Azure Blob, the Connector can be deployed on your premises. 
-endif::azure[]
-//ifdef::gcp[]
-//* For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC.
-//endif::gcp[]
-
-* For StorageGRID, the Connector must be deployed in your premises; with or without internet access.
-//* For ONTAP S3, the Connector can be deployed in your premises (with or without internet access) or in a cloud provider environment
-
-NOTE: References to "on-premises ONTAP systems" includes FAS and AFF systems.
 
 
 
