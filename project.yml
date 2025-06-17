@@ -94,6 +94,8 @@ sidebar:
               url: /br-use-manage-inventory.html 
             - title: Manage snapshots
               url: /br-use-manage-snapshots.html
+        - title: Create reports 
+          url: /br-use-reports.html
         - title: Restart BlueXP backup and recovery
           url: /reference-restart-backup.html
     - title: Reference 

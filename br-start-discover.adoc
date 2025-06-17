@@ -114,6 +114,8 @@ image:../media/screen-br-inventory-manage-option.png[Inventory page showing the 
 +
 The Inventory page shows the newly managed SnapCenter resources.
 
+You can optionally create a report of the managed resources by selecting the *Generate reports* option from the Actions menu.
+
 === Import SnapCenter resources after discovery from the Inventory page
 If you have already discovered resources, you can import SnapCenter resources from the Inventory page.
 

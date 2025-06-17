@@ -1,0 +1,38 @@
+---
+sidebar: sidebar
+permalink: br-use-reports.html
+keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud
+summary: You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the type of backup, the backup architecture, the storage systems, and backup frequency. 
+---
+
+= Create reports in BlueXP backup and recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ./media/
+
+[.lead]
+In BlueXP backup and recovery, create reports to view the status of your backups, including the number of backups, the number of successful backups, and the number of failed backups. You can also view the details of each backup, including the backup type, the storage system used for the backup, and the time of the backup.
+
+== Create a report
+
+. From the *Backup and recovery* Dashboard, select the *Inventory* tab.
+
+. Select the workload for which you want to create a report. 
+
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Generate reports*.  
++
+image:../media/screen-br-reports.png[Create new report screenshot]
+
+
+. Enter report scope details: 
+
+* *Report name*: Enter a unique name for the report.
+* *Report type*: Choose whether you want a report by account or by workload (Microsoft SQL Server). 
+* *Select host*: Select the host for which you want to generate the report.
+
+. Enter report frequency details: Choose whether you want the report to be include data from the last day, last 7 days, last 30 days, last quarter, or last year.
+. Enter report delivery details: If you want the report to be delivered by email, check *Send report using email*. 
+
++
+Configure email notifications in Settings and enter the email address to which you want the report sent. For details about configuring email notifications, see link:br-use-settings-advanced.html[Configure settings].
+
