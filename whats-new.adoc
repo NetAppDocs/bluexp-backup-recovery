@@ -16,6 +16,14 @@ Learn what's new in BlueXP backup and recovery Preview 2025 version.
 
 // tag::whats-new[]
 
+== 07 June 2025
+
+This is the first general availability (GA) release of BlueXP backup and recovery for Microsoft SQL Server workloads. It includes the following updates.
+
+//v3.0.10
+include::_whatsnew/2025-06-07.adoc[]
+
+
 == 13 February 2025
 
 This BlueXP backup and recovery release includes the following updates.

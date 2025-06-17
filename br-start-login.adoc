@@ -42,7 +42,7 @@ image:screen-br-landing-no-we.png[Landing page screenshot for BlueXP blueXP back
 +
 image:screen-br-landing-discover-import-buttons.png[Landing page screenshot for BlueXP blueXP backup and recovery without discovered resources]
 +
-* If this is your first time logging in to this service, the "Welcome to the new BlueXP backup and recovery" page appears. Select *Start*. 
+* If you are logging in to this service from a previous version of BlueXP backup and recovery, the "Welcome to the new BlueXP backup and recovery" page appears. Select *Start*. 
 +
 image:screen-br-landing.png[Landing page screenshot for BlueXP blueXP backup and recovery]
 + 
