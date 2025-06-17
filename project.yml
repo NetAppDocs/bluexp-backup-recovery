@@ -98,6 +98,11 @@ sidebar:
           url: /br-use-reports.html
         - title: Restart BlueXP backup and recovery
           url: /reference-restart-backup.html
+    - title: Use a previous version of BlueXP backup and recovery
+      entries:
+        - title: Use a previous version of BlueXP backup and recovery
+          url: /br-use-previous-version.html 
+             
     - title: Reference 
       entries:
         - title: Policies in SnapCenter compared to BlueXP backup and recovery
