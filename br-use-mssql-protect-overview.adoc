@@ -36,4 +36,83 @@ To back up workloads, typically you create policies that govern the backup and r
 
 
 
+.Supported backup destinations
+
+BlueXP backup and recovery enables you to back up Microsoft SQL Server instances and databases from the following source working environments to the following secondary working environments and object storage in public and private cloud providers. Snapshot copies reside on the source working environment.
+
+[cols=3*,options="header",cols="33,33,33",width="90%"]
+|===
+
+| Source Working Environment
+| Secondary Working Environment (Replication)
+| Destination Object Store (Backup)
+
+
+| Cloud Volumes ONTAP in AWS
+| Cloud Volumes ONTAP in AWS
+On-premises ONTAP system
+| Amazon S3
+
+| Cloud Volumes ONTAP in Azure
+| Cloud Volumes ONTAP in Azure
+On-premises ONTAP system
+| Azure Blob
+
+
+| On-premises ONTAP system | 
+Cloud Volumes ONTAP 
+On-premises ONTAP system  
+|Amazon S3
+Azure Blob
+NetApp StorageGRID
+
+
+//ifdef::gcp[]
+//Google Cloud Storage
+endif::gcp[]
+
+//ifdef::gcp[]
+//| Cloud Volumes ONTAP in Google
+//On-premises ONTAP system
+//| Google Cloud Storage
+//endif::gcp[]
+
+|===
+
+.Supported restore destinations
+
+You can restore Microsoft SQL Server instances and databases from a backup that resides in primary storage or a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
+
+[cols=3*,options="header",cols="33,33,33",width="90%"]
+|===
+
+2+^| From Backup File Location
+| To Destination Working Environment
+
+| *Object Store (Backup)* | *Secondary System (Replication)* |
+
+| Amazon S3 | Cloud Volumes ONTAP in AWS
+On-premises ONTAP system |  Cloud Volumes in AWS
+On-premises ONTAP system 
+
+
+| Azure Blob | Cloud Volumes ONTAP in Azure
+On-premises ONTAP system | Cloud Volumes ONTAP in Azure
+On-premises ONTAP system 
+
+//ifdef::gcp[]
+//| Google Cloud Storage | Cloud Volumes ONTAP in Google
+//On-premises ONTAP system
+//| Cloud Volumes ONTAP in Google
+//On-premises ONTAP system
+//endif::gcp[]
+
+| StorageGRID | Cloud Volumes ONTAP 
+On-premises ONTAP system  | On-premises ONTAP system
+
+
+|===
+
+NOTE: References to "on-premises ONTAP systems" include FAS and AFF systems.
+
 
