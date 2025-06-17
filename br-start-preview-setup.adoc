@@ -13,7 +13,7 @@ summary: By participating in the BlueXP backup and recovery Preview, you play a 
 :imagesdir: ./media/
 
 [.lead]
-By participating in the BlueXP backup and recovery Preview, you play a crucial role in refining and enhancing the BlueXP backup and recovery service. For the Preview version of BlueXP backup and recovery, we will assist with the setup. Here is the process.
+By participating in one of the BlueXP backup and recovery Preview versions, you play a crucial role in refining and enhancing the BlueXP backup and recovery service. For the Preview version of BlueXP backup and recovery, we will assist with the setup. Here is the process.
 
 . *Enrollment*: Enroll for the Preview by signing up on an enrollment form. 
 
@@ -24,16 +24,16 @@ By participating in the BlueXP backup and recovery Preview, you play a crucial r
 .. Visit the https://bluexp.netapp.com/[BlueXP Portal].
 +
 image:screen-preview-bluexp-portal.png[BlueXP portal screen]
-.. Click *Get Started*.
+.. Select *Get Started*.
 +
 image:screen-preview-login.png[Log in to the portal screen]
-.. Click *Sign up*.
+.. Select *Sign up*.
 +
 image:screen-preview-signup-profile.png[Sign up for BlueXP screen]
-.. Enter your name, email address, organization name, and other details and click *Next*. 
+.. Enter your name, email address, organization name, and other details and select *Next*. 
 +
 You will receive an email with a link to verify your email address.
-.. Click the link in the email to verify your email address.
+.. Select the link in the email to verify your email address.
 
 .. Log in to the BlueXP Portal. 
 .. Complete your profile by entering the following information: 
