@@ -2,7 +2,7 @@ indexpage:
   title: BlueXP backup and recovery documentation 
   lead: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for databases, both on premises and in the cloud.
   summary: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for databases, both on premises and in the cloud. 
-  keywords: bluexp, bluexp backup recovery, ontap, on-premises, data protection 
+  keywords: bluexp, bluexp backup recovery, ontap, on-premises, data protection, sql, workloads, backup, 
   tiles:
     - title: Get started
       links:
