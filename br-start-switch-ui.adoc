@@ -17,7 +17,7 @@ You can switch between the new BlueXP backup and recovery UI and the previous Bl
 
 *Which workloads can you back up in each UI?* 
 
-[cols="30,30,30",options="header"]
+[cols="40,30,30",options="header"]
 |===    
 | Workload
 | New UI
@@ -27,6 +27,10 @@ You can switch between the new BlueXP backup and recovery UI and the previous Bl
 | Not available
 
 | VMware workloads
+| Not available yet
+| Available
+
+| Volumes 
 | Not available yet
 | Available
 
