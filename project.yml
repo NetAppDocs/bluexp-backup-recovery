@@ -46,6 +46,8 @@ sidebar:
           url: /br-start-setup.html
         - title: Log in to BlueXP backup and recovery
           url: /br-start-login.html
+        - title: Start a free trial
+          url: /br-start-trial.html
         - title: Discover workloads and optionally import SnapCenter resources
           url: /br-start-discover.html
         - title: Configure BlueXP backup and recovery settings 
@@ -62,8 +64,6 @@ sidebar:
               url: /br-use-mssql-protect-overview.html
             - title: Back up Microsoft SQL workloads
               url: /br-use-mssql-backup.html
-            - title: Restore Microsoft SQL workloads overview     
-              url: /br-use-mssql-restore-overview.html
             - title: Restore Microsoft SQL workloads
               url: /br-use-mssql-restore.html              
             - title: Clone Microsoft SQL workloads
