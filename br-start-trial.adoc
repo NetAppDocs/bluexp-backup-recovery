@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: br-start-trial.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
-summary: Complete a few steps to back up applications data from ONTAP to AWS.
+summary: Start or end a free trial of BlueXP backup and recovery. The free trial is available for 30 days after you sign up for a pay-as-you-go subscription in your cloud provider's marketplace to NetApp Intelligent Services.
 ---
 
 = Start a free trial of BlueXP backup and recovery

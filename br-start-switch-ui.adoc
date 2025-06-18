@@ -1,0 +1,64 @@
+---
+sidebar: sidebar
+permalink: br-start-switch-ui.html
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
+summary: You can switch between the new BlueXP backup and recovery UI and the previous BlueXP backup and recovery UI. The new UI is available for all users, but you can switch back to the previous UI if you need to back up resources that are not yet available in the new UI.
+---
+
+= Switch to and from BlueXP backup and recovery UIs
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can switch between the new BlueXP backup and recovery UI and the previous BlueXP backup and recovery UI. The new UI is available for everyone, and you can switch back to the previous UI if you need to back up workloads that are not yet available in the new UI.
+
+*Which workloads can you back up in each UI?* 
+
+[cols="30,30,30",options="header"]
+|===    
+| Workload
+| New UI
+| Previous UI
+| Microsoft SQL Server workloads
+| Available 
+| Not available
+
+| VMware workloads
+| Not available yet
+| Available
+
+| Kubernetes workloads
+| Not available yet
+| Not available 
+|===
+
+*How do you know which UI you are using?*
+The new UI uses a menu structure that is different from the previous UI. 
+
+The new UI: 
+image:screen-br-menu-unified.png[New UI screenshot for BlueXP backup and recovery]
+
+The previous UI: 
+image:screen-br-menu-legacy.png[Previous UI screenshot for BlueXP backup and recovery]
+
+
+
+== Switch to a different workload 
+
+You can switch to a different workload in the BlueXP backup and recovery UI.
+
+.Steps
+. From the BlueXP left navigation, select *Protection* > *Backup and recovery*.
+. From the top right corner of the page, select the *Switch workload* drop-down list.
+
+. Select the workload that you want to switch to.
+image:screen-br-menu-switch-ui.png[Switch workload screenshot for BlueXP backup and recovery]
+
++
+The page refreshes and shows the selected workload in the appropriate UI.
+
+
+

@@ -50,6 +50,8 @@ sidebar:
           url: /br-start-trial.html
         - title: Discover workloads and optionally import SnapCenter resources
           url: /br-start-discover.html
+        - title: Switch between BlueXP backup and recovery UIs 
+          url: /br-start-switch-ui.html
         - title: Configure BlueXP backup and recovery settings 
           url: /br-start-configure.html
     - title: Use BlueXP backup and recovery
