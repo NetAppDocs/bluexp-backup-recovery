@@ -41,6 +41,8 @@ image:screen-br-inventory-sql.png[Inventory details page screenshot for BlueXP b
 
 You can manage the hosts that are discovered in your working environment. You can manage them separately or as a group. 
 
+TIP: You can manage only those hosts that show an "Unmanaged" status in the Hosts column. If the status is "Managed", it means that the host is already being managed by BlueXP backup and recovery.
+
 After you manage the hosts in BlueXP backup and recovery, SnapCenter no longer manages the resources on those hosts. 
 
 .Steps
@@ -73,7 +75,7 @@ Before you back up your workloads, set the path for the activity logs for discov
 
 .Steps 
 
-. From the menu, select *Inventory*. 
+. From the BlueXP backup and recovery menu, select *Inventory*. 
 +
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
 . Select a workload to view the protection details. 
@@ -94,7 +96,7 @@ You can create a protection group to manage the backup and restore operations fo
 
 
 .Steps
-. From the menu, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 +
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
 . Select a workload to view the protection details.
@@ -128,10 +130,10 @@ image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recover
 . Select the *Protection Group*, *Instances* or *Databases* tab. 
 . Select the instance or database you want to back up.
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *Back up now*.
-. Select the protection group name. 
+
 . Select the policy that you want to apply to the backup.
 . Select the schedule tier.
-. Select *Back up*. 
+. Select *Back up now*. 
 
 
 
@@ -147,7 +149,7 @@ Suspending the schedule prevents the backup from running at the scheduled time t
 
 .Steps 
 
-. From the menu, select *Inventory*. 
+. From the BlueXP backup and recovery menu, select *Inventory*. 
 +
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
 . Select a workload to view the protection details. 
@@ -166,7 +168,7 @@ You can create a protection group to manage the backup and restore operations fo
 
 
 .Steps
-. From the menu, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 +
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
 . Select a workload to view the protection details.
@@ -183,7 +185,7 @@ You can remove protection from a workload if you no longer want to back it up or
 
 .Steps 
 
-. From the menu, select *Inventory*. 
+. From the BlueXP backup and recovery menu, select *Inventory*. 
 +
 image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
 . Select a workload to view the protection details. 

@@ -21,7 +21,7 @@ If you import resources from SnapCenter, you might encounter some differences wi
 
 == View policies 
 
-. In the BlueXP UI, select *Policies*.
+. From the BlueXP backup and recovery menu, select *Policies*.
 +
 image:screen-br-policies.png["Policies page"]
 
@@ -30,7 +30,7 @@ image:screen-br-policies.png["Policies page"]
 * *Workload*: Examples include SQL Server, Oracle, and Volumes. 
 +
 NOTE: For this version, only the "SQL Server" backup type is available.
-
+* *Backup type*: Examples include full backup and log backup.
 * *Architecture*: Examples include local snapshot, fan-out, cascading, disk to disk, and disk to object store. 
 * *Resources protected*: Shows how many resources out of the total resources on that workload are protected.
 * *Ransomware protection*: Shows if the policy includes snapshot locking on the local snapshot, snapshot locking on secondary storage, or DataLock locking on object storage. 
@@ -50,7 +50,7 @@ For information about snapshot locking in general, refer to https://docs.netapp.
 
 
 .Steps
-. In the BlueXP UI, select *Policies*.
+. From the BlueXP backup and recovery menu, select *Policies*.
 . From the Policies page, select *Create new policy*.
 +
 image:screen-br-policies-new-nodata.png[Screenshot of new policy creation]
@@ -81,10 +81,11 @@ Provide information for the local snapshot.
 
 * Select the *Add schedule* option to select the snapshot schedule or schedules. You can have a maximum of 5 schedules.  
 * *Snapshot frequency*: Select the frequency of hourly, daily, weekly, monthly, or yearly. 
-* *Retention*: Enter the number of snapshots to keep.
+* *Snapshot retention*: Enter the number of snapshots to keep.
 * *Enable log backup*: Check the option to back up logs and set the frequency and retention of the log backups. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
 
-* Optionally, select *Advanced* to set the SnapMirror label and enable snapshot locking: 
+* Optionally, select *Advanced* to set the SnapMirror label and enable snapshot locking. 
+
 
 ** *SnapMirror label*: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship. Adding a label to a snapshot marks it as a target for SnapMirror replication.
 ** *Offset from an hour*: Enter the number of minutes to offset the snapshot from the start of the hour. For example, if you enter *15*, the snapshot will be taken at 15 minutes past the hour.
@@ -94,6 +95,7 @@ Provide information for the local snapshot.
 ** *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. Enabling this option ensures that the snapshots cannot be deleted or altered until the specified retention period has expired. This feature is crucial for protecting your data against ransomware attacks and ensuring data integrity.         
 
 ** *Snapshot locking period*: Enter the number of days, months, or years that you want to lock the snapshot.
+
 
 === Create a policy for secondary settings (replication to secondary storage)
 
@@ -126,6 +128,7 @@ Enter information in these fields:
 * *Provider*: Select *AWS*. 
 * *AWS account*: Select the AWS account. 
 * *Backup target*: Select a registered S3 object storage target. Ensure that the target is accessible within your backup environment. 
+* *IPspace*: Select the IPspace to use for the backup operations. This is useful if you have multiple IPspaces and want to control which one is used for backups.
 * *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
 * *Retention*: Enter the number of snapshots to keep.
 * *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
@@ -142,6 +145,7 @@ Enter information in these fields:
 * *Azure subscription*: Select the Azure subscription from those discovered.
 * *Azure resource group*: Select the Azure resource group from those discovered.
 * *Backup target*: Select a registered object storage target. Ensure that the target is accessible within your backup environment.  
+* *IPspace*: Select the IPspace to use for the backup operations. This is useful if you have multiple IPspaces and want to control which one is used for backups.
 * *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
 * *Retention*: Enter the number of snapshots to keep.
 * *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
@@ -180,22 +184,36 @@ Optionally, you can configure advanced settings in the policy. These settings ar
 
 image:screen-br-policies-advanced.png[Advanced settings screenshot for BlueXP backup and recovery policies]
 
+.Steps
+. From the BlueXP backup and recovery menu, select *Policies*.
+. From the Policies page, select *Create new policy*.
+. In the Policy > Advanced settings section, select the down arrow and select the option. 
+
+. Provide the following information:
+
 * *Copy only backup*: Choose copy-only backup (a type of Microsoft SQL Server backup) that lets you back up your resources by using another backup application.  
-** *Job retries*: To retry the job in case of a failure or interruption, select *Enable job retries during failure*. Enter the maximum number of snapshot and backup job retries and the retry time interval. The recount must be less than 10. This setting is useful if you want to ensure that the backup job is retried in case of a failure or interruption.
-+
-TIP: If the snapsnot frequency is set to 1 hour, the maximum delay along with the retry count shouldn't exceed 45 minutes. 
-* *Export existing snapshot copies*: Indicate whether you want to export historical snapshot copies to object storage as backup files and include them in your initial baseline backup files for future volumes. This helps you initialize your backups in the cloud by moving older snapshots into the baseline backup copy. 
+
+* *Availability group settings*: Select preferred backup replicas or specify a particular replica. This setting is useful if you have a SQL Server availability group and want to control which replica is used for backups.
+
+
 * *Maximum transfer rate*: To not set a limit on bandwidth usage, select *Unlimited*. If you want to limit the transfer rate, select *Limited* and select the network bandwidth between 1 and 1,000 Mbps allocated to upload backups to object storage. By default, ONTAP can use an unlimited amount of bandwidth to transfer the backup data from volumes in the working environment to object storage. If you notice backup traffic is affecting normal user workloads, consider decreasing the amount of network bandwidth that is used during the transfer. 
 
-* *Yearly snapshot deletion*: Select whether you want yearly snapshots removed from the source system. Yearly backups are very large. By default, yearly snapshots are deleted automatically from the source system after being transferred to object storage. 
+* *Job retries*: To retry the job in case of a failure or interruption, select *Enable job retries during failure*. Enter the maximum number of snapshot and backup job retries and the retry time interval. The recount must be less than 10. This setting is useful if you want to ensure that the backup job is retried in case of a failure or interruption.
 +
-image:screen-br-policies-advanced-more.png[Advanced settings screenshot for BlueXP backup and recovery policies]
+TIP: If the snapsnot frequency is set to 1 hour, the maximum delay along with the retry count shouldn't exceed 45 minutes. 
+
+* *Export existing snapshot copies*: Indicate whether you want to export historical snapshot copies to object storage as backup files and include them in your initial baseline backup files for future volumes. This helps you initialize your backups in the cloud by moving older snapshots into the baseline backup copy. 
+
+
+
 
 * *Ransomware scan*: Select whether you want to enable ransomware scanning on each bucket. This enables snapshot locking on the local snapshot, snapshot locking on secondary storage, and DataLock locking on object storage. Enter the frequency of the scan in days. 
 
 * *Export existing snapshots*: Indicate whether you want to export historical snapshot copies to object storage as backup files and include them in your initial baseline backup files for future volumes. This helps you initialize your backups in the cloud by moving older snapshots into the baseline backup copy.
 
-* *Availability group settings*: Select preferred backup replicas or specify a particular replica. This setting is useful if you have a SQL Server availability group and want to control which replica is used for backups.
+* *Yearly snapshot deletion*: Select whether you want yearly snapshots removed from the source system. Yearly backups are very large. By default, yearly snapshots are deleted automatically from the source system after being transferred to object storage. 
++
+image:screen-br-policies-advanced-more.png[Advanced settings screenshot for BlueXP backup and recovery policies]
 
 * *Backup verification*: Select whether you want to enable backup verification and whether you want it immediately or later. This feature ensures that the backups are valid and can be restored successfully. We recommend that you enable this option to ensure the integrity of your backups. By default, backup verification runs from secondary storage if secondary storage is configured. If secondary storage isn't configured, backup verification runs from primary storage. 
 +
@@ -208,7 +226,7 @@ Additionally, configure the following options:
 ** *Database consistency check*: Select whether you want to enable database consistency checks. This option ensures that the databases are in a consistent state before the backup is taken, which is crucial for ensuring data integrity.
 ** *Verify log backups*: Select whether you want to verify log backups. Select the verification server. If you chose disk-to-disk or 3-2-1, also select the verification storage location. This option ensures that the log backups are valid and can be restored successfully, which is important for maintaining the integrity of your databases.
 
-* *Availability group settings*: Select preferred backup replicas or specify a particular replica for backup.
+
 
 * *Networking*: Select the network interface to use for the backup operations. This is useful if you have multiple network interfaces and want to control which one is used for backups.
 
@@ -237,7 +255,7 @@ You can add another protection level when you edit a policy, but you cannot remo
 If you are editing a policy that backs up to object storage, you can enable archival.   
 
 .Steps
-. In BlueXP backup and recovery, select *Policies*.
+. From the BlueXP backup and recovery menu, select *Policies*.
 . Select the policy that you want to edit.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit*.
 
@@ -249,7 +267,7 @@ You can delete a policy if you no longer need it.
 TIP: You cannot delete a policy that is associated with a workload.
 
 .Steps
-. In BlueXP backup and recovery, select *Policies*.
+. From the BlueXP backup and recovery menu, select *Policies*.
 . Select the policy that you want to delete.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete*.
 . Review the information in the confirmation dialog box, and select *Delete*.

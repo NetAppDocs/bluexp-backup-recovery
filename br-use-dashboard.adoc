@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: br-use-dashboard.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, bluexp, backup, recovery, dashboard, view, health, status, alerts, notifications
-summary: Monitoring the health of your workloads ensures that you are aware of issues with workload protection and can take steps to resolve them. View the status of your backups and restores and respond to any alerts that appear on the BlueXP backup and Recovery Dashboard. You can review the Protection summary, Job summary, total cost of ownership (TCO), Restore summary, System summary, alerts, and more.
+summary: Monitoring the health of your workloads ensures that you are aware of issues with workload protection and can take steps to resolve them. View the status of your backups and restores and respond to any alerts that appear on the BlueXP backup and Recovery Dashboard. You can review the Protection summary, Restore summary, System summary, and more.
 ---
 
 = View protection health on the Dashboard
@@ -13,7 +13,7 @@ summary: Monitoring the health of your workloads ensures that you are aware of i
 :imagesdir: ./media/
 
 [.lead]
-Monitoring the health of your workloads ensures that you are aware of issues with workload protection and can take steps to resolve them. View the status of your backups and restores on the BlueXP backup and Recovery Dashboard. You can review the Protection summary, Job summary, total cost of ownership (TCO), Restore summary, System summary, alerts, and more. 
+Monitoring the health of your workloads ensures that you are aware of issues with workload protection and can take steps to resolve them. View the status of your backups and restores on the BlueXP backup and Recovery Dashboard. You can review the system summary, Protection summary, Job summary, Restore summary, and more. 
 
 
 .Steps
