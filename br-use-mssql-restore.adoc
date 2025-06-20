@@ -77,7 +77,7 @@ Restore database workloads using the Restore option.
 
 
 .Steps
-. From the BlueXP menu, select *Protection > Backup and recovery*.
+
 . From the BlueXP backup and restore menu, select *Restore*.
 +
 image:screen-br-restore.png[A screenshot showing the Restore page.]
@@ -110,9 +110,13 @@ image:screen-br-restore-destination-original-location.png[A screenshot showing t
 
 . In the Destination details page, enter the following information: 
 ** *Destination settings*: Choose whether you want to restore the data to its original location or to an alternate location. For an alternate location, select the host name and instance, enter the database name, and enter the destination path where you want to restore the snapshot.
+
 ** *Pre-restore options*: 
-*** *Preserve original database name*: During the restore, the original database name is preserved. 
+*** *Overwrite the database with the same name during restore*: During the restore, the original database name is preserved. 
 *** *Retain SQL database replication settings*: Keeps the replication settings for the SQL database after the restore operation.
+*** *Create transaction log backup before restore*: Creates a transaction log backup before the restore operation.*** *Quit restore if transaction log backup before restore fails*: Stops the restore operation if the transaction log backup fails.
+
+
 *** *Prescript*: Enter the full path for a script that should be run before the restore operation, any arguments that the script takes, and how long to wait for the script to complete.
 
 ** *Post-restore options*: 
@@ -176,7 +180,7 @@ image:screen-br-restore-to-latest-state.png[A screenshot showing the Restore to 
 . In the Destination details page, enter the following infomation: 
 ** *Destination settings*: Choose whether you want to restore the data to its original location or to an alternate location. For an alternate location, select the host name and instance, enter the database name, and enter the destination path.
 ** *Pre-restore options*: 
-*** *Preserve original database name*: During the restore, the original database name is preserved. 
+*** *Overwrite the database with the same name during restore*: During the restore, the original database name is preserved. 
 *** *Retain SQL database replication settings*: Keeps the replication settings for the SQL database after the restore operation.
 *** *Create transaction log backup before restore*: Creates a transaction log backup before the restore operation.
 *** *Quit restore if transaction log backup before retore fails*: Stops the restore operation if the transaction log backup fails.
@@ -200,8 +204,7 @@ Using the Inventory option, you can restore only databases, not instances.
 
 
 .Steps
-. From the BlueXP menu, select *Protection > Backup and recovery*.
-. For the Preview version, select *Applications*. 
+
 . From the BlueXP backup and restore menu, select *Inventory*.
 . Choose the host where the resource that you want to restore is located. 
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *View details*.

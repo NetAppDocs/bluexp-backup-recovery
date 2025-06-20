@@ -44,9 +44,9 @@ image:screen-br-sql-clone.png[Clone page screenshot for BlueXP backup and recove
 . Select *Create new clone*.
 
 . Select the clone type:
-** *Clone and database refresh*: Choose the snapshot for the clone and configure options for the clone. This is helpful if you want to choose the snapshot for the clone and configure options. 
+** *Clone from existing snapshot*: Choose the snapshot for the clone and configure options for the clone. This is helpful if you want to choose the snapshot for the clone and configure options. 
 
-** *Instant sandbox*: Take a snapshot now of the source data and create a clone from that snapshot. This option is useful if you want to create a clone from the latest data in the source workload.
+** *Instant snapshot and clone*: Take a snapshot now of the source data and create a clone from that snapshot. This option is useful if you want to create a clone from the latest data in the source workload.
 
 //* *Full clone* - A full clone is a complete copy of the source data. It is stored in the object store and can be used to restore the workloads.
 //* *Snapshot clone* - A snapshot clone is a copy of the source data that is created from a snapshot. It is stored in the object store and can be used to restore the workloads.
@@ -69,6 +69,8 @@ Optionally, select *Suffix* from the target name drop-down list and append a suf
 * *Auto-assign mount point*: Select this option to automatically assign a mount point for the clone. The mount point is the location where the clone will be mounted in the object store.
 * *Define mount point path*: Enter a mount point for the clone. The mount point is the location where the clone will be mounted in the object store. Select the drive letter, enter the data file path, and enter the log file path.       
 
+. Select *Next*. 
+
 . Select the restore point: 
 
 * *Existing snapshot*: Select an existing snapshot from the list of snapshots that are available for the workload. This option is useful if you want to create a clone from a specific point in time.
@@ -79,6 +81,8 @@ Optionally, select *Suffix* from the target name drop-down list and append a suf
 * *Secondary storage*: Select this option to create the clone in the secondary storage of the ONTAP system. The secondary storage is the storage that is used for backup and recovery workloads.
 
 . Select the destination location for the data and logs. 
+. Select *Next*.
+
 
 . Complete the *Advanced settings* section:
 +
