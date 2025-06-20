@@ -38,13 +38,13 @@ NOTE: For the Preview process, the access instructions are a little different. F
 +
 image:screen-br-landing-no-we.png[Landing page screenshot for BlueXP blueXP backup and recovery without a working environment]
 +
-* If this is your first time logging in to this service, you already have a working environment in BlueXP, but you haven't started the free trial, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Start free trial*. For details about starting a free trial, see https://docs.netapp.com/us-en/bluexp-setup-admin/task-start-free-trial.html[Start a free trial^].
+* If this is your first time logging in to this service, you already have a working environment in BlueXP, but you haven't started the free trial, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Start free trial*. For details about starting a free trial, see link:br-start-trial.html[Start a free trial].
 +
 image:screen-br-landing-unified-start-trial.png[Landing page screenshot for BlueXP blueXP backup and recovery without a free trial]
 
 * If this is your first time logging in to this service, you already have a working environment in BlueXP, and you started the free trial, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover resources*. For details about discovering workloads, see link:br-start-discover.html[Discover workloads].
 +
-NOTE: The *Start free trial* option, after you start the free trial, changes to the *Discover and manage* option. 
+NOTE: After you start the free trial, the *Start free trial* option changes to the *Discover and manage* option. 
 +
 image:screen-br-landing-unified.png[Landing page screenshot for BlueXP blueXP backup and recovery]
 +

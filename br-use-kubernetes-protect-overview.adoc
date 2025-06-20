@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: br-use-kubernetes-protect-overview.html
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, kubernetes, NetApp Kubernetes Service, NKS, NetApp Kubernetes Service backup and recovery, NKS backup and recovery
+summary: Protect your Kubernetes workloads with NetApp BlueXP backup and recovery. 
+---
+
+= Protect Kubernetes workloads with BlueXP backup and recovery overview
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Protect your Kubernetes workloads with NetApp BlueXP backup and recovery. 
+
+TBD 

@@ -106,7 +106,8 @@ sidebar:
       entries:
         - title: Use a previous version of BlueXP backup and recovery
           url: /br-use-previous-version.html 
-             
+    - title: Automate with the REST API
+      url: /br-api-backup-restore.html          
     - title: Reference 
       entries:
         - title: Policies in SnapCenter compared to BlueXP backup and recovery
