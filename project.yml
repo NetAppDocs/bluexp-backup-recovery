@@ -108,7 +108,7 @@ sidebar:
           url: /br-use-previous-version.html 
         - title: Protect VMware workloads with a previous BlueXP backup and recovery version 
           entries:  
-            - title: Protect VMware workloads overview
+            - title: Protect VMware datastore workloads overview
               url: /prev-vmware-protect-overview.html
             - title: Register SnapCenter Plug-in for VMware vSphere host
               url: /prev-vmware-register-snapcenter.html

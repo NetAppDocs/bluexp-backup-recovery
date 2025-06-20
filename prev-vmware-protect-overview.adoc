@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup application data, Amazon Web servi
 summary: Protect your VMware workloads with NetApp BlueXP backup and recovery. 
 ---
 
-= Protect datastores in BlueXP backup and recovery overview
+= Protect VMware datastores in BlueXP backup and recovery overview
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,4 +13,21 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-tbd
+Protect your VMware workloads with BlueXP backup and recovery. BlueXP backup and recovery provides fast, space-efficient, crash-consistent, and VM-consistent backup and restore operations for VMs, datastores, and VMDKs. 
+
+You can back up datastores to Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform, and StorageGRID and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere host. 
+
+
+====
+*NOTE*   This feature uses a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
+====
+
+For instructions on using the previous BlueXP backup and recovery UI for VMware, see the following topics:
+
+* link:prev-vmware-policy-create.html[Create a policy for VMware workloads]
+* link:prev-vmware-backup-aws.html[Back up VMware datastores to Amazon Web Services]
+* link:prev-vmware-backup-azure.html[Back up VMware datastores to Microsoft Azure]
+* link:prev-vmware-backup-gcp.html[Back up VMware datastores to Google Cloud Platform]
+* link:prev-vmware-backup-storagegrid.html[Back up VMware datastores to StorageGRID]
+* link:prev-vmware-restore.html[Restore VMware workloads]    
+* link:br-use-vmware-restore.html[Restore VMware workloads to a different location]
