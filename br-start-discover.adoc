@@ -52,14 +52,15 @@ TIP: After you import SnapCenter host resources, BlueXP backup and recovery does
 .Steps 
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
-//. For the Preview version, select *Applications*. 
 +
-If this is your first time logging in to this service, you already have a working environment in BlueXP, but haven't discovered any resources, the landing page appears. 
-+
-image:screen-br-landing-discover-import-buttons.png[Landing page screenshot for BlueXP blueXP backup and recovery without discovered resources]
+image:screen-br-landing-unified.png[Landing page screenshot for BlueXP blueXP backup and recovery]
+
+. From the BlueXP backup and recovery "Welcome to the new BlueXP backup and recovery" landing page, select *Discover and manage*. 
+
+. *NOTE TO REVIEWERS: HOW DO YOU GET TO THE IMPORT SNAPCENTER OPTION FROM the landing page > Discover and manage?* 
 
 
-. From the BlueXP backup and recovery landing page, select *Import from SnapCenter*.
+. From the BlueXP backup and recovery Inventory page, select *Import from SnapCenter*.
 
 +
 image:../media/screen-br-settings-import-snapcenter-details.png[Settings option to import SnapCenter Server resources]
@@ -92,7 +93,7 @@ image:../media/screen-br-inventory-details.png[Inventory page showing the import
 After you import the SnapCenter resources, manage those host resources in BlueXP backup and recovery. After you select to manage those resources, BlueXP backup and recovery is able to back up and recover the resources that you imported from SnapCenter. You no longer manage those resources in SnapCenter Server. 
 
 .Steps 
-. After you import the SnapCenter resources, select *Inventory*. 
+. After you import the SnapCenter resources, from the top menu, select *Inventory*. 
 . From the Inventory page, select the imported SnapCenter host that you want to have BlueXP backup and recovery to manage from now on.  
 +
 image:../media/screen-br-inventory.png[Inventory page showing the imported SnapCenter resources]
@@ -137,7 +138,7 @@ If you don't already have SnapCenter installed, add vCenter information and have
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
 +
-If this is your first time logging in to this service, you already have a working environment in BlueXP, but haven't discovered any resources, the landing page appears and shows an option to *Discover resources*. 
+If this is your first time logging in to this service, you already have a working environment in BlueXP, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover resources*. 
 +
 image:screen-br-landing-discover-import-buttons.png[Landing page screenshot for BlueXP blueXP backup and recovery without discovered resources]
 
@@ -212,7 +213,7 @@ If you have already selected working environments for discovery, you can discove
 .Steps
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
-. For the Preview version, select *Applications*. 
+
 
 . From the menu, select *Inventory*. 
 . Select *Discover resources*.

@@ -34,23 +34,25 @@ NOTE: For the Preview process, the access instructions are a little different. F
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
 //. For the Preview version, select "Applications" from the left navigation.
 +
-* If this is your first time logging in to this service and you don't yet have a working environment, the landing page appears and shows an option to *Add working environment*. For details about adding a working environment to BlueXP, see https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-standard-mode.html[Getting started with BlueXP standard mode^].
+* If this is your first time logging in to this service and you don't yet have a working environment, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Add working environment*. For details about adding a working environment to BlueXP, see https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-standard-mode.html[Getting started with BlueXP standard mode^].
 +
 image:screen-br-landing-no-we.png[Landing page screenshot for BlueXP blueXP backup and recovery without a working environment]
 +
-* If this is your first time logging in to this service, you already have a working environment in BlueXP, but you haven't started the free trial, the landing page appears and shows an option to *Start free trial*. For details about starting a free trial, see https://docs.netapp.com/us-en/bluexp-setup-admin/task-start-free-trial.html[Start a free trial^].
+* If this is your first time logging in to this service, you already have a working environment in BlueXP, but you haven't started the free trial, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Start free trial*. For details about starting a free trial, see https://docs.netapp.com/us-en/bluexp-setup-admin/task-start-free-trial.html[Start a free trial^].
 +
 image:screen-br-landing-unified-start-trial.png[Landing page screenshot for BlueXP blueXP backup and recovery without a free trial]
 
-* If this is your first time logging in to this service, you already have a working environment in BlueXP, and you started the free trial, but haven't discovered any resources, the landing page appears and shows an option to *Discover resources*. For details about discovering workloads, see link:br-start-discover.html[Discover workloads].
+* If this is your first time logging in to this service, you already have a working environment in BlueXP, and you started the free trial, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover resources*. For details about discovering workloads, see link:br-start-discover.html[Discover workloads].
 +
 NOTE: The *Start free trial* option, after you start the free trial, changes to the *Discover and manage* option. 
 +
 image:screen-br-landing-unified.png[Landing page screenshot for BlueXP blueXP backup and recovery]
 +
+*QUESTION TO REVIEWERS: DID THE FOLLOWING SCREENSHOT with the IMPORT FROM SC BUTTON GO AWAY?  Not sure when this appears.*
++
 image:screen-br-landing-discover-import-buttons.png[Landing page screenshot for BlueXP blueXP backup and recovery without discovered resources]
 +
-* If you are logging in to this service from a previous version of BlueXP backup and recovery, the "Welcome to the new BlueXP backup and recovery" page appears.  
+* If you are logging in to this service from a previous version of BlueXP backup and recovery, the "Welcome to the new BlueXP backup and recovery" landing page appears.  
 +
 image:screen-br-landing-unified.png[Landing page screenshot for BlueXP blueXP backup and recovery]
 //+ 
