@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: prev-vmware-backup-azure.html
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
+summary: Protect your VMware workloads with NetApp BlueXP backup and recovery. 
+---
+
+= Back up datastores to Microsoft Azure with BlueXP backup and recovery
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+tbd
