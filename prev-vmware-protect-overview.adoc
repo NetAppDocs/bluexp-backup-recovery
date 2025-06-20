@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: prev-vmware-protect-overview.html
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
+summary: Protect your VMware workloads with NetApp BlueXP backup and recovery. 
+---
+
+= Protect datastores in BlueXP backup and recovery overview
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+tbd
