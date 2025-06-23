@@ -58,7 +58,7 @@ sidebar:
       entries:
         - title: View protection health in the Dashboard 
           url: /br-use-dashboard.html
-        - title: Create and manage policies to govern backups and restores
+        - title: Create policies to govern backups and restores
           url: /br-use-policies-create.html
         - title: Protect Microsoft SQL workloads 
           entries:
@@ -98,6 +98,8 @@ sidebar:
               url: /br-use-manage-inventory.html 
             - title: Manage snapshots
               url: /br-use-manage-snapshots.html
+            - title: Manage policies
+              url: /br-use-manage-policies.html
         - title: Create reports 
           url: /br-use-reports.html
         - title: Restart BlueXP backup and recovery
