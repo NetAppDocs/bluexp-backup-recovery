@@ -5,7 +5,7 @@ keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, 
 summary: You can edit or delete policies in BlueXP backup and recovery. 
 ---
 
-= Manage policies 
+= Manage policies with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font

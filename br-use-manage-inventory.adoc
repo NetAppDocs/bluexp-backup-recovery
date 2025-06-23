@@ -5,7 +5,7 @@ keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, 
 summary: BlueXP backup and recovery enables you to manage your workload host information, database information, and instances information. You can view, edit, and delete protection settings for your inventory.  
 ---
 
-= Manage inventory 
+= Manage inventory with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font

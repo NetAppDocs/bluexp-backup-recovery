@@ -117,9 +117,9 @@ sidebar:
           - title: Manage policies for ONTAP volumes 
             url: /prev-ontap-policy-manage.html
           - title: Backup-to-object policy options for ONTAP volumes
-            url: /prev-ontap-policy-options.html
-          - title: Manage backup to policy options in Advanced Settings 
-            url: /prev-ontap-policy-advanced-settings.html
+            url: /prev-ontap-policy-object-options.html
+          - title: Manage backup-to-object policy Advanced Settings options
+            url: /prev-ontap-policy-object-advanced-settings.html
           - title: Back up Cloud Volumes ONTAP to Amazon S3
             url: /prev-ontap-backup-cvo-aws.html
           - title: Back up Cloud Volumes ONTAP to Azure Blob 
@@ -136,7 +136,7 @@ sidebar:
             url: /prev-ontap-backup-onprem-ontaps3.html
           - title: Back up on-premises ONTAP to StorageGRID
             url: /prev-ontap-backup-onprem-storagegrid.html
-          - title: Migrate volumes with SnapMirror to Cloud    
+          - title: Migrate volumes using SnapMirror to Cloud Resync   
             url: /prev-ontap-migrate-resync.html
           - title: Manage ONTAP backups
             url: /prev-ontap-backup-manage.html

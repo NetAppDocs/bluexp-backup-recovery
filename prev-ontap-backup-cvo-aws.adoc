@@ -1,0 +1,20 @@
+---
+sidebar: sidebar
+permalink: prev-ontap-backup-cvo-aws.html
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
+summary: Protect your VMware workloads with NetApp BlueXP backup and recovery. 
+---
+
+= Back up Cloud Volumes ONTAP data to Amazon S3 with BlueXP backup and recovery
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+tbd
+
+====
+*NOTE*   This feature uses a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
+====
