@@ -106,12 +106,10 @@ sidebar:
               url: /br-use-manage-snapshots.html
             - title: Manage Kubernetes clusters # Includes discover, edit, remove / CRUD
               url: /br-use-manage-kubernetes-clusters.html
-            - title: Create and manage protection policies
-              url: /br-use-manage-policies.html    
+            - title: Manage policies
+              url: /br-use-manage-policies.html   
         - title: Monitor protection tasks
           url: /br-use-monitor-tasks.html
-            - title: Manage policies
-              url: /br-use-manage-policies.html
         - title: Create reports 
           url: /br-use-reports.html
         - title: Restart BlueXP backup and recovery
