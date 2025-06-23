@@ -65,6 +65,10 @@ sidebar:
         - title: View protection health in the Dashboard 
           url: /br-use-dashboard.html  
         - title: Protect Microsoft SQL workloads
+          url: /br-use-dashboard.html
+        - title: Create policies to govern backups and restores
+          url: /br-use-policies-create.html
+        - title: Protect Microsoft SQL workloads 
           entries:
             - title: Protect Microsoft SQL workloads overview
               url: /br-use-mssql-protect-overview.html
@@ -106,6 +110,8 @@ sidebar:
               url: /br-use-manage-policies.html    
         - title: Monitor protection tasks
           url: /br-use-monitor-tasks.html
+            - title: Manage policies
+              url: /br-use-manage-policies.html
         - title: Create reports 
           url: /br-use-reports.html
         - title: Restart BlueXP backup and recovery
