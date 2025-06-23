@@ -13,9 +13,26 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-tbd
-
+You should register the SnapCenter Plug-in for VMware vSphere host in BlueXP backup and recovery for the datastores and virtual machines to be displayed. Only a user with administrative access can register the SnapCenter Plug-in for VMware vSphere host.
 
 ====
 *NOTE*   This feature uses a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
 ====
+
+
+.Steps
+
+. In BlueXP UI, select *Protection* > *Backup and recovery* > *Virtual Machines*.
+. From the *Settings* drop-down, select *SnapCenter Plug-in for VMware vSphere*.
+. Selecc *Register SnapCenter Plug-in for VMware vSphere*.
+. Specify the following details:
+.. In the SnapCenter Plug-in for VMware vSphere field, specify the FQDN or IP address of the SnapCenter Plug-in for VMware vSphere host.
+.. In the Port field, specify the port number on which the SnapCenter Plug-in for VMware vSphere host is running.
++
+You should ensure that communication is open between on-premises SnapCenter Plug-in for VMware vSphere host which is running on the default 8144 port and BlueXP Connector instance which could be either running in any cloud providers (Amazon Web Services, Microsoft Azure, Google Cloud Platform) or on-premises.
+.. In the Username and Password field, specify the credentials of the vCenter user with the administrator role.
+. Select *Register*.
+
+*After you finish*
+
+Select *Backup and recovery* > *Virtual Machines* to view all the datastores and virtual machines that are protected using the registered SnapCenter Plug-in for VMware vSphere host.

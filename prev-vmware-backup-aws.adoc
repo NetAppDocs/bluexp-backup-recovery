@@ -13,9 +13,40 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-tbd
+You can back up and archive one or more datastores with BlueXP backup and recovery to Amazon Web Services to improve storage efficiency and cloud transition.
 
+If the datastore is associated with an archival policy, you have an option to select the archival tier. The supported archival tiers are Glacier and Glacier Deep.
 
 ====
 *NOTE*   This feature uses a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
 ====
+
+
+
+.Before you begin
+Ensure that you have met all the link:concept-protect-vm-data.html[requirements] before backing up datastores to the cloud.
+
+.Steps
+
+. In BlueXP UI, select *Protection* > *Backup and recovery* > *Virtual Machines*.
+. Select image:icon-action.png[action] corresponding to the datastore that you want to back up and click *Activate Backup*.
+. In the Assign Policy page, select the policy and select *Next*.
+. Add the working environment.
++
+Configure the cluster management LIF that you want BlueXP to discover. After adding the working environment for one of the datastores, it can be reused for all the other datastores residing on the same ONTAP cluster.
++
+.. Select *Add Working Environment* corresponding to the SVM.
+.. In the Add Working Environment wizard:
+... Specify the IP address of the cluster management LIF.
+... Specify the credentials of the ONTAP cluster user.
+.. Select *Add Working Environment*.
+. Select *Amazon Web Services* to configure it as the cloud provider.
+.. Specify the AWS account.
+.. In the AWS Access Key field, specify the key for data encryption.
+.. In the AWS Secret Key field, specify the password for data encryption.
+.. Select the region where you want to create the backups.
+.. Specify the IP addresses of the cluster management LIF that were added as the working environments.
+.. Select the archival tier.
++
+It is recommended to set the archival tier because this is an one time activity and you cannot set it up later.
+. Review the details and select *Activate Backup*.
