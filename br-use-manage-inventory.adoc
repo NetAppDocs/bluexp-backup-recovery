@@ -51,7 +51,7 @@ You can manage host information to ensure that the right hosts are protected. Yo
 
 You can suspend schedules to stop the backup and restore operations for a host. You might want to do this if you need to perform maintenance activities on the host.
 
-. In BlueXP backup and recovery, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the host on which you want to suspend schedules.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Suspend schedules*.
 . In the confirmation dialog box, select *Suspend*.
@@ -61,7 +61,7 @@ You can suspend schedules to stop the backup and restore operations for a host. 
 
 You can change the vCenter server information, host registration credentials, and advanced settings options. 
 
-. In BlueXP backup and recovery, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 
 . Select the host that you want to edit.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit host*.
@@ -74,7 +74,7 @@ image:screen-br-inventory-hosts-edit.png[Edit host]
 
 You can delete the host information to stop service charges.
 
-. In BlueXP backup and recovery, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the host that you want to delete.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete host*.
 . Review the confirmation information and select *Delete*.
@@ -104,7 +104,7 @@ You can manage instances information to ensure that resources have the appropria
 
 You can assign a policy to a database instance using policies that govern the schedules and retention of resource protection.
 
-. In BlueXP backup and recovery, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Instances* tab. 
 . Select the instance. 
@@ -133,7 +133,7 @@ You can associate credentials with a resource so that protection can occur.
 For details, see link:br-start-configure.html[Configure BlueXP backup and recovery settings, including credentials].
 
 
-. In BlueXP backup and recovery, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Instances* tab. 
 . Select the instance. 
@@ -146,7 +146,7 @@ For details, see link:br-start-configure.html[Configure BlueXP backup and recove
 
 You can change the policy, create a new policy, set a schedule, and set retention settings.
 
-. In BlueXP backup and recovery, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Instances* tab. 
 . Select the instance. 
@@ -158,7 +158,7 @@ For details about creating a policy, refer to link:br-use-policies-create.html[C
 
 You can back up your data now to ensure that your data is protected immediately.
 
-. In BlueXP backup and recovery, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Instances* tab. 
 . Select the instance. 
@@ -182,7 +182,7 @@ You can manage database information in the following ways:
 
 You can change the policy, create a new policy, set a schedule, and set retention settings.
 
-. In BlueXP backup and recovery, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Databases* tab. 
 . Select the database. 
@@ -194,7 +194,7 @@ For details about creating a policy, refer to link:br-use-policies-create.html[C
 
 You can restore a database to ensure that your data is protected.
 
-. In BlueXP backup and recovery, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Databases* tab. 
 . Select the database. 
@@ -206,7 +206,7 @@ For information about restoring workloads, refer to link:br-use-restore-overview
 
 You can change the policy, create a new policy, set a schedule, and set retention settings.
 
-. In BlueXP backup and recovery, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Databases* tab. 
 . Select the database. 
@@ -216,12 +216,12 @@ For details about creating a policy, refer to link:br-use-policies-create.html[C
 
 === Back up now 
 
-You can back up your MS SQL Server instances and databases now to ensure that your data is protected immediately.
+You can back up your Microsoft SQL Server instances and databases now to ensure that your data is protected immediately.
 
-. In BlueXP backup and recovery, select *Inventory*.
+. From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
-. Select the *Databases* tab. 
-. Select the database. 
+. Select the *Instances* or *Databases* tab. 
+. Select the instance or database. 
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Back up now*.
 
 

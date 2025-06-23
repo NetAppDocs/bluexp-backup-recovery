@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: br-start-login.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
-summary: Complete a few steps to back up applications data from ONTAP to AWS.
+summary: You use NetApp BlueXP to log in to the BlueXP backup and recovery service. 
 ---
 
 = Log in to BlueXP backup and recovery
@@ -15,7 +15,7 @@ summary: Complete a few steps to back up applications data from ONTAP to AWS.
 [.lead]
 You use NetApp BlueXP to log in to the BlueXP backup and recovery service. 
 
-BlueXP backup and recovery uses role-based access control (RBAC) to govern the access that each user has to specific actions. 
+//BlueXP backup and recovery uses role-based access control (RBAC) to govern the access that each user has to specific actions. 
 
 //For details about the actions that each role can perform, see link:rp-reference-roles.html[BlueXP ransomware protection role-based access control privileges].
 
@@ -29,21 +29,39 @@ The NetApp BlueXP login page appears.
 
 . Log in to BlueXP. 
 + 
-NOTE: For the Preview process, the instructions are a little different. Follow the steps in the *Initial Preview setup process* in link:concept-start-prereq.html[BlueXP backup and recovery Preview 2025 prerequisites].
+NOTE: For the Preview process, the access instructions are a little different. Follow the steps in the *Initial Preview setup process* in link:concept-start-prereq.html[BlueXP backup and recovery Preview 2025 prerequisites].
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
-. For the Preview version, select "Applications" from the left navigation.
+//. For the Preview version, select "Applications" from the left navigation.
 +
-If this is your first time logging in to this service, the landing page appears. 
+* If this is your first time logging in to this service and you don't yet have a working environment, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Add working environment*. For details about adding a working environment to BlueXP, see https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-standard-mode.html[Getting started with BlueXP standard mode^].
 +
-image:screen-br-landing.png[Landing page screenshot for BlueXP blueXP backup and recovery]
-+ 
-Otherwise, the BlueXP backup and recovery Dashboard appears.
+image:screen-br-landing-no-we.png[Landing page screenshot for BlueXP blueXP backup and recovery without a working environment]
 +
-image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
+* If this is your first time logging in to this service, you already have a working environment in BlueXP, but you haven't started the free trial, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Start free trial*. For details about starting a free trial, see link:br-start-trial.html[Start a free trial].
++
+image:screen-br-landing-unified-start-trial.png[Landing page screenshot for BlueXP blueXP backup and recovery without a free trial]
+
+* If this is your first time logging in to this service, you already have a working environment in BlueXP, and you started the free trial, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover resources*. For details about discovering workloads, see link:br-start-discover.html[Discover workloads].
++
+NOTE: After you start the free trial, the *Start free trial* option changes to the *Discover and manage* option. 
++
+image:screen-br-landing-unified.png[Landing page screenshot for BlueXP blueXP backup and recovery]
++
+*QUESTION TO REVIEWERS: DID THE FOLLOWING SCREENSHOT with the IMPORT FROM SC BUTTON GO AWAY?  Not sure when this appears.*
++
+image:screen-br-landing-discover-import-buttons.png[Landing page screenshot for BlueXP blueXP backup and recovery without discovered resources]
++
+* If you are logging in to this service from a previous version of BlueXP backup and recovery, the "Welcome to the new BlueXP backup and recovery" landing page appears.  
++
+image:screen-br-landing-unified.png[Landing page screenshot for BlueXP blueXP backup and recovery]
+//+ 
+//* Otherwise, the BlueXP backup and recovery Dashboard appears.
+//+
+//image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
 
 
-. If you haven't done so already, select the *Discover workloads* option. 
+. If you haven't done so already, select the *Discover and manage* option. 
 +
 Refer to link:br-start-discover.html[Discover workloads].
  

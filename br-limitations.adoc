@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup application data, Amazon Web servi
 summary: The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes all volumes and files in working environments within your organization. 
 ---
 
-= Known limitations for BlueXP backup and recovery Preview version
+= Known limitations for BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font

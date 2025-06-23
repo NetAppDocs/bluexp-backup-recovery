@@ -19,9 +19,10 @@ After you set up BlueXP, configure the backup and recovery settings. You should 
 * <<Maintain VMware vCenter settings>>.
 * <<Provide StorageGRID credentials>>.
 * <<Import and manage SnapCenter host resources>>.
-//* <<Enable the Certificate Authority certificates>>.
+* <<Set up script execution hooks>> to run scripts before and after backup jobs.
 * <<Configure log directories in snapshots for Windows hosts>>.
 //* Enable DataLock and integrity scanning. 
+//* <<Enable the Certificate Authority certificates>>.
 
 == Add credentials for host resources
 
@@ -38,6 +39,9 @@ You need to configure the following types of credentials:
 
 .Steps
 . From the BlueXP backup and recovery menu, select *Settings*.
++
+image:../media/screen-br-settings-all.png[Settings option showing the options]
+
 . Select the down arrow for *Credentials*.
 +
 image:../media/screen-br-settings.png[Settings option]
@@ -87,8 +91,11 @@ Provide the VMware vCenter credentials to discover the VMware vCenter Server wor
 .Steps
 . From the BlueXP backup and recovery menu, select *Settings*.
 +
-image:../media/screen-br-settings-vmware-open.png[Settings option showing the VMware vCenter settings]
+image:../media/screen-br-settings-all.png[Settings option showing the options]
 . Select the down arrow to expand the *VMware vCenter* section.
++
+image:../media/screen-br-settings-vmware-open.png[Settings option showing the VMware vCenter settings]
+
 . Select *Add vCenter*.
 
 . Enter the VMware vCenter Server information.
@@ -110,8 +117,11 @@ Provide the credentials needed to access the StorageGRID system. These credentia
 .Steps
 . From the BlueXP backup and recovery menu, select *Settings*.
 +
-image:../media/screen-br-settings-storagegrid-open.png[Settings option showing the StorageGRID settings]
+image:../media/screen-br-settings-all.png[Settings option showing the options]
 . Select the down arrow to expand the *StorageGRID* section. 
++
+image:../media/screen-br-settings-storagegrid-open.png[Settings option showing the StorageGRID settings]
+
 . Select *Add StorageGRID*.
 
 . Enter the StorageGRID information.
@@ -141,6 +151,8 @@ TIP: After you import SnapCenter host resources, BlueXP backup and recovery does
 .Steps 
 
 . From the BlueXP backup and recovery menu, select *Settings*. 
++
+image:../media/screen-br-settings-all.png[Settings option showing the options]
 . Select the down arrow to expand the *Import from SnapCenter* section.
 +
 image:../media/screen-br-settings-import-snapcenter.png[Settings option to import SnapCenter Server resources]
@@ -231,6 +243,27 @@ image:../media/screen-br-settings-import-snapcenter-edit.png[Settings option to 
 //. Locate and select the certificate file.
 
 //. Select *Save*.
+
+
+== Set up script execution hooks
+
+You might want to run scripts before and after backup jobs. To include scripts in your backup jobs, you can set up script execution hooks. These hooks allow you to run custom scripts at specific points in the backup process, such as before the backup starts or after it completes.    
+
+.Steps
+. From the BlueXP backup and recovery menu, select *Settings*.
++
+image:../media/screen-br-settings-all.png[Settings option showing the options]
+. Select the down arrow for *Script execution hooks*.
+
+. Select *Add script execution hook*.
+. Enter the script execution hook details:
+* *Name*: Enter a name for the script execution hook.
+* *Script type*: Select the type of script you want to run (for example, Pre-Snapshot, Pre-Backup, or Post-Restore).
+* *Script content*: Enter the content of the script you want to run.
+
+. Select *Add* to save the script execution hook.
+
+
 
 == Configure log directories in snapshots for Windows hosts
 

@@ -22,7 +22,7 @@ settings:
         id: azure
 sidebar:
   entries:
-    - title: BlueXP backup and recovery Preview 2025 docs
+    - title: BlueXP backup and recovery docs
       url: /index.html
     - title: Release notes
       entries:
@@ -32,18 +32,22 @@ sidebar:
           url: /br-limitations.html
     - title: Get started
       entries:
-        - title: Learn about BlueXP backup and recovery Preview version
+        - title: Learn about BlueXP backup and recovery
           url: /concept-backup-to-cloud.html
-        - title: Set up the BlueXP backup and recovery Preview version
+        - title: Set up a BlueXP backup and recovery Preview version
           url: /br-start-preview-setup.html
-        - title: Prerequisites for BlueXP backup and recovery Preview version
+        - title: Prerequisites for BlueXP backup and recovery
           url: /concept-start-prereq.html  
         - title: Configure additional items if importing from SnapCenter
           url: /concept-start-prereq-snapcenter-import.html
+        - title: Set up licensing for BlueXP backup and recovery
+          url: /br-start-licensing.html
         - title: Set up backup destinations before you use BlueXP backup and recovery
           url: /br-start-setup.html
         - title: Log in to BlueXP backup and recovery
           url: /br-start-login.html
+        - title: Start a free trial
+          url: /br-start-trial.html
         - title: Discover workloads and optionally import SnapCenter resources
           url: /br-start-discover.html
         - title: Configure BlueXP backup and recovery settings
@@ -52,6 +56,10 @@ sidebar:
               url: /br-start-configure.html
             - title: Manage execution hooks
               url: /br-start-manage-execution-hooks.html
+        - title: Switch between BlueXP backup and recovery UIs 
+          url: /br-start-switch-ui.html
+        - title: Configure BlueXP backup and recovery settings 
+          url: /br-start-configure.html
     - title: Use BlueXP backup and recovery
       entries:
         - title: View protection health in the Dashboard 
@@ -60,11 +68,9 @@ sidebar:
           entries:
             - title: Protect Microsoft SQL workloads overview
               url: /br-use-mssql-protect-overview.html
-            - title: Back up Microsoft SQL Server workloads
+            - title: Back up Microsoft SQL workloads
               url: /br-use-mssql-backup.html
-            - title: Restore Microsoft SQL workloads overview     
-              url: /br-use-mssql-restore-overview.html
-            - title: Restore database workloads
+            - title: Restore Microsoft SQL workloads
               url: /br-use-mssql-restore.html              
             - title: Clone Microsoft SQL workloads
               url: /br-use-mssql-clone.html
@@ -100,8 +106,36 @@ sidebar:
               url: /br-use-manage-policies.html    
         - title: Monitor protection tasks
           url: /br-use-monitor-tasks.html
+        - title: Create reports 
+          url: /br-use-reports.html
         - title: Restart BlueXP backup and recovery
           url: /reference-restart-backup.html
+    - title: Use a previous version of BlueXP backup and recovery
+      entries:
+        - title: Use a previous version of BlueXP backup and recovery
+          url: /br-use-previous-version.html 
+        - title: Protect VMware workloads with a previous BlueXP backup and recovery version 
+          entries:  
+            - title: Protect VMware datastore workloads overview
+              url: /prev-vmware-protect-overview.html
+            - title: Register SnapCenter Plug-in for VMware vSphere host
+              url: /prev-vmware-register-snapcenter.html
+            - title: Create a policy to back up datastores
+              url: /prev-vmware-policy-create.html         
+            - title: Back up datastores to Amazon Web Services
+              url: /prev-vmware-backup-aws.html
+            - title: Back up datastores to Microsoft Azure
+              url: /prev-vmware-backup-azure.html
+            - title: Back up datastores to Google Cloud Platform
+              url: /prev-vmware-backup-gcp.html
+            - title: Back up datasores to StorageGRID
+              url: /prev-vmware-backup-storagegrid.html 
+            - title: Manage protection of datastores and virtual machines data
+              url: /prev-vmware-manage.html
+            - title: Restore virtual machines datasores
+              url: /prev-vmware-restore.html
+    - title: Automate with the REST API
+      url: /br-api-backup-restore.html          
     - title: Reference 
       entries:
         - title: Policies in SnapCenter compared to BlueXP backup and recovery

@@ -5,7 +5,7 @@ keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, 
 summary: Get started with BlueXP backup and recovery by verifying the readiness of your operational environment, BlueXP Connector, and BlueXP account. To use BlueXP backup and recovery, you'll need these prerequisites.
 ---
 
-= BlueXP backup and recovery Preview 2025 prerequisites
+= BlueXP backup and recovery prerequisites
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -101,11 +101,29 @@ Review https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checkli
 
 === Create a BlueXP Connector
 
-You should reach out to your NetApp Product Team to try out or use this Preview. Then, when you use the BlueXP Connector, it will include the appropriate capabilities for the service. 
+You should reach out to your NetApp Product Team to try out this service. Then, when you use the BlueXP Connector, it will include the appropriate capabilities for the service. 
 
 To create a Connector in BlueXP before using the service, refer to the BlueXP documentation that describes https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[how to create a BlueXP Connector^]. 
 
 
+.Where to install the BlueXP Connector
+
+To complete a restore operation, the Connector can be installed in the following locations:
+
+ifdef::aws[]
+* For Amazon S3, the Connector can be deployed on your premises. 
+endif::aws[]
+ifdef::azure[]
+* For Azure Blob, the Connector can be deployed on your premises. 
+endif::azure[]
+//ifdef::gcp[]
+//* For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC.
+//endif::gcp[]
+
+* For StorageGRID, the Connector must be deployed in your premises; with or without internet access.
+//* For ONTAP S3, the Connector can be deployed in your premises (with or without internet access) or in a cloud provider environment
+
+NOTE: References to "on-premises ONTAP systems" includes FAS and AFF systems.
 
 
 == In ONTAP 9.8 and later
