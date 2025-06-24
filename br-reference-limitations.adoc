@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: br-reference-limitations.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
-summary: Complete a few steps to configure BlueXP backup and recovery.
+summary: Known limitations identify functions that are not supported by this release of the product, or that do not interoperate correctly with it. Review these limitations carefully.
 ---
 
-= Known limitations with BlueXP backup and recovery  
+= Known limitations with BlueXP backup and recovery for ONTAP volumes
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,8 +13,12 @@ summary: Complete a few steps to configure BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-
 Known limitations identify functions that are not supported by this release of the product, or that do not interoperate correctly with it. Review these limitations carefully.
+
+
+====
+*NOTE*   This information applies to a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
+====
 
 == Backup and restore limitations for ONTAP volumes
 
