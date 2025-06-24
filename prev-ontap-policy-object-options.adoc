@@ -45,7 +45,7 @@ For example, say you create a backup policy that creates 7 *weekly* and 12 *mont
 * at the 8th week, the first weekly backup is removed, and the new weekly backup for the 8th week is added (keeping a maximum of 7 weekly backups)
 * at the 13th month, the first monthly backup is removed, and the new monthly backup for the 13th month is added (keeping a maximum of 12 monthly backups)
 
-Note that Yearly backups will be deleted automatically from the source system after being transferred to object storage. This default behavior can be changed link:task-manage-backup-settings-ontap#change-whether-yearly-snapshots-are-removed-from-the-source-system[in the Advanced Settings page] for the Working Environment.
+Yearly backups are deleted automatically from the source system after being transferred to object storage. This default behavior can be changed in the Advanced Settings page for the Working Environment.
 
 == DataLock and Ransomware protection options
 
@@ -105,7 +105,7 @@ Ransomware protection scans are enabled by default. The default setting for the 
 
 You can change that schedule to days or weeks or disable it, saving costs.  
 
-Refer to link:task-manage-backup-settings-ontap.html[How to update Ransomware protection options in the Advanced Settings page].
+Refer to link:prev-ontap-policy-object-advanced-settings.html[How to update Ransomware protection options in the Advanced Settings page].
 
 You can choose from the following settings for each backup policy:
 
@@ -341,7 +341,7 @@ image:screenshot_archive_tier_settings.png[A screenshot of the Archival Policy s
 ifdef::aws[]
 * In AWS, backups start in the _Standard_ storage class and transition to the _Standard-Infrequent Access_ storage class after 30 days.
 +
-If your cluster is using ONTAP 9.10.1 or greater, you can tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
+If your cluster is using ONTAP 9.10.1 or greater, you can tier older backups to either _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:prev-reference-aws-archive-storage-tiers.html[Learn more about AWS archival storage].
 +
 ** If you select no archive tier in your first backup policy when activating BlueXP backup and recovery, then _S3 Glacier_ will be your only archive option for future policies.
 ** If you select _S3 Glacier_ in your first backup policy, then you can change to the _S3 Glacier Deep Archive_ tier for future backup policies for that cluster.
@@ -351,13 +351,13 @@ endif::aws[]
 ifdef::azure[]
 * In Azure, backups are associated with the _Cool_ access tier.
 +
-If your cluster is using ONTAP 9.10.1 or greater, you can tier older backups to _Azure Archive_ storage. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
+If your cluster is using ONTAP 9.10.1 or greater, you can tier older backups to _Azure Archive_ storage. link:prev-reference-azure-archive-storage-tiers.html[Learn more about Azure archival storage].
 endif::azure[]
 
 ifdef::gcp[]
 * In GCP, backups are associated with the _Standard_ storage class.
 +
-If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the BlueXP backup and recovery UI after a certain number of days for further cost optimization. link:reference-google-backup-tiers.html[Learn more about Google archival storage^].
+If your on-prem cluster is using ONTAP 9.12.1 or greater, you can choose to tier older backups to _Archive_ storage in the BlueXP backup and recovery UI after a certain number of days for further cost optimization. link:prev-reference-gcp-archive-storage-tiers.html[Learn more about Google archival storage].
 //You can use the lower cost _Nearline_ storage class, or the _Coldline_ or _Archive_ storage classes. However, you configure these other storage classes through Google, not through the BlueXP backup and recovery UI. See the Google topic https://cloud.google.com/storage/docs/storage-classes[Storage classes^] for information about changing the default storage class for a Google Cloud Storage bucket.
 endif::gcp[]
 
@@ -366,11 +366,9 @@ endif::gcp[]
 If your on-prem cluster is using ONTAP 9.12.1 or greater, and your StorageGRID system is using 11.4 or greater, you can archive older backup files to public cloud archival storage. 
 ifdef::aws[]
 +
-** For AWS, you can tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:reference-aws-backup-tiers.html[Learn more about AWS archival storage^].
+** For AWS, you can tier backups to AWS _S3 Glacier_ or _S3 Glacier Deep Archive_ storage. link:prev-reference-aws-archive-storage-tiers.html[Learn more about AWS archival storage^].
 endif::aws[]
 ifdef::azure[]
 +
-** For Azure, you can tier older backups to _Azure Archive_ storage. link:reference-azure-backup-tiers.html[Learn more about Azure archival storage^].
+** For Azure, you can tier older backups to _Azure Archive_ storage. link:prev-reference-azure-archive-storage-tiers.html[Learn more about Azure archival storage^].
 endif::azure[]
-+
-link:task-backup-onprem-private-cloud.html#prepare-to-archive-older-backup-files-to-public-cloud-storage[Learn more about archiving backup files from StorageGRID^].

@@ -99,7 +99,7 @@ When you activate BlueXP backup and recovery for a working environment, by defau
 
 . From the *Volumes* tab, select *Backup Settings*.
 
-. From the _Backup Settings page_, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment and select *Advanced Settings*.
+. From the _Backup Settings page_, click image:icon-actions-horizontal.gif[More icon] for the working environment and select *Advanced Settings*.
 
 . In the Advanced Settings page, expand the *Max Transfer Rate* section. 
 +
@@ -151,7 +151,7 @@ Note that this option only applies to new backup files for new read/write volume
 
 . From the *Volumes* tab, select *Backup Settings*.
 
-. From the _Backup Settings page_, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment and select *Advanced Settings*.
+. From the _Backup Settings page_, click image:icon-actions-horizontal.gif[More icon] for the working environment and select *Advanced Settings*.
 
 . In the Advanced Settings page, expand the *Export existing Snapshot copies* section. 
 +
@@ -169,7 +169,7 @@ When you select the "yearly" backup label for a backup policy for any of your vo
 
 . From the *Volumes* tab, select *Backup Settings*.
 
-. From the _Backup Settings page_, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment and select *Advanced Settings*.
+. From the _Backup Settings page_, click image:icon-actions-horizontal.gif[More icon] for the working environment and select *Advanced Settings*.
 
 . In the Advanced Settings page, expand the *Yearly Snapshot Deletion* section. 
 +
@@ -197,7 +197,7 @@ Refer to link:task-create-policies-ontap.html[Manage policies] for details about
 
 . From the *Volumes* tab, select *Backup Settings*.
 
-. From the _Backup Settings page_, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment and select *Advanced Settings*.
+. From the _Backup Settings page_, click image:iconactions-horizontal.gif[More icon] for the working environment and select *Advanced Settings*.
 
 . In the Advanced Settings page, expand the *Ransomware scan* section. 
 . Enable or disable *Ransomware Scan*. 
