@@ -17,8 +17,9 @@ You can create a policy or use one of the following predefined policies that are
 
 
 ====
-*NOTE*   This feature uses a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
+*NOTE*   To switch to and from BlueXP backup and recovery workloads, refer to link:br-start-switch-ui.html[Switch to different BlueXP backup and recovery workloads].
 ====
+
 
 
 .Before you begin

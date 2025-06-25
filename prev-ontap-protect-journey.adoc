@@ -16,8 +16,9 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 The BlueXP backup and recovery service enables you to create up to three copies of your source volumes to protect your data. There are many options that you can select when enabling this service on your volumes, so you should review your choices so you're prepared.
 
 ====
-*NOTE*   This feature uses a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
+*NOTE*   To switch to and from BlueXP backup and recovery workloads, refer to link:br-start-switch-ui.html[Switch to different BlueXP backup and recovery workloads].
 ====
+
 
 We'll go over the following options:
 

@@ -5,7 +5,7 @@ keywords: backing up, restoring, back up, backup, clone, restore, cloud volumes 
 summary: Clone Microsoft SQL Server applications data for development, testing, or protection purposes. You can create clones from instant snapshots or existing snapshots of your Microsoft SQL Server workloads.
 ---
 
-= Clone Microsoft SQL Server workloads 
+= Clone Microsoft SQL Server workloads with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Clone Microsoft SQL Server applications data for development, testing, 
 :imagesdir: ./media/
 
 [.lead]
-Clone Microsoft SQL Server applications data to the same or different VM for development, testing, or protection purposes. You can create clones from instant snapshots or existing snapshots of your Microsoft SQL Server workloads.
+Clone Microsoft SQL Server applications data to the same or different VM for development, testing, or protection purposes using BlueXP backup and recovery. You can create clones from instant snapshots or existing snapshots of your Microsoft SQL Server workloads.
 
 Choose between the following types of clones:
 

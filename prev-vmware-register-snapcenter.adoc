@@ -16,8 +16,9 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 You should register the SnapCenter Plug-in for VMware vSphere host in BlueXP backup and recovery for the datastores and virtual machines to be displayed. Only a user with administrative access can register the SnapCenter Plug-in for VMware vSphere host.
 
 ====
-*NOTE*   This feature uses a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
+*NOTE*   To switch to and from BlueXP backup and recovery workloads, refer to link:br-start-switch-ui.html[Switch to different BlueXP backup and recovery workloads].
 ====
+
 
 
 .Steps

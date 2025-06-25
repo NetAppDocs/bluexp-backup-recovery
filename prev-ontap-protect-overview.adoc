@@ -16,8 +16,9 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 The BlueXP backup and recovery service provides backup and restore capabilities for protection and long-term archive of your ONTAP volume data. You can implement a 3-2-1 strategy where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud.
 
 ====
-*NOTE*   This feature uses a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
+*NOTE*   To switch to and from BlueXP backup and recovery workloads, refer to link:br-start-switch-ui.html[Switch to different BlueXP backup and recovery workloads].
 ====
+
 
 After activation, backup and recovery creates block-level, incremental forever backups that are stored on another ONTAP cluster and in object storage in the cloud. In addition to your source volume, you'll have a:
 

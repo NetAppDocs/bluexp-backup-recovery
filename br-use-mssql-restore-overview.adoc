@@ -5,7 +5,7 @@ keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, 
 summary: Backups of your data are available for restore from the locations where you created backups, which includes snapshot, replications, and backups in object storage. Review the restore-from locations, restore points, and resource types to restore.
 ---
 
-= Restore MS SQL workloads overview 
+= Restore Microsoft SQL workloads overview using BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Backups of your data are available for restore from the locations where
 :imagesdir: ./media/
 
 [.lead]
-Backups of your data are available for restore from the locations where you moved the backups: snapshots, replications, or backups in object storage. You can restore a workload to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system. Review the restore-from locations, restore points, and resource types to restore.
+Backups of your Microsoft SQL Server data from BlueXP backup and recovery are available for restore from the locations where you moved the backups: snapshots, replications, or backups in object storage. You can restore a workload to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system. Review the restore-from locations, restore points, and resource types to restore.
 
 //different types of restore operations, volume restore or file/folder restore, Browse and restore vs Search and restore)
 

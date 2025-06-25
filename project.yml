@@ -28,9 +28,9 @@ sidebar:
       entries:
         - title: What's new
           url: /whats-new.html
-        - title: Known limitations
+        - title: Known limitations for Microsoft SQL Server workloads
           url: /br-limitations.html
-        - title: Known limitations for previous versions
+        - title: Known limitations for ONTAP volumes workloads
           url: /br-reference-limitations.html
     - title: Get started
       entries:
@@ -52,7 +52,7 @@ sidebar:
           url: /br-start-trial.html
         - title: Discover workloads and optionally import SnapCenter resources
           url: /br-start-discover.html
-        - title: Switch between BlueXP backup and recovery UIs 
+        - title: Switch to different BlueXP backup and recovery workloads 
           url: /br-start-switch-ui.html
         - title: Configure BlueXP backup and recovery settings 
           url: /br-start-configure.html
@@ -106,7 +106,7 @@ sidebar:
               url: /br-use-mssql-restore.html              
             - title: Clone Microsoft SQL Server workloads
               url: /br-use-mssql-clone.html
-        - title: Protect VMware workloads
+        - title: Protect VMware workloads 
           entries:  
             - title: Protect VMware datastore workloads overview
               url: /prev-vmware-protect-overview.html
@@ -126,7 +126,7 @@ sidebar:
               url: /prev-vmware-manage.html
             - title: Restore virtual machines datasores
               url: /prev-vmware-restore.html
-        - title: Protect Kubernetes workloads
+        - title: Protect Kubernetes workloads (Preview)
           entries:
             - title: Protect Kubernetes workloads overview
               url: /br-use-kubernetes-protect-overview.html

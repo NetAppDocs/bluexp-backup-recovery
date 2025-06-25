@@ -18,8 +18,9 @@ Complete a few steps in BlueXP backup and recovery to get started backing up vol
 The primary on-premises ONTAP system can be a FAS, AFF, or ONTAP Select system. The secondary ONTAP system can be an on-premises ONTAP or Cloud Volumes ONTAP system. The object storage can be on an on-premises ONTAP system or a Cloud Volumes ONTAP system on which you have enabled a Simple Storage Service (S3) object storage server.
 
 ====
-*NOTE*   This feature uses a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
+*NOTE*   To switch to and from BlueXP backup and recovery workloads, refer to link:br-start-switch-ui.html[Switch to different BlueXP backup and recovery workloads].
 ====
+
 
 
 

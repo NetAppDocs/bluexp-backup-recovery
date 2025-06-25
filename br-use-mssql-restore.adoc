@@ -5,7 +5,7 @@ keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, 
 summary: Restore database workloads from a snapshot copy, a workload backup replicated to secondary storage, or from backups stored in object storage.
 ---
 
-= Restore MS SQL database workloads
+= Restore Microsoft SQL Server workloads with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: Restore database workloads from a snapshot copy, a workload backup repl
 :imagesdir: ./media/
 
 [.lead]
-Restore MS SQL database workloads from snapshot copies, from a workload backup replicated to secondary storage, or from backups stored in object storage. You can restore a workload to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system. 
+Restore Microsoft SQL Server workloads from snapshot copies, from a workload backup replicated to secondary storage, or from backups stored in object storage using BlueXP backup and recovery. You can restore a workload to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system. 
 
 //different types of restore operations, volume restore or file/folder restore, Browse and restore vs Search and restore)
 

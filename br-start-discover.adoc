@@ -13,7 +13,7 @@ summary: The BlueXP backup and recovery service needs to first discover data in 
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes MS SQL Server instances and databases in working environments within your organization. 
+The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes Microsoft SQL Server instances and databases in working environments within your organization. 
 
 BlueXP backup and recovery assesses Microsoft SQL Server applications. The service assesses the existing protection level including the current backup protection policies, snapshot copies, and backup and recovery options. 
 

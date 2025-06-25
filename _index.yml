@@ -24,15 +24,15 @@ indexpage:
           url: br-use-policies-create.html
         - title: View protection health in the Dashboard
           url: br-use-dashboard.html
-    - title: Protect Microsoft SQL workloads 
+    - title: Protect Microsoft SQL Server workloads 
       links:
-        - title: Protect Microsoft SQL workloads overview 
+        - title: Protect Microsoft SQL Server workloads overview 
           url: br-use-mssql-protect-overview.html       
-        - title: Back up Microsoft SQL workloads 
+        - title: Back up Microsoft SQL Server workloads 
           url: br-use-mssql-backup.html
-        - title: Restore Microsoft SQL workloads
+        - title: Restore Microsoft SQL Server workloads
           url: br-use-mssql-restore.html
-        - title: Clone Microsoft SQL workloads
+        - title: Clone Microsoft SQL Server workloads
           url: br-use-mssql-clone.html
     - title: Protect VMware workloads
       links:
@@ -44,7 +44,7 @@ indexpage:
           url: br-use-vmware-restore.html
         - title: Clone VMware workloads
           url: br-use-vmware-clone.html
-    - title: Protect Kubernetes workloads
+    - title: Protect Kubernetes workloads (Preview)
       links:
         - title: Protect Kubernetes workloads overview
           url: br-use-kubernetes-protect-overview.html

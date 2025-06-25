@@ -155,6 +155,7 @@ The service protects the following application-based workloads:
 //* NetApp file shares
 //* VMware datastores
 * Microsoft SQL Server instances and databases
+* Kubernetes workloads (Preview)
 * More coming soon
 
 
@@ -178,7 +179,7 @@ The service protects the following application-based workloads:
 
 == BlueXP backup and recovery uses the SnapCenter Plugin for Microsoft SQL Server
 
-BlueXP backup and recovery installs the Plug-in for Microsoft SQL Server on the server that hosts MS SQL Server. The  Plug-in is a host-side component that enables application-aware data protection management of Microsoft SQL Server databases and instances. 
+BlueXP backup and recovery installs the Plug-in for Microsoft SQL Server on the server that hosts Microsoft SQL Server. The  Plug-in is a host-side component that enables application-aware data protection management of Microsoft SQL Server databases and instances. 
 
 
 == How BlueXP backup and recovery works

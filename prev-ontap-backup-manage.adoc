@@ -19,10 +19,10 @@ With BlueXP backup and recovery, manage backups for your Cloud Volumes ONTAP and
 
 CAUTION: Do not manage or change backup files directly on your storage systems or from your cloud provider environment. This may corrupt the files and will result in an unsupported configuration.
 
+====
+*NOTE*   To switch to and from BlueXP backup and recovery workloads, refer to link:br-start-switch-ui.html[Switch to different BlueXP backup and recovery workloads].
+====
 
-====
-*NOTE*   This feature uses a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
-====
 
 
 == View the backup status of volumes in your working environments
