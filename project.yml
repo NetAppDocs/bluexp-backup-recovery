@@ -62,55 +62,7 @@ sidebar:
           url: /br-use-dashboard.html
         - title: Create policies to govern backups and restores
           url: /br-use-policies-create.html
-        - title: Protect Microsoft SQL workloads 
-          entries:
-            - title: Protect Microsoft SQL workloads overview
-              url: /br-use-mssql-protect-overview.html
-            - title: Back up Microsoft SQL workloads
-              url: /br-use-mssql-backup.html
-            - title: Restore Microsoft SQL workloads
-              url: /br-use-mssql-restore.html              
-            - title: Clone Microsoft SQL workloads
-              url: /br-use-mssql-clone.html
-        - title: Protect VMware workloads
-          entries:  
-            - title: Protect VMware workloads overview
-              url: /br-use-vmware-protect-overview.html
-            - title: Back up VMware workloads
-              url: /br-use-vmware-backup.html
-            - title: Restore VMware workloads
-              url: /br-use-vmware-restore.html
-        - title: Protect Kubernetes workloads
-          entries:
-            - title: Protect Kubernetes workloads overview
-              url: /br-use-kubernetes-protect-overview.html
-            - title: Discover a Kubernetes cluster
-              url: /br-use-kubernetes-discover.html
-            - title: Create Kubernetes applications
-              url: /br-use-kubernetes-applications.html
-            - title: Back up Kubernetes workloads
-              url: /br-use-kubernetes-backup.html
-            - title: Restore Kubernetes workloads
-              url: /br-use-kubernetes-restore.html
-        - title: Manage inventory, snapshots, and policies       
-          entries:
-            - title: Manage resources overview
-              url: /br-use-manage-overview.html 
-            - title: Manage inventory
-              url: /br-use-manage-inventory.html 
-            - title: Manage snapshots
-              url: /br-use-manage-snapshots.html
-            - title: Manage policies
-              url: /br-use-manage-policies.html
-        - title: Create reports 
-          url: /br-use-reports.html
-        - title: Restart BlueXP backup and recovery
-          url: /reference-restart-backup.html
-    - title: Use a previous version of BlueXP backup and recovery
-      entries:
-        - title: Use a previous version of BlueXP backup and recovery
-          url: /br-use-previous-version.html 
-        - title: Protect ONTAP volume workloads with a previous BlueXP backup and recovery version
+        - title: Protect ONTAP volume workloads
           entries: 
           - title: Protect ONTAP volume workloads overview
             url:  /prev-ontap-protect-overview.html
@@ -144,7 +96,17 @@ sidebar:
             url: /prev-ontap-backup-manage.html
           - title: Restore from ONTAP backups 
             url: /prev-ontap-restore.html
-        - title: Protect VMware workloads with a previous BlueXP backup and recovery version 
+        - title: Protect Microsoft SQL Server workloads 
+          entries:
+            - title: Protect Microsoft SQL Server workloads overview
+              url: /br-use-mssql-protect-overview.html
+            - title: Back up Microsoft SQL Server workloads
+              url: /br-use-mssql-backup.html
+            - title: Restore Microsoft SQL Server workloads
+              url: /br-use-mssql-restore.html              
+            - title: Clone Microsoft SQL Server workloads
+              url: /br-use-mssql-clone.html
+        - title: Protect VMware workloads
           entries:  
             - title: Protect VMware datastore workloads overview
               url: /prev-vmware-protect-overview.html
@@ -164,7 +126,24 @@ sidebar:
               url: /prev-vmware-manage.html
             - title: Restore virtual machines datasores
               url: /prev-vmware-restore.html
-
+        - title: Protect Kubernetes workloads
+          entries:
+            - title: Protect Kubernetes workloads overview
+              url: /br-use-kubernetes-protect-overview.html
+        - title: Manage inventory, snapshots, and policies       
+          entries:
+            - title: Manage resources overview
+              url: /br-use-manage-overview.html 
+            - title: Manage inventory
+              url: /br-use-manage-inventory.html 
+            - title: Manage snapshots
+              url: /br-use-manage-snapshots.html
+            - title: Manage policies
+              url: /br-use-manage-policies.html
+        - title: Create reports 
+          url: /br-use-reports.html
+        - title: Restart BlueXP backup and recovery
+          url: /reference-restart-backup.html
     - title: Automate with the REST API
       url: /br-api-backup-restore.html          
     - title: Reference 

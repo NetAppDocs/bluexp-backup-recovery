@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: br-start-switch-ui.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
-summary: You can switch between the new BlueXP backup and recovery UI and the previous BlueXP backup and recovery UI. The new UI is available for all users, but you can switch back to the previous UI if you need to back up resources that are not yet available in the new UI.
+summary: You can switch among the different BlueXP backup and recovery workloads. Some workloads use a different UI.
 ---
 
-= Switch to and from BlueXP backup and recovery UIs
+= Switch to different BlueXP backup and recovery workloads
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,39 +13,17 @@ summary: You can switch between the new BlueXP backup and recovery UI and the pr
 :imagesdir: ./media/
 
 [.lead]
-You can switch between the new BlueXP backup and recovery UI and the previous BlueXP backup and recovery UI. The new UI is available for everyone, and you can switch back to the previous UI if you need to back up workloads that are not yet available in the new UI.
+You can switch among the different BlueXP backup and recovery workloads. Some workloads use a different UI.
 
-*Which workloads can you back up in each UI?* 
 
-[cols="40,30,30",options="header"]
-|===    
-| Workload
-| New UI
-| Previous UI
-| Microsoft SQL Server workloads
-| Available 
-| Not available
-
-| VMware workloads
-| Not available yet
-| Available
-
-| Volumes 
-| Not available yet
-| Available
-
-| Kubernetes workloads
-| Not available yet
-| Not available 
-|===
 
 *How do you know which UI you are using?*
-The new UI uses a menu structure that is different from the previous UI. 
+The UI for Microsoft SQL Server and Kubernetes workloads uses a menu structure that is different from the previous UI. 
 
-The new UI: 
+The taskbar for Microsoft SQL Server and Kubernetes workloads looks like this: 
 image:screen-br-menu-unified.png[New UI screenshot for BlueXP backup and recovery]
 
-The previous UI: 
+The menu bar for ONTAP volumes and VMware workloads looks like this: 
 image:screen-br-menu-legacy.png[Previous UI screenshot for BlueXP backup and recovery]
 
 
