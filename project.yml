@@ -64,8 +64,6 @@ sidebar:
       entries:
         - title: View protection health in the Dashboard 
           url: /br-use-dashboard.html  
-        - title: Protect Microsoft SQL workloads
-          url: /br-use-dashboard.html
         - title: Create policies to govern backups and restores
           url: /br-use-policies-create.html
         - title: Protect ONTAP volume workloads
