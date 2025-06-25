@@ -45,12 +45,9 @@ image:screen-br-sql-clone.png[Clone page screenshot for BlueXP backup and recove
 
 . Select the clone type:
 ** *Clone from existing snapshot*: Choose the snapshot for the clone and configure options for the clone. This is helpful if you want to choose the snapshot for the clone and configure options. 
-
 ** *Instant snapshot and clone*: Take a snapshot now of the source data and create a clone from that snapshot. This option is useful if you want to create a clone from the latest data in the source workload.
-
 //* *Full clone* - A full clone is a complete copy of the source data. It is stored in the object store and can be used to restore the workloads.
 //* *Snapshot clone* - A snapshot clone is a copy of the source data that is created from a snapshot. It is stored in the object store and can be used to restore the workloads.
-
 . Complete the *Database source* section:
 
 * *Source database host, instance, and name*: Select the source database host, instance, and name for the clone. The source database is the database from which the clone will be created. 
