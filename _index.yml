@@ -24,6 +24,18 @@ indexpage:
           url: br-use-policies-create.html
         - title: View protection health in the Dashboard
           url: br-use-dashboard.html
+    - title: Protect ONTAP volumes workloads 
+      links: 
+        - title: Protect ONTAP volumes workloads overview 
+          url: prev-ontap-protect-overview.html
+        - title: Plan your protection journey for ONTAP volumes workloads
+          url: prev-ontap-protect-journey.html
+        - title: Manage policies for ONTAP volumes workloads
+          url: prev-ontap-policy-manage.html
+        - title: Backup-to-object policy options for ONTAP volumes
+          url: prev-ontap-policy-object-options.html    
+        - title: Restore ONTAP volumes workloads
+          url: prev-ontap-restore.html 
     - title: Protect Microsoft SQL Server workloads 
       links:
         - title: Protect Microsoft SQL Server workloads overview 
@@ -36,14 +48,12 @@ indexpage:
           url: br-use-mssql-clone.html
     - title: Protect VMware workloads
       links:
-        - title: Protect VMware workloads overview
-          url: br-use-vmware-protect-overview.html
-        - title: Back up VMware workloads
-          url: br-use-vmware-backup.html  
-        - title: Restore VMware workloads
-          url: br-use-vmware-restore.html
-        - title: Clone VMware workloads
-          url: br-use-vmware-clone.html
+        - title: Protect VMware datastore workloads overview
+          url: prev-vmware-protect-overview.html
+        - title: Create a policy to back up VMware datastores
+          url: prev-vmware-policy-create.html
+        - title: Restore VMware datastore workloads
+          url: prev-vmware-restore.html
     - title: Protect Kubernetes workloads (Preview)
       links:
         - title: Protect Kubernetes workloads overview
