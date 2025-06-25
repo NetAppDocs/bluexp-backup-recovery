@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: br-use-kubernetes-protect-overview.html
-keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, kubernetes, NetApp Kubernetes Service, NKS, NetApp Kubernetes Service backup and recovery, NKS backup and recovery
-summary: Protect your Kubernetes workloads with NetApp BlueXP backup and recovery. 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
+summary: You can protect Kubernetes applications and application data from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, Google Cloud Platform, and StorageGRID, ensuring that your data is protected. 
 ---
 
-= Protect Kubernetes workloads with BlueXP backup and recovery overview
+= Manage Kubernetes workloads overview 
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,6 +13,10 @@ summary: Protect your Kubernetes workloads with NetApp BlueXP backup and recover
 :imagesdir: ./media/
 
 [.lead]
-Protect your Kubernetes workloads with NetApp BlueXP backup and recovery. 
+Managing Kubernetes workloads in BlueXP backup and recovery enables you to manage and protect your Kubernetes clusters and applications all in one place. You can manage resources such as backups, databases, instances, application hosts, and work environments. You can view, edit, and delete protection settings of your Kubernetes workloads.
 
-TBD 
+You can accomplish the following tasks related to managing Kubernetes workloads:
+
+* link:br-use-manage-inventory.html[Manage Kubernetes applications].
+* link:br-use-manage-snapshots.html[Protect Kubernetes applications].
+* link:br-use-manage-snapshots.html[Restore Kubernetes applications]. 
