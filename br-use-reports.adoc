@@ -18,7 +18,7 @@ In BlueXP backup and recovery, create reports to view the status of your backups
 . From the BlueXP backup and recovery menu, select the *Reports* tab.
 
 . Select *Create report*.
-
++
 image:../media/screen-br-reports.png[Create new report screenshot]
 
 
@@ -30,7 +30,7 @@ image:../media/screen-br-reports.png[Create new report screenshot]
 * *Select contents*: Choose whether you want the report to include a summary of all backups or details of each backup. 
 
 . Enter report frequency details: Choose whether you want the report to be include data from the last day, last 7 days, last 30 days, last quarter, or last year.
-. Enter report delivery details: If you want the report to be delivered by email, check *Send report using email*. Enter the email address where you want the report sent.
+. Enter report delivery details: If you want the report to be delivered by email, check *Send report using email*. Enter the email addresWs where you want the report sent.
 
 +
 Configure email notifications in the Settings page. For details about configuring email notifications, see link:br-use-settings-advanced.html[Configure settings].

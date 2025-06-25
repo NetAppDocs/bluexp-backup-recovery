@@ -107,13 +107,9 @@ image:screen-br-sql-clone-create-instantsnapshot-advanced.png[Advanced settings 
 * *Tags*: Select one or more labels that will help you later search for the resource group and select *Apply*. For example, if you add "HR" as a tag to multiple resource groups, you can later find all resource groups associated with the HR tag.
 
 . Select *Create*. 
-
-
-
 //. Choose the type of clone: 
 //** *Thick clone (Long-term clone)*: A complete copy of the source data. It is stored in the object store and can be used to restore the workloads.
 //** *Thin clone (Short-term clone)*: A copy of the source data that is created from a snapshot. It is stored in the object store and can be used to restore the workloads.
-
 //. Select the quality of service (QoS) policy for the clone. The QoS policy defines the performance characteristics of the clone, such as the maximum throughput and IOPS.
 //** Extreme
 //** Performance
@@ -131,8 +127,7 @@ You have the option to change the database name, use the latest instant snapshot
 .Steps
 . From the BlueXP backup and recovery menu, select *Clone*. 
 
-+
-image:screen-br-sql-clone-nomenu.png[Clone page for BlueXP backup and recovery]
+
 . Select the clone you want to refresh. 
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *Refresh clone*.
 +
@@ -183,8 +178,7 @@ The clone job is not be removed and it can be reused again for other clones.
 
 .Steps
 . From the BlueXP backup and recovery menu, select *Clone*.
-+
-image:screen-br-sql-clone-nomenu.png[Clone page for BlueXP backup and recovery]
+
 . Select a clone.
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *Split clone*.
 
@@ -204,8 +198,7 @@ If the clone is protected by a policy, the clone is deleted including the job.
 .Steps
 
 . From the BlueXP backup and recovery menu, select *Clone*.
-+
-image:screen-br-sql-clone-nomenu.png[Clone page for BlueXP backup and recovery]
+
 . Select a clone.
 . Select the Actions icon image:../media/icon-action.png[Actions option] > *Delete clone*.
 
@@ -217,14 +210,6 @@ image:screen-br-sql-clone-nomenu.png[Clone page for BlueXP backup and recovery]
 . When the clone is deleted, it is removed from the *Inventory* page.
 
 
-
-
-== Additional information
-For more information about cloning Microsoft SQL Server workloads, see the following resources:
-
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql.html[Clone Microsoft SQL Server workloads] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-activity.html[Monitor clone activity] in the BlueXP documentation.
-* link:https://docs.netapp.com/us-en/bluexp/concepts/clone-mssql-inventory.html[View cloned Microsoft SQL Server workloads] in the BlueXP documentation.
 
 
 
