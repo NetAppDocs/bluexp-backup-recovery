@@ -58,8 +58,8 @@ sidebar:
           entries:
             - title: Configure BlueXP backup and recovery general settings
               url: /br-start-configure.html
-            - title: Manage execution hooks
-              url: /br-use-manage-execution-hooks.html
+            - title: Manage execution hook templates
+              url: /br-use-manage-execution-hook-templates.html
     - title: Use BlueXP backup and recovery
       entries:
         - title: View protection health in the Dashboard 
