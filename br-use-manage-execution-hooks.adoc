@@ -15,6 +15,8 @@ summary: BlueXP backup and recovery enables you to manage execution hooks to tak
 [.lead]
 An execution hook is a custom action that you can configure to run in conjunction with a data protection operation of a managed app. For example, if you have a database app, you can use an execution hook to pause all database transactions before a snapshot, and resume transactions after the snapshot is complete. This ensures application-consistent snapshots.
 
+.Required BlueXP role
+
 == Types of execution hooks
 BlueXP backup and recovery supports the following types of execution hooks, based on when they can be run:
 
@@ -23,7 +25,7 @@ BlueXP backup and recovery supports the following types of execution hooks, base
 * Pre-backup
 * Post-backup
 * Post-restore
-* Post-failover
+//* Post-failover
 
 === Order of execution
 When a data protection operation is run, execution hook events take place in the following order:
@@ -85,18 +87,3 @@ You can create a custom execution hook for an app. You need to have Owner, Admin
 . Select *Create*.
 +
 The template is created and appears in the list of templates in the *Execution hook template* section.
-
-
-== Manually run an execution hook
-You can manually run an execution hook for testing purposes or if you need to re-run the hook manually after a failure. You need to have Owner, Admin, or Member permissions to manually run execution hooks.
-
-Manually running an execution hook consists of two basic steps:
-
-. Create a resource backup, which collects resources and creates a backup of them, determining where the hook will run.
-. Run the execution hook against the backup.
-
-.Step 1: Create a resource backup
-
-
-
-.Step 2: Run the execution hook
