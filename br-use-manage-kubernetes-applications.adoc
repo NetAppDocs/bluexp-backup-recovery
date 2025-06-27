@@ -13,7 +13,7 @@ summary: BlueXP backup and recovery enables you to manage your workload host inf
 :imagesdir: ./media/
 
 [.lead]
-BlueXP backup and recovery enables you to manage your Kubernetes applications and associated resources. You can view, edit, and delete protection settings of your Kubernetes applications.
+BlueXP backup and recovery enables you to manage your Kubernetes applications and associated resources. You can create, view, edit, and delete protection settings of your Kubernetes applications.
 
 == Add and protect a new Kubernetes application
 The first step in protecting Kubernetes applications is to create an application within BlueXP backup and recovery. When you create an application, you make BlueXP aware of the running application on the Kubernetes cluster.

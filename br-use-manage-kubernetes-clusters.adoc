@@ -14,3 +14,9 @@ summary: BlueXP backup and recovery enables you to manage your workload host inf
 
 [.lead]
 BlueXP backup and recovery enables you to manage your workload host information, database information, and instances information. You can view, edit, and delete protection settings of your inventory. 
+
+== Discover Kubernetes clusters
+
+== Edit Kubernetes cluster information
+
+== Remove a Kubernetes cluster
