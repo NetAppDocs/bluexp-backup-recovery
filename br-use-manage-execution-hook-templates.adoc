@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: br-use-manage-execution-hooks.html
+permalink: br-use-manage-execution-hook-templates.html
 keywords: hooks, execution hooks, exec hooks, hook, execution, script, postscript, prescript, post, pre, run, backup, snapshot, freeze
 summary: BlueXP backup and recovery enables you to manage execution hooks to take action before or after application protection operations.  
 ---
 
-= Manage BlueXP backup and recovery execution hooks
+= Manage BlueXP backup and recovery execution hook templates
 :hardbreaks:
 :nofooter:
 :icons: font

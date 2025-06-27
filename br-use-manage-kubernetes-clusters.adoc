@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: br-use-manage-kubernetes-clusters.html
-keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter
-summary: BlueXP backup and recovery enables you to manage your workload host information, database information, and instances information. You can view, edit, and delete protection settings for your inventory.  
+keywords: discover, backup and recovery, snapcenter, kubernetes, k8s, clusters, applications, inventory
+summary: BlueXP backup and recovery enables you to discover and manage your Kubernetes clusters so that you can protect resources hosted by the clusters. 
 ---
 
 = Manage Kubernetes clusters 
@@ -13,10 +13,41 @@ summary: BlueXP backup and recovery enables you to manage your workload host inf
 :imagesdir: ./media/
 
 [.lead]
-BlueXP backup and recovery enables you to manage your workload host information, database information, and instances information. You can view, edit, and delete protection settings of your inventory. 
+BlueXP backup and recovery enables you to discover and manage your Kubernetes clusters so that you can protect resources hosted by the clusters. 
 
 == Discover Kubernetes clusters
+In the backup and recovery inventory, you can discover Kubernetes clusters that are running in your environment. Discovering a cluster enables you to protect the resources hosted by the cluster.
+
+.Steps
+
+. In BlueXP backup and recovery, select *Inventory* > *Applications*.
+. Select *Discover resources*.
+. Select the *Kubernetes* workload type.
+. Enter a cluster name and choose a connector to use with the cluster.
+. Follow the instructions that appear to create a Trident protect namespace, create a Kubernetes secret, add a Helm repository, and install Trident protect and the Trident protect connector. These steps ensure that BlueXP backup and recovery can discover and interact with the cluster.
+. After you complete the steps, select *Discover*.
++
+The cluster is added to the inventory.
+. Select *View* in the associated Kubernetes workload to see the list of applications, clusters, and namespaces for that workload.
+
 
 == Edit Kubernetes cluster information
+You can edit a cluster if you need to change its name. 
+
+.Steps
+
+. In BlueXP backup and recovery, select *Inventory* > *Clusters*.
+. In the list of clusters, choose a cluster you want to edit and select the associated Actions menu.
+. Select *Edit cluster*.
+. Make any required changes to the cluster name.
+. Select *Done*.
 
 == Remove a Kubernetes cluster
+If you no longer need to protect the resources hosted by a Kubernetes cluster, you can remove it from BlueXP backup and recovery. Removing a cluster does not delete the cluster or its resources; it only removes the cluster from the BlueXP inventory. Before you can remove a cluster, you need to disable protection and delete the associated applications from BlueXP backup and recovery.
+
+.Steps
+
+. In BlueXP backup and recovery, select *Inventory* > *Clusters*.
+. In the list of clusters, choose a cluster you want to edit and select the associated Actions menu.
+. Select *Remove cluster*.
+. Review the information in the confirmation dialog box, and select *Remove*.
