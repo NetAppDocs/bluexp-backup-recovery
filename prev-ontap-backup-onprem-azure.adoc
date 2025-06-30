@@ -159,7 +159,7 @@ You'll need to verify license requirements for both Azure and BlueXP:
 * Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from Azure, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
 
 ** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[NetApp BlueXP offering from the Azure Marketplace^]. Billing for BlueXP backup and recovery is done through this subscription.
-** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
+** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:br-start-licensing.html[Learn how to manage your BYOL licenses].
 
 * You need to have an Azure subscription for the object storage space where your backups will be located.
 
@@ -214,7 +214,7 @@ Note that Backup and recovery supports _Azure access policies_ as the permission
 
 By default, the service creates storage accounts for you. If you want to use your own storage accounts, you can create them before you start the backup activation wizard and then select those storage accounts in the wizard. 
 
-link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn more about creating your own storage accounts^].
+link:prev-ontap-protect-journey.html[Learn more about creating your own storage accounts].
 
 == Activate backups on your ONTAP volumes 
 
@@ -253,7 +253,7 @@ The Introduction page of the wizard shows the protection options including local
 
 Choose the volumes you want to protect. A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
 
-You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these volumes when activating backup for a working environment. See how to link:task-manage-backups-ontap.html#activate-backup-on-additional-volumes-in-a-working-environment[activate backup for additional volumes in the working environment] (FlexVol or FlexGroup) after you have configured backup for the initial volumes.
+You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these volumes when activating backup for a working environment. See how to link:prev-ontap-backup-manage.html[activate backup for additional volumes in the working environment] (FlexVol or FlexGroup) after you have configured backup for the initial volumes.
 
 [NOTE] 
 ====
@@ -269,8 +269,8 @@ Note that if the volumes you choose already have Snapshot or replication policie
 . In the Select Volumes page, select the volume or volumes you want to protect. 
 +
 * Optionally, filter the rows to show only volumes with certain volume types, styles, and more to make the selection easier. 
-* After you select the first volume, then you can select all FlexVol volumes (FlexGroup volumes can be selected one at a time only). To back up all existing FlexVol volumes, check one volume first and then check the box in the title row. (image:button_backup_all_volumes.png[]).
-* To back up individual volumes, check the box for each volume (image:button_backup_1_volume.png[]).
+* After you select the first volume, then you can select all FlexVol volumes (FlexGroup volumes can be selected one at a time only). To back up all existing FlexVol volumes, check one volume first and then check the box in the title row. 
+* To back up individual volumes, check the box for each volume.
 
 . Select *Next*.
 
@@ -291,7 +291,7 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 
 . In the Define backup strategy page, choose one or all of the following. All three are selected by default: 
 +
-* *Local Snapshots*: If you are performing replication or back up to object storage, local Snapshots must be created. 
+* *Local Snapshots*: If you are performing replication or back up to object storage, local snapshots must be created. 
 * *Replication*: Creates replicated volumes on another ONTAP storage system.  
 * *Backup*: Backs up volumes to object storage.  
 
@@ -299,17 +299,18 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 * *Cascading*: Information flows from the primary to the secondary, and from secondary to object storage. 
 * *Fan out*: Information flows from the primary to the secondary _and_ from the primary to object storage. 
 + 
-For details about these architectures, refer to link:concept-protection-journey.html[Plan your protection journey]. 
+For details about these architectures, refer to link:prev-ontap-protect-journey.html[Plan your protection journey]. 
  
-. *Local Snapshot*: Choose an existing Snapshot policy or create a new one. 
+. *Local Snapshot*: Choose an existing snapshot policy or create a new one. 
 +
-TIP: To create a custom policy before activating the Snapshot, refer to link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before activating the snapshot, refer to link:br-use-policies-create.html[Create a policy].
+
 
 +
 To create a policy, select *Create new policy* and do the following: 
 
 * Enter the name of the policy. 
-* Select up to 5 schedules, typically of different frequencies. 
+* Select up to five schedules, typically of different frequencies. 
 * Select *Create*. 
 
 . *Replication*: Set the following options: 
@@ -317,12 +318,12 @@ To create a policy, select *Create new policy* and do the following:
 * *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate or aggregates and prefix or suffix that will be added to the replicated volume name. 
 * *Replication policy*: Choose an existing replication policy or create a new one. 
 +
-TIP: To create a custom policy before activating the replication, refer to link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before activating the replication, refer to link:br-use-policies-create.html[Create a policy].
 +
 To create a policy, select *Create new policy* and do the following: 
 +
 ** Enter the name of the policy. 
-** Select up to 5 schedules, typically of different frequencies. 
+** Select up to five schedules, typically of different frequencies. 
 ** Select *Create*. 
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
@@ -352,23 +353,23 @@ NOTE: If you chose an existing Microsoft storage account, encryption information
 * *Networking*: Choose the IPspace, and whether you'll be using a Private Endpoint. Private Endpoint is disabled by default.
 
 .. The IPspace in the ONTAP cluster where the volumes you want to back up reside. The intercluster LIFs for this IPspace must have outbound internet access.
-.. Optionally, choose whether you'll use an Azure private endpoint that you have previously configured. https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview[Learn about using an Azure private endpoint].
+.. Optionally, choose whether you'll use an Azure private endpoint that you have previously configured. https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview[Learn about using an Azure private endpoint^].
 
 * *Backup policy*: Select an existing Backup to object storage policy or create a new one. 
 +
-TIP: To create a custom policy before activating the backup, refer to link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before activating the backup, refer to link:br-use-policies-create.html[Create a policy].
 +
 To create a policy, select *Create new policy* and do the following: 
 
 ** Enter the name of the policy. 
-** Select up to 5 schedules, typically of different frequencies. 
+** Select up to five schedules, typically of different frequencies. 
 ** For backup-to-object policies, set the DataLock and Ransomware Protection settings. For details on DataLock and Ransomware Protection, refer to link:concept-cloud-backup-policies.html[Backup-to-object policy settings].
 ** Select *Create*. 
 // In backup to object only (not snapshots and replication) for CVO to AWS, CVO to Azure, onprem to AWS, Azure, S3, and SG - can do Advanced Settings for ransomware scans and datalock. Adv Settings does not apply to Google.)
 
 
 
-* *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
+* *Export existing Snapshot copies to object storage as backup copies*: If there are any local snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Select *Next*. 
 
@@ -399,7 +400,7 @@ A replicated volume is created in the destination cluster that will be synchroni
 
 A Blob storage account is created in the resource group you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups.
 
-You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
+You can also monitor the status of backup and restore jobs using the link:br-use-monitor-tasks.html[Job Monitoring page^].
 
 === Show the API commands 
 
@@ -410,8 +411,4 @@ You might want to display and optionally copy the API commands used in the Activ
 . From the Activate backup and recovery wizard, select *View API request*. 
 . To copy the commands to the clipboard, select the *Copy* icon. 
 
-== What's next?
 
-* You can link:task-manage-backups-ontap.html[manage your backup files and backup policies^]. This includes starting and stopping backups, deleting backups, adding and changing the backup schedule, and more.
-* You can link:task-manage-backup-settings-ontap.html[manage cluster-level backup settings^]. This includes changing the network bandwidth available to upload backups to object storage, changing the automatic backup setting for future volumes, and more.
-* You can also link:task-restore-backups-ontap.html[restore volumes, folders, or individual files from a backup file^] to a Cloud Volumes ONTAP system in Azure, or to an on-premises ONTAP system.

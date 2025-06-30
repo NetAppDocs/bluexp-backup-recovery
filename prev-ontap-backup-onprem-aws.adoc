@@ -69,9 +69,9 @@ Ensure that the following networking requirements are met:
 ** An HTTPS connection over port 443 to your ONTAP cluster management LIF
 ** Additional inbound and outbound security group rules are required for AWS and AWS GovCloud deployments. See https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html[Rules for the Connector in AWS^] for details.
 
-* link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Ensure that the Connector has permissions to manage the S3 bucket].
+* link:task-backup-onprem-to-aws.html[Ensure that the Connector has permissions to manage the S3 bucket].
 
-* If you have a Direct Connect or VPN connection from your ONTAP cluster to the VPC, and you want communication between the Connector and S3 to stay in your AWS internal network (a *private* connection), you'll need to enable a VPC Endpoint interface to S3. <<Configure your system for a private connection using a VPC endpoint interface,See how to set up a VPC endpoint interface.>>
+* If you have a Direct Connect or VPN connection from your ONTAP cluster to the VPC, and you want communication between the Connector and S3 to stay in your AWS internal network (a *private* connection), you'll need to enable a VPC Endpoint interface to S3. <<Configure your system for a private connection using a VPC endpoint interface>>.
 
 == Verify license requirements
 
@@ -122,7 +122,7 @@ If you use are using a different IPspace than "Default", then you might need to 
 All intercluster LIFs within the IPspace must have access to the object store. If you can't configure this for the current IPspace, then you'll need to create a dedicated IPspace where all intercluster LIFs have access to the object store.
 * DNS servers must have been configured for the storage VM where the volumes are located. See how to https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html[configure DNS services for the SVM^].
 * Update firewall rules, if necessary, to allow BlueXP backup and recovery connections from ONTAP to object storage through port 443 and name resolution traffic from the storage VM to the DNS server over port 53 (TCP/UDP).
-* If you are using a Private VPC Interface Endpoint in AWS for the S3 connection, then in order for HTTPS/443 to be used, you'll need to load the S3 endpoint certificate into the ONTAP cluster. <<Configure your system for a private connection using a VPC endpoint interface,See how to set up a VPC endpoint interface and load the S3 certificate.>>
+* If you are using a Private VPC Interface Endpoint in AWS for the S3 connection, then in order for HTTPS/443 to be used, you'll need to load the S3 endpoint certificate into the ONTAP cluster. <<Configure your system for a private connection using a VPC endpoint interface>>.
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Ensure that your ONTAP cluster has permissions to access the S3 bucket].
 
 ===  Verify ONTAP networking requirements for replicating volumes
@@ -149,7 +149,7 @@ You'll need to configure two sets of permissions:
 
 .Steps
 
-. Ensure that the Connector has the required permissions. For details, see https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[BlueXP policy permissions].
+. Ensure that the Connector has the required permissions. For details, see https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html[BlueXP policy permissions^].
 +
 NOTE: When creating backups in AWS China regions, you need to change the AWS Resource Name "arn" under all _Resource_ sections in the IAM policies from "aws" to "aws-cn"; for example `arn:aws-cn:s3:::netapp-backup-*`.
 
@@ -349,13 +349,13 @@ You can choose to protect FlexVol or FlexGroup volumes; however, you cannot sele
 
 .Steps 
 
-Note that if the volumes you choose already have Snapshot or replication policies applied, then the policies you select later will overwrite these existing policies. 
+If the volumes you choose already have snapshot or replication policies applied, then the policies you select later will overwrite these existing policies. 
 
 . In the Select Volumes page, select the volume or volumes you want to protect. 
 +
 * Optionally, filter the rows to show only volumes with certain volume types, styles, and more to make the selection easier. 
-* After you select the first volume, then you can select all FlexVol volumes (FlexGroup volumes can be selected one at a time only). To back up all existing FlexVol volumes, check one volume first and then check the box in the title row. (image:button_backup_all_volumes.png[]).
-* To back up individual volumes, check the box for each volume (image:button_backup_1_volume.png[]).
+* After you select the first volume, then you can select all FlexVol volumes (FlexGroup volumes can be selected one at a time only). To back up all existing FlexVol volumes, check one volume first and then check the box in the title row. 
+* To back up individual volumes, check the box for each volume.
 
 . Select *Next*.
 
@@ -363,12 +363,12 @@ Note that if the volumes you choose already have Snapshot or replication policie
 
 Defining the backup strategy involves setting the following options: 
 
-* Whether you want one or all of the backup options: local Snapshots, replication, and backup to object storage
+* Whether you want one or all of the backup options: local snapshots, replication, and backup to object storage
 * Architecture
 * Local Snapshot policy
 * Replication target and policy
 +
-NOTE: If the volumes you choose have different Snapshot and replication policies than the policies you select in this step, the existing policies will be overwritten. 
+NOTE: If the volumes you choose have different snapshot and replication policies than the policies you select in this step, the existing policies will be overwritten. 
 
 * Backup to object storage information (provider, encryption, networking, backup policy, and export options). 
 
@@ -376,7 +376,7 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 
 . In the Define backup strategy page, choose one or all of the following. All three are selected by default: 
 +
-* *Local Snapshots*: If you are performing replication or back up to object storage, local Snapshots must be created. 
+* *Local Snapshots*: If you are performing replication or back up to object storage, local snapshots must be created. 
 * *Replication*: Creates replicated volumes on another ONTAP storage system.  
 * *Backup*: Backs up volumes to object storage.  
 
@@ -384,17 +384,17 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 * *Cascading*: Information flows from the primary to the secondary to object storage and from the secondary to object storage. 
 * *Fan out*: Information flows from the primary to the secondary _and_ from the primary to object storage. 
 + 
-For details about these architectures, refer to link:concept-protection-journey.html[Plan your protection journey]. 
+For details about these architectures, refer to link:prev-ontap-protect-journey.html[Plan your protection journey]. 
 
-. *Local Snapshot*: Choose an existing Snapshot policy or create a policy. 
+. *Local Snapshot*: Choose an existing snapshot policy or create a policy. 
 +
-TIP: To create a custom policy before activating the Snapshot, refer to link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before activating the snapshot, refer to link:br-use-policies-create.html[Create a policy].
 
 . To create a policy, select *Create new policy* and do the following: 
 +
 * Enter the name of the policy. 
-* Select up to 5 schedules, typically of different frequencies. 
-** For backup-to-object policies, set the DataLock and Ransomware Protection settings. For details on DataLock and Ransomware Protection, refer to link:concept-cloud-backup-policies.html[Backup-to-object policy settings].
+* Select up to five schedules, typically of different frequencies. 
+** For backup-to-object policies, set the DataLock and Ransomware Protection settings. For details on DataLock and Ransomware Protection, refer to link:prev-ontap-policy-object-options.html[Backup-to-object policy settings].
 * Select *Create*.
 // In backup to object only (not snapshots and replication) for CVO to AWS, CVO to Azure, onprem to AWS, Azure, S3, and SG - can do Advanced Settings for ransomware scans and datalock. Adv Settings does not apply to Google.)
  
@@ -404,12 +404,12 @@ TIP: To create a custom policy before activating the Snapshot, refer to link:tas
 * *Replication target*: Select the destination working environment and SVM. Optionally, select the destination aggregate or aggregates and prefix or suffix that will be added to the replicated volume name. 
 * *Replication policy*: Choose an existing replication policy or create a policy. 
 +
-TIP: To create a custom policy before activating the replication, refer to link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before activating the replication, refer to link:br-use-policies-create.html[Create a policy].
 +
 To create a policy, select *Create new policy* and do the following: 
 +
 ** Enter the name of the policy. 
-** Select up to 5 schedules, typically of different frequencies. 
+** Select up to five schedules, typically of different frequencies. 
 ** Select *Create*. 
 
 . *Back up to Object*: If you selected *Backup*, set the following options: 
@@ -434,15 +434,15 @@ NOTE: If you chose an existing bucket, encryption information is already availab
 
 * *Backup policy*: Select an existing backup policy or create a policy. 
 +
-TIP: To create a custom policy before activating the backup, refer to link:task-create-policies-ontap.html[Create a policy].
+TIP: To create a custom policy before activating the backup, refer to link:br-use-policies-create.html[Create a policy].
 +
 To create a policy, select *Create new policy* and do the following: 
 +
 ** Enter the name of the policy. 
-** Select up to 5 schedules, typically of different frequencies. 
+** Select up to five schedules, typically of different frequencies. 
 ** Select *Create*. 
 
-* *Export existing Snapshot copies to object storage as backup copies*: If there are any local Snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic Snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
+* *Export existing Snapshot copies to object storage as backup copies*: If there are any local snapshot copies for volumes in this working environment that match the backup schedule label you just selected for this working environment (for example, daily, weekly, etc.), this additional prompt is displayed. Check this box to have all historic snapshots copied to object storage as backup files to ensure the most complete protection for your volumes.
 
 . Select *Next*. 
 
@@ -473,7 +473,7 @@ A replicated volume is created in the destination cluster that will be synchroni
 
 The S3 bucket is created in the service account indicated by the S3 access key and secret key you entered, and the backup files are stored there. The Volume Backup Dashboard is displayed so you can monitor the state of the backups.
 
-You can also monitor the status of backup and restore jobs using the link:task-monitor-backup-jobs.html[Job Monitoring panel^].
+You can also monitor the status of backup and restore jobs using the link:br-use-monitor-tasks.html[Job Monitoring page^].
 
 === Show the API commands 
 
@@ -484,8 +484,3 @@ You might want to display and optionally copy the API commands used in the Activ
 . From the Activate backup and recovery wizard, select *View API request*. 
 . To copy the commands to the clipboard, select the *Copy* icon. 
 
-== What's next?
-
-* You can link:task-manage-backups-ontap.html[manage your backup files and backup policies^]. This includes starting and stopping backups, deleting backups, adding and changing the backup schedule, and more.
-* You can link:task-manage-backup-settings-ontap.html[manage cluster-level backup settings^]. This includes changing the storage keys ONTAP uses to access cloud storage, changing the network bandwidth available to upload backups to object storage, changing the automatic backup setting for future volumes, and more.
-* You can also link:task-restore-backups-ontap.html[restore volumes, folders, or individual files from a backup file^] to a Cloud Volumes ONTAP system in AWS, or to an on-premises ONTAP system.

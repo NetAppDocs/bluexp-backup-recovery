@@ -403,8 +403,3 @@ You might want to display and optionally copy the API commands used in the Activ
 . From the Activate backup and recovery wizard, select *View API request*. 
 . To copy the commands to the clipboard, select the *Copy* icon. 
 
-== What's next?
-
-* You can link:prev-ontap-backup-manage.html[manage your backup files and backup policies]. This includes starting and stopping backups, deleting backups, adding and changing the backup schedule, and more.
-* You can link:prev-ontap-policy-object-advanced-settings.html[manage cluster-level backup settings]. This includes changing the storage keys ONTAP uses to access cloud storage, changing the network bandwidth available to upload backups to object storage, changing the automatic backup setting for future volumes, and more.
-* You can also link:prev-ontap-restore.html[restore volumes, folders, or individual files from a backup file] to a Cloud Volumes ONTAP system in AWS, or to an on-premises ONTAP system.

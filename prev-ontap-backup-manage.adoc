@@ -84,7 +84,7 @@ If you enabled _DataLock and Ransomware Protection_ for cloud backups in the ini
 
 === Edit backup settings on multiple volumes
 
-If you want to use the same backup settings on multiple volumes, you can activate or edit backup settings on multiple volumes at the same time. You can select volumes that have no backup settings, only Snapshot settings, only backup to cloud settings, and so on, and make bulk changes across all these volumes with diverse backup settings.
+If you want to use the same backup settings on multiple volumes, you can activate or edit backup settings on multiple volumes at the same time. You can select volumes that have no backup settings, only snapshot settings, only backup to cloud settings, and so on, and make bulk changes across all these volumes with diverse backup settings.
 
 When working with multiple volumes, all volumes must have these common characteristics:
 

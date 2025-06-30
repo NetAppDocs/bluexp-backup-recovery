@@ -1,4 +1,4 @@
-=== First general availability (GA) release
+=== Microsoft SQL Server workload supported in general availability (GA) release
 
 This release of BlueXP backup and recovery provides an updated user interface that enables you to manage Microsoft SQL Server workloads using a 3-2-1 protection strategy, familiar in the BlueXP backup and recovery service. With this new version, you can back up these workloads to primary storage, replicate them to secondary storage, and back them up to cloud object storage. 
 
@@ -10,3 +10,10 @@ This version of BlueXP backup and recovery includes the following updates:
 * This version enables you to back up and restore Microsoft SQL Server databases. (Support for other workloads will be added in future releases.)
 * This version integrates SnapCenter capabilities, enabling you to manage and protect your SnapCenter resources with a 3-2-1 data protection strategy from the BlueXP backup and recovery user interface.
 * You can import SnapCenter workloads into BlueXP backup and recovery.  
+
+=== Kubernetes workload support as a Technology Preview 
+
+This release includes support for Kubernetes workloads as a Technology Preview. You can back up and restore Kubernetes workloads using the BlueXP backup and recovery service. This feature is designed to help you protect your containerized applications and data.
+
+NOTE: DOCUMENTATION ABOUT PROTECTING KUBERNETES WORKLOADS IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.  
+

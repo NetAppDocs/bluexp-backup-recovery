@@ -31,6 +31,8 @@ You can accomplish the following protection goals:
 * link:br-use-mssql-backup.html[Back up workloads now]
 * link:br-use-mssql-restore-overview.html[Restore workloads ]
 * link:br-use-mssql-clone.html[Clone workloads]
+* link:br-use-manage-inventory.html[Manage inventory of workloads]
+* link:br-use-manage-snapshots.html[Manage snapshots]
 
 To back up workloads, typically you create policies that govern the backup and restore operations. See link:br-use-policies-create.html[Create policies] for more information.
 
