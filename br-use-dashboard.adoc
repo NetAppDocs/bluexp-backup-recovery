@@ -13,7 +13,7 @@ summary: Monitoring the health of your workloads ensures that you are aware of i
 :imagesdir: ./media/
 
 [.lead]
-Monitoring the health of your workloads ensures that you are aware of issues with workload protection and can take steps to resolve them. View the status of your backups and restores on the BlueXP backup and Recovery Dashboard. You can review the system summary, Protection summary, Job summary, Restore summary, and more. 
+Monitoring the health of your workloads ensures that you are aware of issues with workload protection and can take steps to resolve them. View the status of your backups and restores on the BlueXP backup and recovery Dashboard. You can review the system summary, Protection summary, Job summary, Restore summary, and more. 
 
 
 .Steps
@@ -27,6 +27,7 @@ image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
 The System summary provides the following information: 
 
 * Number of hosts or VMs discovered
+* Number of Kubernetes clusters discovered
 * Number of backup targets on object storage 
 * Number of vCenters 
 * Number of storage clusters in ONTAP

@@ -58,12 +58,10 @@ indexpage:
       links:
         - title: Protect Kubernetes workloads overview
           url: br-use-kubernetes-protect-overview.html
-        - title: Create Kubernetes applications
-          url: br-use-kubernetes-applications.html
-        - title: Back up Kubernetes applications
-          url: br-use-kubernetes-backup.html
+        - title: Protect Kubernetes applications
+          url: br-use-protect-kubernetes-applications.html
         - title: Restore Kubernetes applications
-          url: br-use-kubernetes-restore.html         
+          url: br-use-restore-kubernetes-applications.html         
     - title: Manage inventory, policies, and snapshots
       links:
         - title: Manage inventory 
@@ -72,6 +70,10 @@ indexpage:
           url: br-use-manage-policies.html
         - title: Manage snapshots 
           url: br-use-manage-snapshots.html
+        - title: Manage Kubernetes clusters
+          url: br-use-manage-kubernetes-clusters.html
+        - title: Manage Kubernetes applications
+          url: br-use-manage-kubernetes-applications.html        
     - title: Blogs & community
       links:
         - title: NetApp Community

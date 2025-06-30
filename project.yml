@@ -58,8 +58,8 @@ sidebar:
           entries:
             - title: Configure BlueXP backup and recovery general settings
               url: /br-start-configure.html
-            - title: Manage execution hooks
-              url: /br-use-manage-execution-hooks.html
+            - title: Manage execution hook templates
+              url: /br-use-manage-execution-hook-templates.html
     - title: Use BlueXP backup and recovery
       entries:
         - title: View protection health in the Dashboard 
@@ -134,8 +134,6 @@ sidebar:
           entries:
             - title: Protect Kubernetes workloads overview
               url: /br-use-kubernetes-protect-overview.html
-            - title: Manage Kubernetes applications # Includes app CRUD
-              url: /br-use-manage-kubernetes-applications.html
             - title: Protect Kubernetes applications # Includes app protect, manual backup
               url: /br-use-protect-kubernetes-applications.html
             - title: Restore Kubernetes applications # Includes only restore task
@@ -150,6 +148,8 @@ sidebar:
               url: /br-use-manage-snapshots.html
             - title: Manage Kubernetes clusters # Includes discover, edit, remove / CRUD
               url: /br-use-manage-kubernetes-clusters.html
+            - title: Manage Kubernetes applications # Includes app CRUD
+              url: /br-use-manage-kubernetes-applications.html              
             - title: Manage policies
               url: /br-use-manage-policies.html   
         - title: Monitor protection tasks

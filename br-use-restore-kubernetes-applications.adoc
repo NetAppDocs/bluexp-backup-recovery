@@ -14,3 +14,7 @@ summary: BlueXP backup and recovery enables you to manage your workload host inf
 
 [.lead]
 BlueXP backup and recovery enables you to manage your workload host information, database information, and instances information. You can view, edit, and delete protection settings of your inventory. 
+
+.Required BlueXP role
+
+Organization admin or Folder or project admin. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].

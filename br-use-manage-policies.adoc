@@ -17,6 +17,10 @@ Using BlueXP backup and recovery, you edit or delete policies. Policies govern t
 
 If you import resources from SnapCenter, you might encounter some differences policies used in SnapCenter and those used in BlueXP backup and recovery. See link:reference-policy-differences-snapcenter.html[Policy differences between SnapCenter and BlueXP backup and recovery].
 
+.Required BlueXP role
+
+Organization admin or Folder or project admin. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
 == View policies 
 
 . In BlueXP, got to *Protection* > *Backup and recovery*.
