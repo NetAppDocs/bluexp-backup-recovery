@@ -16,7 +16,7 @@ summary: Get started with BlueXP backup and recovery by verifying the readiness 
 Get started with BlueXP backup and recovery by verifying the readiness of your operational environment, BlueXP Connector, and BlueXP account. To use BlueXP backup and recovery, you'll need these prerequisites.
 
 
-== SQL host requirements 
+== Microsoft SQL Server host requirements 
 
 To use BlueXP backup and recovery, you need the following host system, space, and sizing prerequisites.
 
@@ -66,6 +66,41 @@ For the latest information about supported versions, see the https://imt.netapp.
 
 
 |===
+
+== For ONTAP 9.8 and later
+
+An ONTAP One license must be enabled on the on-premises ONTAP instance.
+
+
+//* To apply advanced protection configurations (such as enabling DataLock and others), BlueXP backup and recovery needs admin permissions on the ONTAP cluster. The ONTAP cluster should have been onboarded using ONTAP cluster admin user credentials only. 
+
+//* If the ONTAP cluster is already onboarded in BlueXP using non-admin user credentials, then the non-admin user permissions must be updated with necessary permissions by logging into the ONTAP cluster, described on this page. 
+
+
+== For backups to object storage
+
+To use object storage as backup targets, you need an account with NetApp StorageGRID, AWS S3, or Microsoft Azure Blob and the appropriate access permissions configured. 
+
+Refer to the https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-azure.html[Backups to AWS, Azure, or S3^]. 
+
+== For protecting Kubernetes applications
+You need specific requirements to discover Kubernetes resources and protect your Kubernetes applications.
+
+* Kubernetes distributions / versions that we support
+* You need a primary ONTAP system
+* You need a Kubernetes cluster in your environment
+** Trident must be installed
+* BlueXP Connector needs to be installed (already documented in BXP docs, link to it)
+* You need to have installed a BlueXP working environment (already documented in BXP docs, link to it)
+* You need to have hardware or VMs available for a new Kubernetes cluster (or you need an existing cluster)
+
+*Kubernetes requirements for 3-2-1 protection scheme*
+BlueXP backup and recovery supports Kubernetes application data protection using the 3-2-1 backup scheme. If you want to use this backup scheme, ensure you have the following:
+
+* A working replication relationship between your ONTAP systems
+* Offsite cloud / object storage buckets to serve as the offsite storage (list supported providers)
+
+
 
 == In BlueXP 
 
@@ -125,39 +160,6 @@ endif::azure[]
 
 NOTE: References to "on-premises ONTAP systems" includes FAS and AFF systems.
 
-
-== In ONTAP 9.8 and later
-
-An ONTAP One license must be enabled on the on-premises ONTAP instance.
-
-
-//* To apply advanced protection configurations (such as enabling DataLock and others), BlueXP backup and recovery needs admin permissions on the ONTAP cluster. The ONTAP cluster should have been onboarded using ONTAP cluster admin user credentials only. 
-
-//* If the ONTAP cluster is already onboarded in BlueXP using non-admin user credentials, then the non-admin user permissions must be updated with necessary permissions by logging into the ONTAP cluster, described on this page. 
-
-
-== For backups to object storage
-
-To use object storage as backup targets, you need an account with NetApp StorageGRID, AWS S3, or Microsoft Azure Blob and the appropriate access permissions configured. 
-
-Refer to the https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-azure.html[Backups to AWS, Azure, or S3^]. 
-
-== For protecting Kubernetes applications
-You need specific requirements to discover Kubernetes resources and protect your Kubernetes applications.
-
-* Kubernetes distributions / versions that we support
-* You need a primary ONTAP system
-* You need a Kubernetes cluster in your environment
-** Trident must be installed
-* BlueXP Connector needs to be installed (already documented in BXP docs, link to it)
-* You need to have installed a BlueXP working environment (already documented in BXP docs, link to it)
-* You need to have hardware or VMs available for a new Kubernetes cluster (or you need an existing cluster)
-
-=== Requirements for 3-2-1 protection scheme
-BlueXP backup and recovery supports Kubernetes application data protection using the 3-2-1 backup scheme. If you want to use this backup scheme, ensure you have the following:
-
-* A working replication relationship between your ONTAP systems
-* Offsite cloud / object storage buckets to serve as the offsite storage (list supported providers)
 
 
 //== Script to run before moving snapshots to object storage

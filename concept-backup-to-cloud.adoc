@@ -13,8 +13,7 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for Microsoft SQL Server instances and databases, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
-
+The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for ONTAP volumes, Microsoft SQL Server instances and databases, VMware workloads, and Kubernetes workloads. 
 
 NOTE: DOCUMENTATION ABOUT PROTECTING KUBERNETES WORKLOADS IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
 
@@ -23,9 +22,11 @@ NOTE: DOCUMENTATION ABOUT PROTECTING KUBERNETES WORKLOADS IS PROVIDED AS A TECHN
 
 Use BlueXP backup and recovery to accomplish the following goals:
 
+* Back up ONTAP volumes, Microsoft SQL Server instances and databases, VMware workloads and Kubernetes workloads
+
 * Back up Microsoft SQL Server instances and databases from on-premises ONTAP or Cloud Volumes ONTAP systems. 
 
-* Restore databases to the same or alternate host, which provides flexibility in data recovery.
+* Restore Microsoft SQL Server databases to the same or alternate host, which provides flexibility in data recovery.
 
 
 //TIP: When the BlueXP Connector is deployed in a government region in the cloud, or in a site without internet access (a dark site), BlueXP backup and recovery supports backup and restore operations only from ONTAP systems. When you use these deployment methods, BlueXP backup and recovery does not support backup and restore operations from applications.
@@ -193,7 +194,7 @@ When you enable BlueXP backup and recovery, the service performs a full backup o
 
 The following image shows the relationship among components. 
 
-image:diagram-br-321.jpg[A diagram showing how BlueXP backup and recovery uses a 3-2-1 protection strategy]
+image:diagram-br-321-aff-a.png[A diagram showing how BlueXP backup and recovery uses a 3-2-1 protection strategy]
 
 NOTE: Primary to object storage is also supported, not just from secondary storage to object storage.
 
