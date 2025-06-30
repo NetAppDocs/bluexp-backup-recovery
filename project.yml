@@ -110,6 +110,10 @@ sidebar:
               url: /br-use-mssql-restore.html              
             - title: Clone Microsoft SQL Server workloads
               url: /br-use-mssql-clone.html
+            - title: Manage Microsoft SQL Server inventory 
+              url: /br-use-manage-inventory.html 
+            - title: Manage Microsoft SQL Server snapshots
+              url: /br-use-manage-snapshots.html
         - title: Protect VMware workloads 
           entries:  
             - title: Protect VMware datastore workloads overview
@@ -140,18 +144,10 @@ sidebar:
               url: /br-use-restore-kubernetes-applications.html
         - title: Manage inventory, snapshots, and policies       
           entries:
-            - title: Manage resources overview
-              url: /br-use-manage-overview.html 
-            - title: Manage inventory # What tasks does this include?
-              url: /br-use-manage-inventory.html 
-            - title: Manage snapshots
-              url: /br-use-manage-snapshots.html
             - title: Manage Kubernetes clusters # Includes discover, edit, remove / CRUD
               url: /br-use-manage-kubernetes-clusters.html
             - title: Manage Kubernetes applications # Includes app CRUD
               url: /br-use-manage-kubernetes-applications.html              
-            - title: Manage policies
-              url: /br-use-manage-policies.html   
         - title: Monitor protection tasks
           url: /br-use-monitor-tasks.html
         - title: Create reports 

@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: br-use-policies-create.html
 keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud
-summary: You can use the default backup policies provided by NetApp to create your backups, or you can create custom policies. Policies govern the type of backup, the backup architecture, the storage systems, and backup frequency. 
+summary: In BlueXP backup and recovery, create your own policies that govern the backup frequency, the time the backup is taken, and the number of backup files that are retained. 
 ---
 
-= Create policies to govern backups in BlueXP backup and recovery
+= Create and manage policies to govern backups in BlueXP backup and recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ./media/
@@ -36,9 +36,8 @@ image:screen-br-policies.png["Policies page"]
 
 . Review these policy details. 
 
-* *Workload*: Examples include SQL Server, Oracle, and Volumes. 
-+
-NOTE: For this version, only the "SQL Server" backup type is available.
+* *Workload*: Examples include Microsoft SQL Server, Volumes, VMware, or Kubernetes. 
+
 * *Backup type*: Examples include full backup and log backup.
 * *Architecture*: Examples include local snapshot, fan-out, cascading, disk to disk, and disk to object store. 
 * *Resources protected*: Shows how many resources out of the total resources on that workload are protected.
@@ -68,8 +67,7 @@ image:screen-br-policies-new-nodata.png[Screenshot of new policy creation]
 
 * *Details* section: 
 ** Workload type of "Microsoft SQL Server" is selected by default for this version. 
-+
-NOTE: For this version, only the "Microsoft SQL Server" backup type is available.
+
 ** Enter a policy name.
 
 * *Backup architecture* section: Select the down arrow and choose the architecture for the backup, such as fan-out, cascading, and disk to disk. 
@@ -249,6 +247,43 @@ Additionally, configure the following options:
 //* *Integrity scan*: To protect your backups from being modified or deleted, select the *Integrity scan* option. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest snapshot. You can enable or disable integrity scans on the latest snapshot. 
 //+
 //TIP: Enabling scans will incur extra charges, depending on the cloud provider. 
+
+
+
+
+
+== Edit a policy
+
+You can edit backup architecture, backup frequency, retention policy, and other settings for a policy.
+
+You can add another protection level when you edit a policy, but you cannot remove a protection level. For example, if the policy is only protecting local snapshots, you can add replication to secondary storage or backups to object storage. If you have local snapshots and replication, you can add object storage. However, if you have local snapshots, replication, and object storage, you cannot remove one of these levels. 
+
+If you are editing a policy that backs up to object storage, you can enable archival.   
+
+If you imported resources from SnapCenter, you might encounter some differences policies used in SnapCenter and those used in BlueXP backup and recovery. See link:reference-policy-differences-snapcenter.html[Policy differences between SnapCenter and BlueXP backup and recovery].
+
+.Required BlueXP role
+
+Organization admin or Folder or project admin. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
+.Steps
+. In BlueXP, got to *Protection* > *Backup and recovery*.
+. Select the *Policies* tab.
+. Select the policy that you want to edit.
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Edit*.
+
+== Delete a policy
+
+You can delete a policy if you no longer need it.
+
+TIP: You cannot delete a policy that is associated with a workload.
+
+.Steps
+. In BlueXP, got to *Protection* > *Backup and recovery*.
+. Select the *Policies* tab.
+. Select the policy that you want to delete.
+. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete*.
+. Review the information in the confirmation dialog box, and select *Delete*.
 
 
 
