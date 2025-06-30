@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: br-start-discover.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
-summary: The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes all volumes and files in working environments within your organization. 
+summary: The BlueXP backup and recovery service needs to first discover workloads in order for you to use the service.  
 ---
 
-= Discover workloads and optionally import SnapCenter resources
+= Discover Microsoft SQL Server or Kubernetes workloads
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,11 +13,15 @@ summary: The BlueXP backup and recovery service needs to first discover data in 
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes Microsoft SQL Server instances and databases in working environments within your organization. 
+The BlueXP backup and recovery service needs to first discover Microsoft SQL Server or Kubernetes workloads in order for you to use the service.  
 
-BlueXP backup and recovery assesses Microsoft SQL Server applications. The service assesses the existing protection level including the current backup protection policies, snapshot copies, and backup and recovery options. 
 
-== Discover Microsoft SQL Server workloads
+
+== Discover Microsoft SQL Server workloads and optionally import SnapCenter resources
+
+During discovery, BlueXP backup and recovery analyzes Microsoft SQL Server instances and databases in working environments within your organization. 
+
+BlueXP backup and recovery assesses Microsoft SQL Server applications. The service assesses the existing protection level including the current backup protection policies, snapshot copies, and backup and recovery options.
 
 Discovery occurs in the following ways: 
 
