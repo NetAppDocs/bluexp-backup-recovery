@@ -153,10 +153,12 @@ When you use GCP, you can request a private offer from NetApp, and then select t
 The service protects the following application-based workloads:
 
 //* NetApp file shares
-//* VMware datastores
-* Microsoft SQL Server instances and databases
+* ONTAP volumes 
+* VMware datastores
+* Microsoft SQL Server instances and databases for VMware Virtual Machine File System (VMFS) and VMware Virtual Machine Disk (VMDK) NFS
 * Kubernetes workloads (Preview)
 * More coming soon
+
 
 
 .Working environments supported
@@ -168,6 +170,7 @@ The service protects the following application-based workloads:
 //* Cloud Volumes ONTAP 9.8 or greater for Google Cloud Platform (using NFS and CIFS protocols)
 
 * Cloud Volumes ONTAP 9.8 or greater for Microsoft Azure (using SAN and NAS)
+* Amazon FSx for NetApp ONTAP 
 
 .Backup targets supported
 
@@ -175,6 +178,7 @@ The service protects the following application-based workloads:
 //* Google Cloud Storage
 * Microsoft Azure Blob
 * NetApp StorageGRID
+* NetApp ONTAP S3
 
 
 == BlueXP backup and recovery uses the SnapCenter Plugin for Microsoft SQL Server

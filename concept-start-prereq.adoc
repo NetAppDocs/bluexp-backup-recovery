@@ -29,7 +29,7 @@ To use BlueXP backup and recovery, you need the following host system, space, an
 | Operating systems
 | Microsoft Windows
 For the latest information about supported versions, see the https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome[NetApp Interoperability Matrix Tool^].
-| Microsoft SQL Server versions | 
+| Microsoft SQL Server versions | Version 2012 and later are supported for VMware Virtual Machine File System (VMFS) and VMware Virtual Machine Disk (VMDK) NFS.
 
 | SnapCenter Server version | SnapCenter Server version 5.0 or greater is required if you are going to import your existing data from SnapCenter into BlueXP backup and recovery.
 
