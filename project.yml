@@ -138,7 +138,7 @@ sidebar:
           entries:
             - title: Protect Kubernetes workloads overview
               url: /br-use-kubernetes-protect-overview.html
-            - title: Protect Kubernetes applications # Includes app protect, manual backup
+            - title: Add and protect Kubernetes applications # Includes app protect, manual backup
               url: /br-use-protect-kubernetes-applications.html
             - title: Restore Kubernetes applications # Includes only restore task
               url: /br-use-restore-kubernetes-applications.html

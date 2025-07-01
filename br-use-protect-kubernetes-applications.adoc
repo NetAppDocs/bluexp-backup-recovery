@@ -5,7 +5,7 @@ keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, 
 summary: BlueXP backup and recovery enables you to manage your workload host information, database information, and instances information. You can view, edit, and delete protection settings for your inventory.  
 ---
 
-= Protect Kubernetes applications 
+= Add and protect Kubernetes applications 
 :hardbreaks:
 :nofooter:
 :icons: font
