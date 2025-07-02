@@ -21,6 +21,7 @@ Organization admin or Folder or project admin. https://docs.netapp.com/us-en/blu
 
 .Steps
 
+
 . In BlueXP backup and recovery, select *Inventory*.
 . Choose a Kubernetes workload, and select *View* in the Hosts column for the workload.
 . In the list of applications, choose an application you want to restore and select the associated Actions menu.
@@ -28,27 +29,20 @@ Organization admin or Folder or project admin. https://docs.netapp.com/us-en/blu
 +
 The list of restore points appears. 
 . Open the Actions menu for the restore point you want to use, and select *Restore*.
+**General settings**
 . Choose the source to restore from (local, secondary, or object store).
 . Choose the destination cluster from the *Cluster* list.
 . Choose the restore destination namespace (original or new).
 +
-Note that restores to a different cluster and the original namespace are not supported.
+Note that restoring to a different cluster and the original namespace is not supported.
 . Select *Next*.
+**Resource selection**
 . Choose whether you want to restore all resources associated with the application or use a filter to select specific resources to restore:
-
-[role="tabbed-block"]
-====
-
-.Restore all resources
-
---
++
+* Restore all resources
 .. Select *Restore all resources*.
 .. Select *Next*.
---
-
-.Restore specific resources
-
---
+* Restore specific resources
 .. Select *Selective resources*.
 .. Choose the behavior of the resource filter. If you choose *Include*, the resources you select are restored. If you choose *Exclude*, the resources you select are not restored.
 .. Select *Add rules* to add rules that define filters for selecting resources. You need at least one rule to filter resources.
@@ -57,11 +51,7 @@ Each rule can filter on criteria such as the resource namespace, labels, group, 
 .. Select *Save* to save each rule.
 .. When you have added all the rules you need, select *Search* to see the resources available in the backup archive that match your filter criteria.
 .. When satisfied with the results, select *Next*.
-
---
-
-====
-
+**Destination settings**
 . Choose to restore either to the default storage class or to a different storage class. 
 . Optionally, if you chose to restore to a different storage class, select a destination storage class to match each source storage class. The destination storage class must be available on the destination cluster.
 . Select *Restore*.
