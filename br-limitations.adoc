@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup application data, Amazon Web servi
 summary: The BlueXP backup and recovery service needs to first discover data in order for you to use the service. During discovery, BlueXP backup and recovery analyzes all volumes and files in working environments within your organization. 
 ---
 
-= Known limitations for BlueXP backup and recovery
+= Known limitations with BlueXP backup and recovery for Microsoft SQL Server workloads
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -16,7 +16,7 @@ summary: The BlueXP backup and recovery service needs to first discover data in 
 Known limitations identify platforms, devices, or functions that are not supported by this release of the product, or that do not interoperate correctly with it. Review these limitations carefully.
 
 == Standard deployment mode only
-The BlueXP backup and recovery Preview version works only in standard deployment mode, not restricted or private modes. 
+The BlueXP backup and recovery version works only in standard deployment mode, not restricted or private modes. 
 
 
 == Windows cluster name restriction

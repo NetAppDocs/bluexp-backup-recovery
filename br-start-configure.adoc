@@ -19,7 +19,7 @@ After you set up BlueXP, configure the backup and recovery settings. You should 
 * <<Maintain VMware vCenter settings>>.
 * <<Provide StorageGRID credentials>>.
 * <<Import and manage SnapCenter host resources>>.
-* <<Set up script execution hooks>> to run scripts before and after backup jobs.
+* link:br-use-manage-execution-hook-templates.html[Set up script execution hooks] to run scripts before and after backup jobs.
 * <<Configure log directories in snapshots for Windows hosts>>.
 //* Enable DataLock and integrity scanning. 
 //* <<Enable the Certificate Authority certificates>>.
@@ -245,23 +245,6 @@ image:../media/screen-br-settings-import-snapcenter-edit.png[Settings option to 
 //. Select *Save*.
 
 
-== Set up script execution hooks
-
-You might want to run scripts before and after backup jobs. To include scripts in your backup jobs, you can set up script execution hooks. These hooks allow you to run custom scripts at specific points in the backup process, such as before the backup starts or after it completes.    
-
-.Steps
-. From the BlueXP backup and recovery menu, select *Settings*.
-+
-image:../media/screen-br-settings-all.png[Settings option showing the options]
-. Select the down arrow for *Script execution hooks*.
-
-. Select *Add script execution hook*.
-. Enter the script execution hook details:
-* *Name*: Enter a name for the script execution hook.
-* *Script type*: Select the type of script you want to run (for example, Pre-Snapshot, Pre-Backup, or Post-Restore).
-* *Script content*: Enter the content of the script you want to run.
-
-. Select *Add* to save the script execution hook.
 
 
 

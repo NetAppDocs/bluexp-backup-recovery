@@ -17,7 +17,7 @@ BlueXP backup and recovery supports two S3 archival storage classes and most reg
 
 
 ====
-*NOTE*   This information applies to a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
+*NOTE*   To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
 ====
 
 == Supported S3 archival storage classes for BlueXP backup and recovery

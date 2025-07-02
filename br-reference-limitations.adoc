@@ -13,14 +13,9 @@ summary: Known limitations identify functions that are not supported by this rel
 :imagesdir: ./media/
 
 [.lead]
-Known limitations identify functions that are not supported by this release of the product, or that do not interoperate correctly with it. Review these limitations carefully.
+Known limitations identify functions that are not supported by this release of BlueXP backup and recovery, or that do not interoperate correctly with it. Review these limitations carefully.
 
 
-====
-*NOTE*   This information applies to a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
-====
-
-== Backup and restore limitations for ONTAP volumes
 
 
 * BlueXP backup and recovery backing up Cloud Volume ONTAP to an object store in the AWS China regions (including Beijing and Ningxia); however, you might need to manually modify Identity and Access Management (IAM) policies first. 
@@ -37,7 +32,7 @@ For details about creating a Connector in Azure, refer to https://docs.netapp.co
 
 * BlueXP backup and recovery does not support backups of FlexCache volumes. 
 
-=== Replication limitations for ONTAP volumes
+== Replication limitations for ONTAP volumes
 
 
 * You can select only one FlexGroup volume at a time for replication. You'll need to activate backups separately for each FlexGroup volume.
@@ -53,7 +48,7 @@ There is no limitation for FlexVol volumes - you can select all FlexVol volumes 
 
 * When creating replications from on-premises ONTAP systems, if the ONTAP version on the target Cloud Volumes ONTAP system is 9.8, 9.9, or 9.11, only mirror-vault policies are allowed.
 
-=== Backup-to-object limitations for ONTAP volumes
+== Backup-to-object limitations for ONTAP volumes
 
 
 * When backing up data, BlueXP backup and recovery will not maintain NetApp Volume Encryption (NVE). This means that encrypted data on the NVE volume will be decrypted while the data is being transferred to the destination and the encryption will not be maintained. 
@@ -96,7 +91,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-e
 
 * WORM/Compliance mode on an object store is supported on Amazon S3, Azure, and StorageGRID at this time. This is known as the DataLock feature, and it must be managed by using BlueXP backup and recovery settings, not by using the cloud provider interface.
 
-=== Restore limitations for ONTAP volumes
+== Restore limitations for ONTAP volumes
 
 
 These limitations apply to both the Search & Restore and the Browse & Restore methods of restoring files and folders; unless called out specifically.
