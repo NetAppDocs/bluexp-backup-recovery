@@ -28,14 +28,14 @@ Organization admin or Folder or project admin. https://docs.netapp.com/us-en/blu
 +
 The list of restore points appears. 
 . Open the Actions menu for the restore point you want to use, and select *Restore*.
-**General settings**
+.General settings
 . Choose the source to restore from (local, secondary, or object store).
 . Choose the destination cluster from the *Cluster* list.
 . Choose the restore destination namespace (original or new).
 +
 Note that restoring to a different cluster and the original namespace are not supported.
 . Select *Next*.
-**Resource selection**
+.Resource selection
 . Choose whether you want to restore all resources associated with the application or use a filter to select specific resources to restore:
 
 [role="tabbed-block"]
@@ -63,7 +63,7 @@ Each rule can filter on criteria such as the resource namespace, labels, group, 
 --
 
 ====
-**Destination settings**
+.Destination settings
 . Choose to restore either to the default storage class or to a different storage class. 
 . Optionally, if you chose to restore to a different storage class, select a destination storage class to match each source storage class. The destination storage class must be available on the destination cluster.
 . Select *Restore*.
