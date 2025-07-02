@@ -24,11 +24,12 @@ Choose between the following types of clones:
 You can accomplish the following protection goals:
 
 * Create a clone 
-** From an existing snapshot
-** And create an instant snapshot
 * Refresh a clone
 * Split a clone 
 * Delete a clone
+
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, or Backup and Recovery clone admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
 
 == Create a clone  
 

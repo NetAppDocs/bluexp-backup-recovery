@@ -148,7 +148,7 @@ sidebar:
               url: /br-use-manage-kubernetes-applications.html 
 #        - title: Manage inventory, snapshots, and policies       
 #          entries:            
-        - title: Monitor protection tasks
+        - title: Monitor jobs
           url: /br-use-monitor-tasks.html
         - title: Create reports 
           url: /br-use-reports.html

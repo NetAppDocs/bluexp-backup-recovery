@@ -38,7 +38,10 @@ You can accomplish the following tasks related to managing your inventory:
 
 == Manage host information 
 
-You can manage host information to ensure that the right hosts are protected. You can view, edit, and delete host information.  
+You can manage host information to ensure that the right hosts are protected. You can view, edit, and delete host information. 
+
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery backup admin, Backup and Recovery restore admin, or Backup and Recovery clone admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
 
 
 * Configure log directory. For details, refer to link:br-start-setup.html[Configure BlueXP backup and recovery settings]. 
@@ -51,6 +54,7 @@ You can manage host information to ensure that the right hosts are protected. Yo
 
 You can suspend schedules to stop the backup and restore operations for a host. You might want to do this if you need to perform maintenance activities on the host.
 
+.Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the host on which you want to suspend schedules.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Suspend schedules*.
@@ -61,6 +65,7 @@ You can suspend schedules to stop the backup and restore operations for a host. 
 
 You can change the vCenter server information, host registration credentials, and advanced settings options. 
 
+.Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 
 . Select the host that you want to edit.
@@ -74,6 +79,7 @@ image:screen-br-inventory-hosts-edit.png[Edit host]
 
 You can delete the host information to stop service charges.
 
+.Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the host that you want to delete.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Delete host*.
@@ -100,10 +106,14 @@ You can manage instances information to ensure that resources have the appropria
 * Edit protection 
 * Back up now   
 
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery backup admin, Backup and Recovery restore admin, or Backup and Recovery clone admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
 === Protect database instances  
 
 You can assign a policy to a database instance using policies that govern the schedules and retention of resource protection.
 
+.Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Instances* tab. 
@@ -132,7 +142,7 @@ You can associate credentials with a resource so that protection can occur.
 
 For details, see link:br-start-configure.html[Configure BlueXP backup and recovery settings, including credentials].
 
-
+.Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Instances* tab. 
@@ -146,6 +156,7 @@ For details, see link:br-start-configure.html[Configure BlueXP backup and recove
 
 You can change the policy, create a new policy, set a schedule, and set retention settings.
 
+.Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Instances* tab. 
@@ -158,6 +169,7 @@ For details about creating a policy, refer to link:br-use-policies-create.html[C
 
 You can back up your data now to ensure that your data is protected immediately.
 
+.Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Instances* tab. 
@@ -182,6 +194,10 @@ You can manage database information in the following ways:
 
 You can change the policy, create a new policy, set a schedule, and set retention settings.
 
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery backup admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
+.Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Databases* tab. 
@@ -194,6 +210,10 @@ For details about creating a policy, refer to link:br-use-policies-create.html[C
 
 You can restore a database to ensure that your data is protected.
 
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery restore admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
+.Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Databases* tab. 
@@ -205,6 +225,11 @@ For information about restoring workloads, refer to link:br-use-restore-overview
 === Edit protection settings
 
 You can change the policy, create a new policy, set a schedule, and set retention settings.
+
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery backup admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
+.Steps
 
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
@@ -218,6 +243,10 @@ For details about creating a policy, refer to link:br-use-policies-create.html[C
 
 You can back up your Microsoft SQL Server instances and databases now to ensure that your data is protected immediately.
 
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery backup admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
+.Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select the workload that you want to view and select *View*.
 . Select the *Instances* or *Databases* tab. 
