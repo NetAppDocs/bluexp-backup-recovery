@@ -36,7 +36,7 @@ indexpage:
           url: prev-ontap-policy-object-options.html    
         - title: Restore ONTAP volumes workloads
           url: prev-ontap-restore.html 
-    - title: Protect Microsoft SQL Server workloads 
+    - title: Protect Microsoft SQL Server workloads (Preview) 
       links:
         - title: Protect Microsoft SQL Server workloads overview 
           url: br-use-mssql-protect-overview.html       

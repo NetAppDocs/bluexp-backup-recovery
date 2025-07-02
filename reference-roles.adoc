@@ -1,0 +1,81 @@
+---
+sidebar: sidebar
+permalink: reference-roles.html
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, roles, permissions, access control, role-based access control, rbac
+summary: BlueXP backup and recovery employs roles to govern the access that each user has to specific features and actions
+---
+
+= BlueXP backup and recovery role-based access to features
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+BlueXP backup and recovery employs roles to govern the access that each user has to specific features and actions. 
+
+The service uses the following roles that are specific to BlueXP backup and recovery. 
+
+* *Backup and recovery super admin*: Perform any actions in BlueXP backup and recovery.
+* *Backup admin*: Perform backups to local snapshots, replicate to secondary storage, and back up to object storage actions in BlueXP backup and recovery. 
+* *Restore admin*: Restore data using BlueXP backup and recovery. 
+* *Clone admin*: Clone data using BlueXP backup and recovery. 
+* *Backup and recovery viewer*: View information in BlueXP backup and recovery, but not perform any actions.
+
+
+The BlueXP platform for all BlueXP services uses the following types of roles: 
+ 
+* *Platform roles* allow you to manage users, assign them to resources and give them roles along with other platform-wide actions. 
+ 
+* *Data services roles* are limited to only a specific data service. You can have mulitple data services roles depending on your job. BlueXP disaster recovery is one of the BlueXP data services. 
+
+Other BlueXP platform roles are treated as viewers in BlueXP backup and recovery. 
+
+
+For details about all BlueXP platform roles, see https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[the BlueXP setup and administration documentation^].
+
+The following table indicates the actions that each BlueXP backup and recovery role can perform. 
+
+[cols=5*,options="header",cols="30,20a,20a,20a,20a",width="100%"]
+|===
+| Feature and action
+| Backup admin
+| Restore admin
+| Clone admin
+| Backup and recovery viewer
+
+| View dashboard and all tabs | Yes | Yes |Yes |Yes
+| Start free trial | Yes | No  |No |No
+| Initiate discovery of workloads | Yes | No |No |No
+| View license information | Yes | Yes |Yes |Yes
+| Activate license | Yes | No  |Yes |No
+
+5+| *On the Sites tab*: 
+| View sites | Yes | Yes |Yes |Yes
+| Add, modify, or delete sites | Yes | No| No |No
+
+
+5+| *On the Replication plans tab*: 
+| View replication plans | Yes | Yes  |Yes |Yes
+| View replication plan details | Yes | Yes  |Yes |Yes
+| Create or modify replication plans | Yes | Yes  |Yes |No
+| Create reports | Yes | No |No | No
+| View snapshots | Yes | Yes | Yes | Yes
+| Perform failover tests | Yes | Yes | Yes |No
+| Perform failovers | Yes | Yes  | No |No
+| Perform failbacks | Yes | Yes  |No |No
+| Perform migations | Yes | Yes  |No |No
+
+5+| *On the Resource groups tab*: 
+| View resource groups | Yes | Yes  |Yes |Yes
+| Create, modify, or delete resource groups| Yes | No | Yes | No
+
+
+5+| *On the Job Monitoring tab*:
+| View jobs| Yes | No  |Yes |Yes
+| Cancel jobs| Yes | Yes |Yes |No
+
+
+
+|===

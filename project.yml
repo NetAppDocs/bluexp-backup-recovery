@@ -100,7 +100,7 @@ sidebar:
             url: /prev-ontap-backup-manage.html
           - title: Restore from ONTAP backups 
             url: /prev-ontap-restore.html
-        - title: Protect Microsoft SQL Server workloads 
+        - title: Protect Microsoft SQL Server workloads (Preview)
           entries:
             - title: Protect Microsoft SQL Server workloads overview
               url: /br-use-mssql-protect-overview.html
@@ -160,6 +160,8 @@ sidebar:
       entries:
         - title: Policies in SnapCenter compared to BlueXP backup and recovery
           url: /reference-policy-differences-snapcenter.html
+        - title: BlueXP backup and recovery roles and privileges
+          url: /reference-roles.html
         - title: Supported AWS archive storage tiers
           url: /prev-reference-aws-archive-storage-tiers.html
         - title: Supported Azure archive storage tiers
