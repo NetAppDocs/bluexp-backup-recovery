@@ -13,7 +13,7 @@ summary: BlueXP backup and recovery enables you to restore applications that you
 :imagesdir: ./media/
 
 [.lead]
-BlueXP backup and recovery enables you to restore applications that you have protected with a protection policy. To restore an application, the application needs to have a protection status of "Protected" and it should have an associated protection policy. To restore an application, you need a restore point, which consists of the local snapshot, the secondary snapshot, and the backup to the object store. You can restore an application using the backup or either of the snapshots.
+BlueXP backup and recovery enables you to restore applications that you have protected with a protection policy. To restore an application, the application needs to have a protection status of "Protected" and it should have an associated protection policy. You restore an application using a restore point, which consists of the local snapshot, the secondary snapshot, and the backup to the object store. You can restore an application using the local, secondary, or object store archive.
 
 .Required BlueXP role
 
