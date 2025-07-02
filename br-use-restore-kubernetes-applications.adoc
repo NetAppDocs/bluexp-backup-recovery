@@ -35,14 +35,19 @@ The list of restore points appears.
 Note that restores to a different cluster and the original namespace are not supported.
 . Select *Next*.
 . Choose whether you want to restore all resources associated with the application or use a filter to select specific resources to restore:
+
 [role="tabbed-block"]
 ====
+
 .Restore all resources
+
 --
 .. Select *Restore all resources*.
 .. Select *Next*.
 --
+
 .Restore specific resources
+
 --
 .. Select *Selective resources*.
 .. Choose the behavior of the resource filter. If you choose *Include*, the resources you select are restored. If you choose *Exclude*, the resources you select are not restored.
@@ -52,8 +57,11 @@ Each rule can filter on criteria such as the resource namespace, labels, group, 
 .. Select *Save* to save each rule.
 .. When you have added all the rules you need, select *Search* to see the resources available in the backup archive that match your filter criteria.
 .. When satisfied with the results, select *Next*.
+
 --
+
 ====
+
 . Choose to restore either to the default storage class or to a different storage class. 
 . Optionally, if you chose to restore to a different storage class, select a destination storage class to match each source storage class. The destination storage class must be available on the destination cluster.
 . Select *Restore*.
