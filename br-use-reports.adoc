@@ -13,7 +13,12 @@ summary: In BlueXP backup and recovery, create reports to view the status of you
 [.lead]
 In BlueXP backup and recovery, create reports to view the status of your backups, including the number of backups, the number of successful backups, and the number of failed backups. You can also view the details of each backup, including the backup type, the storage system used for the backup, and the time of the backup.
 
+
+
 == Create a report
+
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery backup admin, Backup and Recovery restore admin, Backup and Recovery clone admin. Learn about link:reference-roles.html[Backup and recovery roles and privileges]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^]. 
 
 . From the BlueXP backup and recovery menu, select the *Reports* tab.
 

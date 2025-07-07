@@ -24,6 +24,10 @@ After you set up BlueXP, configure the backup and recovery settings. You should 
 //* Enable DataLock and integrity scanning. 
 //* <<Enable the Certificate Authority certificates>>.
 
+
+*Required BlueXP role*
+Backup and Recovery super admin, Backup and Recovery backup admin, Backup and Recovery restore admin. Learn about link:reference-roles.html[Backup and recovery roles and privileges]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].  
+
 == Add credentials for host resources
 
 Add credentials for the host resources that you want to import from SnapCenter. Host credentials are used to discover new workloads and apply backup policies.

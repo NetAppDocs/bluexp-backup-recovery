@@ -18,6 +18,10 @@ The BlueXP backup and recovery service needs to first discover Microsoft SQL Ser
 * <<Discover Microsoft SQL Server workloads and optionally import SnapCenter resources>>
 * <<Discover Kubernetes workloads>>
 
+*Required BlueXP role*
+Backup and Recovery super admin. Learn about link:reference-roles.html[Backup and recovery roles and privileges]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
+
 
 == Discover Microsoft SQL Server workloads and optionally import SnapCenter resources
 
@@ -61,9 +65,9 @@ TIP: After you import SnapCenter host resources, BlueXP backup and recovery does
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
 
-. From the top menu, select *Inventory*.
+. From the top menu, select *Inventory* > *Discover resources*.
 
-. From the BlueXP backup and recovery Inventory page, select *Import from SnapCenter*.
+. From the BlueXP backup and recovery Discover workload resources page, select *Import from SnapCenter*.
 
 +
 image:../media/screen-br-settings-import-snapcenter-details.png[Settings option to import SnapCenter Server resources]

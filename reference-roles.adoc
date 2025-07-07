@@ -24,16 +24,9 @@ The service uses the following roles that are specific to BlueXP backup and reco
 * *Backup and recovery viewer*: View information in BlueXP backup and recovery, but not perform any actions.
 
 
-The BlueXP platform for all BlueXP services uses the following types of roles: 
- 
-* *Platform roles* allow you to manage users, assign them to resources and give them roles along with other platform-wide actions. 
- 
-* *Data services roles* are limited to only a specific data service. You can have mulitple data services roles depending on your job. BlueXP disaster recovery is one of the BlueXP data services. 
-
-Other BlueXP platform roles are treated as viewers in BlueXP backup and recovery. 
 
 
-For details about all BlueXP platform roles, see https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[the BlueXP setup and administration documentation^].
+For details about all BlueXP access roles, see https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[the BlueXP setup and administration documentation^].
 
 The following table indicates the actions that each BlueXP backup and recovery role can perform. 
 

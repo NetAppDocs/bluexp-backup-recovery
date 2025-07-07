@@ -47,10 +47,8 @@ image:screen-br-policies.png["Policies page"]
 You can create policies that govern your local snapshots, replications to secondary storage, and backups to object storage. Part of your 3-2-1 strategy involves creating a snapshot copy of the Microsoft SQL Server instances or databases on the *primary* storage system. 
 
 
-.Required BlueXP role
-
-Organization admin, SnapCenter admin, or Folder or project admin. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
-
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery backup admin. Learn about link:reference-roles.html[Backup and recovery roles and privileges]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^]. 
 .Before you begin
 
 If you plan on replicating to secondary storage and want to use snapshot locking on local snapshots or on remote ONTAP secondary storage, you first need to initialize the ONTAP compliance clock on the cluster level. This is a requirement for enabling snapshot locking in the policy.
@@ -76,7 +74,7 @@ image:screen-br-policies-new-nodata.png[Screenshot of new policy creation]
 * *Backup architecture* section: Select the down arrow and choose the architecture for the backup, such as fan-out, cascading, and disk to disk. 
 
 
-** *Local snapshots*: Local snapshots on the selected volume. Local snapshots are a key component of data protection strategies, capturing the state of your data at specific points in time. Local snapshots are created using the Snapshot technology, which provides point-in-time copies of your data without impacting performance. This creates read-only, point-in-time copies of production volumes where your workloads are running. The snapshot consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last snapshot. You can use local snapshots to recover from data loss or corruption, as well as to create backups for disaster recovery purposes.
+** *Local snapshot*: Local snapshot on the selected volume. Local snapshots are a key component of data protection strategies, capturing the state of your data at specific points in time. This creates read-only, point-in-time copies of production volumes where your workloads are running. The snapshot consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last snapshot. You can use local snapshots to recover from data loss or corruption, as well as to create backups for disaster recovery purposes.
 ** *3-2-1 fanout*: Primary storage (disk) to secondary storage (disk) to cloud (object store). Creates multiple copies of data across different storage systems, such as ONTAP to ONTAP and ONTAP to object-store configurations. This can be a cloud hyperscaler object store or a private object store -- StorageGRID. These configurations help in achieving optimal data protection and disaster recovery.
 ** *3-2-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary storage (disk) to cloud storage (object store). This can be a cloud hyperscaler object store or a private object store -- StorageGRID. This creates a chain of data replication across multiple systems to ensure redundancy and reliability. 
 ** *Disk to disk*: Primary storage (disk) to secondary storage (disk). The ONTAP to ONTAP data protection strategy replicates data between two ONTAP systems to ensure high availability and disaster recovery. This is typically achieved using SnapMirror, which supports both synchronous and asynchronous replication. This method ensures that your data is continuously updated and available across multiple locations, providing robust protection against data loss. 
@@ -162,8 +160,6 @@ Enter information in these fields:
 * *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
 * *Retention*: Enter the number of snapshots to keep.
 * *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
-+
-NOTE: This feature is not available in the Preview 2025 version.
 * *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. 
 
 //To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
