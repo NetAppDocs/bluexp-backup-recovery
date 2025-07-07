@@ -17,7 +17,7 @@ BlueXP backup and recovery enables you to manage your Kubernetes applications an
 
 .Required BlueXP role
 
-Organization admin or Folder or project admin. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+Organization admin or SnapCenter admin. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
 
 == Edit a Kubernetes application
 You can modify the settings of an existing Kubernetes application if the resources associated with the application have changed.

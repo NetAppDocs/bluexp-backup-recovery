@@ -15,6 +15,8 @@ In BlueXP backup and recovery, create your own policies that govern the backup f
 
 //This used to be the topic for Manage backup policies for ONTAP volumes. Recasting this for MS SQL Server apps. 
 
+NOTE: Some of these options and configuration sections are not available for all workloads.
+
 If you import resources from SnapCenter, you might encounter some differences with policies used in SnapCenter and those used in BlueXP backup and recovery. See link:reference-policy-differences-snapcenter.html[Policy differences between SnapCenter and BlueXP backup and recovery].
 
 You can accomplish the following goals related to policies: 
@@ -26,10 +28,6 @@ You can accomplish the following goals related to policies:
 * Edit policies
 * Delete policies 
 
- 
-
-
-
 == View policies 
 
 . From the BlueXP backup and recovery menu, select *Policies*.
@@ -39,12 +37,10 @@ image:screen-br-policies.png["Policies page"]
 . Review these policy details. 
 
 * *Workload*: Examples include Microsoft SQL Server, Volumes, VMware, or Kubernetes. 
-
 * *Backup type*: Examples include full backup and log backup.
 * *Architecture*: Examples include local snapshot, fan-out, cascading, disk to disk, and disk to object store. 
 * *Resources protected*: Shows how many resources out of the total resources on that workload are protected.
 * *Ransomware protection*: Shows if the policy includes snapshot locking on the local snapshot, snapshot locking on secondary storage, or DataLock locking on object storage. 
-
 
 == Create a policy
 
@@ -53,7 +49,7 @@ You can create policies that govern your local snapshots, replications to second
 
 .Required BlueXP role
 
-Organization admin or Folder or project admin. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+Organization admin, SnapCenter admin, or Folder or project admin. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
 
 .Before you begin
 
@@ -96,12 +92,13 @@ NOTE: You can configure multiple secondary settings for the disk-to-disk fanout 
 Provide information for the local snapshot.
 
 * Select the *Add schedule* option to select the snapshot schedule or schedules. You can have a maximum of 5 schedules.  
-* *Snapshot frequency*: Select the frequency of hourly, daily, weekly, monthly, or yearly. 
+* *Snapshot frequency*: Select the frequency of hourly, daily, weekly, monthly, or yearly. The yearly frequency is not available for Kubernetes workloads. 
 * *Snapshot retention*: Enter the number of snapshots to keep.
-* *Enable log backup*: Check the option to back up logs and set the frequency and retention of the log backups. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
+* *Enable log backup*: (Not available for Kubernetes workloads) Check the option to back up logs and set the frequency and retention of the log backups. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
+* *Provider*: (Kubernetes workloads only) Select the storage provider that hosts the Kubernetes application resources.
+* *Backup target*: (Kubernetes workloads only) Select the target system for the backup. This is the storage system where the snapshots will be stored. Ensure that the target is accessible within your backup environment.
 
-* Optionally, select *Advanced* to set the SnapMirror label and enable snapshot locking. 
-
+* Optionally, select *Advanced* to set the SnapMirror label and enable snapshot locking (not available for Kubernetes workloads). 
 
 ** *SnapMirror label*: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship. Adding a label to a snapshot marks it as a target for SnapMirror replication.
 ** *Offset from an hour*: Enter the number of minutes to offset the snapshot from the start of the hour. For example, if you enter *15*, the snapshot will be taken at 15 minutes past the hour.
@@ -115,7 +112,7 @@ Provide information for the local snapshot.
 
 === Create a policy for secondary settings (replication to secondary storage)
 
-Provide information for the replication to secondary storage. Schedule information from the local snapshot settings appears for you in the secondary settings.  
+Provide information for the replication to secondary storage. Schedule information from the local snapshot settings appears for you in the secondary settings. These settings are not availabe for Kubernetes workloads.
 
 * *Backup*: Select the frequency of hourly, daily, weekly, monthly, or yearly. 
 * *Backup target*: Select the target system on secondary storage for the backup.
@@ -133,7 +130,7 @@ Provide information for the replication to secondary storage. Schedule informati
 
 === Create a policy for object storage settings
 
-Provide information for the backup to object storage.
+Provide information for the backup to object storage. These settings are called "Backup settings" for Kubernetes workloads.
 
 NOTE: The fields that appear differ depending on the provider and architecture selected. 
 
@@ -176,25 +173,22 @@ Enter information in these fields:
 * *Provider*: Select *StorageGRID*. 
 * *Backup target name*: Select a registered S3 object storage target. Ensure that the target is accessible within your backup environment.   
 * *Schedule settings*: Select the schedule that was set for the local snapshots. You can remove a schedule, but you cannot add one because the schedules are set according to the local snapshot schedules.  
-* *Retention*: Enter the number of snapshots to keep.
+* *Retention copies*: Enter the number of snapshots to keep for each frequency.
 
-* *Transfer schedule for object storage*: Choose the ONTAP transfer schedule to back up data to object storage. 
+* *Transfer schedule for object storage*: (Not available for Kubernetes workloads) Choose the ONTAP transfer schedule to back up data to object storage. 
 
-* *Enable integrity scan*: Select whether you want to enable integrity scans (snapshot locking) on the object storage. This ensures that the backups are valid and can be restored successfully. The integrity scan frequency is set to 7 days by default. To protect your backups from being modified or deleted, select the *Integrity scan* option. The scan occurs only on the latest snapshot. You can enable or disable integrity scans on the latest snapshot. 
+* *Enable integrity scan*: (Not available for Kubernetes workloads) Select whether you want to enable integrity scans (snapshot locking) on the object storage. This ensures that the backups are valid and can be restored successfully. The integrity scan frequency is set to 7 days by default. To protect your backups from being modified or deleted, select the *Integrity scan* option. The scan occurs only on the latest snapshot. You can enable or disable integrity scans on the latest snapshot. 
 //+
 //TIP: Enabling scans will incur extra charges, depending on the cloud provider. 
 
 
-* *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. 
+* *Tier your backups from object store to archival storage*: (Not available for Kubernetes workloads) If you choose to tier backups to archive storage, select the tier option and the number of days to archive. 
 
 //To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 
-
-
-
 === Configure advanced settings in the policy 
 
-Optionally, you can configure advanced settings in the policy. These settings are available for all backup architectures, including local snapshots, replication to secondary storage, and backups to object storage.
+Optionally, you can configure advanced settings in the policy. These settings are available for all backup architectures, including local snapshots, replication to secondary storage, and backups to object storage. These settings are not available for Kubernetes workloads.
 
 image:screen-br-policies-advanced.png[Advanced settings screenshot for BlueXP backup and recovery policies]
 
