@@ -61,9 +61,9 @@ TIP: After you import SnapCenter host resources, BlueXP backup and recovery does
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
 
-. From the top menu, select *Inventory*.
+. From the top menu, select *Inventory* > *Discover resources*.
 
-. From the BlueXP backup and recovery Inventory page, select *Import from SnapCenter*.
+. From the BlueXP backup and recovery Discover workload resources page, select *Import from SnapCenter*.
 
 +
 image:../media/screen-br-settings-import-snapcenter-details.png[Settings option to import SnapCenter Server resources]

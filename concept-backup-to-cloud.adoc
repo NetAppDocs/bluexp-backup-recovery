@@ -169,8 +169,8 @@ The service protects the following application-based workloads:
 
 //* NetApp file shares
 * ONTAP volumes 
+* Microsoft SQL Server instances and databases for physical, VMware Virtual Machine File System (VMFS), and VMware Virtual Machine Disk (VMDK) NFS (Preview)
 * VMware datastores
-* Microsoft SQL Server instances and databases for physical, VMware Virtual Machine File System (VMFS), and VMware Virtual Machine Disk (VMDK) NFS
 * Kubernetes workloads (Preview)
 * More coming soon
 
@@ -192,8 +192,8 @@ The service protects the following application-based workloads:
 * Amazon Web Services (AWS) S3
 //* Google Cloud Storage
 * Microsoft Azure Blob
-* NetApp StorageGRID
-* NetApp ONTAP S3
+* StorageGRID
+* ONTAP S3
 
 
 == BlueXP backup and recovery uses the SnapCenter Plugin for Microsoft SQL Server
