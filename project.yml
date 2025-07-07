@@ -48,8 +48,6 @@ sidebar:
           url: /br-start-setup.html
         - title: Log in to BlueXP backup and recovery
           url: /br-start-login.html
-        - title: Start a free trial
-          url: /br-start-trial.html
         - title: Discover Microsoft SQL Server or Kubernetes workloads
           url: /br-start-discover.html
         - title: Switch to different BlueXP backup and recovery workloads
