@@ -58,7 +58,7 @@ sidebar:
           entries:
             - title: Configure BlueXP backup and recovery general settings
               url: /br-start-configure.html
-            - title: Manage execution hook templates
+            - title: Manage execution hook templates for Kubernetes workloads
               url: /br-use-manage-execution-hook-templates.html
     - title: Use BlueXP backup and recovery
       entries:

@@ -49,7 +49,7 @@ You can create policies that govern your local snapshots, replications to second
 
 .Required BlueXP role
 
-Organization admin or Folder or project admin. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+Organization admin, SnapCenter admin, or Folder or project admin. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
 
 .Before you begin
 
