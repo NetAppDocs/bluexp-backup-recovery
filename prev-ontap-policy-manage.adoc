@@ -69,17 +69,17 @@ Snapshot policies are displayed by default.
 
 == Create policies 
 
-You can create policies that govern your Snapshot copies, replications and backups to object storage: 
+You can create policies that govern your snapshot copies, replications and backups to object storage: 
 
-* <<Create a Snapshot policy before initiating the Snapshot>>
+* <<Create a snapshot policy before initiating the snapshot>>
 * <<Create a replication policy before initiating the replication>>
 * <<Create a backup-to-object-storage policy before initiating the backup>>
 
-=== Create a Snapshot policy before initiating the Snapshot
+=== Create a snapshot policy before initiating the snapshot
 
-Part of your 3-2-1 strategy involves creating a Snapshot copy of the volume on the *primary* storage system. 
+Part of your 3-2-1 strategy involves creating a snapshot copy of the volume on the *primary* storage system. 
 
-Part of the policy creation process involves identifying Snapshot and SnapMirror labels that denote the schedule and retention. You can use predefined labels or create your own. 
+Part of the policy creation process involves identifying snapshot and SnapMirror labels that denote the schedule and retention. You can use predefined labels or create your own. 
 
 //image:screenshot_policies_labels.png[Screenshot of Policies management page showing labels]
 
@@ -90,28 +90,28 @@ Part of the policy creation process involves identifying Snapshot and SnapMirror
 The Policies management page appears. 
 . In the Policies page, select *Create policy* > *Create Snapshot policy*.
 . Specify the policy name. 
-. Select the Snapshot schedule or schedules. You can have a maximum of 5 labels. Or, create a schedule. 
+. Select the snapshot schedule or schedules. You can have a maximum of 5 labels. Or, create a schedule. 
 . If you choose to create a schedule: 
 
 .. Select the frequency of hourly, daily, weekly, monthly, or yearly. 
-.. Specify the Snapshot labels denoting the schedule and retention. 
-.. Enter when and how often the Snapshot will be taken.
-.. Retention: Enter the number of Snapshots to keep.
+.. Specify the snapshot labels denoting the schedule and retention. 
+.. Enter when and how often the snapshot will be taken.
+.. Retention: Enter the number of snapshots to keep.
 +
-//image:screenshot_policies_create_labels.png["A screenshot of setting up Snapshot schedule labels"]
+//image:screenshot_policies_create_labels.png["A screenshot of setting up snapshot schedule labels"]
 . Select *Create*.
 
 *Snapshot policy example using cascading architecture*
 
-This example creates a Snapshot policy with two clusters: 
+This example creates a snapshot policy with two clusters: 
 
 . Cluster 1: 
 .. Select Cluster 1 on the policy page.
 ..  Ignore the Replication and Backup to Object policy sections. 
-.. Create the Snapshot policy. 
+.. Create the snapshot policy. 
 . Cluster 2: 
 .. Select Cluster 2 on the Policy page.
-.. Ignore the Snapshot policy section. 
+.. Ignore the snapshot policy section. 
 .. Configure the Replication and Backup to object policies. 
 
 === Create a replication policy before initiating the replication
@@ -142,20 +142,20 @@ This storage policy resides in different storage system locations depending on t
 
 . (Optional) To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 + 
-link:prev-ontap-object-options.html[Learn more about archival storage settings].
+link:prev-ontap-policy-object-options.html[Learn more about archival storage settings].
 
 . (Optional) To protect your backups from being modified or deleted, select the *DataLock & Ransomware protection* option.
 +
 If your cluster is using ONTAP 9.11.1 or greater, you can choose to protect your backups from deletion by configuring _DataLock_ and _Ransomware protection_. 
 
 +
-link:prev-ontap-object-options.html[Learn more about the available DataLock settings].
+link:prev-ontap-policy-object-options.html[Learn more about the available DataLock settings].
 
 . Select *Create*.
 
 == Edit a policy 
 
-You can edit a custom Snapshot, replication, or backup policy. 
+You can edit a custom snapshot, replication, or backup policy. 
 
 Changing the backup policy affects all volumes that are using that policy. 
 
