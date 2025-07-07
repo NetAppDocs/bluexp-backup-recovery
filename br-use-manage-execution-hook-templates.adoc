@@ -17,7 +17,7 @@ An execution hook is a custom action that you can configure to run in conjunctio
 
 .Required BlueXP role
 
-Organization admin or SnapCenter admin. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+Organization admin or SnapCenter admin. link:reference-roles.html[Learn about BlueXP backup and recovery access roles]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
 
 == Types of execution hooks
 BlueXP backup and recovery supports the following types of execution hooks, based on when they can be run:
