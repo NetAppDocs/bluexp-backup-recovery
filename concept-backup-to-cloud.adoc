@@ -170,7 +170,7 @@ The service protects the following application-based workloads:
 //* NetApp file shares
 * ONTAP volumes 
 * VMware datastores
-* Microsoft SQL Server instances and databases for VMware Virtual Machine File System (VMFS) and VMware Virtual Machine Disk (VMDK) NFS
+* Microsoft SQL Server instances and databases for physical, VMware Virtual Machine File System (VMFS), and VMware Virtual Machine Disk (VMDK) NFS
 * Kubernetes workloads (Preview)
 * More coming soon
 
@@ -237,7 +237,7 @@ endif::gcp[]
 
 * In StorageGRID, BlueXP uses an existing storage account for the object store bucket.
 
-//* In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
+* In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
 
 
 === Backup copies are associated with your NetApp account

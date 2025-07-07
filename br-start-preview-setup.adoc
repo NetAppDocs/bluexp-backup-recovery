@@ -15,9 +15,6 @@ summary: By participating in the BlueXP backup and recovery Preview, you play a 
 [.lead]
 By participating in one of the BlueXP backup and recovery Preview versions, you play a crucial role in refining and enhancing the BlueXP backup and recovery service. For the Preview version of BlueXP backup and recovery, we will assist with the setup. Here is the process.
 
-. *Enrollment*: Enroll for the Preview by signing up on an enrollment form. 
-
-. *Preview access*: After you are enrolled, you will receive early access to the BlueXP backup and recovery service. 
 
 . *Registration*: If you don't already have a BlueXP account, sign up for one. Here's how: 
 

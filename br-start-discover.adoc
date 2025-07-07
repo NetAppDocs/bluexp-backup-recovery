@@ -60,13 +60,8 @@ TIP: After you import SnapCenter host resources, BlueXP backup and recovery does
 .Steps 
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
-+
-image:screen-br-landing-unified.png[Landing page screenshot for BlueXP blueXP backup and recovery]
 
-. From the BlueXP backup and recovery "Welcome to the new BlueXP backup and recovery" landing page, select *Discover and manage*. 
-
-. *NOTE TO REVIEWERS: HOW DO YOU GET TO THE IMPORT SNAPCENTER OPTION FROM the landing page > Discover and manage?* 
-
+. From the top menu, select *Inventory*.
 
 . From the BlueXP backup and recovery Inventory page, select *Import from SnapCenter*.
 
@@ -214,31 +209,6 @@ link:br-use-dashboard.html[Learn what the Dashboard shows you.]
  
 
 
-=== Discover existing workloads for previously selected working environments
-
-If you have already selected working environments for discovery, you can discover newly created workloads for those environments. You might want to do this if you imported resources and policies and you want to discover new workloads. 
-
-.Steps
-
-. From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
-
-
-. From the menu, select *Inventory*. 
-. Select *Discover resources*.
-
-+
-image:screen-br-discover-workloads-newly-discovered.png[Newly discovered working environments screenshot]
-+
-TIP: This process might take a few minutes.
-. *vCenter settings*: Select an existing vCenter or add a new one. To add a new vCenter, enter the vCenter FQDN or IP address, user name, password, port, and protocol. 
-+
-TIP: If you are entering vCenter information, enter information for both vCenter settings and Host registration. If you added or entered vCenter information here, you also need to add plugin information in Advanced Settings. 
-. *Host registration*: Select *Add hosts* and enter information about the hosts containing the workloads you want to discover.  
-+
-TIP: If you are adding a standalone server and not a vCenter server, enter only the host information. 
-image:screen-br-discover-hosts.png[Discover workload resources showing Hosts registration section]
-
-. To add credentials for the host, select *Add credentials* in the Host registration section. 
 
 
 == Discover Kubernetes workloads

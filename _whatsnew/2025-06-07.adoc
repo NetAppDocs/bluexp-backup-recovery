@@ -7,9 +7,10 @@ NOTE: THIS DOCUMENTATION ABOUT PROTECTING MICROSOFT SQL SERVER WORKLOADS IS PROV
 This version of BlueXP backup and recovery includes the following updates:
 
 * A redesigned user interface provides a more intuitive experience for managing your backup and recovery tasks.
-* This version enables you to back up and restore Microsoft SQL Server databases. (Support for other workloads will be added in future releases.)
-* This version integrates SnapCenter capabilities, enabling you to manage and protect your SnapCenter resources with a 3-2-1 data protection strategy from the BlueXP backup and recovery user interface.
-* You can import SnapCenter workloads into BlueXP backup and recovery.  
+* You can add buckets in Amazon Web Services (AWS), Microsoft Azure Blob Storage, StorageGRID, and ONTAP S3 environments to use as backup targets for your Microsoft SQL Server workloads.
+* This version enables you to back up, restore, verify, and clone Microsoft SQL Server databases and availability groups. (Support for other workloads will be added in future releases.)
+* This version integrates SnapCenter capabilities, enabling you to manage and protect your SnapCenter resources with a 3-2-1 data protection strategy from the BlueXP backup and recovery user interface. You can import SnapCenter workloads into BlueXP backup and recovery. 
+* This version includes the ability to create detailed reports.  
 
 === Kubernetes workload support as a Technology Preview 
 
