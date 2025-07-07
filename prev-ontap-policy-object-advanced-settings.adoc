@@ -142,9 +142,9 @@ This setting does not affect the bandwidth allocated to any other replication re
 //
 //Once enabled, this backup policy will be applied to any new volume created in this working environment using BlueXP, System Manager, the ONTAP CLI, or the APIs.
 
-== Change whether historical Snapshot copies are exported as backup files
+== Change whether historical snapshot copies are exported as backup files
 
-If there are any local Snapshot copies for volumes that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic snapshots to object storage as backup files. This enables you to initialize your backups in the cloud by moving older snapshot copies into the baseline backup copy.
+If there are any local snapshot copies for volumes that match the backup schedule label you're using in this working environment (for example, daily, weekly, etc.), you can export those historic snapshots to object storage as backup files. This enables you to initialize your backups in the cloud by moving older snapshot copies into the baseline backup copy.
 
 Note that this option only applies to new backup files for new read/write volumes, and it is not supported with data protection (DP) volumes.
 
@@ -182,23 +182,25 @@ image:screenshot_backup_edit_yearly_snap_delete.png[A screenshot of the Yearly S
 
 == Enable or disable ransomware scans 
 
-Ransomware protection scans are enabled by default. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest Snapshot copy. You can enable or disable ransomware scans on the latest Snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed every 7 days by default. 
+Ransomware protection scans are enabled by default. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest snapshot copy. You can enable or disable ransomware scans on the latest snapshot copy by using the option on the Advanced Settings page. If you enable it, scans are performed every 7 days by default. 
+
+For details about DataLock and Ransomware Protection options, refer to link:prev-ontap-policy-object-options.html[DataLock and Ransomware Protection options].
 
 You can change that schedule to days or weeks or disable it, saving costs.  
 
 TIP: Enabling ransomware scans will incur extra charges depending on the cloud provider. 
 
-Scheduled ransomware scans run only on the latest Snapshot copy. 
+Scheduled ransomware scans run only on the latest snapshot copy.
 
 If the scheduled ransomware scans are disabled, you can still perform on-demand scans and the scan during a restore operation will still occur. 
 
-Refer to link:task-create-policies-ontap.html[Manage policies] for details about managing policies that implement ransomware detection. 
+Refer to link:prev-ontap-policy-manage.html[Manage policies] for details about managing policies that implement ransomware detection. 
 
 .Steps 
 
 . From the *Volumes* tab, select *Backup Settings*.
 
-. From the _Backup Settings page_, click image:iconactions-horizontal.gif[More icon] for the working environment and select *Advanced Settings*.
+. From the _Backup Settings page_, click image:icon-actions-horizontal.gif[More icon] for the working environment and select *Advanced Settings*.
 
 . In the Advanced Settings page, expand the *Ransomware scan* section. 
 . Enable or disable *Ransomware Scan*. 

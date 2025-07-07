@@ -116,11 +116,16 @@ You can enable DataLock and Ransomware protection when you create a policy. You 
 
 
 
+Refer to link:prev-ontap-policy-object-advanced-settings.html[How to update Ransomware protection options in the Advanced Settings page].
+
+
+
 === What is Ransomware protection
 
 Ransomware protection scans your backup files to look for evidence of a ransomware attack. The detection of ransomware attacks is performed using a checksum comparison. If potential ransomware is identified in a new backup file versus the previous backup file, that newer backup file is replaced by the most recent backup file that does not show any signs of a ransomware attack. (The file that was identified as having a ransomware attack is deleted 1 day after it has been replaced.)
 
 Scans occur in these situations:
+
 * Scans on cloud backup objects are initiated soon after they are transferred to the cloud object storage. The scan is not performed on the backup file when it is first written to cloud storage, but when the next backup file is written. 
 * Ransomware scans can be initiated when the backup is selected for the restore process. 
 * Scans can be performed on-demand at any time. 
@@ -129,7 +134,7 @@ Scans occur in these situations:
 
 When a ransomware attack is detected, the service uses the Active Data Connector Integrity Checker REST API to start the recovery process. The oldest version of the data objects is the source of truth and is made into the current version as part of the recovery process.
  
-Let's see how this works:-
+Let's see how this works:
 
 * In the event of a ransomware attack, the service tries to overwrite or delete the object in the bucket.
 * Because the cloud storage is versioning-enabled, it automatically creates a new version of the backup object. If an object is deleted with versioning turned on, it is marked as deleted but is still retrievable. If an object is overwritten, previous versions are stored and marked.
@@ -137,15 +142,6 @@ Let's see how this works:-
 * The recovery process involves reverting to the last known good copy. 
 
 
-
-
-=== DataLock and Ransomware Protection options
-
-Each backup policy provides a section for _DataLock and Ransomware Protection_ that you can apply to your backup files.
-
-
-
-Refer to link:prev-ontap-policy-object-advanced-settings.html[How to update Ransomware protection options in the Advanced Settings page].
 
 
 
