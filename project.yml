@@ -51,7 +51,7 @@ sidebar:
         - title: Discover Microsoft SQL Server or Kubernetes workloads
           url: /br-start-discover.html
         - title: Discover backup targets
-          url: /br-start-discover-backup-targets.html 
+          url: /br-start-discover-backup-targets.html
         - title: Switch to different BlueXP backup and recovery workloads
           url: /br-start-switch-ui.html
         - title: Configure BlueXP backup and recovery general settings
