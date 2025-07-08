@@ -331,7 +331,7 @@ endif::gcp[]
 
 BlueXP backup and recovery enables you to delete a single backup file, delete all backups for a volume, or delete all backups of all volumes in a working environment. You might want to delete all backups if you no longer need the backups, or if you deleted the source volume and want to remove all backups.
 
-Note that you can't delete backup files that you have locked using DataLock and Ransomware protection. The "Delete" option will be unavailable from the UI if you have selected one or more locked backup files.
+You can't delete backup files that you have locked using DataLock and Ransomware protection. The "Delete" option will be unavailable from the UI if you selected one or more locked backup files.
 
 CAUTION: If you plan to delete a working environment or cluster that has backups, you must delete the backups *before* deleting the system. BlueXP backup and recovery doesn't automatically delete backups when you delete a system, and there is no current support in the UI to delete the backups after the system has been deleted. You'll continue to be charged for object storage costs for any remaining backups.
 
@@ -352,27 +352,26 @@ image:screenshot_backup_settings_button.png[A screenshot that shows the Backup S
 
 . In the confirmation dialog box, enter the name of the working environment and select *Delete*.
 
-//=== Delete all backup files for a volume
-//
-//Deleting all backups for a volume also disables future backups for that volume.
-//
-//You can <<Enable and disable backups of volumes,restart making backups for the volume>> at any time from the Manage Backups page.
-//
-//.Steps
-//
-//. From the *Volumes* tab, click image:screenshot_horizontal_more_button.gif[More icon] for the source volume and select *Details & Backup List*.
-//+
-//image:screenshot_backup_view_backups_button.png[A screenshot that shows the Details & Backup List button which is available for a single volume.]
-//+
-//The list of all backup files is displayed.
-//+
-//image:screenshot_backup_view_backups.png[A screenshot that shows the List of all backup files for a single volume.]
-//
-//. Click *Actions* > *Delete all Backups*.
-//+
-//image:screenshot_delete_we_backups.png[A screenshot showing how to delete all backup files for a volume.]
-//
-//. In the confirmation dialog box, enter the volume name and click *Delete*.
+=== Delete all backup files for a volume
+
+Deleting all backups for a volume also disables future backups for that volume.
+
+
+.Steps
+
+. From the *Volumes* tab, click image:icon-actions-horizontal.gif[More icon] for the source volume and select *Details & Backup List*.
++
+image:screenshot_backup_view_backups_button.png[A screenshot that shows the Details & Backup List button which is available for a single volume.]
++
+The list of all backup files is displayed.
+
+. Select *Actions* > *Delete all Backups*.
++
+image:screenshot_backup_delete_all_backups.png[A screenshot that shows the Delete All Backups option]
+
+. Enter the volume name and indicate whether or not you want to force the deletion of all backups.
+
+. Select *Delete*.
 
 === Delete a single backup file for a volume
 
