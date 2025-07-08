@@ -13,11 +13,10 @@ summary: Complete a few steps to configure BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-After you set up BlueXP, configure the backup and recovery settings. You should do this before you actively start backing up and recovering your data. 
+After you set up BlueXP, configure the backup and recovery settings, which include adding credentials for host resources, importing SnapCenter resources, configuring log directories, and configuring VMware vCenter settings. You should do this before you actively start backing up and recovering your data. 
 
 * <<Add credentials for host resources>> for the Windows and SQL Server hosts that you imported from SnapCenter and add credentials. (Microsoft SQL Server workloads only)
 * <<Maintain VMware vCenter settings>>.
-* <<Provide StorageGRID credentials>>.
 * <<Import and manage SnapCenter host resources>>.
 * link:br-use-manage-execution-hook-templates.html[Set up script execution hooks] to run scripts before and after backup jobs. (Kubernetes workloads only)
 * <<Configure log directories in snapshots for Windows hosts>>.
@@ -112,30 +111,6 @@ image:../media/screen-br-settings-vmware-open.png[Settings option showing the VM
 
 
 
-== Provide StorageGRID credentials
-
-Provide the credentials needed to access the StorageGRID system. These credentials are used to discover the StorageGRID workloads that you want to back up.
-
-
-
-.Steps
-. From the BlueXP backup and recovery menu, select *Settings*.
-+
-image:../media/screen-br-settings-all.png[Settings option showing the options]
-. Select the down arrow to expand the *StorageGRID* section. 
-+
-image:../media/screen-br-settings-storagegrid-open.png[Settings option showing the StorageGRID settings]
-
-. Select *Add StorageGRID*.
-
-. Enter the StorageGRID information.
-* *StorageGRID Gateway Node FQDN*: Enter a FQDN name for StorageGRID.
-* *Port*: Enter the port number for StorageGRID.
-* *S3 access and secret key*: Enter the StorageGRID S3 access key. 
-
-* *Connectors*: Select the BlueXP Connector for StorageGRID.  
-
-. Select *Add*.
 
 == Import and manage SnapCenter host resources
 
