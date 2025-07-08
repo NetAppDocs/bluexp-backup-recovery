@@ -96,10 +96,10 @@ You need specific requirements to discover Kubernetes resources and protect your
 * You need a Kubernetes cluster in your environment
 ** Kubernetes distributions / versions that we support - what are they?
 ** Trident must be installed
-* BlueXP Connector needs to be installed (already documented in BXP docs, link to it)
+//* BlueXP Connector needs to be installed (already documented in BXP docs, link to it)
 * You need to have installed a BlueXP working environment (already documented in BXP docs, link to it)
 ** The working environment needs to have storage volumes configured and useable by BlueXP.
-* You need to have hardware or VMs available for a new Kubernetes cluster (or you need an existing cluster)
+//* You need to have hardware or VMs available for a new Kubernetes cluster (or you need an existing cluster)
 
 //*Kubernetes requirements for 3-2-1 protection scheme*
 //BlueXP backup and recovery supports Kubernetes application data protection using the 3-2-1 backup scheme. If you want to use this backup scheme, ensure you have the following:

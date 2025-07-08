@@ -208,7 +208,7 @@ The Dashboard shows the health of data protection. The number of at risk or prot
 +
 image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
 +
-link:br-use-dashboard.html[Learn what the Dashboard shows you.]
+link:br-use-dashboard.html[Learn what the Dashboard shows you].
 
  
 
