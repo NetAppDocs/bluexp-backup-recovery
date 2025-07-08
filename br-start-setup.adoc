@@ -45,7 +45,7 @@ Do the following to prepare AWS as a backup destination:
 ** For details about managing your Azure storage in BlueXP, refer to https://docs.netapp.com/us-en/bluexp-blob-storage/task-view-azure-blob-storage.html[Manage your Azure storage accounts^].
 
 
-//After you configure options in the backup destination itself, you will later configure it as a backup destination in the BlueXP ransomware protection service. For details about how to configure the backup destination in BlueXP ransomware protection, refer to link:rp-use-settings.html[Configure backup destinations].
+After you configure options in the backup destination itself, you will later configure it as a backup destination in the BlueXP backup and recovery service. For details about how to configure the backup destination in BlueXP backup and recovery, refer to link:br-start-discover-backup-targets.html[Discover backup targets].
 
 
 

@@ -24,14 +24,13 @@ If the datastore is associated with an archival policy, you will be provided wit
 
 
 
-
 .Before you begin
-Ensure that you have met all the link:concept-protect-vm-data.html[requirements] before backing up datastores to the cloud.
+Ensure that you have met all the link:prev-vmware-prereqs.html[virtual machine protection requirements] before backing up datastores to the cloud.
 
 .Steps
 
 . In BlueXP UI, select *Protection* > *Backup and recovery* > *Virtual Machines*.
-. select image:icon-action.png[action] corresponding to the datastore that you want to back up and select *Activate Backup*.
+. Select image:icon-action.png[action] corresponding to the datastore that you want to back up and select *Activate Backup*.
 . In the Assign Policy page, select the policy and select *Next*.
 . Add the working environment.
 +
@@ -49,5 +48,5 @@ Configure the cluster management LIF that you want BlueXP to discover. After add
 .. Specify the IP addresses of the cluster management LIF that were added as the working environments.
 .. Select the archival tier.
 +
-It is recommended to set the archival tier because this is an one time activity and you will not be allowed to set it up later.
+It is recommended to set the archival tier because this is a one-time activity and you will not be allowed to set it up later.
 . Review the details and select *Activate Backup*.

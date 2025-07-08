@@ -24,8 +24,9 @@ NOTE: You cannot restore virtual machines that span across datastores.
 
 
 
+
 .Before you begin
-* Ensure that you have met all the link:concept-protect-vm-data.html[requirements] before restoring virtual machines from the cloud.
+* Ensure that you have met all the link:prev-vmware-prereqs.html[virtual machine protection requirements] before backing up datastores to the cloud.
 * If you are restoring to an alternate location:
 ** Ensure that the source and destination vCenters are in linked mode.
 ** Ensure that the source and destination cluster details are added in BlueXP Canvas and in linked mode vCenters in both SnapCenter Plug-in for VMware vSphere host.
@@ -46,7 +47,7 @@ NOTE: If the source virtual machine is moved to another location (vMotion), and 
 a|
 to the original location from datastore
 a|
-. Select image:icon-action.png[action] corresponding to the datastore that you want to restore and click *View Details*.
+. Select the Actions icon image:icon-action.png[action] corresponding to the datastore that you want to restore and click *View Details*.
 . Select *Restore* corresponding to the backup you want to restore.
 . Select the virtual machine that you want to restore from the backup and select *Next*.
 . Ensure that *Original* is selected and select *Continue*.
@@ -57,7 +58,7 @@ The supported archival restore priority for Amazon Web Services are high, standa
 a|
 to an alternate location from datastore
 a|
-. Select image:icon-action.png[action] corresponding to the datastore that you want to restore and select *View Details*.
+. Select the Actions icon image:icon-action.png[action] corresponding to the datastore that you want to restore and select *View Details*.
 . Select *Restore* corresponding to the backup you want to restore.
 . Select the virtual machine that you want to restore from the backup and select *Next*.
 . Select *Alternate*.
@@ -70,7 +71,7 @@ The supported archival restore priority for Amazon Web Services are high, standa
 a|
 to the original location from virtual machines
 a|
-. Select image:icon-action.png[action] corresponding to the virtual machine that you want to restore and select *Restore*.
+. Select the Actions icon image:icon-action.png[action] corresponding to the virtual machine that you want to restore and select *Restore*.
 . Select the backup through which you want to restore the virtual machine.
 . Ensure that *Original* is selected and select *Continue*.
 . If the virtual machine is protected using a policy where archival settings are configured, select the *Archival Restore Priority* and select *Next*.
@@ -80,7 +81,7 @@ The supported archival restore priority for Amazon Web Services are high, standa
 a|
 to an alternate location from virtual machines
 a|
-. Select image:icon-action.png[action] corresponding to the virtual machine that you want to restore and select *Restore*.
+. Select the Actions icon image:icon-action.png[action] corresponding to the virtual machine that you want to restore and select *Restore*.
 . Select the backup through which you want to restore the virtual machine.
 . Select *Alternate*.
 . Select the alternate vCenter Server, ESXi host, datastore, and network.

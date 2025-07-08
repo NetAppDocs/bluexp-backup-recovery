@@ -22,7 +22,7 @@ You can back up one or more datastores to StorageGRID by integrating the SnapCen
 
 
 .Before you begin
-Ensure that you have met all the link:concept-protect-vm-data.html[requirements] before backing up datastores to the cloud.
+Ensure that you have met all the link:prev-vmware-prereqs.html[virtual machine protection requirements] before backing up datastores to the cloud.
 
 .Steps
 
