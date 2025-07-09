@@ -69,7 +69,6 @@ Ensure that the following networking requirements are met:
 ** An HTTPS connection over port 443 to your ONTAP cluster management LIF
 ** Additional inbound and outbound security group rules are required for AWS and AWS GovCloud deployments. See https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html[Rules for the Connector in AWS^] for details.
 
-* link:task-backup-onprem-to-aws.html[Ensure that the Connector has permissions to manage the S3 bucket].
 
 * If you have a Direct Connect or VPN connection from your ONTAP cluster to the VPC, and you want communication between the Connector and S3 to stay in your AWS internal network (a *private* connection), you'll need to enable a VPC Endpoint interface to S3. <<Configure your system for a private connection using a VPC endpoint interface>>.
 
@@ -216,7 +215,7 @@ Refer to the https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_fo
 
 By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
 
-link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn more about creating your own buckets^].
+link:prev-ontap-protect-journey.html[Learn more about creating your own buckets^].
 
 If you create your own buckets, you should use a bucket name of “netapp-backup”. If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. You need to include `“Resource”: “arn:aws:s3:::*”` and assign all the necessary permissions that need to be associated with the bucket.
 
@@ -338,7 +337,7 @@ The Introduction page of the wizard shows the protection options including local
 
 Choose the volumes you want to protect. A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
 
-You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these volumes when activating backup for a working environment. See how to link:task-manage-backups-ontap.html#activate-backup-on-additional-volumes-in-a-working-environment[activate backup for additional volumes in the working environment] (FlexVol or FlexGroup) after you have configured backup for the initial volumes.
+You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these volumes when activating backup for a working environment. See how to link:prev-ontap-backup-manage.html[activate backup for additional volumes in the working environment] (FlexVol or FlexGroup) after you have configured backup for the initial volumes.
 
 [NOTE] 
 ====
@@ -365,7 +364,7 @@ Defining the backup strategy involves setting the following options:
 
 * Whether you want one or all of the backup options: local snapshots, replication, and backup to object storage
 * Architecture
-* Local Snapshot policy
+* Local snapshot policy
 * Replication target and policy
 +
 NOTE: If the volumes you choose have different snapshot and replication policies than the policies you select in this step, the existing policies will be overwritten. 

@@ -36,5 +36,5 @@ You can restore data to the latest snapshot or to these points:
 
 == What's next
 
-For details on how to restore workloads, see link:br-use-restore-database.html[Restore workloads].     
+For details on how to restore workloads, see link:br-use-mssql-restore.html[Restore workloads].     
 
