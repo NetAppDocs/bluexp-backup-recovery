@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: br-reference-azure-archive-storage-tiers.html
+permalink: prev-reference-azure-archive-storage-tiers.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
 summary: BlueXP backup and recovery supports one Azure archival access tier and most regions.
 ---
@@ -16,7 +16,7 @@ summary: BlueXP backup and recovery supports one Azure archival access tier and 
 BlueXP backup and recovery supports one Azure archival access tier and most regions.
 
 ====
-*NOTE*   To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
+*NOTE*   To switch to and from BlueXP backup and recovery UI versions, refer to link:prev-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
 ====
 
 == Supported Azure Blob access tiers for BlueXP backup and recovery
