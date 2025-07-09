@@ -3,6 +3,7 @@ sidebar: sidebar
 permalink: br-start-discover-backup-targets.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Microsoft SQL Server database,
 summary: Complete a few steps to discover offsite backup targets in BlueXP backup and recovery. These targets could include Amazon Web Services (AWS) S3, Microsoft Azure Blob Storage, Google Cloud Storage, and StorageGRID.
+---
 
 = Discover offsite backup targets in BlueXP backup and recovery 
 :hardbreaks:
