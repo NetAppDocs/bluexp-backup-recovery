@@ -171,7 +171,7 @@ Current support enables you to archive backups to AWS _S3 Glacier_/_S3 Glacier D
 *Amazon S3 requirements*
 
 * You'll need to sign up for an Amazon S3 account for the storage space where your archived backups will be located.
-* You can choose to tier backups to AWS S3 Glacier or S3 Glacier Deep Archive storage. link:prev-reference-aws-backup-tiers.html[Learn more about AWS archival tiers].  
+* You can choose to tier backups to AWS S3 Glacier or S3 Glacier Deep Archive storage. link:prev-reference-aws-archive-storage-tiers.html[Learn more about AWS archival tiers].  
 * StorageGRID should have full-control access to the bucket (`s3:*`); however, if this is not possible, the bucket policy must grant the following S3 permissions to StorageGRID:
 ** `s3:AbortMultipartUpload`
 ** `s3:DeleteObject`
