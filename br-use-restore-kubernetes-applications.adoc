@@ -35,16 +35,12 @@ The list of restore points appears.
 . Choose the source to restore from (local, secondary, or object store).
 . Choose the destination cluster from the *Cluster* list.
 . Choose the restore destination namespace (original or new).
-+
-NOTE: Restoring to a different cluster and the original namespace are not supported.
 . Select *Next*.
 
 [discrete]
 ===== Resource selection
 
 . Choose whether you want to restore all resources associated with the application or use a filter to select specific resources to restore:
-+
-NOTE: The resources that you select 
 
 [role="tabbed-block"]
 ====
