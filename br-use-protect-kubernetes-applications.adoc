@@ -22,22 +22,27 @@ Organization admin or SnapCenter admin. link:reference-roles.html[Learn about Bl
 == Add and protect a new Kubernetes application
 The first step in protecting Kubernetes applications is to create an application within BlueXP backup and recovery. When you create an application, you make BlueXP aware of the running application on the Kubernetes cluster.
 
+.Before you begin
+Before you can add and protect a Kubernetes application, you need to link:br-start-discover.html[discover Kubernetes workloads].
+
 .Steps
 
-. In BlueXP backup and recovery, select *Inventory* > *Applications*.
+. In BlueXP backup and recovery, select *Inventory*.
+. Choose a Kubernetes instance, and select *View* to view the resources associated with that instance.
+. Select the *Applications* tab.
 . Select *Create application*.
 . Enter a name for the application.
-. Choose any of the following fields to search for the resources you want to protect:
+. Optionally, choose any of the following fields to search for the resources you want to protect:
 +
 * Associated cluster
 * Associated namespaces 
 * Resource types
 * Label selectors
 . Optionally, select *Cluster Scoped Resources* to choose any resources that are scoped at the cluster level and not included in the application. If you include them, they are added to the application when you create it.
-. Select *Search* to find the resources based on your search criteria.
+. Optionally, select *Search* to find the resources based on your search criteria.
 . BlueXP displays a list of resources that match your search criteria.
 . If the list contains the resources you want to protect, select *Next*.
-. In the *Policy* area, choose an existing protection policy to protect the application or create a new policy.
+. Optionally, in the *Policy* area, choose an existing protection policy to protect the application or create a new policy. If you don't select a policy, the application is created without a protection policy. You can add a policy later.
 . In the *Prescripts and postscripts* area, enable and configure any prescript or postscript execution hooks that you want to run before or after backup operations. To enable prescripts or postscripts, you must have already created at least one link:br-use-manage-execution-hook-templates.html[execution hook template].
 . Select *Create*.
 
@@ -48,7 +53,9 @@ The application is created and appears in the list of applications in the *Appli
 Enable a protection policy on a Kubernetes application that you have already added. 
 
 .Steps
-. In BlueXP backup and recovery, select *Inventory* > *Applications*.
+. In BlueXP backup and recovery, select *Inventory*.
+. Choose a Kubernetes instance, and select *View* to view the resources associated with that instance.
+. Select the *Applications* tab.
 . In the list of applications, choose an application you want to protect and select the associated Actions menu.
 . Select *Protect*.
 . In the *Policy* area, choose an existing protection policy to protect the application or create a new policy.
@@ -58,13 +65,18 @@ Enable a protection policy on a Kubernetes application that you have already add
 .Result
 BlueXP enables protection for the application based on your settings, and you can monitor the progress in the *Monitoring* area of backup and recovery.
 
+////
 == Back up a Kubernetes application now
 Manually create a backup of a Kubernetes application to establish a baseline for future backups and snapshots, or to ensure the most recent data is protected.
 
 .Steps
-. In BlueXP backup and recovery, select *Inventory* > *Applications*.
+. In BlueXP backup and recovery, select *Inventory*.
+. Choose a Kubernetes instance, and select *View* to view the resources associated with that instance.
+. Select the *Applications* tab.
 . In the list of applications, choose an application you want to back up and select the associated Actions menu.
 . Select *Backup now*.
 . Ensure the correct application name is selected.
 . Select a protection policy from the list of policies.
 . Select *Back up*.
+
+////

@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: br-use-manage-kubernetes-applications.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter
-summary: BlueXP backup and recovery enables you to manage your workload host information, database information, and instances information. You can view, edit, and delete protection settings for your inventory.  
+summary: BlueXP backup and recovery enables you to unprotect and delete your Kubernetes applications and associated resources.  
 ---
 
 = Manage Kubernetes applications 
@@ -13,12 +13,13 @@ summary: BlueXP backup and recovery enables you to manage your workload host inf
 :imagesdir: ./media/
 
 [.lead]
-BlueXP backup and recovery enables you to manage your Kubernetes applications and associated resources. You can create, view, edit, and delete protection settings of your Kubernetes applications.
+BlueXP backup and recovery enables you to unprotect and delete your Kubernetes applications and associated resources.
 
 .Required BlueXP role
 
 Organization admin or SnapCenter admin. link:reference-roles.html[Learn about BlueXP backup and recovery access roles]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
 
+////
 == Edit a Kubernetes application
 You can modify the settings of an existing Kubernetes application if the resources associated with the application have changed.
 
@@ -31,11 +32,15 @@ You can modify the settings of an existing Kubernetes application if the resourc
 . Make any required changes to the protection settings.
 . When finished, select *Done*.
 
+////
+
 == Unprotect a Kubernetes application
 You can unprotect an application if you no longer want to protect it. When you unprotect an application, BlueXP backup and recovery stops protecting the application but keeps all associated backups and snapshots until they expire.
 
 .Steps
-. In BlueXP backup and recovery, select *Inventory* > *Applications*.
+. In BlueXP backup and recovery, select *Inventory*.
+. Choose a Kubernetes instance, and select *View* to view the resources associated with that instance.
+. Select the *Applications* tab.
 . In the list of applications, choose an application you want to unprotect and select the associated Actions menu.
 . Select *Unprotect*.
 . Read the notice, and when ready, select *Unprotect*.
@@ -44,10 +49,13 @@ You can unprotect an application if you no longer want to protect it. When you u
 You can delete an application if you no longer need it. When you delete an application, BlueXP backup and recovery stops protecting the application and, if you choose to do so, deletes all associated backups and snapshots.
 
 .Steps
-. In BlueXP backup and recovery, select *Inventory* > *Applications*.
+. In BlueXP backup and recovery, select *Inventory*.
+. Choose a Kubernetes instance, and select *View* to view the resources associated with that instance.
+. Select the *Applications* tab.
 . In the list of applications, choose an application you want to delete and select the associated Actions menu.
 . Select *Delete*.
-. Optionally, enable *Delete snapshots and backups* to remove all snapshots and backups of the application.
+. Enable *Delete snapshots and backups* to remove all snapshots and backups of the application.
 +
-CAUTION: If you do this, you will no longer be able to restore the application using these snapshots and backups.
+CAUTION: You will no longer be able to restore the application using these snapshots and backups.
+
 . Confirm the action and select *Delete*.

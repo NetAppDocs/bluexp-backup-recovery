@@ -36,13 +36,15 @@ The list of restore points appears.
 . Choose the destination cluster from the *Cluster* list.
 . Choose the restore destination namespace (original or new).
 +
-Note that restoring to a different cluster and the original namespace are not supported.
+NOTE: Restoring to a different cluster and the original namespace are not supported.
 . Select *Next*.
 
 [discrete]
 ===== Resource selection
 
 . Choose whether you want to restore all resources associated with the application or use a filter to select specific resources to restore:
++
+NOTE: The resources that you select 
 
 [role="tabbed-block"]
 ====
@@ -64,6 +66,8 @@ Note that restoring to a different cluster and the original namespace are not su
 Each rule can filter on criteria such as the resource namespace, labels, group, version, and kind.
 .. Select *Save* to save each rule.
 .. When you have added all the rules you need, select *Search* to see the resources available in the backup archive that match your filter criteria.
++
+NOTE: The resources shown are the resources that currently exist on the cluster.
 .. When satisfied with the results, select *Next*.
 
 --
