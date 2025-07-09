@@ -260,7 +260,7 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-blue
 
 If you want to use a standard public internet connection, then all the permissions are set by the Connector and there is nothing else you need to do. 
 
-If you want to have a more secure connection over the internet from your on-prem data center to the VPC, there's an option to select an AWS PrivateLink connection in the Backup activation wizard. It's required if you plan to use a VPN or AWS Direct Connect to connect your on-premises system through a VPC Endpoint interface that uses a private IP address. This type of connection is shown in the link:task-backup-onprem-to-aws.html#identify-the-connection-method[second diagram].
+If you want to have a more secure connection over the internet from your on-prem data center to the VPC, there's an option to select an AWS PrivateLink connection in the Backup activation wizard. It's required if you plan to use a VPN or AWS Direct Connect to connect your on-premises system through a VPC Endpoint interface that uses a private IP address. 
 
 .Steps
 

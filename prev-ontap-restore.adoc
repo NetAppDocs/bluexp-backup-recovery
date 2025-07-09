@@ -380,9 +380,9 @@ image:screenshot_restore_select_source.png[A screenshot of selecting the volume 
 +
 If you are restoring folders or files from a backup file that resides in an archival storage tier, then you can select the Restore Priority.
 +
-link:prev-reference-aws-backup-tiers.html#restore-data-from-archival-storage[Learn more about restoring from AWS archival storage].
-link:prev-reference-azure-backup-tiers.html#restore-data-from-archival-storage[Learn more about restoring from Azure archival storage].
-link:prev-reference-google-backup-tiers.html#restore-data-from-archival-storage[Learn more about restoring from Google archival storage]. Backup files in the Google Archive storage tier are restored almost immediately, and require no Restore Priority.
+link:prev-reference-aws-archive-storage-tiers.html[Learn more about restoring from AWS archival storage].
+link:prev-reference-azure-archive-storage-tiers.html[Learn more about restoring from Azure archival storage].
+link:prev-reference-gcp-archive-storage-tiers.html[Learn more about restoring from Google archival storage]. Backup files in the Google Archive storage tier are restored almost immediately, and require no Restore Priority.
 +
 And if ransomware protection is active for the backup file (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional ransomware scan on the backup file before restoring the data. We recommend that you scan the backup file for ransomware. (You'll incur extra egress costs from your cloud provider to access the contents of the backup file.)
 +
