@@ -31,4 +31,4 @@ For instructions on using the previous BlueXP backup and recovery UI for VMware,
 * link:prev-vmware-backup-gcp.html[Back up VMware datastores to Google Cloud Platform]
 * link:prev-vmware-backup-storagegrid.html[Back up VMware datastores to StorageGRID]
 * link:prev-vmware-restore.html[Restore VMware workloads]    
-* link:prev-vmware-manage-html[Manage protection for VMware workloads]
+* link:prev-vmware-manage.html[Manage protection for VMware workloads]
