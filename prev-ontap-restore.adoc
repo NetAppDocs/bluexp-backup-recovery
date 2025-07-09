@@ -240,7 +240,7 @@ As you can see, you'll need to know the source working environment name, storage
 
 . From the _Browse & Restore_ section, select *Restore Volume*.
 +
-image:screenshot_restore_volume_selection.png[A screenshot of selecting the Restore Volumes button from the Restore Dashboard.]
+image:screenshot_restore_dashboard.png["The Restore Dashboard showing the options to use the Browse & Restore or Search & Restore functionality."]
 
 . In the _Select Source_ page, navigate to the backup file for the volume you want to restore. Select the *Working Environment*, the *Volume*, and the *Backup* file that has the date/time stamp from which you want to restore.
 +
@@ -370,7 +370,7 @@ Follow these steps to restore folders or files to a volume from an ONTAP volume 
 
 . From the _Browse & Restore_ section, select *Restore Files or Folder*.
 +
-image:screenshot_restore_files_selection.png[A screenshot of selecting the Restore Files or Folder button from the Restore Dashboard.]
+image:screenshot_restore_dashboard.png["The Restore Dashboard showing the options to use the Browse & Restore or Search & Restore functionality."]
 
 . In the _Select Source_ page, navigate to the backup file for the volume that contains the folder or files you want to restore. Select the *Working Environment*, the *Volume*, and the *Backup* that has the date/time stamp from which you want to restore files.
 +
@@ -618,6 +618,8 @@ Review the following considerations regarding v2:
 * BlueXP backup and recovery does not index snapshots with "hourly" SnapMirror labels. If you want to index snapshots with the "hourly" SnapMirror label, you need to enable it manually while the v2 is in preview mode.
 * BlueXP backup and recovery will index volumes and snapshots associated with working environments protected by BlueXP backup and recovery only with the Catalog v2. Other working environments discovered on the BlueXP platform will not be indexed.
 
+* Data indexing with Catalog v2 occurs in on-premises environments and in Amazon Web Services, Microsoft Azure, and Google Cloud Platform (GCP) environments.
+
 
 The Indexed Catalog v2 supports the following: 
 
@@ -629,17 +631,19 @@ The Indexed Catalog v2 supports the following:
 
 .Enabling the Indexed Catalog for a working environment
 
-When you enable this functionality, BlueXP backup and recovery enables SnapDiff v3 on the SVM for your volumes, and it performs the following actions:
+The service does not provision a separate bucket when you use the Indexed Catalog v2. Instead, for backups stored in AWS, Azure, Google Cloud Platform, StorageGRID, or ONTAP S3, the service provisions space on the Connector or on the cloud provider environment. 
 
-ifdef::aws[]
+If you enabled the Indexed Catalog prior to the v2 release, the following occurs with working environments: 
+
+
 * For backups stored in AWS, it provisions a new S3 bucket and the https://aws.amazon.com/athena/faqs/[Amazon Athena interactive query service^] and https://aws.amazon.com/glue/faqs/[AWS Glue serverless data integration service^].
-endif::aws[]
-ifdef::azure[]
+
+
 * For backups stored in Azure, it provisions an Azure Synapse workspace and a Data Lake file system as the container that will store the workspace data.
-endif::azure[]
-ifdef::gcp[]
+
+
 * For backups stored in Google Cloud, it provisions a new bucket, and the https://cloud.google.com/bigquery[Google Cloud BigQuery services^] are provisioned on an account/project level.
-endif::gcp[]
+
 * For backups stored in StorageGRID or ONTAP S3, it provisions space on the Connector, or on the cloud provider environment.
 
 If Indexing has already been enabled for your working environment, go to the next section to restore your data.
@@ -673,7 +677,11 @@ After you have <<enable-the-indexed-catalog-for-each-working-environment,enabled
 . From the _Search & Restore_ section, select *Search & Restore*.
 
 
-. From the Search to Restore page:
+. From the _Search & Restore_ section, select *Search & Restore*.
++
+image:screenshot_restore_dashboard.png["The Restore Dashboard showing the options to use the Browse & Restore or Search & Restore functionality."]
+
+. From the Search & Restore page:
 .. In the _Search bar_, enter a full or partial volume name, folder name, or file name.
 .. Select the type of resource: *Volumes*, *Files*, *Folders*, or *All*.
 .. In the _Filter by_ area, select the filter criteria. For example, you can select the working environment where the data resides and the file type, for example a .JPEG file. Or you can select the type of Backup Location if you want to search for results only within available Snapshot copies or backup files in object storage.

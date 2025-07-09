@@ -225,7 +225,9 @@ You can create the bucket from BlueXP, or from your cloud provider.
 
 //*Note:* At this time you cannot use your own S3 buckets when creating backups in StorageGRID systems or to ONTAP S3.
 
-If you plan to use a different bucket prefix than "netapp-backup-xxxxxx", then you'll need to modify the S3 permissions for the Connector IAM Role. For details, refer to how to create backups to AWS S3.
+If you plan to use a different bucket prefix than "netapp-backup-xxxxxx", then you'll need to modify the S3 permissions for the Connector IAM Role. 
+
+//For details, refer to how to create backups to AWS S3.
 
 *Advanced bucket settings*
 
@@ -236,7 +238,7 @@ If you plan to move older backup files to archival storage, or if you plan to en
 ** Move the objects in the entire scope of the bucket to S3 _Standard-IA_ after 30 days.
 ** Move the objects with the tag "smc_push_to_archive: true” to _Glacier Flexible Retrieval_ (formerly S3 Glacier)
 
-* DataLock and Ransomware protection is supported in AWS storage when using ONTAP 9.11.1 or greater software on your clusters, and Azure storage when using ONTAP 9.12.1 or greater software. 
+* DataLock and Ransomware protection are supported in AWS storage when using ONTAP 9.11.1 or greater software on your clusters, and Azure storage when using ONTAP 9.12.1 or greater software. 
 
 ** For AWS, you must enable Object Locking on the bucket using a 30-day retention period.
 ** For Azure, you need to create the Storage Class with version-level immutability support.
