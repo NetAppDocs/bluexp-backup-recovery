@@ -35,7 +35,7 @@ You can modify the settings of an existing Kubernetes application if the resourc
 ////
 
 == Unprotect a Kubernetes application
-You can unprotect an application if you no longer want to protect it. When you unprotect an application, BlueXP backup and recovery stops protecting the application but keeps all associated backups and snapshots until they expire.
+You can unprotect an application if you no longer want to protect it. When you unprotect an application, BlueXP backup and recovery stops protecting the application but keeps all associated backups and snapshots.
 
 .Steps
 . In BlueXP backup and recovery, select *Inventory*.
@@ -46,7 +46,7 @@ You can unprotect an application if you no longer want to protect it. When you u
 . Read the notice, and when ready, select *Unprotect*.
 
 == Delete a Kubernetes application
-You can delete an application if you no longer need it. When you delete an application, BlueXP backup and recovery stops protecting the application and, if you choose to do so, deletes all associated backups and snapshots.
+You can delete an application if you no longer need it. When you delete an application, BlueXP backup and recovery stops protecting the application and deletes all associated backups and snapshots.
 
 .Steps
 . In BlueXP backup and recovery, select *Inventory*.

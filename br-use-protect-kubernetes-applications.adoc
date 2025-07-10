@@ -13,7 +13,7 @@ summary: BlueXP backup and recovery enables you to manage your workload host inf
 :imagesdir: ./media/
 
 [.lead]
-BlueXP backup and recovery enables you to manage your workload host information, database information, and instances information. You can view, edit, and delete protection settings of your inventory. 
+BlueXP backup and recovery enables you to easily discover your Kubernetes clusters, without generating and uploading kubeconfig files. You can connect Kubernetes clusters and install the required software using simple commands copied from the BlueXP user interface.
 
 .Required BlueXP role
 
@@ -38,8 +38,10 @@ Before you can add and protect a Kubernetes application, you need to link:br-sta
 * Associated namespaces 
 * Resource types
 * Label selectors
-. Optionally, select *Cluster Scoped Resources* to choose any resources that are scoped at the cluster level and not included in the application. If you include them, they are added to the application when you create it.
+. Optionally, select *Cluster Scoped Resources* to choose any resources that are scoped at the cluster level. If you include them, they are added to the application when you create it.
 . Optionally, select *Search* to find the resources based on your search criteria.
++
+NOTE: BlueXP does not store the search parameters or results; the parameters are used to search the selected Kubernetes cluster for resources that can be included in the application. 
 . BlueXP displays a list of resources that match your search criteria.
 . If the list contains the resources you want to protect, select *Next*.
 . Optionally, in the *Policy* area, choose an existing protection policy to protect the application or create a new policy. If you don't select a policy, the application is created without a protection policy. You can add a policy later.
@@ -63,9 +65,8 @@ Enable a protection policy on a Kubernetes application that you have already add
 . Select *Done*.
 
 .Result
-BlueXP enables protection for the application based on your settings, and you can monitor the progress in the *Monitoring* area of backup and recovery.
+BlueXP enables protection for the application based on your settings, and you can monitor the progress in the *Monitoring* area of backup and recovery. As soon as you enable protection for an application, BlueXP creates a full backup of the application. Any future incremental backups are created based on the schedule that you define in the protection policy associated with the application.
 
-////
 == Back up a Kubernetes application now
 Manually create a backup of a Kubernetes application to establish a baseline for future backups and snapshots, or to ensure the most recent data is protected.
 
@@ -76,7 +77,7 @@ Manually create a backup of a Kubernetes application to establish a baseline for
 . In the list of applications, choose an application you want to back up and select the associated Actions menu.
 . Select *Backup now*.
 . Ensure the correct application name is selected.
-. Select a protection policy from the list of policies.
 . Select *Back up*.
 
-////
+.Result
+BlueXP creates a backup of the application and displays the progress in the *Monitoring* area of backup and recovery. The backup is created based on the protection policy associated with the application.

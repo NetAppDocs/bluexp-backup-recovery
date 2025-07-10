@@ -13,7 +13,7 @@ summary: BlueXP backup and recovery enables you to restore applications that you
 :imagesdir: ./media/
 
 [.lead]
-BlueXP backup and recovery enables you to restore applications that you have protected with a protection policy. To restore an application, the application needs to have a protection status of "Protected" and it should have an associated protection policy. You restore an application using a restore point, which consists of the local snapshot, the secondary snapshot, and the backup to the object store. You can restore an application using the local, secondary, or object store archive.
+BlueXP backup and recovery enables you to restore applications that you have protected with a protection policy. To restore an application, an application needs to have at least one restore point available. A restore point consists of either the local snapshot or the backup to the object store (or both). You can restore an application using the local, secondary, or object store archive.
 
 .Required BlueXP role
 
@@ -22,7 +22,8 @@ Organization admin or SnapCenter admin. link:reference-roles.html[Learn about Bl
 .Steps
 
 . In BlueXP backup and recovery, select *Inventory*.
-. Choose a Kubernetes workload, and select *View* in the Hosts column for the workload.
+. Choose a Kubernetes instance, and select *View* to view the resources associated with that instance.
+. Select the *Applications* tab.
 . In the list of applications, choose an application you want to restore and select the associated Actions menu.
 . Select *View and restore*.
 +
@@ -32,9 +33,11 @@ The list of restore points appears.
 [discrete]
 ===== General settings
 
-. Choose the source to restore from (local, secondary, or object store).
+. Choose the source to restore from (local or object store).
 . Choose the destination cluster from the *Cluster* list.
-. Choose the restore destination namespace (original or new).
+. Choose the restore destination namespace.
++
+You can restore to the original namespace or restore to a new namespace. 
 . Select *Next*.
 
 [discrete]
@@ -73,7 +76,7 @@ NOTE: The resources shown are the resources that currently exist on the cluster.
 ===== Destination settings
 
 . Choose to restore either to the default storage class or to a different storage class. 
-. Optionally, if you chose to restore to a different storage class, select a destination storage class to match each source storage class. The destination storage class must be available on the destination cluster.
+. Optionally, if you chose to restore to a different storage class, select a destination storage class to match each source storage class.
 . Select *Restore*.
 
 
