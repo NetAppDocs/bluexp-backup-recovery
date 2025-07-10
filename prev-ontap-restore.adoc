@@ -110,13 +110,13 @@ Before you start restoring a volume, folder, or file, you should know the name o
 *Note:* If the backup file containing the data that you want to restore resides in archival cloud storage (starting with ONTAP 9.10.1), the restore operation will take a longer amount of time and will incur a cost. Additionally, the destination cluster must also be running ONTAP 9.10.1 or greater for volume restore, 9.11.1 for file restore, 9.12.1 for Google Archive and StorageGRID, and 9.13.1 for folder restore.
 
 ifdef::aws[]
-link:prev-reference-aws-backup-tiers.html[Learn more about restoring from AWS archival storage].
+link:prev-reference-aws-archive-storage-tiers.html[Learn more about restoring from AWS archival storage].
 endif::aws[]
 ifdef::azure[]
-link:prev-reference-azure-backup-tiers.html[Learn more about restoring from Azure archival storage].
+link:prev-reference-azure-archive-storage-tiers.html[Learn more about restoring from Azure archival storage].
 endif::azure[]
 ifdef::gcp[]
-link:prev-reference-google-backup-tiers.html[Learn more about restoring from Google archival storage].
+link:prev-reference-gcp-archive-storage-tiers.html[Learn more about restoring from Google archival storage].
 endif::gcp[]
 
 NOTE: The High priority isn't supported when restoring data from Azure archival storage to StorageGRID systems.
