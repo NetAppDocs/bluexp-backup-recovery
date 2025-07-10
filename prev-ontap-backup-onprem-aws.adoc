@@ -69,7 +69,6 @@ Ensure that the following networking requirements are met:
 ** An HTTPS connection over port 443 to your ONTAP cluster management LIF
 ** Additional inbound and outbound security group rules are required for AWS and AWS GovCloud deployments. See https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html[Rules for the Connector in AWS^] for details.
 
-* link:task-backup-onprem-to-aws.html[Ensure that the Connector has permissions to manage the S3 bucket].
 
 * If you have a Direct Connect or VPN connection from your ONTAP cluster to the VPC, and you want communication between the Connector and S3 to stay in your AWS internal network (a *private* connection), you'll need to enable a VPC Endpoint interface to S3. <<Configure your system for a private connection using a VPC endpoint interface>>.
 
@@ -80,8 +79,7 @@ You'll need to verify license requirements for both AWS and BlueXP:
 * Before you can activate BlueXP backup and recovery for your cluster, you'll need to either subscribe to a pay-as-you-go (PAYGO) BlueXP Marketplace offering from AWS, or purchase and activate a BlueXP backup and recovery BYOL license from NetApp. These licenses are for your account and can be used across multiple systems.
 
 ** For BlueXP backup and recovery PAYGO licensing, you'll need a subscription to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa[NetApp BlueXP offering from the AWS Marketplace^]. Billing for BlueXP backup and recovery is done through this subscription.
-** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license[Learn how to manage your BYOL licenses].
-
+** For BlueXP backup and recovery BYOL licensing, you'll need the serial number from NetApp that enables you to use the service for the duration and capacity of the license. 
 * You need to have an AWS subscription for the object storage space where your backups will be located.
 
 *Supported regions* 
@@ -123,7 +121,7 @@ All intercluster LIFs within the IPspace must have access to the object store. I
 * DNS servers must have been configured for the storage VM where the volumes are located. See how to https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html[configure DNS services for the SVM^].
 * Update firewall rules, if necessary, to allow BlueXP backup and recovery connections from ONTAP to object storage through port 443 and name resolution traffic from the storage VM to the DNS server over port 53 (TCP/UDP).
 * If you are using a Private VPC Interface Endpoint in AWS for the S3 connection, then in order for HTTPS/443 to be used, you'll need to load the S3 endpoint certificate into the ONTAP cluster. <<Configure your system for a private connection using a VPC endpoint interface>>.
-* link:task-backup-onprem-to-aws.html#set-up-s3-permissions[Ensure that your ONTAP cluster has permissions to access the S3 bucket].
+*[Ensure that your ONTAP cluster has permissions to access the S3 bucket.
 
 ===  Verify ONTAP networking requirements for replicating volumes
 
@@ -216,7 +214,7 @@ Refer to the https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_fo
 
 By default, the service creates buckets for you. Or, if you want to use your own buckets, you can create them before you start the backup activation wizard and then select those buckets in the wizard. 
 
-link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Learn more about creating your own buckets^].
+link:prev-ontap-protect-journey.html[Learn more about creating your own buckets^].
 
 If you create your own buckets, you should use a bucket name of “netapp-backup”. If you need to use a custom name, edit the `ontapcloud-instance-policy-netapp-backup` IAMRole for the existing CVOs and add the following list to the S3 permissions. You need to include `“Resource”: “arn:aws:s3:::*”` and assign all the necessary permissions that need to be associated with the bucket.
 
@@ -260,9 +258,9 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-blue
 
 === Configure your system for a private connection using a VPC endpoint interface
 
-If you want to use a standard public internet connection, then all the permissions are set by the Connector and there is nothing else you need to do. This type of connection is shown in the link:task-backup-onprem-to-aws.html#identify-the-connection-method[first diagram].
+If you want to use a standard public internet connection, then all the permissions are set by the Connector and there is nothing else you need to do. 
 
-If you want to have a more secure connection over the internet from your on-prem data center to the VPC, there's an option to select an AWS PrivateLink connection in the Backup activation wizard. It's required if you plan to use a VPN or AWS Direct Connect to connect your on-premises system through a VPC Endpoint interface that uses a private IP address. This type of connection is shown in the link:task-backup-onprem-to-aws.html#identify-the-connection-method[second diagram].
+If you want to have a more secure connection over the internet from your on-prem data center to the VPC, there's an option to select an AWS PrivateLink connection in the Backup activation wizard. It's required if you plan to use a VPN or AWS Direct Connect to connect your on-premises system through a VPC Endpoint interface that uses a private IP address. 
 
 .Steps
 
@@ -338,7 +336,7 @@ The Introduction page of the wizard shows the protection options including local
 
 Choose the volumes you want to protect. A protected volume is one that has one or more of the following: Snapshot policy, replication policy, backup to object policy. 
 
-You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these volumes when activating backup for a working environment. See how to link:task-manage-backups-ontap.html#activate-backup-on-additional-volumes-in-a-working-environment[activate backup for additional volumes in the working environment] (FlexVol or FlexGroup) after you have configured backup for the initial volumes.
+You can choose to protect FlexVol or FlexGroup volumes; however, you cannot select a mix of these volumes when activating backup for a working environment. See how to link:prev-ontap-backup-manage.html[activate backup for additional volumes in the working environment] (FlexVol or FlexGroup) after you have configured backup for the initial volumes.
 
 [NOTE] 
 ====
@@ -365,7 +363,7 @@ Defining the backup strategy involves setting the following options:
 
 * Whether you want one or all of the backup options: local snapshots, replication, and backup to object storage
 * Architecture
-* Local Snapshot policy
+* Local snapshot policy
 * Replication target and policy
 +
 NOTE: If the volumes you choose have different snapshot and replication policies than the policies you select in this step, the existing policies will be overwritten. 

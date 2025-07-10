@@ -131,7 +131,7 @@ You can use the default policies provided by NetApp to create your backups, or y
 
 If you create custom policies for replication or backup, the policy labels (for example, "daily" or "weekly") must match the labels that exist in your snapshot policies or replicated volumes and backup files won't be created. 
 
-You can create snapshot, replication, and backup to object storage policies in the BlueXP backup and recovery UI. See the section for link:prev-ontap-backups-manage.html[adding a new backup policy] for details. 
+You can create snapshot, replication, and backup to object storage policies in the BlueXP backup and recovery UI. See the section for link:prev-ontap-backup-manage.html[adding a new backup policy] for details. 
 
 In addition to using using BlueXP backup and recovery to create custom policies, you can use System Manager or the ONTAP Command Line Interface (CLI):
 
@@ -254,7 +254,7 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html[Learn more a
 
 === Support for sites with full internet connectivity
 
-When BlueXP backup and recovery is used in a site with full internet connectivity (also known as _standard mode_ or _SaaS mode_), you can create replicated volumes on any on-premises ONTAP or Cloud Volumes ONTAP systems managed by BlueXP, and you can create backup files on object storage in any of the supported cloud providers. link:concept-ontap-backup-to-cloud.html#supported-backup-destinations[See the full list of supported backup destinations].
+When BlueXP backup and recovery is used in a site with full internet connectivity (also known as _standard mode_ or _SaaS mode_), you can create replicated volumes on any on-premises ONTAP or Cloud Volumes ONTAP systems managed by BlueXP, and you can create backup files on object storage in any of the supported cloud providers. link:concept-backup-to-cloud.html[See the full list of supported backup destinations].
 
 For a list of valid Connector locations, refer to one of the following backup procedures for the cloud provider where you plan to create backup files. There are some restrictions where the Connector must be installed manually on a Linux machine or deployed in a specific cloud provider.
 

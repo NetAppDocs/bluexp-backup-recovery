@@ -359,7 +359,7 @@ NOTE: If the volumes you choose have different Snapshot and replication policies
 * *Cascading*: Information flows from the primary storage system to the secondary, and from secondary to object storage. 
 * *Fan out*: Information flows from the primary storage system to the secondary _and_ from the primary to object storage. 
 + 
-For details about these architectures, refer to link:concept-protection-journey.html[Plan your protection journey]. 
+For details about these architectures, refer to link:prev-ontap-protect-journey.html[Plan your protection journey]. 
  
 . *Local Snapshot*: Choose an existing snapshot policy or create one. 
 +

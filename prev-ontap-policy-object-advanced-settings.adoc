@@ -51,7 +51,7 @@ You can view the cluster-level backup settings for each working environment.
 +
 image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button so you can see how Backup is configured for all your working environments.]
 
-. From the _Backup Settings page_, click image:screenshot_horizontal_more_button.gif[More icon] for the working environment and select *Advanced Settings*.
+. From the _Backup Settings page_, click image:icon-actions-horizontal.gif[More icon] for the working environment and select *Advanced Settings*.
 +
 image:screenshot_backup_advanced_settings_button.png[A screenshot that shows the Advanced Settings button from the Backup Settings page.]
 +

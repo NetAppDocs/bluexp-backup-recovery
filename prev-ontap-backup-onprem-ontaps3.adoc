@@ -66,7 +66,7 @@ Ensure that the network where the Connector is installed enables the following c
 
 BlueXP backup and recovery functionality is built into the BlueXP Connector. When it is installed in private mode, you'll need to update the Connector software periodically to get access to new features. Check the link:whats-new.html[BlueXP backup and recovery What's New] to see the new features in each BlueXP backup and recovery release. When you want to use the new features, follow the steps to https://docs.netapp.com/us-en/bluexp-setup-admin/task-upgrade-connector.html[upgrade the Connector software^].
 
-When you use BlueXP backup and recovery in a standard SaaS environment, the BlueXP backup and recovery configuration data is backed up to the cloud. When you use BlueXP backup and recovery in a site with no internet access, the BlueXP backup and recovery configuration data is backed up to the ONTAP S3 bucket where your backups are being stored. If you ever have a Connector failure in your private mode site, you can link:reference-backup-cbs-db-in-dark-site.html[restore the BlueXP backup and recovery data to a new Connector^].
+When you use BlueXP backup and recovery in a standard SaaS environment, the BlueXP backup and recovery configuration data is backed up to the cloud. When you use BlueXP backup and recovery in a site with no internet access, the BlueXP backup and recovery configuration data is backed up to the ONTAP S3 bucket where your backups are being stored. 
 
 == Verify license requirements 
 

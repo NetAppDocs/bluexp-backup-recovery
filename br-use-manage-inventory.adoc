@@ -177,7 +177,7 @@ You can back up your data now to ensure that your data is protected immediately.
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Back up now*.
 . Choose the backup type and set the schedule.
 +
-For details about creating an ad hoc backup, refer to link:br-use-backup-mssql.html[Create a policy].
+For details about creating an ad hoc backup, refer to link:br-use-mssql-backup.html[Create a policy].
 
 == Manage database information 
 
@@ -220,7 +220,7 @@ Organization admin, Folder or project admin, Backup and Recovery super admin, Ba
 . Select the database. 
 . Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Restore*.
 +
-For information about restoring workloads, refer to link:br-use-restore-overview.html[Restore workloads overview].
+For information about restoring workloads, refer to link:br-use-mssql-restore.html[Restore workloads].
 
 === Edit protection settings
 
