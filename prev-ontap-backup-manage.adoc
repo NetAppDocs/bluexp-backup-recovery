@@ -281,7 +281,7 @@ ifdef::azure[]
 link:prev-reference-azure-archive-storage-tiers.html[Learn more about using Azure archival storage].
 endif::azure[]
 ifdef::gcp[]
-link:reference-gcp-archive-storage-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
+link:prev-reference-gcp-archive-storage-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
 endif::gcp[]
 +
 Note that any backup files that have been tiered to archival storage are left in that tier if you stop tiering backups to archive - they are not automatically moved back to the standard tier. Only new volume backups will reside in the standard tier.
