@@ -323,7 +323,7 @@ ifdef::azure[]
 link:prev-reference-azure-archive-storage-tiers.html[Learn more about using Azure archival storage].
 endif::azure[]
 ifdef::gcp[]
-link:reference-gcp-archive-storage-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
+link:prev-reference-gcp-archive-storage-tiers.html[Learn more about using Google archival storage]. (Requires ONTAP 9.12.1.)
 endif::gcp[]
 
 

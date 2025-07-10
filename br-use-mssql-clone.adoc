@@ -40,7 +40,7 @@ You can create a clone from an existing snapshot or from an instant snapshot. An
 .Steps
 . From the BlueXP backup and recovery menu, select *Clone*.
 +
-image:screen-br-sql-clone.png[Clone page screenshot for BlueXP backup and recovery]
+image:screen-br-sql-clone-nomenu.png[Clone page screenshot for BlueXP backup and recovery]
 
 . Select *Create new clone*.
 
