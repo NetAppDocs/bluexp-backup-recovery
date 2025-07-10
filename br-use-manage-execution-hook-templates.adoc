@@ -79,7 +79,7 @@ You can create a custom execution hook template that you can use to perform acti
 
 .Steps
 
-. In BlueXP, got to *Protection* > *Backup and recovery*.
+. In BlueXP, go to *Protection* > *Backup and recovery*.
 . Select the *Settings* tab.
 . Expand the *Execution hook template* section.
 . Select *Create execution hook template*.
