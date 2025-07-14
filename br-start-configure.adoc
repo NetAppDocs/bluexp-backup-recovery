@@ -18,7 +18,7 @@ After you set up BlueXP, configure the backup and recovery settings, which inclu
 * <<Add credentials for host resources>> for the Windows and SQL Server hosts that you imported from SnapCenter and add credentials. (Microsoft SQL Server workloads only)
 * <<Maintain VMware vCenter settings>>.
 * <<Import and manage SnapCenter host resources>>.
-* link:br-use-manage-execution-hook-templates.html[Set up script execution hooks] to run scripts before and after backup jobs. (Kubernetes workloads only)
+//* link:br-use-manage-execution-hook-templates.html[Set up script execution hooks] to run scripts before and after backup jobs. (Kubernetes workloads only)
 * <<Configure log directories in snapshots for Windows hosts>>.
 //* Enable DataLock and integrity scanning. 
 //* <<Enable the Certificate Authority certificates>>.
