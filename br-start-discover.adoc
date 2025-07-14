@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup application data, Amazon Web servi
 summary: The BlueXP backup and recovery service needs to first discover workloads in order for you to use the service.  
 ---
 
-= Discover Microsoft SQL Server workloads
+= Discover Microsoft SQL Server workloads in BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: The BlueXP backup and recovery service needs to first discover workload
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service needs to first discover Microsoft SQL Server or Kubernetes workloads in order for you to use the service.  
+The BlueXP backup and recovery service needs to first discover Microsoft SQL Server in order for you to use the service.  
 
 * <<Discover Microsoft SQL Server workloads and optionally import SnapCenter resources>>
 //* <<Discover Kubernetes workloads>>

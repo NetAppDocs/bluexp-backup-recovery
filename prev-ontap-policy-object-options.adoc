@@ -99,7 +99,7 @@ Here are some examples:
 
 * If you create an Hourly backup schedule with 24 retentions, you might think that backups are locked for 24 hours. However, since that is less than the minimum of 30 days, each backup will be locked and retained for 44 days (30 days plus 14 days buffer).
 
-Old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period. 
+CAUTION: Old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period. 
 
 The DataLock retention setting overrides the policy retention setting from your backup policy. This could affect your storage costs as your backup files will be saved in the object store for a longer period of time.
 
