@@ -47,15 +47,15 @@ image:../media/screen-br-settings-all.png[Settings option showing the options]
 
 . Select the down arrow for *Credentials*.
 +
-image:../media/screen-br-settings.png[Settings option]
+image:../media/screen-br-settings-credentials.png[Settings option]
 
 
 . Select *Add new credentials*.
 +
-image:../media/screen-br-settings-credentials.png[Settings option to add new credentials]
+image:../media/screen-br-settings-credentials-add.png[Settings option to add new credentials]
 . Enter information for the credentials. Different fields appear depending on the Authentication mode you select. Select the Information *i* for more information about the fields. 
-* *Name*: Enter a name for the credentials.
-* *Authentication mode*: For the Preview 2025 version, select *Windows* or *Microsoft SQL*. 
+* *Credentials name*: Enter a name for the credentials.
+* *Authentication mode*: Select *Windows* or *Microsoft SQL*. 
 +
 TIP: You need to enter credentials for both Windows and Microsoft SQL Server, so you'll need to add two sets of credentials.
 

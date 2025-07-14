@@ -38,9 +38,8 @@ NOTE: If you've upgraded your ONTAP systems to 9.13.x and you don't see ongoing 
 
 .Steps
 
-. From the BlueXP menu, select *Protection > Backup and recovery*.
 
-. Select the *Job Monitoring* tab.
+. From the BlueXP backup and recovery menu, select the *Monitoring* tab.
 
 . To show additional columns (Working Environment, SVM, User Name, Workload, Policy Name, Snapshot Label), select the plus sign.
 
@@ -52,7 +51,7 @@ By default, the Job Monitoring page shows protection and recovery jobs from the 
 
 .Steps
 
-. Select the *Job Monitoring* tab.
+. From the BlueXP backup and recovery menu, select the *Monitoring* tab.
 . To sort the results differently, select each column heading to sort by Status, Start Time, Resource Name, and more. 
 
 . If you're looking for specific jobs, select the *Advanced Search & Filtering* area to open the Search panel. 
@@ -89,7 +88,7 @@ Restore jobs show details such as backup target provider (Amazon Web Services, M
 
 .Steps 
 
-. Select the *Job Monitoring* tab.
+. From the BlueXP backup and recovery menu, select the *Monitoring* tab.
 . Select the name of the job. 
 . Select the Actions menu image:icon-action.png[Actions icon] and select *View Details*. 
 
@@ -104,7 +103,7 @@ From the Job Monitoring Details information, you can download a JSON file contai
 
 .Steps
 
-. Select the *Job Monitoring* tab.
+. From the BlueXP backup and recovery menu, select the *Monitoring* tab.
 . To download a CSV file for all jobs, select the Download button and locate the file in your download directory. 
 . To download a JSON file for a single job, select the Actions menu image:icon-action.png[Actions icon] for the job, select *Download JSON File*, and locate the file in your download directory.  
 
@@ -118,7 +117,7 @@ The "Retention" job type captures all Snapshot deletion jobs initiated on a volu
 
 .Steps
 
-. Select the *Job Monitoring* tab.
+. From the BlueXP backup and recovery menu, select the *Monitoring* tab.
 . Select the *Advanced Search & Filtering* area to open the Search panel. 
 . Select "Retention" as the job type. 
 

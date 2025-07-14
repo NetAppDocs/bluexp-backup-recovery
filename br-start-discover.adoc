@@ -64,13 +64,16 @@ TIP: After you import SnapCenter host resources, BlueXP backup and recovery does
 .Steps 
 
 . From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
-
-. From the top menu, select *Inventory* > *Discover resources*.
-
+. From the top menu, select *Inventory*.
++
+image:screen-br-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. From the top menu, select *Discover resources*.
++
+image:../media/screen-br-discover-workloads.png[Discover workload resources screenshot]
 . From the BlueXP backup and recovery Discover workload resources page, select *Import from SnapCenter*.
 
 +
-image:../media/screen-br-settings-import-snapcenter-details.png[Settings option to import SnapCenter Server resources]
+image:../media/screen-br-discover-import-snapcenter.png[Settings option to import SnapCenter Server resources]
 
 . Enter *SnapCenter application credentials*:
 .. *SnapCenter FQDN or IP address*: Enter the FQDN or IP address of the SnapCenter application itself.
@@ -109,7 +112,7 @@ image:../media/screen-br-inventory.png[Inventory page showing the imported SnapC
 +
 image:../media/screen-br-inventory-manage-option.png[Inventory page showing the imported SnapCenter resources and the Manage option]
 
-. From the Inventory page, select the Actions icon image:../media/icon-action.png[Actions option] > *Manage* to display the Manage host page.   
+. From the Inventory > workload page, select the Actions icon image:../media/icon-action.png[Actions option] > *Manage* to display the Manage host page.   
 //+
 //image:../media/screen-br-inventory-manage-host.png[Inventory page showing the imported SnapCenter resources and the Manage option]
 
@@ -125,6 +128,7 @@ The Inventory page shows the newly managed SnapCenter resources.
 You can optionally create a report of the managed resources by selecting the *Generate reports* option from the Actions menu.
 
 ==== Import SnapCenter resources after discovery from the Inventory page
+
 If you have already discovered resources, you can import SnapCenter resources from the Inventory page.
 
 .Steps
@@ -181,17 +185,17 @@ With Advanced Settings, you can manually install the plugin agent on all servers
 
 . From the Discover resources page, continue to Advanced Settings by clicking the down arrow on the right. 
 +
-image:screen-br-discover-workloads-newly-discovered.png[Newly discovered working environments screenshot]
+image:screen-br-discover-workloads-newly-discovered2.png[Newly discovered working environments screenshot]
 . In the Discover workload resources page, enter the following information. 
 * *Enter plug-in port number*: Enter the port number that the plugin uses.
 * *Installation path*: Enter the path where the plugin will be installed. 
 
 . If you want to install the SnapCenter agent manually, check the boxes for the following options:
 * *Use manual installation*: Check this box to install the  plugin manually.   
-* *Use Group Managed Service Account (gMSA)*: If you use a specific third-party gMSA account to manage host credentials, check this box. 
+//* *Use Group Managed Service Account (gMSA)*: If you use a specific third-party gMSA account to manage host credentials, check this box. 
 * *Add all hosts in the cluster*: Check this box to add all hosts in the cluster to BlueXP backup and recovery during discovery.
 * *Skip optional preinstall checks*: Check this box to skip optional preinstall checks. You might want to do this for example, if you know that memory or space considerations will be changed in the near future and you want to install the plugin now.
-* *Skip automated installation*: Check this box to skip the automated installation of the plugin. You might want to do this if you are installing the plugin manually.
+//* *Skip automated installation*: Check this box to skip the automated installation of the plugin. You might want to do this if you are installing the plugin manually.
 
 . Select *Discover*.
 
