@@ -20,7 +20,7 @@ Learn what's new in BlueXP backup and recovery.
 
 This BlueXP backup and recovery release includes the following updates.
 
-//v3.0.10
+
 include::_whatsnew/2025-06-07.adoc[]
 
 == 09 June 2025 

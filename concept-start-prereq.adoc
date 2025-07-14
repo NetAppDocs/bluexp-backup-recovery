@@ -85,20 +85,20 @@ To use object storage as backup targets, you need an account with AWS S3, Micros
 * link:br-use-mssql-protect-overview.html[Protect your Microsoft SQL Server databases]
 * link:prev-vmware-protect-overview.html[Protect your VMware workloads]
 
-* link:br-use-kubernetes-protect-overview.html[Protect your Kubernetes workloads]
+//* link:br-use-kubernetes-protect-overview.html[Protect your Kubernetes workloads]
 
 
-== For protecting Kubernetes applications
-You need specific requirements to discover Kubernetes resources and protect your Kubernetes applications.
+//== For protecting Kubernetes applications
+//You need specific requirements to discover Kubernetes resources and protect your Kubernetes applications.
 
 
-* You need a primary ONTAP system (what version?)
-* You need a Kubernetes cluster in your environment
-** Kubernetes distributions / versions that we support - what are they?
-** Trident must be installed
+//* You need a primary ONTAP system 
+//* You need a Kubernetes cluster in your environment
+//** Kubernetes distributions / versions supported
+//** Trident must be installed
 //* BlueXP Connector needs to be installed (already documented in BXP docs, link to it)
-* You need to have installed a BlueXP working environment (already documented in BXP docs, link to it)
-** The working environment needs to have storage volumes configured and useable by BlueXP.
+//* You need to have installed a BlueXP working environment
+//** The working environment needs to have storage volumes configured and useable by BlueXP.
 //* You need to have hardware or VMs available for a new Kubernetes cluster (or you need an existing cluster)
 
 //*Kubernetes requirements for 3-2-1 protection scheme*
