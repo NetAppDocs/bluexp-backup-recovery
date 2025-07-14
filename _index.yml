@@ -54,14 +54,6 @@ indexpage:
           url: prev-vmware-policy-create.html
         - title: Restore VMware datastore workloads
           url: prev-vmware-restore.html
-    - title: Protect Kubernetes workloads (Preview)
-      links:
-        - title: Protect Kubernetes workloads overview
-          url: br-use-kubernetes-protect-overview.html
-        - title: Protect Kubernetes applications
-          url: br-use-protect-kubernetes-applications.html
-        - title: Restore Kubernetes applications
-          url: br-use-restore-kubernetes-applications.html   
     - title: Blogs & community
       links:
         - title: NetApp Community
