@@ -14,8 +14,6 @@ indexpage:
           url: concept-start-prereq.html
         - title: Set up backup destinations before you use BlueXP backup and recovery
           url: br-start-setup.html
-        - title: Discover workloads & optionally import SnapCenter resources
-          url: br-start-discover.html
         - title: Configure BlueXP backup and recovery settings
           url: br-start-configure.html
     - title: Manage policies for backups and restores
@@ -40,6 +38,8 @@ indexpage:
       links:
         - title: Protect Microsoft SQL Server workloads overview 
           url: br-use-mssql-protect-overview.html       
+        - title: Discover Microsoft SQL Server workloads & optionally import SnapCenter resources
+          url: br-start-discover.html
         - title: Back up Microsoft SQL Server workloads 
           url: br-use-mssql-backup.html
         - title: Restore Microsoft SQL Server workloads
