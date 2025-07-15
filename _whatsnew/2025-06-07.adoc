@@ -6,6 +6,8 @@ This dashboard was designed to help enterprise customers with a high number of w
 
 After a successful preview and great feedback from preview customers, we are now making it the default experience for all our customers. Be ready for a blazingly fast dashboard.
 
+For details, see link:br-use-dashboard.html[View protection health in the Dashboard].
+
 === Microsoft SQL Server workload support as a Public Technology Preview
 
 This release of BlueXP backup and recovery provides an updated user interface that enables you to manage Microsoft SQL Server workloads using a 3-2-1 protection strategy, familiar in the BlueXP backup and recovery service. With this new version, you can back up these workloads to primary storage, replicate them to secondary storage, and back them up to cloud object storage. 
@@ -25,6 +27,9 @@ This version of BlueXP backup and recovery includes the following updates:
 * *Instant production copies*: Generate space-efficient production copies for development, testing, or analytics in minutes instead of hours or days. 
 
 * This version includes the ability to create detailed reports.  
+
+For details about protecting Microsoft SQL Server workloads, see link:br-use-mssql-protect-overview.html[Protect Microsoft SQL Server workloads overview]. 
+
 
 //=== Kubernetes workload support as a Public Technology Preview 
 
