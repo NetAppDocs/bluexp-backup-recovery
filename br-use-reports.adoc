@@ -5,13 +5,13 @@ keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, b
 summary: In BlueXP backup and recovery, create reports to view the status of your backups, including the number of backups, the number of successful backups, and the number of failed backups. You can also view the details of each backup, including the backup type, the storage system used for the backup, and the time of the backup. 
 ---
 
-= Create reports in BlueXP backup and recovery
+= Create reports for Microsoft SQL Server workloadsin BlueXP backup and recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ./media/
 
 [.lead]
-In BlueXP backup and recovery, create reports to view the status of your backups, including the number of backups, the number of successful backups, and the number of failed backups. You can also view the details of each backup, including the backup type, the storage system used for the backup, and the time of the backup.
+In BlueXP backup and recovery, create reports for Microsoft SQL Server workloadsto view the status of your backups, including the number of backups, the number of successful backups, and the number of failed backups. You can also view the details of each backup, including the backup type, the storage system used for the backup, and the time of the backup.
 
 
 

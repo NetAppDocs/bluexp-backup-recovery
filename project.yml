@@ -36,20 +36,17 @@ sidebar:
       entries:
         - title: Learn about BlueXP backup and recovery
           url: /concept-backup-to-cloud.html
-        - title: Set up a BlueXP backup and recovery Preview version
-          url: /br-start-preview-setup.html
+#        - title: Set up a BlueXP backup and recovery Preview version
+#          url: /br-start-preview-setup.html
         - title: Prerequisites for BlueXP backup and recovery
           url: /concept-start-prereq.html  
-        - title: Configure additional items if importing from SnapCenter
-          url: /concept-start-prereq-snapcenter-import.html
+
         - title: Set up licensing for BlueXP backup and recovery
           url: /br-start-licensing.html
         - title: Set up backup destinations before you use BlueXP backup and recovery
           url: /br-start-setup.html
         - title: Log in to BlueXP backup and recovery
           url: /br-start-login.html
-        - title: Discover Microsoft SQL Server or Kubernetes workloads
-          url: /br-start-discover.html
         - title: Discover backup targets
           url: /br-start-discover-backup-targets.html
         - title: Switch to different BlueXP backup and recovery workloads
@@ -100,6 +97,10 @@ sidebar:
           entries:
             - title: Protect Microsoft SQL Server workloads overview
               url: /br-use-mssql-protect-overview.html
+            - title: Configure additional items if importing from SnapCenter
+              url: /concept-start-prereq-snapcenter-import.html
+            - title: Discover Microsoft SQL Server workloads
+              url: /br-start-discover.html            
             - title: Back up Microsoft SQL Server workloads
               url: /br-use-mssql-backup.html
             - title: Restore Microsoft SQL Server workloads
@@ -110,6 +111,8 @@ sidebar:
               url: /br-use-manage-inventory.html 
             - title: Manage Microsoft SQL Server snapshots
               url: /br-use-manage-snapshots.html
+            - title: Create Microsoft SQL Server reports 
+              url: /br-use-reports.html
         - title: Protect virtual machine workloads 
           entries:  
             - title: Protect virtual machine workloads overview
@@ -150,8 +153,6 @@ sidebar:
 #          entries:            
         - title: Monitor jobs
           url: /br-use-monitor-tasks.html
-        - title: Create reports 
-          url: /br-use-reports.html
         - title: Restart BlueXP backup and recovery
           url: /reference-restart-backup.html
     - title: Automate with the REST API
