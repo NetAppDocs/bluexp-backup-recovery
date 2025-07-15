@@ -32,7 +32,7 @@ To use object storage as backup targets, you need an account with AWS S3, Micros
 
 * link:prev-ontap-protect-overview.html[Protect your ONTAP volume data]
 * link:br-use-mssql-protect-overview.html[Protect your Microsoft SQL Server databases]
-* link:prev-vmware-protect-overview.html[Protect your VMware workloads]
+* link:prev-vmware-protect-overview.html[Protect your virtual machines workloads]
 
 //* link:br-use-kubernetes-protect-overview.html[Protect your Kubernetes workloads]
 
