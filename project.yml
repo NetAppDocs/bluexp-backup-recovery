@@ -28,139 +28,147 @@ sidebar:
       entries:
         - title: What's new
           url: /whats-new.html
-        - title: Known limitations
-          url: /reference-limitations.html
+        - title: Known limitations for Microsoft SQL Server workloads
+          url: /br-limitations.html
+        - title: Known limitations for ONTAP volumes workloads
+          url: /br-reference-limitations.html
     - title: Get started
       entries:
         - title: Learn about BlueXP backup and recovery
           url: /concept-backup-to-cloud.html
-        - title: Set up licensing
-          url: /task-licensing-cloud-backup.html
-        - title: Enable preview features  
-          url: /task-preview-enable.html 
-        - title: Monitor data protection
+#        - title: Set up a BlueXP backup and recovery Preview version
+#          url: /br-start-preview-setup.html
+        - title: Prerequisites for BlueXP backup and recovery
+          url: /concept-start-prereq.html  
+
+        - title: Set up licensing for BlueXP backup and recovery
+          url: /br-start-licensing.html
+        - title: Set up backup destinations before you use BlueXP backup and recovery
+          url: /br-start-setup.html
+        - title: Log in to BlueXP backup and recovery
+          url: /br-start-login.html
+        - title: Discover backup targets
+          url: /br-start-discover-backup-targets.html
+        - title: Switch to different BlueXP backup and recovery workloads
+          url: /br-start-switch-ui.html
+        - title: Configure BlueXP backup and recovery general settings
+          url: /br-start-configure.html
+    - title: Use BlueXP backup and recovery
+      entries:
+        - title: View protection health in the Dashboard 
+          url: /br-use-dashboard.html  
+        - title: Create policies to govern backups and restores
+          url: /br-use-policies-create.html
+        - title: Protect ONTAP volume workloads
+          entries: 
+          - title: Protect ONTAP volume workloads overview
+            url:  /prev-ontap-protect-overview.html
+          - title: Plan your protection journey for ONTAP volumes
+            url: /prev-ontap-protect-journey.html
+          - title: Manage policies for ONTAP volumes 
+            url: /prev-ontap-policy-manage.html
+          - title: Backup-to-object policy options for ONTAP volumes
+            url: /prev-ontap-policy-object-options.html
+          - title: Manage backup-to-object policy Advanced Settings options
+            url: /prev-ontap-policy-object-advanced-settings.html
+          - title: Back up Cloud Volumes ONTAP to Amazon S3
+            url: /prev-ontap-backup-cvo-aws.html
+          - title: Back up Cloud Volumes ONTAP to Azure Blob 
+            url: /prev-ontap-backup-cvo-azure.html
+          - title: Back up Cloud Volumes ONTAP to Google Cloud
+            url: /prev-ontap-backup-cvo-gcp.html
+          - title: Back up on-premises ONTAP to Amazon S3 
+            url: /prev-ontap-backup-onprem-aws.html
+          - title: Back up on-premises ONTAP to Azure Blob
+            url: /prev-ontap-backup-onprem-azure.html
+          - title: Back up on-premises ONTAP to Google Cloud 
+            url: /prev-ontap-backup-onprem-gcp.html
+          - title: Back up on-premises ONTAP to ONTAP S3 
+            url: /prev-ontap-backup-onprem-ontaps3.html
+          - title: Back up on-premises ONTAP to StorageGRID
+            url: /prev-ontap-backup-onprem-storagegrid.html
+          - title: Migrate volumes using SnapMirror to Cloud Resync   
+            url: /prev-ontap-migrate-resync.html
+          - title: Manage ONTAP backups
+            url: /prev-ontap-backup-manage.html
+          - title: Restore from ONTAP backups 
+            url: /prev-ontap-restore.html
+        - title: Protect Microsoft SQL Server workloads (Preview)
           entries:
-          - title: Report on data protection coverage
-            url: /task-report-inventory.html
-          - title: Monitor the status of backup and restore jobs
-            url: /task-monitor-backup-jobs.html        
-    - title: Back up and restore ONTAP data
-      entries:
-        - title: Protect your ONTAP volume data
-          url: /concept-ontap-backup-to-cloud.html
-        - title: Plan your protection journey
-          url: /concept-protection-journey.html
-        - title: Manage policies for ONTAP volumes
-          url: /task-create-policies-ontap.html   
-        - title: Backup-to-object policy options
-          url: /concept-cloud-backup-policies.html
-        - title: Manage backup-to-object options in Advanced Settings
-          url: /task-manage-backup-settings-ontap.html
-        - title: Back up Cloud Volumes ONTAP to Amazon S3
-          flavor: aws
-          url: /task-backup-to-s3.html
-        - title: Back up Cloud Volumes ONTAP to Azure Blob
-          flavor: azure
-          url: /task-backup-to-azure.html
-        - title: Back up Cloud Volumes ONTAP to Google Cloud
-          flavor: gcp
-          url: /task-backup-to-gcp.html
-        - title: Back up on-premises ONTAP to Amazon S3
-          flavor: aws
-          url: /task-backup-onprem-to-aws.html
-        - title: Back up on-premises ONTAP to Azure Blob
-          flavor: azure
-          url: /task-backup-onprem-to-azure.html
-        - title: Back up on-premises ONTAP to Google Cloud
-          flavor: gcp
-          url: /task-backup-onprem-to-gcp.html
-        - title: Back up on-premises ONTAP to ONTAP S3
-          url: /task-backup-onprem-to-ontap-s3.html
-        - title: Back up on-premises ONTAP to StorageGRID
-          url: /task-backup-onprem-private-cloud.html
-        - title: Migrate volumes with SnapMirror to Cloud Resync
-          url: /task-migrate-volumes-snapmirror-cloud-resync.html
-        - title: Manage ONTAP backups
-          url: /task-manage-backups-ontap.html
-        - title: Restore from ONTAP backups
-          url: /task-restore-backups-ontap.html
-    - title: Back up and restore on-premises applications data
-      entries:
-        - title: Protect your on-premises applications data
-          url: /concept-protect-app-data-to-cloud.html
-        - title: Register SnapCenter Server
-          url: /task-register-snapcenter-server.html
-        - title: Create a policy to back up applications
-          url: /task-create-policies-apps.html
-        - title: Back up on-premises applications data to Amazon Web Services
-          flavor: aws
-          url: /task-backup-app-data-to-aws.html
-        - title: Back up on-premises applications data to Microsoft Azure
-          flavor: azure
-          url: /task-backup-app-data-to-azure.html
-        - title: Back up on-premises applications data to Google Cloud
-          flavor: gcp
-          url: /task-backup-app-data-to-gcp.html
-        - title: Back up on-premises applications data to StorageGRID
-          url: /task-backup-app-data-to-storagegrid.html
-        - title: Manage protection of applications
-          url: /task-manage-app-backups.html
-        - title: Restore on-premises applications data
-          entries:
-            - title: Restore Oracle database
-              url: /task-restore-oracle-data.html
-            - title: Restore SQL Server database
-              url: /task-restore-sql-data.html
-            - title: Restore SAP HANA database
-              url: /task-restore-hana-backup.html
-            - title: Restore MongoDB, MySQL, and PostgreSQL databases
-              url: /task-restore-customplugin-backup.html
-    - title: Back up and restore virtual machines data
-      entries:
-        - title: Protect your virtual machines data
-          url: /concept-protect-vm-data.html
-        - title: Register SnapCenter Plug-in for VMware vSphere host
-          url: /task-register-snapCenter-plug-in-for-vmware-vsphere.html
-        - title: Create a policy to back up datastores
-          url: /task-create-policies-vms.html
-        - title: Back up datastores to Amazon Web Services
-          flavor: aws
-          url: /task-backup-vm-data-to-aws.html
-        - title: Back up datastores to Microsoft Azure
-          flavor: azure
-          url: /task-backup-vm-data-to-azure.html
-        - title: Back up datastores to Google Cloud Platform
-          flavor: gcp
-          url: /task-backup-vm-data-to-gcp.html  
-        - title: Back up datastores to StorageGRID
-          url: /task-backup-vm-data-to-storagegrid.html
-        - title: Manage protection of datastores and virtual machines data
-          url: /task-manage-vm-data-in-cloud.html
-        - title: Restore virtual machines data
-          url: /task-restore-vm-data.html
-    - title: Automate with the REST API
-      url: /api-backup-restore.html
-    - title: Reference
-      entries:
-        - title: Supported AWS archive storage tiers
-          url: /reference-aws-backup-tiers.html
-        - title: Supported Azure archive access tiers
-          url: /reference-azure-backup-tiers.html
-        - title: Supported Google archive storage tiers
-          url: /reference-google-backup-tiers.html
-        - title: Configure backup for multi-account access in Azure
-          flavor: azure
-          url: /reference-backup-multi-account-azure.html
-        - title: Restore BlueXP backup and recovery database in a dark site
-          url: /reference-backup-cbs-db-in-dark-site.html
+            - title: Protect Microsoft SQL Server workloads overview
+              url: /br-use-mssql-protect-overview.html
+            - title: Configure additional items if importing from SnapCenter
+              url: /concept-start-prereq-snapcenter-import.html
+            - title: Discover Microsoft SQL Server workloads
+              url: /br-start-discover.html            
+            - title: Back up Microsoft SQL Server workloads
+              url: /br-use-mssql-backup.html
+            - title: Restore Microsoft SQL Server workloads
+              url: /br-use-mssql-restore.html              
+            - title: Clone Microsoft SQL Server workloads
+              url: /br-use-mssql-clone.html
+            - title: Manage Microsoft SQL Server inventory 
+              url: /br-use-manage-inventory.html 
+            - title: Manage Microsoft SQL Server snapshots
+              url: /br-use-manage-snapshots.html
+            - title: Create Microsoft SQL Server reports 
+              url: /br-use-reports.html
+        - title: Protect virtual machine workloads 
+          entries:  
+            - title: Protect virtual machine workloads overview
+              url: /prev-vmware-protect-overview.html
+            - title: Prerequisites for protecting virtual machines workloads
+              url: /prev-vmware-prereqs.html
+            - title: Register SnapCenter Plug-in for VMware vSphere host
+              url: /prev-vmware-register-snapcenter.html
+            - title: Create a policy to back up VMware datastores
+              url: /prev-vmware-policy-create.html         
+            - title: Back up datastores to Amazon Web Services
+              url: /prev-vmware-backup-aws.html
+            - title: Back up datastores to Microsoft Azure
+              url: /prev-vmware-backup-azure.html
+            - title: Back up datastores to Google Cloud Platform
+              url: /prev-vmware-backup-gcp.html
+            - title: Back up datastores to StorageGRID
+              url: /prev-vmware-backup-storagegrid.html 
+            - title: Manage protection of datastores and virtual machines data
+              url: /prev-vmware-manage.html
+            - title: Restore VMware datastores
+              url: /prev-vmware-restore.html
+#        - title: Protect Kubernetes workloads (Preview)
+#          entries:
+#            - title: Protect Kubernetes workloads overview
+#              url: /br-use-kubernetes-protect-overview.html
+#            - title: Add and protect Kubernetes applications # Includes app protect, manual backup
+#              url: /br-use-protect-kubernetes-applications.html
+#            - title: Restore Kubernetes applications # Includes only restore task
+#              url: /br-use-restore-kubernetes-applications.html
+#            - title: Manage Kubernetes clusters # Includes discover, edit, remove / CRUD
+#              url: /br-use-manage-kubernetes-clusters.html
+#            - title: Manage Kubernetes applications # Includes app CRUD
+#              url: /br-use-manage-kubernetes-applications.html
+#            - title: Manage execution hook templates for Kubernetes workloads
+#              url: /br-use-manage-execution-hook-templates.html
+#        - title: Manage inventory, snapshots, and policies       
+#          entries:            
+        - title: Monitor jobs
+          url: /br-use-monitor-tasks.html
         - title: Restart BlueXP backup and recovery
           url: /reference-restart-backup.html
-    - title: Knowledge and support
+    - title: Automate with the REST API
+      url: /br-api-backup-restore.html          
+    - title: Reference 
       entries:
-        - title: Register for support
-          url: /task-support-registration.html
-        - title: Get help
-          url: /task-get-help.html
+        - title: Policies in SnapCenter compared to BlueXP backup and recovery
+          url: /reference-policy-differences-snapcenter.html
+        - title: BlueXP backup and recovery roles and privileges
+          url: /reference-roles.html
+        - title: Supported AWS archive storage tiers
+          url: /prev-reference-aws-archive-storage-tiers.html
+        - title: Supported Azure archive storage tiers
+          url: /prev-reference-azure-archive-storage-tiers.html
+        - title: Supported Google Cloud archive storage tiers
+          url: /prev-reference-gcp-archive-storage-tiers.html
     - title: Legal notices
       url: /legal-notices.html
 product-family:
