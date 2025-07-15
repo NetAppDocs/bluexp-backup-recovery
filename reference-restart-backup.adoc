@@ -15,7 +15,7 @@ summary: There may be situations where you'll need to restart the BlueXP backup 
 [.lead]
 There may be situations where you'll need to restart the BlueXP backup and recovery service. 
 
-BlueXP backup and recovery functionality is built into the BlueXP Connector. You'll need to follow different initial steps to restart the service depending on whether you deployed the Connector in the cloud or whether you installed the Connector manually on a Linux system.
+BlueXP backup and recovery functionality is built into the BlueXP Connector. 
 
 .Steps
 
