@@ -11,7 +11,7 @@ The Indexed Catalog can then track every volume and backup file, making your sea
 
 For more information, refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html[Enable indexing for Search & Restore].
 
-For more information, see https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-search-restore[how to restore ONTAP data using Search & Restore]. 
+
 
 
 

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: whats-new.html
-keywords: what's new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery, protection
+keywords: what's new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery, protection, sql server, workloads, volumes, snapshots
 summary: Learn what's new in BlueXP backup and recovery.
 ---
 = What's new in BlueXP backup and recovery
