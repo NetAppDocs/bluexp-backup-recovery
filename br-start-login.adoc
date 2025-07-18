@@ -40,7 +40,7 @@ image:screen-br-landing-no-we.png[Landing page screenshot for BlueXP blueXP back
 //+
 //image:screen-br-landing-unified-start-trial.png[Landing page screenshot for BlueXP blueXP backup and recovery without a free trial]
 
-* If this is your first time logging in to this service and you already have a working environment in BlueXP, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover resources*. For details about discovering workloads, see link:br-start-discover.html[Discover workloads].
+* If this is your first time logging in to this service and you already have a working environment in BlueXP, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover resources*. 
 //+
 //NOTE: After you start the free trial, the *Start free trial* option changes to the *Discover and manage* option. 
 +
@@ -52,7 +52,7 @@ image:screen-br-landing-unified.png[Landing page screenshot for BlueXP blueXP ba
 
 . If you haven't done so already, select the *Discover and manage* option. 
 +
-Refer to link:br-start-discover.html[Discover workloads].
+For Microsoft SQL Server workloads, refer to link:br-start-discover.html[Discover Microsoft SQL Server workloads].
  
 //* If you are a BlueXP user with an an existing Connector, when you select "*Backup and recovery*", a message appears about signing up. 
 

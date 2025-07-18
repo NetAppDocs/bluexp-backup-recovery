@@ -13,7 +13,7 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-Before you begin protecting your VMware workloads with BlueXP backup and recovery, ensure that you meet the following prerequisites:
+Before you begin protecting your virtual machines workloads with BlueXP backup and recovery, ensure that you meet the following prerequisites:
 
 
 * SnapCenter Plug-in for VMware vSphere 4.6P1 or later

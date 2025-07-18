@@ -17,7 +17,7 @@ Back up Microsoft SQL Server applications data from on-premises ONTAP systems to
 
 * To back up workloads on a schedule, create policies that govern the backup and restore operations. See link:br-use-policies-create.html[Create policies] for instructions.
 
-* Configure logs for discovered hosts before you initiate a backup. 
+* Configure the log directory for discovered hosts before you initiate a backup. 
 
 * Back up workloads now (create an on-demand backup now).  
 
@@ -75,7 +75,7 @@ image:screen-br-inventory-details-manage-hosts.png[Manage hosts page]
 . Select *Manage* to manage the host.
 
 
-== Configure logs for discovered hosts
+== Configure the log directory for discovered hosts
 
 Before you back up your workloads, set the path for the activity logs for discovered hosts. This helps you to track the status of operations.
 

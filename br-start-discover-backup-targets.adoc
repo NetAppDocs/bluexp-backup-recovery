@@ -26,9 +26,11 @@ Provide the credentials needed to access the storage account system. These crede
 
 .Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
-. Select *Offsite backup targets*.
+. Select the *Offsite backup targets* tab.
++
+image:screen-br-inventory-offsite-backup-targets.png[Offsite backup targets tab]
 . Select *Discover backup target*. 
-. Select one of the backup target types: *Amazon Web Services (AWS)*, *Microsoft Azure Blob Storage*, *Google Cloud Storage*, or *StorageGRID*.
+. Select one of the backup target types: *Amazon Web Services (AWS) S3*, *Microsoft Azure Blob Storage*, *StorageGRID* or *ONTAP S3*.
 
 . Enter the information. The information differs depending on the type of backup target you selected.
 
@@ -39,23 +41,26 @@ Provide the credentials needed to access the storage account system. These crede
 
 
 * For Azure:
-* *Credential name*: Enter the Azure Blob Storage credential name.
-* *Client secret*: Enter the Azure Blob Storage client secret.
-* *Application (client) ID*: Select the Azure Blob Storage application ID.
-* *Directory tenant ID*: Enter the Azure Blob Storage tenant ID.
+** *Credential name*: Enter the Azure Blob Storage credential name.
+** *Client secret*: Enter the Azure Blob Storage client secret.
+** *Application (client) ID*: Select the Azure Blob Storage application ID.
+** *Directory tenant ID*: Enter the Azure Blob Storage tenant ID.
 
 
 * For StorageGRID:  
-** *Bucket target name*: Enter the name of the StorageGRID bucket.
-** *Tenant ID*: Enter the StorageGRID tenant ID.
+** *Credential name*: Enter the StorageGRID credential name.
+//** *Bucket target name*: Enter the name of the StorageGRID bucket.
+//** *Tenant ID*: Enter the StorageGRID tenant ID.
 ** *Gateway Node FQDN*: Enter a FQDN name for StorageGRID.
 ** *Port*: Enter the port number for StorageGRID.
-** *S3 access and secret key*: Enter the StorageGRID S3 access key. 
-** *Connectors*: Select the BlueXP Connector for StorageGRID.  
+** *Access key*: Enter the StorageGRID S3 access key. 
+** *Secret key*: Enter the StorageGRID S3 secret key.
+//** *Connectors*: Select the BlueXP Connector for StorageGRID.  
 
 * For ONTAP S3: 
-** *Bucket target name*: Enter the name of the StorageGRID bucket.
-** *Storage working environment*: Select the ONTAP S3 working environment.
+** *Credential name*: Enter the ONTAP S3 credential name.
+//** *Bucket target name*: Enter the name of the StorageGRID bucket.
+//** *Storage working environment*: Select the ONTAP S3 working environment.
 ** *Gateway Node FQDN*: Enter a FQDN name for ONTAP S3.
 ** *Port*: Enter the port number for ONTAP S3.
 ** *Access key*: Enter the ONTAP S3 access key. 
@@ -75,7 +80,7 @@ Rather than have BlueXP backup and recovery discover buckets automatically, you 
 .Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select *Offsite backup targets*.
-. Select *Discover backup target*. 
+//. Select *Discover backup target*. 
 . Select the target and on the right, select the *Actions* image:icon-action.png["Actions icon"] icon and select *Add bucket*.
 . Enter the bucket information. The information differs depending on the type of backup target you selected.
 
@@ -84,12 +89,12 @@ Rather than have BlueXP backup and recovery discover buckets automatically, you 
 ** *AWS account*: Enter the AWS account name.
 ** *Bucket region*: Enter the AWS region for the bucket.
 ** *Enable S3 Object Lock*: Select this option to enable S3 Object Lock for the bucket. S3 Object Lock prevents objects from being deleted or overwritten for a specified retention period, providing an additional layer of data protection. You can enable this only when you are creating a bucket and you cannot turn it off later.
-*** Governance mode*: Select this option to enable governance mode for the S3 Object Lock bucket. Governance mode enables you to protect objects from being deleted or overwritten by most users, but allows certain users to alter the retention settings.
-*** Compliance mode*: Select this option to enable compliance mode for the S3 Object Lock bucket. Compliance mode prevents any user, including the root user, from altering the retention settings or deleting objects until the retention period expires.
-* *Versioning*: Select this option to enable versioning for the S3 bucket. Versioning enables you to keep multiple versions of objects in the bucket, which can be useful for backup and recovery purposes.
-* *Tags*: Select tags for the S3 bucket. Tags are key-value pairs that can be used to organize and manage your S3 resources.
-* *Encryption*: Select the type of encryption for the S3 bucket. The options are either AWS S3-managed keys or AWS Key Management Service key. If you select AWS Key Management Service keys, you must provide the key ID.
-* *Enable bucket key*: Select this option to enable bucket key for the S3 bucket. Bucket key reduces the cost of using server-side encryption with AWS Key Management Service by reducing the number of requests made to the service.
+*** *Governance mode*: Select this option to enable governance mode for the S3 Object Lock bucket. Governance mode enables you to protect objects from being deleted or overwritten by most users, but allows certain users to alter the retention settings.
+*** *Compliance mode*: Select this option to enable compliance mode for the S3 Object Lock bucket. Compliance mode prevents any user, including the root user, from altering the retention settings or deleting objects until the retention period expires.
+** *Versioning*: Select this option to enable versioning for the S3 bucket. Versioning enables you to keep multiple versions of objects in the bucket, which can be useful for backup and recovery purposes.
+** *Tags*: Select tags for the S3 bucket. Tags are key-value pairs that can be used to organize and manage your S3 resources.
+** *Encryption*: Select the type of encryption for the S3 bucket. The options are either AWS S3-managed keys or AWS Key Management Service key. If you select AWS Key Management Service keys, you must provide the key ID.
+//* *Enable bucket key*: Select this option to enable bucket key for the S3 bucket. Bucket key reduces the cost of using server-side encryption with AWS Key Management Service by reducing the number of requests made to the service.
 
 
 
@@ -128,7 +133,7 @@ Enter the credentials needed to access the backup target.
 .Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.
 . Select *Offsite backup targets*.
-. Select *Discover backup target*. 
+//. Select *Discover backup target*. 
 . Select the target and on the right, select the *Actions* image:icon-action.png["Actions icon"] icon and select *Change credentials*.
 . Enter the new credentials for the backup target. The information differs depending on the type of backup target you selected.
 . Select *Done*. 

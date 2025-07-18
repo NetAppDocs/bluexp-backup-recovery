@@ -82,24 +82,25 @@ The minimum Snapshot Retention Period is 30 days. Let's look at some examples of
 
 === What is Retention Until Date (RUD) and how is it calculated?
 
-The Retention Until Date (RUD) is determined based on the Snapshot Retention Period.
+The Retention Until Date (RUD) is determined based on the Snapshot Retention Period. The Retention Until Date is calculated by summing the Snapshot Retention Period and a Buffer.
 
-* The Retention Until Date is calculated by summing the Snapshot Retention Period and a Buffer.
-* Buffer is the Buffer for Transfer Time (6 days) + Buffer for Cost Optimization (8 days), which totals as 14 days.
-* The minimum Retention Until Date is 30 days + 14 days. 
+* Buffer is the Buffer for Transfer Time (3 days) + Buffer for Cost Optimization (28 days), which totals as 31 days.
+* The minimum Retention Until Date is 30 days + 31 days buffer = 61 days. 
  
+
 Here are some examples: 
 
-* If you create a Monthly backup schedule with 12 retentions, your backups are locked for 12 months (plus 14 days) before they are deleted (replaced by the next backup file).
+* If you create a Monthly backup schedule with 12 retentions, your backups are locked for 12 months (plus 31 days) before they are deleted (replaced by the next backup file).
 
 * If you create a backup policy that creates 30 daily, 7 weekly, 12 monthly backups, there are three locked retention periods:  
-** The "30 daily" backups are retained for 44 days (30 days plus 14 days buffer), 
-** The "7 weekly" backups are retained for 9 weeks (7 weeks plus 14 days), and 
-** The "12 monthly" backups are retained for 12 months (plus 14 days).
+** The "30 daily" backups are retained for 61 days (30 days plus 31 days buffer), 
+** The "7 weekly" backups are retained for 11 weeks (7 weeks plus 31 days), and 
+** The "12 monthly" backups are retained for 12 months (plus 31 days).
 
-* If you create an Hourly backup schedule with 24 retentions, you might think that backups are locked for 24 hours. However, since that is less than the minimum of 30 days, each backup will be locked and retained for 44 days (30 days plus 14 days buffer).
+* If you create an Hourly backup schedule with 24 retentions, you might think that backups are locked for 24 hours. However, since that is less than the minimum of 30 days, each backup will be locked and retained for 61 days (30 days plus 31 days buffer).
 
-Old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period. 
+
+CAUTION: Old backups are deleted after the DataLock Retention Period expires, not after the backup policy retention period. 
 
 The DataLock retention setting overrides the policy retention setting from your backup policy. This could affect your storage costs as your backup files will be saved in the object store for a longer period of time.
 

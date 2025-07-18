@@ -203,7 +203,7 @@ Refer to link:prev-ontap-policy-manage.html[Manage policies] for details about m
 . From the _Backup Settings page_, click image:icon-actions-horizontal.gif[More icon] for the working environment and select *Advanced Settings*.
 
 . In the Advanced Settings page, expand the *Ransomware scan* section. 
-. Enable or disable *Ransomware Scan*. 
+. Enable or disable *Ransomware scan*. 
 
 . Select *Scheduled ransomware scan*. 
 . Optionally, change the every week default scan to days or weeks. 

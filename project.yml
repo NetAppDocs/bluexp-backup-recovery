@@ -36,20 +36,17 @@ sidebar:
       entries:
         - title: Learn about BlueXP backup and recovery
           url: /concept-backup-to-cloud.html
-        - title: Set up a BlueXP backup and recovery Preview version
-          url: /br-start-preview-setup.html
+#        - title: Set up a BlueXP backup and recovery Preview version
+#          url: /br-start-preview-setup.html
         - title: Prerequisites for BlueXP backup and recovery
           url: /concept-start-prereq.html  
-        - title: Configure additional items if importing from SnapCenter
-          url: /concept-start-prereq-snapcenter-import.html
+
         - title: Set up licensing for BlueXP backup and recovery
           url: /br-start-licensing.html
         - title: Set up backup destinations before you use BlueXP backup and recovery
           url: /br-start-setup.html
         - title: Log in to BlueXP backup and recovery
           url: /br-start-login.html
-        - title: Discover Microsoft SQL Server or Kubernetes workloads
-          url: /br-start-discover.html
         - title: Discover backup targets
           url: /br-start-discover-backup-targets.html
         - title: Switch to different BlueXP backup and recovery workloads
@@ -100,6 +97,10 @@ sidebar:
           entries:
             - title: Protect Microsoft SQL Server workloads overview
               url: /br-use-mssql-protect-overview.html
+            - title: Configure additional items if importing from SnapCenter
+              url: /concept-start-prereq-snapcenter-import.html
+            - title: Discover Microsoft SQL Server workloads
+              url: /br-start-discover.html            
             - title: Back up Microsoft SQL Server workloads
               url: /br-use-mssql-backup.html
             - title: Restore Microsoft SQL Server workloads
@@ -110,6 +111,8 @@ sidebar:
               url: /br-use-manage-inventory.html 
             - title: Manage Microsoft SQL Server snapshots
               url: /br-use-manage-snapshots.html
+            - title: Create Microsoft SQL Server reports 
+              url: /br-use-reports.html
         - title: Protect virtual machine workloads 
           entries:  
             - title: Protect virtual machine workloads overview
@@ -118,7 +121,7 @@ sidebar:
               url: /prev-vmware-prereqs.html
             - title: Register SnapCenter Plug-in for VMware vSphere host
               url: /prev-vmware-register-snapcenter.html
-            - title: Create a policy to back up VMware datastores
+            - title: Create a policy to back up virtual machine data
               url: /prev-vmware-policy-create.html         
             - title: Back up datastores to Amazon Web Services
               url: /prev-vmware-backup-aws.html
@@ -130,28 +133,26 @@ sidebar:
               url: /prev-vmware-backup-storagegrid.html 
             - title: Manage protection of datastores and virtual machines data
               url: /prev-vmware-manage.html
-            - title: Restore VMware datastores
+            - title: Restore virtual machine data and datastores
               url: /prev-vmware-restore.html
-        - title: Protect Kubernetes workloads (Preview)
-          entries:
-            - title: Protect Kubernetes workloads overview
-              url: /br-use-kubernetes-protect-overview.html
-            - title: Add and protect Kubernetes applications # Includes app protect, manual backup
-              url: /br-use-protect-kubernetes-applications.html
-            - title: Restore Kubernetes applications # Includes only restore task
-              url: /br-use-restore-kubernetes-applications.html
-            - title: Manage Kubernetes clusters # Includes discover, edit, remove / CRUD
-              url: /br-use-manage-kubernetes-clusters.html
-            - title: Manage Kubernetes applications # Includes app CRUD
-              url: /br-use-manage-kubernetes-applications.html
-            - title: Manage execution hook templates for Kubernetes workloads
-              url: /br-use-manage-execution-hook-templates.html
+#        - title: Protect Kubernetes workloads (Preview)
+#          entries:
+#            - title: Protect Kubernetes workloads overview
+#              url: /br-use-kubernetes-protect-overview.html
+#            - title: Add and protect Kubernetes applications # Includes app protect, manual backup
+#              url: /br-use-protect-kubernetes-applications.html
+#            - title: Restore Kubernetes applications # Includes only restore task
+#              url: /br-use-restore-kubernetes-applications.html
+#            - title: Manage Kubernetes clusters # Includes discover, edit, remove / CRUD
+#              url: /br-use-manage-kubernetes-clusters.html
+#            - title: Manage Kubernetes applications # Includes app CRUD
+#              url: /br-use-manage-kubernetes-applications.html
+#            - title: Manage execution hook templates for Kubernetes workloads
+#              url: /br-use-manage-execution-hook-templates.html
 #        - title: Manage inventory, snapshots, and policies       
 #          entries:            
         - title: Monitor jobs
           url: /br-use-monitor-tasks.html
-        - title: Create reports 
-          url: /br-use-reports.html
         - title: Restart BlueXP backup and recovery
           url: /reference-restart-backup.html
     - title: Automate with the REST API

@@ -5,7 +5,7 @@ keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, 
 summary: Monitoring the health of your workloads ensures that you are aware of issues with workload protection and can take steps to resolve them. View the status of your backups and restores and respond to any alerts that appear on the BlueXP backup and Recovery Dashboard. You can review the Protection summary, Restore summary, System summary, and more.
 ---
 
-= View protection health on the Dashboard
+= View protection health on the BlueXP backup and recovery Dashboard
 :hardbreaks:
 :nofooter:
 :icons: font

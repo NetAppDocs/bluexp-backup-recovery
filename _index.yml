@@ -14,8 +14,6 @@ indexpage:
           url: concept-start-prereq.html
         - title: Set up backup destinations before you use BlueXP backup and recovery
           url: br-start-setup.html
-        - title: Discover workloads & optionally import SnapCenter resources
-          url: br-start-discover.html
         - title: Configure BlueXP backup and recovery settings
           url: br-start-configure.html
     - title: Manage policies for backups and restores
@@ -40,28 +38,22 @@ indexpage:
       links:
         - title: Protect Microsoft SQL Server workloads overview 
           url: br-use-mssql-protect-overview.html       
+        - title: Discover Microsoft SQL Server workloads & optionally import SnapCenter resources
+          url: br-start-discover.html
         - title: Back up Microsoft SQL Server workloads 
           url: br-use-mssql-backup.html
         - title: Restore Microsoft SQL Server workloads
           url: br-use-mssql-restore.html
         - title: Clone Microsoft SQL Server workloads
           url: br-use-mssql-clone.html
-    - title: Protect VMware workloads
+    - title: Protect virtual machines workloads
       links:
-        - title: Protect VMware datastore workloads overview
+        - title: Protect virtual machines workloads overview
           url: prev-vmware-protect-overview.html
-        - title: Create a policy to back up VMware datastores
+        - title: Create a policy to back up virtual machines workloads
           url: prev-vmware-policy-create.html
-        - title: Restore VMware datastore workloads
+        - title: Restore virtual machines workloads
           url: prev-vmware-restore.html
-    - title: Protect Kubernetes workloads (Preview)
-      links:
-        - title: Protect Kubernetes workloads overview
-          url: br-use-kubernetes-protect-overview.html
-        - title: Protect Kubernetes applications
-          url: br-use-protect-kubernetes-applications.html
-        - title: Restore Kubernetes applications
-          url: br-use-restore-kubernetes-applications.html   
     - title: Blogs & community
       links:
         - title: NetApp Community
