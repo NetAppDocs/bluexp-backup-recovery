@@ -17,9 +17,9 @@ For more information, refer to https://docs.netapp.com/us-en/bluexp-backup-recov
 
 === Azure private link endpoints and service endpoints 
 
-Typically, BlueXP backup and recovery establishes a private endpoint with the cloud provider to handle various protection tasks. This release introduces an optional setting that lets you enable or disable BlueXP backup and recovery from automatically creating a private endpoint. This might be useful to you if you want more control over the private endpoint creation process.
+Typically, BlueXP backup and recovery establishes a private endpoint with the cloud provider to handle protection tasks. This release introduces an optional setting that lets you enable or disable BlueXP backup and recovery from automatically creating a private endpoint. This might be useful to you if you want more control over the private endpoint creation process.
 
-You can enable or disable this option when you enable protection or starting the restore process. 
+You can enable or disable this option when you enable protection or start the restore process. 
 
 If you disable this setting, you must manually create the private endpoint for BlueXP backup and recovery to function properly. Without proper connectivity, you might not be able to perform backup and recovery tasks successfully.
 
@@ -33,5 +33,5 @@ The previous release introduced support for SnapMirror to Cloud Resync (SM-C Res
 When you create backup files in object storage for a working environment, by default, BlueXP backup and recovery creates the container (bucket or storage account) for the backup files in the object storage account that you configured. Previously, you could override this and specify your own container for Amazon S3, Azure Blob Storage, and Google Cloud Storage. With this release, you can now bring your own StorageGRID object storage container. 
 
 
-See https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-protection-journey.html#do-you-want-to-create-your-own-object-storage-container[Create your own object storage container].
+See https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-protect-journey.html[Create your own object storage container].
 
