@@ -242,11 +242,11 @@ endif::gcp[]
 * In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
 
 
-=== Backup copies are associated with your NetApp account
+=== Backup copies are associated with your BlueXP organization
 
-Backup copies are associated with the https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html[BlueXP account^] in which the BlueXP Connector resides.
+Backup copies are associated with the BlueXP organization in which the BlueXP Connector resides. https://docs.netapp.com/us-en/bluexp-setup-admin/concept-identity-and-access-management.html[Learn about BlueXP identity and access management^].
 
-If you have multiple Connectors in the same BlueXP account, each Connector displays the same list of backups. 
+If you have multiple Connectors in the same BlueXP organization, each Connector displays the same list of backups. 
 
 == Terms that might help you with BlueXP backup and recovery 
 
