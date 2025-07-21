@@ -37,23 +37,6 @@ To use object storage as backup targets, you need an account with AWS S3, Micros
 //* link:br-use-kubernetes-protect-overview.html[Protect your Kubernetes workloads]
 
 
-== For protecting Kubernetes applications
-You need specific requirements to discover Kubernetes resources and protect your Kubernetes applications.
-
-For BlueXP requirements, refer to <<In BlueXP>>.
-
-//* A BlueXP working environment that has storage volumes configured and useable by BlueXP
-//* A https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html#connector-installation[BlueXP Connector^]
-* A primary ONTAP system (ONTAP 9.16.1 or later)
-* A Kubernetes cluster - Supported Kubernetes distributions and versions include:
-** Anthos On-Prem (VMware) and Anthos on bare metal 1.16
-** Kubernetes 1.27 - 1.33
-** OpenShift 4.10 - 4.18
-** Rancher Kubernetes Engine 2 (RKE2) v1.26.7+rke2r1, v1.28.5+rke2r1
-* NetApp Trident 24.10 or later 
-* NetApp Trident protect 25.07 or later (installed during Kubernetes workload discovery)
-* NetApp Trident protect Connector 25.07 or later (installed during Kubernetes workload discovery)
-
 == In BlueXP 
 
 
@@ -202,3 +185,21 @@ For the latest information about supported versions, see the https://imt.netapp.
 
 
 |===
+
+
+== For protecting Kubernetes applications
+You need specific requirements to discover Kubernetes resources and protect your Kubernetes applications.
+
+For BlueXP requirements, refer to <<In BlueXP>>.
+
+//* A BlueXP working environment that has storage volumes configured and useable by BlueXP
+//* A https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html#connector-installation[BlueXP Connector^]
+* A primary ONTAP system (ONTAP 9.16.1 or later)
+* A Kubernetes cluster - Supported Kubernetes distributions and versions include:
+** Anthos On-Prem (VMware) and Anthos on bare metal 1.16
+** Kubernetes 1.27 - 1.33
+** OpenShift 4.10 - 4.18
+** Rancher Kubernetes Engine 2 (RKE2) v1.26.7+rke2r1, v1.28.5+rke2r1
+* NetApp Trident 24.10 or later 
+* NetApp Trident protect 25.07 or later (installed during Kubernetes workload discovery)
+* NetApp Trident protect Connector 25.07 or later (installed during Kubernetes workload discovery)

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: br-start-discover-kubernetes.html
-keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Kubernetes
 summary: The BlueXP backup and recovery service needs to first discover workloads in order for you to use the service.  
 ---
 
@@ -49,7 +49,7 @@ To display the BlueXP backup and recovery Dashboard, follow these steps.
 . From the top menu, select *Dashboard*.   
 
 . Review the health of data protection. The number of at risk or protected workloads increases based on the newly discovered, protected, and backed up workloads.  
-+
-image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
+//+
+//image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
 +
 link:br-use-dashboard.html[Learn what the Dashboard shows you].

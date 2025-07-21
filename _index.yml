@@ -46,6 +46,14 @@ indexpage:
           url: br-use-mssql-restore.html
         - title: Clone Microsoft SQL Server workloads
           url: br-use-mssql-clone.html
+    - title: Protect virtual machines workloads
+      links:
+        - title: Protect virtual machines workloads overview
+          url: prev-vmware-protect-overview.html
+        - title: Create a policy to back up virtual machines workloads
+          url: prev-vmware-policy-create.html
+        - title: Restore virtual machines workloads
+          url: prev-vmware-restore.html
     - title: Protect Kubernetes workloads (Preview) 
       links:
         - title: Protect Kubernetes workloads overview 
@@ -60,14 +68,6 @@ indexpage:
           url: br-use-manage-kubernetes-applications.html
         - title: Restore Kubernetes applications
           url: br-use-restore-kubernetes-applications.html
-    - title: Protect virtual machines workloads
-      links:
-        - title: Protect virtual machines workloads overview
-          url: prev-vmware-protect-overview.html
-        - title: Create a policy to back up virtual machines workloads
-          url: prev-vmware-policy-create.html
-        - title: Restore virtual machines workloads
-          url: prev-vmware-restore.html
     - title: Blogs & community
       links:
         - title: NetApp Community
