@@ -141,13 +141,13 @@ sidebar:
               url: /br-use-kubernetes-protect-overview.html
             - title: Discover Kubernetes workloads
               url: br-start-discover-kubernetes.html
-            - title: Add and protect Kubernetes applications # Includes app protect, manual backup
+            - title: Add and protect Kubernetes applications 
               url: /br-use-protect-kubernetes-applications.html
-            - title: Restore Kubernetes applications # Includes only restore task
+            - title: Restore Kubernetes applications
               url: /br-use-restore-kubernetes-applications.html
-            - title: Manage Kubernetes clusters # Includes discover, edit, remove / CRUD
+            - title: Manage Kubernetes clusters
               url: /br-use-manage-kubernetes-clusters.html
-            - title: Manage Kubernetes applications # Includes app CRUD
+            - title: Manage Kubernetes applications
               url: /br-use-manage-kubernetes-applications.html
             - title: Manage execution hook templates for Kubernetes workloads
               url: /br-use-manage-execution-hook-templates.html
