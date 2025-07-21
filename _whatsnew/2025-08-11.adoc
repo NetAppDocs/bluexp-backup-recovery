@@ -1,0 +1,4 @@
+=== Support for protecting VMware workloads
+
+This release adds support for protecting VMware workloads. You can now create backups and restore VMware virtual machines (VMs) using BlueXP backup and recovery.
+

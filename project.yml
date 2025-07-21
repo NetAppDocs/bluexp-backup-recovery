@@ -113,6 +113,16 @@ sidebar:
               url: /br-use-manage-snapshots.html
             - title: Create Microsoft SQL Server reports 
               url: /br-use-reports.html
+        - title: Protect VMware workloads (Preview)
+          entries:
+            - title: Protect VMware workloads overview
+              url: /br-use-vmware-protect-overview.html
+            - title: Discover VMware workloads
+              url: /br-use-vmware-discovery.html
+            - title: Back up VMware workloads
+              url: /br-use-vmware-backup.html
+            - title: Restore VMware workloads
+              url: /br-use-vmware-restore.html
         - title: Protect virtual machine workloads 
           entries:  
             - title: Protect virtual machine workloads overview
