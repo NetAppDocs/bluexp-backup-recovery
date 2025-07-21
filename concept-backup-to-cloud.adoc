@@ -13,9 +13,9 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for ONTAP volumes, Microsoft SQL Server instances and databases (Preview), and VMware workloads. 
+The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for ONTAP volumes, Microsoft SQL Server instances and databases (Preview), VMware workloads (Preview), and Kubernetes workloads (Preview). 
 
-NOTE: DOCUMENTATION ABOUT PROTECTING MICROSOFT SQL SERVER WORKLOADS IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
+NOTE: DOCUMENTATION ABOUT PROTECTING MICROSOFT SQL SERVER, KUBERNETES, and VMWare WORKLOADS IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
 
 
 == What you can do with BlueXP backup and recovery
@@ -29,14 +29,22 @@ Use BlueXP backup and recovery to accomplish the following goals:
 ** Create block-level, incremental forever backups that are stored on another ONTAP cluster and in object storage in the cloud. 
 
 * Microsoft SQL Server workloads (Preview): 
+
 ** Back up Microsoft SQL Server instances and databases from on-premises ONTAP or Cloud Volumes ONTAP systems. 
 
 ** Restore Microsoft SQL Server databases to the same or alternate host, which provides flexibility in data recovery.
 
-* VMware workloads: 
-** Back up datastores to Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform, and StorageGRID and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere host. 
+* VMware workloads (Preview): 
 
-** Restore virtual machines data from the cloud back to the on-premises vCenter with BlueXP backup and recovery. You can restore the virtual machine to the exact same location from where the backup was taken or to an alternate location. 
+** Protect your VMware VMs, datastores, and applications on VMs with BlueXP backup and recovery. 
+
+** Back up VMware workloads to Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform, and StorageGRID and restore VMware workloads back to the on-premises VMware host. 
+
+* Virtual machine (VM) workloads: 
+
+** Back up datastores to Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform, and StorageGRID and restore VMs back to the on-premises SnapCenter Plug-in for VMware vSphere host. 
+
+** Restore VM data from the cloud back to the on-premises vCenter with BlueXP backup and recovery. You can restore the VM to the exact same location from where the backup was taken or to an alternate location. 
 
 //* Kubernetes workloads (Preview): 
 //** Manage and protect your Kubernetes clusters and applications all in one place. 
@@ -171,7 +179,7 @@ The service protects the following application-based workloads:
 * ONTAP volumes 
 * Microsoft SQL Server instances and databases for physical, VMware Virtual Machine File System (VMFS), and VMware Virtual Machine Disk (VMDK) NFS (Preview)
 * VMware datastores
-//* Kubernetes workloads (Preview)
+//* Kubernetes clusters and applications (Preview)
 * More coming soon
 
 
@@ -254,6 +262,6 @@ You might benefit by understanding some terminology related to protection.
 
 * *Protection*: Protection in BlueXP backup and recovery means ensuring that snapshots and immutable backups occur on a regular basis to a different security domain using protection policies.
 
-//* *Workload*: A workload in BlueXP backup and recovery Preview version can include MySQL or Oracle databases, VMware datastores, or file shares.
-* *Workload*: A workload in BlueXP backup and recovery can include Microsoft SQL Server instances and databases, VMware datastores, or ONTAP volumes.
+
+* *Workload*: A workload in BlueXP backup and recovery can include ONTAP volumes, Microsoft SQL Server instances and databases, VMware datastores, or Kubernetes clusters and applications.
 

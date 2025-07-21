@@ -13,7 +13,8 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service needs to first discover VMware workloads in order for you to use the service. You can optionally import backup data and policies from SnapCenter Plug-in for VMware vSphere if you already have it installed.
+The BlueXP backup and recovery service needs to first discover VMware datastores and VMs running on ONTAP systems in order for you to use the service. You can optionally import backup data and policies from SnapCenter Plug-in for VMware vSphere if you already have it installed.
+
 
 *Required BlueXP role*
 Backup and Recovery super admin. Learn about link:reference-roles.html[Backup and recovery roles and privileges]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
@@ -23,6 +24,10 @@ During discovery, BlueXP backup and recovery analyzes VMware workloads within yo
 
 You can import VMware NFS and VMFS datastores and VMs from their on-premises SnapCenter Plug-in for VMware vSphere into BlueXP backup and recovery inventory. You can import entire vCenter resources or select specific protection groups.
 
+NOTE: This version of BlueXP backup and recovery supports only VMware vCenter and does not discover vVols or VMs on vVols. This version does not discover any applications other than Microsoft SQL Server. 
+
+//In future releases, you will be able to discover KVM and Hyper-V hypervisors and other applications.
+
 Discovery occurs in the following ways: 
 
 * If you already have SnapCenter Plug-in for VMware vSphere, import SnapCenter resources into BlueXP backup and recovery by using the BlueXP backup and recovery UI.
@@ -31,3 +36,20 @@ NOTE: If you already have SnapCenter Plug-in, first check to be sure you've met 
 +
 * If you don't already have the SnapCenter Plug-in, you can still discover workloads within your working environments by adding a vCenter manually and performing discovery.
 
+
+
+
+In Discover workloads - User will select workload type as Virtualized resources to discover VMware and its underlying applications as optional.
+Note- Users can choose between physical resources to discover workload on bare metal or virtualized resources to discover VMs and underlying applications with virtualized as default.
+Note- In future, 3 hypervisors - VMware, KVM, Hyper-V will be supported with VMware as default selection.
+Select VMware as the hypervisor, user can add and register a vCenter to discover NFS, VMFS datastores and VMs  within this vCenter to backup and restore.
+User should have an option to enter vCenter details, all the fields are mandatory fields. Each field should be validated for inputs. -
+vCenter IP address or FQDN
+Username and password
+Port number and 
+An option to select Use self-signed certificates ( "Use self-signed certificates" checkbox is selected by default, if you already have authoritative certificates for your vCenter environment, you should uncheck this checkbox.)
+User can choose to discover underlying applications as part of the discovery process. The scope of application discovered in 25H1 is MSSQL.
+Click on Discover to add vcenter, push VMware plug-in per vcenter , discover NFS and VMFS datastores, VMs and list all discovered datastores and VMs. ( Agentless)
+A summary of discovered VMware resources is displayed under workloads Inventory page. 
+Workload type – VMware, no of vCenters, resources – datastores/VMs discovered, protected resources and total protected capacity as nil
+If user has selected “discover underlying applications “ VMware tools will be used to identify VMs which has MSSQL applications and a summary of MSSQL discovered resources will be displayed as a new row. 
