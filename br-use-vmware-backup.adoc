@@ -13,3 +13,10 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
+Back up VMware VMs, datastores, and applications on VMs from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, and StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. 
+
+* To back up workloads on a schedule, create policies that govern the backup and restore operations. See link:br-use-policies-create.html[Create policies] for instructions.
+
+//* Configure the log directory for discovered hosts before you initiate a backup. 
+
+* Back up workloads now (create an on-demand backup now).  

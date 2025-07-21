@@ -34,8 +34,8 @@ You can use BlueXP backup and recovery to perform the following tasks related to
 
 * link:br-use-vmware-discovery.html[Discover VMware workloads]
 * link:br-use-vmware-backup.html[Back up VMware workloads]
-* link:br-use-vmware-restore-overview.html[Restore VMware workloads]
-* link:br-use-vmware-clone.html[Clone VMware workloads]
+* link:br-use-vmware-restore.html[Restore VMware workloads]
+//* link:br-use-vmware-clone.html[Clone VMware workloads]
 
 
 
