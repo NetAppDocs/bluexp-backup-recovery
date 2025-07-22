@@ -15,7 +15,7 @@ summary: You can protect Kubernetes applications and application data from on-pr
 [.lead]
 Managing Kubernetes workloads in BlueXP backup and recovery enables you to manage and protect your Kubernetes clusters and applications all in one place. You can manage resources and applications hosted by your Kubernetes clusters. You can also manage the protection settings of your Kubernetes workloads.
 
-NOTE: THIS DOCUMENTATION IS PROVIDED AS A TECHNOLOGY PREVIEW. During the preview, Kubernetes functionality is not recommended for production workloads. With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.
+NOTE: This documentation is provided as a technology preview. During the preview, Kubernetes functionality is not recommended for production workloads. With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.
 
 You can accomplish the following tasks related to managing Kubernetes workloads:
 
