@@ -1,0 +1,6 @@
+=== Kubernetes workload support as a Public Technology Preview
+
+With this release of BlueXP backup and recovery, you can manage Kubernetes workloads. You can back up Kubernetes workloads to primary storage and back them up to cloud object storage.
+
+
+
