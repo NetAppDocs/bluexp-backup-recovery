@@ -14,7 +14,7 @@ This release of BlueXP backup and recovery provides an updated user interface th
 
 You can sign up for the preview by completing this https://forms.office.com/pages/responsepage.aspx?id=oBEJS5uSFUeUS8A3RRZbOojtBW63mDRDv3ZK50MaTlJUNjdENllaVTRTVFJGSDQ2MFJIREcxN0EwQi4u&route=shorturl[Preview Signup Form^]. 
 
-NOTE: THIS DOCUMENTATION ABOUT PROTECTING MICROSOFT SQL SERVER WORKLOADS IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.  
+NOTE: This documentation about protecting Microsoft SQL Server workloads is provided as a technology preview. With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before general availability.
 
 This version of BlueXP backup and recovery includes the following updates:
 
@@ -47,5 +47,5 @@ For details about protecting Microsoft SQL Server workloads, see link:br-use-mss
 
 //Storage offload capabilities for efficient data movement for Backup and recovery use cases.  
 
-//NOTE: DOCUMENTATION ABOUT PROTECTING KUBERNETES WORKLOADS IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.  
+//NOTE: This documentation is provided as a technology preview.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.  
 
