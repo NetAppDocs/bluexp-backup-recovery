@@ -34,6 +34,8 @@ This BlueXP backup and recovery release includes the following updates.
 
 include::_whatsnew/2025-06-09.adoc[]
 
+// end::whats-new[] 
+
 == 13 May 2025
 //v4.0.3
 This BlueXP backup and recovery release includes the following updates.
@@ -45,8 +47,6 @@ include::_whatsnew/2025-05-12.adoc[]
 This BlueXP backup and recovery release includes the following updates. 
 
 include::_whatsnew/2025-04-16.adoc[]
-
-// end::whats-new[] 
 
 == 17 March 2025 
 //v4.0.1
