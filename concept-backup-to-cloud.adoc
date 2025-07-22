@@ -15,8 +15,7 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 [.lead]
 The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for ONTAP volumes, Microsoft SQL Server instances and databases (Preview), and VMware workloads. 
 
-NOTE: DOCUMENTATION ABOUT PROTECTING MICROSOFT SQL SERVER WORKLOADS IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
-
+NOTE: This documentation is provided as a technology preview. With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
 
 == What you can do with BlueXP backup and recovery
 
@@ -172,7 +171,7 @@ The service protects the following application-based workloads:
 * Microsoft SQL Server instances and databases for physical, VMware Virtual Machine File System (VMFS), and VMware Virtual Machine Disk (VMDK) NFS (Preview)
 * VMware datastores
 //* Kubernetes workloads (Preview)
-* More coming soon
+//* More coming soon
 
 
 
@@ -242,11 +241,11 @@ endif::gcp[]
 * In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
 
 
-=== Backup copies are associated with your NetApp account
+=== Backup copies are associated with your BlueXP organization
 
-Backup copies are associated with the https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html[BlueXP account^] in which the BlueXP Connector resides.
+Backup copies are associated with the BlueXP organization in which the BlueXP Connector resides. https://docs.netapp.com/us-en/bluexp-setup-admin/concept-identity-and-access-management.html[Learn about BlueXP identity and access management^].
 
-If you have multiple Connectors in the same BlueXP account, each Connector displays the same list of backups. 
+If you have multiple Connectors in the same BlueXP organization, each Connector displays the same list of backups. 
 
 == Terms that might help you with BlueXP backup and recovery 
 
