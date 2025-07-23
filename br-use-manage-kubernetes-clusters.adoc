@@ -1,0 +1,42 @@
+---
+sidebar: sidebar
+permalink: br-use-manage-kubernetes-clusters.html
+keywords: discover, backup and recovery, snapcenter, kubernetes, k8s, clusters, applications, inventory
+summary: BlueXP backup and recovery enables you to discover and manage your Kubernetes clusters so that you can protect resources hosted by the clusters. 
+---
+
+= Manage Kubernetes clusters 
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+BlueXP backup and recovery enables you to discover and manage your Kubernetes clusters so that you can protect resources hosted by the clusters. 
+
+.Required BlueXP role
+
+Organization admin or SnapCenter admin. link:reference-roles.html[Learn about BlueXP backup and recovery access roles]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
+
+== Edit Kubernetes cluster information
+You can edit a cluster if you need to change its name. 
+
+.Steps
+
+. In BlueXP backup and recovery, select *Inventory* > *Clusters*.
+. In the list of clusters, choose a cluster you want to edit and select the associated Actions menu.
+. Select *Edit cluster*.
+. Make any required changes to the cluster name.
+. Select *Done*.
+
+== Remove a Kubernetes cluster
+If you no longer need to protect the resources hosted by a Kubernetes cluster, you can remove it from BlueXP backup and recovery. Removing a cluster does not delete the cluster or its resources; it only removes the cluster from the BlueXP inventory. Before you can remove a cluster, you need to disable protection and delete the associated applications from BlueXP backup and recovery.
+
+.Steps
+
+. In BlueXP backup and recovery, select *Inventory* > *Clusters*.
+. In the list of clusters, choose a cluster you want to edit and select the associated Actions menu.
+. Select *Remove cluster*.
+. Review the information in the confirmation dialog box, and select *Remove*.

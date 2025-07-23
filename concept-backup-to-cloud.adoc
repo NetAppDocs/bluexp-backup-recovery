@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: concept-backup-to-cloud.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery
-summary: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for NetApp ONTAP data, databases, and virtual machines, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
+summary: The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for NetApp databases and instances, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
 ---
 
 = Learn about BlueXP backup and recovery
@@ -13,72 +13,246 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for NetApp ONTAP data,  databases, and virtual machines, both on premises and in the cloud. Backups are automatically generated and stored in an object store in your public or private cloud account.
+The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for ONTAP volumes, Microsoft SQL Server instances and databases (Preview), and VMware workloads. 
 
-The service performs block-level, incremental-forever replication and preserves all storage efficiencies, which significantly reduces the amount of data that's replicated and stored. Additionally, you pay only for what's protected and use the lowest-cost storage tiers available, which makes BlueXP backup and recovery very cost effective.
+NOTE: This documentation is provided as a technology preview. With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
 
-When necessary, you can restore an entire _volume_ from a backup to the same or different working environment. When backing up ONTAP data, you can also choose to restore a folder or one or more _files_ from a backup to the same or different working environment.
+== What you can do with BlueXP backup and recovery
 
-https://bluexp.netapp.com/cloud-backup[Learn more about BlueXP backup and recovery^].
+Use BlueXP backup and recovery to accomplish the following goals:
 
-Backup and recovery can be used to:
 
-* Back up and restore ONTAP volume data from Cloud Volumes ONTAP and on-premises ONTAP systems. link:concept-ontap-backup-to-cloud.html[See detailed features here].
-* Back up the application-consistent Snapshots from on-premises ONTAP systems using BlueXP backup and recovery for applications. link:concept-protect-app-data-to-cloud.html[See detailed features here].
-* Back up datastores to the cloud and restore virtual machines back to the on-premises vCenter using BlueXP backup and recovery for VMware. link:concept-protect-vm-data.html[See detailed features here].
+* ONTAP volume workloads: 
+**  Create local snapshots, replicate to secondary storage, and back up ONTAP volumes from on-premises ONTAP or Cloud Volumes ONTAP systems to object storage in your public or private cloud account. 
 
-https://www.youtube.com/watch?v=DF0knrH2a80[Watch a quick demo^]
+** Create block-level, incremental forever backups that are stored on another ONTAP cluster and in object storage in the cloud. 
 
-TIP: When the BlueXP Connector is deployed in a government region in the cloud, or in a site without internet access (a dark site), BlueXP backup and recovery only supports backup and restore operations from ONTAP systems. When using these types of deployment methods, BlueXP backup and recovery does not support backup and restore operations from applications or virtual machines.
+* Microsoft SQL Server workloads (Preview): 
+** Back up Microsoft SQL Server instances and databases from on-premises ONTAP or Cloud Volumes ONTAP systems. 
+
+** Restore Microsoft SQL Server databases to the same or alternate host, which provides flexibility in data recovery.
+
+* VMware workloads: 
+** Back up datastores to Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform, and StorageGRID and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere host. 
+
+** Restore virtual machines data from the cloud back to the on-premises vCenter with BlueXP backup and recovery. You can restore the virtual machine to the exact same location from where the backup was taken or to an alternate location. 
+
+//* Kubernetes workloads (Preview): 
+//** Manage and protect your Kubernetes clusters and applications all in one place. 
+
+//** Manage resources such as backups, databases, instances, application hosts, and work environments.
+
+//TIP: When the BlueXP Connector is deployed in a government region in the cloud, or in a site without internet access (a dark site), BlueXP backup and recovery supports backup and restore operations only from ONTAP systems. When you use these deployment methods, BlueXP backup and recovery does not support backup and restore operations from applications.
+
+
+== Benefits of using BlueXP backup and recovery
+
+BlueXP backup and recovery provides the following benefits:
+
+* **Efficient**: BlueXP backup and recovery performs block-level, incremental-forever replication, which significantly reduces the amount of data that's replicated and stored. This helps to minimize network traffic and storage costs.
+
+* **Secure**: BlueXP backup and recovery encrypts data in transit and at rest, and it uses secure communication protocols to protect your data.
+
+* **Cost-effective**: BlueXP backup and recovery uses the lowest-cost storage tiers available in your cloud account, which helps to reduce costs.   
+
+* **Automated**: BlueXP backup and recovery automatically generates backups based on a predefined schedule, which helps to ensure that your data is protected.
+
+* **Flexible**: BlueXP backup and recovery enables you to restore data to the same or different working environment, which provides flexibility in data recovery.
+
+
+
+== Cost 
+
+NetApp doesn't charge you for using the trial version. However, you are responsible for the costs associated with the cloud resources that you use, such as storage and data transfer costs.  
+
+There are two types of costs associated with using the backup-to-object feature of BlueXP backup and recovery with ONTAP systems: 
+
+* Resource charges  
+* Service charges
+
+There is no charge to create snapshot copies or replicated volumes - other than the disk space required to store the snapshot copies and replicated volumes.
+
+*Resource charges*
+
+Resource charges are paid to the cloud provider for object storage capacity and for writing and reading backup files to the cloud.
+
+* For Backup to object storage, you pay your cloud provider for object storage costs.
++
+Because BlueXP backup and recovery preserves the storage efficiencies of the source volume, you pay the cloud provider object storage costs for the data _after_ ONTAP efficiencies (for the smaller amount of data after deduplication and compression have been applied).
+
+* For restoring data using Search & Restore, certain resources are provisioned by your cloud provider, and there is per-TiB cost associated with the amount of data that is scanned by your search requests. (These resources are not needed for Browse & Restore.)
++
+//ifdef::aws[]
+** In AWS, https://aws.amazon.com/athena/faqs/[Amazon Athena^] and https://aws.amazon.com/glue/faqs/[AWS Glue^] resources are deployed in a new S3 bucket.
++
+//endif::aws[]
++
+//ifdef::azure[]
+** In Azure, an https://azure.microsoft.com/en-us/services/synapse-analytics/?&ef_id=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&gclid=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE[Azure Synapse workspace^] and https://azure.microsoft.com/en-us/services/storage/data-lake-storage/?&ef_id=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&gclid=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE[Azure Data Lake Storage^] are provisioned in your storage account to store and analyze your data.
++
+//endif::azure[]
+//ifdef::gcp[]
+** In Google, a new bucket is deployed, and the https://cloud.google.com/bigquery[Google Cloud BigQuery services^] are provisioned on an account/project level.
+//endif::gcp[]
+
+* If you plan to restore volume data from a backup file that has been moved to archival object storage, then there's an additional per-GiB retrieval fee and per-request fee from the cloud provider.
+
+* If you plan to scan a backup file for ransomware during the process of restoring volume data (if you enabled DataLock and Ransomware Protection for your cloud backups), then you'll incur extra egress costs from your cloud provider as well.
+
+*Service charges*
+
+Service charges are paid to NetApp and cover both the cost to _create_ backups to object storage and to _restore_ volumes, or files, from those backups. You pay only for the data that you protect in object storage, calculated by the source logical used capacity (_before_ ONTAP efficiencies) of ONTAP volumes that are backed up to object storage. This capacity is also known as Front-End Terabytes (FETB).
+
+There are three ways to pay for the Backup service: 
+
+* The first option is to subscribe from your cloud provider, which enables you to pay per month. 
+* The second option is to get an annual contract. 
+* The third option is to purchase licenses directly from NetApp. Read the <<Licensing,Licensing>> section for details.
+
+
+== Licensing 
+
+BlueXP backup and recovery is available as a free trial. You can use the service without a license key for a limited time.
+
+BlueXP backup and recovery is available with the following consumption models:
+
+* *Bring your own license (BYOL)*: A license purchased from NetApp that can be used with any cloud provider.
+* *Pay as you go (PAYGO)*: An hourly subscription from your cloud provider's marketplace.
+* *Annual*: An annual contract from your cloud provider's marketplace.
+
+A Backup license is required only for backup and restore from object storage. Creating Snapshot copies and replicated volumes do not require a license.
+
+*Bring your own license*
+
+BYOL is term-based (1, 2, or 3 years) _and_ capacity-based in 1-TiB increments. You pay NetApp to use the service for a period of time, say 1 year, and for a maximum amount capacity, say 10 TiB.
+
+You'll receive a serial number that you enter in the BlueXP digital wallet page to enable the service. When either limit is reached, you'll need to renew the license. The Backup BYOL license applies to all source systems associated with your BlueXP organization or account.
+
+link:br-start-licensing.html[Learn how to set up licenses].
+
+*Pay-as-you-go subscription*
+
+BlueXP backup and recovery offers consumption-based licensing in a pay-as-you-go model. After subscribing through your cloud provider's marketplace, you pay per GiB for data that's backed up — there's no up-front payment. You are billed by your cloud provider through your monthly bill.
+
+Note that a 30-day free trial is available when you initially sign up with a PAYGO subscription.
+
+*Annual contract*
+
+//ifdef::aws[]
+When you use AWS, two annual contracts are available for 1, 2, or 3 years:
+
+* A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
+
+* A "CVO Professional" plan that enables you to bundle Cloud Volumes ONTAP and BlueXP backup and recovery. This includes unlimited backups for Cloud Volumes ONTAP volumes charged against this license (backup capacity is not counted against the license).
+//endif::aws[]
+
+//ifdef::azure[]
+When you use Azure, two annual contracts are available for 1, 2, or 3 years:
+
+* A "Cloud Backup" plan that enables you to back up Cloud Volumes ONTAP data and on-premises ONTAP data.
+
+* A "CVO Professional" plan that enables you to bundle Cloud Volumes ONTAP and BlueXP backup and recovery. This includes unlimited backups for Cloud Volumes ONTAP volumes charged against this license (backup capacity is not counted against the license).
+//endif::azure[]
+
+//ifdef::gcp[]
+When you use GCP, you can request a private offer from NetApp, and then select the plan when you subscribe from the Google Cloud Marketplace during BlueXP backup and recovery activation.
+//endif::gcp[]
+
+
+
+== Supported data sources, working environments, and backup targets
+
+.Workload data sources supported
+
+The service protects the following application-based workloads:
+
+//* NetApp file shares
+* ONTAP volumes 
+* Microsoft SQL Server instances and databases for physical, VMware Virtual Machine File System (VMFS), and VMware Virtual Machine Disk (VMDK) NFS (Preview)
+* VMware datastores
+//* Kubernetes workloads (Preview)
+//* More coming soon
+
+
+
+.Working environments supported
+
+* On-premises ONTAP SAN (iSCSI protocol) and NAS (using NFS and CIFS protocols) with ONTAP version 9.8 and greater
+
+* Cloud Volumes ONTAP 9.8 or greater for AWS (using SAN and NAS)
+
+//* Cloud Volumes ONTAP 9.8 or greater for Google Cloud Platform (using NFS and CIFS protocols)
+
+* Cloud Volumes ONTAP 9.8 or greater for Microsoft Azure (using SAN and NAS)
+* Amazon FSx for NetApp ONTAP 
+
+.Backup targets supported
+
+* Amazon Web Services (AWS) S3
+//* Google Cloud Storage
+* Microsoft Azure Blob
+* StorageGRID
+* ONTAP S3
+
+
+== BlueXP backup and recovery uses the SnapCenter Plugin for Microsoft SQL Server
+
+BlueXP backup and recovery installs the Plug-in for Microsoft SQL Server on the server that hosts Microsoft SQL Server. The  Plug-in is a host-side component that enables application-aware data protection management of Microsoft SQL Server databases and instances. 
+
+
+
 
 == How BlueXP backup and recovery works
 
-When you enable BlueXP backup and recovery on a Cloud Volumes ONTAP or on-premises ONTAP system, the service performs a full backup of your data. Volume snapshots are not included in the backup image. After the initial backup, all additional backups are incremental, which means that only changed blocks and new blocks are backed up. This keeps network traffic to a minimum.
+When you enable BlueXP backup and recovery, the service performs a full backup of your data. After the initial backup, all additional backups are incremental. This keeps network traffic to a minimum.
 
-//In most cases you'll use the BlueXP UI for all backup operations. However, starting with ONTAP 9.9.1 you can initiate volume backup operations of your on-premises ONTAP clusters using ONTAP System Manager. https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html[See how to use System Manager to back up your volumes to the cloud using BlueXP backup and recovery.^]
 
-The following image shows the relationship among components:
+The following image shows the relationship among components. 
 
-image:diagram_cloud_backup_general.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination object storage where the backup files are located.]
+image:diagram-br-321-aff-a.png[A diagram showing how BlueXP backup and recovery uses a 3-2-1 protection strategy]
 
-=== Where backups reside
+NOTE: Primary to object storage is also supported, not just from secondary storage to object storage.
 
-Backup copies are stored in an object store that BlueXP creates in your cloud account. There's one object store per cluster/working environment, and BlueXP names the object store as follows: `netapp-backup-clusteruuid`. Be sure not to delete this object store.
+//image:diagram-workloads-onprem.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination object storage where the backup files are located.]
 
-ifdef::aws[]
+//The following image shows the relationship among components for a cloud deployment:
+
+//image:diagram-workloads-cloud.png[A diagram showing how BlueXP backup and recovery communicates with the volumes on the source systems and the destination object storage where the backup files are located.]
+
+
+=== Where backups reside in object store locations
+
+Backup copies are stored in an object store that BlueXP creates in your cloud account. There's one object store per cluster or working environment, and BlueXP names the object store as follows: `netapp-backup-clusteruuid`. Be sure not to delete this object store.
+
+//ifdef::aws[]
 * In AWS, BlueXP enables the https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html[Amazon S3 Block Public Access feature^] on the S3 bucket.
-endif::aws[]
+//endif::aws[]
 
-ifdef::azure[]
+//ifdef::azure[]
 * In Azure, BlueXP uses a new or existing resource group with a storage account for the Blob container. BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent[blocks public access to your blob data] by default.
-endif::azure[]
+//endif::azure[]
 
-ifdef::gcp[]
-* In GCP, BlueXP uses a new or existing project with a storage account for the Google Cloud Storage bucket.
+//ifdef::gcp[]
+//* In GCP, BlueXP uses a new or existing project with a storage account for the Google Cloud Storage bucket.
 endif::gcp[]
 
 * In StorageGRID, BlueXP uses an existing storage account for the object store bucket.
 
 * In ONTAP S3, BlueXP uses an existing user account for the S3 bucket.
 
-NOTE: BlueXP backup and recovery extends its support to third-party object stores as a preview option. This preview feature enables you leverage any S3-compatible object store for your backup and recovery needs. For details about enabling this preview feature, see the link:whats-new.html[Support for third-party object store] section.
 
-=== When are backups taken
+=== Backup copies are associated with your BlueXP organization
 
-* Hourly backups start 5 minutes past the hour, every hour.
+Backup copies are associated with the BlueXP organization in which the BlueXP Connector resides. https://docs.netapp.com/us-en/bluexp-setup-admin/concept-identity-and-access-management.html[Learn about BlueXP identity and access management^].
 
-* Daily backups start just after midnight each day.
+If you have multiple Connectors in the same BlueXP organization, each Connector displays the same list of backups. 
 
-* Weekly backups start just after midnight on Sunday mornings.
+== Terms that might help you with BlueXP backup and recovery 
 
-* Monthly backups start just after midnight on the first day of each month.
+You might benefit by understanding some terminology related to protection.
 
-* Yearly backups start just after midnight on the first day of the year.
+* *Protection*: Protection in BlueXP backup and recovery means ensuring that snapshots and immutable backups occur on a regular basis to a different security domain using protection policies.
 
-The start time is based on the time zone set on each source ONTAP system. You can't schedule backup operations at a user-specified time from the UI. For more information, contact your System Engineer.
+//* *Workload*: A workload in BlueXP backup and recovery Preview version can include MySQL or Oracle databases, VMware datastores, or file shares.
+* *Workload*: A workload in BlueXP backup and recovery can include Microsoft SQL Server instances and databases, VMware datastores, or ONTAP volumes.
 
-=== Backup copies are associated with your NetApp account
-
-Backup copies are associated with the https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html[NetApp account^] in which the BlueXP Connector resides.
-
-If you have multiple Connectors in the same NetApp account, each Connector displays the same list of backups. That includes the backups associated with Cloud Volumes ONTAP and on-premises ONTAP instances from other Connectors.

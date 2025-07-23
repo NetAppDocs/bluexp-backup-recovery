@@ -1,0 +1,47 @@
+---
+sidebar: sidebar
+permalink: br-start-switch-ui.html
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
+summary: You can switch among the different BlueXP backup and recovery workloads. Some workloads use a different UI.
+---
+
+= Switch to different BlueXP backup and recovery workloads
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can switch among the different BlueXP backup and recovery workloads. Some workloads use a different UI.
+
+
+
+*How do you know which UI you are using?*
+
+//The taskbar for Microsoft SQL Server and Kubernetes workloads looks like this:
+
+The taskbar for Microsoft SQL Server workloads looks like this: 
+image:screen-br-menu-unified.png[New UI screenshot for BlueXP backup and recovery]
+
+The menu bar for ONTAP volumes and VMware workloads looks like this: 
+image:screen-br-menu-legacy.png[Previous UI screenshot for BlueXP backup and recovery]
+
+
+
+== Switch to a different workload 
+
+You can switch to a different workload in the BlueXP backup and recovery UI.
+
+.Steps
+. From the BlueXP left navigation, select *Protection* > *Backup and recovery*.
+. From the top right corner of the page, select the *Switch workload* drop-down list.
+
+. Select the workload that you want to switch to.
+image:screen-br-menu-switch-ui.png[Switch workload screenshot for BlueXP backup and recovery]
+
++
+The page refreshes and shows the selected workload in the appropriate UI.
+
+
+
