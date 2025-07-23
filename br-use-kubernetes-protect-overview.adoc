@@ -23,6 +23,10 @@ BlueXP backup and recovery provides the following benefits for managing Kubernet
 
 NOTE: This documentation is provided as a technology preview. During the preview, Kubernetes functionality is not recommended for production workloads. With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.
 
+Backup and recovery for Kubernetes workloads uses the following basic architecture:
+
+image:../media/backup-recovery-architecture-diagram.png[Architecture diagram of backup and recovery for Kubernetes workloads]
+
 You can accomplish the following tasks related to managing Kubernetes workloads:
 
 * link:br-start-discover.html#discover-kubernetes-workloads[Discover Kubernetes workloads].
