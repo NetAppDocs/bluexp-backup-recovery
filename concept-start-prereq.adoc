@@ -203,4 +203,4 @@ For BlueXP requirements, refer to <<In BlueXP>>.
 * NetApp Trident 24.10 or later 
 * NetApp Trident protect 25.07 or later (installed during Kubernetes workload discovery)
 * NetApp Trident protect Connector 25.07 or later (installed during Kubernetes workload discovery)
-** TCP port 443 must be unfiltered on the network path between the Kubernetes cluster, the Trident protect Connector, and the Trident protect proxy.
+** Make sure that TCP port 443 is unfiltered in the outbound direction between the Kubernetes cluster, the Trident protect Connector, and the Trident protect proxy.
