@@ -13,7 +13,7 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-Protect your VMware VMs, datastores, and applications on VMs with BlueXP backup and recovery. BlueXP backup and recovery provides fast, space-efficient, crash-consistent, and VM-consistent backup and restore operations. You can back up VMware workloads to Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform, and StorageGRID and restore VMware workloads back to the on-premises VMware host. 
+Protect your VMware VMs, datastores, and applications on VMs with BlueXP backup and recovery. BlueXP backup and recovery provides fast, space-efficient, crash-consistent, and VM-consistent backup and restore operations. You can back up VMware workloads to Amazon Web Services S3, Microsoft Azure Blob, or StorageGRID and restore VMware workloads back to the the same or alternate on-premises VMware host. 
 
 //BlueXP backup and recovery provides fast, space-efficient, crash-consistent, and VM-consistent backup and restore operations for VMs, datastores, and VMDKs. 
 

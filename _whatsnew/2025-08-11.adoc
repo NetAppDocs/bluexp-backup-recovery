@@ -1,4 +1,8 @@
 === Support for protecting VMware workloads
 
-This release adds support for protecting VMware workloads. You can now create backups and restore VMware virtual machines (VMs) using BlueXP backup and recovery.
+This release adds support for protecting VMware workloads. Back up VMware VMs, datastores, and applications on VMs from on-premises ONTAP systems to Amazon Web Services, Microsoft Azure, and StorageGRID.
+
+NOTE: Documentation about protecting VMware workloads is provided as a technology preview. With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.
+
+link:br-use-protect-overview.html[Learn more about protecting VMware workloads with BlueXP backup and recovery].
 

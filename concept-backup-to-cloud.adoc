@@ -15,7 +15,7 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 [.lead]
 The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for ONTAP volumes, Microsoft SQL Server instances and databases (Preview), VMware workloads (Preview), and Kubernetes workloads (Preview). 
 
-NOTE: DOCUMENTATION ABOUT PROTECTING MICROSOFT SQL SERVER, KUBERNETES, and VMWare WORKLOADS IS PROVIDED AS A TECHNOLOGY PREVIEW.  With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
+NOTE: Documentation about protecting Microsoft SQL Server, VMware workloads, and Kubernetes is provided as a technology preview. With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
 
 
 == What you can do with BlueXP backup and recovery
@@ -38,7 +38,10 @@ Use BlueXP backup and recovery to accomplish the following goals:
 
 ** Protect your VMware VMs, datastores, and applications on VMs with BlueXP backup and recovery. 
 
-** Back up VMware workloads to Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform, and StorageGRID and restore VMware workloads back to the on-premises VMware host. 
+** Back up VMware workloads to Amazon Web Services S3, Microsoft Azure Blob, ONTAP S3, or  StorageGRID. 
+
+** Restore VMware data from the cloud back to the on-premises vCenter. You can restore the VM to the exact same location from where the backup was taken or to an alternate location. 
+
 
 * Virtual machine (VM) workloads: 
 
@@ -173,14 +176,13 @@ When you use GCP, you can request a private offer from NetApp, and then select t
 
 .Workload data sources supported
 
-The service protects the following application-based workloads:
+The service protects the following workloads:
 
 //* NetApp file shares
 * ONTAP volumes 
 * Microsoft SQL Server instances and databases for physical, VMware Virtual Machine File System (VMFS), and VMware Virtual Machine Disk (VMDK) NFS (Preview)
-* VMware datastores
+* VMware VMs, datastores, and applications on VMs (Preview)
 //* Kubernetes clusters and applications (Preview)
-* More coming soon
 
 
 
