@@ -82,6 +82,8 @@ TIP: For a list of characters to avoid, see the hover tip.
 For VMware workloads, this configures the local snapshot on the datastores or VMwares on the primary storage system.
 ** *3-2-1 fanout*: Primary storage (disk) to secondary storage (disk) to cloud (object store). Creates multiple copies of data across different storage systems, such as ONTAP to ONTAP and ONTAP to object-store configurations. This can be a cloud hyperscaler object store or a private object store -- StorageGRID. These configurations help in achieving optimal data protection and disaster recovery.
 +
+For VMware workloads, this is not available in the VMware preview. 
++
 For VMware workloads, this configures the local snapshot on the datastores or VMs on the primary and replicates from primary disk storage to secondary disk storage as well as replicates from primary to cloud object storage. 
 ** *3-2-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary storage (disk) to cloud storage (object store). This can be a cloud hyperscaler object store or a private object store -- StorageGRID. This creates a chain of data replication across multiple systems to ensure redundancy and reliability. 
 +
@@ -93,12 +95,13 @@ For VMware workloads, this configures the local snapshot on the datastores or VM
 ** *Disk-to-object store*: Primary storage (disk) to cloud (object store). This replicates data from an ONTAP system to an object storage system, such as AWS S3, Azure Blob Storage or StorageGRID. This is typically achieved using SnapMirror Cloud, which provides incremental forever backups by transferring only changed data blocks after the initial baseline transfer. This can be a cloud hyperscaler object store or a private object store -- StorageGRID. This method is ideal for long-term data retention and archiving, offering a cost-effective and scalable solution for data protection.
 +
 For VMWare workloads, this configures the local snapshot on the datastores or VMs on the primary and replication from primary disk storage to cloud object storage.
- 
+
 ** *Disk-to-disk fanout*: Primary storage (disk) to secondary storage (disk)  and primary storage (disk) to secondary storage (disk). 
 +
 NOTE: You can configure multiple secondary settings for the disk-to-disk fanout option. 
 + 
-For VMware workloads, this configures the primary disk storage to secondary disk storage and replicates primary disk storage to secondary disk storage. 
+For VMware workloads, this configures the primary disk storage to secondary disk storage and replicates primary disk storage to secondary disk storage.
+
 
 //** *3-2-1-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary (disk) to cloud (object store)  (Multiple object storage) 
 
@@ -109,18 +112,18 @@ Provide information for the local snapshot.
 * Select the *Add schedule* option to select the snapshot schedule or schedules. You can have a maximum of 5 schedules.  
 * *Snapshot frequency*: Select the frequency of hourly, daily, weekly, monthly, or yearly. The yearly frequency is not available for Kubernetes workloads. 
 * *Snapshot retention*: Enter the number of snapshots to keep.
-* *Enable log backup*: (Not available for Kubernetes workloads) Check the option to back up logs and set the frequency and retention of the log backups. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
+* *Enable log backup*: (Applies to Microsoft SQL Server workloads. Not available for VMware or Kubernetes workloads) Check the option to back up logs and set the frequency and retention of the log backups. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
 * *Provider*: (Kubernetes workloads only) Select the storage provider that hosts the Kubernetes application resources.
 * *Backup target*: (Kubernetes workloads only) Select the target system for the backup. This is the storage system where the snapshots will be stored. Ensure that the target is accessible within your backup environment.
 
 * Optionally, select *Advanced* at the right of the schedule to set the SnapMirror label and enable snapshot locking (not available for Kubernetes workloads). 
 
 ** *SnapMirror label*: The label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship. Adding a label to a snapshot marks it as a target for SnapMirror replication.
-** *Offset from an hour*: Enter the number of minutes to offset the snapshot from the start of the hour. For example, if you enter *15*, the snapshot will be taken at 15 minutes past the hour.
+** *Offset from an hour*: Enter the number of minutes to offset the snapshot from the start of the hour. For example, if you enter *15*, the snapshot will be taken at 15 minutes past the hour. Available only for hourly schedules. 
 
-** *Enable silent hours*: Select whether you want to enable silent hours. Silent hours are a period during which no snapshots are taken, allowing for maintenance or other operations without interference from backup processes. This is useful for reducing the load on the system during peak usage times or maintenance windows.
+** *Enable silent hours*: Select whether you want to enable silent hours. Silent hours are a period during which no snapshots are taken, allowing for maintenance or other operations without interference from backup processes. This is useful for reducing the load on the system during peak usage times or maintenance windows. Available only for hourly schedules. 
 
-** *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. Enabling this option ensures that the snapshots cannot be deleted or altered until the specified retention period has expired. This feature is crucial for protecting your data against ransomware attacks and ensuring data integrity.         
+** *Enable snapshot locking*: Select whether you want to enable tamper-proof snapshots. Enabling this option ensures that the snapshots cannot be deleted or altered until the specified retention period has expired. This feature, which uses SnapLock technology, is crucial for protecting your data against ransomware attacks and ensuring data integrity.         
 
 ** *Snapshot locking period*: Enter the number of days, months, or years that you want to lock the snapshot.
 
@@ -163,6 +166,8 @@ Enter information in these fields:
 
 * *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage (for example, AWS Glacier), select the tier option and the number of days to archive. 
 
+* *Enable integrity scan*: (Not available for Kubernetes workloads) Select whether you want to enable integrity scans (snapshot locking) on the object storage. This ensures that the backups are valid and can be restored successfully. The integrity scan frequency is set to 7 days by default. To protect your backups from being modified or deleted, select the *Integrity scan* option. The scan occurs only on the latest snapshot. You can enable or disable integrity scans on the latest snapshot. 
+
 //To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 
 ==== Create a policy for Microsoft Azure object storage
@@ -178,6 +183,9 @@ Enter information in these fields:
 * *Retention copies*: Enter the number of snapshots to keep.
 * *Run at*: Choose the ONTAP transfer schedule to back up data to object storage. 
 * *Tier your backups from object store to archival storage*: If you choose to tier backups to archive storage, select the tier option and the number of days to archive. 
+
+
+* *Enable integrity scan*: (Not available for Kubernetes workloads) Select whether you want to enable integrity scans (snapshot locking) on the object storage. This ensures that the backups are valid and can be restored successfully. The integrity scan frequency is set to 7 days by default. To protect your backups from being modified or deleted, select the *Integrity scan* option. The scan occurs only on the latest snapshot. You can enable or disable integrity scans on the latest snapshot. 
 
 //To move older backup files to a less expensive storage class or access tier after a certain number of days, select the *Archive* option and indicate the number of days that should elapse before the data is archived. Enter *0* as the "Archive After Days" to send your backup file directly to archival storage.
 
@@ -227,6 +235,9 @@ image:screen-br-policies-advanced.png[Advanced settings screenshot for BlueXP ba
 +
 TIP: If the snapshot frequency is set to 1 hour, the maximum delay along with the retry count shouldn't exceed 45 minutes. 
 
+* *Enable VM-consistent snapshot*: (Applies to VMware workloads only) Select whether you want to enable VM-consistent snapshots. This ensures that the newly created snapshots are consistent with the state of the virtual machine at the time of the snapshot. This is useful for ensuring that the backups can be restored successfully and that the data is in a consistent state. This does not apply to existing snapshots. 
+
+    
 //* *Export existing snapshot copies*: Indicate whether you want to export historical snapshot copies to object storage as backup files and include them in your initial baseline backup files for future volumes. This helps you initialize your backups in the cloud by moving older snapshots into the baseline backup copy. 
 
 
