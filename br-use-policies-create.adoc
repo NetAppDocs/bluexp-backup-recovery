@@ -63,26 +63,42 @@ For information about snapshot locking in general, refer to https://docs.netapp.
 . From the BlueXP backup and recovery menu, select *Policies*.
 . From the Policies page, select *Create new policy*.
 +
-image:screen-br-policies-new-nodata.png[Screenshot of new policy creation]
+image:screen-br-policies-new-nodata-vm.png[Screenshot of new policy creation]
 
 . In the Policies page, provide the following information.   
 
 * *Details* section: 
-** Workload type of "Microsoft SQL Server" is selected by default for this version. 
+** Workload type: Select "Microsoft SQL Server", VMware, or Kubernetes. 
 
-** Enter a policy name.
+** Enter a policy name. 
++
+TIP: For a list of characters to avoid, see the hover tip. 
 
 * *Backup architecture* section: Select the down arrow and choose the architecture for the backup, such as fan-out, cascading, and disk to disk. 
 
 
-** *Local snapshot*: Local snapshot on the selected volume. Local snapshots are a key component of data protection strategies, capturing the state of your data at specific points in time. This creates read-only, point-in-time copies of production volumes where your workloads are running. The snapshot consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last snapshot. You can use local snapshots to recover from data loss or corruption, as well as to create backups for disaster recovery purposes.
+** *Local snapshot*: Local snapshot on the selected volume (Microsoft SQL Server). Local snapshots are a key component of data protection strategies, capturing the state of your data at specific points in time. This creates read-only, point-in-time copies of production volumes where your workloads are running. The snapshot consumes minimal storage space and incurs negligible performance overhead because it records only changes to files since the last snapshot. You can use local snapshots to recover from data loss or corruption, as well as to create backups for disaster recovery purposes.
++
+For VMware workloads, this configures the local snapshot on the datastores or VMwares on the primary storage system.
 ** *3-2-1 fanout*: Primary storage (disk) to secondary storage (disk) to cloud (object store). Creates multiple copies of data across different storage systems, such as ONTAP to ONTAP and ONTAP to object-store configurations. This can be a cloud hyperscaler object store or a private object store -- StorageGRID. These configurations help in achieving optimal data protection and disaster recovery.
++
+For VMware workloads, this configures the local snapshot on the datastores or VMs on the primary and replicates from primary disk storage to secondary disk storage as well as replicates from primary to cloud object storage. 
 ** *3-2-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary storage (disk) to cloud storage (object store). This can be a cloud hyperscaler object store or a private object store -- StorageGRID. This creates a chain of data replication across multiple systems to ensure redundancy and reliability. 
++
+For VMware workloads, this configures the local snapshot on the datastores or VMs on the primary storage and a cascade from primary disk storage to secondary disk storage and then to cloud object storage. 
 ** *Disk to disk*: Primary storage (disk) to secondary storage (disk). The ONTAP to ONTAP data protection strategy replicates data between two ONTAP systems to ensure high availability and disaster recovery. This is typically achieved using SnapMirror, which supports both synchronous and asynchronous replication. This method ensures that your data is continuously updated and available across multiple locations, providing robust protection against data loss. 
++
+For VMware workloads, this configures the local snapshot on the datastores or VMwares on the primary storage system and then replicates the data from the primary disk storage system to the secondary disk storage system.
+
 ** *Disk-to-object store*: Primary storage (disk) to cloud (object store). This replicates data from an ONTAP system to an object storage system, such as AWS S3, Azure Blob Storage or StorageGRID. This is typically achieved using SnapMirror Cloud, which provides incremental forever backups by transferring only changed data blocks after the initial baseline transfer. This can be a cloud hyperscaler object store or a private object store -- StorageGRID. This method is ideal for long-term data retention and archiving, offering a cost-effective and scalable solution for data protection.
++
+For VMWare workloads, this configures the local snapshot on the datastores or VMs on the primary and replication from primary disk storage to cloud object storage.
+ 
 ** *Disk-to-disk fanout*: Primary storage (disk) to secondary storage (disk)  and primary storage (disk) to secondary storage (disk). 
 +
 NOTE: You can configure multiple secondary settings for the disk-to-disk fanout option. 
++ 
+For VMware workloads, this configures the primary disk storage to secondary disk storage and replicates primary disk storage to secondary disk storage. 
 
 //** *3-2-1-1 cascaded*: Primary storage (disk) to secondary storage (disk) and primary (disk) to cloud (object store)  (Multiple object storage) 
 
