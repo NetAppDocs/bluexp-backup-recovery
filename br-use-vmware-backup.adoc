@@ -19,4 +19,131 @@ Back up VMware VMs, datastores, and applications on VMs from on-premises ONTAP s
 
 //* Configure the log directory for discovered hosts before you initiate a backup. 
 
+* Create protection groups to manage the backup and restore operations for a set of workloads.  
 * Back up workloads now (create an on-demand backup now).  
+
+
+== Create and manage protection groups
+
+You can create a protection group to manage the backup and restore operations for a set of workloads. A protection group is a logical grouping of workloads that you want to protect together.
+
+You can perform the following tasks related to protection groups:
+
+* Create a protection group
+* Back up a protection group now
+* Suspend a protection group's backup schedule  
+* Delete a protection group
+
+=== Create a protection group 
+
+Group workloads that you want to protect together into a protection group. You can create a protection group for a set of workloads that you want to back up and restore together.
+
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, or Backup and Recovery backup admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
+.Steps
+. From the BlueXP backup and recovery menu, select *Inventory*.
++
+image:screen-vm-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.
+. Select the *Protection groups* tab.
+. Select *Create protection group*.
+
+. Provide a name for the protection group.
+. Select the instances or databases that you want to include in the protection group.
+. Select *Next*. 
+
+. Select the *Backup policy* that you want to apply to the protection group.
++
+If you want to create a policy, select *Create new policy* and follow the prompts to create a policy. See link:br-use-policies-create.html[Create policies] for more information.
+
+. Select *Next*. 
+. Review the configuration.
+. Select *Create* to create the protection group.
+
+
+=== Suspend a protection group's backup schedule
+
+Suspending a protection group pauses the scheduled backups for the protection group. You might want to suspend a protection group if you want to temporarily stop backups for the workloads in that group. 
+
+The protection status changes to "Under maintenance" when you suspend a protection group. You can resume the backup schedule at any time.
+
+.Steps
+. From the BlueXP backup and recovery menu, select *Inventory*.
++
+image:screen-vm-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.
+. Select the *Protection groups* tab.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Suspend protection group*.
+
+. Review the confirmation message and select *Suspend*. 
+
+
+=== Resume a protection group's backup schedule
+
+Resuming a suspended protection group restarts the scheduled backups for the protection group.  
+
+The protection status changes from "Under maintenance" when you suspend a protection group to "Protected" when you resume it. You can resume the backup schedule at any time.
+
+.Steps
+. From the BlueXP backup and recovery menu, select *Inventory*.
++
+image:screen-vm-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.
+. Select the *Protection groups* tab.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Resume protection group*.
+
+. Review the confirmation message and select *Resume*. 
+
+.Result
+The system validates the schedules and changes the protection status to "Protected" if the schedules are valid. If the schedules are not valid, the system displays an error message and does not resume the protection group.  
+
+=== Delete a protection group
+
+Deleting a protection group removes it and all associated backup schedules. You might want to delete a protection group if it is no longer needed.
+
+.Steps
+. From the BlueXP backup and recovery menu, select *Inventory*.
+. Select a workload to view the protection details.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.
+. Select the *Protection groups* tab.
+. Select the protection group that you want to delete.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Delete*.
+. Confirm the deletion.
+
+== Back up workloads now with an on-demand backup
+
+Create an on-demand backup immediately. You might want to run an on-demand backup if you're about to make changes to your system and want to ensure that you have a backup before you start.
+
+Ensure that these conditions are met before you back up workloads; otherwise, you cannot create an on-demand backup:
+
+* The VMware workload does not include an on-demand policy already.
+* The VMware workload does not include overlapping schedules.
+* The VMware workload does not include multiple resource groups (protection groups) for the same datastore. You can remove the datastores from that protection group.  
+
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, or Backup and Recovery backup admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
+.Steps 
+
+. From the menu, select *Inventory*. 
++
+image:screen-vm-inventory-managed.png[Inventory screenshot for BlueXP backup and recovery]
+. Select a workload to view the protection details. 
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details*.   
+. Select the *Protection Groups*, *Datastores* or *Virtual machines* tab. 
++
+image:screen-vm-inventory-protection-groups.png[Protection groups tab screenshot for BlueXP backup and recovery]
+
+. Select the protection group, datastores, or virtual machines that you want to back up.
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *Back up now*.
++
+image:screen-vm-inventory-backup-now.png[Back up now screenshot for BlueXP backup and recovery]
++
+NOTE: The policy that is applied to the backup is the same policy that is assigned to the protection group, datastore, or virtual machine.
+
+. Select the schedule tier.
+. Select *Back up now*. 
