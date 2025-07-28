@@ -61,7 +61,7 @@ indexpage:
         - title: Discover Kubernetes workloads
           url: br-start-discover-kubernetes.html
         - title: Add and protect Kubernetes applications
-          url: link:br-use-protect-kubernetes-applications.html
+          url: br-use-protect-kubernetes-applications.html
         - title: Manage Kubernetes clusters
           url: br-use-manage-kubernetes-clusters.html
         - title: Manage Kubernetes applications
