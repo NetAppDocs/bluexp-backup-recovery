@@ -59,7 +59,7 @@ sidebar:
           url: /br-use-dashboard.html  
         - title: Create policies to govern backups and restores
           url: /br-use-policies-create.html
-        - title: Protect ONTAP volume workloads
+        - title: Protect ONTAP volume workloads (with SnapCenter)
           entries: 
           - title: Protect ONTAP volume workloads overview
             url:  /prev-ontap-protect-overview.html
@@ -93,7 +93,7 @@ sidebar:
             url: /prev-ontap-backup-manage.html
           - title: Restore from ONTAP backups 
             url: /prev-ontap-restore.html
-        - title: Protect Microsoft SQL Server workloads (Preview)
+        - title: Protect Microsoft SQL Server workloads (Preview without SnapCenter)
           entries:
             - title: Protect Microsoft SQL Server workloads overview
               url: /br-use-mssql-protect-overview.html
@@ -113,7 +113,7 @@ sidebar:
               url: /br-use-manage-snapshots.html
             - title: Create Microsoft SQL Server reports 
               url: /br-use-reports.html
-        - title: Protect VMware workloads (Preview)
+        - title: Protect VM workloads (Preview without SnapCenter Plug-in for VMware)
           entries:
             - title: Protect VMware workloads overview
               url: /br-use-vmware-protect-overview.html
@@ -123,7 +123,7 @@ sidebar:
               url: /br-use-vmware-backup.html
             - title: Restore VMware workloads
               url: /br-use-vmware-restore.html
-        - title: Protect virtual machine workloads 
+        - title: Protect VM workloads (with SnapCenter Plug-in for VMware)
           entries:  
             - title: Protect virtual machine workloads overview
               url: /prev-vmware-protect-overview.html
