@@ -1,4 +1,4 @@
-=== Kubernetes workload support as a Public Technology Preview
+=== Kubernetes workload support as a Preview
 
 This release of of BlueXP backup and recovery introduces support for discovering and managing Kubernetes workloads:
 
