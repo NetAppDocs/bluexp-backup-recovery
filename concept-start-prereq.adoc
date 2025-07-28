@@ -159,9 +159,9 @@ NOTE: References to "on-premises ONTAP systems" includes FAS and AFF systems.
 //----
 
 
-== Microsoft SQL Server host requirements 
+== Requirements for Microsoft SQL Server host 
 
-To use BlueXP backup and recovery for SQL Server workloads, you need the following host system, space, and sizing prerequisites.
+To use BlueXP backup and recovery for Microsoft SQL Server workloads, you need the following host system, space, and sizing prerequisites.
 
 [cols=2*,options="header",cols="33,66a",width="90%"]
 |===
@@ -206,3 +206,11 @@ For the latest information about supported versions, see the https://imt.netapp.
 
 
 |===
+
+=== Requirements for VMware workloads
+
+To use BlueXP backup and recovery for VMware workloads, you need the following host system, space, and sizing prerequisites.
+
+TBD
+TBD
+TBD

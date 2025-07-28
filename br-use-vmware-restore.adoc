@@ -87,19 +87,85 @@ Restore VMware workloads using the Restore option. You can search for the snapsh
 
 . From the BlueXP backup and restore menu, select *Restore*.
 +
-image:screen-br-restore.png[A screenshot showing the Restore page.]
-. Select the database that you want to restore. Use the filters to search.  
+image:screen-vm-restore-dropdown.png[A screenshot showing the Restore page.]
+. From the drop-down list to the right of the name search field, select *Virtual machines*. 
 
-. Select the restore option: 
+. Enter the name of the resource you want to restore or filter for the vCenter, datacenter, or datastore where the resource that you want to restore is located. 
 +
-* Restore from snapshots
-* Restore to a specific point in time. This is helpful if you know the name and location of the file, and the date when it was last in good shape. 
+A list of snapshots that match your search criteria appears.
++
+image:screen-vm-restore-snapshot.png[A screenshot showing the list of snapshots to restore.]    
 
-* Restore to the latest backup
+. Select the snapshot that you want to restore. 
 +
-image:screen-br-restore-options2.png[A screenshot showing the Restore options.]
+A list of restore location options appears.
++
+image:screen-vm-restore-location.png[A screenshot showing the Restore options page.]
+
+. Select the restore location where you want to restore the snapshot:  
+
+* Local: Restores the snapshot to the original location.
+* Secondary storage: Restores the snapshot to a secondary storage location. 
++
+If you choose secondary storage, enter the source and destination location information and also the source and secondary location for the logs. 
+* Object storage: Restores the snapshot to an object storage location.  
++
+If you choose object storage, check whether you want to scan the snapshot again before restoring. 
++
+image:screen-vm-restore-location-objectstore.png[A screenshot showing the Restore options page for object storage.]
++
+If you chose object storage, you can choose an option to balance cost and speed of restoration: THESE SCREENS ARE IN WORK IN PROGRESS. REVIEW THIS AGAIN
++
+image:screen-vm-restore-location-objectstore-cost.png[A screenshot showing the Restore options for object storage.]
+
+. Select *Done* or *Next* to continue to the Restore options page.
++
+Next, you can choose the destination settings of the original location or an alternate location, and the pre-restore and post-restore options.
++
+image:screen-vm-restore-destination.png[A screenshot showing the Restore Destination details page.]
++
+If you chose to restore to an alternate location, enter the following: 
++
+* *vCenter Server*: Select the vCenter server where you want to restore the snapshot.
+* *ESXI host*: Select the host where you want to restore the snapshot.
+
+* *Datastore name*: Enter the name of the datastore where you want to restore the snapshot.
+
+* *VM network*: Select the network where you want to restore the snapshot.
+* *VM name after restore*: Enter the name of the VM where you want to restore the snapshot.
+* *Enable change storage location*: By default, the backup from object storage will be restored in the source SVM. Select this to choose alternate storage if the source storage is down or does not have enough space. Select the cluster, storage VM, aggregate, and volumes where you want to restore the snapshot. You can do this for storage layout 1 and 2. WHAT ARE STORAGE LAYOUTS 1 AND 2? 
++
+image:screen-vm-restore-destination-alt-change-storage-loc.png[A screenshot showing the Restore Destination details page with the change storage location option.]
+
+. In the Restore Destination details page, enter the following information:
++
+* *Destination settings*: Choose whether you want to restore the data to its original location or to an alternate location. For an alternate location, select the host name and instance, enter the database name, and enter the destination path where you want to restore the snapshot.
+* *Enable quick restore*: Select this to perform a quick restore operation. This option is available only if the source system from which the cloud backup was created was running ONTAP 9.13.0 or greater or to an on-premises ONTAP system running ONTAP 9.14.1.
+
+* *Pre-restore options*: Enter the full path for a script that should be run before the restore operation and any arguments that the script takes.
+** *Preserve original VM name*: During the restore, the original VM name is preserved. (Applies only to object storage to an alternate location.)
+** *Create a transaction log backup before restore*: Creates a transaction log backup before the restore operation.(Applies only to object storage to an alternate location.)
+** *Quit restore if transaction log backup before restore fails*: Stops the restore operation if the transaction log backup fails.(Applies only to object storage to an alternate location.)
+
+* *Post-restore options*:  
+** *Restart VM*: Select this to restart the VM after the restore operation completes and after the post-restore script is applied.
+** *Postscript*: Enter the full path for a script that should be run after the restore operation and any arguments that the script takes.
+** *Operational, but unavailable for restoring additional transaction logs*. This brings the database back online after transaction log backups are applied.(Applies only to object storage to an alternate location.)
+** *Non-operational, but available for restoring additional transaction logs*. Maintains the database in a non-operational state after the restore operation while restoring transaction log backups. This option is useful for restoring additional transaction logs. (Applies only to object storage to an alternate location.)
+** *Read-only mode*, but available for restoring additional transaction logs. Restores the database in a read-only mode and applies transaction log backups. (Applies only to object storage to an alternate location.)
++
+image:screen-vm-restore-destination-alt-operational.png[A screenshot showing the Restore Destination details page with the operational options.]
+
+* *Notification* section: 
+** *Enable email notifications*: Select this to receive email notifications about the restore operation and indicate what type of notifications you want to receive.
+//** *Email address*: Enter the email address where you want to receive notifications about the restore operation.
+
+. Select *Restore*.
+
 
 === Restore workloads from snapshots
+
+STOPPED HERE
 
 . Continuing from the Restore options page, select *Restore from snapshots*. 
 +
@@ -160,9 +226,9 @@ image:screen-br-restore-point-in-time.png[A screenshot showing the Restore to a 
 *** *Retain SQL database replication settings*: Keeps the replication settings for the SQL database after the restore operation.
 *** *Prescript*: Enter the full path for a script that should be run before the restore operation, any arguments that the script takes, and how long to wait for the script to complete.
 ** *Post-restore options*: 
-*** *Operational*, but unavailable for restoring additional transaction logs. This brings the database back online after transaction log backups are applied. 
-*** *Non-operational*, but available for restoring additional transaction logs. Maintains the database in a non-operational state after the restore operation while restoring transaction log backups. This option is useful for restoring additional transaction logs.
-*** *Read-only mode* and available for restoring additional transaction logs. Restores the database in a read-only mode and applies transaction log backups. 
+*** *Operational*, but unavailable for restoring additional transaction logs. This brings the database back online after transaction log backups are applied. (Applies only to object storage to an alternate location.)
+*** *Non-operational*, but available for restoring additional transaction logs. Maintains the database in a non-operational state after the restore operation while restoring transaction log backups. This option is useful for restoring additional transaction logs. (Applies only to object storage to an alternate location.)
+*** *Read-only mode* and available for restoring additional transaction logs. Restores the database in a read-only mode and applies transaction log backups. (Applies only to object storage to an alternate location.)
 *** *Postscript*: Enter the full path for a script that should be run after the restore operation and any arguments that the script takes.
 
  
