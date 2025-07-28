@@ -37,10 +37,10 @@ Use BlueXP backup and recovery to accomplish the following goals:
 
 ** Restore virtual machines data from the cloud back to the on-premises vCenter with BlueXP backup and recovery. You can restore the virtual machine to the exact same location from where the backup was taken or to an alternate location. 
 
-//* Kubernetes workloads (Preview): 
-//** Manage and protect your Kubernetes clusters and applications all in one place. 
-
-//** Manage resources such as backups, databases, instances, application hosts, and work environments.
+* Kubernetes workloads (Preview): 
+** Manage and protect your Kubernetes applications and resources all in one place.
+** Use protection policies to structure your incremental backups.
+** Restore applications and resources to the same or different clusters and namespaces.
 
 //TIP: When the BlueXP Connector is deployed in a government region in the cloud, or in a site without internet access (a dark site), BlueXP backup and recovery supports backup and restore operations only from ONTAP systems. When you use these deployment methods, BlueXP backup and recovery does not support backup and restore operations from applications.
 

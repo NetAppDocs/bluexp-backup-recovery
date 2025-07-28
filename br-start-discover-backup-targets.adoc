@@ -31,21 +31,20 @@ Provide the credentials needed to access the storage account system. These crede
 image:screen-br-inventory-offsite-backup-targets.png[Offsite backup targets tab]
 . Select *Discover backup target*. 
 . Select one of the backup target types: *Amazon Web Services (AWS) S3*, *Microsoft Azure Blob Storage*, *StorageGRID* or *ONTAP S3*.
-
-. Enter the information. The information differs depending on the type of backup target you selected.
+. In the *Choose credentials location* section, choose the location where the credentials reside and then choose how to associate the credentials. 
+. Select *Next*.
+. Enter the credentials information. The information differs depending on the type of backup target you selected and the credentials location that you chose.
 
 * For AWS: 
 ** *Credential name*: Enter the AWS credential name.
 ** *Access key*: Enter the AWS secret.
 ** *Secret key*: Enter the AWS secret key. 
 
-
 * For Azure:
 ** *Credential name*: Enter the Azure Blob Storage credential name.
 ** *Client secret*: Enter the Azure Blob Storage client secret.
 ** *Application (client) ID*: Select the Azure Blob Storage application ID.
 ** *Directory tenant ID*: Enter the Azure Blob Storage tenant ID.
-
 
 * For StorageGRID:  
 ** *Credential name*: Enter the StorageGRID credential name.
@@ -67,8 +66,6 @@ image:screen-br-inventory-offsite-backup-targets.png[Offsite backup targets tab]
 ** *Secret key*: Enter the ONTAP S3 secret key. 
 
 . Select *Discover*.
-
-
 
 == Add a bucket for a backup target 
 

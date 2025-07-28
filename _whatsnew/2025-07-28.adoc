@@ -1,0 +1,11 @@
+=== Kubernetes workload support as a Public Technology Preview
+
+This release of of BlueXP backup and recovery introduces support for discovering and managing Kubernetes workloads:
+
+* Discover Red Hat OpenShift and open-source Kubernetes clusters, backed by NetApp ONTAP, without sharing kubeconfig files.
+* Discover, manage, and protect applications across multiple Kubernetes clusters using a unified control plane.
+* Offload data movement operations for backup and recovery of Kubernetes applications to NetApp ONTAP. 
+* Orchestrate local and object-storage-based application backups.
+* Back up and restore entire applications and individual resources to any Kubernetes clusters.
+* Work with containers and virtual machines running on Kubernetes.
+* Create application-consistent backups using execution hooks and templates.
