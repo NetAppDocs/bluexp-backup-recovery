@@ -17,8 +17,6 @@ Restore VMware workloads from snapshot copies, from a workload backup replicated
 
 //different types of restore operations, volume restore or file/folder restore, Browse and restore vs Search and restore)
 
-OLD SQL STUFF
-
 
 
 .Restore from these locations
@@ -31,19 +29,16 @@ You can restore workloads from different starting locations:
 
 .Restore to these points   
 
-You can restore data to the latest snapshot or to these points: 
+You can restore data to these points: 
 
 * Restore from snapshots
-* Restore to a specific point in time. This is helpful if you know the name and location of the file, and the date when it was last in good shape. 
-* Restore to the latest backup 
+* Restore to the original or alternate location
 
 .Restore from object storage considerations
 
 If you select a backup file in object storage, and ransomware protection is active for that backup (if you enabled DataLock and Ransomware Protection in the backup policy), then you are prompted to run an additional integrity check on the backup file before restoring the data. We recommend that you perform the scan. 
 
 TIP: You'll incur extra egress costs from your cloud provider to access the contents of the backup file.
-
-
 
 
 == How restoring workloads works
@@ -68,20 +63,21 @@ image:diagram_browse_restore_volume-unified.png["A diagram that shows the flow t
 
 == Restore methods
 
-You can restore workloads using one of the following methods. Typically, choose one of the following methods based on your restore needs:
+You can restore workloads using one of the following methods. Typically, choose a method based on your restore needs:
 
 * *From the Restore page (also known as Search & Restore)*: Use this when you need to restore a resource, but you don't remember the exact name, the location in which it resides, or the date when it was last in good shape. You can search for the snapshot using filters. 
 * *From the Inventory page (also known as Browse & Restore)*: Use this when you need to restore a specific resource from the last week or month -- and you know the name and location of the resource, and the date when it was last in good shape. You browse through a list of resources to find the one you want to restore.
 
 //Inventory is browse and restore. Restore page is Search and restore. 
 
-*Required BlueXP role*
-Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery restore admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
 
 == Restore workload data from the Restore option (Search & Restore)
 
 Restore VMware workloads using the Restore option. You can search for the snapshot by its name or by using filters. 
 
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery restore admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
 
 .Steps
 
@@ -92,7 +88,7 @@ image:screen-vm-restore-dropdown.png[A screenshot showing the Restore page.]
 
 . Enter the name of the resource you want to restore or filter for the vCenter, datacenter, or datastore where the resource that you want to restore is located. 
 +
-A list of snapshots that match your search criteria appears.
+A list of snapshots appears that match your search criteria.
 +
 image:screen-vm-restore-snapshot.png[A screenshot showing the list of snapshots to restore.]    
 
@@ -170,7 +166,8 @@ image:screen-vm-restore-destination-alt-operational.png[A screenshot showing the
 
 Restore NFS or VMFS datastores listed on the Inventory page; you can first browse through a list of workloads. Using the Inventory option, you can restore a VM or VMDK snapshot. 
 
-
+*Required BlueXP role*
+Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery restore admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
 
 .Steps
 
@@ -196,9 +193,9 @@ The same location options appear as when you restore from the Restore page:
 . Continue with the same steps for the restore option from the Restore page
 
 
-== Restore workloads from cloud storage 
+//== Restore workloads from cloud storage 
 
-When you restore workloads from cloud providers, you might be prompted for additional information. 
+//When you restore workloads from cloud providers, you might be prompted for additional information. 
 
 //[TO BR TEAM: Is this the correct information?]   
 
