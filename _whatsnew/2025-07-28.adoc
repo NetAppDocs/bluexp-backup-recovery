@@ -1,4 +1,4 @@
-=== Kubernetes workload support as a Public Technology Preview
+=== Kubernetes workload support as a Preview
 
 This release of of BlueXP backup and recovery introduces support for discovering and managing Kubernetes workloads:
 
@@ -9,3 +9,5 @@ This release of of BlueXP backup and recovery introduces support for discovering
 * Back up and restore entire applications and individual resources to any Kubernetes clusters.
 * Work with containers and virtual machines running on Kubernetes.
 * Create application-consistent backups using execution hooks and templates.
+
+For details about protecting Kubernetes workloads, refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/br-use-kubernetes-protect-overview.html[Protect Kubernetes workloads overview].
