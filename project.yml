@@ -60,38 +60,38 @@ sidebar:
           url: /br-use-policies-create.html
         - title: Protect ONTAP volume workloads
           entries: 
-          - title: Protect ONTAP volume workloads overview
-            url:  /prev-ontap-protect-overview.html
-          - title: Plan your protection journey for ONTAP volumes
-            url: /prev-ontap-protect-journey.html
-          - title: Manage policies for ONTAP volumes 
-            url: /prev-ontap-policy-manage.html
-          - title: Backup-to-object policy options for ONTAP volumes
-            url: /prev-ontap-policy-object-options.html
-          - title: Manage backup-to-object policy Advanced Settings options
-            url: /prev-ontap-policy-object-advanced-settings.html
-          - title: Back up Cloud Volumes ONTAP to Amazon S3
-            url: /prev-ontap-backup-cvo-aws.html
-          - title: Back up Cloud Volumes ONTAP to Azure Blob 
-            url: /prev-ontap-backup-cvo-azure.html
-          - title: Back up Cloud Volumes ONTAP to Google Cloud
-            url: /prev-ontap-backup-cvo-gcp.html
-          - title: Back up on-premises ONTAP to Amazon S3 
-            url: /prev-ontap-backup-onprem-aws.html
-          - title: Back up on-premises ONTAP to Azure Blob
-            url: /prev-ontap-backup-onprem-azure.html
-          - title: Back up on-premises ONTAP to Google Cloud 
-            url: /prev-ontap-backup-onprem-gcp.html
-          - title: Back up on-premises ONTAP to ONTAP S3 
-            url: /prev-ontap-backup-onprem-ontaps3.html
-          - title: Back up on-premises ONTAP to StorageGRID
-            url: /prev-ontap-backup-onprem-storagegrid.html
-          - title: Migrate volumes using SnapMirror to Cloud Resync   
-            url: /prev-ontap-migrate-resync.html
-          - title: Manage ONTAP backups
-            url: /prev-ontap-backup-manage.html
-          - title: Restore from ONTAP backups 
-            url: /prev-ontap-restore.html
+            - title: Protect ONTAP volume workloads overview
+              url:  /prev-ontap-protect-overview.html
+            - title: Plan your protection journey for ONTAP volumes
+              url: /prev-ontap-protect-journey.html
+            - title: Manage policies for ONTAP volumes 
+              url: /prev-ontap-policy-manage.html
+            - title: Backup-to-object policy options for ONTAP volumes
+              url: /prev-ontap-policy-object-options.html
+            - title: Manage backup-to-object policy Advanced Settings options
+              url: /prev-ontap-policy-object-advanced-settings.html
+            - title: Back up Cloud Volumes ONTAP to Amazon S3
+              url: /prev-ontap-backup-cvo-aws.html
+            - title: Back up Cloud Volumes ONTAP to Azure Blob 
+              url: /prev-ontap-backup-cvo-azure.html
+            - title: Back up Cloud Volumes ONTAP to Google Cloud
+              url: /prev-ontap-backup-cvo-gcp.html
+            - title: Back up on-premises ONTAP to Amazon S3 
+              url: /prev-ontap-backup-onprem-aws.html
+            - title: Back up on-premises ONTAP to Azure Blob
+              url: /prev-ontap-backup-onprem-azure.html
+            - title: Back up on-premises ONTAP to Google Cloud 
+              url: /prev-ontap-backup-onprem-gcp.html
+            - title: Back up on-premises ONTAP to ONTAP S3 
+              url: /prev-ontap-backup-onprem-ontaps3.html
+            - title: Back up on-premises ONTAP to StorageGRID
+              url: /prev-ontap-backup-onprem-storagegrid.html
+            - title: Migrate volumes using SnapMirror to Cloud Resync   
+              url: /prev-ontap-migrate-resync.html
+            - title: Manage ONTAP backups
+              url: /prev-ontap-backup-manage.html
+            - title: Restore from ONTAP backups 
+              url: /prev-ontap-restore.html
         - title: Protect Microsoft SQL Server workloads (Preview)
           entries:
             - title: Protect Microsoft SQL Server workloads overview
@@ -134,22 +134,22 @@ sidebar:
               url: /prev-vmware-manage.html
             - title: Restore virtual machine data and datastores
               url: /prev-vmware-restore.html
-#        - title: Protect Kubernetes workloads (Preview)
-#          entries:
-#            - title: Protect Kubernetes workloads overview
-#              url: /br-use-kubernetes-protect-overview.html
-#            - title: Add and protect Kubernetes applications # Includes app protect, manual backup
-#              url: /br-use-protect-kubernetes-applications.html
-#            - title: Restore Kubernetes applications # Includes only restore task
-#              url: /br-use-restore-kubernetes-applications.html
-#            - title: Manage Kubernetes clusters # Includes discover, edit, remove / CRUD
-#              url: /br-use-manage-kubernetes-clusters.html
-#            - title: Manage Kubernetes applications # Includes app CRUD
-#              url: /br-use-manage-kubernetes-applications.html
-#            - title: Manage execution hook templates for Kubernetes workloads
-#              url: /br-use-manage-execution-hook-templates.html
-#        - title: Manage inventory, snapshots, and policies       
-#          entries:            
+        - title: Protect Kubernetes workloads (Preview)
+          entries:
+            - title: Protect Kubernetes workloads overview
+              url: /br-use-kubernetes-protect-overview.html
+            - title: Discover Kubernetes workloads
+              url: br-start-discover-kubernetes.html
+            - title: Add and protect Kubernetes applications 
+              url: /br-use-protect-kubernetes-applications.html
+            - title: Restore Kubernetes applications
+              url: /br-use-restore-kubernetes-applications.html
+            - title: Manage Kubernetes clusters
+              url: /br-use-manage-kubernetes-clusters.html
+            - title: Manage Kubernetes applications
+              url: /br-use-manage-kubernetes-applications.html
+            - title: Manage execution hook templates for Kubernetes workloads
+              url: /br-use-manage-execution-hook-templates.html       
         - title: Monitor jobs
           url: /br-use-monitor-tasks.html
         - title: Restart BlueXP backup and recovery
