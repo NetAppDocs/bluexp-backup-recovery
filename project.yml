@@ -61,7 +61,7 @@ sidebar:
         - title: Protect ONTAP volume workloads
           entries: 
             - title: Protect ONTAP volume workloads overview
-              url:  /prev-ontap-protect-overview.html
+              url: /prev-ontap-protect-overview.html
             - title: Plan your protection journey for ONTAP volumes
               url: /prev-ontap-protect-journey.html
             - title: Manage policies for ONTAP volumes 
@@ -139,7 +139,7 @@ sidebar:
             - title: Protect Kubernetes workloads overview
               url: /br-use-kubernetes-protect-overview.html
             - title: Discover Kubernetes workloads
-              url: br-start-discover-kubernetes.html
+              url: /br-start-discover-kubernetes.html
             - title: Add and protect Kubernetes applications 
               url: /br-use-protect-kubernetes-applications.html
             - title: Restore Kubernetes applications
