@@ -187,7 +187,7 @@ For the latest information about supported versions, see the https://imt.netapp.
 |===
 
 
-=== Requirements for protecting VMware workloads
+== Requirements for protecting VMware workloads
 You need specific requirements to discover and protect your VMware workloads.
 
 

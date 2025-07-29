@@ -124,6 +124,8 @@ image:screen-vm-restore-destination.png[A screenshot showing the Restore Destina
 
 . Choose the destination settings of the original location or an alternate location, and the pre-restore and post-restore options.
 
+//Start tabbed area 
+
 [role="tabbed-block"]
 ====
 
@@ -155,6 +157,9 @@ image:screen-vm-restore-destination-alt-change-storage-loc.png[A screenshot show
 --
 
 ====
+//end of tabbed area
+
+
 
 . In the Restore Destination details page, enter the following information:
 +
