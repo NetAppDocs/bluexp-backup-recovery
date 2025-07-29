@@ -170,7 +170,7 @@ The service protects the following application-based workloads:
 * ONTAP volumes 
 * Microsoft SQL Server instances and databases for physical, VMware Virtual Machine File System (VMFS), and VMware Virtual Machine Disk (VMDK) NFS (Preview)
 * VMware datastores
-//* Kubernetes workloads (Preview)
+* Kubernetes workloads (Preview)
 //* More coming soon
 
 
