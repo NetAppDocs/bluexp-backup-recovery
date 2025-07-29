@@ -37,31 +37,10 @@ To use object storage as backup targets, you need an account with AWS S3, Micros
 //* link:br-use-kubernetes-protect-overview.html[Protect your Kubernetes workloads]
 
 
-//== For protecting Kubernetes applications
-//You need specific requirements to discover Kubernetes resources and protect your Kubernetes applications.
-
-
-//* You need a primary ONTAP system 
-//* You need a Kubernetes cluster in your environment
-//** Kubernetes distributions / versions supported
-//** Trident must be installed
-//* BlueXP Connector needs to be installed (already documented in BXP docs, link to it)
-//* You need to have installed a BlueXP working environment
-//** The working environment needs to have storage volumes configured and useable by BlueXP.
-//* You need to have hardware or VMs available for a new Kubernetes cluster (or you need an existing cluster)
-
-//*Kubernetes requirements for 3-2-1 protection scheme*
-//BlueXP backup and recovery supports Kubernetes application data protection using the 3-2-1 backup scheme. If you want to use this backup scheme, ensure you have the following:
-
-//* A working replication relationship between your ONTAP systems
-//* Offsite cloud / object storage buckets to serve as the offsite storage (list supported providers)
-
-
-
 == In BlueXP 
 
 
-* A BlueXP user should have the required role and privileges to perform operations on Microsoft SQL Server workloads. To discover the resources, you must have the BlueXP backup and recovery role of Super admin. See link:reference-roles.html[BlueXP backup and recovery role-based access to features] for details about the roles and permissions required to perform operations in BlueXP backup and recovery.
+* A BlueXP user should have the required role and privileges to perform operations on Microsoft SQL Server and Kubernetes workloads. To discover the resources, you must have the BlueXP backup and recovery role of Super admin. See link:reference-roles.html[BlueXP backup and recovery role-based access to features] for details about the roles and permissions required to perform operations in BlueXP backup and recovery.
 
 * A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters or Cloud Volumes ONTAP. Refer to the *Initial Preview setup process* below. 
 //* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters or to Cloud Volumes ONTAP in AWS or Azure.
@@ -207,6 +186,24 @@ For the latest information about supported versions, see the https://imt.netapp.
 
 |===
 
+
+== For protecting Kubernetes applications
+You need specific requirements to discover Kubernetes resources and protect your Kubernetes applications.
+
+For BlueXP requirements, refer to <<In BlueXP>>.
+
+//* A BlueXP working environment that has storage volumes configured and useable by BlueXP
+//* A https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html#connector-installation[BlueXP Connector^]
+* A primary ONTAP system (ONTAP 9.16.1 or later)
+* A Kubernetes cluster - Supported Kubernetes distributions and versions include:
+** Anthos On-Prem (VMware) and Anthos on bare metal 1.16
+** Kubernetes 1.27 - 1.33
+** OpenShift 4.10 - 4.18
+** Rancher Kubernetes Engine 2 (RKE2) v1.26.7+rke2r1, v1.28.5+rke2r1
+* NetApp Trident 24.10 or later 
+* NetApp Trident protect 25.07 or later (installed during Kubernetes workload discovery)
+* NetApp Trident protect Connector 25.07 or later (installed during Kubernetes workload discovery)
+** Make sure that TCP port 443 is unfiltered in the outbound direction between the Kubernetes cluster, the Trident protect Connector, and the Trident protect proxy.
 === Requirements for VMware workloads
 
 To use BlueXP backup and recovery for VMware workloads, you need the following host system, space, and sizing prerequisites.

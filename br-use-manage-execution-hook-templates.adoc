@@ -46,7 +46,7 @@ If you create multiple execution hooks of the same type (for example, pre-snapsh
 . Post-backup hooks executed
 //. Post-restore hooks executed (Removed at request of Kevin Hicks)
 
-NOTE: The preceding order example only applies when you run a backup that does not use an existing snapshot.
+//NOTE: The preceding order example only applies when you run a backup that does not use an existing snapshot.
 
 //You can see an example of this configuration in scenario number 2 from the table in <<Determine whether a hook will run>>.
 
@@ -79,12 +79,12 @@ You can create a custom execution hook template that you can use to perform acti
 
 .Steps
 
-. In BlueXP, got to *Protection* > *Backup and recovery*.
+. In BlueXP, go to *Protection* > *Backup and recovery*.
 . Select the *Settings* tab.
 . Expand the *Execution hook template* section.
 . Select *Create execution hook template*.
 . Enter a name for the execution hook.
-. Choose a type of hook. For example, a post-restore hook will run after the restore operation is complete.
+. Optionally, choose a type of hook. For example, a post-restore hook is run after the restore operation is complete.
 . In the *Script* text box, enter the executable shell script that you want to run as part of the execution hook template. Optionally, you can select *Upload script* to upload a script file instead.
 . Select *Create*.
 +
