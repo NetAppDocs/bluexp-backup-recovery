@@ -23,16 +23,16 @@ Restore VMware workloads from snapshot copies, from a workload backup replicated
 
 You can restore workloads from different starting locations: 
 
-* Restore from a primary location
-* Restore from a replicated resource
-* Restore from an object store backup
+* Restore from a primary location (local snapshot)
+* Restore from a replicated resource on secondary storage
+* Restore from an object storage backup
 
 .Restore to these points   
 
 You can restore data to these points: 
 
-* Restore from snapshots
-* Restore to the original or alternate location
+* Restore to the original location
+* Restore to an alternate location
 
 .Restore from object storage considerations
 
@@ -119,8 +119,26 @@ image:screen-vm-restore-location-objectstore-cost.png[A screenshot showing the R
 Next, you can choose the destination settings of the original location or an alternate location, and the pre-restore and post-restore options.
 +
 image:screen-vm-restore-destination.png[A screenshot showing the Restore Destination details page.]
+
+===== Destination selection
+
+. Choose the destination settings of the original location or an alternate location, and the pre-restore and post-restore options.
+
+[role="tabbed-block"]
+====
+
+.Restore to original location
+
+--
+.. FIX THIS to VMWARE steps. Select *Restore all resources*.
+.. Select *Next*.
+--
+
+.Restore to alternate location
+
+--
 +
-If you chose to restore to an alternate location, enter the following: 
+. If you chose to restore to an alternate location, enter the following: 
 +
 * *vCenter Server*: Select the vCenter server where you want to restore the snapshot.
 * *ESXI host*: Select the host where you want to restore the snapshot.
@@ -132,6 +150,11 @@ If you chose to restore to an alternate location, enter the following:
 * *Enable change storage location*: By default, the backup from object storage will be restored in the source SVM. Select this to choose alternate storage if the source storage is down or does not have enough space. Select the cluster, storage VM, aggregate, and volumes where you want to restore the snapshot. You can do this for storage layout 1 and 2. WHAT ARE STORAGE LAYOUTS 1 AND 2? 
 +
 image:screen-vm-restore-destination-alt-change-storage-loc.png[A screenshot showing the Restore Destination details page with the change storage location option.]
+
+
+--
+
+====
 
 . In the Restore Destination details page, enter the following information:
 +
@@ -159,6 +182,8 @@ image:screen-vm-restore-destination-alt-operational.png[A screenshot showing the
 //** *Email address*: Enter the email address where you want to receive notifications about the restore operation.
 
 . Select *Restore*.
+
+
 
 
 
