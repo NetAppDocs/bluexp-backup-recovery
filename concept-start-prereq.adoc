@@ -138,7 +138,7 @@ NOTE: References to "on-premises ONTAP systems" includes FAS and AFF systems.
 //----
 
 
-== Requirements for Microsoft SQL Server host 
+== Requirements for protecting Microsoft SQL Server workloads 
 
 To use BlueXP backup and recovery for Microsoft SQL Server workloads, you need the following host system, space, and sizing prerequisites.
 
@@ -187,7 +187,16 @@ For the latest information about supported versions, see the https://imt.netapp.
 |===
 
 
-== For protecting Kubernetes applications
+=== Requirements for protecting VMware workloads
+You need specific requirements to discover and protect your VMware workloads.
+
+
+* NFS and VMFS datastores are supported. vVols are not supported. 
+* NFS versions supported: NFS 3 and NFS 4.1
+* VMware ESXi versions supported: 6.5, 6.7, 7.0, and 8.0 ??
+* VMware vCenter versions supported: 6.5, 6.7, 7.0, and 8.0 ??
+
+== Requirements for protecting Kubernetes applications
 You need specific requirements to discover Kubernetes resources and protect your Kubernetes applications.
 
 For BlueXP requirements, refer to <<In BlueXP>>.
@@ -204,10 +213,4 @@ For BlueXP requirements, refer to <<In BlueXP>>.
 * NetApp Trident protect 25.07 or later (installed during Kubernetes workload discovery)
 * NetApp Trident protect Connector 25.07 or later (installed during Kubernetes workload discovery)
 ** Make sure that TCP port 443 is unfiltered in the outbound direction between the Kubernetes cluster, the Trident protect Connector, and the Trident protect proxy.
-=== Requirements for VMware workloads
 
-To use BlueXP backup and recovery for VMware workloads, you need the following host system, space, and sizing prerequisites.
-
-TBD
-TBD
-TBD
