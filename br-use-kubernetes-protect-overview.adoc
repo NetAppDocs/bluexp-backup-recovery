@@ -29,7 +29,7 @@ NOTE: This documentation is provided as a technology preview. During the preview
 
 You can accomplish the following tasks related to managing Kubernetes workloads:
 
-* link:br-start-discover.html#discover-kubernetes-workloads[Discover Kubernetes workloads].
+* link:br-start-discover-kubernetes.html[Discover Kubernetes workloads].
 * link:br-use-manage-kubernetes-clusters.html[Manage Kubernetes clusters].
 * link:br-use-protect-kubernetes-applications.html[Add and protect Kubernetes applications].
 * link:br-use-manage-kubernetes-applications.html[Manage Kubernetes applications].
