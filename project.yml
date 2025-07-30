@@ -172,6 +172,8 @@ sidebar:
           url: /reference-policy-differences-snapcenter.html
         - title: BlueXP backup and recovery roles and privileges
           url: /reference-roles.html
+        - title: Restore BlueXP backup and recovery data in a dark site
+          url: /reference-backup-cbs-db-in-dark-site.html
         - title: Supported AWS archive storage tiers
           url: /prev-reference-aws-archive-storage-tiers.html
         - title: Supported Azure archive storage tiers

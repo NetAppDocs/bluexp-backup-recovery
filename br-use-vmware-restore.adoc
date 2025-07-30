@@ -122,7 +122,7 @@ image:screen-vm-restore-destination.png[A screenshot showing the Restore Destina
 
 ===== Destination selection
 
-. Choose the destination settings of the original location or an alternate location, and the pre-restore and post-restore options.
+. Choose the destination settings and the pre-restore and post-restore options.
 
 //Start tabbed area 
 
@@ -166,7 +166,8 @@ In the Restore Destination details page, enter the following information:
 
 --
 
-. If you chose to restore to an alternate location, enter the following: 
+. If you chose to restore to an alternate location, enter the following:
+//NOT AVAILABLE FOR VMWARE PREVIEW. REMOVE 
 
 .. *vCenter Server*: Select the vCenter server where you want to restore the snapshot.
 .. *ESXI host*: Select the host where you want to restore the snapshot.
