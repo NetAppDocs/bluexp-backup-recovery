@@ -5,7 +5,7 @@ keywords: backing up, back up, backup, backup application data, Amazon Web servi
 summary: The SnapMirror to Cloud Resync feature in BlueXP backup and recovery streamlines data protection and continuity during volume migrations in NetApp environments.  
 ---
 
-= Migrate volumes using SnapMirror to Cloud Resync in BlueXP backup and recovery
+= Migrate volumes using SnapMirror to Cloud Resync with BlueXP backup and recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -26,8 +26,25 @@ By maintaining backup continuity across environments, SnapMirror to Cloud Resync
 ====
 
 
+.Before you begin
+
+Ensure that these prerequisites have been met: 
+
+* The destination ONTAP cluster must be running ONTAP version 9.16.1 or later.
+
+* The old source ONTAP cluster must be protected using BlueXP backup and recovery.
+
+* The SnapMirror to Cloud Resync feature is available starting with BlueXP backup and recovery version 4.0.3 released May 2025.
+
+* The latest backup in the object storage must be the common snapshot across the old source, the new source, and the object store. The common snapshot cannot be older than the latest snapshot that is backed up to the object store. 
+
+* Both the snapshot and SnapMirror policies, which were used on the older ONTAP must be created on the new ONTAP cluster before starting the resync operation. If any policy is going to be used in the resync process, then that policy must also be created. The Resync operation does not create the policies. 
+
+* Ensure that the SnapMirror policy that is applied to the migration volume SnapMirror relationship includes the same label that the cloud relationship uses. To avoid issues, use the policy that governs an exact mirror of the volume and all snapshots. 
 
 
+
+NOTE: SnapMirror to Cloud Resync after migrations using SVM-Migrate, SVM-DR, or Head Swap methods are not currently supported.
 
 
 == How BlueXP backup and recovery SnapMirror to Cloud Resync works 
@@ -65,9 +82,6 @@ image:diagram-snapmirror-cloud-resync-migration.png[BlueXP backup and recovery S
 
 == Procedure notes
 
-* The destination ONTAP cluster must be running ONTAP version 9.16.1 or later. 
-
-* The old source ONTAP cluster must be protected using BlueXP Backup and Recovery. 
 
 * Migrations and tech refreshes are not performed using BlueXP backup and recovery. They should be carried out by a professional services team or a qualified storage administrator. 
 
@@ -75,7 +89,7 @@ image:diagram-snapmirror-cloud-resync-migration.png[BlueXP backup and recovery S
 
 * Ensure that the migration during a tech refresh is based on SnapMirror-based migration. 
 
-* SnapMirror to Cloud Resync after migrations using SVM-Migrate, SVM-DR, or Head Swap methods are not currently supported. 
+
 
 == How to migrate volumes using SnapMirror to Cloud Resync
 
@@ -111,6 +125,8 @@ After the migration, a NetApp Tech Refresh team ensures the following steps are 
 . Confirm that all required SnapMirror policies that were available in the old ONTAP cluster are correctly configured in the new ONTAP cluster. 
 
 . Add the new ONTAP cluster as a working environment in the BlueXP canvas. 
++
+NOTE: The volume instance UUID should be used, not the volume ID. The volume instance UUID is a unique identifier that remains consistent across migrations, while the volume ID may change after migration.
 
 
 
@@ -126,8 +142,8 @@ After the migration, a NetApp Tech Refresh team performs a SnapMirror to Cloud R
 . Look at the BlueXP backup and recovery Volumes page to ensure that the old source working environment details are available. 
 
 . From the BlueXP backup and recovery Volumes page, select *Backup Settings*. 
-
-. From the menu, select *Resync backup*. 
+* Within the Backup Settings page, select *View all*. 
+* From the Actions ... menu to the right of the _new_ source, select *Resync backup*. 
 
 . In the Resync Working Environment page, do the following: 
 
@@ -142,6 +158,8 @@ After the migration, a NetApp Tech Refresh team performs a SnapMirror to Cloud R
 
 
 . Select *Upload* under the *Upload Volume Mapping Details* to upload the completed CSV sheet into the BlueXP backup and recovery UI.  
++
+NOTE: The volume instance UUID should be used, not the volume ID. The volume instance UUID is a unique identifier that remains consistent across migrations, while the volume ID may change after migration.
  
 
 . Enter provider and network configuration information required for the resync operation. 
