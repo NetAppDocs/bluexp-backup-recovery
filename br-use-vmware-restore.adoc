@@ -13,7 +13,9 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-Restore VMware workloads from snapshot copies, from a workload backup replicated to secondary storage, or from backups stored in object storage using BlueXP backup and recovery. You can restore a workload to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system. 
+Restore VMware workloads from snapshot copies, from a workload backup replicated to secondary storage, or from backups stored in object storage using BlueXP backup and recovery. 
+
+//You can restore a workload to the original working environment, to a different working environment that's using the same cloud account, or to an on-premises ONTAP system. 
 
 //different types of restore operations, volume restore or file/folder restore, Browse and restore vs Search and restore)
 
@@ -32,7 +34,7 @@ You can restore workloads from different starting locations:
 You can restore data to these points: 
 
 * Restore to the original location
-* Restore to an alternate location
+//* Restore to an alternate location
 
 .Restore from object storage considerations
 
@@ -61,12 +63,13 @@ image:diagram_browse_restore_volume-unified.png["A diagram that shows the flow t
 //NOTE: Quick restore is supported for FlexGroup volumes only if the source system from which the cloud backup was created was running ONTAP 9.12.1 or greater. And it is supported for SnapLock volumes only if the source system was running ONTAP 9.11.0 or greater.
 
 
-== Restore methods
+//== Restore methods
 
-You can restore workloads using one of the following methods. Typically, choose a method based on your restore needs:
+//You can restore workloads using one of the following methods. Typically, choose a method based on your restore needs:
 
-* *From the Restore page (also known as Search & Restore)*: Use this when you need to restore a resource, but you don't remember the exact name, the location in which it resides, or the date when it was last in good shape. You can search for the snapshot using filters. 
-* *From the Inventory page (also known as Browse & Restore)*: Use this when you need to restore a specific resource from the last week or month -- and you know the name and location of the resource, and the date when it was last in good shape. You browse through a list of resources to find the one you want to restore.
+From the Restore page (also known as Search & Restore)*, you can restore a resource, even if you don't remember the exact name, the location in which it resides, or the date when it was last in good shape. You can search for the snapshot using filters. 
+
+//* *From the Inventory page (also known as Browse & Restore)*: Use this when you need to restore a specific resource from the last week or month -- and you know the name and location of the resource, and the date when it was last in good shape. You browse through a list of resources to find the one you want to restore.
 
 //Inventory is browse and restore. Restore page is Search and restore. 
 
@@ -165,45 +168,46 @@ In the Restore Destination details page, enter the following information:
 .Restore to alternate location
 
 --
+Not available for VMware preview. 
 
-. If you chose to restore to an alternate location, enter the following:
-//NOT AVAILABLE FOR VMWARE PREVIEW. REMOVE 
+//. If you chose to restore to an alternate location, enter the following:
 
-.. *vCenter Server*: Select the vCenter server where you want to restore the snapshot.
-.. *ESXI host*: Select the host where you want to restore the snapshot.
-.. *Datastore name*: Enter the name of the datastore where you want to restore the snapshot.
-.. *VM network*: Select the network where you want to restore the snapshot.
-.. *VM name after restore*: Enter the name of the VM where you want to restore the snapshot.
-.. *Enable change storage location*: By default, the backup from object storage will be restored in the source SVM. Select this to choose alternate storage if the source storage is down or does not have enough space. Select the cluster, storage VM, aggregate, and volumes where you want to restore the snapshot. You can do this for storage layout 1 and 2. WHAT ARE STORAGE LAYOUTS 1 AND 2? 
-+
-image:screen-vm-restore-destination-alt-change-storage-loc.png[A screenshot showing the Restore Destination details page with the change storage location option.]
-. In the Restore Destination details page, enter the following information:
-+
-.. *Destination settings*: Choose whether you want to restore the data to its original location or to an alternate location. For an alternate location, select the VM name, and enter the destination path where you want to restore the snapshot.
-.. *Enable quick restore*: Select this to perform a quick restore operation. Restored volumes and data will be available immediately. Do not use this on volumes that require high performance because during the quick restore process, access to the data might be slower than usual. 
+
+//.. *vCenter Server*: Select the vCenter server where you want to restore the snapshot.
+//.. *ESXI host*: Select the host where you want to restore the snapshot.
+//.. *Datastore name*: Enter the name of the datastore where you want to restore the snapshot.
+//.. *VM network*: Select the network where you want to restore the snapshot.
+//.. *VM name after restore*: Enter the name of the VM where you want to restore the snapshot.
+//.. *Enable change storage location*: By default, the backup from object storage will be restored in the source SVM. Select this to choose alternate storage if the source storage is down or does not have enough space. Select the cluster, storage VM, aggregate, and volumes where you want to restore the snapshot. You can do this for storage layout 1 and 2. WHAT ARE STORAGE LAYOUTS 1 AND 2? 
+//+
+//image:screen-vm-restore-destination-alt-change-storage-loc.png[A screenshot showing the Restore Destination details page with the change storage location option.]
+//. In the Restore Destination details page, enter the following information:
+//+
+//.. *Destination settings*: Choose whether you want to restore the data to its original location or to an alternate location. For an alternate location, select the VM name, and enter the destination path where you want to restore the snapshot.
+//.. *Enable quick restore*: Select this to perform a quick restore operation. Restored volumes and data will be available immediately. Do not use this on volumes that require high performance because during the quick restore process, access to the data might be slower than usual. 
 //This option is available only if the source system from which the cloud backup was created was running ONTAP 9.13.0 or greater or to an on-premises ONTAP system running ONTAP 9.14.1.
 
 
-.. *Pre-restore options*: Enter the full path for a script that should be run before the restore operation and any arguments that the script takes.
-** *Preserve original VM name*: During the restore, the original VM name is preserved. (Applies only to object storage to an alternate location.)
-** *Create a transaction log backup before restore*: Creates a transaction log backup before the restore operation. (Applies only to object storage to an alternate location.)
-** *Quit restore if transaction log backup before restore fails*: Stops the restore operation if the transaction log backup fails. (Applies only to object storage to an alternate location.)
+//.. *Pre-restore options*: Enter the full path for a script that should be run before the restore operation and any arguments that the script takes.
+//** *Preserve original VM name*: During the restore, the original VM name is preserved. (Applies only to object storage to an alternate location.)
+//** *Create a transaction log backup before restore*: Creates a transaction log backup before the restore operation. (Applies only to object storage to an alternate location.)
+//** *Quit restore if transaction log backup before restore fails*: Stops the restore operation if the transaction log backup fails. (Applies only to object storage to an alternate location.)
 
-.. *Post-restore options*:  
-** *Restart VM*: Select this to restart the VM after the restore operation completes and after the post-restore script is applied.
-** *Postscript*: Enter the full path for a script that should be run after the restore operation and any arguments that the script takes.
-** *Operational, but unavailable for restoring additional transaction logs*. This brings the VM back online after transaction log backups are applied. (Applies only to object storage to an alternate location.)
-** *Non-operational, but available for restoring additional transaction logs*. Maintains the VM in a non-operational state after the restore operation while restoring transaction log backups. This option is useful for restoring additional transaction logs. (Applies only to object storage to an alternate location.)
-** *Read-only mode*, but available for restoring additional transaction logs. Restores the VM in a read-only mode and applies transaction log backups. (Applies only to object storage to an alternate location.)
-+
-image:screen-vm-restore-destination-alt-operational.png[A screenshot showing the Restore Destination details page with the operational options.]
+//.. *Post-restore options*:  
+//** *Restart VM*: Select this to restart the VM after the restore operation completes and after the post-restore script is applied.
+//** *Postscript*: Enter the full path for a script that should be run after the restore operation and any arguments that the script takes.
+//** *Operational, but unavailable for restoring additional transaction logs*. This brings the VM back online after transaction log backups are applied. (Applies only to object storage to an alternate location.)
+//** *Non-operational, but available for restoring additional transaction logs*. Maintains the VM in a non-operational state after the restore operation while restoring transaction log backups. This option is useful for restoring additional transaction logs. (Applies only to object storage to an alternate location.)
+//** *Read-only mode*, but available for restoring additional transaction logs. Restores the VM in a read-only mode and applies transaction log backups. (Applies only to object storage to an alternate location.)
+//+
+//image:screen-vm-restore-destination-alt-operational.png[A screenshot showing the Restore Destination details page with the operational options.]
 
-. *Notification* section: 
-** *Enable email notifications*: Select this to receive email notifications about the restore operation and indicate what type of notifications you want to receive.
+//. *Notification* section: 
+//** *Enable email notifications*: Select this to receive email notifications about the restore operation and indicate what type of notifications you want to receive.
 //** *Email address*: Enter the email address where you want to receive notifications about the restore operation.
 
 . Select *Restore*.
-
+//
 
 --
 
@@ -214,35 +218,37 @@ image:screen-vm-restore-destination-alt-operational.png[A screenshot showing the
 
 
 
-== Restore workload data from the Inventory option (Browse & Restore)
+//== Restore workload data from the Inventory option (Browse & Restore)
 
-Restore NFS or VMFS datastores listed on the Inventory page; you can first browse through a list of workloads. Using the Inventory option, you can restore a VM or VMDK snapshot. 
+//Restore NFS or VMFS datastores listed on the Inventory page; you can first browse through a list of workloads. Using the Inventory option, you can restore a VM or VMDK snapshot.
 
-*Required BlueXP role*
+//Browse and restore not available for VMware preview.  
+
+//*Required BlueXP role*
 Organization admin, Folder or project admin, Backup and Recovery super admin, Backup and Recovery restore admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
 
-.Steps
+//.Steps
 
-. From the BlueXP backup and restore menu, select *Inventory*.
-+
-image:screen-vm-inventory.png[Inventory screenshot for BlueXP backup and recovery]
-. Choose the host where the resource that you want to restore is located. 
-. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *View details*.
-. On the VMware page, select the *Protection groups* tab. 
-+
-image:screen-vm-inventory-managed.png[Inventory screenshot for BlueXP backup and recovery]
-. On the Protection groups tab, the Datastores tab, or the Virtual machines tab, select the resource that shows a "Protected" status indicating that there's a backup that you can restore.
+//. From the BlueXP backup and restore menu, select *Inventory*.
+//+
+//image:screen-vm-inventory.png[Inventory screenshot for BlueXP backup and recovery]
+//. Choose the host where the resource that you want to restore is located. 
+//. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *View details*.
+//. On the VMware page, select the *Protection groups* tab. 
+//+
+//image:screen-vm-inventory-managed.png[Inventory screenshot for BlueXP backup and recovery]
+//. On the Protection groups tab, the Datastores tab, or the Virtual machines tab, select the resource that shows a "Protected" status indicating that there's a backup that you can restore.
 
 
-. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Restore*.
-+
-The same location options appear as when you restore from the Restore page:
+//. Select the *Actions* image:icon-action.png["Actions icon"] icon, and select *Restore*.
+//+
+//The same location options appear as when you restore from the Restore page:
 
-* Restore from local snapshots
-* Restore from secondary storage
-* Restore from object storage
+//* Restore from local snapshots
+//* Restore from secondary storage
+//* Restore from object storage
 
-. Continue with the same steps for the restore option from the Restore page
+//. Continue with the same steps for the restore option from the Restore page
 
 
 //== Restore workloads from cloud storage 
