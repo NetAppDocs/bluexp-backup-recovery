@@ -35,27 +35,16 @@ The NetApp BlueXP login page appears.
 * If this is your first time logging in to this service and you don't yet have a working environment, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Add working environment*. For details about adding a working environment to BlueXP, see https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-standard-mode.html[Getting started with BlueXP standard mode^].
 +
 image:screen-br-landing-no-we.png[Landing page screenshot for BlueXP blueXP backup and recovery without a working environment]
-//* If this is your first time logging in to this service, you already have a working environment in BlueXP, but you haven't started the free trial, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Start free trial*. 
-//For details about starting a free trial, see link:br-start-trial.html[Start a free trial].
-//+
-//image:screen-br-landing-unified-start-trial.png[Landing page screenshot for BlueXP blueXP backup and recovery without a free trial]
-
-* If this is your first time logging in to this service and you already have a working environment in BlueXP, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover resources*. 
-//+
-//NOTE: After you start the free trial, the *Start free trial* option changes to the *Discover and manage* option. 
+* If this is your first time logging in to this service, you already have a working environment in BlueXP, but you haven't started the free trial, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *View free trial*. 
 +
-image:screen-br-landing-unified.png[Landing page screenshot for BlueXP blueXP backup and recovery]
-//+ 
-//* Otherwise, the BlueXP backup and recovery Dashboard appears.
-//+
-//image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
+image:screen-br-landing-unified-trial.png[Landing page screenshot for BlueXP blueXP backup and recovery without a free trial]
+
+* If this is your first time logging in to this service and you already have a working environment in BlueXP, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover and manage*. 
 
 . If you haven't done so already, select the *Discover and manage* option. 
 +
 For Microsoft SQL Server workloads, refer to link:br-start-discover.html[Discover Microsoft SQL Server workloads].
  
-//* If you are a BlueXP user with an an existing Connector, when you select "*Backup and recovery*", a message appears about signing up. 
 
-//* If you are new to BlueXP and haven't used any Connector, when you select "*Backup and recovery*", a message appears about signing up. Go ahead and submit the form. NetApp will contact you about your evaluation request.
 
 
