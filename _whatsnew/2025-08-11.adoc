@@ -1,6 +1,6 @@
 === Microsoft SQL Server workload supported in General Availability (GA)
 
-We are excited to announce that Microsoft SQL Server workload support is now generally available (GA) in BlueXP Backup & Recovery. Organizations using an MSSQL environment on ONTAP, Cloud Volumes ONTAP, and Amazon FSx for NetApp ONTAP storage can now take advantage of this new backup and recovery service to protect their data. 
+Microsoft SQL Server workload support is now generally available (GA) in BlueXP backup and recovery. Organizations using an MSSQL environment on ONTAP, Cloud Volumes ONTAP, and Amazon FSx for NetApp ONTAP storage can now take advantage of this new backup and recovery service to protect their data. 
 
 This release includes the following enhancements to the Microsoft SQL Server workload support from the previous preview version: 
 
