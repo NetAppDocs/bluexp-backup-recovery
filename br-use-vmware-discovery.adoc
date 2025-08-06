@@ -64,6 +64,39 @@ NOTE: If you already have SnapCenter Plug-in, ensure you've met the prerequisite
 //* If user has selected “discover underlying applications “ VMware tools will be used to identify VMs which has MSSQL applications and a summary of MSSQL discovered resources will be displayed as a new row. 
 
 
+=== If SnapCenter Plug-in is not already installed, add a vCenter and discover resources
+
+If you don't already have SnapCenter Plug-in for VMware installed, add vCenter information and have BlueXP backup and recovery discover workloads. Within each BlueXP Connector, select the working environments where you want to discover workloads. 
+
+CHECK THIS. NOT SURE YOU CAN DO THIS WITH VMWARE WORKLOADs. 
+
+.Steps
+
+. From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
++
+If this is your first time logging in to this service, you already have a working environment in BlueXP, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover resources*. 
++
+image:screen-br-landing-discover-import-buttons.png[Landing page screenshot for BlueXP blueXP backup and recovery without discovered resources]
+
+. Select *Discover resources*.
++
+image:screen-br-discover-workloads.png[Discover workload resources screenshot]
+
+. Enter the following information: 
+.. *Workload type*: Select *VMware*.
+.. *vCenter settings*: Select an existing vCenter or add a new one. To add a new vCenter, enter the vCenter FQDN or IP address, user name, password, port, and protocol.
++
+TIP: If you are entering vCenter information, enter information for both vCenter settings and Host registration. If you added or entered vCenter information here, you also need to add plugin information in Advanced Settings next. 
+.. *Host registration*:  Select *Add credentials* and enter information about the hosts containing the workloads you want to discover.
++
+TIP: If you are adding a standalone server and not a vCenter server, enter only the host information.  
+
+
+. Select *Discover*. 
++
+TIP: This process might take a few minutes.
+
+. Continue with Advanced Settings. 
 
 
 
@@ -157,55 +190,8 @@ You can optionally create a report of the managed resources by selecting the *Ge
 
 
 
-==== Import vCenter resources from SnapCenter Plug-in after discovery from the Inventory page
-
-CHECK THIS. NOT SURE YOU CAN DO THIS WITH VMWARE WORKLOADs. 
-
-If you have already discovered resources, you can import vCenter resources from SnapCenter Plug-in for VMware starting from the Inventory page.
-
-.Steps
-. From the BlueXP left navigation, select *Protection* > *Backup and recovery*.
-. From the top menu, select *Inventory*.
-+
-image:../media/screen-vm-inventory.png[Inventory page]
-
-. From the Inventory page, select *Import SnapCenter Plug-in for VMware resources*.
-. Follow the steps in the *Import vCenter resources* section above to import SnapCenter Plug-in vCenter resources.
 
 
-=== If you don't have SnapCenter Plug-ininstalled, add a vCenter and discover resources
-
-If you don't already have SnapCenter Plug-in for VMware installed, add vCenter information and have BlueXP backup and recovery discover workloads. Within each BlueXP Connector, select the working environments where you want to discover workloads. 
-
-CHECK THIS. NOT SURE YOU CAN DO THIS WITH VMWARE WORKLOADs. 
-
-.Steps
-
-. From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
-+
-If this is your first time logging in to this service, you already have a working environment in BlueXP, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover resources*. 
-+
-image:screen-br-landing-discover-import-buttons.png[Landing page screenshot for BlueXP blueXP backup and recovery without discovered resources]
-
-. Select *Discover resources*.
-+
-image:screen-br-discover-workloads.png[Discover workload resources screenshot]
-
-. Enter the following information: 
-.. *Workload type*: For this version, only Microsoft SQL Server is available.   
-.. *vCenter settings*: Select an existing vCenter or add a new one. To add a new vCenter, enter the vCenter FQDN or IP address, user name, password, port, and protocol.
-+
-TIP: If you are entering vCenter information, enter information for both vCenter settings and Host registration. If you added or entered vCenter information here, you also need to add plugin information in Advanced Settings next. 
-.. *Host registration*:  Select *Add credentials* and enter information about the hosts containing the workloads you want to discover.
-+
-TIP: If you are adding a standalone server and not a vCenter server, enter only the host information.  
-
-
-. Select *Discover*. 
-+
-TIP: This process might take a few minutes.
-
-. Continue with Advanced Settings. 
 
 
 ==== Set Advanced settings options during discovery and install the plugin

@@ -118,6 +118,8 @@ sidebar:
               url: /br-use-vmware-protect-overview.html
             - title: Discover VMware workloads
               url: /br-use-vmware-discovery.html
+            - title: Create and manage protection groups for VMware workloads
+              url: /br-use-vmware-protection-groups.html
             - title: Back up VMware workloads
               url: /br-use-vmware-backup.html
             - title: Restore VMware workloads
