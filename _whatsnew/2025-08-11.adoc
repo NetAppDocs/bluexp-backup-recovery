@@ -1,4 +1,5 @@
-=== Microsoft SQL Server workload support goes to General Availability (GA)
+=== Microsoft SQL Server workload supported in General Availability (GA)
+
 We are excited to announce that Microsoft SQL Server workload support is now generally available (GA) in BlueXP Backup & Recovery. Organizations using an MSSQL environment on ONTAP, Cloud Volumes ONTAP, and Amazon FSx for NetApp ONTAP storage can now take advantage of this new backup and recovery service to protect their data. 
 
 This release includes the following enhancements to the Microsoft SQL Server workload support from the previous preview version: 
@@ -9,22 +10,22 @@ image:../media/screen-br-sql-protection-details.png[Protection details page for 
 * *Multi-bucket support*: You can now protect the volumes within a working environment with multiple buckets across different cloud providers.
 * *Licensing and free trial updates* for SQL Server workloads: You can now use the existing BlueXP backup a recovery licensing model to protect SQL Server workloads. There is no separate licensing requirement for SQL Server workloads.
 + 
-See link:../br-start-licensing.html[Set up licensing for BlueXP backup and recovery] for more information about licensing.
+See link:br-start-licensing.html[Set up licensing for BlueXP backup and recovery] for more information about licensing.
 * *SnapMirror and SnapVault SMAS secondary relationship*: You can now use SnapMirror and SnapVault SMAS secondary relationships for SQL Server workloads. The relationship information is displayed in the updated *Secondary settings* section of the Policy page.
 +
-See link:../br-use-policies-create.html[Use policies to protect your workloads] for more information about policies.
+See link:br-use-policies-create.html[Use policies to protect your workloads] for more information about policies.
 
 
 * *Custom snapshot name*: You can now use your own snapshot name in a policy that governs the backups for Microsoft SQL Server workloads. Enter this information in the *Advanced settings* section of the Policy page. 
 +
 image:../media/screen-br-sql-policy-create-advanced-snapmirror.png[SnapMirror and snapshot format settings screenshot for BlueXP backup and recovery policies]   
 +
-See link:../br-use-policies-create.html[Use policies to protect your workloads] for more information about policies.
+See link:br-use-policies-create.html[Use policies to protect your workloads] for more information about policies.
 
 * *Secondary volume prefix and suffix*: You can enter a custom prefix and suffix in the *Advanced settings* section of the Policy page.
 * *Role-based access control*: You can now control users' access to features. 
 +
-For details, see link:../br-start-login.html[Log in to BlueXP backup and recovery] and link:../reference-roles.html[BlueXP backup and recovery role-based access to features].
+For details, see link:br-start-login.html[Log in to BlueXP backup and recovery] and link:reference-roles.html[BlueXP backup and recovery role-based access to features].
 * *Restore from object storage to an alternate host*: You can now restore from object storage to an alternate host even if the primary storage is down.
 * *Log backup data*: The database protection details page now shows log backups. You can see the Backup type column that shows whether the backup is a full backup or a log backup. 
 * *Enhanced Dashboard*: The Dashboard now shows Storage and Clone savings.
@@ -48,5 +49,5 @@ Enabled by default:
 
 * *View and manage backups of deleted volumes*: The BlueXP backup and recovery Dashboard now gives an option to show and manage volumes that are deleted from ONTAP. With this, you can view and delete backups from volumes that no longer exist in ONTAP.
 
-
+For details, see link:prev-ontap-protect-overview.html[Protect ONTAP workloads].
 
