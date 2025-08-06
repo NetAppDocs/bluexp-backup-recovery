@@ -92,7 +92,7 @@ sidebar:
               url: /prev-ontap-backup-manage.html
             - title: Restore from ONTAP backups 
               url: /prev-ontap-restore.html
-        - title: Protect Microsoft SQL Server workloads (Preview)
+        - title: Protect Microsoft SQL Server workloads
           entries:
             - title: Protect Microsoft SQL Server workloads overview
               url: /br-use-mssql-protect-overview.html
