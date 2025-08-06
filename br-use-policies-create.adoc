@@ -249,7 +249,7 @@ Additionally, configure the following options:
 //+
 //TIP: Enabling scans will incur extra charges, depending on the cloud provider. 
 
-* *SnapMirror and snapshot format*: Optionally, enter your own snapshot name in a policy that governs the backups for Microsoft SQL Server workloads. Enter the format, custom text, and the SnapMirror volume prefix and suffix that you want to use.
+* *SnapMirror and snapshot format*: Optionally, enter your own snapshot name in a policy that governs the backups for Microsoft SQL Server workloads. Enter the format and custom text. If you chose to backup to secondary storage, you can also add a SnapMirror volume prefix and suffix.
 +
 image:screen-br-sql-policy-create-advanced-snapmirror.png[SnapMirror and snapshot format settings screenshot for BlueXP backup and recovery policies]
 
