@@ -23,6 +23,10 @@ You can discover these targets automatically or manually add them.
 
 Provide the credentials needed to access the storage account system. These credentials are used to discover the workloads that you want to back up.
 
+.Before you begin
+
+To add an offsite backup target, at least one workload has to be discovered. 
+
 
 .Steps
 . From the BlueXP backup and recovery menu, select *Inventory*.

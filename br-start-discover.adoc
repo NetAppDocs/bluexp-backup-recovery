@@ -143,7 +143,9 @@ image:../media/screen-br-inventory.png[Inventory page]
 
 === If you don't have SnapCenter installed, add a vCenter and discover resources
 
-If you don't already have SnapCenter installed, add vCenter information and have BlueXP backup and recovery discover workloads. Within each BlueXP Connector, select the working environments where you want to discover workloads. 
+If you don't already have SnapCenter installed, you can add vCenter information and have BlueXP backup and recovery discover workloads. Within each BlueXP Connector, select the working environments where you want to discover workloads. 
+
+This is optional if you have a VMware environment. 
 
 .Steps
 
