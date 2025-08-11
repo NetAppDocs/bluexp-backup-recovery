@@ -19,7 +19,7 @@ The BlueXP backup and recovery service needs to first discover Microsoft SQL Ser
 //* <<Discover Kubernetes workloads>>
 
 *Required BlueXP role*
-Backup and Recovery super admin. Learn about link:reference-roles.html[Backup and recovery roles and privileges]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+This task requires the data services Backup and recovery super admin role. Learn about link:reference-roles.html[Backup and recovery data services roles and privileges]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
 
 
 
