@@ -15,6 +15,13 @@ summary: The BlueXP backup and recovery service needs to first discover data in 
 [.lead]
 Known limitations identify platforms, devices, or functions that are not supported by this release of the product, or that do not interoperate correctly with it. Review these limitations carefully.
 
+== Clone lifecycle support
+
+* Cloning from object storage is not supported.
+* Bulk clone operations are not supported for on-demand clones.
+* Choosing I-groups is not supported.
+* Choosing QOS (maximum throughput) options is not supported.
+
 == Standard deployment mode only
 The BlueXP backup and recovery version works only in standard deployment mode, not restricted or private modes. 
 

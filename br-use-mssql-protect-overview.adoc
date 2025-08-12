@@ -56,11 +56,13 @@ BlueXP backup and recovery enables you to back up Microsoft SQL Server instances
 | Cloud Volumes ONTAP in AWS
 On-premises ONTAP system
 | Amazon S3
+ONTAP S3
 
 | Cloud Volumes ONTAP in Azure
 | Cloud Volumes ONTAP in Azure
 On-premises ONTAP system
 | Azure Blob
+ONTAP S3
 
 
 | On-premises ONTAP system | 
@@ -69,6 +71,12 @@ On-premises ONTAP system
 |Amazon S3
 Azure Blob
 NetApp StorageGRID
+ONTAP S3
+
+| Amazon FSx for NetApp ONTAP 
+| Amazon FSx for NetApp ONTAP 
+| NA
+
 
 
 //ifdef::gcp[]
@@ -87,7 +95,7 @@ endif::gcp[]
 
 You can restore Microsoft SQL Server instances and databases from a backup that resides in primary storage or a secondary working environment (a replicated volume) or in object storage (a backup file) to the following working environments. Snapshot copies reside on the source working environment and can be restored only to that same system.
 
-[cols=3*,options="header",cols="33,33,33",width="90%"]
+[cols=3*,options="header",cols="33,33,33",width="100%"]
 |===
 
 2+^| From Backup File Location
@@ -98,11 +106,13 @@ You can restore Microsoft SQL Server instances and databases from a backup that 
 | Amazon S3 | Cloud Volumes ONTAP in AWS
 On-premises ONTAP system |  Cloud Volumes in AWS
 On-premises ONTAP system 
+ONTAP S3
 
 
 | Azure Blob | Cloud Volumes ONTAP in Azure
 On-premises ONTAP system | Cloud Volumes ONTAP in Azure
 On-premises ONTAP system 
+ONTAP S3
 
 //ifdef::gcp[]
 //| Google Cloud Storage | Cloud Volumes ONTAP in Google
@@ -113,6 +123,11 @@ On-premises ONTAP system
 
 | StorageGRID | Cloud Volumes ONTAP 
 On-premises ONTAP system  | On-premises ONTAP system
+ONTAP S3
+
+| Amazon FSx for NetApp ONTAP | Amazon FSx for NetApp ONTAP |NA
+
+
 
 
 |===
