@@ -167,7 +167,7 @@ When you use GCP, you can request a private offer from NetApp, and then select t
 
 .Workload data sources supported
 
-The service protects the following application-based workloads:
+The service protects the following workloads:
 
 //* NetApp file shares
 * ONTAP volumes 
