@@ -90,9 +90,9 @@ If you have a SnapCenter policy schedule that starts at a certain time and repea
 *Workaround*: Use SnapCenter to adjust the policy so that it repeats in 15-minute intervals.
 
 
-=== Log backup retention 
+//=== Log backup retention 
 
-With SnapCenter, you can have multiple retention values across multiple policies attached to a resource. However, BlueXP backup and recovery Preview version supports only a single retention value for all policies attached to a resource.
+//With SnapCenter, you can have multiple retention values across multiple policies attached to a resource. However, BlueXP backup and recovery Preview version supports only a single retention value for all policies attached to a resource.
 
 
 
