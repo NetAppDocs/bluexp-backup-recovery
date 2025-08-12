@@ -95,7 +95,7 @@ Provide information for the local snapshot.
 * *Snapshot retention*: Enter the number of snapshots to keep.
 * *Enable log backup*: (Not available for Kubernetes workloads) Check the option to back up logs and set the frequency and retention of the log backups. To do this, you must have already configured a log backup. See link:br-start-configure.html[Configure log directories].
 * *Provider*: (Kubernetes workloads only) Select the storage provider that hosts the Kubernetes application resources.
-* *Backup target*: (Kubernetes workloads only) Select the target system for the backup. This is the storage system where the snapshots will be stored. Ensure that the target is accessible within your backup environment.
+* *Backup target*: (Kubernetes workloads only) Select the storage bucket that hosts the Kubernetes application resources. The snapshots will be stored in this bucket. Ensure that the bucket is accessible within your backup environment.
 
 * Optionally, select *Advanced* at the right of the schedule to set the SnapMirror label and enable snapshot locking (not available for Kubernetes workloads). 
 
