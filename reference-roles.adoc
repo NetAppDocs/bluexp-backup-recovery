@@ -5,7 +5,7 @@ keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, 
 summary: BlueXP backup and recovery employs roles to govern the access that each user has to specific features and actions
 ---
 
-= BlueXP backup and recovery role-based access to features
+= BlueXP backup and recovery identity and access management to features
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: BlueXP backup and recovery employs roles to govern the access that each
 :imagesdir: ./media/
 
 [.lead]
-BlueXP backup and recovery employs roles to govern the access that each user has to specific features and actions. 
+BlueXP backup and recovery employs identity and access management (IAM) to govern the access that each user has to specific features and actions.
 
 The service uses the following roles that are specific to BlueXP backup and recovery. 
 
