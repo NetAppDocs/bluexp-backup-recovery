@@ -13,7 +13,9 @@ summary: The BlueXP backup and recovery service provides efficient, secure, and 
 :imagesdir: ./media/
 
 [.lead]
+
 The BlueXP backup and recovery service provides efficient, secure, and cost-effective data protection for ONTAP volumes, Microsoft SQL Server instances and databases, VMware workloads and Kubernetes workloads (Preview). 
+
 
 NOTE: Some of this documentation is provided as a technology preview. With this preview offering, NetApp reserves the right to modify offering details, contents, and timeline before General Availability.   
 
@@ -167,7 +169,7 @@ When you use GCP, you can request a private offer from NetApp, and then select t
 
 .Workload data sources supported
 
-The service protects the following application-based workloads:
+The service protects the following workloads:
 
 //* NetApp file shares
 * ONTAP volumes 
