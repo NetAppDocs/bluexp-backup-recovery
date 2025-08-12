@@ -30,6 +30,22 @@ A BlueXP backup and recovery 30-day free trial is available if you sign up for a
 
 When the free trial ends, you'll be switched over automatically to the PAYGO subscription without interruption. If you decide not to continue using BlueXP backup and recovery, just link:prev-ontap-backup-manage.html[unregister BlueXP backup and recovery from the working environment] before the trial ends and you won't be charged.
 
+=== End the free trial
+
+If you want to continue using BlueXP backup and recovery after the free trial ends, you must set up a paid subscription. You can do this from the BlueXP interface by navigating to the billing section and selecting a subscription plan that fits your needs. If you don't want to continue using BlueXP backup and recovery, you can end the free trial.
+
+When you end the free trial without subscribing to a paid plan, your data is automatically deleted 60 days after the free trial ends. You can optionally have the system delete your data immediately. 
+
+.Steps
+. From the BlueXP backup and recovery landing page, select *View free trial*.
++
+*QUESTION TO REVIEWERS*: How do users get to the Landing page if they're on other BR pages? 
+. Select *End free trial*.
+. Select *Delete data immediately after ending my free trial* to delete your data immediately.
+. Type *end trial* in the box. 
+. Select *End* to confirm.
+
+
 == Use a BlueXP backup and recovery PAYGO subscription
 
 For pay-as-you-go, you'll pay your cloud provider for object storage costs and for NetApp backup licensing costs on an hourly basis in a single subscription. You should subscribe to *NetApp Intelligent Services* in the Marketplace even if you have a free trial or if you bring your own license (BYOL):
@@ -117,4 +133,5 @@ Optionally, if you have an unassigned node-based license for Cloud Volumes ONTAP
 You use the BlueXP digital wallet to manage BYOL licenses. You can add new licenses, update existing licenses, and view license status from the BlueXP digital wallet.
 
 https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html[Learn about adding licenses with digital wallet^].
+
 

@@ -23,7 +23,7 @@ Organization admin, Folder or project admin, Backup and Recovery super admin, Ba
 
 . From the BlueXP backup and recovery menu, select *Dashboard*.
 +
-image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
+image:screen-br-dashboard3.png[BlueXP backup and recovery Dashboard]
 
 == View the overall system summary
 
