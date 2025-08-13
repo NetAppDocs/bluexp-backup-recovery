@@ -28,6 +28,9 @@ You can accomplish the following goals related to policies:
 * Edit policies
 * Delete policies 
 
+
+
+
 == View policies 
 
 . From the BlueXP backup and recovery menu, select *Policies*.
