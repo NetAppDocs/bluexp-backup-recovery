@@ -13,8 +13,7 @@ summary: There are some differences between policies used in BlueXP backup and r
 [.lead]
 There are some differences between policies used in SnapCenter and those used in BlueXP backup and recovery that might impact what you see after importing resources and policies from SnapCenter.
 
-
-SnapCenter and BlueXP backup and recovery use slightly different policy schedules. 
+== Schedule tiers
 
 SnapCenter uses the following schedule tiers:
 
@@ -68,6 +67,10 @@ If you have a resource in SnapCenter with multiple policies, BlueXP backup and r
 * For "Full backup with log only" and "Full and Log" policies in SnapCenter, BlueXP backup and recovery uses the log-only retention value. 
 * For "Full backup and log" plus "Full backup" in SnapCenter, BlueXP backup and recovery uses the "Full backup and log" retention value. 
 * If you have only a full backup in SnapCenter, BlueXP backup and recovery does not enable the log backup. 
+
+== Log backup retention 
+
+With SnapCenter, you can have multiple retention values across multiple policies attached to a resource. However, BlueXP backup and recovery supports only a single retention value for all policies attached to a resource.
 
 
 == Retention count from SnapCenter policies
