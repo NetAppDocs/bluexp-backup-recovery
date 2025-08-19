@@ -33,108 +33,6 @@ To use object storage as backup targets, you need an account with AWS S3, Micros
 * link:prev-ontap-protect-overview.html[Protect your ONTAP volume data]
 
 
-
-== In BlueXP 
-
-
-* A BlueXP user should have the required role and privileges to perform operations on Microsoft SQL Server and Kubernetes workloads. To discover the resources, you must have the BlueXP backup and recovery role of Super admin. See link:reference-roles.html[BlueXP backup and recovery role-based access to features] for details about the roles and permissions required to perform operations in BlueXP backup and recovery.
-
-* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters or Cloud Volumes ONTAP. Refer to the *Initial Preview setup process* below. 
-//* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters or to Cloud Volumes ONTAP in AWS or Azure.
-
-
-* At least one BlueXP working environment with a NetApp on-premises ONTAP or Cloud Volumes ONTAP cluster.
-//* At least one BlueXP working environment with a NetApp on-premises ONTAP cluster or Cloud Volume ONTAP in AWS or Azure (using NAS or CIFS protocols).
-
-* A BlueXP Connector
-+
-Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn how to configure a BlueXP Connector] and https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[standard BlueXP requirements^].
-
-** The Preview version requires the Ubuntu 22.04 LTS operating system for the Connector. 
-
-//RHEL connector will be supported during GA.
- 
-
-
-//All source and working environments must be in the same BlueXP organization. 
-
-
-
-=== Set up BlueXP
-The next step is to set up BlueXP and the BlueXP backup and recovery service. 
-
-Review https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[standard BlueXP requirements^].
-
-
-=== Create a BlueXP Connector
-
-You should reach out to your NetApp Product Team to try out this service. Then, when you use the BlueXP Connector, it will include the appropriate capabilities for the service. 
-
-To create a Connector in BlueXP before using the service, refer to the BlueXP documentation that describes https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[how to create a BlueXP Connector^]. 
-
-
-.Where to install the BlueXP Connector
-
-To complete a restore operation, the Connector can be installed in the following locations:
-
-ifdef::aws[]
-* For Amazon S3, the Connector can be deployed on your premises. 
-endif::aws[]
-ifdef::azure[]
-* For Azure Blob, the Connector can be deployed on your premises. 
-endif::azure[]
-//ifdef::gcp[]
-//* For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC.
-//endif::gcp[]
-
-* For StorageGRID, the Connector must be deployed in your premises; with or without internet access.
-* For ONTAP S3, the Connector can be deployed in your premises (with or without internet access) or in a cloud provider environment
-
-NOTE: References to "on-premises ONTAP systems" includes FAS and AFF systems.
-
-
-
-//== Script to run before moving snapshots to object storage
-
-//If you plan to move snapshots to object storage, run a temporary script one time soon after creating a BlueXP Connector. The script retrieves information from BlueXP backup and recovery and enables notifications when transfers of snapshots are moved to object storage. 
-
-
-//----
-//[source,asciidoc]
-
-//#!/bin/bash
-
-//# Define container name and configuration file path inside the container
-//CONTAINER_NAME="cloudmanager_cbs"
-//CONFIG_FILE="config/default.json"
-
-//echo "Enabling pubsub in the container: ${CONTAINER_NAME}..."
-
-//# Use sed to replace the "enable": value only within the pubsub-feature block.
-//# The sed command sets the block range from the line matching "pubsub-feature" and an opening brace '{'
-//# until the first encountered '}' (assumed to be the closing of the block).
-//docker exec -it "${CONTAINER_NAME}" bash -c "sed -i '////\"pubsub-feature\"[[:space:]]*:[[:space:]]*{/,/}/ s/\"enable\":[[:space:]]*\\(true\\|false\\)/\"enable\": true/' ${CONFIG_FILE}"
-
-//if [ $? -eq 0 ]; then
-//    echo "Configuration updated successfully."
-//else
-//    echo "Failed to update configuration."
-//    exit 1
-//fi
-
-//echo "Restarting container: ${CONTAINER_NAME}..."
-//docker restart "${CONTAINER_NAME}"
-
-//if [ $? -eq 0 ]; then
-//    echo "Container restarted successfully."
-//else
-//    echo "Failed to restart container."
-//   exit 1
-//fi
-
-//----
-
-
 == Requirements for protecting Microsoft SQL Server workloads 
 
 To use BlueXP backup and recovery for Microsoft SQL Server workloads, you need the following host system, space, and sizing prerequisites.
@@ -248,4 +146,106 @@ For BlueXP requirements, refer to <<In BlueXP>>.
 * NetApp Trident protect 25.07 or later (installed during Kubernetes workload discovery)
 * NetApp Trident protect Connector 25.07 or later (installed during Kubernetes workload discovery)
 ** Make sure that TCP port 443 is unfiltered in the outbound direction between the Kubernetes cluster, the Trident protect Connector, and the Trident protect proxy.
+
+
+
+== In BlueXP 
+
+
+* A BlueXP user should have the required role and privileges to perform operations on Microsoft SQL Server and Kubernetes workloads. To discover the resources, you must have the BlueXP backup and recovery role of Super admin. See link:reference-roles.html[BlueXP backup and recovery role-based access to features] for details about the roles and permissions required to perform operations in BlueXP backup and recovery.
+
+* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters or Cloud Volumes ONTAP. Refer to the *Initial Preview setup process* below. 
+//* A BlueXP organization with at least one active BlueXP Connector that connects to on-premises ONTAP clusters or to Cloud Volumes ONTAP in AWS or Azure.
+
+
+* At least one BlueXP working environment with a NetApp on-premises ONTAP or Cloud Volumes ONTAP cluster.
+//* At least one BlueXP working environment with a NetApp on-premises ONTAP cluster or Cloud Volume ONTAP in AWS or Azure (using NAS or CIFS protocols).
+
+* A BlueXP Connector
++
+Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn how to configure a BlueXP Connector] and https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[standard BlueXP requirements^].
+
+** The Preview version requires the Ubuntu 22.04 LTS operating system for the Connector. 
+
+//RHEL connector will be supported during GA.
+ 
+
+
+//All source and working environments must be in the same BlueXP organization. 
+
+
+
+=== Set up BlueXP
+The next step is to set up BlueXP and the BlueXP backup and recovery service. 
+
+Review https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html[standard BlueXP requirements^].
+
+
+=== Create a BlueXP Connector
+
+You should reach out to your NetApp Product Team to try out this service. Then, when you use the BlueXP Connector, it will include the appropriate capabilities for the service. 
+
+To create a Connector in BlueXP before using the service, refer to the BlueXP documentation that describes https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html[how to create a BlueXP Connector^]. 
+
+
+.Where to install the BlueXP Connector
+
+To complete a restore operation, the Connector can be installed in the following locations:
+
+ifdef::aws[]
+* For Amazon S3, the Connector can be deployed on your premises. 
+endif::aws[]
+ifdef::azure[]
+* For Azure Blob, the Connector can be deployed on your premises. 
+endif::azure[]
+//ifdef::gcp[]
+//* For Google Cloud Storage, the Connector must be deployed in your Google Cloud Platform VPC.
+//endif::gcp[]
+
+* For StorageGRID, the Connector must be deployed in your premises; with or without internet access.
+* For ONTAP S3, the Connector can be deployed in your premises (with or without internet access) or in a cloud provider environment
+
+NOTE: References to "on-premises ONTAP systems" includes FAS and AFF systems.
+
+
+
+//== Script to run before moving snapshots to object storage
+
+//If you plan to move snapshots to object storage, run a temporary script one time soon after creating a BlueXP Connector. The script retrieves information from BlueXP backup and recovery and enables notifications when transfers of snapshots are moved to object storage. 
+
+
+//----
+//[source,asciidoc]
+
+//#!/bin/bash
+
+//# Define container name and configuration file path inside the container
+//CONTAINER_NAME="cloudmanager_cbs"
+//CONFIG_FILE="config/default.json"
+
+//echo "Enabling pubsub in the container: ${CONTAINER_NAME}..."
+
+//# Use sed to replace the "enable": value only within the pubsub-feature block.
+//# The sed command sets the block range from the line matching "pubsub-feature" and an opening brace '{'
+//# until the first encountered '}' (assumed to be the closing of the block).
+//docker exec -it "${CONTAINER_NAME}" bash -c "sed -i '////\"pubsub-feature\"[[:space:]]*:[[:space:]]*{/,/}/ s/\"enable\":[[:space:]]*\\(true\\|false\\)/\"enable\": true/' ${CONFIG_FILE}"
+
+//if [ $? -eq 0 ]; then
+//    echo "Configuration updated successfully."
+//else
+//    echo "Failed to update configuration."
+//    exit 1
+//fi
+
+//echo "Restarting container: ${CONTAINER_NAME}..."
+//docker restart "${CONTAINER_NAME}"
+
+//if [ $? -eq 0 ]; then
+//    echo "Container restarted successfully."
+//else
+//    echo "Failed to restart container."
+//   exit 1
+//fi
+
+//----
 

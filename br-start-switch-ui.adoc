@@ -20,7 +20,7 @@ You can switch among the different BlueXP backup and recovery workloads. Some wo
 *How do you know which UI you are using?*
 
 
-The taskbar for Microsoft SQL Server (Preview), VM workloads (Preview without SnapCenter Plug-in for VMware vSphere), and Kubernetes (Preview) workloads looks like this: 
+The taskbar for Microsoft SQL Server, VMware workloads (Preview without SnapCenter Plug-in for VMware vSphere), and Kubernetes (Preview) workloads looks like this: 
 image:screen-br-menu-unified.png[New UI screenshot for BlueXP backup and recovery]
 
 The menu bar for ONTAP volumes and VMware workloads (with SnapCenter Plug-in for VMware vSphere) looks like this: 
