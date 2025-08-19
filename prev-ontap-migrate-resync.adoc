@@ -167,16 +167,16 @@ NOTE: The volume instance UUID should be used, not the volume ID. The volume ins
 . Select *Submit* to start the validation process. 
 
 +
-BlueXP backup and recovery validates that each volume selected for resync has at least one common snapshot. This ensures that the volumes are ready for the SnapMirror to Cloud Resync operation.
+BlueXP backup and recovery validates that each volume selected for resync is the latest snapshot and has at least one common snapshot. This ensures that the volumes are ready for the SnapMirror to Cloud Resync operation.
 
 . Review validation results including the new source volume names and the resync status for each volume. 
 
-. Check volume eligibility. The system checks if the volumes are eligible for resync. If a volume is not eligible, it means that no common snapshot was found. 
+. Check volume eligibility. The system checks if the volumes are eligible for resync. If a volume is not eligible, it means that it isn't the latest snapshot no common snapshot was found. 
 
 +
 IMPORTANT: To ensure that volumes remain eligible for the SnapMirror to Cloud Resync operation, take a final snapshot of each volume before deleting any SnapMirror relationships during the pre-migration phase. This preserves the latest state of the data. 
 
-. Select *Resync* to start the resync operation. The system uses the common snapshot to transfer only the incremental changes, ensuring backup continuity.
+. Select *Resync* to start the resync operation. The system uses the latest and common snapshot to transfer only the incremental changes, ensuring backup continuity.
+    
 
-
-. Monitor the resyn process in the Job Monitor page. 
+. Monitor the resync process in the Job Monitor page. 
