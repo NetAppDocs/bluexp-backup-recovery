@@ -13,7 +13,7 @@ summary: With BlueXP backup and recovery, manage backups for your Cloud Volumes 
 :imagesdir: ./media/
 
 [.lead]
-With BlueXP backup and recovery, manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, enabling/disabling volume backups, pausing backups, deleting backups, and more. This includes all types of backups, including snapshot copies, replicated volumes, and backup files in object storage. You can also unregister BlueXP backup and recovery. 
+With BlueXP backup and recovery, manage backups for your Cloud Volumes ONTAP and on-premises ONTAP systems by changing the backup schedule, enabling/disabling volume backups, pausing backups, deleting backups, force deleting backups, and more. This includes all types of backups, including snapshot copies, replicated volumes, and backup files in object storage. You can also unregister BlueXP backup and recovery. 
 
 //creating new backup policies, 
 
@@ -335,6 +335,8 @@ You can't delete backup files that you have locked using DataLock and Ransomware
 
 CAUTION: If you plan to delete a working environment or cluster that has backups, you must delete the backups *before* deleting the system. BlueXP backup and recovery doesn't automatically delete backups when you delete a system, and there is no current support in the UI to delete the backups after the system has been deleted. You'll continue to be charged for object storage costs for any remaining backups.
 
+
+
 === Delete all backup files for a working environment
 
 Deleting all backups on object storage for a working environment does not disable future backups of volumes in this working environment. If you want to stop creating backups of all volumes in a working environment, you can deactivate backups <<Deactivate BlueXP backup and recovery for a working environment,as described here>>.
@@ -348,9 +350,20 @@ Note that this action does not affect Snapshot copies or replicated volumes - th
 image:screenshot_backup_settings_button.png[A screenshot that shows the Backup Settings button which is available after you select a working environment.]
 
 . Select image:icon-actions-horizontal.gif[Actions icon] for the working environment where you want to delete all backups and select *Delete All Backups*.
++
+image:screenshot_backup_delete_all_backups-working-env.png[A screenshot that shows the Delete All Backups option]
 
+. In the confirmation dialog box, enter the name of the working environment. 
 
-. In the confirmation dialog box, enter the name of the working environment and select *Delete*.
+. Select *Advanced settings*. 
+
+. *Force delete backups*: Indicate whether or not you want to force the deletion of all backups.
++
+In some extreme cases, you might want BlueXP backup and recovery not to have access to backups any longer. This might happen for example, if the service no longer has access to the backup bucket or backups are DataLock protected but you don't want them anymore. Previously, you could not delete these yourself and needed to call NetApp Support. With this release, you can use the option to force delete backups (at volume and work environment levels).
++
+CAUTION: Use this option carefully and only in extreme cleanup needs. BlueXP backup and recovery will not have access to these backups any longer even if they are not deleted in the object storage. You will need to go to your cloud provider and manually delete the backups.
+
+. Select *Delete*.
 
 === Delete all backup files for a volume
 
@@ -369,7 +382,14 @@ The list of all backup files is displayed.
 +
 image:screenshot_backup_delete_all_backups.png[A screenshot that shows the Delete All Backups option]
 
-. Enter the volume name and indicate whether or not you want to force the deletion of all backups.
+. Enter the volume name.
+. Select *Advanced settings*. 
+
+. *Force delete backups*: Indicate whether or not you want to force the deletion of all backups.
++
+In some extreme cases, you might want BlueXP backup and recovery not to have access to backups any longer. This might happen for example, if the service no loWnger has access to the backup bucket or backups are DataLock protected but you don't want them anymore. Previously, you could not delete these yourself and needed to call NetApp Support. With this release, you can use the option to force delete backups (at volume and work environment levels).
++
+CAUTION: Use this option carefully and only in extreme cleanup needs. BlueXP backup and recovery will not have access to these backups any longer even if they are not deleted in the object storage. You will need to go to your cloud provider and manually delete the backups.
 
 . Select *Delete*.
 

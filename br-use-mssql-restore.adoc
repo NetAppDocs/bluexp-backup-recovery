@@ -276,3 +276,5 @@ image:screen-br-restore-options2.png[A screenshot showing the Restore options.]
 //NOTE: Restoring a volume from a backup file that resides in archival storage can take many minutes or hours depending on the archive tier and the restore priority. You can click the *Job Monitoring* tab to see the restore progress.
 
 
+//== Restore from object storage when archival storage is enabled
+
