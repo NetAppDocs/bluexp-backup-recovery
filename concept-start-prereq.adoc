@@ -88,7 +88,7 @@ You need specific requirements to discover and protect your VMware workloads.
 //=== Host requirements 
 
 //For VMware workloads, refer to the following host requirements: 
-https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_deployment_planning_and_requirements.html#host-requirements[SnapCenter Plug-in for VMware vSphere deployment planning and requirements^]
+//https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_deployment_planning_and_requirements.html#host-requirements[SnapCenter Plug-in for VMware vSphere deployment planning and requirements^]
 
 === Software support: 
 
@@ -109,10 +109,10 @@ https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_deployment_plann
 | Pre-configured port
 
 | VMware ESXi Server port | 443 (HTTPS), bidirectional. The Guest File Restore feature uses this port. 
-| SnapCenter Plug-in for VMware vSphere port | 8144 (HTTPS), bidirectional. This port is used for communication from the VMware vSphere client and the SnapCenter Server. 
+//| SnapCenter Plug-in for VMware vSphere port | 8144 (HTTPS), bidirectional. This port is used for communication from the VMware vSphere client and the SnapCenter Server. 
 
-8080 bidirectional. This port is used to manage virtual appliances. 
-A custom port for the addition of an SCV host to SnapCenter is supported. 
+//8080 bidirectional. This port is used to manage virtual appliances. 
+//A custom port for the addition of an SCV host to SnapCenter is supported. 
 
 | VMware vSphere vCenter Server port | If you are protecting vVol VMs, you must use port 443. 
 

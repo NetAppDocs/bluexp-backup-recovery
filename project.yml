@@ -27,10 +27,12 @@ sidebar:
       entries:
         - title: What's new
           url: /whats-new.html
-        - title: Known limitations for Microsoft SQL Server workloads
-          url: /br-limitations.html
         - title: Known limitations for ONTAP volumes workloads
           url: /br-reference-limitations.html
+        - title: Known limitations for Microsoft SQL Server workloads
+          url: /br-limitations.html
+        - title: Known limitations for VMware workloads
+          url: /br-limitations-vmware.html
     - title: Get started
       entries:
         - title: Learn about BlueXP backup and recovery

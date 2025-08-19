@@ -23,18 +23,20 @@ Backup and Recovery super admin. Learn about link:reference-roles.html[Backup an
 
 During discovery, BlueXP backup and recovery analyzes VMware workloads within your organization and assesses and imports existing protection policies, snapshot copies, and backup and restore options. 
 
-You can import VMware NFS and VMFS datastores and VMs from their on-premises SnapCenter Plug-in for VMware vSphere into BlueXP backup and recovery inventory. You can import entire vCenter resources or select specific protection groups.
+You can import VMware NFS and VMFS datastores and VMs from their on-premises SnapCenter Plug-in for VMware vSphere into BlueXP backup and recovery inventory. 
 
-NOTE: This version of BlueXP backup and recovery supports only VMware vCenter and does not discover vVols or VMs on vVols. This version does not discover any applications other than Microsoft SQL Server. 
+//You can import entire vCenter resources or select specific protection groups. For Preview, you cannot select a specific resource group. 
+
+NOTE: This version of BlueXP backup and recovery supports only VMware vCenter and does not discover vVols or VMs on vVols.  
 
 During the import process, BlueXP backup and recovery performs the following tasks:
 
 * Enables secure SSH access to the vCenter server.
 * Activates maintenance mode on all Resource Groups in the vCenter server.
+* Prepares the metadata of the vCenter and marks it as unmanaged in BlueXP. 
 * Configures database access. 
 * Discovers VMware vCenter, datastores, and VMs.
 * Imports existing protection policies, snapshot copies, and backup and restore options from SnapCenter Plug-in for VMware vSphere.
-* Registers the SnapCenter Plug-in for VMware vSphere with BlueXP backup and recovery.
 * Displays the discovered resources in the BlueXP backup and recovery Inventory page.
 
 //In future releases, you will be able to discover KVM and Hyper-V hypervisors and other applications.
@@ -68,7 +70,7 @@ NOTE: If you already have SnapCenter Plug-in, ensure you've met the prerequisite
 
 If you don't already have SnapCenter Plug-in for VMware installed, add vCenter information and have BlueXP backup and recovery discover workloads. Within each BlueXP Connector, select the working environments where you want to discover workloads. 
 
-CHECK THIS. NOT SURE YOU CAN DO THIS WITH VMWARE WORKLOADs. 
+ 
 
 .Steps
 
