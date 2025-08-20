@@ -86,12 +86,10 @@ image:screen-br-discover-workloads.png[Discover workload resources screenshot]
 
 . Enter the following information: 
 .. *Workload type*: Select *VMware*.
-.. *vCenter settings*: Select an existing vCenter or add a new one. To add a new vCenter, enter the vCenter FQDN or IP address, user name, password, port, and protocol.
+.. *vCenter settings*: Add a new vCenter. To add a new vCenter, enter the vCenter FQDN or IP address, user name, password, port, and protocol.
 +
 TIP: If you are entering vCenter information, enter information for both vCenter settings and Host registration. If you added or entered vCenter information here, you also need to add plugin information in Advanced Settings next. 
-.. *Host registration*:  Select *Add credentials* and enter information about the hosts containing the workloads you want to discover.
-+
-TIP: If you are adding a standalone server and not a vCenter server, enter only the host information.  
+.. *Host registration*:  Not required for VMware. 
 
 
 . Select *Discover*. 
@@ -105,25 +103,25 @@ TIP: This process might take a few minutes.
 
 === If SnapCenter Plug-in is already installed, import SnapCenter Plug-in for VMware resources into BlueXP backup and recovery
 
-If you already have SnapCenter Plug-in for VMware installed, import SnapCenter Plug-in resources into BlueXP backup and recovery using these steps. The BlueXP service discovers ESXi hosts, datastores, and VMs in vCenters, credentials, and schedules from the Plug-in; you don't have to recreate all that information. 
+If you already have SnapCenter Plug-in for VMware installed, import SnapCenter Plug-in resources into BlueXP backup and recovery using these steps. The BlueXP service discovers ESXi hosts, datastores, and VMs in vCenters, and schedules from the Plug-in; you don't have to recreate all that information. 
 
 
 You can do this in the following ways: 
 
 * During discovery, select an option to import resources from SnapCenter Plug-in.
 * After discovery, from the Inventory page, select an option to import SnapCenter Plug-in resources.
-* After discovery, from the Settings menu, select an option to import SnapCenter Plug-in resources. For details, see link:br-start-configure.html[Configure BlueXP backup and recovery].
+* After discovery, from the Settings menu, select an option to import SnapCenter Plug-in resources. For details, see link:br-start-configure.html[Configure BlueXP backup and recovery]. This is not supported for VMware. 
 
 This is a two-part process described in this section:
 
-. Import vCenter ESXi hosts, datastores, and VMs from SnapCenter Plug-in. The imported vCenter resources are not yet managed by BlueXP backup and recovery.
-. Initiate management of selected vCenters and datastores in BlueXP backup and recovery. After you initiate management, BlueXP backup and recovery labels the vCenter as "Managed" on the Inventory page and is able to back up and recover the resources that you imported. After you initiate management in BlueXP backup and recovery, you no longer manage those resources in SnapCenter Plug-in.
+. Import the vCenter metadata from SnapCenter Plug-in. The imported vCenter resources are not yet managed by BlueXP backup and recovery.
+. Initiate management of selected vCenters, VMs, and datastores in BlueXP backup and recovery. After you initiate management, BlueXP backup and recovery labels the vCenter as "Managed" on the Inventory page and is able to back up and recover the resources that you imported. After you initiate management in BlueXP backup and recovery, you no longer manage those resources in SnapCenter Plug-in.
 
-==== Import datastores and VMs from SnapCenter Plug-in
+==== Import vCenter metadata from SnapCenter Plug-in
 
-This first step imports vCenter resources from SnapCenter Plug-in, registers the Plug-in, and displays those resources in the BlueXP backup and recovery Inventory page. At that point, the resources are not yet managed by BlueXP backup and recovery.
+This first step imports vCenter metadata from SnapCenter Plug-in. At that point, the resources are not yet managed by BlueXP backup and recovery.
 
-TIP: After you import vCenter resources from the SnapCenter Plug-in, BlueXP backup and recovery does not take over protection management automatically. To do so, you must explicitly select to manage the imported resources in BlueXP backup and recovery. This ensures that you are ready to have those resources backed up by BlueXP backup and recovery. 
+TIP: After you import vCenter metadata from the SnapCenter Plug-in, BlueXP backup and recovery does not take over protection management automatically. To do so, you must explicitly select to manage the imported resources in BlueXP backup and recovery. This ensures that you are ready to have those resources backed up by BlueXP backup and recovery. 
 
 .Steps 
 
@@ -157,15 +155,17 @@ image:../media/screen-vm-discover-import-snapcenter.png[Settings option to impor
 NOTE: If the SnapCenter Plug-in is already registered, you can  update the existing registration details.
 
 .Result
-The Inventory page shows the imported resources that include vCenters, datacenters, VMs, policies, and snapshots. The vCenter is unmanaged in BlueXP backup and recovery until you explicitly select to manage it.
+The Inventory page shows the vCenter as unmanaged in BlueXP backup and recovery until you explicitly select to manage it.
 
-image:../media/screen-vm-inventory.png[Inventory page showing the imported vCenter resources that are now unmanaged]
+image:../media/screen-vm-inventory.png[Inventory page showing the imported vCenter as unmanaged]
 
-To see the details of the imported resources, select the *View details* option from the Actions menu.
+
 
 ==== Manage resources imported from SnapCenter Plug-in
 
-After you import the vCenter resources from the SnapCenter Plug-in for VMware, manage those resources in BlueXP backup and recovery. After you select to manage those resources, BlueXP backup and recovery is able to back up and recover the resources that you imported. After you initiate the management in BlueXP backup and recovery, you no longer manage those resources in SnapCenter Plug-in. 
+After you import the vCenter metadata from the SnapCenter Plug-in for VMware, manage the resources in BlueXP backup and recovery. After you select to manage those resources, BlueXP backup and recovery is able to back up and recover the resources that you imported. After you initiate the management in BlueXP backup and recovery, you no longer manage those resources in SnapCenter Plug-in. 
+
+After you select to manage the resources, the resources, VMs, and policies are imported from the SnapCenter Plug-in for VMware. The resource groups, policies, and snapshots are migrated from the Plug-in and become managed in BlueXP backup and recovery. 
 
 .Steps 
 . After you import the VMware resources from SnapCenter Plug-in, from the top menu, select *Inventory*. 
@@ -188,7 +188,6 @@ The Inventory page shows the newly managed vCenter resources.
 
 image:../media/screen-vm-inventory-managed.png[Inventory page showing the managed vCenter resources]
 
-You can optionally create a report of the managed resources by selecting the *Generate reports* option from the Actions menu.
 
 
 
@@ -196,38 +195,13 @@ You can optionally create a report of the managed resources by selecting the *Ge
 
 
 
-==== Set Advanced settings options during discovery and install the plugin
+//==== Set Advanced settings options during discovery and install the plugin
 
 
-CHECK THIS. NOT SURE YOU CAN DO THIS WITH VMWARE WORKLOADs. 
-
-
-With Advanced Settings, you can manually install the plugin agent on all servers being registered. This enables you to import all SnapCenter workloads into BlueXP backup and recovery so you can manage backups and restores there. BlueXP backup and recovery shows the steps needed to install the plugin. 
-
-//If you entered vCenter information during discovery, you need to add plugin information in Advanced Settings.
-
-
-.Steps
-
-. From the Discover resources page, continue to Advanced Settings by clicking the down arrow on the right. 
-+
-image:screen-br-discover-workloads-newly-discovered2.png[Newly discovered working environments screenshot]
-. In the Discover workload resources page, enter the following information. 
-* *Enter plug-in port number*: Enter the port number that the plugin uses.
-* *Installation path*: Enter the path where the plugin will be installed. 
-
-. If you want to install the SnapCenter agent manually, check the boxes for the following options:
-* *Use manual installation*: Check this box to install the  plugin manually.   
-//* *Use Group Managed Service Account (gMSA)*: If you use a specific third-party gMSA account to manage host credentials, check this box. 
-* *Add all hosts in the cluster*: Check this box to add all hosts in the cluster to BlueXP backup and recovery during discovery.
-* *Skip optional preinstall checks*: Check this box to skip optional preinstall checks. You might want to do this for example, if you know that memory or space considerations will be changed in the near future and you want to install the plugin now.
-//* *Skip automated installation*: Check this box to skip the automated installation of the plugin. You might want to do this if you are installing the plugin manually.
-
-. Select *Discover*.
+//Not supported in VMware.  
 
 
 
-//. To enable the ability to add tags to your resources for easier management, check *Add tag option for resources*. (This feature is not available for the Preview 2025 version.)    
  
 ==== Continue to the BlueXP backup and recovery Dashboard
 

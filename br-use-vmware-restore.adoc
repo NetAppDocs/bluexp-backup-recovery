@@ -112,14 +112,14 @@ If you choose secondary storage, enter the source and destination location infor
 If you choose object storage, check whether you want to scan the snapshot again before restoring. 
 +
 image:screen-vm-restore-location-objectstore.png[A screenshot showing the Restore options page for object storage.]
-+
-If you chose object storage, you can choose an option to balance cost and speed of restoration: THESE SCREENS ARE IN WORK IN PROGRESS. REVIEW THIS AGAIN
-+
-image:screen-vm-restore-location-objectstore-cost.png[A screenshot showing the Restore options for object storage.]
+//+
+//If you chose object storage, you can choose an option to balance cost and speed of restoration: 
+//+
+//image:screen-vm-restore-location-objectstore-cost.png[A screenshot showing the Restore options for object storage.]
 
 . Select *Done* or *Next* to continue to the Restore destination settings page.
 +
-Next, you can choose the destination settings of the original location or an alternate location, and the pre-restore and post-restore options.
+Next, you can choose the destination settings and the pre-restore and post-restore options.
 +
 image:screen-vm-restore-destination.png[A screenshot showing the Restore Destination details page.]
 

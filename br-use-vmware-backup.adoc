@@ -13,11 +13,11 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-Back up VMware VMs, datastores, and applications on VMs from on-premises ONTAP systems to Amazon Web Services or StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. 
+Back up VMware VMs and datastores from on-premises ONTAP systems to Amazon Web Services or StorageGRID to ensure that your data is protected. Backups are automatically generated and stored in an object store in your public or private cloud account. 
 
 * To back up workloads on a schedule, create policies that govern the backup and restore operations. See link:br-use-policies-create.html[Create policies] for instructions.
 
-* Create protection groups to manage the backup and restore operations for a set of workloads.  See link:br-use-vmware-protection-groups.html[Create and manage protection groups for VMware workloads with BlueXP backup and recovery] for more information.
+* Create protection groups to manage the backup and restore operations for a set of resources.  See link:br-use-vmware-protection-groups.html[Create and manage protection groups for VMware workloads with BlueXP backup and recovery] for more information.
 * Back up workloads now (create an on-demand backup now).  
 
 
@@ -27,11 +27,11 @@ Back up VMware VMs, datastores, and applications on VMs from on-premises ONTAP s
 
 Create an on-demand backup immediately. You might want to run an on-demand backup if you're about to make changes to your system and want to ensure that you have a backup before you start.
 
-Ensure that these conditions are met before you back up workloads; otherwise, you cannot create an on-demand backup:
+//Ensure that these conditions are met before you back up workloads; otherwise, you cannot create an on-demand backup:
 
-* The VMware workload does not include an on-demand policy already.
-* The VMware workload does not include overlapping schedules.
-* The VMware workload does not include multiple resource groups (protection groups) for the same datastore. You can remove the datastores from that protection group.  
+//* The VMware workload does not include an on-demand policy already.
+//* The VMware workload does not include overlapping schedules.
+//* The VMware workload does not include multiple resource groups (protection groups) for the same datastore. You can remove the datastores from that protection group.  
 
 *Required BlueXP role*
 Organization admin, Folder or project admin, Backup and Recovery super admin, or Backup and Recovery backup admin role. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].

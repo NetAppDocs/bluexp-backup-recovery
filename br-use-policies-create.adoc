@@ -281,7 +281,7 @@ Additionally, configure the following options:
 
 * *Notification*: Select whether you want to enable email notifications for backup operations. This is useful if you want to be notified when a backup operation starts, completes, or fails. 
 
-* *Independent disks*: (Applicable to VMware Preview workloads) 
+* *Independent disks*: (Applicable to VMware Preview workloads) Check this to include in the backup any datastores with independent disks that contain temporary data. An independent disk is a VM disk that not included in VMware snapshots. 
 
 
 //* *Integrity scan*: To protect your backups from being modified or deleted, select the *Integrity scan* option. The default setting for the scan frequency is for 7 days. The scan occurs only on the latest snapshot. You can enable or disable integrity scans on the latest snapshot. 
