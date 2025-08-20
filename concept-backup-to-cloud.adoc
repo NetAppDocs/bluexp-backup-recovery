@@ -31,7 +31,6 @@ Use BlueXP backup and recovery to accomplish the following goals:
 
 * *Microsoft SQL Server workloads*: 
 
-* Microsoft SQL Server workloads: 
 
 ** Back up Microsoft SQL Server instances and databases from on-premises ONTAP, Cloud Volumes ONTAP, or Amazon FSx for NetApp ONTAP. 
 ** Restore Microsoft SQL Server databases.
@@ -43,11 +42,8 @@ Use BlueXP backup and recovery to accomplish the following goals:
 * *VMware workloads (Preview with new UI without SnapCenter Plug-in for VMware vSphere)*: 
 
 ** Protect your VMware VMs and datastores with BlueXP backup and recovery. 
-
 ** Back up VMware workloads to Amazon Web Services S3 or StorageGRID (for Preview). 
-
 ** Restore VMware data from the cloud back to the on-premises vCenter. 
-
 //You can restore the VM to the exact same location from where the backup was taken or to an alternate location. 
 ** Use BlueXP backup and recovery without SnapCenter Plug-in for VMware vSphere. 
 ** Refer to link:br-use-vmware-protect-overview.html[Protect VMware workloads].
