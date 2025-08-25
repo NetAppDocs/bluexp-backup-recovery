@@ -15,7 +15,7 @@ summary: You use NetApp BlueXP to log in to the BlueXP backup and recovery servi
 [.lead]
 You use NetApp BlueXP to log in to the BlueXP backup and recovery service. 
 
-BlueXP backup and recovery uses role-based access control (RBAC) to govern the access that each user has to specific actions. 
+BlueXP backup and recovery uses identity and access management to govern the access that each user has to specific actions. 
 
 For details about the actions that each role can perform, see link:reference-roles.html[BlueXP backup and recovery user roles].
 
@@ -49,8 +49,10 @@ image:screen-br-landing-unified-trial.png[Landing page screenshot for BlueXP blu
 * If this is your first time logging in to this service and you already have a working environment in BlueXP, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover and manage*. 
 
 . If you haven't done so already, select the *Discover and manage* option. 
-+
-For Microsoft SQL Server workloads, refer to link:br-start-discover.html[Discover Microsoft SQL Server workloads].
+
+* For Microsoft SQL Server workloads, refer to link:br-start-discover.html[Discover Microsoft SQL Server workloads].
+* For VMware workloads, refer to link:br-use-vmware-discovery.html[Discover VMware workloads].
+* For Kubernetes workloads, refer to link:br-start-discover-kubernetes.html[Discover Kubernetes workloads].
  
 
 

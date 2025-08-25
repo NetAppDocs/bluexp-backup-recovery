@@ -27,10 +27,12 @@ sidebar:
       entries:
         - title: What's new
           url: /whats-new.html
-        - title: Known limitations for Microsoft SQL Server workloads
-          url: /br-limitations.html
         - title: Known limitations for ONTAP volumes workloads
           url: /br-reference-limitations.html
+        - title: Known limitations for Microsoft SQL Server workloads
+          url: /br-limitations.html
+        - title: Known limitations for VMware workloads
+          url: /br-limitations-vmware.html
     - title: Get started
       entries:
         - title: Learn about BlueXP backup and recovery
@@ -58,7 +60,7 @@ sidebar:
           url: /br-use-dashboard.html  
         - title: Create policies to govern backups and restores
           url: /br-use-policies-create.html
-        - title: Protect ONTAP volume workloads
+        - title: Protect ONTAP volume workloads 
           entries: 
             - title: Protect ONTAP volume workloads overview
               url: /prev-ontap-protect-overview.html
@@ -114,7 +116,19 @@ sidebar:
               url: /br-use-manage-snapshots.html
             - title: Create Microsoft SQL Server reports 
               url: /br-use-reports.html
-        - title: Protect virtual machine workloads 
+        - title: Protect VMware workloads (Preview without SnapCenter Plug-in for VMware)
+          entries:
+            - title: Protect VMware workloads overview
+              url: /br-use-vmware-protect-overview.html
+            - title: Discover VMware workloads
+              url: /br-use-vmware-discovery.html
+            - title: Create and manage protection groups for VMware workloads
+              url: /br-use-vmware-protection-groups.html
+            - title: Back up VMware workloads
+              url: /br-use-vmware-backup.html
+            - title: Restore VMware workloads
+              url: /br-use-vmware-restore.html
+        - title: Protect VMware workloads (with SnapCenter Plug-in for VMware)
           entries:  
             - title: Protect virtual machine workloads overview
               url: /prev-vmware-protect-overview.html
@@ -164,6 +178,8 @@ sidebar:
           url: /reference-policy-differences-snapcenter.html
         - title: BlueXP backup and recovery roles and privileges
           url: /reference-roles.html
+        - title: Restore BlueXP backup and recovery data in a dark site
+          url: /reference-backup-cbs-db-in-dark-site.html
         - title: Supported AWS archive storage tiers
           url: /prev-reference-aws-archive-storage-tiers.html
         - title: Supported Azure archive storage tiers

@@ -13,22 +13,34 @@ summary: Protect your VMware workloads with NetApp BlueXP backup and recovery.
 :imagesdir: ./media/
 
 [.lead]
-Protect your VMware workloads with BlueXP backup and recovery. BlueXP backup and recovery provides fast, space-efficient, crash-consistent, and VM-consistent backup and restore operations for VMs, datastores, and VMDKs. 
+Protect your VMware VMs and datastores with BlueXP backup and recovery. BlueXP backup and recovery provides fast, space-efficient, crash-consistent, and VM-consistent backup and restore operations. You can back up VMware workloads to Amazon Web Services S3 or StorageGRID and restore VMware workloads back to an on-premises VMware host. 
 
-You can back up datastores to Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform, and StorageGRID and restore virtual machines back to the on-premises SnapCenter Plug-in for VMware vSphere host. 
+NOTE: This version of BlueXP backup and recovery supports only VMware vCenter and does not discover vVols or VMs on vVols.  
 
+//You can back up VMware workloads to Amazon Web Services S3 or StorageGRID and restore VMware workloads back to the the same or alternate on-premises VMware host. 
+
+//BlueXP backup and recovery provides fast, space-efficient, crash-consistent, and VM-consistent backup and restore operations for VMs, datastores, and VMDKs. 
+
+
+Use BlueXP backup and recovery to implement a 3-2-1 strategy, where you have 3 copies of your source data on 2 different storage systems along with 1 copy in the cloud. The benefits of the 3-2-1 approach include:
+
+* Multiple data copies provide multi-layer protection against both internal (insider) and external cybersecurity threats.
+* Multiple media types ensure failover viability in the case of physical or logical failure of one media type.
+* The onsite copy facilitates quick restores, with the offsite copies available just in case the onsite copy is compromised.
 
 ====
-*NOTE*   This feature uses a previous version of the BlueXP backup and recovery UI. To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
+*NOTE*   To switch to and from BlueXP backup and recovery UI versions, refer to link:br-start-switch-ui.html[Switch to the previous BlueXP backup and recovery UI].
 ====
 
 
 
-For instructions on using the previous BlueXP backup and recovery UI, see the following topics:
+You can use BlueXP backup and recovery to perform the following tasks related to VMware workloads:
 
-//* link:br-use-vmware-backup.html[Back up VMware workloads]
-//* link:br-use-vmware-restore-overview.html[Restore VMware workloads]
+* link:br-use-vmware-discovery.html[Discover VMware workloads]
+* link:br-use-vmware-protection-groups.html[Create and manage protection groups for VMware workloads]
+* link:br-use-vmware-backup.html[Back up VMware workloads]
+* link:br-use-vmware-restore.html[Restore VMware workloads]
 //* link:br-use-vmware-clone.html[Clone VMware workloads]
-//* link:br-use-vmware-protect-restore.html[Restore VMware workloads to a different location]
+
 
 

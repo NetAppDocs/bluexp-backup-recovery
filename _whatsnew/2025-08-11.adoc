@@ -50,11 +50,3 @@ CAUTION: Use this option carefully and only in extreme cleanup needs. BlueXP bac
 //For details, see link:prev-ontap-protect-overview.html[Protect ONTAP workloads].
 Refer to https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-protect-overview.html[Protect ONTAP workloads]. 
 
-//==== High performance indexing for AWS, Azure, and GCP is generally available
-
-//In February 2025, we announced the preview of high performance indexing (Indexed Catalog v2) for AWS, Azure, and GCP. This feature is now generally available (GA). In June 2025, we provided it to all new customers by default. With this release, the support is available to all customers. High performance indexing improves the performance of backup and restore operations for workloads that are protected to object storage. 
-
-//Enabled by default: 
-
-//* If you are a new customer, high performance indexing is enabled by default. 
-//* If you are an existing customer, you can enable reindexing by going to the Restore section of the UI.
