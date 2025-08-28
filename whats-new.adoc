@@ -22,11 +22,7 @@ This BlueXP backup and recovery release includes the following updates.
 
 include::_whatsnew/2025-08-25.adoc[]
 
-== 11 August 2025
 
-This BlueXP backup and recovery release includes the following updates.
-
-include::_whatsnew/2025-08-11.adoc[]
 
 == 12 August 2025
 //v4.0.6
