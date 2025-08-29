@@ -1,0 +1,217 @@
+---
+sidebar: sidebar
+permalink: br-use-vmware-discovery.html
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database
+summary: Protect your VMware workloads with NetApp BlueXP backup and recovery. 
+---
+
+= Discover VMware workloads with BlueXP backup and recovery
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+The BlueXP backup and recovery service needs to first discover VMware datastores and VMs running on ONTAP systems in order for you to use the service. You can optionally import backup data and policies from SnapCenter Plug-in for VMware vSphere if you already have it installed.
+
+
+*Required BlueXP role*
+Backup and Recovery super admin. Learn about link:reference-roles.html[Backup and recovery roles and privileges]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about BlueXP access roles for all services^].
+
+== Discover VMware workloads and optionally import SnapCenter resources
+
+During discovery, BlueXP backup and recovery analyzes VMware workloads within your organization and assesses and imports existing protection policies, snapshot copies, and backup and restore options. 
+
+You can import VMware NFS and VMFS datastores and VMs from their on-premises SnapCenter Plug-in for VMware vSphere into BlueXP backup and recovery inventory. 
+
+//You can import entire vCenter resources or select specific protection groups. For Preview, you cannot select a specific resource group. 
+
+NOTE: This version of BlueXP backup and recovery supports only VMware vCenter and does not discover vVols or VMs on vVols.  
+
+During the import process, BlueXP backup and recovery performs the following tasks:
+
+* Enables secure SSH access to the vCenter server.
+* Activates maintenance mode on all Resource Groups in the vCenter server.
+* Prepares the metadata of the vCenter and marks it as unmanaged in BlueXP. 
+* Configures database access. 
+* Discovers VMware vCenter, datastores, and VMs.
+* Imports existing protection policies, snapshot copies, and backup and restore options from SnapCenter Plug-in for VMware vSphere.
+* Displays the discovered resources in the BlueXP backup and recovery Inventory page.
+
+//In future releases, you will be able to discover KVM and Hyper-V hypervisors and other applications.
+
+Discovery occurs in the following ways: 
+
+* If you already have SnapCenter Plug-in for VMware vSphere, import SnapCenter resources into BlueXP backup and recovery by using the BlueXP backup and recovery UI.
++
+NOTE: If you already have SnapCenter Plug-in, ensure you've met the prerequisites before importing from SnapCenter. For example, you should create working environments in BlueXP Canvas for all on-premises SnapCenter cluster storage first before importing from SnapCenter. See link:concept-start-prereq-snapcenter-import.html[Prerequisites for importing resources from SnapCenter].
++
+* If you don't already have the SnapCenter Plug-in, you can still discover workloads within your working environments by adding a vCenter manually and performing discovery.
+
+
+
+
+//Notes from JIRA: 
+//* Note- Users can choose between physical resources to discover workload on bare metal or virtualized resources to discover VMs and underlying applications with virtualized as default.
+//* Note- In future, 3 hypervisors - VMware, KVM, Hyper-V will be supported with VMware as default selection.
+//* Select VMware as the hypervisor, user can add and register a vCenter to discover NFS, VMFS datastores and VMs  within this vCenter to backup and restore.
+
+//* An option to select Use self-signed certificates ( "Use self-signed certificates" checkbox is selected by default, if you already have authoritative certificates for your vCenter environment, you should uncheck this checkbox.)
+
+//* User can choose to discover underlying applications as part of the discovery process. The scope of application discovered in 25H1 is MSSQL.
+//* Click on Discover to add vcenter, push VMware plug-in per vcenter , discover NFS and VMFS datastores, VMs and list all discovered datastores and VMs. ( Agentless)
+
+//* Workload type – VMware, no of vCenters, resources – datastores/VMs discovered, protected resources and total protected capacity as nil
+//* If user has selected “discover underlying applications “ VMware tools will be used to identify VMs which has MSSQL applications and a summary of MSSQL discovered resources will be displayed as a new row. 
+
+
+=== If SnapCenter Plug-in is not already installed, add a vCenter and discover resources
+
+If you don't already have SnapCenter Plug-in for VMware installed, add vCenter information and have BlueXP backup and recovery discover workloads. Within each BlueXP Connector, select the working environments where you want to discover workloads. 
+
+ 
+
+.Steps
+
+. From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
++
+If this is your first time logging in to this service, you already have a working environment in BlueXP, but haven't discovered any resources, the "Welcome to the new BlueXP backup and recovery" landing page appears and shows an option to *Discover resources*. 
++
+image:screen-br-landing-discover-import-buttons.png[Landing page screenshot for BlueXP blueXP backup and recovery without discovered resources]
+
+. Select *Discover resources*.
++
+image:screen-br-discover-workloads.png[Discover workload resources screenshot]
+
+. Enter the following information: 
+.. *Workload type*: Select *VMware*.
+.. *vCenter settings*: Add a new vCenter. To add a new vCenter, enter the vCenter FQDN or IP address, user name, password, port, and protocol.
++
+TIP: If you are entering vCenter information, enter information for both vCenter settings and Host registration. If you added or entered vCenter information here, you also need to add plugin information in Advanced Settings next. 
+.. *Host registration*:  Not required for VMware. 
+
+
+. Select *Discover*. 
++
+TIP: This process might take a few minutes.
+
+. Continue with Advanced Settings. 
+
+
+
+
+=== If SnapCenter Plug-in is already installed, import SnapCenter Plug-in for VMware resources into BlueXP backup and recovery
+
+If you already have SnapCenter Plug-in for VMware installed, import SnapCenter Plug-in resources into BlueXP backup and recovery using these steps. The BlueXP service discovers ESXi hosts, datastores, and VMs in vCenters, and schedules from the Plug-in; you don't have to recreate all that information. 
+
+
+You can do this in the following ways: 
+
+* During discovery, select an option to import resources from SnapCenter Plug-in.
+* After discovery, from the Inventory page, select an option to import SnapCenter Plug-in resources.
+* After discovery, from the Settings menu, select an option to import SnapCenter Plug-in resources. For details, see link:br-start-configure.html[Configure BlueXP backup and recovery]. This is not supported for VMware. 
+
+This is a two-part process described in this section:
+
+. Import the vCenter metadata from SnapCenter Plug-in. The imported vCenter resources are not yet managed by BlueXP backup and recovery.
+. Initiate management of selected vCenters, VMs, and datastores in BlueXP backup and recovery. After you initiate management, BlueXP backup and recovery labels the vCenter as "Managed" on the Inventory page and is able to back up and recover the resources that you imported. After you initiate management in BlueXP backup and recovery, you no longer manage those resources in SnapCenter Plug-in.
+
+==== Import vCenter metadata from SnapCenter Plug-in
+
+This first step imports vCenter metadata from SnapCenter Plug-in. At that point, the resources are not yet managed by BlueXP backup and recovery.
+
+TIP: After you import vCenter metadata from the SnapCenter Plug-in, BlueXP backup and recovery does not take over protection management automatically. To do so, you must explicitly select to manage the imported resources in BlueXP backup and recovery. This ensures that you are ready to have those resources backed up by BlueXP backup and recovery. 
+
+.Steps 
+
+. From the BlueXP left navigation, select *Protection* > *Backup and recovery*. 
+. From the top menu, select *Inventory*.
++
+image:screen-vm-inventory.png[Inventory screenshot for BlueXP backup and recovery showing VMware workload]
+. From the top menu on the Inventory page, select *Discover resources*.
+//+
+//image:../media/screen-br-discover-workloads.png[Discover workload resources screenshot]
+. From the BlueXP backup and recovery Discover workload resources page, select *Import from SnapCenter*.
+
++
+image:../media/screen-vm-discover-import-snapcenter.png[Settings option to import SnapCenter Plug-in resources]
+. In the Import from field, select *SnapCenter Plug-in for VMware*.
+
+
+. Enter *VMware vCenter credentials*:
+.. *vCenter IP/hostname*: Enter the FQDN or IP address of the vCenter you want to import into BlueXP backup and recovery.
+.. *vCenter port number*: Enter the port number for the vCenter.
+.. *vCenter Username* and *Password*: Enter the username and password for the vCenter.
+.. *Connector*: Select the BlueXP Connector for the vCenter.
+
+
+. Enter *SnapCenter Plug-in host credentials*:
+.. *Existing credentials*: If you select this option, you can use the existing credentials that you have already added. Choose the credentials name. 
+.. *Add new credentials*: If you don't have existing SnapCenter Plug-in host credentials, you can add new credentials. Enter the credentials name, authentication mode, user name, and password.
+
+. Select *Import* to validate your entries and register the SnapCenter Plug-in.
++
+NOTE: If the SnapCenter Plug-in is already registered, you can  update the existing registration details.
+
+.Result
+The Inventory page shows the vCenter as unmanaged in BlueXP backup and recovery until you explicitly select to manage it.
+
+image:../media/screen-vm-inventory.png[Inventory page showing the imported vCenter as unmanaged]
+
+
+
+==== Manage resources imported from SnapCenter Plug-in
+
+After you import the vCenter metadata from the SnapCenter Plug-in for VMware, manage the resources in BlueXP backup and recovery. After you select to manage those resources, BlueXP backup and recovery is able to back up and recover the resources that you imported. After you initiate the management in BlueXP backup and recovery, you no longer manage those resources in SnapCenter Plug-in. 
+
+After you select to manage the resources, the resources, VMs, and policies are imported from the SnapCenter Plug-in for VMware. The resource groups, policies, and snapshots are migrated from the Plug-in and become managed in BlueXP backup and recovery. 
+
+.Steps 
+. After you import the VMware resources from SnapCenter Plug-in, from the top menu, select *Inventory*. 
+. From the Inventory page, select the imported vCenter that you want to have BlueXP backup and recovery manage from now on.  
++
+image:../media/screen-vm-inventory.png[Inventory page showing the imported vCenter resources]
+
+. Select the Actions icon image:../media/icon-action.png[Actions option] > *View details* to display the workload details.  
+
+
+. From the Inventory > workload page, select the Actions icon image:../media/icon-action.png[Actions option] > *Manage* to display the Manage vCenter page.   
++
+image:../media/screen-vm-discover-import-manage.png[Manage vCenter in BlueXP page]
+
+. Check the box "Do you want to continue with the migration?" and select *Migrate*. 
+
+.Result
+
+The Inventory page shows the newly managed vCenter resources.
+
+image:../media/screen-vm-inventory-managed.png[Inventory page showing the managed vCenter resources]
+
+
+
+
+
+
+
+
+//==== Set Advanced settings options during discovery and install the plugin
+
+
+//Not supported in VMware.  
+
+
+
+ 
+==== Continue to the BlueXP backup and recovery Dashboard
+
+
+. To display the BlueXP backup and recovery Dashboard, from the top menu, select *Dashboard*.   
+
+. Review the health of data protection. The number of at risk or protected workloads increases based on the newly discovered, protected, and backed up workloads.  
++
+image:screen-br-dashboard2.png[BlueXP backup and recovery Dashboard]
++
+link:br-use-dashboard.html[Learn what the Dashboard shows you].
+
+ 
