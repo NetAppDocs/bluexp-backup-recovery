@@ -1,0 +1,4 @@
+---
+permalink: task-backup-to-gcp.html
+redirect: prev-ontap-backup-cvo-gcp.html
+---
