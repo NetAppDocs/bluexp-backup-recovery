@@ -1,0 +1,4 @@
+---
+permalink: task-restore-vm-data.html
+redirect: prev-vmware-restore.html
+---

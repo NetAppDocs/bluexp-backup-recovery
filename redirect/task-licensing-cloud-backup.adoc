@@ -1,0 +1,4 @@
+---
+permalink: task-licensing-cloud-backup.html
+redirect: br-start-licensing.html
+---
