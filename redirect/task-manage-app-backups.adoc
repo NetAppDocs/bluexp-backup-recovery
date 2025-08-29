@@ -1,4 +1,4 @@
 ---
 permalink: task-manage-app-backups.html
-redirect: index.html
+redirect: bluexp-backup-recovery/index.html
 ---
