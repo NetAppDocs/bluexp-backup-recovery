@@ -38,8 +38,7 @@ When you end the free trial without subscribing to a paid plan, your data is aut
 
 .Steps
 . From the BlueXP backup and recovery landing page, select *View free trial*.
-+
-*QUESTION TO REVIEWERS*: How do users get to the Landing page if they're on other BR pages? 
+
 . Select *End free trial*.
 . Select *Delete data immediately after ending my free trial* to delete your data immediately.
 . Type *end trial* in the box. 
